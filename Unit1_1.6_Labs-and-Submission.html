@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 1 &mdash; 1.6 Lab Activities and Submission | CompTIA A+ Core 1</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Sans+Pro:wght@400;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           CPCC COURSE TEMPLATE - GOLD / CHARCOAL / BLACK
+           CTS-ITS7501-80 CompTIA A+ Core 1 Training
+           Type: true black. Accents: gold. Chrome: charcoal.
+           ============================================ */
+
+        :root {
+            --primary-dark: #4A4A4A;       /* Charcoal - structural chrome only */
+            --primary-main: #B8962E;       /* Warm Gold - primary accent */
+            --primary-light: #D4AF56;      /* Light Gold */
+            --primary-pale: #FBF3DF;       /* Pale Gold wash */
+
+            --accent-teal: #8A6F1F;        /* Deep bronze-gold */
+            --accent-teal-light: #F3E9CE;  /* Pale bronze */
+            --accent-orange: #A9642A;      /* Warm rust */
+            --accent-orange-light: #F5E2CE;
+            --accent-purple: #6B5B3A;      /* Muted umber */
+            --accent-purple-light: #EFE6D2;
+            --accent-green: #4E7A51;
+            --accent-green-light: #DCEBDD;
+
+            --alert-warning: #B8862E;
+            --alert-warning-bg: #FBF0D9;
+            --alert-danger: #A13A3A;
+            --alert-danger-bg: #F6DEDE;
+            --alert-success: #3F6E42;
+            --alert-success-bg: #DCEBDD;
+            --alert-info: #6E5B2E;
+            --alert-info-bg: #F1E9D4;
+
+            --text-black: #000000;         /* All reading text */
+            --neutral-900: #000000;
+            --neutral-700: #000000;
+            --neutral-500: #5A5A5A;
+            --neutral-300: #D9D3C4;
+            --neutral-100: #FAF8F3;
+            --white: #ffffff;
+
+            --font-heading: 'Nunito', sans-serif;
+            --font-body: 'Source Sans Pro', sans-serif;
+            --font-code: 'Fira Code', monospace;
+
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+
+            --shadow-sm: 0 1px 2px rgba(74, 74, 74, 0.08);
+            --shadow-md: 0 4px 6px rgba(74, 74, 74, 0.12);
+            --shadow-lg: 0 10px 20px rgba(74, 74, 74, 0.15);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body), 'Segoe UI', Tahoma, Verdana, sans-serif;
+            font-size: 1.0625rem;
+            line-height: 1.7;
+            color: var(--text-black);
+            background: linear-gradient(135deg, var(--neutral-100) 0%, var(--white) 100%);
+            min-height: 100vh;
+            padding: var(--space-lg);
+        }
+
+        .course-container {
+            max-width: 950px; margin: 0 auto; background: var(--white);
+            border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); overflow: hidden;
+        }
+
+        .module-header {
+            background: var(--primary-main); color: var(--text-black);
+            padding: var(--space-2xl) var(--space-xl); position: relative; overflow: hidden;
+        }
+        .module-label {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 0.875rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 2px;
+            margin-bottom: var(--space-sm); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-title {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 2.25rem; font-weight: 800;
+            line-height: 1.2; margin-bottom: var(--space-md); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-subtitle { font-size: 1.125rem; max-width: 650px; position: relative; z-index: 1; color: var(--text-black); }
+
+        .toc {
+            display: flex; flex-direction: column; gap: var(--space-sm);
+            padding: var(--space-lg) var(--space-xl);
+            background: var(--primary-pale); border-bottom: 1px solid var(--neutral-300);
+        }
+        .toc-item {
+            width: 100%; text-align: left;
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 0.875rem;
+            color: var(--text-black); background: var(--white);
+            border: 2px solid var(--primary-main);
+            padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md);
+        }
+        .toc-item.current { background: var(--primary-main); }
+
+        .content-area { padding: var(--space-xl); }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif;
+            color: var(--text-black); line-height: 1.3; margin-bottom: var(--space-md);
+        }
+        h1 { font-size: 2rem; font-weight: 800; }
+        h2 { font-size: 1.625rem; font-weight: 700; padding-bottom: var(--space-sm);
+             border-bottom: 3px solid var(--primary-main); margin-top: var(--space-xl); margin-bottom: var(--space-lg); }
+        h3 { font-size: 1.375rem; font-weight: 700; margin-top: var(--space-lg);
+             padding-left: var(--space-sm); border-left: 4px solid var(--primary-main); }
+        h4 { font-size: 1.125rem; font-weight: 600; }
+
+        p { margin-bottom: var(--space-md); }
+        strong { font-weight: 700; color: var(--text-black); }
+        em { font-style: italic; color: var(--text-black); }
+
+        a { color: var(--text-black); text-decoration: none; border-bottom: 2px solid var(--primary-main); transition: all 0.2s ease; }
+        a:hover { background: var(--primary-pale); border-bottom-color: var(--accent-teal); }
+
+        ul, ol { margin-bottom: var(--space-md); padding-left: var(--space-lg); }
+        li { margin-bottom: var(--space-sm); }
+        ul li::marker { color: var(--accent-teal); }
+        ol li::marker { color: var(--accent-teal); font-weight: 700; }
+
+        .styled-list { list-style: none; padding-left: 0; }
+        .styled-list li { position: relative; padding-left: var(--space-lg); margin-bottom: var(--space-sm); }
+        .styled-list li::before { content: '\25B8'; position: absolute; left: 0; color: var(--accent-teal); font-weight: bold; }
+
+        .checklist { list-style: none; padding-left: 0; }
+        .checklist li { position: relative; padding-left: 2rem; margin-bottom: var(--space-sm); }
+        .checklist li::before {
+            content: '\2713'; position: absolute; left: 0; width: 1.5rem; height: 1.5rem;
+            background: var(--accent-green-light); color: var(--accent-green);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 0.75rem; font-weight: bold;
+        }
+
+        .objectives-box {
+            background: linear-gradient(135deg, var(--primary-pale) 0%, var(--accent-teal-light) 100%);
+            border-left: 5px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .objectives-box h3 { color: var(--text-black); margin-top: 0; margin-bottom: var(--space-md);
+            display: flex; align-items: center; gap: var(--space-sm); border-left: none; padding-left: 0; }
+        .objectives-box h3::before { content: '\1F3AF'; font-size: 1.25rem; }
+        .objectives-box ol { margin-bottom: 0; }
+
+        .tech-box {
+            background: var(--neutral-100); border: 2px solid var(--neutral-500);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .tech-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .tech-box .callout-content { padding-left: 0; }
+
+        .plain-box {
+            background: var(--primary-pale); border: 2px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .plain-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .plain-box .callout-content { padding-left: 0; }
+
+        .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; position: relative; overflow: hidden; }
+        .callout::before { position: absolute; top: var(--space-md); left: var(--space-md); font-size: 1.5rem; }
+        .callout-title { font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 1rem;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); padding-left: 2.5rem; color: var(--text-black); }
+        .callout-content { padding-left: 2.5rem; }
+        .callout-content p:last-child { margin-bottom: 0; }
+
+        .callout-tip { background: var(--accent-green-light); border-left: 4px solid var(--accent-green); }
+        .callout-tip::before { content: '\1F4A1'; }
+        .callout-warning { background: var(--alert-warning-bg); border-left: 4px solid var(--alert-warning); }
+        .callout-warning::before { content: '\26A0\FE0F'; }
+        .callout-danger { background: var(--alert-danger-bg); border-left: 4px solid var(--alert-danger); }
+        .callout-danger::before { content: '\1F6A8'; }
+        .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
+        .callout-info::before { content: '\2139\FE0F'; }
+
+        .key-concept {
+            background: linear-gradient(135deg, var(--accent-purple-light) 0%, var(--white) 100%);
+            border: 2px solid var(--accent-purple); border-radius: var(--radius-lg);
+            padding: var(--space-lg); margin: var(--space-xl) 0 var(--space-lg); position: relative;
+        }
+        .key-concept::before {
+            content: '\1F511 KEY CONCEPT'; position: absolute; top: -12px; left: var(--space-lg);
+            background: var(--accent-purple); color: var(--white); font-family: var(--font-heading), sans-serif;
+            font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-md); border-radius: var(--radius-sm);
+        }
+        .key-concept h4 { color: var(--text-black); margin-top: var(--space-sm); }
+
+        .definition { background: var(--neutral-100); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin: var(--space-md) 0; border-left: 4px solid var(--accent-orange); }
+        .definition-term { font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 1.125rem;
+            color: var(--text-black); margin-bottom: var(--space-xs); }
+        .definition-text { color: var(--text-black); margin-bottom: 0; }
+
+        code { font-family: var(--font-code), Consolas, monospace; font-size: 0.9rem; background: var(--primary-pale);
+            color: var(--text-black); padding: 2px 6px; border-radius: var(--radius-sm); }
+        pre { background: #2E2E2E; color: #f1ece0; padding: var(--space-lg); border-radius: var(--radius-md);
+            overflow-x: auto; margin: var(--space-lg) 0; position: relative; }
+        pre::before {
+            content: 'STEPS'; position: absolute; top: 0; right: 0; background: var(--primary-main); color: var(--text-black);
+            font-family: var(--font-heading), sans-serif; font-size: 0.625rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-sm); border-radius: 0 var(--radius-md) 0 var(--radius-sm);
+        }
+        pre code { background: transparent; color: inherit; padding: 0; font-size: 0.875rem; line-height: 1.6; }
+
+        .table-container { overflow-x: auto; margin: var(--space-lg) 0; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); }
+        table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
+        thead { background: var(--primary-dark); color: var(--white); }
+        th { font-family: var(--font-heading), sans-serif; font-weight: 700; text-align: left; padding: var(--space-md) var(--space-lg); color: var(--white); }
+        td { padding: var(--space-md) var(--space-lg); border-bottom: 1px solid var(--neutral-300); color: var(--text-black); }
+        tbody tr:hover { background: var(--primary-pale); }
+        tbody tr:last-child td { border-bottom: none; }
+
+        .activity-section {
+            background: linear-gradient(135deg, var(--accent-orange-light) 0%, var(--white) 100%);
+            border: 2px dashed var(--accent-orange); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .activity-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg); }
+        .activity-icon { width: 50px; height: 50px; background: var(--accent-orange); border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; }
+        .activity-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700;
+            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
+        .activity-subtitle { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
+
+        .lab-section {
+            background: linear-gradient(135deg, var(--accent-teal-light) 0%, var(--white) 100%);
+            border: 2px solid var(--accent-teal); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .lab-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg);
+            padding-bottom: var(--space-md); border-bottom: 2px solid var(--accent-teal); }
+        .lab-icon { width: 60px; height: 60px; background: var(--accent-teal); border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center; font-size: 1.75rem; flex-shrink: 0; }
+        .lab-title { font-family: var(--font-heading), sans-serif; font-size: 1.375rem; font-weight: 700;
+            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
+        .lab-time { font-size: 0.875rem; color: var(--neutral-500); margin: 0; display: flex; align-items: center; gap: var(--space-xs); }
+        .lab-time::before { content: '\23F1\FE0F'; }
+        .lab-steps { counter-reset: lab-step; list-style: none; padding-left: 0; }
+        .lab-steps li { counter-increment: lab-step; position: relative; padding-left: 3rem; margin-bottom: var(--space-lg); }
+        .lab-steps li::before {
+            content: counter(lab-step); position: absolute; left: 0; width: 2rem; height: 2rem;
+            background: var(--accent-teal); color: var(--white); font-family: var(--font-heading), sans-serif; font-weight: 700;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.875rem;
+        }
+
+        .assessment-section { background: var(--primary-pale); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0; }
+        .assessment-header { text-align: center; margin-bottom: var(--space-xl); }
+        .assessment-header h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .question-block { background: var(--white); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin-bottom: var(--space-lg); box-shadow: var(--shadow-sm); }
+        .question-number { font-family: var(--font-heading), sans-serif; font-size: 0.75rem; font-weight: 700;
+            color: var(--text-black); background: var(--primary-main); display: inline-block;
+            padding: 2px 10px; border-radius: var(--radius-sm);
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); }
+        .question-text { font-weight: 600; color: var(--text-black); margin-bottom: var(--space-md); }
+        details.answer { margin-top: var(--space-sm); }
+        details.answer summary { cursor: pointer; font-weight: 700; color: var(--text-black);
+            font-family: var(--font-heading), sans-serif; font-size: 0.875rem;
+            border-bottom: 2px solid var(--primary-main); display: inline-block; }
+        details.answer .reveal { margin-top: var(--space-sm); padding: var(--space-md);
+            background: var(--accent-green-light); border-radius: var(--radius-sm); color: var(--text-black); }
+
+        .references-section { background: var(--neutral-100); border-radius: var(--radius-lg);
+            padding: var(--space-lg) var(--space-xl); margin: var(--space-xl) 0; border-top: 3px solid var(--primary-main); }
+        .references-section h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .references-section ul { padding-left: var(--space-lg); }
+
+        .summary-box {
+            background: var(--primary-dark); color: var(--white);
+            border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .summary-box h3 { color: var(--white); margin-top: 0; display: flex; align-items: center;
+            gap: var(--space-sm); border-left: none; padding-left: 0; }
+        .summary-box h3::before { content: '\1F4CB'; }
+        .summary-box ul { margin-bottom: 0; }
+        .summary-box li { color: var(--white); }
+        .summary-box li::marker { color: var(--primary-light); }
+
+        .section-divider {
+            border: none; height: 6px; margin: var(--space-2xl) 0;
+            background: linear-gradient(90deg, transparent 0%, var(--primary-main) 15%, var(--primary-light) 50%, var(--primary-main) 85%, transparent 100%);
+            border-radius: var(--radius-sm); box-shadow: var(--shadow-sm);
+        }
+
+        .module-footer { background: var(--primary-dark); padding: var(--space-lg) var(--space-xl);
+            text-align: center; border-top: 4px solid var(--primary-main); }
+        .footer-text { font-size: 0.875rem; color: var(--white); margin: 0; }
+
+        .text-center { text-align: center; }
+        .text-muted { color: var(--neutral-500); }
+        .highlight { background: linear-gradient(180deg, transparent 50%, var(--primary-light) 50%); padding: 0 2px; }
+
+        @media (max-width: 768px) {
+            body { padding: var(--space-sm); }
+            .module-header { padding: var(--space-xl) var(--space-lg); }
+            .module-title { font-size: 1.75rem; }
+            .content-area { padding: var(--space-lg); }
+            h2 { font-size: 1.375rem; }
+            .lab-header, .activity-header { flex-direction: column; align-items: flex-start; }
+        }
+        @media print {
+            body { background: white; padding: 0; }
+            .course-container { box-shadow: none; }
+            .toc { display: none; }
+            details.answer { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="course-container">
+
+        <header class="module-header">
+            <div class="module-label">Unit 1 &middot; Inside the Box &middot; Section 1.6</div>
+            <h1 class="module-title">Lab Activities and Submission</h1>
+            <p class="module-subtitle">Two in-class labs, one take-home. Safety requirements are not optional.</p>
+        </header>
+
+        <nav class="toc">
+            <div class="toc-item">1.1 &mdash; Unit Overview and Learning Objectives</div>
+            <div class="toc-item">1.2 &mdash; Unit Pre-Assessment</div>
+            <div class="toc-item">1.3 &mdash; Content Review</div>
+            <div class="toc-item">1.4 &mdash; Reading Assignment</div>
+            <div class="toc-item">1.5 &mdash; Video Assignment</div>
+            <div class="toc-item current">1.6 &mdash; Lab Activities and Submission</div>
+            <div class="toc-item">1.7 &mdash; Practice Question Set</div>
+            <div class="toc-item">1.8 &mdash; Online Labs: NETLAB</div>
+            <div class="toc-item">1.9 &mdash; Reflection Activity</div>
+            <div class="toc-item">1.10 &mdash; Unit Test</div>
+        </nav>
+
+        <div class="content-area">
+
+            <p class="text-muted">One required lab in class, one self-paced safety lab, one required take-home, and one optional written walkthrough. This is the week you stop reading about hardware and start recognizing it.</p>
+
+            <div class="callout callout-danger">
+                <div class="callout-title">Safety Requirements &mdash; Non-Negotiable</div>
+                <div class="callout-content">
+                    <p><strong>Lab 1.1 is required.</strong> This is not paperwork; it is the difference between a working machine and a dead one, and in the case of the power supply rule, between a normal Tuesday and an ambulance.</p>
+                    <p>Read this list carefully:</p>
+                    <ul class="checklist">
+                        <li>System unplugged from mains power before the case is opened</li>
+                        <li>Anti-static wrist strap worn and clipped to unpainted chassis metal</li>
+                        <li>Work performed on the anti-static mat</li>
+                        <li>Components handled by edges only &mdash; never touch contacts or pins</li>
+                        <li>Any component removed from a system stored in an anti-static bag, not on the bench</li>
+                        <li><strong>No power supply is opened, ever, by anyone</strong></li>
+                        <li>No food or drink at any work bench</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="lab-section">
+                <div class="lab-header">
+                    <div class="lab-icon">&#128300;</div>
+                    <div>
+                        <h3 class="lab-title">Lab 1.0 &mdash; Component Identification</h3>
+                        <p class="lab-time">Wednesday 8/12 &middot; In class &middot; 1 hour &middot; Complete Lab 1.1 first</p>
+                    </div>
+                </div>
+                <p>Your team receives a machine to work on today. You open it and learn to recognize what is inside &mdash; nothing comes out. You will identify components partly by reasoning about what they connect to, which is the skill that transfers.</p>
+                <p>This runs in the first hour of Wednesday's session, before we name anything. Complete Lab 1.1 on your own beforehand so you arrive knowing how to handle the equipment safely.</p>
+                <div class="callout callout-info">
+                    <div class="callout-title">Nothing Gets Removed Today</div>
+                    <div class="callout-content"><p>This is an identification lab, not a disassembly lab. You will open the side panel and observe. Do not disconnect cables, unseat memory, or remove cards, drives, or the power supply. Full teardown and rebuild is available as optional practice in Lab 1.2.</p></div>
+                </div>
+                <ol class="lab-steps">
+                    <li><strong>Set up your station.</strong> Mat down, strap on and clipped to unpainted chassis metal, system unplugged. Photograph the closed system with your team number visible.</li>
+                    <li><strong>Document the exterior.</strong> Record every external port &mdash; quantity and type. You will not know all the names yet; describe what you see and we will name them Wednesday.</li>
+                    <li><strong>Open the side panel and photograph the interior.</strong> Keep this photo. It becomes your reference for every unit that follows.</li>
+                    <li><strong>Identify the major components in place:</strong> motherboard, CPU cooler, memory modules, power supply, storage drives, and any expansion cards. Record form factor, connector types, and any visible part numbers or markings on the worksheet.</li>
+                    <li><strong>Trace the power connections visually.</strong> Follow each cable from the power supply to where it terminates and record the connector type and destination. Do not disconnect anything.</li>
+                    <li><strong>Locate these eight features on the motherboard:</strong> CPU socket, memory slots, expansion slots and their lane widths, SATA ports, M.2 slots, front panel header, CMOS battery, and the firmware chip.</li>
+                    <li><strong>Close the case</strong> and return the system to the rack.</li>
+                </ol>
+                <div class="callout callout-tip">
+                    <div class="callout-title">Check Your Work</div>
+                    <div class="callout-content"><p>You have completed this lab when your worksheet is filled in, your interior photograph is taken, and you can point to each of the eight motherboard features in step 6 without looking at a diagram.</p></div>
+                </div>
+            </div>
+
+            <div class="lab-section">
+                <div class="lab-header">
+                    <div class="lab-icon">&#9888;&#65039;</div>
+                    <div>
+                        <h3 class="lab-title">Lab 1.1 &mdash; Safety and ESD (Self-Paced)</h3>
+                        <p class="lab-time">Outside class &middot; ~45 minutes &middot; Due Tuesday 8/11, 11:59 PM</p>
+                    </div>
+                </div>
+                <p>This is a reading lab. There is no hardware involved and nothing to disassemble &mdash; you read, you answer, you acknowledge. It exists because the rules above only protect you if you have actually absorbed them, and a briefing you half-read on a busy first week does not count as absorbed.</p>
+                <ol class="lab-steps">
+                    <li><strong>Read the safety material.</strong> Section 1.3 Content Review, "Safety Before Anything Else" &mdash; the full section including both callouts. Then Sybex Volume 1, Chapter 12, "Understanding Troubleshooting Best Practices," which covers safety procedure in the field.</li>
+                    <li><strong>Write out the six ESD controls</strong> in your own words, and for each one, state what specifically it prevents.</li>
+                    <li><strong>Answer these five questions</strong> in writing:
+                        <br>a. At roughly what voltage can a component be damaged, and at what voltage can you feel a static shock? What does the gap between those two numbers mean for a technician?
+                        <br>b. What is the difference between catastrophic and latent ESD damage, and which is more dangerous to a repair business?
+                        <br>c. Why is a wrist strap clipped to unpainted chassis metal rather than to a painted surface?
+                        <br>d. Why must a system be unplugged before service, and why is wearing a wrist strap near live mains power dangerous rather than protective?
+                        <br>e. What is the rule about opening a power supply, and what is the specific reason behind it?</li>
+                    <li><strong>Submit the Safety Acknowledgment.</strong> Complete the acknowledgment form in Brightspace confirming you have read and understood the safety requirements and agree to follow them in the classroom and the A+ Lab.</li>
+                </ol>
+                <div class="callout callout-danger">
+                    <div class="callout-title">Complete This Before You Handle Hardware</div>
+                    <div class="callout-content"><p>You will be handling hardware in class or in the A+ Lab. You must complete the material in Lab 1.1 on your own. This is not a paperwork formality and it is not negotiable. You should have this completed by Wednesday.</p></div>
+                </div>
+                <div class="callout callout-tip">
+                    <div class="callout-title">Check Your Work</div>
+                    <div class="callout-content"><p>You have completed this lab when your six ESD controls and five answers are written in your own words and the acknowledgment form is submitted. If you had to copy phrasing directly from the reading to answer any question, go back and read that part again &mdash; the point is that you own these rules, not that you have seen them.</p></div>
+                </div>
+            </div>
+
+            <div class="lab-section">
+                <div class="lab-header">
+                    <div class="lab-icon">&#128221;</div>
+                    <div>
+                        <h3 class="lab-title">Lab 1.2 &mdash; Rebuild Sequence Walkthrough <em>(Optional)</em></h3>
+                        <p class="lab-time">Optional &middot; Written &middot; Complete anywhere &middot; ~1 hour</p>
+                    </div>
+                </div>
+                <p><strong>This lab is optional, written, and is not graded.</strong> Nothing is disassembled and no equipment is required. You describe the process in writing, in the correct order, and explain why each step matters.</p>
+                <div class="callout callout-tip">
+                    <div class="callout-title">Why Write It Instead of Do It</div>
+                    <div class="callout-content"><p>Performance-based questions on the 220-1201 exam frequently ask you to sequence steps or match components to connectors &mdash; on a screen, not at a bench. Being able to state the correct order from memory, and explain the reason behind it, is exactly the skill those items test. Writing it out also exposes the gaps that watching a video quietly papers over.</p></div>
+                </div>
+                <ol class="lab-steps">
+                    <li><strong>Describe the disassembly order.</strong> List the sequence &mdash; expansion cards, drives, memory modules, power supply, CPU cooler, motherboard &mdash; and explain in one sentence why each item comes out when it does.</li>
+                    <li><strong>Explain motherboard mounting.</strong> Describe the role of standoffs and state what happens if one is installed in a position with no corresponding mounting hole.</li>
+                    <li><strong>Describe CPU cooler seating.</strong> Explain when thermal paste must be reapplied, what a correct application looks like, and why more paste is not better.</li>
+                    <li><strong>Describe memory installation.</strong> Explain the purpose of the notch, how you know a module is fully seated, and how slot selection affects dual-channel operation.</li>
+                    <li><strong>Identify the power connections.</strong> List the 24-pin ATX, CPU EPS, PCIe, SATA, and Molex connectors and state what each one feeds. Note what the input voltage selector does and why setting it wrong is destructive.</li>
+                    <li><strong>Explain the front panel header.</strong> Describe what connects there and explain why a misconnection produces a system that appears completely dead rather than one that reports an error.</li>
+                    <li><strong>Describe a successful POST.</strong> State what you would expect to see and hear, and list three things firmware setup should report if the rebuild succeeded.</li>
+                    <li><strong>Work three fault scenarios in writing.</strong> For each of the following, apply all six steps of the troubleshooting methodology and write out your reasoning:
+                        <br>a. The system powers on, fans spin, no display, and a repeating beep pattern.
+                        <br>b. Pressing the power button produces nothing at all &mdash; no fans, no lights &mdash; on a machine that worked before disassembly.
+                        <br>c. The system boots but reports only half the installed memory.</li>
+                </ol>
+                <div class="callout callout-warning">
+                    <div class="callout-title">Order Matters More Than Detail</div>
+                    <div class="callout-content"><p>If you are unsure of a specific value, write what you do know and move on. What this exercise is training is the <em>sequence</em> and the <em>reasoning</em> &mdash; those are what the exam scores, and they are what stop a technician from replacing a motherboard to fix a loose header pin.</p></div>
+                </div>
+                <div class="callout callout-info">
+                    <div class="callout-title">Want the Hands-On Version?</div>
+                    <div class="callout-content"><p>The A+ Lab is Room <strong>LT 5135</strong>, Levine Technology Building, 5th floor. Hours are limited and the posted schedule will be shared in class during Week 2. If you would like to physically work through this sequence on a lab machine, come see me and we will arrange it &mdash; every safety requirement at the top of this page applies there exactly as it does in class.</p></div>
+                </div>
+            </div>
+
+            <div class="activity-section">
+                <div class="activity-header">
+                    <div class="activity-icon">&#127968;</div>
+                    <div>
+                        <h3 class="activity-title">Take-Home Lab 1.3 &mdash; Inventory Your Own Machine</h3>
+                        <p class="activity-subtitle">2 to 2.5 hours &middot; Due Sunday 8/16, 11:59 PM</p>
+                    </div>
+                </div>
+                <p>No disassembly required, and please do not open anything you own. This lab uses built-in tools only.</p>
+                <ol>
+                    <li>Identify your system's processor: manufacturer, model, core count, and whether it is 32-bit or 64-bit. On Windows use System Information (<code>msinfo32</code>); on macOS use About This Mac.</li>
+                    <li>Identify installed RAM: total capacity, and if the tool reports it, generation and speed. Task Manager's Performance tab shows this on Windows.</li>
+                    <li>List every external port on the machine by type and quantity.</li>
+                    <li>Find your system's firmware version and manufacturer.</li>
+                    <li>Write one paragraph: if you needed to add memory to this machine, what would you need to know before ordering, and where would you find it?</li>
+                </ol>
+                <div class="callout callout-info">
+                    <div class="callout-title">No Computer of Your Own?</div>
+                    <div class="callout-content"><p>Use a machine in the A+ Lab (LT 5135) during posted hours, or come see me. This is never a reason to miss the assignment.</p></div>
+                </div>
+            </div>
+
+            <h2>Submission Requirements</h2>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Item</th><th>Submit</th><th>Due</th><th>Points</th></tr></thead>
+                    <tbody>
+                        <tr><td>Lab 1.0 &mdash; Component Identification</td><td>Component identification worksheet + interior photograph</td><td>Wed 8/12, end of class</td><td>100</td></tr>
+                        <tr><td>Lab 1.1 &mdash; Safety and ESD</td><td>Written ESD controls, five answers, and the signed Safety Acknowledgment</td><td>Tue 8/11, 11:59 PM</td><td>100</td></tr>
+                        <tr><td>Lab 1.2 &mdash; Rebuild Sequence Walkthrough <em>(optional)</em></td><td>Nothing required. Bring your written walkthrough to office hours if you want feedback.</td><td>&mdash;</td><td>Not graded</td></tr>
+                        <tr><td>Lab 1.3 &mdash; Take-Home</td><td>Completed inventory document</td><td>Sun 8/16, 11:59 PM</td><td>100</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="callout callout-tip">
+                <div class="callout-title">Completion Standard &mdash; 100 Points Each (Required Labs)</div>
+                <div class="callout-content"><p>Applies to Labs 1.0, 1.1, and 1.3. Full credit requires every field on the worksheet completed, all written responses in your own words, and required photographs attached. Submissions missing sections are returned for revision and resubmitted for full credit. Nothing here is partially scored. Lab 1.2 is optional and carries no submission.</p></div>
+            </div>
+
+            <div class="summary-box">
+                <h3>Before You Leave the Bench</h3>
+                <ul>
+                    <li>Case closed and all components left seated as you found them</li>
+                    <li>Machine returned to the rack with your team number visible</li>
+                    <li>Wrist strap and mat returned to the station</li>
+                    <li>Worksheets submitted in Brightspace before you walk out &mdash; not from the parking lot</li>
+                </ul>
+            </div>
+
+            <div class="references-section">
+                <h3>Go Further</h3>
+                <ul>
+                    <li>Sybex <em>CompTIA A+ Complete Study Guide</em>, Volume 1 &mdash; Chapter 1 Performance-Based Questions 1 and 2 map directly onto these labs</li>
+                    <li>Your machine's motherboard manual &mdash; find the manufacturer's PDF online. Front panel header diagrams live here and nowhere else.</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <footer class="module-footer">
+            <p class="footer-text">CompTIA A+ Core 1 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
+        </footer>
+    </div>
+</body>
+</html>
