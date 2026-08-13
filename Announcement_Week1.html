@@ -159,7 +159,6 @@
         }
         .objectives-box h3 { color: var(--text-black); margin-top: 0; margin-bottom: var(--space-md);
             display: flex; align-items: center; gap: var(--space-sm); border-left: none; padding-left: 0; }
-        .objectives-box h3::before { content: '\1F3AF'; font-size: 1.25rem; }
         .objectives-box ol { margin-bottom: 0; }
 
         .tech-box {
@@ -179,18 +178,14 @@
         .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; position: relative; overflow: hidden; }
         .callout::before { position: absolute; top: var(--space-md); left: var(--space-md); font-size: 1.5rem; }
         .callout-title { font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 1rem;
-            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); padding-left: 2.5rem; color: var(--text-black); }
-        .callout-content { padding-left: 2.5rem; }
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
+        .callout-content { }
         .callout-content p:last-child { margin-bottom: 0; }
 
         .callout-tip { background: var(--accent-green-light); border-left: 4px solid var(--accent-green); }
-        .callout-tip::before { content: '\1F4A1'; }
         .callout-warning { background: var(--alert-warning-bg); border-left: 4px solid var(--alert-warning); }
-        .callout-warning::before { content: '\26A0\FE0F'; }
         .callout-danger { background: var(--alert-danger-bg); border-left: 4px solid var(--alert-danger); }
-        .callout-danger::before { content: '\1F6A8'; }
         .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
-        .callout-info::before { content: '\2139\FE0F'; }
 
         .key-concept {
             background: linear-gradient(135deg, var(--accent-purple-light) 0%, var(--white) 100%);
