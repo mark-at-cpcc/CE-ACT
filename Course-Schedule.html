@@ -3,12 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unit 1 &mdash; 1.1 Unit Overview and Learning Objectives | CompTIA A+ Core 1</title>
-
+    <title>Course Schedule | CompTIA A+ Core 1</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Sans+Pro:wght@400;600;700&family=Fira+Code&display=swap" rel="stylesheet">
-
     <style>
         /* ============================================
            CPCC COURSE TEMPLATE - GOLD / CHARCOAL / BLACK
@@ -161,6 +159,7 @@
         }
         .objectives-box h3 { color: var(--text-black); margin-top: 0; margin-bottom: var(--space-md);
             display: flex; align-items: center; gap: var(--space-sm); border-left: none; padding-left: 0; }
+        .objectives-box h3::before { content: '\1F3AF'; font-size: 1.25rem; }
         .objectives-box ol { margin-bottom: 0; }
 
         .tech-box {
@@ -180,14 +179,18 @@
         .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; position: relative; overflow: hidden; }
         .callout::before { position: absolute; top: var(--space-md); left: var(--space-md); font-size: 1.5rem; }
         .callout-title { font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 1rem;
-            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
-        .callout-content { }
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); padding-left: 2.5rem; color: var(--text-black); }
+        .callout-content { padding-left: 2.5rem; }
         .callout-content p:last-child { margin-bottom: 0; }
 
         .callout-tip { background: var(--accent-green-light); border-left: 4px solid var(--accent-green); }
+        .callout-tip::before { content: '\1F4A1'; }
         .callout-warning { background: var(--alert-warning-bg); border-left: 4px solid var(--alert-warning); }
+        .callout-warning::before { content: '\26A0\FE0F'; }
         .callout-danger { background: var(--alert-danger-bg); border-left: 4px solid var(--alert-danger); }
+        .callout-danger::before { content: '\1F6A8'; }
         .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
+        .callout-info::before { content: '\2139\FE0F'; }
 
         .key-concept {
             background: linear-gradient(135deg, var(--accent-purple-light) 0%, var(--white) 100%);
@@ -323,145 +326,285 @@
 </head>
 <body>
     <div class="course-container">
-
         <header class="module-header">
-            <div class="module-label">Unit 1 &middot; Inside the Box &middot; Section 1.1</div>
-            <h1 class="module-title">Unit Overview and Learning Objectives</h1>
-            <p class="module-subtitle">What this unit covers, what you will be able to do by Friday, and what it will cost you in hours.</p>
+            <div class="module-label">CTS-ITS7501-80 &middot; CompTIA A+ Core 1 Training</div>
+            <h1 class="module-title">Course Schedule</h1>
+            <p class="module-subtitle">Every class meeting and every due date, week by week, August 11 through September 17, 2026.</p>
         </header>
-
-        <nav class="toc">
-            <div class="toc-item current">1.1 &mdash; Unit Overview and Learning Objectives</div>
-            <div class="toc-item">1.2 &mdash; Unit Pre-Assessment</div>
-            <div class="toc-item">1.3 &mdash; Content Review</div>
-            <div class="toc-item">1.4 &mdash; Reading Assignment</div>
-            <div class="toc-item">1.5 &mdash; Video Assignment</div>
-            <div class="toc-item">1.6 &mdash; Lab Activities and Submission</div>
-            <div class="toc-item">1.7 &mdash; Practice Question Set</div>
-            <div class="toc-item">1.8 &mdash; Online Labs: NETLAB</div>
-            <div class="toc-item">1.9 &mdash; Reflection Activity</div>
-            <div class="toc-item">1.10 &mdash; Unit Test</div>
-        </nav>
-
         <div class="content-area">
 
-            <p class="text-muted">Welcome to Week 1. By Thursday afternoon you will be able to open a computer, name every major component inside it, and explain what each one does. That is not a metaphor. That is the assignment.</p>
+            <p>Every class meeting, reading assignment, video assignment, lab, and due date for CTS-ITS7501-80, in chronological order. This page is the single source of truth for "what's due when" &mdash; if something in a unit page ever seems to conflict with this schedule, this schedule governs.</p>
 
-            <div class="callout callout-info">
-                <div class="callout-title">Nothing Is Due Before You Arrive</div>
-                <div class="callout-content"><p>Tuesday 8/11 is the first day of class. There is no preparation to do beforehand &mdash; no reading, no videos, no pre-work. Your diagnostics are completed together in class on Tuesday, and assigned work begins after that first session. Just show up.</p></div>
-            </div>
-
-            <div class="objectives-box">
-                <h3>Learning Objectives</h3>
-                <p>After completing this unit, you will be able to:</p>
-                <ol>
-                    <li><strong>Identify</strong> the major components inside a desktop computer by sight and state the function of each</li>
-                    <li><strong>Explain</strong> how the motherboard, processor, memory, and power supply depend on one another to boot a system</li>
-                    <li><strong>Describe</strong> motherboard form factors, expansion slot types, and internal connector standards</li>
-                    <li><strong>Explain</strong> the role of the BIOS/UEFI firmware and locate common configuration settings</li>
-                    <li><strong>Apply</strong> proper electrostatic discharge (ESD) and electrical safety procedures during hardware service</li>
-                    <li><strong>Apply</strong> CompTIA's six-step troubleshooting methodology to a no-boot scenario</li>
-                </ol>
+            <div class="plain-box">
+                <div class="callout-title">How to Read This Page</div>
+                <div class="callout-content">
+                    <p>Each week has two tables. The first is the <strong>class meeting schedule</strong> &mdash; where to be and what happens that day. The second is the <strong>assignment schedule</strong> &mdash; everything due that week, in due-date order. A master list of every deadline across all six weeks is at the bottom of the page.</p>
+                </div>
             </div>
 
             <div class="tech-box">
-                <div class="callout-title">Technical Overview</div>
+                <div class="callout-title">Meeting Pattern</div>
                 <div class="callout-content">
-                    <p>Unit 1 addresses CompTIA A+ Core 1 (220-1201) Domain 3.0 Hardware &mdash; specifically objectives 3.3 (memory), 3.5 (motherboards, CPUs, expansion cards, cooling), and 3.6 (power) &mdash; together with the opening portion of Domain 5.0 Hardware and Network Troubleshooting, objective 5.1. Instruction covers motherboard form factors and expansion bus architectures, processor characteristics and socket compatibility, volatile memory technologies and error-correction schemes, power supply specifications and connector standards, thermal management, and UEFI/BIOS firmware configuration including TPM. The unit establishes the structured troubleshooting methodology used as the diagnostic framework for the remainder of the course.</p>
+                    <div class="table-container">
+                        <table>
+                            <thead><tr><th>Day</th><th>Time</th><th>Length</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>Tuesday</strong></td><td>10:00 AM &ndash; 1:00 PM</td><td>3 hrs</td></tr>
+                                <tr><td><strong>Wednesday</strong></td><td>11:00 AM &ndash; 2:00 PM</td><td>3 hrs</td></tr>
+                                <tr><td><strong>Thursday</strong></td><td>10:00 AM &ndash; 1:00 PM</td><td>3 hrs</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p>Nine contact hours per week, 54 total across the term. Location: Levine Technology Building, Room LT 5130.</p>
                 </div>
             </div>
 
-            <div class="plain-box">
-                <div class="callout-title">In Plain Terms</div>
-                <div class="callout-content">
-                    <p>This week is about what is physically inside the box and how those parts talk to each other. The motherboard is the neighborhood. The processor is the brain. Memory is the desk you work on. The power supply feeds all of it. Cooling keeps it from cooking itself. Once you know the parts, you can start figuring out which one is broken &mdash; and that skill is more than a quarter of your exam.</p>
-                </div>
-            </div>
+            <hr class="section-divider">
 
-            <h2>Why We Start Here</h2>
-            <p>Hardware plus hardware troubleshooting makes up <strong>53% of the Core 1 exam</strong>. It is also the most concrete material in the entire course. You can hold a stick of RAM. You can hear a fan. You cannot hold a subnet mask.</p>
-            <p>That matters more than it might sound. Starting with things you can physically touch gives you somewhere to attach the vocabulary that comes later. Students who begin with abstract networking concepts often report that the terms slide off. Students who begin with their hands in a case tend to remember, three weeks later, that a DIMM slot has a notch in it &mdash; because they cut their thumb on one.</p>
 
-            <div class="callout callout-info">
-                <div class="callout-title">No Experience Required</div>
-                <div class="callout-content"><p>This course assumes you have never opened a computer. If you have, you will move faster through Tuesday. If you have not, you are exactly who this unit was written for. Nobody in this room started out knowing this.</p></div>
-            </div>
+            <h2>Week 1 &mdash; August 11 &ndash; 17 &middot; Unit 1: Inside the Box</h2>
 
-            <h2>Your Week at a Glance</h2>
+            <h3>Class Meetings</h3>
             <div class="table-container">
                 <table>
-                    <thead><tr><th>Day</th><th>Time</th><th>Focus</th><th>What You'll Do</th></tr></thead>
+                    <thead><tr><th>Date</th><th>Day</th><th>Time</th><th>Focus</th></tr></thead>
                     <tbody>
-                        <tr><td><strong>Tuesday 8/11</strong></td><td>10:00 AM &ndash; 1:00 PM</td><td>Experience</td><td>Welcome and orientation, course tour, both diagnostics completed in class, and how to study for a certification exam. No hardware today.</td></tr>
-                        <tr><td><strong>Wednesday 8/12</strong></td><td>11:00 AM &ndash; 2:00 PM</td><td>Experience &rarr; Concepts</td><td>First hour: open the case and identify components. Then we name it &mdash; form factors, sockets, memory types, power specs, BIOS/UEFI, thermal design.</td></tr>
-                        <tr><td><strong>Thursday 8/13</strong></td><td>10:00 AM &ndash; 1:00 PM</td><td>Application</td><td>Guided reassembly walkthrough, the six-step troubleshooting method applied to no-boot scenarios, and the unit exit assessment.</td></tr>
+                        <tr><td>Aug 11</td><td>Tuesday</td><td>10:00 AM &ndash; 1:00 PM</td><td>Welcome and orientation, course tour, both diagnostics completed in class, how to study for a certification exam. No hardware.</td></tr>
+                        <tr><td>Aug 12</td><td>Wednesday</td><td>11:00 AM &ndash; 2:00 PM</td><td>Lab 1.0 Component Identification (first hour), then direct instruction on motherboards, processors, memory, cooling, power, and firmware.</td></tr>
+                        <tr><td>Aug 13</td><td>Thursday</td><td>10:00 AM &ndash; 1:00 PM</td><td>Troubleshooting methodology, guided reassembly walkthrough, unit exit assessment.</td></tr>
                     </tbody>
                 </table>
             </div>
 
-            <div class="key-concept">
-                <h4>See It Before You Name It</h4>
-                <p>Your team works on a physical computer this week. You open it, look inside, and identify what is there before we give any of it a name. That order is intentional.</p>
-                <p>Beginners handed a vocabulary list first have nothing to attach it to, and the terms slide off within days. Beginners who have already looked at a DIMM slot have somewhere to put the word "DIMM" when it arrives on Wednesday. You will not remember every term from this unit &mdash; but you will remember what the inside of a computer looks like, and that is the hook everything else hangs on.</p>
-            </div>
-
-            <h2>Work Outside of Class</h2>
-            <p>Budget <strong>17 to 19 hours</strong> this week outside our meetings. That is a real number and it is front-loaded by design.</p>
+            <h3>Assignments Due</h3>
             <div class="table-container">
                 <table>
-                    <thead><tr><th>Component</th><th>Time</th><th>Section</th></tr></thead>
+                    <thead><tr><th>Due</th><th>Item</th><th>Section</th></tr></thead>
                     <tbody>
-                        <tr><td>Sybex reading</td><td>10 &ndash; 11 hrs</td><td>1.4</td></tr>
-                        <tr><td>Professor Messer videos (2 hr 26 min runtime)</td><td>2.0 &ndash; 2.5 hrs</td><td>1.5</td></tr>
-                        <tr><td>Safety lab and take-home lab</td><td>2.5 &ndash; 3.0 hrs</td><td>1.6</td></tr>
-                        <tr><td>NETLAB online labs (2 labs)</td><td>1.5 &ndash; 2.5 hrs</td><td>1.8</td></tr>
-                        <tr><td>Practice questions and acronym drill</td><td>2.0 &ndash; 2.5 hrs</td><td>1.7</td></tr>
-                        <tr><td>Reflection journal</td><td>1 hr</td><td>1.8</td></tr>
+                        <tr><td><strong>Tue 8/11, 11:59 PM</strong></td><td>Lab 1.1 &mdash; Safety and ESD (self-paced)</td><td>1.6</td></tr>
+                        <tr><td><strong>Wed 8/12, end of class</strong></td><td>Lab 1.0 &mdash; Component Identification</td><td>1.6</td></tr>
+                        <tr><td><strong>Sun 8/16, 11:59 PM</strong></td><td>NETLAB &mdash; NDG A+ v5 Labs 01A and 01B (Examining PC Hardware)</td><td>1.8</td></tr>
+                        <tr><td><strong>Sun 8/16, 11:59 PM</strong></td><td>Lab 1.3 &mdash; Take-Home Inventory</td><td>1.6</td></tr>
+                        <tr><td><strong>Sun 8/16, 11:59 PM</strong></td><td>Reflection &mdash; four Kolb prompts</td><td>1.9</td></tr>
+                        <tr><td><strong>Mon 8/17, 11:59 PM</strong></td><td>Unit 1 Test &mdash; 25 items, opens Fri 8/14</td><td>1.10</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p class="text-muted">Reading: Sybex Vol. 1 &mdash; Assessment Test, Ch. 1 (full), Ch. 2 (expansion cards, power), Ch. 12 (methodology, motherboards, RAM, CPUs, power). Video: Messer 0.1, 3.3, 3.5, 3.6, 5.1 &mdash; 2 hr 26 min.</p>
+
+            <hr class="section-divider">
+
+            <h2>Week 2 &mdash; August 18 &ndash; 24 &middot; Unit 2: Storage, Displays, and Output</h2>
+
+            <h3>Class Meetings</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Date</th><th>Day</th><th>Time</th></tr></thead>
+                    <tbody>
+                        <tr><td>Aug 18</td><td>Tuesday</td><td>10:00 AM &ndash; 1:00 PM</td></tr>
+                        <tr><td>Aug 19</td><td>Wednesday</td><td>11:00 AM &ndash; 2:00 PM</td></tr>
+                        <tr><td>Aug 20</td><td>Thursday</td><td>10:00 AM &ndash; 1:00 PM</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Assignments Due</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Due</th><th>Item</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Sun 8/23, 11:59 PM</strong></td><td>NETLAB &mdash; Labs 13 (Managing Storage), 14 (Disk Maintenance and Data Recovery), 11 (Sharing Resources &ndash; Printers)</td></tr>
+                        <tr><td><strong>Sun 8/23, 11:59 PM</strong></td><td>In-class and take-home lab submissions</td></tr>
+                        <tr><td><strong>Sun 8/23, 11:59 PM</strong></td><td>Reflection &mdash; four Kolb prompts</td></tr>
+                        <tr><td><strong>Mon 8/24, 11:59 PM</strong></td><td>Unit 2 Test &mdash; 25 items</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p class="text-muted">Reading: Sybex Vol. 1 &mdash; Ch. 2 (storage), Ch. 3 (peripherals), Ch. 5 (full), Ch. 12 (drives/RAID), Ch. 13 (video, display, printer issues). Video: Messer 3.1, 3.4, 3.7, 3.8, 5.2, 5.3, 5.6 &mdash; 2 hr 20 min.</p>
+
+            <hr class="section-divider">
+
+            <h2>Week 3 &mdash; August 25 &ndash; 31 &middot; Unit 3: Networking Foundations</h2>
+
+            <h3>Class Meetings</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Date</th><th>Day</th><th>Time</th></tr></thead>
+                    <tbody>
+                        <tr><td>Aug 25</td><td>Tuesday</td><td>10:00 AM &ndash; 1:00 PM</td></tr>
+                        <tr><td>Aug 26</td><td>Wednesday</td><td>11:00 AM &ndash; 2:00 PM</td></tr>
+                        <tr><td>Aug 27</td><td>Thursday</td><td>10:00 AM &ndash; 1:00 PM</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Assignments Due</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Due</th><th>Item</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Sun 8/30, 11:59 PM</strong></td><td>NETLAB &mdash; Labs 05 (Command Line &ndash; Windows and Linux), 06 (Windows Network Settings), 07 (Linux Network Settings)</td></tr>
+                        <tr><td><strong>Sun 8/30, 11:59 PM</strong></td><td>In-class cable termination and testing lab</td></tr>
+                        <tr><td><strong>Sun 8/30, 11:59 PM</strong></td><td>Reflection &mdash; four Kolb prompts</td></tr>
+                        <tr><td><strong>Mon 8/31, 11:59 PM</strong></td><td>Unit 3 Test &mdash; 25 items</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p class="text-muted">Reading: Sybex Vol. 1 &mdash; Ch. 3 (cables/connectors), Ch. 6 (full), Ch. 7 (Understanding TCP/IP). Video: Messer 2.1, 2.5, 2.6, 2.7, 2.8 &mdash; 2 hr 05 min. Lightest reading week &mdash; use the margin if behind.</p>
+
+            <hr class="section-divider">
+
+            <h2>Week 4 &mdash; September 1 &ndash; 7 &middot; Unit 4: Network Services and Configuration</h2>
+
+            <h3>Class Meetings</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Date</th><th>Day</th><th>Time</th></tr></thead>
+                    <tbody>
+                        <tr><td>Sep 1</td><td>Tuesday</td><td>10:00 AM &ndash; 1:00 PM</td></tr>
+                        <tr><td>Sep 2</td><td>Wednesday</td><td>11:00 AM &ndash; 2:00 PM</td></tr>
+                        <tr><td>Sep 3</td><td>Thursday</td><td>10:00 AM &ndash; 1:00 PM</td></tr>
+                        <tr><td>Sep 7</td><td>Monday</td><td colspan="1"><em>Labor Day &mdash; no class, nothing due</em></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Assignments Due</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Due</th><th>Item</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Sun 9/6, 11:59 PM</strong></td><td>NETLAB &mdash; Labs 08 (Windows Users and Groups), 09 (Linux Users and Groups), 10 (Sharing Resources &ndash; Folders), 15 (Remote Access), 19 (Configuring Security on SOHO Networks)</td></tr>
+                        <tr><td><strong>Sun 9/6, 11:59 PM</strong></td><td>In-class configuration and diagnosis lab</td></tr>
+                        <tr><td><strong>Sun 9/6, 11:59 PM</strong></td><td>Reflection &mdash; four Kolb prompts</td></tr>
+                        <tr><td><strong>Sun 9/6, 11:59 PM</strong></td><td>Unit 4 Test &mdash; 25 items</td></tr>
                     </tbody>
                 </table>
             </div>
 
             <div class="callout callout-warning">
-                <div class="callout-title">Be Honest With Yourself Now</div>
-                <div class="callout-content"><p>Adding contact hours, this course runs 26 to 28 hours per week for six weeks. That is close to a full-time job. It is compressed because the certification is worth compressing for &mdash; but if this week's load is not survivable alongside your other commitments, come talk to me at the end of Tuesday's class rather than in Week 3. There are other sections and other terms.</p></div>
+                <div class="callout-title">Heaviest Week of the Term</div>
+                <div class="callout-content"><p>Five NETLAB labs and every deadline lands on <strong>Sunday 9/6</strong>, not Monday &mdash; shifted intentionally so Labor Day is genuinely free. Book NETLAB reservations early in the week; do not leave five labs for Sunday.</p></div>
             </div>
 
-            <h2>Exam Objectives Covered</h2>
+            <p class="text-muted">Reading: Sybex Vol. 1 &mdash; Ch. 7 (virtual networks), Ch. 8 (full), Ch. 9 (full), Ch. 12 (networking problems). Video: Messer 2.2, 2.3, 2.4, 5.5 &mdash; 1 hr 16 min.</p>
+
+            <hr class="section-divider">
+
+            <h2>Week 5 &mdash; September 8 &ndash; 14 &middot; Unit 5: Mobile, Virtualization, and Cloud</h2>
+
+            <h3>Class Meetings</h3>
             <div class="table-container">
                 <table>
-                    <thead><tr><th>Objective</th><th>Title</th><th>Exam Weight of Parent Domain</th></tr></thead>
+                    <thead><tr><th>Date</th><th>Day</th><th>Time</th></tr></thead>
                     <tbody>
-                        <tr><td><strong>3.3</strong></td><td>Memory types and technologies</td><td rowspan="3">Domain 3.0 Hardware &mdash; 25%</td></tr>
-                        <tr><td><strong>3.5</strong></td><td>Motherboards, CPUs, expansion cards, cooling, BIOS/UEFI</td></tr>
-                        <tr><td><strong>3.6</strong></td><td>Power supplies and power specifications</td></tr>
-                        <tr><td><strong>5.1</strong></td><td>Troubleshooting methodology; motherboard, RAM, CPU, and power problems</td><td>Domain 5.0 Troubleshooting &mdash; 28%</td></tr>
+                        <tr><td>Sep 8</td><td>Tuesday</td><td>10:00 AM &ndash; 1:00 PM</td></tr>
+                        <tr><td>Sep 9</td><td>Wednesday</td><td>11:00 AM &ndash; 2:00 PM</td></tr>
+                        <tr><td>Sep 10</td><td>Thursday</td><td>10:00 AM &ndash; 1:00 PM</td></tr>
                     </tbody>
                 </table>
             </div>
 
-            <h2>How This Unit Is Graded</h2>
-            <p>Every item in this unit is worth <strong>100 points</strong> and is awarded in full when it meets the completion standard published on that item's page. Work that falls short is returned for revision and resubmitted for full credit &mdash; it is not partially scored.</p>
-            <p>That structure exists so you can stop calculating your grade and start focusing on the only score that decides anything: the <strong>scaled score on your practice exams</strong>. On the real 220-1201 you need <strong>675 out of 900</strong>. Because the scale starts at 100 rather than zero, that works out to roughly 72% of raw points &mdash; not 75%. We will track that number every week.</p>
+            <h3>Assignments Due</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Due</th><th>Item</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Sun 9/13, 11:59 PM</strong></td><td>NETLAB &mdash; Labs 02 (Windows Management and Administrative Tools), 03 (Windows Customizations), 04 (Windows Control Panel), 18 (Deploy a Virtual Machine with Hyper-V), 20 (Writing Basic Scripts)</td></tr>
+                        <tr><td><strong>Sun 9/13, 11:59 PM</strong></td><td>First full-length practice exam &mdash; 90 items, 90 minutes, timed</td></tr>
+                        <tr><td><strong>Sun 9/13, 11:59 PM</strong></td><td>Reflection &mdash; four Kolb prompts</td></tr>
+                        <tr><td><strong>Mon 9/14, 11:59 PM</strong></td><td>Unit 5 Test &mdash; 25 items</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="callout callout-info">
+                <div class="callout-title">First Practice Exam This Week</div>
+                <div class="callout-content"><p>Take it timed and closed-book. The number that matters is your <strong>scaled score out of 900</strong>, not a raw percentage &mdash; you need 780 or better on two consecutive attempts before scheduling the real exam.</p></div>
+            </div>
+
+            <p class="text-muted">Reading: Sybex Vol. 1 &mdash; Ch. 4 (full), Ch. 10 (full), Ch. 11 (full), Ch. 13 (mobile device issues). Video: Messer 1.1, 1.2, 1.3, 4.1, 4.2, 5.4 &mdash; 1 hr 40 min. Last week of new content.</p>
+
+            <hr class="section-divider">
+
+            <h2>Week 6 &mdash; September 15 &ndash; 17 &middot; Unit 6: Integration and Exam Readiness</h2>
+
+            <h3>Class Meetings</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Date</th><th>Day</th><th>Time</th><th>Focus</th></tr></thead>
+                    <tbody>
+                        <tr><td>Sep 15</td><td>Tuesday</td><td>10:00 AM &ndash; 1:00 PM</td><td>Consolidation, multi-domain troubleshooting scenarios</td></tr>
+                        <tr><td>Sep 16</td><td>Wednesday</td><td>11:00 AM &ndash; 2:00 PM</td><td>Performance-based question practice, targeted review</td></tr>
+                        <tr><td>Sep 17</td><td>Thursday</td><td>10:00 AM &ndash; 1:00 PM</td><td>Final comprehensive exam, A+ scaled scoring &mdash; last class meeting</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Assignments Due</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Due</th><th>Item</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Thu 9/17</strong></td><td>All 14 Performance-Based Questions from Sybex Volume 1</td></tr>
+                        <tr><td><strong>Thu 9/17</strong></td><td>Sybex Assessment Test retake &mdash; compared to Week 1 baseline</td></tr>
+                        <tr><td><strong>Thu 9/17, 11:59 PM</strong></td><td>NETLAB &mdash; Labs 12 (Installing Software), 16 (Troubleshooting Tools in Windows), 17 (Security and Privacy)</td></tr>
+                        <tr><td><strong>Thu 9/17, 11:59 PM</strong></td><td>Two consecutive full-length practice exams &mdash; target 780 scaled or better</td></tr>
+                        <tr><td><strong>Thu 9/17, in class</strong></td><td>Final Comprehensive Exam &mdash; 90 items, 90 minutes, A+ scaled scoring</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">No New Content This Week</div>
+                <div class="callout-content"><p>Everything is due <strong>Thursday 9/17</strong> &mdash; the course ends that day. This week is entirely consolidation, practice, and the final exam. Do not schedule the real 220-1201 exam because the course ended; schedule it because your practice scores say 780 or better, twice.</p></div>
+            </div>
+
+            <p class="text-muted">Reading: second pass &mdash; Exam Essentials and Review Questions for Ch. 1, 2, 12, 13. Video: student-selected re-watch, Messer Study Group replays.</p>
+
+            <hr class="section-divider">
+
+            <h2>Master Deadline List</h2>
+            <p>Every graded due date across the six-week term, in chronological order.</p>
+
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Date</th><th>Week</th><th>Item</th></tr></thead>
+                    <tbody>
+                        <tr><td>Tue 8/11, 11:59 PM</td><td>1</td><td>Lab 1.1 &mdash; Safety and ESD</td></tr>
+                        <tr><td>Wed 8/12, end of class</td><td>1</td><td>Lab 1.0 &mdash; Component Identification</td></tr>
+                        <tr><td>Sun 8/16, 11:59 PM</td><td>1</td><td>NETLAB Labs 01A, 01B &middot; Lab 1.3 Take-Home &middot; Reflection</td></tr>
+                        <tr><td>Mon 8/17, 11:59 PM</td><td>1</td><td>Unit 1 Test</td></tr>
+                        <tr><td>Sun 8/23, 11:59 PM</td><td>2</td><td>NETLAB Labs 13, 14, 11 &middot; Labs &middot; Reflection</td></tr>
+                        <tr><td>Mon 8/24, 11:59 PM</td><td>2</td><td>Unit 2 Test</td></tr>
+                        <tr><td>Sun 8/30, 11:59 PM</td><td>3</td><td>NETLAB Labs 05, 06, 07 &middot; Lab &middot; Reflection</td></tr>
+                        <tr><td>Mon 8/31, 11:59 PM</td><td>3</td><td>Unit 3 Test</td></tr>
+                        <tr><td>Sun 9/6, 11:59 PM</td><td>4</td><td>NETLAB Labs 08, 09, 10, 15, 19 &middot; Lab &middot; Reflection &middot; Unit 4 Test</td></tr>
+                        <tr><td><em>Mon 9/7</em></td><td>&mdash;</td><td><em>Labor Day &mdash; no class, nothing due</em></td></tr>
+                        <tr><td>Sun 9/13, 11:59 PM</td><td>5</td><td>NETLAB Labs 02, 03, 04, 18, 20 &middot; Practice Exam 1 &middot; Reflection</td></tr>
+                        <tr><td>Mon 9/14, 11:59 PM</td><td>5</td><td>Unit 5 Test</td></tr>
+                        <tr><td>Thu 9/17</td><td>6</td><td>All 14 PBQs &middot; Assessment Test retake</td></tr>
+                        <tr><td>Thu 9/17, 11:59 PM</td><td>6</td><td>NETLAB Labs 12, 16, 17 &middot; Practice Exams 2 &amp; 3 (target 780 scaled)</td></tr>
+                        <tr><td>Thu 9/17, in class</td><td>6</td><td>Final Comprehensive Exam</td></tr>
+                    </tbody>
+                </table>
+            </div>
 
             <div class="summary-box">
-                <h3>Unit 1 Checklist</h3>
+                <h3>Course Span</h3>
                 <ul>
-                    <li>Complete the Section 1.2 Pre-Assessment and the Sybex Assessment Test in class on Tuesday 8/11</li>
-                    <li>Read the assigned Sybex sections listed in Section 1.4</li>
-                    <li>Watch the fourteen Professor Messer videos in Section 1.5</li>
-                    <li>Complete Lab 1.1 Safety and ESD on your own time by Tuesday night &mdash; do this before you handle any hardware</li>
-                    <li>Complete the in-class component identification lab and submit the take-home lab</li>
-                    <li><em>Optional:</em> the Lab 1.2 written rebuild sequence walkthrough &mdash; ungraded, and strong preparation for performance-based exam questions</li>
-                    <li>Work the Section 1.7 practice set with confidence marking</li>
-                    <li>Complete NDG A+ v5 Labs 01A and 01B in NETLAB &mdash; reserve your time early in the week</li>
-                    <li>Post your Section 1.9 reflection</li>
-                    <li>Take the Section 1.10 Unit Test by Monday 8/17 at 11:59 PM</li>
+                    <li>18 class meetings, August 11 through September 17, 2026</li>
+                    <li>54 total contact hours</li>
+                    <li>21 NETLAB labs across Units 1 through 6</li>
+                    <li>6 unit tests, 1 mid-course practice exam, 2 final-week practice exams, 1 final comprehensive exam</li>
+                    <li>Certification goal: 220-1201, scaled score of 780 or better on two consecutive practice exams before scheduling</li>
                 </ul>
             </div>
 
         </div>
-
         <footer class="module-footer">
             <p class="footer-text">CompTIA A+ Core 1 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
         </footer>

@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 0: Getting Started | CompTIA A+ Core 1 Training</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Sans+Pro:wght@400;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           CPCC COURSE TEMPLATE - GOLD / CHARCOAL / BLACK
+           CTS-ITS7501-80 CompTIA A+ Core 1 Training
+           Type: true black. Accents: gold. Chrome: charcoal.
+           ============================================ */
+
+        :root {
+            --primary-dark: #4A4A4A;       /* Charcoal - structural chrome only */
+            --primary-main: #B8962E;       /* Warm Gold - primary accent */
+            --primary-light: #D4AF56;      /* Light Gold */
+            --primary-pale: #FBF3DF;       /* Pale Gold wash */
+
+            --accent-teal: #8A6F1F;        /* Deep bronze-gold */
+            --accent-teal-light: #F3E9CE;  /* Pale bronze */
+            --accent-orange: #A9642A;      /* Warm rust */
+            --accent-orange-light: #F5E2CE;
+            --accent-purple: #6B5B3A;      /* Muted umber */
+            --accent-purple-light: #EFE6D2;
+            --accent-green: #4E7A51;
+            --accent-green-light: #DCEBDD;
+
+            --alert-warning: #B8862E;
+            --alert-warning-bg: #FBF0D9;
+            --alert-danger: #A13A3A;
+            --alert-danger-bg: #F6DEDE;
+            --alert-success: #3F6E42;
+            --alert-success-bg: #DCEBDD;
+            --alert-info: #6E5B2E;
+            --alert-info-bg: #F1E9D4;
+
+            --text-black: #000000;         /* All reading text */
+            --neutral-900: #000000;
+            --neutral-700: #000000;
+            --neutral-500: #5A5A5A;
+            --neutral-300: #D9D3C4;
+            --neutral-100: #FAF8F3;
+            --white: #ffffff;
+
+            --font-heading: 'Nunito', sans-serif;
+            --font-body: 'Source Sans Pro', sans-serif;
+            --font-code: 'Fira Code', monospace;
+
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+
+            --shadow-sm: 0 1px 2px rgba(74, 74, 74, 0.08);
+            --shadow-md: 0 4px 6px rgba(74, 74, 74, 0.12);
+            --shadow-lg: 0 10px 20px rgba(74, 74, 74, 0.15);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body), 'Segoe UI', Tahoma, Verdana, sans-serif;
+            font-size: 1.0625rem;
+            line-height: 1.7;
+            color: var(--text-black);
+            background: linear-gradient(135deg, var(--neutral-100) 0%, var(--white) 100%);
+            min-height: 100vh;
+            padding: var(--space-lg);
+        }
+
+        .course-container {
+            max-width: 950px; margin: 0 auto; background: var(--white);
+            border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); overflow: hidden;
+        }
+
+        .module-header {
+            background: var(--primary-main); color: var(--text-black);
+            padding: var(--space-2xl) var(--space-xl); position: relative; overflow: hidden;
+        }
+        .module-label {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 0.875rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 2px;
+            margin-bottom: var(--space-sm); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-title {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 2.25rem; font-weight: 800;
+            line-height: 1.2; margin-bottom: var(--space-md); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-subtitle { font-size: 1.125rem; max-width: 650px; position: relative; z-index: 1; color: var(--text-black); }
+
+        .toc {
+            display: flex; flex-direction: column; gap: var(--space-sm);
+            padding: var(--space-lg) var(--space-xl);
+            background: var(--primary-pale); border-bottom: 1px solid var(--neutral-300);
+        }
+        .toc-item {
+            width: 100%; text-align: left;
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 0.875rem;
+            color: var(--text-black); background: var(--white);
+            border: 2px solid var(--primary-main);
+            padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md);
+        }
+        .toc-item.current { background: var(--primary-main); }
+
+        .content-area { padding: var(--space-xl); }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif;
+            color: var(--text-black); line-height: 1.3; margin-bottom: var(--space-md);
+        }
+        h1 { font-size: 2rem; font-weight: 800; }
+        h2 { font-size: 1.625rem; font-weight: 700; padding-bottom: var(--space-sm);
+             border-bottom: 3px solid var(--primary-main); margin-top: var(--space-xl); margin-bottom: var(--space-lg); }
+        h3 { font-size: 1.375rem; font-weight: 700; margin-top: var(--space-lg);
+             padding-left: var(--space-sm); border-left: 4px solid var(--primary-main); }
+        h4 { font-size: 1.125rem; font-weight: 600; }
+
+        p { margin-bottom: var(--space-md); }
+        strong { font-weight: 700; color: var(--text-black); }
+        em { font-style: italic; color: var(--text-black); }
+
+        a { color: var(--text-black); text-decoration: none; border-bottom: 2px solid var(--primary-main); transition: all 0.2s ease; }
+        a:hover { background: var(--primary-pale); border-bottom-color: var(--accent-teal); }
+
+        ul, ol { margin-bottom: var(--space-md); padding-left: var(--space-lg); }
+        li { margin-bottom: var(--space-sm); }
+        ul li::marker { color: var(--accent-teal); }
+        ol li::marker { color: var(--accent-teal); font-weight: 700; }
+
+        .styled-list { list-style: none; padding-left: 0; }
+        .styled-list li { position: relative; padding-left: var(--space-lg); margin-bottom: var(--space-sm); }
+        .styled-list li::before { content: '\25B8'; position: absolute; left: 0; color: var(--accent-teal); font-weight: bold; }
+
+        .checklist { list-style: none; padding-left: 0; }
+        .checklist li { position: relative; padding-left: 2rem; margin-bottom: var(--space-sm); }
+        .checklist li::before {
+            content: '\2713'; position: absolute; left: 0; width: 1.5rem; height: 1.5rem;
+            background: var(--accent-green-light); color: var(--accent-green);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 0.75rem; font-weight: bold;
+        }
+
+        .objectives-box {
+            background: linear-gradient(135deg, var(--primary-pale) 0%, var(--accent-teal-light) 100%);
+            border-left: 5px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .objectives-box h3 { color: var(--text-black); margin-top: 0; margin-bottom: var(--space-md);
+            display: flex; align-items: center; gap: var(--space-sm); border-left: none; padding-left: 0; }
+        .objectives-box ol { margin-bottom: 0; }
+
+        .tech-box {
+            background: var(--neutral-100); border: 2px solid var(--neutral-500);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .tech-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .tech-box .callout-content { padding-left: 0; }
+
+        .plain-box {
+            background: var(--primary-pale); border: 2px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .plain-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .plain-box .callout-content { padding-left: 0; }
+
+        .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; position: relative; overflow: hidden; }
+        .callout::before { position: absolute; top: var(--space-md); left: var(--space-md); font-size: 1.5rem; }
+        .callout-title { font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 1rem;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
+        .callout-content { }
+        .callout-content p:last-child { margin-bottom: 0; }
+
+        .callout-tip { background: var(--accent-green-light); border-left: 4px solid var(--accent-green); }
+        .callout-warning { background: var(--alert-warning-bg); border-left: 4px solid var(--alert-warning); }
+        .callout-danger { background: var(--alert-danger-bg); border-left: 4px solid var(--alert-danger); }
+        .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
+
+        .key-concept {
+            background: linear-gradient(135deg, var(--accent-purple-light) 0%, var(--white) 100%);
+            border: 2px solid var(--accent-purple); border-radius: var(--radius-lg);
+            padding: var(--space-lg); margin: var(--space-xl) 0 var(--space-lg); position: relative;
+        }
+        .key-concept::before {
+            content: '\1F511 KEY CONCEPT'; position: absolute; top: -12px; left: var(--space-lg);
+            background: var(--accent-purple); color: var(--white); font-family: var(--font-heading), sans-serif;
+            font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-md); border-radius: var(--radius-sm);
+        }
+        .key-concept h4 { color: var(--text-black); margin-top: var(--space-sm); }
+
+        .definition { background: var(--neutral-100); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin: var(--space-md) 0; border-left: 4px solid var(--accent-orange); }
+        .definition-term { font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 1.125rem;
+            color: var(--text-black); margin-bottom: var(--space-xs); }
+        .definition-text { color: var(--text-black); margin-bottom: 0; }
+
+        code { font-family: var(--font-code), Consolas, monospace; font-size: 0.9rem; background: var(--primary-pale);
+            color: var(--text-black); padding: 2px 6px; border-radius: var(--radius-sm); }
+        pre { background: #2E2E2E; color: #f1ece0; padding: var(--space-lg); border-radius: var(--radius-md);
+            overflow-x: auto; margin: var(--space-lg) 0; position: relative; }
+        pre::before {
+            content: 'STEPS'; position: absolute; top: 0; right: 0; background: var(--primary-main); color: var(--text-black);
+            font-family: var(--font-heading), sans-serif; font-size: 0.625rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-sm); border-radius: 0 var(--radius-md) 0 var(--radius-sm);
+        }
+        pre code { background: transparent; color: inherit; padding: 0; font-size: 0.875rem; line-height: 1.6; }
+
+        .table-container { overflow-x: auto; margin: var(--space-lg) 0; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); }
+        table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
+        thead { background: var(--primary-dark); color: var(--white); }
+        th { font-family: var(--font-heading), sans-serif; font-weight: 700; text-align: left; padding: var(--space-md) var(--space-lg); color: var(--white); }
+        td { padding: var(--space-md) var(--space-lg); border-bottom: 1px solid var(--neutral-300); color: var(--text-black); }
+        tbody tr:hover { background: var(--primary-pale); }
+        tbody tr:last-child td { border-bottom: none; }
+
+        .activity-section {
+            background: linear-gradient(135deg, var(--accent-orange-light) 0%, var(--white) 100%);
+            border: 2px dashed var(--accent-orange); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .activity-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg); }
+        .activity-icon { width: 50px; height: 50px; background: var(--accent-orange); border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; }
+        .activity-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700;
+            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
+        .activity-subtitle { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
+
+        .lab-section {
+            background: linear-gradient(135deg, var(--accent-teal-light) 0%, var(--white) 100%);
+            border: 2px solid var(--accent-teal); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .lab-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg);
+            padding-bottom: var(--space-md); border-bottom: 2px solid var(--accent-teal); }
+        .lab-icon { width: 60px; height: 60px; background: var(--accent-teal); border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center; font-size: 1.75rem; flex-shrink: 0; }
+        .lab-title { font-family: var(--font-heading), sans-serif; font-size: 1.375rem; font-weight: 700;
+            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
+        .lab-time { font-size: 0.875rem; color: var(--neutral-500); margin: 0; display: flex; align-items: center; gap: var(--space-xs); }
+        .lab-time::before { content: '\23F1\FE0F'; }
+        .lab-steps { counter-reset: lab-step; list-style: none; padding-left: 0; }
+        .lab-steps li { counter-increment: lab-step; position: relative; padding-left: 3rem; margin-bottom: var(--space-lg); }
+        .lab-steps li::before {
+            content: counter(lab-step); position: absolute; left: 0; width: 2rem; height: 2rem;
+            background: var(--accent-teal); color: var(--white); font-family: var(--font-heading), sans-serif; font-weight: 700;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.875rem;
+        }
+
+        .assessment-section { background: var(--primary-pale); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0; }
+        .assessment-header { text-align: center; margin-bottom: var(--space-xl); }
+        .assessment-header h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .question-block { background: var(--white); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin-bottom: var(--space-lg); box-shadow: var(--shadow-sm); }
+        .question-number { font-family: var(--font-heading), sans-serif; font-size: 0.75rem; font-weight: 700;
+            color: var(--text-black); background: var(--primary-main); display: inline-block;
+            padding: 2px 10px; border-radius: var(--radius-sm);
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); }
+        .question-text { font-weight: 600; color: var(--text-black); margin-bottom: var(--space-md); }
+        details.answer { margin-top: var(--space-sm); }
+        details.answer summary { cursor: pointer; font-weight: 700; color: var(--text-black);
+            font-family: var(--font-heading), sans-serif; font-size: 0.875rem;
+            border-bottom: 2px solid var(--primary-main); display: inline-block; }
+        details.answer .reveal { margin-top: var(--space-sm); padding: var(--space-md);
+            background: var(--accent-green-light); border-radius: var(--radius-sm); color: var(--text-black); }
+
+        .references-section { background: var(--neutral-100); border-radius: var(--radius-lg);
+            padding: var(--space-lg) var(--space-xl); margin: var(--space-xl) 0; border-top: 3px solid var(--primary-main); }
+        .references-section h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .references-section ul { padding-left: var(--space-lg); }
+
+        .summary-box {
+            background: var(--primary-dark); color: var(--white);
+            border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .summary-box h3 { color: var(--white); margin-top: 0; display: flex; align-items: center;
+            gap: var(--space-sm); border-left: none; padding-left: 0; }
+        .summary-box h3::before { content: '\1F4CB'; }
+        .summary-box ul { margin-bottom: 0; }
+        .summary-box li { color: var(--white); }
+        .summary-box li::marker { color: var(--primary-light); }
+
+        .section-divider {
+            border: none; height: 6px; margin: var(--space-2xl) 0;
+            background: linear-gradient(90deg, transparent 0%, var(--primary-main) 15%, var(--primary-light) 50%, var(--primary-main) 85%, transparent 100%);
+            border-radius: var(--radius-sm); box-shadow: var(--shadow-sm);
+        }
+
+        .module-footer { background: var(--primary-dark); padding: var(--space-lg) var(--space-xl);
+            text-align: center; border-top: 4px solid var(--primary-main); }
+        .footer-text { font-size: 0.875rem; color: var(--white); margin: 0; }
+
+        .text-center { text-align: center; }
+        .text-muted { color: var(--neutral-500); }
+        .highlight { background: linear-gradient(180deg, transparent 50%, var(--primary-light) 50%); padding: 0 2px; }
+
+        @media (max-width: 768px) {
+            body { padding: var(--space-sm); }
+            .module-header { padding: var(--space-xl) var(--space-lg); }
+            .module-title { font-size: 1.75rem; }
+            .content-area { padding: var(--space-lg); }
+            h2 { font-size: 1.375rem; }
+            .lab-header, .activity-header { flex-direction: column; align-items: flex-start; }
+        }
+        @media print {
+            body { background: white; padding: 0; }
+            .course-container { box-shadow: none; }
+            .toc { display: none; }
+            details.answer { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="course-container">
+
+        <header class="module-header">
+            <div class="module-label">CompTIA A+ Core 1 Training &middot; 220-1201</div>
+            <h1 class="module-title">Unit 0: Getting Started</h1>
+            <p class="module-subtitle">Course disclaimers, expectations, materials, and logistics. Read this before anything else.</p>
+        </header>
+
+        <nav class="toc">
+            <div class="toc-item">0.1 &mdash; Course Disclaimers (Read First)</div>
+            <div class="toc-item">0.2 &mdash; What This Course Covers</div>
+            <div class="toc-item">0.3 &mdash; Course Schedule and Meeting Times</div>
+            <div class="toc-item">0.4 &mdash; What You're Expected to Do</div>
+            <div class="toc-item">0.5 &mdash; Meet Your Instructor</div>
+            <div class="toc-item">0.6 &mdash; Where You'll Learn</div>
+            <div class="toc-item">0.7 &mdash; Required Course Materials</div>
+            <div class="toc-item">0.8 &mdash; Device and Internet Requirements</div>
+            <div class="toc-item">0.9 &mdash; Using Brightspace</div>
+            <div class="toc-item">0.10 &mdash; Using NETLAB</div>
+            <div class="toc-item">0.11 &mdash; How to Get to Class</div>
+            <div class="toc-item">0.12 &mdash; Get Set Up for Success</div>
+            <div class="toc-item">0.13 &mdash; Video Resources &mdash; Ownership and Permitted Use</div>
+            <div class="toc-item">0.14 &mdash; Knowledge Check</div>
+        </nav>
+
+        <div class="content-area">
+
+            <p class="text-muted">Start here. This page covers the ground rules, the logistics, and the honest limitations of what this course can and cannot do for you. Ten minutes now saves a great deal of confusion later.</p>
+
+            <div class="objectives-box">
+                <h3>Learning Objectives</h3>
+                <p>After completing this unit, you will be able to:</p>
+                <ol>
+                    <li>Explain what this course covers, what it prepares you for, and what it does not guarantee</li>
+                    <li>Identify the course meeting schedule, classroom, and lab locations</li>
+                    <li>List what is expected of you each week as a student in this course</li>
+                    <li>Confirm your credentials, textbook, device, and internet access are ready</li>
+                    <li>Navigate Brightspace to find content, submit work, and check grades</li>
+                    <li>Identify who to contact for instructional, technical, and program-level questions</li>
+                </ol>
+            </div>
+
+            <h2>0.1 &mdash; Course Disclaimers (Read First)</h2>
+            <p>Everything below is here because a student somewhere was surprised by it. None of it is fine print, and all of it is short.</p>
+
+            <div class="callout callout-danger">
+                <div class="callout-title">No Guarantee of Certification</div>
+                <div class="callout-content">
+                    <p>This course prepares you to sit the CompTIA A+ Core 1 (220-1201) certification exam. It does not certify you, and no instructor, institution, or training provider can guarantee a passing result. The exam is administered by CompTIA and scored independently.</p>
+                    <p>What determines your outcome is the work you put in over these six weeks. Students who complete the reading, watch the videos, do the labs, and hit the practice-exam threshold pass at a high rate. Students who skip the out-of-class work generally do not, regardless of how well class went.</p>
+                </div>
+            </div>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">The Official Objectives Are the Final Authority</div>
+                <div class="callout-content">
+                    <p>Course materials, textbook content, and video resources are all interpretations of CompTIA's published exam objectives. Where anything in this course conflicts with the official 220-1201 objectives document, <strong>the official document wins</strong>. Download it free from comptia.org and treat it as your master checklist.</p>
+                    <p>Exam objectives are periodically revised. If CompTIA updates the 220-1201 objectives during our term, we adjust; the certification is a moving target by design.</p>
+                </div>
+            </div>
+
+            <div class="callout callout-info">
+                <div class="callout-title">Third-Party Resources and Trademarks</div>
+                <div class="callout-content">
+                    <p>This course links to freely available training videos produced by Professor Messer (Messer Studios, LLC). Those videos are his independent work, hosted on his site, and are not produced by, affiliated with, or endorsed by this course or your instructor. <strong>See section 0.13, Video Resources &mdash; Ownership and Permitted Use, for the full statement. It is required reading, not boilerplate.</strong></p>
+                    <p>CompTIA, A+, and Network+ are registered trademarks of CompTIA, Inc. Sybex and Wiley marks belong to John Wiley &amp; Sons. All other product names are the property of their respective owners. Their use here is descriptive and implies no endorsement.</p>
+                </div>
+            </div>
+
+            <div class="callout callout-danger">
+                <div class="callout-title">Hands-On Work Carries Real Risk</div>
+                <div class="callout-content">
+                    <p>This course involves working inside live computer hardware. You will be given safety instruction before touching equipment, and you are required to follow it &mdash; anti-static procedures, disconnecting mains power before service, and the absolute rule that <strong>power supplies are never opened by anyone, for any reason</strong>. A PSU holds a lethal charge after it is unplugged.</p>
+                    <p>Do not apply techniques from this course to equipment you do not own or have not been authorized to service. Damage to personal equipment is your responsibility, and lab procedures are written for lab conditions.</p>
+                </div>
+            </div>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">Academic Integrity and Exam Content</div>
+                <div class="callout-content">
+                    <p>CompTIA prohibits the use of unauthorized study materials &mdash; commonly called "brain dumps" &mdash; and candidates found using them face certification revocation and testing suspension. This course uses only authorized materials, and no one here has seen live exam questions. Anyone offering you actual exam content is offering you a permanent ban.</p>
+                </div>
+            </div>
+
+            <div class="callout callout-info">
+                <div class="callout-title">General Guidance vs. Your Specific Course</div>
+                <div class="callout-content">
+                    <p>Sections of this page describe general Brightspace navigation, campus wayfinding, and CPCC course norms. They are not pulled from your specific course shell. Always confirm exact steps, deadlines, and submission requirements against your syllabus and your actual course pages.</p>
+                    <p>If you require accommodations, contact Disability and Accessibility Services (DAS). Accommodations are arranged through DAS, and once approved, I am glad to implement them.</p>
+                </div>
+            </div>
+
+            <h2>0.2 &mdash; What This Course Covers</h2>
+            <p>This course prepares you for the first half of the CompTIA A+ certification &mdash; the <strong>Core 1 exam, 220-1201</strong>. Over six weeks we cover computing hardware, mobile devices, networking fundamentals, virtualization and cloud concepts, and the troubleshooting methodology that ties all of it together.</p>
+
+            <div class="plain-box">
+                <div class="callout-title">In Plain Terms</div>
+                <div class="callout-content">
+                    <p>You will learn what is inside a computer, how computers talk to each other, and how to figure out what is wrong when one stops working. It assumes you have never opened a machine in your life. That is the intended starting point, not a problem to apologize for.</p>
+                </div>
+            </div>
+
+            <div class="tech-box">
+                <div class="callout-title">Technical Overview</div>
+                <div class="callout-content">
+                    <p>Instruction maps to the five domains of CompTIA A+ Core 1, exam 220-1201:</p>
+                    <div class="table-container">
+                        <table>
+                            <thead><tr><th>Domain</th><th>Exam Weight</th></tr></thead>
+                            <tbody>
+                                <tr><td>1.0 Mobile Devices</td><td>13%</td></tr>
+                                <tr><td>2.0 Networking</td><td>23%</td></tr>
+                                <tr><td>3.0 Hardware</td><td>25%</td></tr>
+                                <tr><td>4.0 Virtualization and Cloud Computing</td><td>11%</td></tr>
+                                <tr><td>5.0 Hardware and Network Troubleshooting</td><td>28%</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead><tr><th>Exam Fact</th><th>Detail</th></tr></thead>
+                            <tbody>
+                                <tr><td>Question count</td><td>Maximum of 90</td></tr>
+                                <tr><td>Time limit</td><td>90 minutes</td></tr>
+                                <tr><td>Question types</td><td>Multiple-choice and performance-based</td></tr>
+                                <tr><td>Scoring scale</td><td>100 &ndash; 900</td></tr>
+                                <tr><td>Passing score</td><td>675</td></tr>
+                                <tr><td>CompTIA's assumed candidate profile</td><td>~12 months of hands-on IT support experience</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p>This course compresses that twelve-month profile into an accelerated six-week format, supported by structured lab work and a practice-exam mastery threshold.</p>
+                </div>
+            </div>
+
+            <div class="key-concept">
+                <h4>675 Out of 900 Is Not 75%</h4>
+                <p>This surprises nearly everyone, so learn it now. The A+ scale runs from 100 to 900, not from zero. That means the 675 cut score corresponds to roughly <strong>72% of raw points</strong> &mdash; not 75%.</p>
+                <p>It matters because a student sitting at 70% who believes they need 75% thinks they are five points from comfortable. They are actually two points from failing. We track your scaled score all term so that number is never a surprise.</p>
+            </div>
+
+            <h2>0.3 &mdash; Course Schedule and Meeting Times</h2>
+            <p>We meet three days a week for six weeks &mdash; three hours each day. Total scheduled class time is 54 hours.</p>
+
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Day</th><th>Time</th><th>Hours</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Tuesday</strong></td><td>10:00 AM &ndash; 1:00 PM</td><td>3</td></tr>
+                        <tr><td><strong>Wednesday</strong></td><td>11:00 AM &ndash; 2:00 PM</td><td>3</td></tr>
+                        <tr><td><strong>Thursday</strong></td><td>10:00 AM &ndash; 1:00 PM</td><td>3</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Week</th><th>Dates</th><th>Unit</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>1</strong></td><td>Aug 11 &ndash; 17</td><td>Inside the Box</td></tr>
+                        <tr><td><strong>2</strong></td><td>Aug 18 &ndash; 24</td><td>Storage, Displays, and Output</td></tr>
+                        <tr><td><strong>3</strong></td><td>Aug 25 &ndash; 31</td><td>Networking Foundations</td></tr>
+                        <tr><td><strong>4</strong></td><td>Sep 1 &ndash; 7</td><td>Network Services and Configuration</td></tr>
+                        <tr><td><strong>5</strong></td><td>Sep 8 &ndash; 14</td><td>Mobile, Virtualization, and Cloud</td></tr>
+                        <tr><td><strong>6</strong></td><td>Sep 15 &ndash; 17</td><td>Integration and Exam Readiness</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">Attendance Is Not a Formality Here</div>
+                <div class="callout-content">
+                    <p>You are expected to come to class and to be on time. In a six-week accelerated course, one missed session is roughly equivalent to missing two weeks of a traditional semester. Your ability to attend regularly and punctually will dictate a large part of your success.</p>
+                    <p>Attending is also not sufficient on its own. Each week carries specific out-of-class work with its own deadlines, described in the unit pages.</p>
+                </div>
+            </div>
+
+            <div class="callout callout-danger">
+                <div class="callout-title">Know the Time Commitment Before You Commit</div>
+                <div class="callout-content">
+                    <p>Beyond the 9 hours of weekly class time, expect <strong>17 to 19 hours per week</strong> of reading, videos, labs, and practice. That is roughly <strong>26 to 28 hours per week</strong> total, for six straight weeks &mdash; close to a full-time job.</p>
+                    <p>The load is compressed because the certification is worth compressing for. But please look honestly at your schedule now. If this is not survivable alongside your other obligations, come talk to me at the end of the first class rather than in Week 3. There are other sections and other terms, and there is no shame in taking the version that fits your life.</p>
+                </div>
+            </div>
+
+            <h2>0.4 &mdash; What You're Expected to Do</h2>
+            <p>Success here comes down to a handful of consistent habits, repeated weekly:</p>
+            <ul class="checklist">
+                <li>Read your student email once a day</li>
+                <li>Read the course announcements once a day</li>
+                <li>Observe the class schedule and arrive on time</li>
+                <li>Build a personal schedule that gives you room to complete the out-of-class work</li>
+                <li>Take the necessary time to complete your work rather than rushing it at the deadline</li>
+                <li>Ask for help when you need it &mdash; early, not at the last minute</li>
+                <li>Submit your work according to the guidelines for each assignment</li>
+                <li>Follow up on your grades and verify they are correct</li>
+                <li>Read the feedback on every grade you receive</li>
+                <li>Use your CPCC student email to communicate with your instructor</li>
+                <li>Respond to emails or phone calls from the ACT team</li>
+            </ul>
+
+            <div class="callout callout-tip">
+                <div class="callout-title">None of This Is Complicated</div>
+                <div class="callout-content"><p>It is consistency, not brilliance. Students who show up, check their email daily, and ask questions early almost always do well in this course. You've got this.</p></div>
+            </div>
+
+            <h3>How Your Work Is Graded</h3>
+            <p>Every assignment in this course is worth <strong>100 points</strong> and is awarded in full when it meets the completion standard published on that assignment's page. Work that falls short is returned with feedback and resubmitted for full credit &mdash; it is not partially scored.</p>
+            <p>That structure exists so you can stop calculating your grade and focus on the only number that decides anything: your <strong>scaled score on full-length practice exams</strong>. Before I recommend you schedule the real exam, you need <strong>two consecutive practice exams at 780 scaled or better</strong>. That is deliberately well above the 675 cut, leaving margin for test-day nerves and unfamiliar phrasing.</p>
+
+            <h2>0.5 &mdash; Meet Your Instructor</h2>
+            <div class="definition">
+                <div class="definition-term">Mark E. Turner</div>
+                <p class="definition-text">Email: <strong>mark.turner@cpcc.edu</strong> &nbsp;|&nbsp; Office: <strong>LT 5116</strong>, Levine Technology Building, Central Campus</p>
+            </div>
+
+            <div class="callout callout-tip">
+                <div class="callout-title">Reach Out Early</div>
+                <div class="callout-content"><p>Sending a quick email is the easiest way to get unstuck, and I would far rather hear from you in Week 1 than find out in Week 5 that something has been unclear the whole time. "Hi Mark, I have a question about..." is more than enough to get started.</p></div>
+            </div>
+
+            <h2>0.6 &mdash; Where You'll Learn</h2>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Location</th><th>Room</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Classroom</strong></td><td>Levine Technology Building, Room LT 5130</td></tr>
+                        <tr><td><strong>A+ Lab</strong></td><td>Levine Technology Building, Room LT 5135</td></tr>
+                        <tr><td><strong>Instructor Office</strong></td><td>Levine Technology Building, Room LT 5116</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>Room numbers beginning with "51" are on the <strong>5th floor</strong>. The leading digit of a CPCC room number tells you the floor.</p>
+
+            <div class="callout callout-tip">
+                <div class="callout-title">Use the A+ Lab</div>
+                <div class="callout-content"><p>LT 5135 exists for you. Extra hands-on practice outside class time is the single best way to build confidence before an assessment, and this course has more hands-on content than most.</p><p><strong>A+ Lab hours are limited.</strong> The posted schedule will be shared in class during Week 2 &mdash; plan your optional lab work around it rather than assuming the room is open.</p></div>
+            </div>
+
+            <h2>0.7 &mdash; Required Course Materials</h2>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Item</th><th>Details</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Textbook</strong></td><td><em>CompTIA A+ Complete Certification Kit: Core 1 Exam 220-1201 and Core 2 Exam 220-1202</em> (Sybex). ISBN-13 978-1394350056. We use <strong>Volume 1</strong> only.</td></tr>
+                        <tr><td><strong>Video resource</strong></td><td>Professor Messer's free 220-1201 course &mdash; no purchase, no account required</td></tr>
+                        <tr><td><strong>Exam objectives</strong></td><td>Official CompTIA 220-1201 objectives PDF &mdash; free from comptia.org</td></tr>
+                        <tr><td><strong>NETLAB+</strong></td><td>Remote lab platform for the NDG A+ v5 lab series. No purchase &mdash; accessed through Brightspace. See section 0.10.</td></tr>
+                        <tr><td><strong>Credentials</strong></td><td>Working CPCC login and student email access</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="callout callout-info">
+                <div class="callout-title">Getting Your Textbook</div>
+                <div class="callout-content"><p>You will receive your textbook from the ACT course coordinators, <strong>Destiny or Jennifer</strong>. You do not need to purchase one separately. Reach out to either coordinator if you have not received yours or have questions about course materials.</p></div>
+            </div>
+
+            <h2>0.8 &mdash; Device and Internet Requirements</h2>
+            <p>If you already own a laptop or desktop, plan to use it for this class.</p>
+
+            <div class="callout callout-danger">
+                <div class="callout-title">Chromebooks Cannot Be Used</div>
+                <div class="callout-content"><p>Chromebooks run a limited operating system that is not compatible with the software and hands-on labs this course requires. You will need a full <strong>Windows, macOS, or Linux</strong> laptop or desktop. If this is a barrier, contact me or the ACT coordinators before the term starts &mdash; do not simply hope it works out.</p></div>
+            </div>
+
+            <p>You also need reliable <strong>broadband internet at home</strong> to stream instructional content and submit assignments. A weak connection makes it difficult to keep up with the out-of-class work, which is the majority of this course.</p>
+
+            <h2>0.9 &mdash; Using Brightspace</h2>
+            <div class="plain-box">
+                <div class="callout-title">In Plain Terms</div>
+                <div class="callout-content"><p>Brightspace is the website where your class actually lives &mdash; readings, assignments, quizzes, grades, and messages, all in one place.</p></div>
+            </div>
+
+            <h3>Getting In</h3>
+            <pre><code>1. Go to https://www.cpcc.edu in your browser.
+2. Find and click the student login link (often labeled "MyCollege" or "Brightspace").
+3. Log in with your CPCC student username and password.
+4. You land on your Brightspace homepage, showing your enrolled courses.</code></pre>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">Do Not Guess Repeatedly</div>
+                <div class="callout-content"><p>If you cannot remember your username or password, too many failed attempts will lock your account. Contact the CPCC IT Help Desk for a reset rather than trying variations.</p></div>
+            </div>
+
+            <h3>Finding Your Way Around</h3>
+            <ul class="styled-list">
+                <li><strong>Announcements</strong> &mdash; the course feed. Check this first, every time you log in.</li>
+                <li><strong>Content</strong> &mdash; readings, videos, and weekly modules, organized by unit</li>
+                <li><strong>Assignments (Dropbox)</strong> &mdash; where you upload files for grading</li>
+                <li><strong>Quizzes</strong> &mdash; pre-assessments, unit tests, and practice exams</li>
+                <li><strong>Discussions</strong> &mdash; reflection posts and peer responses</li>
+                <li><strong>Grades</strong> &mdash; scores and feedback as they are posted</li>
+                <li><strong>Calendar</strong> &mdash; upcoming due dates across all your courses</li>
+            </ul>
+
+            <div class="callout callout-tip">
+                <div class="callout-title">Confirm Every Submission</div>
+                <div class="callout-content"><p>After uploading a file, look for a confirmation message or email receipt. If you do not see one, <strong>it was not turned in</strong>. And submit a little early &mdash; slow WiFi at 11:58 PM has cost many students a late penalty they did not deserve.</p></div>
+            </div>
+
+            <h2>0.10 &mdash; Using NETLAB</h2>
+
+            <p>Part of your hands-on work in this course happens in <strong>NETLAB+</strong>, a remote lab platform you reach through your browser. It is where you will complete the NDG A+ v5 lab series &mdash; real systems, not simulations.</p>
+
+            <div class="plain-box">
+                <div class="callout-title">In Plain Terms</div>
+                <div class="callout-content"><p>NETLAB hands you a real computer over the internet for a scheduled block of time. You book a slot, do the lab, and when your time is up the system wipes the machine clean for the next student. You cannot permanently break anything, which is the whole point.</p></div>
+            </div>
+
+            <div class="tech-box">
+                <div class="callout-title">Technical Overview</div>
+                <div class="callout-content"><p>NETLAB+ provisions pods of physical and virtual equipment to reservation-based student sessions. Each pod is allocated exclusively for the duration of the reservation and reset to a clean baseline on release. Because pods are finite and allocated per course, availability is genuinely constrained near deadlines.</p></div>
+            </div>
+
+            <h3>Getting In</h3>
+            <ol class="lab-steps">
+                <li><strong>Always launch from Brightspace.</strong> Each lab has its own link inside the unit that assigns it. Do not navigate to the NETLAB site directly &mdash; launching from the course shell is what associates your session with this class and your roster entry.</li>
+                <li><strong>Make a reservation.</strong> Choose a date and time window. NETLAB allocates a pod to you for exactly that period.</li>
+                <li><strong>Read the worksheet before your window opens.</strong> Worksheets live in the <strong>NETLAB &mdash; Lab Worksheets</strong> folder under Coursework in Brightspace, and inside NETLAB itself. Reading during your reservation burns time you paid for.</li>
+                <li><strong>Complete the lab in one continuous session,</strong> capturing screenshots as you go.</li>
+                <li><strong>Submit screenshots</strong> to the matching lab quiz in Brightspace.</li>
+            </ol>
+
+            <div class="callout callout-danger">
+                <div class="callout-title">One Session, No Save Point</div>
+                <div class="callout-content">
+                    <p><strong>If your reservation expires mid-lab, the environment resets and you begin again from step one.</strong> There is no pause, no saved progress, and no partial completion.</p>
+                    <p>Book generously. If a lab is estimated at 1.25 hours, reserve two. Finishing early costs you nothing; running out costs you the entire attempt.</p>
+                </div>
+            </div>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">Pods Are Limited &mdash; Reserve Early</div>
+                <div class="callout-content">
+                    <p>This course has a finite number of lab pods. When the whole class books the same Sunday night, the slots are simply gone, and the deadline does not move because a reservation was unavailable.</p>
+                    <p>Book your window early in the week. This is the most common avoidable way students lose points.</p>
+                </div>
+            </div>
+
+            <h3>Screenshots &mdash; How Labs Get Graded</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Requirement</th><th>Detail</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>What to capture</strong></td><td>Every screenshot the worksheet specifically calls for, showing all information that step asks you to demonstrate</td></tr>
+                        <tr><td><strong>Timestamp</strong></td><td>The NETLAB date and time stamp and your reservation must be visible</td></tr>
+                        <tr><td><strong>How to submit</strong></td><td>Open the screenshot, right-click, copy, and <strong>paste directly into the question field</strong> of the lab quiz</td></tr>
+                        <tr><td><strong>How not to submit</strong></td><td>Not as an attached file, not by email, not via cloud storage link</td></tr>
+                        <tr><td><strong>Verify</strong></td><td>You should see the image inside the question field before saving. No image means no submission.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>Improperly submitted screenshots cannot receive credit or partial credit. Capture each one at the moment the worksheet asks &mdash; going back for them later is not possible once the environment moves on.</p>
+
+            <div class="callout callout-danger">
+                <div class="callout-title">Lab Tools Stay Inside NETLAB</div>
+                <div class="callout-content">
+                    <p><strong>Do not attempt lab procedures on the CPCC network, on college equipment, or on any system or network you do not own.</strong> Techniques that are appropriate inside an isolated lab may violate federal or state law, or institutional acceptable use policy, when applied anywhere else.</p>
+                    <p>The NETLAB virtual machines exist so you have a lawful, isolated place to practice. You are solely responsible for compliance if you take these techniques outside that environment.</p>
+                </div>
+            </div>
+
+            <div class="callout callout-info">
+                <div class="callout-title">Who to Contact</div>
+                <div class="callout-content"><p>For anything NETLAB-related &mdash; access, reservations, pods, lab content &mdash; contact <strong>your instructor</strong>. Do not contact CPCC ITS; they do not manage this resource and will send you back to me. ITS handles Brightspace and student email only.</p></div>
+            </div>
+
+            <div class="callout callout-tip">
+                <div class="callout-title">Reattempts Are Allowed</div>
+                <div class="callout-content"><p>You may repeat any lab as many times as you like before its deadline. Each attempt needs its own reservation. If a lab goes badly the first time, that is normal and it is not a problem &mdash; book another slot and run it again.</p></div>
+            </div>
+
+            <h2>0.11 &mdash; How to Get to Class</h2>
+            <div class="definition">
+                <div class="definition-term">CPCC Central Campus</div>
+                <p class="definition-text">1201 Elizabeth Avenue, Charlotte, NC 28204 &mdash; in Uptown Charlotte. Enter this address into any maps app for live turn-by-turn directions.</p>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Starting From</th><th>General Route</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Denver, NC</strong></td><td>NC-16 South (Brookshire Freeway) into Uptown Charlotte, then follow signs toward Elizabeth Avenue / Central Campus.</td></tr>
+                        <tr><td><strong>Huntersville, NC</strong></td><td>I-77 South into Uptown, exit toward Uptown, then surface streets east to Elizabeth Avenue.</td></tr>
+                        <tr><td><strong>Concord, NC</strong></td><td>I-85 South to I-277 South (John Belk Freeway) toward Uptown, then follow signs toward Elizabeth Avenue.</td></tr>
+                        <tr><td><strong>Matthews, NC</strong></td><td>US-74 West (Independence Blvd) toward Uptown, then follow signs toward Elizabeth Avenue.</td></tr>
+                        <tr><td><strong>South Carolina</strong></td><td>I-77 North into Uptown, exit toward the Uptown business district, then surface streets east to Elizabeth Avenue.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">Confirm With GPS Before You Leave</div>
+                <div class="callout-content"><p>These are general highway routes. Traffic patterns, construction, and closures change constantly. Always confirm turn-by-turn directions with a maps app. For parking and the campus map, visit <code>https://www.cpcc.edu/locations</code> and select Central Campus.</p></div>
+            </div>
+
+            <h3>Finding Room LT 5130</h3>
+            <ul class="styled-list">
+                <li>Enter the Levine Technology building through the main entrance</li>
+                <li>Take the elevator or stairwell to the <strong>5th floor</strong></li>
+                <li>Fifth-floor room numbers begin with "51" &mdash; follow signage to LT 5130</li>
+                <li>If unsure, ask at the nearest welcome desk for directions to LT 5130</li>
+            </ul>
+
+            <div class="lab-section">
+                <div class="lab-header">
+                    <div class="lab-icon">&#128300;</div>
+                    <div>
+                        <h3 class="lab-title">0.12 &mdash; Get Set Up for Success</h3>
+                        <p class="lab-time">Estimated Time: 20 minutes</p>
+                    </div>
+                </div>
+                <p>Work through these before the first session if you can. If you are reading this on day one, that is fine too &mdash; we will make time.</p>
+                <ol class="lab-steps">
+                    <li><strong>Log in to your CPCC student email</strong> and confirm you can send and receive messages.</li>
+                    <li><strong>Log in to Brightspace</strong> with the same credentials and confirm this course appears in your list.</li>
+                    <li><strong>Add the class schedule to your personal calendar</strong> &mdash; Tuesday 10:00&ndash;1:00, Wednesday 11:00&ndash;2:00, Thursday 10:00&ndash;1:00, August 11 through September 17.</li>
+                    <li><strong>Save your instructor's contact information</strong> &mdash; Mark E. Turner, mark.turner@cpcc.edu, Office LT 5116.</li>
+                    <li><strong>Check your textbook status.</strong> If you have not received one, email Destiny or Jennifer.</li>
+                    <li><strong>Confirm your device</strong> is a laptop or desktop running Windows, macOS, or Linux &mdash; not a Chromebook.</li>
+                    <li><strong>Download the official CompTIA 220-1201 exam objectives</strong> from comptia.org. This is your master checklist for the whole term.</li>
+                    <li><strong>Read section 0.10 on NETLAB</strong> so you understand reservations and screenshot requirements before your first lab in Week 1.</li>
+                    <li><strong>Send a short introductory email</strong> letting me know you are ready to start.</li>
+                </ol>
+                <div class="callout callout-tip">
+                    <div class="callout-title">Check Your Work</div>
+                    <div class="callout-content"><p>You are set up if you can log into both email and Brightspace, your calendar shows the class schedule, you know your textbook plan, your device meets requirements, and you have the objectives PDF saved somewhere you will find it again.</p></div>
+                </div>
+            </div>
+
+            <h2>0.13 &mdash; Video Resources &mdash; Ownership and Permitted Use</h2>
+
+            <p>This course assigns approximately ten hours of video instruction across six weeks. <strong>Every one of those videos belongs to someone else.</strong> This section explains who owns them, what you are permitted to do with them, what you are not, and what happens if that line is crossed. Read it once, carefully. It is the only section of this course where the consequences reach past your grade.</p>
+
+            <div class="callout callout-danger">
+                <div class="callout-title">Statement of Ownership</div>
+                <div class="callout-content">
+                    <p>All video content assigned in this course is the exclusive property of <strong>Messer Studios, LLC</strong>, published at <strong>professormesser.com</strong>. Copyright &copy; Messer Studios, LLC. <strong>All rights reserved.</strong></p>
+                    <p>"Professor Messer" and the Professor Messer logo are <strong>registered trademarks of Messer Studios, LLC</strong>.</p>
+                    <p>Neither this course, your instructor, Charlotte Academy of Technology Services, nor Central Piedmont Community College owns, licenses, sublicenses, distributes, or holds any interest whatsoever in this material. We link to it. That is the entire extent of our relationship to it.</p>
+                </div>
+            </div>
+
+            <div class="definition">
+                <div class="definition-term">What "All Rights Reserved" Actually Means</div>
+                <p class="definition-text">The copyright holder retains every exclusive right granted under copyright law &mdash; reproduction, distribution, public display, public performance, and the preparation of derivative works. Nothing is waived. Being able to watch something at no cost is <strong>not</strong> a transfer of any of those rights. Free to view and free to use are entirely different legal conditions, and confusing the two is the most common way well-meaning people commit infringement.</p>
+            </div>
+
+            <h3>What You Are Permitted To Do</h3>
+            <p>Messer Studios makes the 220-1201 course available to stream at no charge. Within that offering, you may:</p>
+            <ul class="checklist">
+                <li>Stream any video directly from professormesser.com, as many times as you like, at no cost</li>
+                <li>Take your own written notes while watching, in your own words</li>
+                <li>Share the <em>link</em> to a video with a classmate, study group, or anyone else</li>
+                <li>Reference a video by title and objective number in your assignments and notes</li>
+                <li>Purchase licensed downloadable copies, audio versions, and course notes directly from Messer Studios if you want offline access</li>
+            </ul>
+
+            <div class="callout callout-tip">
+                <div class="callout-title">Want It Offline? There Is a Legitimate Path</div>
+                <div class="callout-content"><p>Messer Studios sells downloadable video, an audio-only version, and PDF course notes through its Success Bundle. If you commute, travel, or have unreliable internet, <strong>buy the download</strong>. It is the supported, lawful way to get offline access, and the purchase is what keeps the free streaming course funded.</p></div>
+            </div>
+
+            <h3>What You Are Prohibited From Doing</h3>
+            <p>The following are prohibited by this course and, independently, may constitute copyright infringement regardless of any course policy:</p>
+            <ul class="styled-list">
+                <li><strong>Downloading, ripping, or capturing</strong> videos through browser extensions, screen recorders, third-party downloader sites, or any other tool</li>
+                <li><strong>Re-uploading or re-hosting</strong> any video to YouTube, a personal site, cloud storage, a file locker, a torrent, or any other platform</li>
+                <li><strong>Redistributing</strong> copies by email, USB drive, AirDrop, Discord, group chat, or any other means &mdash; including to classmates, and including for free</li>
+                <li><strong>Embedding</strong> the videos in any LMS, presentation, course shell, or website in a way that reproduces or frames the content rather than linking to his site</li>
+                <li><strong>Creating derivative works</strong> &mdash; edited compilations, clipped highlights, translations, dubbed or subtitled versions, transcriptions published or circulated as documents, or AI-generated summaries distributed to others</li>
+                <li><strong>Transcribing videos verbatim</strong> and circulating the transcript as a study guide. A word-for-word transcript is a reproduction of the underlying work, not an original note.</li>
+                <li><strong>Removing, obscuring, or altering</strong> any copyright notice, watermark, logo, or attribution</li>
+                <li><strong>Commercial use of any kind</strong> &mdash; using the videos in paid training, corporate onboarding, tutoring you charge for, or any revenue-generating context</li>
+                <li><strong>Circumventing</strong> any access control or technological protection measure</li>
+                <li><strong>Seeking out pirated copies</strong> already uploaded elsewhere, or directing classmates to them</li>
+            </ul>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">"But It's Free" Is Not a Defense</div>
+                <div class="callout-content">
+                    <p>This is the misunderstanding that gets people in trouble, so it is worth stating plainly. A copyright owner who chooses to distribute a work at no cost gives up <strong>none</strong> of their exclusive rights. Zero price and zero restrictions are unrelated concepts.</p>
+                    <p>Downloading a free video and re-uploading it elsewhere is precisely as infringing as doing the same to a paid one. The absence of a paywall is a business decision, not a license.</p>
+                </div>
+            </div>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">"It's for Education" Is Also Not a Blanket Defense</div>
+                <div class="callout-content">
+                    <p>Fair use is a fact-specific legal doctrine assessed case by case under four statutory factors, and educational purpose is only one consideration within one of those factors. It is not a checkbox that authorizes copying, and it does not permit wholesale reproduction and redistribution of an entire commercially valuable work.</p>
+                    <p>Nobody in this course &mdash; including your instructor &mdash; is in a position to tell you a particular use qualifies as fair use. Do not treat "educational" as permission.</p>
+                </div>
+            </div>
+
+            <h3>Potential Legal Consequences</h3>
+            <p>Copyright infringement in the United States carries civil and, in some circumstances, criminal exposure. In general terms:</p>
+
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Mechanism</th><th>What It Can Mean</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Civil liability</strong></td><td>A copyright owner may sue for actual damages plus the infringer's profits, or elect statutory damages instead. Under 17 U.S.C. &sect; 504(c), statutory damages generally range up to $30,000 per work infringed, rising to as much as $150,000 per work where infringement is found to be willful.</td></tr>
+                        <tr><td><strong>Attorney's fees and costs</strong></td><td>Under 17 U.S.C. &sect; 505, a court may award costs and reasonable attorney's fees to the prevailing party. These frequently exceed the damages themselves.</td></tr>
+                        <tr><td><strong>Injunctive relief</strong></td><td>A court may order infringing material removed and prohibit further distribution.</td></tr>
+                        <tr><td><strong>DMCA takedown</strong></td><td>Under 17 U.S.C. &sect; 512, the owner may compel platforms to remove infringing uploads. Repeat notices commonly trigger account termination under platform repeat-infringer policies.</td></tr>
+                        <tr><td><strong>DMCA anti-circumvention</strong></td><td>17 U.S.C. &sect; 1201 separately prohibits circumventing technological protection measures &mdash; a violation that can attach independently of whether the underlying copying is infringing.</td></tr>
+                        <tr><td><strong>Criminal exposure</strong></td><td>17 U.S.C. &sect; 506 and 18 U.S.C. &sect; 2319 provide criminal penalties, including fines and imprisonment, for willful infringement meeting specified thresholds &mdash; including certain non-commercial distribution.</td></tr>
+                        <tr><td><strong>Trademark exposure</strong></td><td>Unauthorized use of the "Professor Messer" name or logo &mdash; particularly in any way suggesting affiliation, sponsorship, or endorsement &mdash; may give rise to claims under the Lanham Act separate from any copyright claim.</td></tr>
+                        <tr><td><strong>Institutional consequences</strong></td><td>Infringement conducted using college accounts, networks, or equipment may additionally violate acceptable-use and academic integrity policies, with sanctions up to and including removal from the program.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="callout callout-danger">
+                <div class="callout-title">This Is Not Legal Advice</div>
+                <div class="callout-content">
+                    <p>Your instructor is not an attorney, and nothing on this page is legal advice or a legal opinion. Statutory citations are provided for general awareness only; copyright law is complex, fact-dependent, and subject to change, and outcomes vary by jurisdiction and circumstance. If you have a specific question about a specific use, consult a qualified attorney &mdash; not your instructor, not a classmate, and not an internet forum.</p>
+                    <p>The authoritative statement of what you may do with this content is Messer Studios' own Terms of Service, published at professormesser.com. Where anything on this page conflicts with those terms, <strong>their terms govern</strong>.</p>
+                </div>
+            </div>
+
+            <h3>Course Policy and Enforcement</h3>
+            <ul class="styled-list">
+                <li>All video assignments in this course link directly to professormesser.com. <strong>No copies are hosted, mirrored, or distributed by this course</strong>, and none will be provided on request.</li>
+                <li>Do not ask your instructor for downloaded copies. The answer is no, and the request will not be treated as innocent twice.</li>
+                <li>Sharing downloaded course videos with classmates &mdash; even helpfully, even for free &mdash; is a violation of this course's academic integrity expectations independent of any legal question.</li>
+                <li>If you encounter pirated copies of this material, do not use them and do not circulate the link. You may report them to Messer Studios through the contact page on his site.</li>
+                <li>Suspected infringement involving college accounts, networks, or equipment will be referred to the appropriate institutional office.</li>
+            </ul>
+
+            <div class="key-concept">
+                <h4>Why This Section Exists At All</h4>
+                <p>Professor Messer gives away a complete, professionally produced certification course &mdash; 63 videos, over ten hours, no account, no paywall, no catch. That is genuinely unusual, and it is the reason this course can assign high-quality video instruction without adding a cost to your materials list.</p>
+                <p>That arrangement holds only as long as people use it the way it was offered. Every ripped upload and mirrored copy erodes the model that makes free access viable for the next cohort of students who cannot afford a paid course. Protecting his ownership is not bureaucratic caution. It is the reason the resource is still there for you.</p>
+                <p>Watch on his site. Link, do not copy. Buy the download if you need it offline. That is the whole ask.</p>
+            </div>
+
+            <div class="assessment-section">
+                <div class="assessment-header">
+                    <h3>&#128221; 0.14 &mdash; Unit 0 Knowledge Check</h3>
+                    <p>Try these before moving on. Click to reveal each answer.</p>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-number">Question 1</div>
+                    <p class="question-text">What certification exam does this course prepare you for, and over how many weeks?</p>
+                    <details class="answer"><summary>Reveal Answer</summary><div class="reveal">CompTIA A+ <strong>Core 1, exam 220-1201</strong> &mdash; the first of the two exams required for A+ certification. The course runs six weeks.</div></details>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-number">Question 2</div>
+                    <p class="question-text">Does completing this course certify you?</p>
+                    <details class="answer"><summary>Reveal Answer</summary><div class="reveal"><strong>No.</strong> The course prepares you to sit the exam. CompTIA administers and scores it independently, and no course can guarantee a passing result.</div></details>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-number">Question 3</div>
+                    <p class="question-text">Course materials say one thing and CompTIA's official objectives say another. Which do you follow?</p>
+                    <details class="answer"><summary>Reveal Answer</summary><div class="reveal">The <strong>official CompTIA 220-1201 objectives document</strong>. All course materials are interpretations of it; the objectives are the authority.</div></details>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-number">Question 4</div>
+                    <p class="question-text">What score do you need to pass the 220-1201 exam, and what percentage of raw points does that represent?</p>
+                    <details class="answer"><summary>Reveal Answer</summary><div class="reveal"><strong>675 out of 900.</strong> Because the scale starts at 100 rather than zero, that is approximately <strong>72%</strong> of raw points &mdash; not 75%.</div></details>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-number">Question 5</div>
+                    <p class="question-text">Roughly how many hours per week should you plan for, including class time?</p>
+                    <details class="answer"><summary>Reveal Answer</summary><div class="reveal">About <strong>26 to 28 hours</strong> &mdash; 9 hours of class plus 17 to 19 hours of reading, videos, labs, and practice.</div></details>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-number">Question 6</div>
+                    <p class="question-text">Can you use a Chromebook for this class?</p>
+                    <details class="answer"><summary>Reveal Answer</summary><div class="reveal"><strong>No.</strong> Chromebooks run a limited operating system incompatible with the labs. You need a full Windows, macOS, or Linux laptop or desktop.</div></details>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-number">Question 7</div>
+                    <p class="question-text">Who do you contact for your textbook, and who for a Brightspace login problem?</p>
+                    <details class="answer"><summary>Reveal Answer</summary><div class="reveal">Textbooks come from the <strong>ACT course coordinators, Destiny or Jennifer</strong>. Login and platform issues go to the <strong>CPCC IT Help Desk</strong> &mdash; not to your instructor.</div></details>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-number">Question 8</div>
+                    <p class="question-text">Where is the classroom, and where is the A+ Lab?</p>
+                    <details class="answer"><summary>Reveal Answer</summary><div class="reveal">Classroom: <strong>Levine Technology Building, Room LT 5130</strong>. A+ Lab: <strong>LT 5135</strong>. Both are on the 5th floor. A+ Lab hours are limited and will be posted in class during Week 2.</div></details>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-number">Question 9</div>
+                    <p class="question-text">You uploaded a file to an assignment folder. How do you know it actually submitted?</p>
+                    <details class="answer"><summary>Reveal Answer</summary><div class="reveal">You receive a <strong>confirmation message or email receipt</strong>. No confirmation means the file was not turned in.</div></details>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-number">Question 10</div>
+                    <p class="question-text">A classmate downloaded the Professor Messer videos and offers to share the files with you. The videos are free to watch online. Is accepting them acceptable?</p>
+                    <details class="answer"><summary>Reveal Answer</summary><div class="reveal"><strong>No.</strong> The videos are the exclusive property of Messer Studios, LLC, all rights reserved. Free streaming access is not a license to download, copy, or redistribute. Both sharing and accepting the files violate course policy and may constitute copyright infringement. Stream from professormesser.com, or purchase the licensed download from his site.</div></details>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-number">Question 11</div>
+                    <p class="question-text">Your NETLAB reservation expires while you are two-thirds through a lab. What happens?</p>
+                    <details class="answer"><summary>Reveal Answer</summary><div class="reveal">The environment <strong>resets and you start over from the beginning</strong>. There is no pause, no saved progress, and no partial completion. Always reserve a window longer than the estimated lab time.</div></details>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-number">Question 12</div>
+                    <p class="question-text">Someone offers to sell you actual questions from the live 220-1201 exam. What happens if you use them?</p>
+                    <details class="answer"><summary>Reveal Answer</summary><div class="reveal">CompTIA prohibits unauthorized study materials. Candidates found using them face <strong>certification revocation and suspension from future testing</strong>. It is not worth it, and it does not work.</div></details>
+                </div>
+            </div>
+
+            <div class="summary-box">
+                <h3>Before Unit 1 Begins</h3>
+                <ul>
+                    <li>You understand that this course prepares you for the exam but cannot guarantee a pass</li>
+                    <li>The official CompTIA objectives are your final authority on content</li>
+                    <li>Safety rules in the lab are mandatory, and power supplies are never opened</li>
+                    <li>You know the schedule: T 10&ndash;1, W 11&ndash;2, TH 10&ndash;1, August 11 through September 17</li>
+                    <li>You have realistically assessed the 26 to 28 hour weekly commitment</li>
+                    <li>Email and Brightspace access confirmed, textbook plan known, device verified</li>
+                    <li>You know who to contact: instructor for course questions, ACT coordinators for materials, IT Help Desk for logins</li>
+                </ul>
+            </div>
+
+            <div class="references-section">
+                <h3>Go Further</h3>
+                <ul>
+                    <li>Your instructor, Mark E. Turner (mark.turner@cpcc.edu) &mdash; any course question, any time</li>
+                    <li>The ACT team, Destiny or Jennifer &mdash; textbooks, course access, and program-level questions</li>
+                    <li>CPCC IT Help Desk &mdash; student email and Brightspace login issues</li>
+                    <li>Disability and Accessibility Services (DAS) &mdash; academic accommodations</li>
+                    <li>CompTIA official 220-1201 exam objectives (comptia.org) &mdash; free, and the authority on everything tested</li>
+                    <li>Messer Studios Terms of Service (professormesser.com) &mdash; the authoritative statement of permitted use for all assigned video content</li>
+                    <li><a href="https://www.professormesser.com/free-a-plus-training/220-1201/220-1201-video/220-1201-training-course/" target="_blank" rel="noopener">Professor Messer's free 220-1201 Core 1 training course</a> &mdash; all 63 videos, no cost</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <footer class="module-footer">
+            <p class="footer-text">CompTIA A+ Core 1 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
+        </footer>
+    </div>
+</body>
+</html>
