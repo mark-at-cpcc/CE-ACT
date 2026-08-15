@@ -238,64 +238,74 @@
             color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
         .activity-subtitle { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
 
-        .lab-section {
-            background: linear-gradient(135deg, var(--accent-teal-light) 0%, var(--white) 100%);
-            border: 2px solid var(--accent-teal); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
-        }
-        .lab-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg);
-            padding-bottom: var(--space-md); border-bottom: 2px solid var(--accent-teal); }
-        .lab-icon { width: 60px; height: 60px; background: var(--accent-teal); border-radius: var(--radius-md);
-            display: flex; align-items: center; justify-content: center; font-size: 1.75rem; flex-shrink: 0; }
-        .lab-title { font-family: var(--font-heading), sans-serif; font-size: 1.375rem; font-weight: 700;
-            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
-        .lab-time { font-size: 0.875rem; color: var(--neutral-500); margin: 0; display: flex; align-items: center; gap: var(--space-xs); }
-        .lab-time::before { content: '\23F1\FE0F'; }
-        .lab-steps { counter-reset: lab-step; list-style: none; padding-left: 0; }
-        .lab-steps li { counter-increment: lab-step; position: relative; padding-left: 3rem; margin-bottom: var(--space-lg); }
-        .lab-steps li::before {
-            content: counter(lab-step); position: absolute; left: 0; width: 2rem; height: 2rem;
-            background: var(--accent-teal); color: var(--white); font-family: var(--font-heading), sans-serif; font-weight: 700;
-            border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.875rem;
-        }
-
         .assessment-section { background: var(--primary-pale); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0; }
         .assessment-header { text-align: center; margin-bottom: var(--space-xl); }
         .assessment-header h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
         .question-block { background: var(--white); border-radius: var(--radius-md); padding: var(--space-lg);
-            margin-bottom: var(--space-lg); box-shadow: var(--shadow-sm); }
+            margin-bottom: var(--space-lg); box-shadow: var(--shadow-sm); border: 2px solid transparent; transition: border-color .15s ease; }
         .question-number { font-family: var(--font-heading), sans-serif; font-size: 0.75rem; font-weight: 700;
             color: var(--text-black); background: var(--primary-main); display: inline-block;
             padding: 2px 10px; border-radius: var(--radius-sm);
             text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); }
         .question-text { font-weight: 600; color: var(--text-black); margin-bottom: var(--space-md); }
-        details.answer { margin-top: var(--space-sm); }
-        details.answer summary { cursor: pointer; font-weight: 700; color: var(--text-black);
-            font-family: var(--font-heading), sans-serif; font-size: 0.875rem;
-            border-bottom: 2px solid var(--primary-main); display: inline-block; }
-        details.answer .reveal { margin-top: var(--space-sm); padding: var(--space-md);
-            background: var(--accent-green-light); border-radius: var(--radius-sm); color: var(--text-black); }
+
+        /* ---- Multiple-choice interactive options ---- */
+        .mc-options { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-sm); }
+        .mc-option {
+            display: flex; align-items: center; gap: var(--space-md); width: 100%; text-align: left;
+            padding: var(--space-sm) var(--space-md); border: 2px solid var(--neutral-300); border-radius: var(--radius-md);
+            background: var(--white); color: var(--text-black); font-family: var(--font-body), sans-serif;
+            font-size: 1rem; cursor: pointer; transition: all 0.15s ease;
+        }
+        .mc-option:hover { border-color: var(--primary-main); background: var(--primary-pale); }
+        .mc-option .mc-letter {
+            flex-shrink: 0; width: 1.75rem; height: 1.75rem; border-radius: 50%;
+            background: var(--neutral-100); border: 2px solid var(--neutral-300);
+            display: flex; align-items: center; justify-content: center;
+            font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 0.85rem; color: var(--text-black);
+        }
+        .mc-option.selected { border-color: var(--primary-main); background: var(--primary-pale); font-weight: 700; }
+        .mc-option.selected .mc-letter { background: var(--primary-main); border-color: var(--primary-main); }
+        .mc-option.graded-correct { border-color: var(--alert-success); background: var(--alert-success-bg); font-weight: 700; }
+        .mc-option.graded-correct .mc-letter { background: var(--alert-success); border-color: var(--alert-success); color: var(--white); }
+        .mc-option.graded-incorrect { border-color: var(--alert-danger); background: var(--alert-danger-bg); }
+        .mc-option.graded-incorrect .mc-letter { background: var(--alert-danger); border-color: var(--alert-danger); color: var(--white); }
+        .mc-option.graded-missed { border-color: var(--alert-success); border-style: dashed; }
+
+        .question-block.unanswered-flag { border-color: var(--alert-warning); }
+        .unanswered-note {
+            display: none; margin-top: var(--space-sm); font-size: 0.875rem; font-weight: 700;
+            color: var(--alert-warning); font-family: var(--font-heading), sans-serif;
+        }
+        .question-block.unanswered-flag .unanswered-note { display: block; }
+
+        .assessment-controls {
+            display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap;
+            margin-top: var(--space-xl); padding-top: var(--space-lg); border-top: 2px solid var(--neutral-300);
+        }
+        .btn-grade, .btn-reset {
+            font-family: var(--font-heading), sans-serif; font-weight: 800; font-size: 1rem;
+            padding: var(--space-md) var(--space-2xl); border-radius: var(--radius-md);
+            cursor: pointer; transition: all 0.15s ease; border: 2px solid var(--primary-dark);
+        }
+        .btn-grade { background: var(--primary-main); color: var(--text-black); border-color: var(--primary-main); box-shadow: var(--shadow-sm); }
+        .btn-grade:hover { background: var(--primary-light); }
+        .btn-reset { background: var(--white); color: var(--text-black); }
+        .btn-reset:hover { background: var(--neutral-100); }
+
+        .results-summary {
+            display: none; margin-top: var(--space-xl); padding: var(--space-xl);
+            border-radius: var(--radius-lg); background: var(--primary-dark); color: var(--white); text-align: center;
+        }
+        .results-summary.show { display: block; }
+        .results-score { font-family: var(--font-heading), sans-serif; font-size: 2.5rem; font-weight: 800; color: var(--white); margin-bottom: var(--space-sm); }
+        .results-summary p { color: var(--white); margin-bottom: var(--space-sm); }
+        .results-summary p:last-child { margin-bottom: 0; }
 
         .references-section { background: var(--neutral-100); border-radius: var(--radius-lg);
             padding: var(--space-lg) var(--space-xl); margin: var(--space-xl) 0; border-top: 3px solid var(--primary-main); }
         .references-section h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
         .references-section ul { padding-left: var(--space-lg); }
-
-        .summary-box {
-            background: var(--primary-dark); color: var(--white);
-            border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
-        }
-        .summary-box h3 { color: var(--white); margin-top: 0; display: flex; align-items: center;
-            gap: var(--space-sm); border-left: none; padding-left: 0; }
-        .summary-box h3::before { content: '\1F4CB'; }
-        .summary-box ul { margin-bottom: 0; }
-        .summary-box li { color: var(--white); }
-        .summary-box li::marker { color: var(--primary-light); }
-
-        .section-divider {
-            border: none; height: 6px; margin: var(--space-2xl) 0;
-            background: linear-gradient(90deg, transparent 0%, var(--primary-main) 15%, var(--primary-light) 50%, var(--primary-main) 85%, transparent 100%);
-            border-radius: var(--radius-sm); box-shadow: var(--shadow-sm);
-        }
 
         .module-footer { background: var(--primary-dark); padding: var(--space-lg) var(--space-xl);
             text-align: center; border-top: 4px solid var(--primary-main); }
@@ -311,13 +321,15 @@
             .module-title { font-size: 1.75rem; }
             .content-area { padding: var(--space-lg); }
             h2 { font-size: 1.375rem; }
-            .lab-header, .activity-header { flex-direction: column; align-items: flex-start; }
+            .activity-header { flex-direction: column; align-items: flex-start; }
+            .assessment-controls { flex-direction: column; }
+            .btn-grade, .btn-reset { width: 100%; }
         }
         @media print {
             body { background: white; padding: 0; }
             .course-container { box-shadow: none; }
             .toc { display: none; }
-            details.answer { display: none; }
+            .assessment-controls { display: none; }
         }
     </style>
 </head>
@@ -349,14 +361,14 @@
 
             <div class="callout callout-info">
                 <div class="callout-title">No Preparation Needed</div>
-                <div class="callout-content"><p>Do not study for this and do not attempt it in advance. It measures what you bring with you on day one, which for most of you will be very little &mdash; and that is the point. This page stays available all week so you can revisit the answers after the material makes sense.</p></div>
+                <div class="callout-content"><p>Do not study for this and do not attempt it in advance. It measures what you bring with you on day one, which for most of you will be very little &mdash; and that is the point. This page stays available all week, and you can retake it as many times as you like once the material starts making sense.</p></div>
             </div>
 
             <div class="plain-box">
                 <div class="callout-title">Read This First</div>
                 <div class="callout-content">
                     <p>You are expected to get questions wrong. Most of you will get most of them wrong, and that is genuinely fine &mdash; you have not been taught this yet. The purpose is to prime your brain: research on the testing effect shows that attempting to retrieve an answer you do not have makes the correct answer stick better when you meet it later. Guessing badly today is doing real work.</p>
-                    <p>Answer every question. Do not look anything up. Then reveal the answers and notice which ones surprised you.</p>
+                    <p>Select an answer for each question, then click <strong>Grade My Answers</strong> at the bottom to see your results. Nothing here is locked in until you click that button, and you can click <strong>Reset</strong> afterward to clear everything and try again.</p>
                 </div>
             </div>
 
@@ -368,67 +380,142 @@
             <div class="assessment-section">
                 <div class="assessment-header">
                     <h3>&#128221; Unit 1 Pre-Assessment</h3>
-                    <p>Ten questions. Answer first, reveal second.</p>
+                    <p>Ten questions. Pick your best guess for each one, then grade the set.</p>
                 </div>
 
-                <div class="question-block">
-                    <div class="question-number">Question 1</div>
-                    <p class="question-text">What is the large circuit board that every other component connects to called?</p>
-                    <details class="answer"><summary>Reveal Answer</summary><div class="reveal">The <strong>motherboard</strong> (also called the system board or mainboard). Everything &mdash; processor, memory, storage, expansion cards, power &mdash; connects to it either directly or through a cable.</div></details>
+                <form id="preAssessmentForm">
+
+                    <div class="question-block" data-qid="1">
+                        <div class="question-number">Question 1</div>
+                        <p class="question-text">What is the large circuit board that every other component connects to called?</p>
+                        <ul class="mc-options">
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">A</span><span>Daughterboard</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="true"><span class="mc-letter">B</span><span>Motherboard</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">C</span><span>Expansion card</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">D</span><span>Power supply</span></button></li>
+                        </ul>
+                        <p class="unanswered-note">Not yet answered.</p>
+                    </div>
+
+                    <div class="question-block" data-qid="2">
+                        <div class="question-number">Question 2</div>
+                        <p class="question-text">Name the three common desktop motherboard form factors, from largest to smallest.</p>
+                        <ul class="mc-options">
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">A</span><span>ATX, Mini-ITX, microATX</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">B</span><span>ATX, BTX, NLX</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="true"><span class="mc-letter">C</span><span>ATX, microATX, Mini-ITX</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">D</span><span>E-ATX, ATX, microATX</span></button></li>
+                        </ul>
+                        <p class="unanswered-note">Not yet answered.</p>
+                    </div>
+
+                    <div class="question-block" data-qid="3">
+                        <div class="question-number">Question 3</div>
+                        <p class="question-text">What does RAM stand for, and what happens to its contents when you power off the computer?</p>
+                        <ul class="mc-options">
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">A</span><span>Read Access Memory &mdash; contents are lost</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">B</span><span>Random Access Memory &mdash; contents are retained until manually cleared</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">C</span><span>Rapid Access Module &mdash; contents are retained permanently</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="true"><span class="mc-letter">D</span><span>Random Access Memory &mdash; contents are lost (volatile)</span></button></li>
+                        </ul>
+                        <p class="unanswered-note">Not yet answered.</p>
+                    </div>
+
+                    <div class="question-block" data-qid="4">
+                        <div class="question-number">Question 4</div>
+                        <p class="question-text">What is the difference between a DIMM and a SO-DIMM?</p>
+                        <ul class="mc-options">
+                            <li><button type="button" class="mc-option" data-correct="true"><span class="mc-letter">A</span><span>DIMM is the full-size desktop module; SO-DIMM is the shorter laptop version &mdash; not interchangeable</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">B</span><span>DIMM is for storage; SO-DIMM is for memory</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">C</span><span>DIMM is the desktop module and SO-DIMM is the laptop version, but a simple adapter lets either fit either slot</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">D</span><span>They are two names for the exact same physical module</span></button></li>
+                        </ul>
+                        <p class="unanswered-note">Not yet answered.</p>
+                    </div>
+
+                    <div class="question-block" data-qid="5">
+                        <div class="question-number">Question 5</div>
+                        <p class="question-text">What does ESD stand for, and why should a technician care about it?</p>
+                        <ul class="mc-options">
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">A</span><span>Electrical Surge Damage &mdash; caused by power outages</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="true"><span class="mc-letter">B</span><span>Electrostatic Discharge &mdash; even unfelt static can cause latent, hard-to-trace damage</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">C</span><span>Electrostatic Discharge &mdash; but it only causes immediate, obvious damage</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">D</span><span>Extended Storage Duration &mdash; how long data persists in memory</span></button></li>
+                        </ul>
+                        <p class="unanswered-note">Not yet answered.</p>
+                    </div>
+
+                    <div class="question-block" data-qid="6">
+                        <div class="question-number">Question 6</div>
+                        <p class="question-text">What expansion slot standard is used for modern video cards?</p>
+                        <ul class="mc-options">
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">A</span><span>PCI</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">B</span><span>SATA</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">C</span><span>USB</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="true"><span class="mc-letter">D</span><span>PCIe</span></button></li>
+                        </ul>
+                        <p class="unanswered-note">Not yet answered.</p>
+                    </div>
+
+                    <div class="question-block" data-qid="7">
+                        <div class="question-number">Question 7</div>
+                        <p class="question-text">What is the firmware that runs when you first press the power button, before the operating system loads?</p>
+                        <ul class="mc-options">
+                            <li><button type="button" class="mc-option" data-correct="true"><span class="mc-letter">A</span><span>BIOS / UEFI</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">B</span><span>POST</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">C</span><span>Device Manager</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">D</span><span>The bootloader</span></button></li>
+                        </ul>
+                        <p class="unanswered-note">Not yet answered.</p>
+                    </div>
+
+                    <div class="question-block" data-qid="8">
+                        <div class="question-number">Question 8</div>
+                        <p class="question-text">A computer powers on, but there is no display and it emits a repeating pattern of beeps. What is the system telling you?</p>
+                        <ul class="mc-options">
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">A</span><span>The CMOS battery has died and needs replacing</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="true"><span class="mc-letter">B</span><span>POST has detected a hardware fault and is reporting it through beep codes</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">C</span><span>The hard drive has failed and Windows cannot boot</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">D</span><span>The power supply is about to catch fire and should be unplugged immediately</span></button></li>
+                        </ul>
+                        <p class="unanswered-note">Not yet answered.</p>
+                    </div>
+
+                    <div class="question-block" data-qid="9">
+                        <div class="question-number">Question 9</div>
+                        <p class="question-text">Why is thermal paste applied between a CPU and its heat sink?</p>
+                        <ul class="mc-options">
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">A</span><span>It electrically insulates the CPU from the heat sink to prevent short circuits</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">B</span><span>It permanently glues the heat sink to the CPU</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">C</span><span>It cools the CPU directly by evaporating during operation</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="true"><span class="mc-letter">D</span><span>It fills microscopic gaps between the two surfaces so heat transfers efficiently</span></button></li>
+                        </ul>
+                        <p class="unanswered-note">Not yet answered.</p>
+                    </div>
+
+                    <div class="question-block" data-qid="10">
+                        <div class="question-number">Question 10</div>
+                        <p class="question-text">What is the first step in CompTIA's troubleshooting methodology?</p>
+                        <ul class="mc-options">
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">A</span><span>Establish a theory of probable cause</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">B</span><span>Replace the suspected faulty component</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="true"><span class="mc-letter">C</span><span>Identify the problem</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">D</span><span>Document the resolution in a service ticket</span></button></li>
+                        </ul>
+                        <p class="unanswered-note">Not yet answered.</p>
+                    </div>
+
+                </form>
+
+                <div class="assessment-controls">
+                    <button type="button" id="gradeBtn" class="btn-grade">Grade My Answers</button>
+                    <button type="button" id="resetBtn" class="btn-reset">Reset and Retake</button>
                 </div>
 
-                <div class="question-block">
-                    <div class="question-number">Question 2</div>
-                    <p class="question-text">Name the three common desktop motherboard form factors, from largest to smallest.</p>
-                    <details class="answer"><summary>Reveal Answer</summary><div class="reveal"><strong>ATX</strong>, <strong>microATX (mATX)</strong>, and <strong>ITX</strong> (most commonly Mini-ITX). Form factor determines physical size, mounting hole positions, and how many expansion slots fit.</div></details>
-                </div>
-
-                <div class="question-block">
-                    <div class="question-number">Question 3</div>
-                    <p class="question-text">What does RAM stand for, and what happens to its contents when you power off the computer?</p>
-                    <details class="answer"><summary>Reveal Answer</summary><div class="reveal"><strong>Random Access Memory.</strong> It is <em>volatile</em> &mdash; contents are lost the moment power is removed. This is why unsaved work disappears in a power outage.</div></details>
-                </div>
-
-                <div class="question-block">
-                    <div class="question-number">Question 4</div>
-                    <p class="question-text">What is the difference between a DIMM and a SO-DIMM?</p>
-                    <details class="answer"><summary>Reveal Answer</summary><div class="reveal">A <strong>DIMM</strong> (Dual Inline Memory Module) is the full-size memory stick used in desktops and servers. A <strong>SO-DIMM</strong> (Small Outline DIMM) is the shorter version used in laptops and small-form-factor systems. They are not interchangeable.</div></details>
-                </div>
-
-                <div class="question-block">
-                    <div class="question-number">Question 5</div>
-                    <p class="question-text">What does ESD stand for, and why should a technician care about it?</p>
-                    <details class="answer"><summary>Reveal Answer</summary><div class="reveal"><strong>Electrostatic Discharge.</strong> Static electricity you cannot feel &mdash; well under 3,000 volts &mdash; can permanently damage a component. Worse, it often causes <em>latent</em> damage that fails weeks later, making the cause nearly impossible to trace.</div></details>
-                </div>
-
-                <div class="question-block">
-                    <div class="question-number">Question 6</div>
-                    <p class="question-text">What expansion slot standard is used for modern video cards?</p>
-                    <details class="answer"><summary>Reveal Answer</summary><div class="reveal"><strong>PCIe</strong> (PCI Express), typically an x16 slot for graphics. PCIe slots come in x1, x4, x8, and x16 widths, indicating the number of data lanes.</div></details>
-                </div>
-
-                <div class="question-block">
-                    <div class="question-number">Question 7</div>
-                    <p class="question-text">What is the firmware that runs when you first press the power button, before the operating system loads?</p>
-                    <details class="answer"><summary>Reveal Answer</summary><div class="reveal">The <strong>BIOS</strong> (Basic Input/Output System), on modern systems implemented as <strong>UEFI</strong> (Unified Extensible Firmware Interface). It initializes hardware, runs POST, and hands off to the boot device.</div></details>
-                </div>
-
-                <div class="question-block">
-                    <div class="question-number">Question 8</div>
-                    <p class="question-text">A computer powers on, but there is no display and it emits a repeating pattern of beeps. What is the system telling you?</p>
-                    <details class="answer"><summary>Reveal Answer</summary><div class="reveal">The <strong>POST</strong> (Power-On Self-Test) has detected a hardware fault and is reporting it through beep codes, because it cannot yet display text. The pattern maps to a specific fault &mdash; frequently memory or video &mdash; and the code meaning depends on the firmware manufacturer.</div></details>
-                </div>
-
-                <div class="question-block">
-                    <div class="question-number">Question 9</div>
-                    <p class="question-text">Why is thermal paste applied between a CPU and its heat sink?</p>
-                    <details class="answer"><summary>Reveal Answer</summary><div class="reveal">Two metal surfaces that look flat are microscopically rough, trapping insulating air pockets between them. Thermal paste fills those gaps so heat transfers efficiently from the processor into the heat sink.</div></details>
-                </div>
-
-                <div class="question-block">
-                    <div class="question-number">Question 10</div>
-                    <p class="question-text">What is the first step in CompTIA's troubleshooting methodology?</p>
-                    <details class="answer"><summary>Reveal Answer</summary><div class="reveal"><strong>Identify the problem</strong> &mdash; gather information, question the user, and determine what changed. Not "start replacing parts." The methodology exists specifically to stop technicians from guessing expensively.</div></details>
+                <div class="results-summary" id="resultsSummary">
+                    <div class="results-score" id="resultsScore">0 / 10</div>
+                    <p id="resultsMessage"></p>
+                    <p style="font-size:0.9rem; opacity:0.85;">Green highlights the correct answer. Red marks an answer you picked that wasn't it. This score does not affect your grade &mdash; completing the assessment does.</p>
                 </div>
             </div>
 
@@ -458,5 +545,94 @@
             <p class="footer-text">CompTIA A+ Core 1 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
         </footer>
     </div>
+
+    <script>
+        (function () {
+            var questionBlocks = Array.prototype.slice.call(document.querySelectorAll('.question-block'));
+
+            // Selecting an answer within a question
+            questionBlocks.forEach(function (block) {
+                var options = Array.prototype.slice.call(block.querySelectorAll('.mc-option'));
+                options.forEach(function (btn) {
+                    btn.addEventListener('click', function () {
+                        options.forEach(function (b) {
+                            b.classList.remove('selected', 'graded-correct', 'graded-incorrect', 'graded-missed');
+                        });
+                        btn.classList.add('selected');
+                        block.classList.remove('unanswered-flag');
+                    });
+                });
+            });
+
+            function gradeAssessment() {
+                var total = questionBlocks.length;
+                var correctCount = 0;
+                var unansweredCount = 0;
+
+                questionBlocks.forEach(function (block) {
+                    var options = Array.prototype.slice.call(block.querySelectorAll('.mc-option'));
+                    var selected = options.filter(function (b) { return b.classList.contains('selected'); })[0];
+                    var correctBtn = options.filter(function (b) { return b.dataset.correct === 'true'; })[0];
+
+                    options.forEach(function (b) {
+                        b.classList.remove('graded-correct', 'graded-incorrect', 'graded-missed');
+                    });
+
+                    if (!selected) {
+                        unansweredCount++;
+                        block.classList.add('unanswered-flag');
+                        if (correctBtn) correctBtn.classList.add('graded-missed');
+                        return;
+                    }
+
+                    block.classList.remove('unanswered-flag');
+
+                    if (selected.dataset.correct === 'true') {
+                        selected.classList.add('graded-correct');
+                        correctCount++;
+                    } else {
+                        selected.classList.add('graded-incorrect');
+                        if (correctBtn) correctBtn.classList.add('graded-correct');
+                    }
+                });
+
+                var scoreEl = document.getElementById('resultsScore');
+                var msgEl = document.getElementById('resultsMessage');
+                var summaryEl = document.getElementById('resultsSummary');
+
+                scoreEl.textContent = correctCount + ' / ' + total;
+
+                var msg = '';
+                if (unansweredCount > 0) {
+                    msg += unansweredCount + ' question' + (unansweredCount === 1 ? ' was' : 's were') + ' left blank &mdash; go back and pick your best guess on those before you finish. ';
+                }
+                if (correctCount <= 3) {
+                    msg += 'Getting most of these wrong on day one is completely normal &mdash; that is exactly what this diagnostic is for.';
+                } else if (correctCount <= 7) {
+                    msg += 'A solid mix of known and unknown &mdash; a good honest starting point for the term.';
+                } else {
+                    msg += 'You already know more of this than most students do on day one &mdash; nice.';
+                }
+                msgEl.innerHTML = msg;
+                summaryEl.classList.add('show');
+                summaryEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+
+            function resetAssessment() {
+                questionBlocks.forEach(function (block) {
+                    block.classList.remove('unanswered-flag');
+                    var options = Array.prototype.slice.call(block.querySelectorAll('.mc-option'));
+                    options.forEach(function (b) {
+                        b.classList.remove('selected', 'graded-correct', 'graded-incorrect', 'graded-missed');
+                    });
+                });
+                document.getElementById('resultsSummary').classList.remove('show');
+                document.getElementById('preAssessmentForm').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+
+            document.getElementById('gradeBtn').addEventListener('click', gradeAssessment);
+            document.getElementById('resetBtn').addEventListener('click', resetAssessment);
+        })();
+    </script>
 </body>
 </html>
