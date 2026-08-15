@@ -17,16 +17,16 @@
            ============================================ */
 
         :root {
-            --primary-dark: #4A4A4A;       /* Charcoal - structural chrome only */
-            --primary-main: #B8962E;       /* Warm Gold - primary accent */
-            --primary-light: #D4AF56;      /* Light Gold */
-            --primary-pale: #FBF3DF;       /* Pale Gold wash */
+            --primary-dark: #4A4A4A;
+            --primary-main: #B8962E;
+            --primary-light: #D4AF56;
+            --primary-pale: #FBF3DF;
 
-            --accent-teal: #8A6F1F;        /* Deep bronze-gold */
-            --accent-teal-light: #F3E9CE;  /* Pale bronze */
-            --accent-orange: #A9642A;      /* Warm rust */
+            --accent-teal: #8A6F1F;
+            --accent-teal-light: #F3E9CE;
+            --accent-orange: #A9642A;
             --accent-orange-light: #F5E2CE;
-            --accent-purple: #6B5B3A;      /* Muted umber */
+            --accent-purple: #6B5B3A;
             --accent-purple-light: #EFE6D2;
             --accent-green: #4E7A51;
             --accent-green-light: #DCEBDD;
@@ -40,7 +40,7 @@
             --alert-info: #6E5B2E;
             --alert-info-bg: #F1E9D4;
 
-            --text-black: #000000;         /* All reading text */
+            --text-black: #000000;
             --neutral-900: #000000;
             --neutral-700: #000000;
             --neutral-500: #5A5A5A;
@@ -74,12 +74,9 @@
 
         body {
             font-family: var(--font-body), 'Segoe UI', Tahoma, Verdana, sans-serif;
-            font-size: 1.0625rem;
-            line-height: 1.7;
-            color: var(--text-black);
+            font-size: 1.0625rem; line-height: 1.7; color: var(--text-black);
             background: linear-gradient(135deg, var(--neutral-100) 0%, var(--white) 100%);
-            min-height: 100vh;
-            padding: var(--space-lg);
+            min-height: 100vh; padding: var(--space-lg);
         }
 
         .course-container {
@@ -141,35 +138,6 @@
         ul li::marker { color: var(--accent-teal); }
         ol li::marker { color: var(--accent-teal); font-weight: 700; }
 
-        .styled-list { list-style: none; padding-left: 0; }
-        .styled-list li { position: relative; padding-left: var(--space-lg); margin-bottom: var(--space-sm); }
-        .styled-list li::before { content: '\25B8'; position: absolute; left: 0; color: var(--accent-teal); font-weight: bold; }
-
-        .checklist { list-style: none; padding-left: 0; }
-        .checklist li { position: relative; padding-left: 2rem; margin-bottom: var(--space-sm); }
-        .checklist li::before {
-            content: '\2713'; position: absolute; left: 0; width: 1.5rem; height: 1.5rem;
-            background: var(--accent-green-light); color: var(--accent-green);
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-size: 0.75rem; font-weight: bold;
-        }
-
-        .objectives-box {
-            background: linear-gradient(135deg, var(--primary-pale) 0%, var(--accent-teal-light) 100%);
-            border-left: 5px solid var(--primary-main);
-            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
-        }
-        .objectives-box h3 { color: var(--text-black); margin-top: 0; margin-bottom: var(--space-md);
-            display: flex; align-items: center; gap: var(--space-sm); border-left: none; padding-left: 0; }
-        .objectives-box ol { margin-bottom: 0; }
-
-        .tech-box {
-            background: var(--neutral-100); border: 2px solid var(--neutral-500);
-            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
-        }
-        .tech-box .callout-title { padding-left: 0; color: var(--text-black); }
-        .tech-box .callout-content { padding-left: 0; }
-
         .plain-box {
             background: var(--primary-pale); border: 2px solid var(--primary-main);
             border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
@@ -178,46 +146,15 @@
         .plain-box .callout-content { padding-left: 0; }
 
         .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; position: relative; overflow: hidden; }
-        .callout::before { position: absolute; top: var(--space-md); left: var(--space-md); font-size: 1.5rem; }
         .callout-title { font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 1rem;
             text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
         .callout-content { }
         .callout-content p:last-child { margin-bottom: 0; }
-
         .callout-tip { background: var(--accent-green-light); border-left: 4px solid var(--accent-green); }
-        .callout-warning { background: var(--alert-warning-bg); border-left: 4px solid var(--alert-warning); }
-        .callout-danger { background: var(--alert-danger-bg); border-left: 4px solid var(--alert-danger); }
         .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
-
-        .key-concept {
-            background: linear-gradient(135deg, var(--accent-purple-light) 0%, var(--white) 100%);
-            border: 2px solid var(--accent-purple); border-radius: var(--radius-lg);
-            padding: var(--space-lg); margin: var(--space-xl) 0 var(--space-lg); position: relative;
-        }
-        .key-concept::before {
-            content: '\1F511 KEY CONCEPT'; position: absolute; top: -12px; left: var(--space-lg);
-            background: var(--accent-purple); color: var(--white); font-family: var(--font-heading), sans-serif;
-            font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
-            padding: var(--space-xs) var(--space-md); border-radius: var(--radius-sm);
-        }
-        .key-concept h4 { color: var(--text-black); margin-top: var(--space-sm); }
 
         .definition { background: var(--neutral-100); border-radius: var(--radius-md); padding: var(--space-lg);
             margin: var(--space-md) 0; border-left: 4px solid var(--accent-orange); }
-        .definition-term { font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 1.125rem;
-            color: var(--text-black); margin-bottom: var(--space-xs); }
-        .definition-text { color: var(--text-black); margin-bottom: 0; }
-
-        code { font-family: var(--font-code), Consolas, monospace; font-size: 0.9rem; background: var(--primary-pale);
-            color: var(--text-black); padding: 2px 6px; border-radius: var(--radius-sm); }
-        pre { background: #2E2E2E; color: #f1ece0; padding: var(--space-lg); border-radius: var(--radius-md);
-            overflow-x: auto; margin: var(--space-lg) 0; position: relative; }
-        pre::before {
-            content: 'STEPS'; position: absolute; top: 0; right: 0; background: var(--primary-main); color: var(--text-black);
-            font-family: var(--font-heading), sans-serif; font-size: 0.625rem; font-weight: 700; letter-spacing: 1px;
-            padding: var(--space-xs) var(--space-sm); border-radius: 0 var(--radius-md) 0 var(--radius-sm);
-        }
-        pre code { background: transparent; color: inherit; padding: 0; font-size: 0.875rem; line-height: 1.6; }
 
         .table-container { overflow-x: auto; margin: var(--space-lg) 0; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); }
         table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
@@ -238,72 +175,81 @@
             color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
         .activity-subtitle { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
 
-        .lab-section {
-            background: linear-gradient(135deg, var(--accent-teal-light) 0%, var(--white) 100%);
-            border: 2px solid var(--accent-teal); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
-        }
-        .lab-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg);
-            padding-bottom: var(--space-md); border-bottom: 2px solid var(--accent-teal); }
-        .lab-icon { width: 60px; height: 60px; background: var(--accent-teal); border-radius: var(--radius-md);
-            display: flex; align-items: center; justify-content: center; font-size: 1.75rem; flex-shrink: 0; }
-        .lab-title { font-family: var(--font-heading), sans-serif; font-size: 1.375rem; font-weight: 700;
-            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
-        .lab-time { font-size: 0.875rem; color: var(--neutral-500); margin: 0; display: flex; align-items: center; gap: var(--space-xs); }
-        .lab-time::before { content: '\23F1\FE0F'; }
-        .lab-steps { counter-reset: lab-step; list-style: none; padding-left: 0; }
-        .lab-steps li { counter-increment: lab-step; position: relative; padding-left: 3rem; margin-bottom: var(--space-lg); }
-        .lab-steps li::before {
-            content: counter(lab-step); position: absolute; left: 0; width: 2rem; height: 2rem;
-            background: var(--accent-teal); color: var(--white); font-family: var(--font-heading), sans-serif; font-weight: 700;
-            border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.875rem;
-        }
-
         .assessment-section { background: var(--primary-pale); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0; }
         .assessment-header { text-align: center; margin-bottom: var(--space-xl); }
         .assessment-header h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .pool-note { text-align: center; font-size: 0.875rem; color: var(--neutral-500); margin-top: -0.75rem; margin-bottom: var(--space-lg); }
+
         .question-block { background: var(--white); border-radius: var(--radius-md); padding: var(--space-lg);
-            margin-bottom: var(--space-lg); box-shadow: var(--shadow-sm); }
+            margin-bottom: var(--space-lg); box-shadow: var(--shadow-sm); border: 2px solid transparent; transition: border-color .15s ease; }
         .question-number { font-family: var(--font-heading), sans-serif; font-size: 0.75rem; font-weight: 700;
             color: var(--text-black); background: var(--primary-main); display: inline-block;
             padding: 2px 10px; border-radius: var(--radius-sm);
             text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); }
         .question-text { font-weight: 600; color: var(--text-black); margin-bottom: var(--space-md); }
-        details.answer { margin-top: var(--space-sm); }
-        details.answer summary { cursor: pointer; font-weight: 700; color: var(--text-black);
-            font-family: var(--font-heading), sans-serif; font-size: 0.875rem;
-            border-bottom: 2px solid var(--primary-main); display: inline-block; }
-        details.answer .reveal { margin-top: var(--space-sm); padding: var(--space-md);
-            background: var(--accent-green-light); border-radius: var(--radius-sm); color: var(--text-black); }
+
+        .mc-options { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-sm); }
+        .mc-option {
+            display: flex; align-items: center; gap: var(--space-md); width: 100%; text-align: left;
+            padding: var(--space-sm) var(--space-md); border: 2px solid var(--neutral-300); border-radius: var(--radius-md);
+            background: var(--white); color: var(--text-black); font-family: var(--font-body), sans-serif;
+            font-size: 1rem; cursor: pointer; transition: all 0.15s ease;
+        }
+        .mc-option:hover { border-color: var(--primary-main); background: var(--primary-pale); }
+        .mc-option .mc-letter {
+            flex-shrink: 0; width: 1.75rem; height: 1.75rem; border-radius: 50%;
+            background: var(--neutral-100); border: 2px solid var(--neutral-300);
+            display: flex; align-items: center; justify-content: center;
+            font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 0.85rem; color: var(--text-black);
+        }
+        .mc-option.selected { border-color: var(--primary-main); background: var(--primary-pale); font-weight: 700; }
+        .mc-option.selected .mc-letter { background: var(--primary-main); border-color: var(--primary-main); }
+        .mc-option.graded-correct { border-color: var(--alert-success); background: var(--alert-success-bg); font-weight: 700; }
+        .mc-option.graded-correct .mc-letter { background: var(--alert-success); border-color: var(--alert-success); color: var(--white); }
+        .mc-option.graded-incorrect { border-color: var(--alert-danger); background: var(--alert-danger-bg); }
+        .mc-option.graded-incorrect .mc-letter { background: var(--alert-danger); border-color: var(--alert-danger); color: var(--white); }
+        .mc-option.graded-missed { border-color: var(--alert-success); border-style: dashed; }
+
+        .question-block.unanswered-flag { border-color: var(--alert-warning); }
+        .unanswered-note {
+            display: none; margin-top: var(--space-sm); font-size: 0.875rem; font-weight: 700;
+            color: var(--alert-warning); font-family: var(--font-heading), sans-serif;
+        }
+        .question-block.unanswered-flag .unanswered-note { display: block; }
+
+        .assessment-controls {
+            display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap;
+            margin-top: var(--space-xl); padding-top: var(--space-lg); border-top: 2px solid var(--neutral-300);
+        }
+        .btn-grade, .btn-reset {
+            font-family: var(--font-heading), sans-serif; font-weight: 800; font-size: 1rem;
+            padding: var(--space-md) var(--space-2xl); border-radius: var(--radius-md);
+            cursor: pointer; transition: all 0.15s ease; border: 2px solid var(--primary-dark);
+        }
+        .btn-grade { background: var(--primary-main); color: var(--text-black); border-color: var(--primary-main); box-shadow: var(--shadow-sm); }
+        .btn-grade:hover { background: var(--primary-light); }
+        .btn-reset { background: var(--white); color: var(--text-black); }
+        .btn-reset:hover { background: var(--neutral-100); }
+
+        .results-summary {
+            display: none; margin-top: var(--space-xl); padding: var(--space-xl);
+            border-radius: var(--radius-lg); background: var(--primary-dark); color: var(--white); text-align: center;
+        }
+        .results-summary.show { display: block; }
+        .results-score { font-family: var(--font-heading), sans-serif; font-size: 2.5rem; font-weight: 800; color: var(--white); margin-bottom: var(--space-sm); }
+        .results-summary p { color: var(--white); margin-bottom: var(--space-sm); }
+        .results-summary p:last-child { margin-bottom: 0; }
 
         .references-section { background: var(--neutral-100); border-radius: var(--radius-lg);
             padding: var(--space-lg) var(--space-xl); margin: var(--space-xl) 0; border-top: 3px solid var(--primary-main); }
         .references-section h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
         .references-section ul { padding-left: var(--space-lg); }
 
-        .summary-box {
-            background: var(--primary-dark); color: var(--white);
-            border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
-        }
-        .summary-box h3 { color: var(--white); margin-top: 0; display: flex; align-items: center;
-            gap: var(--space-sm); border-left: none; padding-left: 0; }
-        .summary-box h3::before { content: '\1F4CB'; }
-        .summary-box ul { margin-bottom: 0; }
-        .summary-box li { color: var(--white); }
-        .summary-box li::marker { color: var(--primary-light); }
-
-        .section-divider {
-            border: none; height: 6px; margin: var(--space-2xl) 0;
-            background: linear-gradient(90deg, transparent 0%, var(--primary-main) 15%, var(--primary-light) 50%, var(--primary-main) 85%, transparent 100%);
-            border-radius: var(--radius-sm); box-shadow: var(--shadow-sm);
-        }
-
         .module-footer { background: var(--primary-dark); padding: var(--space-lg) var(--space-xl);
             text-align: center; border-top: 4px solid var(--primary-main); }
         .footer-text { font-size: 0.875rem; color: var(--white); margin: 0; }
 
-        .text-center { text-align: center; }
         .text-muted { color: var(--neutral-500); }
-        .highlight { background: linear-gradient(180deg, transparent 50%, var(--primary-light) 50%); padding: 0 2px; }
 
         @media (max-width: 768px) {
             body { padding: var(--space-sm); }
@@ -311,13 +257,15 @@
             .module-title { font-size: 1.75rem; }
             .content-area { padding: var(--space-lg); }
             h2 { font-size: 1.375rem; }
-            .lab-header, .activity-header { flex-direction: column; align-items: flex-start; }
+            .activity-header { flex-direction: column; align-items: flex-start; }
+            .assessment-controls { flex-direction: column; }
+            .btn-grade, .btn-reset { width: 100%; }
         }
         @media print {
             body { background: white; padding: 0; }
             .course-container { box-shadow: none; }
             .toc { display: none; }
-            details.answer { display: none; }
+            .assessment-controls { display: none; }
         }
     </style>
 </head>
@@ -327,7 +275,7 @@
         <header class="module-header">
             <div class="module-label">Unit 1 &middot; Inside the Box &middot; Section 1.7</div>
             <h1 class="module-title">Practice Question Set</h1>
-            <p class="module-subtitle">Fifteen questions with confidence marking. The point is finding what you believe that is not true.</p>
+            <p class="module-subtitle">10 questions drawn at random from a 50-question pool. Keep resetting and retaking until you score a perfect 10 out of 10.</p>
         </header>
 
         <nav class="toc">
@@ -345,112 +293,37 @@
 
         <div class="content-area">
 
-            <p class="text-muted">Fifteen questions across the four objectives in this unit. Work them cold, before you review.</p>
+            <p class="text-muted">Every attempt pulls 10 questions at random from a pool of 50 covering this unit's four objectives. Work them cold, before you review. <strong>Keep retaking this until you score 10 out of 10</strong> &mdash; that is the standard for this activity, not a suggestion.</p>
 
             <div class="plain-box">
-                <div class="callout-title">Mark Your Confidence</div>
+                <div class="callout-title">Think Before You Click</div>
                 <div class="callout-content">
-                    <p>Before revealing each answer, write <strong>C</strong> if you are confident or <strong>G</strong> if you are guessing. Then check.</p>
-                    <p>This produces four categories, and only one of them is dangerous. Confident-and-right means you know it. Guess-and-wrong means you know you do not. Guess-and-right means you got lucky and should study it. <strong>Confident-and-wrong</strong> is the killer &mdash; you believe something false and have no reason to look it up. That category is invisible on an ordinary score report, and it is what fails people on the first attempt.</p>
+                    <p>Before selecting an answer, decide honestly whether you actually know it or you're guessing. That private judgment matters more than the score. Confident-and-right means you know it. Guessed-and-wrong means you know you don't &mdash; an easy fix. Guessed-and-right means you got lucky and should still go read the section. <strong>Confident-and-wrong</strong> is the one to watch for: you believe something false and have no reason to double-check it. That category is invisible on an ordinary score report, and it is what fails people on the first attempt.</p>
+                    <p>Select an answer for each question, then click <strong>Grade My Answers</strong> to see your results. Click <strong>Reset and Retake</strong> for a brand-new random set of 10, and keep going. <strong>You are expected to repeat this until you score a perfect 10 out of 10</strong> in a single attempt. Anything less than 10, reset and try again &mdash; a fresh random set every time means you cannot simply memorize positions, you actually have to know the material.</p>
                 </div>
             </div>
 
             <div class="assessment-section">
                 <div class="assessment-header">
                     <h3>&#128221; Unit 1 Practice Set</h3>
-                    <p>Answer, mark C or G, then reveal.</p>
+                    <p>10 of 50 questions, selected at random for this attempt.</p>
+                </div>
+                <p class="pool-note">Pool covers objectives 0.1, 3.3, 3.5, 3.6, and 5.1 &mdash; motherboards, memory, power, cooling, firmware, and troubleshooting.</p>
+
+                <form id="practiceForm">
+                    <div id="questionContainer"></div>
+                </form>
+
+                <div class="assessment-controls">
+                    <button type="button" id="gradeBtn" class="btn-grade">Grade My Answers</button>
+                    <button type="button" id="resetBtn" class="btn-reset">Reset and Retake</button>
                 </div>
 
-                <div class="question-block">
-                    <div class="question-number">Question 1 &middot; Obj 3.5</div>
-                    <p class="question-text">A technician needs a motherboard for a compact chassis that supports exactly one expansion card. Which form factor best fits?</p>
-                    <details class="answer"><summary>Reveal Answer</summary><div class="reveal"><strong>Mini-ITX.</strong> At 6.7 by 6.7 inches it carries a single expansion slot. microATX supports up to four and ATX up to seven &mdash; both are larger than the requirement.</div></details>
+                <div class="results-summary" id="resultsSummary">
+                    <div class="results-score" id="resultsScore">0 / 10</div>
+                    <p id="resultsMessage"></p>
+                    <p style="font-size:0.9rem; opacity:0.85;">Green highlights the correct answer. Red marks an answer you picked that wasn't it. Anything under 10/10, reset and try again &mdash; the pool has 50 questions, so no two attempts are guaranteed to match.</p>
                 </div>
-
-                <div class="question-block">
-                    <div class="question-number">Question 2 &middot; Obj 3.5</div>
-                    <p class="question-text">What is the maximum amount of RAM a 32-bit operating system can address, and why?</p>
-                    <details class="answer"><summary>Reveal Answer</summary><div class="reveal">Approximately <strong>4 GB</strong>. A 32-bit address space allows 2<sup>32</sup> unique addresses, which equals about 4 billion bytes. Exceeding that ceiling requires a 64-bit OS.</div></details>
-                </div>
-
-                <div class="question-block">
-                    <div class="question-number">Question 3 &middot; Obj 5.1</div>
-                    <p class="question-text">A user reports their desktop loses the correct date and time every time it is unplugged overnight. What is the most likely cause?</p>
-                    <details class="answer"><summary>Reveal Answer</summary><div class="reveal">A failing <strong>CMOS battery</strong> &mdash; typically a CR2032 coin cell. It maintains firmware settings and the real-time clock when the system has no power.</div></details>
-                </div>
-
-                <div class="question-block">
-                    <div class="question-number">Question 4 &middot; Obj 3.3</div>
-                    <p class="question-text">Which memory type detects and corrects single-bit errors, and where is it typically deployed?</p>
-                    <details class="answer"><summary>Reveal Answer</summary><div class="reveal"><strong>ECC</strong> (Error Correcting Code) memory. It is standard in servers, where a silent bit flip could corrupt data unnoticed. It requires motherboard and CPU support. Parity memory detects errors but cannot correct them.</div></details>
-                </div>
-
-                <div class="question-block">
-                    <div class="question-number">Question 5 &middot; Obj 3.5</div>
-                    <p class="question-text">A graphics card is installed in a slot that is physically x16, but performance is below expectations. What should the technician check?</p>
-                    <details class="answer"><summary>Reveal Answer</summary><div class="reveal">Whether the slot is <strong>electrically wired for fewer lanes</strong> than its physical size suggests. A physically x16 slot may be wired x4. The motherboard documentation specifies this; the slot's appearance does not.</div></details>
-                </div>
-
-                <div class="question-block">
-                    <div class="question-number">Question 6 &middot; Obj 3.6</div>
-                    <p class="question-text">What are the three standard DC voltage rails supplied by an ATX power supply?</p>
-                    <details class="answer"><summary>Reveal Answer</summary><div class="reveal"><strong>+3.3 V, +5 V, and +12 V.</strong> The +12 V rail carries the heaviest load, feeding the processor and graphics card.</div></details>
-                </div>
-
-                <div class="question-block">
-                    <div class="question-number">Question 7 &middot; Obj 5.1</div>
-                    <p class="question-text">A system powers on, fans spin, but there is no video output and the system emits a repeating beep pattern. What is happening, and what is the first thing to check?</p>
-                    <details class="answer"><summary>Reveal Answer</summary><div class="reveal">The <strong>POST</strong> has detected a fault and is reporting via beep codes because video is not yet available. Reseat the <strong>memory modules</strong> first &mdash; RAM is the most common cause &mdash; then the video card. Beep code meanings are defined by the firmware manufacturer.</div></details>
-                </div>
-
-                <div class="question-block">
-                    <div class="question-number">Question 8 &middot; Obj 5.1</div>
-                    <p class="question-text">Why should a technician never wear an anti-static wrist strap while working on a system connected to mains power?</p>
-                    <details class="answer"><summary>Reveal Answer</summary><div class="reveal">The strap creates a low-resistance path to ground <em>through the technician's body</em>. Its purpose is protecting components from static, not protecting people from electricity. Always disconnect mains power before service.</div></details>
-                </div>
-
-                <div class="question-block">
-                    <div class="question-number">Question 9 &middot; Obj 3.5</div>
-                    <p class="question-text">What is the difference between a TPM and an HSM?</p>
-                    <details class="answer"><summary>Reveal Answer</summary><div class="reveal">A <strong>TPM</strong> is a chip or firmware feature on an individual system that generates and stores keys tied to that machine &mdash; BitLocker relies on it. An <strong>HSM</strong> is a dedicated appliance or card providing key generation and storage at scale, typically for servers and certificate authorities.</div></details>
-                </div>
-
-                <div class="question-block">
-                    <div class="question-number">Question 10 &middot; Obj 5.1</div>
-                    <p class="question-text">A user reports their computer runs fine at startup but becomes noticeably sluggish after about twenty minutes of heavy use. What should be investigated first?</p>
-                    <details class="answer"><summary>Reveal Answer</summary><div class="reveal"><strong>Thermal throttling.</strong> The processor is reducing its own speed to protect itself from overheating. Check for dust-clogged heat sinks, failed or reversed fans, and degraded thermal paste.</div></details>
-                </div>
-
-                <div class="question-block">
-                    <div class="question-number">Question 11 &middot; Obj 3.3</div>
-                    <p class="question-text">What must be true for two memory modules to operate in dual-channel mode?</p>
-                    <details class="answer"><summary>Reveal Answer</summary><div class="reveal">They must be <strong>matched</strong> in capacity and specification, and installed in the <strong>specific slot pair</strong> the motherboard designates for dual-channel &mdash; usually indicated by matching slot colors. The manual is authoritative.</div></details>
-                </div>
-
-                <div class="question-block">
-                    <div class="question-number">Question 12 &middot; Obj 5.1</div>
-                    <p class="question-text">Place these troubleshooting steps in the correct order: verify full system functionality; test the theory; identify the problem; document findings; establish a plan of action; establish a theory of probable cause.</p>
-                    <details class="answer"><summary>Reveal Answer</summary><div class="reveal"><strong>1.</strong> Identify the problem. <strong>2.</strong> Establish a theory of probable cause. <strong>3.</strong> Test the theory. <strong>4.</strong> Establish a plan of action. <strong>5.</strong> Verify full system functionality. <strong>6.</strong> Document findings, actions, and outcomes.</div></details>
-                </div>
-
-                <div class="question-block">
-                    <div class="question-number">Question 13 &middot; Obj 3.6</div>
-                    <p class="question-text">A technician is asked to service a power supply that has stopped working. What is the correct action?</p>
-                    <details class="answer"><summary>Reveal Answer</summary><div class="reveal"><strong>Replace the unit.</strong> A PSU is never opened &mdash; its capacitors retain a lethal charge after disconnection, and there are no user-serviceable parts inside.</div></details>
-                </div>
-
-                <div class="question-block">
-                    <div class="question-number">Question 14 &middot; Obj 3.6</div>
-                    <p class="question-text">What does an 80 PLUS Gold rating indicate about a power supply?</p>
-                    <details class="answer"><summary>Reveal Answer</summary><div class="reveal">A certified <strong>efficiency</strong> level &mdash; how much of the input power reaches components rather than being lost as waste heat. Higher tiers run cooler and cost less to operate. It says nothing about total wattage capacity.</div></details>
-                </div>
-
-                <div class="question-block">
-                    <div class="question-number">Question 15 &middot; Obj 5.1</div>
-                    <p class="question-text">A newly built system will not power on at all &mdash; no fans, no lights &mdash; but the power supply tests good and mains power is confirmed. What is a likely cause?</p>
-                    <details class="answer"><summary>Reveal Answer</summary><div class="reveal">The <strong>front panel header</strong> is connected incorrectly or not at all. The power switch wires to individual header pins on the motherboard, and a misconnection produces a system that appears completely dead.</div></details>
-                </div>
-
             </div>
 
             <h2>Scoring Yourself Honestly</h2>
@@ -468,7 +341,7 @@
 
             <div class="callout callout-info">
                 <div class="callout-title">Where You Should Be</div>
-                <div class="callout-content"><p>After completing the reading and videos, aim for <strong>11 of 15 confident-and-correct</strong>. Below that, the material has not settled yet &mdash; which is normal in Week 1 and worth an email to me rather than a quiet worry.</p></div>
+                <div class="callout-content"><p>The target is <strong>10 out of 10</strong>, and this activity is not complete until you hit it. Reset and retake as many times as it takes &mdash; the questions come from a pool of 50, so each attempt is a genuinely different set, not the same ten in a new order. If you have gone through several attempts and still cannot reach 10, the material has not settled yet, which is normal in Week 1 and worth an email to me rather than a quiet worry.</p></div>
             </div>
 
             <div class="activity-section">
@@ -486,7 +359,7 @@
 
             <div class="callout callout-tip">
                 <div class="callout-title">Completion Standard &mdash; 100 Points</div>
-                <div class="callout-content"><p>Submit your confidence tally &mdash; how many landed in each of the four categories &mdash; plus a written correction for every confident-and-wrong item. Full credit requires all fifteen questions attempted with confidence marks recorded.</p></div>
+                <div class="callout-content"><p>Full credit requires reaching a perfect <strong>10 out of 10</strong> on this practice set, however many attempts that takes. Submit your confidence tally from your first attempt &mdash; how many landed in each of the four categories &mdash; plus a written correction for every confident-and-wrong item, along with a note of how many resets it took you to reach 10 out of 10.</p></div>
             </div>
 
             <div class="references-section">
@@ -504,5 +377,580 @@
             <p class="footer-text">CompTIA A+ Core 1 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
         </footer>
     </div>
+
+    <script>
+        /* ====== Pool of 50 Unit 1 practice questions ====== */
+        /* Pool of 50 Unit 1 practice questions.
+   Questions 1-15 are verbatim from the original Unit1_1.7 file (text unchanged).
+   Questions 16-50 are new, matching the same style and Unit 1 domain coverage.
+   Each question: obj tag, question text, and 4 options (exactly one correct: true).
+   Option order is intentionally varied so the correct answer isn't always
+   in the same position. */
+
+/* Pool of 50 Unit 1 practice questions.
+   Questions 1-15 are verbatim from the original Unit1_1.7 file (text unchanged).
+   Questions 16-50 are new, matching the same style and Unit 1 domain coverage.
+   Each question: obj tag, question text, and 4 options (exactly one correct: true).
+   Option order is intentionally varied so the correct answer isn't always
+   in the same position. */
+
+const QUESTION_POOL = [
+// ================= ORIGINAL 15 (verbatim question text) =================
+{obj:"3.5", text:"A technician needs a motherboard for a compact chassis that supports exactly one expansion card. Which form factor best fits?",
+ options:[
+   {text:"microATX", correct:false},
+   {text:"Mini-ITX", correct:true},
+   {text:"ATX", correct:false},
+   {text:"E-ATX", correct:false}
+ ]},
+
+{obj:"3.5", text:"What is the maximum amount of RAM a 32-bit operating system can address, and why?",
+ options:[
+   {text:"Approximately 4 GB, because a 32-bit address space allows 2^32 unique addresses", correct:true},
+   {text:"Approximately 4 GB, because Windows artificially limits 32-bit systems for licensing reasons", correct:false},
+   {text:"Approximately 16 GB, matching most consumer motherboard limits", correct:false},
+   {text:"There is no practical limit as long as enough physical RAM is installed", correct:false}
+ ]},
+
+{obj:"5.1", text:"A user reports their desktop loses the correct date and time every time it is unplugged overnight. What is the most likely cause?",
+ options:[
+   {text:"A failing hard drive controller", correct:false},
+   {text:"A corrupted UEFI firmware update", correct:false},
+   {text:"A failing CMOS battery", correct:true},
+   {text:"A loose front panel header connection", correct:false}
+ ]},
+
+{obj:"3.3", text:"Which memory type detects and corrects single-bit errors, and where is it typically deployed?",
+ options:[
+   {text:"Parity memory, standard in consumer laptops", correct:false},
+   {text:"ECC memory, standard in servers", correct:true},
+   {text:"DDR5 memory, standard in gaming desktops", correct:false},
+   {text:"SO-DIMM memory, standard in workstations", correct:false}
+ ]},
+
+{obj:"3.5", text:"A graphics card is installed in a slot that is physically x16, but performance is below expectations. What should the technician check?",
+ options:[
+   {text:"Whether the card is receiving enough wattage from the PSU", correct:false},
+   {text:"Whether the slot is electrically wired for fewer lanes than its physical size suggests", correct:true},
+   {text:"Whether the case has enough airflow for the card", correct:false},
+   {text:"Whether the motherboard chipset supports SLI", correct:false}
+ ]},
+
+{obj:"3.6", text:"What are the three standard DC voltage rails supplied by an ATX power supply?",
+ options:[
+   {text:"+3.3 V, +5 V, and +12 V", correct:true},
+   {text:"+5 V, +9 V, and +12 V", correct:false},
+   {text:"+3.3 V, +12 V, and +24 V", correct:false},
+   {text:"+1.2 V, +5 V, and +19 V", correct:false}
+ ]},
+
+{obj:"5.1", text:"A system powers on, fans spin, but there is no video output and the system emits a repeating beep pattern. What is happening, and what is the first thing to check?",
+ options:[
+   {text:"The GPU has failed; replace the graphics card immediately", correct:false},
+   {text:"POST has detected a fault and is reporting via beep codes; reseat the memory modules first", correct:true},
+   {text:"The PSU is undersized; upgrade to a higher wattage unit", correct:false},
+   {text:"The monitor cable is faulty; try a different display cable", correct:false}
+ ]},
+
+{obj:"5.1", text:"Why should a technician never wear an anti-static wrist strap while working on a system connected to mains power?",
+ options:[
+   {text:"The strap will drain the CMOS battery over time", correct:false},
+   {text:"The strap interferes with the power supply's voltage regulation", correct:false},
+   {text:"The strap creates a low-resistance path to ground through the technician's body, which is dangerous near live voltage", correct:true},
+   {text:"The strap voids the manufacturer's warranty on ESD-sensitive components", correct:false}
+ ]},
+
+{obj:"3.5", text:"What is the difference between a TPM and an HSM?",
+ options:[
+   {text:"A TPM is a chip on an individual system for key storage; an HSM is a dedicated appliance for key storage at scale", correct:true},
+   {text:"A TPM is used only in laptops; an HSM is used only in desktops", correct:false},
+   {text:"A TPM stores encryption keys; an HSM stores only passwords", correct:false},
+   {text:"There is no real difference; the terms are interchangeable", correct:false}
+ ]},
+
+{obj:"5.1", text:"A user reports their computer runs fine at startup but becomes noticeably sluggish after about twenty minutes of heavy use. What should be investigated first?",
+ options:[
+   {text:"A failing power supply", correct:false},
+   {text:"Insufficient RAM for the workload", correct:false},
+   {text:"Thermal throttling from inadequate cooling", correct:true},
+   {text:"A corrupted operating system installation", correct:false}
+ ]},
+
+{obj:"3.3", text:"What must be true for two memory modules to operate in dual-channel mode?",
+ options:[
+   {text:"They must simply be the same total capacity, regardless of slot placement", correct:false},
+   {text:"They must be matched and installed in the motherboard's designated channel-pair slots", correct:true},
+   {text:"They must be from the same manufacturer, but slot placement does not matter", correct:false},
+   {text:"Dual-channel mode is automatic on any motherboard with four or more slots", correct:false}
+ ]},
+
+{obj:"5.1", text:"Place these troubleshooting steps in the correct order: verify full system functionality; test the theory; identify the problem; document findings; establish a plan of action; establish a theory of probable cause.",
+ options:[
+   {text:"Identify the problem &rarr; theory of probable cause &rarr; test the theory &rarr; plan of action &rarr; verify functionality &rarr; document", correct:true},
+   {text:"Theory of probable cause &rarr; identify the problem &rarr; test the theory &rarr; document &rarr; plan of action &rarr; verify functionality", correct:false},
+   {text:"Identify the problem &rarr; test the theory &rarr; theory of probable cause &rarr; verify functionality &rarr; plan of action &rarr; document", correct:false},
+   {text:"Document &rarr; identify the problem &rarr; theory of probable cause &rarr; test the theory &rarr; plan of action &rarr; verify functionality", correct:false}
+ ]},
+
+{obj:"3.6", text:"A technician is asked to service a power supply that has stopped working. What is the correct action?",
+ options:[
+   {text:"Open the PSU carefully and inspect the capacitors for damage", correct:false},
+   {text:"Replace the unit; a PSU is never opened", correct:true},
+   {text:"Attempt to re-solder any visibly damaged components", correct:false},
+   {text:"Discharge the capacitors with a screwdriver before opening it", correct:false}
+ ]},
+
+{obj:"3.6", text:"What does an 80 PLUS Gold rating indicate about a power supply?",
+ options:[
+   {text:"Its maximum wattage output capacity", correct:false},
+   {text:"A certified efficiency level, meaning less input power is wasted as heat", correct:true},
+   {text:"That it includes gold-plated connectors for better conductivity", correct:false},
+   {text:"That it comes with an extended 80-month warranty", correct:false}
+ ]},
+
+{obj:"5.1", text:"A newly built system will not power on at all &mdash; no fans, no lights &mdash; but the power supply tests good and mains power is confirmed. What is a likely cause?",
+ options:[
+   {text:"A failed CPU that needs replacement", correct:false},
+   {text:"Incompatible RAM that is preventing POST", correct:false},
+   {text:"The front panel header is connected incorrectly or not at all", correct:true},
+   {text:"A corrupted BIOS/UEFI firmware requiring a chip replacement", correct:false}
+ ]},
+
+// ================= NEW 35 (extends the pool to 50) =================
+{obj:"3.5", text:"Which expansion bus standard does PCIe replace as the legacy parallel standard used before it?",
+ options:[
+   {text:"AGP", correct:false},
+   {text:"USB", correct:false},
+   {text:"PCI", correct:true},
+   {text:"SATA", correct:false}
+ ]},
+
+{obj:"3.5", text:"What does a motherboard's chipset primarily govern?",
+ options:[
+   {text:"How much RAM is currently installed", correct:false},
+   {text:"The physical dimensions of the motherboard", correct:false},
+   {text:"The exact clock speed the CPU runs at", correct:false},
+   {text:"Which features the board supports, such as USB count, PCIe generation, and SATA ports", correct:true}
+ ]},
+
+{obj:"3.5", text:"A motherboard's PCIe x16 slot is described as \"x16 physical, x4 electrical.\" What does this mean for a card installed there?",
+ options:[
+   {text:"The card physically fits but only receives the bandwidth of 4 lanes, not 16", correct:true},
+   {text:"The card will not physically fit unless it is an x4 card", correct:false},
+   {text:"The card will run at double its normal speed", correct:false},
+   {text:"The slot will not supply power to the card at all", correct:false}
+ ]},
+
+{obj:"3.5", text:"Which of the following is true about form factor compatibility between motherboards and cases?",
+ options:[
+   {text:"All form factors are interchangeable with any case", correct:false},
+   {text:"A case built for Mini-ITX will generally also accept ATX boards", correct:false},
+   {text:"Form factor only affects the power supply, not the case", correct:false},
+   {text:"A case built for ATX will generally also accept microATX and Mini-ITX boards", correct:true}
+ ]},
+
+{obj:"3.5", text:"What is the primary purpose of the 24-pin connector on an ATX motherboard?",
+ options:[
+   {text:"It delivers dedicated power directly to the CPU", correct:false},
+   {text:"It delivers the main power feed from the PSU to the motherboard", correct:true},
+   {text:"It connects the motherboard to the front panel power button", correct:false},
+   {text:"It provides data transfer between the CPU and RAM", correct:false}
+ ]},
+
+{obj:"5.1", text:"Which motherboard connection is the classic cause of a \"no power at all\" symptom when it is miswired, even though the PSU itself tests fine?",
+ options:[
+   {text:"The SATA data cable", correct:false},
+   {text:"The CPU fan header", correct:false},
+   {text:"The front panel header", correct:true},
+   {text:"The 24-pin ATX connector, if fully seated", correct:false}
+ ]},
+
+{obj:"3.5", text:"Which statement correctly distinguishes BIOS from UEFI?",
+ options:[
+   {text:"BIOS and UEFI are two names for the exact same firmware", correct:false},
+   {text:"UEFI is only used in servers, while BIOS is used in all consumer desktops", correct:false},
+   {text:"UEFI supports drives larger than 2 TB and offers a graphical interface; legacy BIOS does not", correct:true},
+   {text:"UEFI is a type of RAM, while BIOS is a type of ROM", correct:false}
+ ]},
+
+{obj:"3.5", text:"What is the practical difference between a 32-bit and a 64-bit CPU regarding operating systems?",
+ options:[
+   {text:"A 32-bit CPU can run a 64-bit OS if enough RAM is installed", correct:false},
+   {text:"64-bit CPUs cannot run older 32-bit software at all", correct:false},
+   {text:"A 64-bit CPU can run either a 32-bit or 64-bit OS, but a 32-bit CPU cannot run a 64-bit OS", correct:true},
+   {text:"32-bit and 64-bit CPUs are functionally identical", correct:false}
+ ]},
+
+{obj:"3.5", text:"What does CPU multithreading allow a single physical core to do?",
+ options:[
+   {text:"Physically split into two separate cores permanently", correct:false},
+   {text:"Present itself as two logical processors, improving utilization of idle execution resources", correct:true},
+   {text:"Run at double its rated clock speed", correct:false},
+   {text:"Access twice as much RAM as normal", correct:false}
+ ]},
+
+{obj:"3.5", text:"Which hardware extension must typically be enabled in firmware before a hypervisor can be installed?",
+ options:[
+   {text:"ECC memory support", correct:false},
+   {text:"Virtualization support (Intel VT-x or AMD-V)", correct:true},
+   {text:"TPM", correct:false},
+   {text:"PCIe lane bifurcation", correct:false}
+ ]},
+
+{obj:"3.3", text:"What is the key functional difference between parity memory and ECC memory?",
+ options:[
+   {text:"Parity corrects errors automatically while ECC only detects them", correct:false},
+   {text:"Parity and ECC are two names for the same memory technology", correct:false},
+   {text:"Neither parity nor ECC can detect any memory errors", correct:false},
+   {text:"Parity can detect single-bit errors but not correct them; ECC can detect and correct them", correct:true}
+ ]},
+
+{obj:"3.3", text:"What determines whether two memory modules can run in dual-channel mode together?",
+ options:[
+   {text:"They only need to be the same total capacity, regardless of slot placement", correct:false},
+   {text:"Any two modules of the same DDR generation will automatically run dual-channel", correct:false},
+   {text:"They must be matched and installed in the motherboard's designated channel-pair slots", correct:true},
+   {text:"Dual-channel requires four memory modules minimum", correct:false}
+ ]},
+
+{obj:"3.3", text:"Why can't a DDR4 memory module be installed in a DDR3 slot?",
+ options:[
+   {text:"DDR3 and DDR4 are fully interchangeable if you update the BIOS", correct:false},
+   {text:"DDR4 requires more voltage than a DDR3 slot can safely provide, so it is software-blocked", correct:false},
+   {text:"DDR4 is only compatible with laptop computers", correct:false},
+   {text:"The notch position and pin count differ between generations, physically preventing installation", correct:true}
+ ]},
+
+{obj:"3.5", text:"A technician needs to identify a CPU's core count and clock speed on a running Windows system. Where would they most reliably check?",
+ options:[
+   {text:"The printed label on the power supply", correct:false},
+   {text:"Task Manager's Performance tab or System Information", correct:true},
+   {text:"The BIOS/UEFI setup screen, which requires a reboot", correct:false},
+   {text:"Windows Disk Management", correct:false}
+ ]},
+
+{obj:"3.6", text:"What does an 80 PLUS Platinum rating indicate compared to an 80 PLUS Bronze rating on the same wattage PSU?",
+ options:[
+   {text:"Platinum can output significantly more total wattage than Bronze", correct:false},
+   {text:"Platinum is quieter but less reliable than Bronze", correct:false},
+   {text:"Platinum wastes less power as heat and runs more efficiently than Bronze", correct:true},
+   {text:"The rating only applies to laptop power adapters, not desktop PSUs", correct:false}
+ ]},
+
+{obj:"3.6", text:"Why is it important to correctly set a power supply's input voltage selector switch (115V/230V) before powering on a system?",
+ options:[
+   {text:"An incorrect setting only reduces performance slightly but causes no damage", correct:false},
+   {text:"Setting it to the wrong regional voltage can permanently destroy the PSU and connected hardware", correct:true},
+   {text:"The switch only affects the cooling fan speed", correct:false},
+   {text:"Modern PSUs no longer have this switch and it can be ignored", correct:false}
+ ]},
+
+{obj:"3.6", text:"What is the primary risk of installing an undersized power supply in a system with a power-hungry graphics card?",
+ options:[
+   {text:"The motherboard will physically not accept an undersized PSU", correct:false},
+   {text:"The system will simply run slightly slower but remain stable", correct:false},
+   {text:"Undersized PSUs only affect audio output quality", correct:false},
+   {text:"Intermittent shutdowns or instability under heavy load", correct:true}
+ ]},
+
+{obj:"3.5", text:"Which case fan orientation mistake most commonly turns a cooling system into a heating problem?",
+ options:[
+   {text:"Installing a fan backward so it pushes air the wrong direction", correct:true},
+   {text:"Installing too many fans, which overcools the system", correct:false},
+   {text:"Using a fan with too many blades", correct:false},
+   {text:"Installing fans without first removing the CPU", correct:false}
+ ]},
+
+{obj:"3.5", text:"What is the risk of applying too much thermal paste between a CPU and heat sink, rather than a thin even layer?",
+ options:[
+   {text:"Excess paste has no real effect either way, so more is always safer", correct:false},
+   {text:"Excess paste can act as an insulator and actually reduce heat transfer efficiency", correct:true},
+   {text:"Excess paste will cause the CPU to run at a lower voltage", correct:false},
+   {text:"Excess paste will prevent the motherboard from powering on at all", correct:false}
+ ]},
+
+{obj:"3.5", text:"Which type of CPU cooling has the highest thermal capacity but also introduces additional components that can fail, such as a pump?",
+ options:[
+   {text:"A large passive heat sink with no fan", correct:false},
+   {text:"Thermal paste alone with no heat sink", correct:false},
+   {text:"Liquid cooling", correct:true},
+   {text:"Case fans with no heat sink attached to the CPU", correct:false}
+ ]},
+
+{obj:"3.6", text:"What does a redundant power supply configuration in a server provide?",
+ options:[
+   {text:"It automatically doubles the total wattage available to the server", correct:false},
+   {text:"It reduces the electricity bill by sharing the load evenly at all times", correct:false},
+   {text:"It is required by law for all business servers", correct:false},
+   {text:"If one PSU fails, a second can keep the server running without downtime", correct:true}
+ ]},
+
+{obj:"5.1", text:"In CompTIA's troubleshooting methodology, what should happen immediately after establishing a theory of probable cause?",
+ options:[
+   {text:"Immediately document the resolution", correct:false},
+   {text:"Test the theory to confirm or rule it out", correct:true},
+   {text:"Replace the suspected component without further verification", correct:false},
+   {text:"Escalate the ticket to a supervisor automatically", correct:false}
+ ]},
+
+{obj:"5.1", text:"Why does CompTIA's troubleshooting methodology specifically include a documentation step at the end?",
+ options:[
+   {text:"To give the customer a decorative paper record of the visit", correct:false},
+   {text:"Documentation is optional and rarely actually performed in the field", correct:false},
+   {text:"So future technicians, including the same one later, do not have to repeat the same diagnosis from scratch", correct:true},
+   {text:"It is required only for legal liability purposes and has no practical repair value", correct:false}
+ ]},
+
+{obj:"5.1", text:"A technician skips gathering information and immediately starts swapping parts on a malfunctioning PC. What methodology step did they skip?",
+ options:[
+   {text:"Establish a theory of probable cause", correct:false},
+   {text:"Verify full system functionality", correct:false},
+   {text:"Document findings and outcomes", correct:false},
+   {text:"Identify the problem", correct:true}
+ ]},
+
+{obj:"3.6", text:"Why is switching a computer off at the front panel button not sufficient before opening the case, and physically unplugging it required instead?",
+ options:[
+   {text:"The front panel switch only controls the monitor, not the computer itself", correct:false},
+   {text:"Many power supplies still deliver standby power to the motherboard even when the system is \"off\" at the front panel, so components can remain live until the cord is pulled", correct:true},
+   {text:"Front panel switches are decorative and never functionally connected to anything", correct:false},
+   {text:"Unplugging is only a company policy requirement with no real electrical basis", correct:false}
+ ]},
+
+{obj:"5.1", text:"Roughly how many volts of static electricity are required for a person to feel a shock, compared to how few volts can damage a sensitive component?",
+ options:[
+   {text:"Both thresholds are roughly the same, around 3,000 volts", correct:false},
+   {text:"A person feels a shock around 3,000 volts; components can be damaged by as little as 30 volts", correct:true},
+   {text:"Components require millions of volts to be damaged", correct:false},
+   {text:"Static electricity cannot damage components, only external power surges can", correct:false}
+ ]},
+
+{obj:"5.1", text:"What is the difference between catastrophic and latent ESD damage?",
+ options:[
+   {text:"Catastrophic damage is always covered by warranty, while latent damage is not", correct:false},
+   {text:"Catastrophic damage only affects hard drives, while latent damage only affects memory", correct:false},
+   {text:"Latent damage is more visible and easier to diagnose than catastrophic damage", correct:false},
+   {text:"Catastrophic damage kills a component immediately; latent damage weakens it so it fails days or weeks later", correct:true}
+ ]},
+
+{obj:"5.1", text:"A brand-new custom-built PC won't POST. Following the troubleshooting methodology, what should the technician do first?",
+ options:[
+   {text:"Immediately replace the motherboard, since it is the most expensive and complex component", correct:false},
+   {text:"Call the manufacturer's warranty line before touching the machine again", correct:false},
+   {text:"Gather information about the build and check the obvious connections before forming a theory", correct:true},
+   {text:"Reinstall the operating system from scratch", correct:false}
+ ]},
+
+{obj:"0.1", text:"How many questions does the CompTIA A+ Core 1 (220-1201) exam contain at maximum, and how much time is allowed?",
+ options:[
+   {text:"Exactly 100 questions in 90 minutes", correct:false},
+   {text:"A maximum of 90 questions in 90 minutes", correct:true},
+   {text:"90 questions with no time limit", correct:false},
+   {text:"50 questions in 60 minutes", correct:false}
+ ]},
+
+{obj:"0.1", text:"What passing score is required on the 220-1201 exam, and on what scale?",
+ options:[
+   {text:"750 on a scale of 100 to 900", correct:false},
+   {text:"70% on a scale of 0 to 100", correct:false},
+   {text:"675 on a scale of 100 to 900", correct:true},
+   {text:"675 on a scale of 0 to 1000", correct:false}
+ ]},
+
+{obj:"0.1", text:"Roughly what percentage of raw exam points does the 675 passing score actually represent, given that the scale starts at 100 rather than zero?",
+ options:[
+   {text:"Exactly 75%", correct:false},
+   {text:"Exactly 67.5%", correct:false},
+   {text:"Approximately 90%", correct:false},
+   {text:"Approximately 72%", correct:true}
+ ]},
+
+{obj:"0.1", text:"Which two question formats appear on the CompTIA A+ Core 1 exam?",
+ options:[
+   {text:"True/false and matching only", correct:false},
+   {text:"Multiple-choice and short-essay questions", correct:false},
+   {text:"Multiple-choice and performance-based questions", correct:true},
+   {text:"Oral interview and multiple-choice", correct:false}
+ ]},
+
+{obj:"0.1", text:"What does CompTIA's published candidate profile assume about a typical Core 1 test-taker's experience?",
+ options:[
+   {text:"A completed 4-year computer science degree", correct:false},
+   {text:"No prior experience of any kind is assumed", correct:false},
+   {text:"At least 5 years of network administration experience", correct:false},
+   {text:"Roughly 12 months of hands-on IT support experience", correct:true}
+ ]},
+
+{obj:"3.5", text:"What is the purpose of a motherboard's CMOS battery beyond keeping the clock accurate?",
+ options:[
+   {text:"It supplies backup power to keep RAM contents intact during a power outage", correct:false},
+   {text:"It charges the laptop's main battery when plugged in", correct:false},
+   {text:"It preserves BIOS/UEFI firmware settings when the system has no external power", correct:true},
+   {text:"It powers the cooling fans during shutdown", correct:false}
+ ]},
+
+{obj:"5.1", text:"Which of the following accurately describes what happens during POST if a critical hardware fault is detected before video initializes?",
+ options:[
+   {text:"The system silently powers itself off with no indication at all", correct:false},
+   {text:"The system automatically attempts to repair the fault without technician input", correct:false},
+   {text:"The operating system displays a blue screen error describing the fault", correct:false},
+   {text:"The system reports the fault through beep codes or a diagnostic LED, since it cannot yet display text on screen", correct:true}
+ ]}
+];
+
+    </script>
+
+    <script>
+        (function () {
+            var LETTERS = ['A', 'B', 'C', 'D'];
+            var currentSet = [];
+
+            function shuffle(arr) {
+                var a = arr.slice();
+                for (var i = a.length - 1; i > 0; i--) {
+                    var j = Math.floor(Math.random() * (i + 1));
+                    var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+                }
+                return a;
+            }
+
+            function renderQuestion(q, index) {
+                var block = document.createElement('div');
+                block.className = 'question-block';
+                block.dataset.qindex = index;
+
+                var num = document.createElement('div');
+                num.className = 'question-number';
+                num.textContent = 'Question ' + (index + 1);
+                block.appendChild(num);
+
+                var text = document.createElement('p');
+                text.className = 'question-text';
+                text.innerHTML = q.text;
+                block.appendChild(text);
+
+                var list = document.createElement('ul');
+                list.className = 'mc-options';
+
+                q.options.forEach(function (opt, i) {
+                    var li = document.createElement('li');
+                    var btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = 'mc-option';
+                    btn.dataset.correct = opt.correct ? 'true' : 'false';
+
+                    var letterSpan = document.createElement('span');
+                    letterSpan.className = 'mc-letter';
+                    letterSpan.textContent = LETTERS[i];
+
+                    var textSpan = document.createElement('span');
+                    textSpan.innerHTML = opt.text;
+
+                    btn.appendChild(letterSpan);
+                    btn.appendChild(textSpan);
+                    li.appendChild(btn);
+                    list.appendChild(li);
+
+                    btn.addEventListener('click', function () {
+                        var siblings = list.querySelectorAll('.mc-option');
+                        siblings.forEach(function (b) {
+                            b.classList.remove('selected', 'graded-correct', 'graded-incorrect', 'graded-missed');
+                        });
+                        btn.classList.add('selected');
+                        block.classList.remove('unanswered-flag');
+                    });
+                });
+
+                block.appendChild(list);
+
+                var note = document.createElement('p');
+                note.className = 'unanswered-note';
+                note.textContent = 'Not yet answered.';
+                block.appendChild(note);
+
+                return block;
+            }
+
+            function loadNewSet() {
+                var pick = shuffle(QUESTION_POOL).slice(0, 10);
+                currentSet = pick;
+
+                var container = document.getElementById('questionContainer');
+                container.innerHTML = '';
+                pick.forEach(function (q, i) {
+                    container.appendChild(renderQuestion(q, i));
+                });
+
+                document.getElementById('resultsSummary').classList.remove('show');
+            }
+
+            function gradeAssessment() {
+                var blocks = Array.prototype.slice.call(document.querySelectorAll('#questionContainer .question-block'));
+                var total = blocks.length;
+                var correctCount = 0;
+                var unansweredCount = 0;
+
+                blocks.forEach(function (block) {
+                    var options = Array.prototype.slice.call(block.querySelectorAll('.mc-option'));
+                    var selected = options.filter(function (b) { return b.classList.contains('selected'); })[0];
+                    var correctBtn = options.filter(function (b) { return b.dataset.correct === 'true'; })[0];
+
+                    options.forEach(function (b) {
+                        b.classList.remove('graded-correct', 'graded-incorrect', 'graded-missed');
+                    });
+
+                    if (!selected) {
+                        unansweredCount++;
+                        block.classList.add('unanswered-flag');
+                        if (correctBtn) correctBtn.classList.add('graded-missed');
+                        return;
+                    }
+
+                    block.classList.remove('unanswered-flag');
+
+                    if (selected.dataset.correct === 'true') {
+                        selected.classList.add('graded-correct');
+                        correctCount++;
+                    } else {
+                        selected.classList.add('graded-incorrect');
+                        if (correctBtn) correctBtn.classList.add('graded-correct');
+                    }
+                });
+
+                var scoreEl = document.getElementById('resultsScore');
+                var msgEl = document.getElementById('resultsMessage');
+                var summaryEl = document.getElementById('resultsSummary');
+
+                scoreEl.textContent = correctCount + ' / ' + total;
+
+                var msg = '';
+                if (unansweredCount > 0) {
+                    msg += unansweredCount + ' question' + (unansweredCount === 1 ? ' was' : 's were') + ' left blank &mdash; go back and pick your best guess before you finish. ';
+                }
+                if (correctCount === total) {
+                    msg += '<strong>10 out of 10 &mdash; that\'s the target.</strong> This activity is complete. You can stop here, or reset for another random set just to confirm it wasn\'t luck.';
+                } else if (correctCount <= 5) {
+                    msg += 'Not yet at 10 out of 10. Below half means the material has not settled &mdash; reread Section 1.3 and rewatch the Section 1.5 videos, then click <strong>Reset and Retake</strong> for a new random set and try again.';
+                } else if (correctCount <= 8) {
+                    msg += 'Close, but not 10 out of 10 yet. Note which ones you missed, revisit those specific concepts, then click <strong>Reset and Retake</strong> for a new random set. Keep going until you clear all ten.';
+                } else {
+                    msg += 'One away from 10 out of 10. Check which question you missed, then click <strong>Reset and Retake</strong> and try again &mdash; this activity isn\'t finished until you clear all ten in one attempt.';
+                }
+                msgEl.innerHTML = msg;
+                summaryEl.classList.add('show');
+                summaryEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+
+            function resetAssessment() {
+                loadNewSet();
+                document.getElementById('practiceForm').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+
+            document.getElementById('gradeBtn').addEventListener('click', gradeAssessment);
+            document.getElementById('resetBtn').addEventListener('click', resetAssessment);
+
+            loadNewSet();
+        })();
+    </script>
 </body>
 </html>
