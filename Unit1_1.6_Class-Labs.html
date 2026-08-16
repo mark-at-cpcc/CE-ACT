@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unit 1 &mdash; 1.1 Unit Overview and Learning Objectives | CompTIA A+ Core 1</title>
+    <title>Unit 1 &mdash; 1.6 Lab Activities and Submission | CompTIA A+ Core 1</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -325,18 +325,18 @@
     <div class="course-container">
 
         <header class="module-header">
-            <div class="module-label">Unit 1 &middot; Inside the Box &middot; Section 1.1</div>
-            <h1 class="module-title">Unit Overview and Learning Objectives</h1>
-            <p class="module-subtitle">What this unit covers, what will be covered in this unit, and what you are responsible for completing both in class and on your own.</p>
+            <div class="module-label">Unit 1 &middot; Inside the Box &middot; Section 1.6</div>
+            <h1 class="module-title">Class Labs</h1>
+            <p class="module-subtitle">Two in-class labs, one take-home. Safety requirements are not optional.</p>
         </header>
 
         <nav class="toc">
-            <div class="toc-item current">1.1 &mdash; Unit Overview and Learning Objectives</div>
+            <div class="toc-item">1.1 &mdash; Unit Overview and Learning Objectives</div>
             <div class="toc-item">1.2 &mdash; Unit Pre-Assessment</div>
             <div class="toc-item">1.3 &mdash; Content Review</div>
             <div class="toc-item">1.4 &mdash; Reading Assignment</div>
             <div class="toc-item">1.5 &mdash; Video Assignment</div>
-            <div class="toc-item">1.6 &mdash; Lab Activities and Submission</div>
+            <div class="toc-item current">1.6 &mdash; Lab Activities and Submission</div>
             <div class="toc-item">1.7 &mdash; Practice Question Set</div>
             <div class="toc-item">1.8 &mdash; Online Labs: NETLAB</div>
             <div class="toc-item">1.9 &mdash; Reflection Activity</div>
@@ -345,118 +345,160 @@
 
         <div class="content-area">
 
-            <p class="text-muted">Welcome to Week 1. By Thursday afternoon you will be able to open a computer, name every major component inside it, and explain what each one does. That is not a metaphor. That is the objective.</p>
+            <p class="text-muted">One required lab in class, one self-paced safety lab, one required take-home, and one optional written walkthrough. This is the part of the week where you stop reading about hardware and start interacting with it.</p>
 
-            <div class="callout callout-info">
-                <div class="callout-title">Nothing Is Due Before You Arrive</div>
-                <div class="callout-content"><p>Tuesday 8/11 is the first day of class. There is no preparation to do beforehand &mdash; you should have completed all pre-work with the ACT team. Your orientation is completed together in class on Tuesday, and assigned work begins after that first session. Just show up.</p></div>
+            <div class="callout callout-danger">
+                <div class="callout-title">Safety Requirements &mdash; Non-Negotiable</div>
+                <div class="callout-content">
+                    <p><strong>Lab 1.1 is required.</strong> This is not paperwork; it is the difference between a working machine and a dead one, and in the case of the power supply rule, between a normal Tuesday and an ambulance.</p>
+                    <p>Read this list carefully:</p>
+                    <ul class="checklist">
+                        <li>System unplugged from mains power before the case is opened</li>
+                        <li>Anti-static wrist strap worn and clipped to unpainted chassis metal</li>
+                        <li>Work performed on the anti-static mat</li>
+                        <li>Components handled by edges only &mdash; never touch contacts or pins</li>
+                        <li>Any component removed from a system stored in an anti-static bag, not simply tossed into a box.</li>
+                        <li><strong>No power supply is opened, ever, by anyone</strong></li>
+                        <li>No food or drink at any time near an open computer.</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="objectives-box">
-                <h3>Learning Objectives</h3>
-                <p>After completing this unit, you will be able to:</p>
-                <ol>
-                    <li><strong>Identify</strong> the major components inside a desktop computer by sight and state the function of each</li>
-                    <li><strong>Explain</strong> how the motherboard, processor, memory, and power supply depend on one another to boot a system</li>
-                    <li><strong>Describe</strong> motherboard form factors, expansion slot types, and internal connector standards</li>
-                    <li><strong>Explain</strong> the role of the BIOS/UEFI firmware and locate common configuration settings</li>
-                    <li><strong>Apply</strong> proper electrostatic discharge (ESD) and electrical safety procedures during hardware service</li>
-                    <li><strong>Apply</strong> CompTIA's six-step troubleshooting methodology to a no-boot scenario</li>
+            <div class="lab-section">
+                <div class="lab-header">
+                    <div class="lab-icon">&#128300;</div>
+                    <div>
+                        <h3 class="lab-title">Lab 1.0 &mdash; Component Identification</h3>
+                        <p class="lab-time">Wednesday 8/12 &middot; In class &middot; 1 hour &middot; Complete Lab 1.1 first</p>
+                    </div>
+                </div>
+                <p>Your team receives a machine to work on today. You open it and learn to recognize what is inside &mdash; nothing comes out. You will identify components partly by reasoning about what they connect to, which is the skill that transfers.There is nothing for you to submit and the results of this lab are to provide you with a hardware study guide.</p>
+                <p>This runs in the first hour of Wednesday's session, before we name anything. Complete Lab 1.1 on your own beforehand so you arrive knowing how to handle the equipment safely.</p>
+                <div class="callout callout-info">
+                    <div class="callout-title">We will not be removing components today.</div>
+                    <div class="callout-content"><p>This is an identification lab, not a disassembly lab. You will open the side panel and observe. Do not disconnect cables, unseat memory, or remove cards, drives, or the power supply. Full teardown and rebuild is available as optional practice in Lab 1.2.</p></div>
+                </div>
+                <ol class="lab-steps">
+                    <li><strong>Best Practices</li>
+					<li><strong>Set up your station.</strong> Mat down, strap on and clipped to unpainted chassis metal, system unplugged. Photograph the closed system with your team number visible.</li>
+                    <li><strong>Document the exterior.</strong> Record every external port &mdash; quantity and type. You will not know all the names yet; describe what you see and we will discuss them Wednesday.</li>
+                    <li><strong>Open the side panel and photograph the interior.</strong> Keep this photo. It becomes your reference for every unit that follows.</li>
+                    <li><strong>Identify the major components in place:</strong> motherboard, CPU cooler, memory modules, power supply, storage drives, and any expansion cards. Record form factor, connector types, and any visible part numbers or markings on the worksheet.</li>
+                    <li><strong>Trace the power connections visually.</strong> Follow each cable from the power supply to where it terminates and record the connector type and destination. Do not disconnect anything.</li>
+                    <li><strong>Locate these eight features on the motherboard:</strong> CPU socket, memory slots, expansion slots and their lane widths, SATA ports, M.2 slots, front panel header, CMOS battery, and the firmware chip.</li>
+                    <li><strong>Close the case</strong> and return the system to the rack.</li>
                 </ol>
-            </div>
-
-            <div class="tech-box">
-                <div class="callout-title">Technical Overview</div>
-                <div class="callout-content">
-                    <p>Unit 1 addresses CompTIA A+ Core 1 (220-1201) Domain 3.0 Hardware &mdash; specifically objectives 3.3 (memory), 3.5 (motherboards, CPUs, expansion cards, cooling), and 3.6 (power) &mdash; together with the opening portion of Domain 5.0 Hardware and Network Troubleshooting, objective 5.1. Instruction covers motherboard form factors and expansion bus architectures, processor characteristics and socket compatibility, volatile memory technologies and error-correction schemes, power supply specifications and connector standards, thermal management, and UEFI/BIOS firmware configuration including TPM. The unit establishes the structured troubleshooting methodology used as the diagnostic framework for the remainder of the course.</p>
+                <div class="callout callout-tip">
+                    <div class="callout-title">Check Your Work</div>
+                    <div class="callout-content"><p>You have completed this lab when your notes are completed, your interior photograph is taken. Review these notes tonight and for the rest of the week until you can point to each of the eight motherboard features in step 6 without looking at a diagram.</p></div>
                 </div>
             </div>
 
-            <div class="plain-box">
-                <div class="callout-title">In Plain Terms</div>
-                <div class="callout-content">
-                    <p>This week is about what is physically inside the box and how those parts talk to each other. The motherboard is the classroom. The processor is the brain. Memory is the desk you work on. The power supply feeds all of it. Cooling keeps it from cooking itself. Once you know the parts, you can start figuring out which one is broken &mdash; and that skill is more than a quarter of your exam.</p>
+            <div class="lab-section">
+                <div class="lab-header">
+                    <div class="lab-icon">&#9888;&#65039;</div>
+                    <div>
+                        <h3 class="lab-title">Lab 1.1 &mdash; Safety and ESD (Self-Paced)</h3>
+                        <p class="lab-time">Outside class &middot; ~45 minutes &middot; Due Wednesday 8/11, 11:59 PM</p>
+                    </div>
+                </div>
+                <p>This is a reading lab. There is no hardware involved and nothing to disassemble &mdash; you read, you answer, you acknowledge. The answers and the notes are for your own learning. There is nothing to turn in for this lab. The rules above only protect you if you have actually absorbed them, and a briefing you half-read on a busy first week does not count as absorbed.</p>
+                <ol class="lab-steps">
+                    <li><strong>Read the safety material.</strong> Section 1.3 Content Review, "Safety Before Anything Else" &mdash; the full section including both callouts. Then read Sybex Volume 1, Chapter 12, "Understanding Troubleshooting Best Practices," which covers safety procedure in the field.</li>
+                    <li><strong>Write out the six ESD controls</strong> in your own words, and for each one, state what specifically it prevents.</li>
+                    <li><strong>Answer these five questions</strong> in writing:
+                        <br>a. At roughly what voltage can a component be damaged, and at what voltage can you feel a static shock? What does the gap between those two numbers mean for a technician?
+                        <br>b. What is the difference between catastrophic and latent ESD damage, and which is more dangerous to a repair business?
+                        <br>c. Why is a wrist strap clipped to unpainted chassis metal rather than to a painted surface?
+                        <br>d. Why must a system be unplugged before service, and why is wearing a wrist strap near live mains power dangerous rather than protective?
+                        <br>e. What is the rule about opening a power supply, and what is the specific reason behind it?</li>
+                </ol>
+                <div class="callout callout-danger">
+                    <div class="callout-title">Complete This Before You Handle Any Hardware</div>
+                    <div class="callout-content"><p>If you will be handling hardware in class or in the A+ Lab, the you must complete the material in Lab 1.1 on your own. This is not a paperwork formality and it is not negotiable, this is a safety briefing. You should have this completed by Wednesday morning.</p></div>
+                </div>
+                <div class="callout callout-tip">
+                    <div class="callout-title">Check Your Work</div>
+                    <div class="callout-content"><p>You have completed this lab when your six ESD controls and five answers are written in your own words. If you had to copy phrasing directly from the reading to answer any question, go back and read that part again &mdash; the point is that you own these rules, not that you have seen them.</p></div>
                 </div>
             </div>
 
-            <h2>Why We Start Here</h2>
-            <p>Hardware plus hardware troubleshooting makes up <strong>53% of the Core 1 exam</strong>. It is also the most concrete material in the entire course. You can hold a stick of RAM. You can hear a fan. You cannot hold a networking concept.</p>
-            <p>That matters more than it might sound. Starting with things you can physically touch gives you somewhere to attach the vocabulary that comes later. Students who begin with abstract networking concepts often report that the terms slide off. Students who begin with their hands in a case tend to remember, three weeks later, that a DIMM slot has a notch in it &mdash; because they cut their thumb on one.</p>
-
-            <div class="callout callout-info">
-                <div class="callout-title">No Experience Required</div>
-                <div class="callout-content"><p>This course assumes you have never opened a computer. If you have, you will move faster through Tuesday. If you have not, you are exactly who this unit was written for. Nobody in this room started out knowing this.</p></div>
+            <div class="lab-section">
+                <div class="lab-header">
+                    <div class="lab-icon">&#128221;</div>
+                    <div>
+                        <h3 class="lab-title">Lab 1.2 &mdash; Rebuild Sequence Walkthrough <em>(Optional)</em></h3>
+                        <p class="lab-time">Optional &middot; Written &middot; Complete anywhere &middot; ~1 hour</p>
+                    </div>
+                </div>
+                <p><strong>This lab is optional, written, and is not graded, with nothing to submit.</strong> Nothing is disassembled and no equipment is required. You describe the process in writing, in the correct order, and explain why each step matters.</p>
+                <div class="callout callout-tip">
+                    <div class="callout-title">Why Write It Instead of Do It</div>
+                    <div class="callout-content"><p>Performance-based questions on the 220-1201 exam frequently ask you to sequence steps or match components to connectors &mdash; on a screen, not at a bench. Being able to state the correct order from memory, and explain the reason behind it, is exactly the skill those items test. Writing it out also exposes the gaps that watching a video quietly papers over.</p></div>
+                </div>
+                <ol class="lab-steps">
+                    <li><strong>Describe the disassembly order.</strong> List the sequence &mdash; expansion cards, drives, memory modules, power supply, CPU cooler, motherboard &mdash; and explain in one sentence why each item comes out when it does.</li>
+                    <li><strong>Explain motherboard mounting.</strong> Describe the role of standoffs and state what happens if one is installed in a position with no corresponding mounting hole.</li>
+                    <li><strong>Describe CPU cooler seating.</strong> Explain when thermal paste must be reapplied, what a correct application looks like, and why more paste is not better.</li>
+                    <li><strong>Describe memory installation.</strong> Explain the purpose of the notch, how you know a module is fully seated, and how slot selection affects dual-channel operation.</li>
+                    <li><strong>Identify the power connections.</strong> List the 24-pin ATX, CPU EPS, PCIe, SATA, and Molex connectors and state what each one feeds. Note what the input voltage selector does and why setting it wrong is destructive.</li>
+                    <li><strong>Explain the front panel header.</strong> Describe what connects there and explain why a misconnection produces a system that appears completely dead rather than one that reports an error.</li>
+                    <li><strong>Describe a successful POST.</strong> State what you would expect to see and hear, and list three things firmware setup should report if the rebuild succeeded.</li>
+                    <li><strong>Work three fault scenarios in writing.</strong> For each of the following, apply all six steps of the troubleshooting methodology and write out your reasoning:
+                        <br>a. The system powers on, fans spin, no display, and a repeating beep pattern.
+                        <br>b. Pressing the power button produces nothing at all &mdash; no fans, no lights &mdash; on a machine that worked before disassembly.
+                        <br>c. The system boots but reports only half the installed memory.</li>
+                </ol>
+                <div class="callout callout-warning">
+                    <div class="callout-title">Order Matters More Than Detail</div>
+                    <div class="callout-content"><p>If you are unsure of a specific value, write what you do know and move on. What this exercise is training is the <em>sequence</em> and the <em>reasoning</em> &mdash; those are what the exam scores, and they are what stop a technician from replacing a motherboard to fix a loose header pin.</p></div>
+                </div>
+                <div class="callout callout-info">
+                    <div class="callout-title">Want the Hands-On Version?</div>
+                    <div class="callout-content"><p>The A+ Lab is Room <strong>LT 5135</strong>, Levine Technology Building, 5th floor. Hours are limited and the posted schedule will be shared in class during Week 2. If you would like to physically work through this sequence on a lab machine, come see me and we will arrange it &mdash; every safety requirement at the top of this page applies there exactly as it does in class.</p></div>
+                </div>
             </div>
 
-            <h2>Your Week at a Glance</h2>
+            <div class="activity-section">
+                <div class="activity-header">
+                    <div class="activity-icon">&#127968;</div>
+                    <div>
+                        <h3 class="activity-title">Take-Home Lab 1.3 &mdash; Inventory Your Own Computer</h3>
+                        <p class="activity-subtitle">2 to 2.5 hours</p>
+                    </div>
+                </div>
+                <p>No disassembly required, and please do not open anything you own. This lab uses built-in tools only.</p>
+                <ol>
+                    <li>Identify your system's processor: manufacturer, model, core count, and whether it is 32-bit or 64-bit. On Windows use System Information (<code>msinfo32</code>); on macOS use About This Mac.</li>
+                    <li>Identify installed RAM: total capacity, and if the tool reports it, generation and speed. Task Manager's Performance tab shows this on Windows.</li>
+                    <li>List every external port on the machine by type and quantity.</li>
+                    <li>Find your system's firmware version and manufacturer.</li>
+                    <li>Write one paragraph: if you needed to add memory to this machine, what would you need to know before ordering, and where would you find it?</li>
+                </ol>
+                <div class="callout callout-info">
+                    <div class="callout-title">No Computer of Your Own?</div>
+                    <div class="callout-content"><p>Use a machine in the A+ Lab (LT 5135) during posted hours, or come see me. This is never a reason to miss the assignment.</p></div>
+                </div>
+            </div>
+
+            <h2>Submission Requirements</h2>
             <div class="table-container">
                 <table>
-                    <thead><tr><th>Day</th><th>Time</th><th>Focus</th><th>What You'll Do</th></tr></thead>
+                    <thead><tr><th>Item</th><th>Submit</th><th>Due</th><th>Points</th></tr></thead>
                     <tbody>
-                        <tr><td><strong>Tuesday 8/11</strong></td><td>10:00 AM &ndash; 1:00 PM</td><td>Experience</td><td>Welcome and orientation, course tour, and how to study for a certification exam. First hour: open the case and identify components. Then we name it &mdash; form factors, sockets, memory types, power specs, BIOS/UEFI, thermal design.</td></tr>
-                        <tr><td><strong>Wednesday 8/12</strong></td><td>11:00 AM &ndash; 2:00 PM</td><td>Experience</td><td>Discussion of basic computer concepts such as the POST. Why is this process important in conjunction with the BIOS/UEFI along with a deeper discussion of computer hardware.</td></tr>
-                        <tr><td><strong>Thursday 8/13</strong></td><td>10:00 AM &ndash; 1:00 PM</td><td>Application</td><td>Revisiting the POST, the BIOS/UEFI, and the BOOT, along with the six-step troubleshooting method applied to no-boot scenarios, and the group troubleshooting assessment.</td></tr>
+                        <tr><td>Lab 1.0 &mdash; Component Identification</td><td>Component identification worksheet + interior photograph</td><td>Wed 8/12, end of class</td><td>100</td></tr>
+                        <tr><td>Lab 1.1 &mdash; Safety and ESD</td><td>Written ESD controls, five answers, and the signed Safety Acknowledgment</td><td>Tue 8/11, 11:59 PM</td><td>100</td></tr>
+                        <tr><td>Lab 1.2 &mdash; Rebuild Sequence Walkthrough <em>(optional)</em></td><td>Nothing required. Bring your written walkthrough to office hours if you want feedback.</td><td>&mdash;</td><td>Not graded</td></tr>
+                        <tr><td>Lab 1.3 &mdash; Take-Home</td><td>Completed inventory document</td><td>Sun 8/16, 11:59 PM</td><td>100</td></tr>
                     </tbody>
                 </table>
             </div>
 
-            <div class="key-concept">
-                <h4>See It Before You Name It</h4>
-                <p>You begin with a survey of computer equipment. The case is opened, you will look inside, and identify what is there before we give any of it a name. That order is intentional.</p>
-                <p>Beginners handed a vocabulary list first have nothing to attach it to, and the terms slide off within days. Beginners who have already looked at a DIMM slot have somewhere to put the word "DIMM" when it arrives on Wednesday. You will not remember every term from this unit &mdash; but you will remember what the inside of a computer looks like, and that is the hook everything else hangs on.</p>
-            </div>
-
-            <h2>Work Outside of Class</h2>
-            <p>Budget <strong>17 to 19 hours</strong> this week outside our meetings. That is a real number and it is front-loaded by design.</p>
-            <div class="table-container">
-                <table>
-                    <thead><tr><th>Component</th><th>Time</th><th>Section</th></tr></thead>
-                    <tbody>
-                        <tr><td>Sybex reading</td><td>10 &ndash; 11 hrs</td><td>1.4</td></tr>
-                        <tr><td>Professor Messer videos (2 hr 26 min runtime)</td><td>2.0 &ndash; 2.5 hrs</td><td>1.5</td></tr>
-                        <tr><td>Safety lab and take-home lab</td><td>2.5 &ndash; 3.0 hrs</td><td>1.6</td></tr>
-                        <tr><td>NETLAB online labs (2 labs)</td><td>1.5 &ndash; 2.5 hrs</td><td>1.8</td></tr>
-                        <tr><td>Practice questions and acronym drill</td><td>2.0 &ndash; 2.5 hrs</td><td>1.7</td></tr>
-                        <tr><td>Reflection journal</td><td>1 hr</td><td>1.8</td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="callout callout-warning">
-                <div class="callout-title">Be Honest With Yourself Now</div>
-                <div class="callout-content"><p>Adding contact hours, this course runs 26 to 28 hours per week for six weeks. That is close to a full-time job. It is compressed because the certification is worth compressing for &mdash; but if this week's load is not survivable alongside your other commitments, come talk to me at the end of Tuesday's class rather than in Week 3. There are other sections and other terms.</p></div>
-            </div>
-
-            <h2>Exam Objectives Covered</h2>
-            <div class="table-container">
-                <table>
-                    <thead><tr><th>Objective</th><th>Title</th><th>Exam Weight of Parent Domain</th></tr></thead>
-                    <tbody>
-                        <tr><td><strong>3.3</strong></td><td>Memory types and technologies</td><td rowspan="3">Domain 3.0 Hardware &mdash; 25%</td></tr>
-                        <tr><td><strong>3.5</strong></td><td>Motherboards, CPUs, expansion cards, cooling, BIOS/UEFI</td></tr>
-                        <tr><td><strong>3.6</strong></td><td>Power supplies and power specifications</td></tr>
-                        <tr><td><strong>5.1</strong></td><td>Troubleshooting methodology; motherboard, RAM, CPU, and power problems</td><td>Domain 5.0 Troubleshooting &mdash; 28%</td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <h2>How This Unit Is Graded</h2>
-            <p>Every item in this unit is worth <strong>100 points</strong> and is awarded in full when it meets the completion standard published on that item's page. Work that falls short is returned for revision and resubmitted for full credit &mdash; it is not partially scored.</p>
-            <p>That structure exists so you can stop calculating your grade and start focusing on the only score that decides anything: the <strong>scaled score on your practice exams</strong>. On the real 220-1201 you need <strong>675 out of 900</strong>. Because the scale starts at 100 rather than zero, that works out to roughly 72% of raw points &mdash; not 75%. We will track that number every week.</p>
-
-            <div class="summary-box">
-                <h3>Unit 1 Checklist</h3>
+            <div class="references-section">
+                <h3>Go Further</h3>
                 <ul>
-                    <li>Complete the Section 1.2 Pre-Assessment and the Sybex Assessment Test in class on Tuesday 8/11</li>
-                    <li>Read the assigned Sybex sections listed in Section 1.4</li>
-                    <li>Watch the fourteen Professor Messer videos in Section 1.5</li>
-                    <li>Complete Lab 1.1 Safety and ESD on your own time on Tuesday night &mdash; do this before coming to class on Wednesday</li>
-                    <li>Complete the in-class component identification lab Tuesday night.</li>
-                    <li><em>Optional:</em> the Lab 1.2 written rebuild sequence walkthrough &mdash; ungraded, and strong preparation for performance-based exam questions</li>
-                    <li>Work the Section 1.7 practice questions set until you have confidence</li>
-                    <li>Complete NDG A+ v5 Labs 01A and 01B in NETLAB &mdash; reserve your time early in the week</li>
-                    <li>Complete your Section 1.9 reflection</li>
-                    <li>Take the Section 1.10 Unit Test and submit it by Monday 8/17 at 11:59 PM</li>
+                    <li>Sybex <em>CompTIA A+ Complete Study Guide</em>, Volume 1 &mdash; Chapter 1 Performance-Based Questions 1 and 2 map directly onto these labs</li>
+                    <li>Your machine's motherboard manual &mdash; find the manufacturer's PDF online. Front panel header diagrams live here and nowhere else.</li>
                 </ul>
             </div>
 
