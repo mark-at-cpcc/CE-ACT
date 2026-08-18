@@ -275,7 +275,7 @@
         <header class="module-header">
             <div class="module-label">Unit 1 &middot; Inside the Box &middot; Section 1.7</div>
             <h1 class="module-title">Practice Question Set</h1>
-            <p class="module-subtitle">10 questions drawn at random from a 50-question pool. Keep resetting and retaking until you score a perfect 10 out of 10.</p>
+            <p class="module-subtitle">10 questions on the material from this unit. Keep resetting until you score a perfect 10 out of 10.</p>
         </header>
 
         <nav class="toc">
@@ -293,20 +293,20 @@
 
         <div class="content-area">
 
-            <p class="text-muted">Every attempt pulls 10 questions at random from a pool of 50 covering this unit's four objectives. Work them cold, before you review. <strong>Keep retaking this until you score 10 out of 10</strong> &mdash; that is the standard for this activity, not a suggestion.</p>
+            <p class="text-muted">Every attempt pulls 10 questions covering this unit's four objectives. Work them cold, before you review. <strong>Keep retaking this until you score 10 out of 10</strong> &mdash; that is the standard for this activity, not a suggestion.</p>
 
             <div class="plain-box">
                 <div class="callout-title">Think Before You Click</div>
                 <div class="callout-content">
                     <p>Before selecting an answer, decide honestly whether you actually know it or you're guessing. That private judgment matters more than the score. Confident-and-right means you know it. Guessed-and-wrong means you know you don't &mdash; an easy fix. Guessed-and-right means you got lucky and should still go read the section. <strong>Confident-and-wrong</strong> is the one to watch for: you believe something false and have no reason to double-check it. That category is invisible on an ordinary score report, and it is what fails people on the first attempt.</p>
-                    <p>Select an answer for each question, then click <strong>Grade My Answers</strong> to see your results. Click <strong>Reset and Retake</strong> for a brand-new random set of 10, and keep going. <strong>You are expected to repeat this until you score a perfect 10 out of 10</strong> in a single attempt. Anything less than 10, reset and try again &mdash; a fresh random set every time means you cannot simply memorize positions, you actually have to know the material.</p>
+                    <p>Select an answer for each question, then click <strong>Grade My Answers</strong> to see your results. Click <strong>Reset</strong> for a brand-new random set of 10, and keep going. <strong>You are expected to repeat this until you score a perfect 10 out of 10</strong> in a single attempt. Anything less than 10, reset and try again &mdash; a fresh random set every time means you cannot simply memorize positions, you actually have to know the material.</p>
                 </div>
             </div>
 
             <div class="assessment-section">
                 <div class="assessment-header">
                     <h3>&#128221; Unit 1 Practice Set</h3>
-                    <p>10 of 50 questions, selected at random for this attempt.</p>
+                    <p>10 questions on the material from this unit.</p>
                 </div>
                 <p class="pool-note">Pool covers objectives 0.1, 3.3, 3.5, 3.6, and 5.1 &mdash; motherboards, memory, power, cooling, firmware, and troubleshooting.</p>
 
@@ -316,13 +316,13 @@
 
                 <div class="assessment-controls">
                     <button type="button" id="gradeBtn" class="btn-grade">Grade My Answers</button>
-                    <button type="button" id="resetBtn" class="btn-reset">Reset and Retake</button>
+                    <button type="button" id="resetBtn" class="btn-reset">Reset</button>
                 </div>
 
                 <div class="results-summary" id="resultsSummary">
                     <div class="results-score" id="resultsScore">0 / 10</div>
                     <p id="resultsMessage"></p>
-                    <p style="font-size:0.9rem; opacity:0.85;">Green highlights the correct answer. Red marks an answer you picked that wasn't it. Anything under 10/10, reset and try again &mdash; the pool has 50 questions, so no two attempts are guaranteed to match.</p>
+                    <p style="font-size:0.9rem; opacity:0.85;">Green highlights the correct answer. Red marks an answer you picked that wasn't it. Anything under 10/10, reset and try again &mdash; each attempt draws a genuinely different set.</p>
                 </div>
             </div>
 
@@ -341,7 +341,7 @@
 
             <div class="callout callout-info">
                 <div class="callout-title">Where You Should Be</div>
-                <div class="callout-content"><p>The target is <strong>10 out of 10</strong>, and this activity is not complete until you hit it. Reset and retake as many times as it takes &mdash; the questions come from a pool of 50, so each attempt is a genuinely different set, not the same ten in a new order. If you have gone through several attempts and still cannot reach 10, the material has not settled yet, which is normal in Week 1 and worth an email to me rather than a quiet worry.</p></div>
+                <div class="callout-content"><p>The target is <strong>10 out of 10</strong>, and this activity is not complete until you hit it. Reset as many times as it takes &mdash; each attempt is a genuinely different set, not the same ten in a new order. If you have gone through several attempts and still cannot reach 10, the material has not settled yet, which is normal in Week 1 and worth an email to me rather than a quiet worry.</p></div>
             </div>
 
             <div class="activity-section">
@@ -930,11 +930,11 @@ const QUESTION_POOL = [
                 if (correctCount === total) {
                     msg += '<strong>10 out of 10 &mdash; that\'s the target.</strong> This activity is complete. You can stop here, or reset for another random set just to confirm it wasn\'t luck.';
                 } else if (correctCount <= 5) {
-                    msg += 'Not yet at 10 out of 10. Below half means the material has not settled &mdash; reread Section 1.3 and rewatch the Section 1.5 videos, then click <strong>Reset and Retake</strong> for a new random set and try again.';
+                    msg += 'Not yet at 10 out of 10. Below half means the material has not settled &mdash; reread Section 1.3 and rewatch the Section 1.5 videos, then click <strong>Reset</strong> for a new random set and try again.';
                 } else if (correctCount <= 8) {
-                    msg += 'Close, but not 10 out of 10 yet. Note which ones you missed, revisit those specific concepts, then click <strong>Reset and Retake</strong> for a new random set. Keep going until you clear all ten.';
+                    msg += 'Close, but not 10 out of 10 yet. Note which ones you missed, revisit those specific concepts, then click <strong>Reset</strong> for a new random set. Keep going until you clear all ten.';
                 } else {
-                    msg += 'One away from 10 out of 10. Check which question you missed, then click <strong>Reset and Retake</strong> and try again &mdash; this activity isn\'t finished until you clear all ten in one attempt.';
+                    msg += 'One away from 10 out of 10. Check which question you missed, then click <strong>Reset</strong> and try again &mdash; this activity isn\'t finished until you clear all ten in one attempt.';
                 }
                 msgEl.innerHTML = msg;
                 summaryEl.classList.add('show');
