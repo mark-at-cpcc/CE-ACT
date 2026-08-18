@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 1 &mdash; 1.A Acronym Test | CompTIA A+ Core 1</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Sans+Pro:wght@400;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           CPCC COURSE TEMPLATE - GOLD / CHARCOAL / BLACK
+           CTS-ITS7501-80 CompTIA A+ Core 1 Training
+           Type: true black. Accents: gold. Chrome: charcoal.
+           ============================================ */
+
+        :root {
+            --primary-dark: #4A4A4A;
+            --primary-main: #B8962E;
+            --primary-light: #D4AF56;
+            --primary-pale: #FBF3DF;
+
+            --accent-teal: #8A6F1F;
+            --accent-teal-light: #F3E9CE;
+            --accent-orange: #A9642A;
+            --accent-orange-light: #F5E2CE;
+            --accent-purple: #6B5B3A;
+            --accent-purple-light: #EFE6D2;
+            --accent-green: #4E7A51;
+            --accent-green-light: #DCEBDD;
+
+            --alert-warning: #B8862E;
+            --alert-warning-bg: #FBF0D9;
+            --alert-danger: #A13A3A;
+            --alert-danger-bg: #F6DEDE;
+            --alert-success: #3F6E42;
+            --alert-success-bg: #DCEBDD;
+            --alert-info: #6E5B2E;
+            --alert-info-bg: #F1E9D4;
+
+            --text-black: #000000;
+            --neutral-900: #000000;
+            --neutral-700: #000000;
+            --neutral-500: #5A5A5A;
+            --neutral-300: #D9D3C4;
+            --neutral-100: #FAF8F3;
+            --white: #ffffff;
+
+            --font-heading: 'Nunito', sans-serif;
+            --font-body: 'Source Sans Pro', sans-serif;
+            --font-code: 'Fira Code', monospace;
+
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+
+            --shadow-sm: 0 1px 2px rgba(74, 74, 74, 0.08);
+            --shadow-md: 0 4px 6px rgba(74, 74, 74, 0.12);
+            --shadow-lg: 0 10px 20px rgba(74, 74, 74, 0.15);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body), 'Segoe UI', Tahoma, Verdana, sans-serif;
+            font-size: 1.0625rem; line-height: 1.7; color: var(--text-black);
+            background: linear-gradient(135deg, var(--neutral-100) 0%, var(--white) 100%);
+            min-height: 100vh; padding: var(--space-lg);
+        }
+
+        .course-container {
+            max-width: 950px; margin: 0 auto; background: var(--white);
+            border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); overflow: hidden;
+        }
+
+        .module-header {
+            background: var(--primary-main); color: var(--text-black);
+            padding: var(--space-2xl) var(--space-xl); position: relative; overflow: hidden;
+        }
+        .module-label {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 0.875rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 2px;
+            margin-bottom: var(--space-sm); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-title {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 2.25rem; font-weight: 800;
+            line-height: 1.2; margin-bottom: var(--space-md); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-subtitle { font-size: 1.125rem; max-width: 650px; position: relative; z-index: 1; color: var(--text-black); }
+
+        .toc {
+            display: flex; flex-direction: column; gap: var(--space-sm);
+            padding: var(--space-lg) var(--space-xl);
+            background: var(--primary-pale); border-bottom: 1px solid var(--neutral-300);
+        }
+        .toc-item {
+            width: 100%; text-align: left;
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 0.875rem;
+            color: var(--text-black); background: var(--white);
+            border: 2px solid var(--primary-main);
+            padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md);
+        }
+        .toc-item.current { background: var(--primary-main); }
+
+        .content-area { padding: var(--space-xl); }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif;
+            color: var(--text-black); line-height: 1.3; margin-bottom: var(--space-md);
+        }
+        h1 { font-size: 2rem; font-weight: 800; }
+        h2 { font-size: 1.625rem; font-weight: 700; padding-bottom: var(--space-sm);
+             border-bottom: 3px solid var(--primary-main); margin-top: var(--space-xl); margin-bottom: var(--space-lg); }
+        h3 { font-size: 1.375rem; font-weight: 700; margin-top: var(--space-lg);
+             padding-left: var(--space-sm); border-left: 4px solid var(--primary-main); }
+        h4 { font-size: 1.125rem; font-weight: 600; }
+
+        p { margin-bottom: var(--space-md); }
+        strong { font-weight: 700; color: var(--text-black); }
+        em { font-style: italic; color: var(--text-black); }
+
+        a { color: var(--text-black); text-decoration: none; border-bottom: 2px solid var(--primary-main); transition: all 0.2s ease; }
+        a:hover { background: var(--primary-pale); border-bottom-color: var(--accent-teal); }
+
+        ul, ol { margin-bottom: var(--space-md); padding-left: var(--space-lg); }
+        li { margin-bottom: var(--space-sm); }
+        ul li::marker { color: var(--accent-teal); }
+        ol li::marker { color: var(--accent-teal); font-weight: 700; }
+
+        .plain-box {
+            background: var(--primary-pale); border: 2px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .plain-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .plain-box .callout-content { padding-left: 0; }
+
+        .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; position: relative; overflow: hidden; }
+        .callout-title { font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 1rem;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
+        .callout-content { }
+        .callout-content p:last-child { margin-bottom: 0; }
+        .callout-tip { background: var(--accent-green-light); border-left: 4px solid var(--accent-green); }
+        .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
+
+        .definition { background: var(--neutral-100); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin: var(--space-md) 0; border-left: 4px solid var(--accent-orange); }
+
+        .table-container { overflow-x: auto; margin: var(--space-lg) 0; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); }
+        table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
+        thead { background: var(--primary-dark); color: var(--white); }
+        th { font-family: var(--font-heading), sans-serif; font-weight: 700; text-align: left; padding: var(--space-md) var(--space-lg); color: var(--white); }
+        td { padding: var(--space-md) var(--space-lg); border-bottom: 1px solid var(--neutral-300); color: var(--text-black); }
+        tbody tr:hover { background: var(--primary-pale); }
+        tbody tr:last-child td { border-bottom: none; }
+
+        .activity-section {
+            background: linear-gradient(135deg, var(--accent-orange-light) 0%, var(--white) 100%);
+            border: 2px dashed var(--accent-orange); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .activity-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg); }
+        .activity-icon { width: 50px; height: 50px; background: var(--accent-orange); border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; }
+        .activity-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700;
+            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
+        .activity-subtitle { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
+
+        .assessment-section { background: var(--primary-pale); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0; }
+        .assessment-header { text-align: center; margin-bottom: var(--space-xl); }
+        .assessment-header h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .pool-note { text-align: center; font-size: 0.875rem; color: var(--neutral-500); margin-top: -0.75rem; margin-bottom: var(--space-lg); }
+
+        .question-block { background: var(--white); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin-bottom: var(--space-lg); box-shadow: var(--shadow-sm); border: 2px solid transparent; transition: border-color .15s ease; }
+        .question-number { font-family: var(--font-heading), sans-serif; font-size: 0.75rem; font-weight: 700;
+            color: var(--text-black); background: var(--primary-main); display: inline-block;
+            padding: 2px 10px; border-radius: var(--radius-sm);
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); }
+        .question-text { font-weight: 600; color: var(--text-black); margin-bottom: var(--space-md); }
+
+        .mc-options { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-sm); }
+        .mc-option {
+            display: flex; align-items: center; gap: var(--space-md); width: 100%; text-align: left;
+            padding: var(--space-sm) var(--space-md); border: 2px solid var(--neutral-300); border-radius: var(--radius-md);
+            background: var(--white); color: var(--text-black); font-family: var(--font-body), sans-serif;
+            font-size: 1rem; cursor: pointer; transition: all 0.15s ease;
+        }
+        .mc-option:hover { border-color: var(--primary-main); background: var(--primary-pale); }
+        .mc-option .mc-letter {
+            flex-shrink: 0; width: 1.75rem; height: 1.75rem; border-radius: 50%;
+            background: var(--neutral-100); border: 2px solid var(--neutral-300);
+            display: flex; align-items: center; justify-content: center;
+            font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 0.85rem; color: var(--text-black);
+        }
+        .mc-option.selected { border-color: var(--primary-main); background: var(--primary-pale); font-weight: 700; }
+        .mc-option.selected .mc-letter { background: var(--primary-main); border-color: var(--primary-main); }
+        .mc-option.graded-correct { border-color: var(--alert-success); background: var(--alert-success-bg); font-weight: 700; }
+        .mc-option.graded-correct .mc-letter { background: var(--alert-success); border-color: var(--alert-success); color: var(--white); }
+        .mc-option.graded-incorrect { border-color: var(--alert-danger); background: var(--alert-danger-bg); }
+        .mc-option.graded-incorrect .mc-letter { background: var(--alert-danger); border-color: var(--alert-danger); color: var(--white); }
+        .mc-option.graded-missed { border-color: var(--alert-success); border-style: dashed; }
+
+        .question-block.unanswered-flag { border-color: var(--alert-warning); }
+        .unanswered-note {
+            display: none; margin-top: var(--space-sm); font-size: 0.875rem; font-weight: 700;
+            color: var(--alert-warning); font-family: var(--font-heading), sans-serif;
+        }
+        .question-block.unanswered-flag .unanswered-note { display: block; }
+
+        .assessment-controls {
+            display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap;
+            margin-top: var(--space-xl); padding-top: var(--space-lg); border-top: 2px solid var(--neutral-300);
+        }
+        .btn-grade, .btn-reset {
+            font-family: var(--font-heading), sans-serif; font-weight: 800; font-size: 1rem;
+            padding: var(--space-md) var(--space-2xl); border-radius: var(--radius-md);
+            cursor: pointer; transition: all 0.15s ease; border: 2px solid var(--primary-dark);
+        }
+        .btn-grade { background: var(--primary-main); color: var(--text-black); border-color: var(--primary-main); box-shadow: var(--shadow-sm); }
+        .btn-grade:hover { background: var(--primary-light); }
+        .btn-reset { background: var(--white); color: var(--text-black); }
+        .btn-reset:hover { background: var(--neutral-100); }
+
+        .results-summary {
+            display: none; margin-top: var(--space-xl); padding: var(--space-xl);
+            border-radius: var(--radius-lg); background: var(--primary-dark); color: var(--white); text-align: center;
+        }
+        .results-summary.show { display: block; }
+        .results-score { font-family: var(--font-heading), sans-serif; font-size: 2.5rem; font-weight: 800; color: var(--white); margin-bottom: var(--space-sm); }
+        .results-summary p { color: var(--white); margin-bottom: var(--space-sm); }
+        .results-summary p:last-child { margin-bottom: 0; }
+
+        .references-section { background: var(--neutral-100); border-radius: var(--radius-lg);
+            padding: var(--space-lg) var(--space-xl); margin: var(--space-xl) 0; border-top: 3px solid var(--primary-main); }
+        .references-section h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .references-section ul { padding-left: var(--space-lg); }
+
+        .module-footer { background: var(--primary-dark); padding: var(--space-lg) var(--space-xl);
+            text-align: center; border-top: 4px solid var(--primary-main); }
+        .footer-text { font-size: 0.875rem; color: var(--white); margin: 0; }
+
+        .text-muted { color: var(--neutral-500); }
+
+        @media (max-width: 768px) {
+            body { padding: var(--space-sm); }
+            .module-header { padding: var(--space-xl) var(--space-lg); }
+            .module-title { font-size: 1.75rem; }
+            .content-area { padding: var(--space-lg); }
+            h2 { font-size: 1.375rem; }
+            .activity-header { flex-direction: column; align-items: flex-start; }
+            .assessment-controls { flex-direction: column; }
+            .btn-grade, .btn-reset { width: 100%; }
+        }
+        @media print {
+            body { background: white; padding: 0; }
+            .course-container { box-shadow: none; }
+            .toc { display: none; }
+            .assessment-controls { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="course-container">
+
+        <header class="module-header">
+            <div class="module-label">Unit 1 &middot; Inside the Box &middot; Section 1.A</div>
+            <h1 class="module-title">Acronym Test</h1>
+            <p class="module-subtitle">20 questions on the acronyms from this course. Retake as many times as you like.</p>
+        </header>
+
+        <nav class="toc">
+            <div class="toc-item">1.1 &mdash; Unit Overview and Learning Objectives</div>
+            <div class="toc-item">1.2 &mdash; Unit Pre-Assessment</div>
+            <div class="toc-item">1.3 &mdash; Content Review</div>
+            <div class="toc-item">1.4 &mdash; Reading Assignment</div>
+            <div class="toc-item">1.5 &mdash; Video Assignment</div>
+            <div class="toc-item">1.6 &mdash; Lab Activities and Submission</div>
+            <div class="toc-item">1.7 &mdash; Practice Question Set</div>
+            <div class="toc-item">1.8 &mdash; Online Labs: NETLAB</div>
+            <div class="toc-item">1.9 &mdash; Reflection Activity</div>
+            <div class="toc-item">1.10 &mdash; Unit Test</div>
+            <div class="toc-item current">1.A &mdash; Acronym Test</div>
+        </nav>
+
+
+        <div class="content-area">
+
+            <p class="text-muted">Each question describes what an acronym stands for or how it's used. Select the one acronym that matches. Every attempt draws 20 questions covering acronyms from across the course.</p>
+
+            <div class="plain-box">
+                <div class="callout-title">How This Works</div>
+                <div class="callout-content">
+                    <p>Read the description, then click the acronym that matches it. Click <strong>Grade My Answers</strong> to score the set and see which ones you missed. Click <strong>Reset</strong> for a brand-new random set of 20 &mdash; retake it as many times as you find useful.</p>
+                </div>
+            </div>
+
+            <div class="assessment-section">
+                <div class="assessment-header">
+                    <h3>&#128221; Acronym Test</h3>
+                    <p>20 questions, selected at random for this attempt.</p>
+                </div>
+
+                <form id="practiceForm">
+                    <div id="questionContainer"></div>
+                </form>
+
+                <div class="assessment-controls">
+                    <button type="button" id="gradeBtn" class="btn-grade">Grade My Answers</button>
+                    <button type="button" id="resetBtn" class="btn-reset">Reset</button>
+                </div>
+
+                <div class="results-summary" id="resultsSummary">
+                    <div class="results-score" id="resultsScore">0 / 20</div>
+                    <p id="resultsMessage"></p>
+                    <p style="font-size:0.9rem; opacity:0.85;">Green highlights the correct acronym. Red marks an answer you picked that wasn't it. Click <strong>Reset</strong> any time for a new random set of 20.</p>
+                </div>
+            </div>
+
+            <h2>Scoring Yourself Honestly</h2>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Category</th><th>What It Means</th><th>What To Do</th></tr></thead>
+                    <tbody>
+                        <tr><td>Confident and correct</td><td>Genuine knowledge</td><td>Nothing. Move on.</td></tr>
+                        <tr><td>Guessed and wrong</td><td>Known gap</td><td>Look up the acronym and reread its entry in the answer key. This is the easy fix.</td></tr>
+                        <tr><td>Guessed and correct</td><td>Luck</td><td>Treat exactly like a miss. Go look it up.</td></tr>
+                        <tr><td><strong>Confident and wrong</strong></td><td><strong>False belief</strong></td><td><strong>Highest priority.</strong> You believed something false with no reason to double-check it. Write the correction down.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="callout callout-info">
+                <div class="callout-title">Where You Should Be</div>
+                <div class="callout-content"><p>Aim for consistent scores in the high teens out of 20 across a few different random attempts. If a specific acronym trips you up more than once, that is the one worth adding to your own drill list.</p></div>
+            </div>
+
+            <div class="references-section">
+                <h3>Go Further</h3>
+                <ul>
+                    <li>Acronym Answer Key and Study Guide &mdash; full explanations, real-world examples, and links for every acronym in this test</li>
+                    <li>Acronym Research Worksheet &mdash; look up any acronym you missed and write your own definition</li>
+                    <li>CompTIA official 220-1201 exam objectives (comptia.org) &mdash; the full acronym list appears at the end</li>
+                </ul>
+            </div>
+
+
+        </div>
+
+        <footer class="module-footer">
+            <p class="footer-text">CompTIA A+ Core 1 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
+        </footer>
+    </div>
+
+    <script>
+        /* Acronym Test question bank - 100 items, sourced from the
+   Acronym-Quiz-100-Questions.txt test bank. Each question has
+   5 answer options (a-e), exactly one correct. */
+
+const QUESTION_POOL = [
+{text:"Which acronym describes the following? A company that makes CPUs and GPUs, and one of the two major processor manufacturers a technician needs to recognize on sight.",
+ options:[{text:"IDE", correct:false},
+   {text:"ARM", correct:false},
+   {text:"OEM", correct:false},
+   {text:"SAS", correct:false},
+   {text:"AMD", correct:true}]},
+{text:"Which acronym describes the following? The standard motherboard form factor and power connector layout used in most full-size desktop computers.",
+ options:[{text:"SAS", correct:false},
+   {text:"SATA", correct:false},
+   {text:"ATX", correct:true},
+   {text:"PCIe", correct:false},
+   {text:"ITX", correct:false}]},
+{text:"Which acronym describes the following? The firmware that runs the instant a computer is powered on, before any operating system loads, to test hardware and locate a boot device.",
+ options:[{text:"CMOS", correct:false},
+   {text:"UEFI", correct:false},
+   {text:"POST", correct:false},
+   {text:"BIOS", correct:true},
+   {text:"TPM", correct:false}]},
+{text:"Which acronym describes the following? The modern replacement for legacy BIOS firmware, adding support for drives over 2 TB, a graphical setup screen, faster boot, and Secure Boot.",
+ options:[{text:"BIOS", correct:false},
+   {text:"POST", correct:false},
+   {text:"TPM", correct:false},
+   {text:"CMOS", correct:false},
+   {text:"UEFI", correct:true}]},
+{text:"Which acronym describes the following? The processor - the chip that executes instructions and is often called the brain of the computer.",
+ options:[{text:"RAM", correct:false},
+   {text:"ROM", correct:false},
+   {text:"APU", correct:false},
+   {text:"CPU", correct:true},
+   {text:"GPU", correct:false}]},
+{text:"Which acronym describes the following? A specialized processor built to render images, video, and 3D graphics, either built into the CPU or on a dedicated expansion card.",
+ options:[{text:"APU", correct:false},
+   {text:"CPU", correct:false},
+   {text:"GPU", correct:true},
+   {text:"VGA", correct:false},
+   {text:"DP", correct:false}]},
+{text:"Which acronym describes the following? Fast, volatile memory that holds the operating system and running programs while the computer is on; contents are lost when power is removed.",
+ options:[{text:"ROM", correct:false},
+   {text:"DDR", correct:false},
+   {text:"RAM", correct:true},
+   {text:"DIMM", correct:false},
+   {text:"ECC", correct:false}]},
+{text:"Which acronym describes the following? Non-volatile memory that stores data permanently, typically used to hold firmware that shouldn't change during normal operation.",
+ options:[{text:"DDR", correct:false},
+   {text:"ROM", correct:true},
+   {text:"RAM", correct:false},
+   {text:"CMOS", correct:false},
+   {text:"BIOS", correct:false}]},
+{text:"Which acronym describes the following? A memory technology that transfers data on both the rising and falling edge of the clock signal, doubling throughput over older single-rate memory.",
+ options:[{text:"SO-DIMM", correct:false},
+   {text:"DIMM", correct:false},
+   {text:"DDR", correct:true},
+   {text:"ECC", correct:false},
+   {text:"RAM", correct:false}]},
+{text:"Which acronym describes the following? The full-size memory stick format used in desktop computers and servers.",
+ options:[{text:"RAM", correct:false},
+   {text:"DDR", correct:false},
+   {text:"SO-DIMM", correct:false},
+   {text:"DIMM", correct:true},
+   {text:"ECC", correct:false}]},
+{text:"Which acronym describes the following? The compact memory module format used in laptops and small-form-factor computers.",
+ options:[{text:"ECC", correct:false},
+   {text:"DIMM", correct:false},
+   {text:"SO-DIMM", correct:true},
+   {text:"DDR", correct:false},
+   {text:"ATX", correct:false}]},
+{text:"Which acronym describes the following? A type of memory that detects and automatically corrects single-bit errors on the fly, standard in servers where silent data corruption is unacceptable.",
+ options:[{text:"DDR", correct:false},
+   {text:"DIMM", correct:false},
+   {text:"RAID", correct:false},
+   {text:"ECC", correct:true},
+   {text:"CMOS", correct:false}]},
+{text:"Which acronym describes the following? Traditional mechanical storage that reads and writes data on spinning magnetic platters.",
+ options:[{text:"HDD", correct:true},
+   {text:"SSD", correct:false},
+   {text:"RAID", correct:false},
+   {text:"NVMe", correct:false},
+   {text:"SATA", correct:false}]},
+{text:"Which acronym describes the following? Storage built from flash memory chips with no moving parts, offering much faster access than a mechanical hard drive.",
+ options:[{text:"SATA", correct:false},
+   {text:"SSD", correct:true},
+   {text:"NVMe", correct:false},
+   {text:"HDD", correct:false},
+   {text:"RAID", correct:false}]},
+{text:"Which acronym describes the following? A high-speed protocol for SSDs that connects directly over the PCIe bus instead of the older SATA interface, dramatically increasing throughput.",
+ options:[{text:"SSD", correct:false},
+   {text:"SAS", correct:false},
+   {text:"PCIe", correct:false},
+   {text:"SATA", correct:false},
+   {text:"NVMe", correct:true}]},
+{text:"Which acronym describes the following? A method of combining multiple physical drives into one logical unit for redundancy, performance, or both.",
+ options:[{text:"SAN", correct:false},
+   {text:"NAS", correct:false},
+   {text:"SAS", correct:false},
+   {text:"RAID", correct:true},
+   {text:"ECC", correct:false}]},
+{text:"Which acronym describes the following? The standard interface used to connect hard drives and SSDs to a motherboard, transmitting data serially over a thin cable.",
+ options:[{text:"IDE", correct:false},
+   {text:"SAS", correct:false},
+   {text:"SATA", correct:true},
+   {text:"NVMe", correct:false},
+   {text:"SCSI", correct:false}]},
+{text:"Which acronym describes the following? A high-performance drive interface primarily used in servers, offering better reliability and multi-drive support than consumer SATA.",
+ options:[{text:"SAS", correct:true},
+   {text:"RAID", correct:false},
+   {text:"NVMe", correct:false},
+   {text:"SATA", correct:false},
+   {text:"SCSI", correct:false}]},
+{text:"Which acronym describes the following? An older standard for connecting drives and peripherals to computers, largely superseded by SATA and SAS but still referenced on the exam.",
+ options:[{text:"IDE", correct:false},
+   {text:"RAID", correct:false},
+   {text:"SATA", correct:false},
+   {text:"SAS", correct:false},
+   {text:"SCSI", correct:true}]},
+{text:"Which acronym describes the following? The high-speed expansion bus used for graphics cards, NVMe SSDs, and other add-in cards, organized into lanes (x1, x4, x8, x16).",
+ options:[{text:"PCIe", correct:true},
+   {text:"AGP", correct:false},
+   {text:"SATA", correct:false},
+   {text:"NVMe", correct:false},
+   {text:"PCI", correct:false}]},
+{text:"Which acronym describes the following? The component that converts AC power from the wall into the DC voltages a computer's internal parts require.",
+ options:[{text:"PSU", correct:true},
+   {text:"SATA", correct:false},
+   {text:"ATX", correct:false},
+   {text:"UPS", correct:false},
+   {text:"EPS", correct:false}]},
+{text:"Which acronym describes the following? The diagnostic routine firmware runs at power-on to check essential hardware before handing off to the boot device.",
+ options:[{text:"CMOS", correct:false},
+   {text:"UEFI", correct:false},
+   {text:"ESD", correct:false},
+   {text:"BIOS", correct:false},
+   {text:"POST", correct:true}]},
+{text:"Which acronym describes the following? The low-power chip, backed by a small battery, that stores firmware settings and the system clock while the computer is unplugged.",
+ options:[{text:"BIOS", correct:false},
+   {text:"POST", correct:false},
+   {text:"CMOS", correct:true},
+   {text:"ROM", correct:false},
+   {text:"TPM", correct:false}]},
+{text:"Which acronym describes the following? A chip or firmware feature that generates and stores cryptographic keys tied to a specific machine, required by features like BitLocker.",
+ options:[{text:"UEFI", correct:false},
+   {text:"HSM", correct:false},
+   {text:"TPM", correct:true},
+   {text:"CMOS", correct:false},
+   {text:"AES", correct:false}]},
+{text:"Which acronym describes the following? A dedicated physical device that generates, stores, and manages cryptographic keys at scale, typically for servers and certificate authorities.",
+ options:[{text:"AES", correct:false},
+   {text:"TPM", correct:false},
+   {text:"HSM", correct:true},
+   {text:"AAA", correct:false},
+   {text:"ACL", correct:false}]},
+{text:"Which acronym describes the following? The sudden transfer of static electricity between two objects, capable of silently damaging sensitive electronics well below the voltage a person can feel.",
+ options:[{text:"ESD", correct:true},
+   {text:"CMOS", correct:false},
+   {text:"RFI", correct:false},
+   {text:"TPM", correct:false},
+   {text:"EMI", correct:false}]},
+{text:"Which acronym describes the following? A battery backup device that keeps equipment running briefly during a power outage and protects against surges.",
+ options:[{text:"UPS", correct:true},
+   {text:"PSU", correct:false},
+   {text:"AC", correct:false},
+   {text:"EPS", correct:false},
+   {text:"SLA", correct:false}]},
+{text:"Which acronym describes the following? A type of LCD display panel technology known for wide, consistent viewing angles and accurate color, compared to older TN panels. (Note: in a security context, IPS instead means Intrusion Prevention System - a favorite exam trap.)",
+ options:[{text:"VGA", correct:false},
+   {text:"LED", correct:false},
+   {text:"IPS", correct:true},
+   {text:"LCD", correct:false},
+   {text:"OLED", correct:false}]},
+{text:"Which acronym describes the following? A digital audio/video connector standard used to connect monitors, TVs, and projectors, carrying both picture and sound over one cable.",
+ options:[{text:"DP", correct:false},
+   {text:"DVI", correct:false},
+   {text:"VGA", correct:false},
+   {text:"USB", correct:false},
+   {text:"HDMI", correct:true}]},
+{text:"Which acronym describes the following? An older digital video connector standard, video-only in most configurations, largely replaced by HDMI and DisplayPort.",
+ options:[{text:"USB", correct:false},
+   {text:"DVI", correct:true},
+   {text:"VGA", correct:false},
+   {text:"DP", correct:false},
+   {text:"HDMI", correct:false}]},
+{text:"Which acronym describes the following? A legacy analog video connector, blue in color with a 15-pin trapezoidal connector, still occasionally found on older projectors and monitors.",
+ options:[{text:"VGA", correct:true},
+   {text:"DVI", correct:false},
+   {text:"HDMI", correct:false},
+   {text:"RGB", correct:false},
+   {text:"DP", correct:false}]},
+{text:"Which acronym describes the following? A digital display connector standard competing with HDMI, common on higher-end monitors and capable of very high refresh rates and resolutions.",
+ options:[{text:"HDMI", correct:false},
+   {text:"DP", correct:true},
+   {text:"VGA", correct:false},
+   {text:"DVI", correct:false},
+   {text:"USB", correct:false}]},
+{text:"Which acronym describes the following? The near-universal standard for connecting peripherals - keyboards, mice, storage, and more - to a computer, in multiple connector types and speeds.",
+ options:[{text:"eSATA", correct:false},
+   {text:"HDMI", correct:false},
+   {text:"DP", correct:false},
+   {text:"SATA", correct:false},
+   {text:"USB", correct:true}]},
+{text:"Which acronym describes the following? The additive color model used by digital displays, where every color on screen is produced by combining red, green, and blue light.",
+ options:[{text:"LCD", correct:false},
+   {text:"LED", correct:false},
+   {text:"CMYK", correct:false},
+   {text:"DPI", correct:false},
+   {text:"RGB", correct:true}]},
+{text:"Which acronym describes the following? A flat-panel display technology that uses liquid crystals and a backlight to produce an image; the basis for most modern monitors and laptop screens.",
+ options:[{text:"CRT", correct:false},
+   {text:"LED", correct:false},
+   {text:"OLED", correct:false},
+   {text:"LCD", correct:true},
+   {text:"IPS", correct:false}]},
+{text:"Which acronym describes the following? A small semiconductor light source; in displays, LED usually refers to the backlighting technology behind an LCD panel.",
+ options:[{text:"IPS", correct:false},
+   {text:"LED", correct:true},
+   {text:"OLED", correct:false},
+   {text:"LCD", correct:false},
+   {text:"CRT", correct:false}]},
+{text:"Which acronym describes the following? A display technology where each pixel produces its own light, allowing true blacks and very high contrast without a separate backlight.",
+ options:[{text:"CRT", correct:false},
+   {text:"IPS", correct:false},
+   {text:"OLED", correct:true},
+   {text:"LED", correct:false},
+   {text:"LCD", correct:false}]},
+{text:"Which acronym describes the following? A measurement of print or image resolution, describing how many dots of ink or pixels are packed into one inch.",
+ options:[{text:"MFP", correct:false},
+   {text:"LCD", correct:false},
+   {text:"ADF", correct:false},
+   {text:"DPI", correct:true},
+   {text:"RGB", correct:false}]},
+{text:"Which acronym describes the following? A mechanism on a scanner or multifunction printer that automatically feeds multiple pages through for scanning or copying without manual reloading.",
+ options:[{text:"DPI", correct:false},
+   {text:"MFP", correct:false},
+   {text:"RGB", correct:false},
+   {text:"ADF", correct:true},
+   {text:"USB", correct:false}]},
+{text:"Which acronym describes the following? A device that combines printing, scanning, copying, and often faxing into a single unit.",
+ options:[{text:"USB", correct:false},
+   {text:"RGB", correct:false},
+   {text:"MFP", correct:true},
+   {text:"ADF", correct:false},
+   {text:"DPI", correct:false}]},
+{text:"Which acronym describes the following? An external version of the SATA interface, allowing an external drive to connect at speeds close to an internal drive without the overhead of USB.",
+ options:[{text:"USB", correct:false},
+   {text:"SATA", correct:false},
+   {text:"NVMe", correct:false},
+   {text:"eSATA", correct:true},
+   {text:"SAS", correct:false}]},
+{text:"Which acronym describes the following? A network confined to a single location, like an office or home, where devices connect directly rather than over the public internet.",
+ options:[{text:"WLAN", correct:false},
+   {text:"PAN", correct:false},
+   {text:"MAN", correct:false},
+   {text:"WAN", correct:false},
+   {text:"LAN", correct:true}]},
+{text:"Which acronym describes the following? A network that spans a large geographic area, connecting multiple LANs together, with the internet being the largest example.",
+ options:[{text:"WAN", correct:true},
+   {text:"WLAN", correct:false},
+   {text:"MAN", correct:false},
+   {text:"LAN", correct:false},
+   {text:"PAN", correct:false}]},
+{text:"Which acronym describes the following? A local network that uses Wi-Fi instead of physical cabling to connect devices.",
+ options:[{text:"WLAN", correct:true},
+   {text:"WPAN", correct:false},
+   {text:"WAN", correct:false},
+   {text:"WWAN", correct:false},
+   {text:"LAN", correct:false}]},
+{text:"Which acronym describes the following? A very short-range network connecting devices immediately around one person, such as a phone and a wireless earbud.",
+ options:[{text:"PAN", correct:true},
+   {text:"WAN", correct:false},
+   {text:"WPAN", correct:false},
+   {text:"LAN", correct:false},
+   {text:"MAN", correct:false}]},
+{text:"Which acronym describes the following? A network that spans a city or large campus, larger than a LAN but smaller than a WAN.",
+ options:[{text:"PAN", correct:false},
+   {text:"LAN", correct:false},
+   {text:"WLAN", correct:false},
+   {text:"WAN", correct:false},
+   {text:"MAN", correct:true}]},
+{text:"Which acronym describes the following? A short-range wireless network, typically Bluetooth-based, connecting personal devices without cabling.",
+ options:[{text:"PAN", correct:false},
+   {text:"WWAN", correct:false},
+   {text:"LAN", correct:false},
+   {text:"WPAN", correct:true},
+   {text:"WLAN", correct:false}]},
+{text:"Which acronym describes the following? The hardware component, built-in or add-on, that lets a computer physically connect to a network.",
+ options:[{text:"LAN", correct:false},
+   {text:"WAN", correct:false},
+   {text:"NIC", correct:true},
+   {text:"USB", correct:false},
+   {text:"PAN", correct:false}]},
+{text:"Which acronym describes the following? The core protocol responsible for addressing and routing data packets so they reach the correct device on a network.",
+ options:[{text:"NAT", correct:false},
+   {text:"UDP", correct:false},
+   {text:"DNS", correct:false},
+   {text:"TCP", correct:false},
+   {text:"IP", correct:true}]},
+{text:"Which acronym describes the following? A connection-oriented protocol that guarantees data arrives complete and in order, used for things like web browsing and email.",
+ options:[{text:"UDP", correct:false},
+   {text:"FTP", correct:false},
+   {text:"HTTP", correct:false},
+   {text:"TCP", correct:true},
+   {text:"IP", correct:false}]},
+{text:"Which acronym describes the following? A connectionless protocol that sends data quickly without guaranteeing delivery or order, favored when speed matters more than reliability.",
+ options:[{text:"TCP", correct:false},
+   {text:"SNMP", correct:false},
+   {text:"UDP", correct:true},
+   {text:"DNS", correct:false},
+   {text:"IP", correct:false}]},
+{text:"Which acronym describes the following? The system that translates human-readable domain names into the numeric IP addresses computers actually use to connect.",
+ options:[{text:"NAT", correct:false},
+   {text:"DHCP", correct:false},
+   {text:"DNS", correct:true},
+   {text:"APIPA", correct:false},
+   {text:"SNMP", correct:false}]},
+{text:"Which acronym describes the following? The protocol responsible for automatically assigning IP addresses and network settings to devices when they join a network.",
+ options:[{text:"SNMP", correct:false},
+   {text:"NAT", correct:false},
+   {text:"DHCP", correct:true},
+   {text:"DNS", correct:false},
+   {text:"APIPA", correct:false}]},
+{text:"Which acronym describes the following? A fallback feature that lets a Windows device assign itself a 169.254.x.x address when no DHCP server responds.",
+ options:[{text:"APIPA", correct:true},
+   {text:"VLAN", correct:false},
+   {text:"DHCP", correct:false},
+   {text:"NAT", correct:false},
+   {text:"DNS", correct:false}]},
+{text:"Which acronym describes the following? The process that lets multiple devices on a private network share a single public IP address to reach the internet.",
+ options:[{text:"APIPA", correct:false},
+   {text:"VPN", correct:false},
+   {text:"DHCP", correct:false},
+   {text:"NAT", correct:true},
+   {text:"DNS", correct:false}]},
+{text:"Which acronym describes the following? An encrypted tunnel that lets a device securely access a private network, or the internet, over an otherwise untrusted connection.",
+ options:[{text:"RDP", correct:false},
+   {text:"VLAN", correct:false},
+   {text:"NAT", correct:false},
+   {text:"SSH", correct:false},
+   {text:"VPN", correct:true}]},
+{text:"Which acronym describes the following? A logical grouping of devices on a switch that behaves like a separate network, even though the devices share the same physical hardware.",
+ options:[{text:"NAT", correct:false},
+   {text:"WLAN", correct:false},
+   {text:"SSID", correct:false},
+   {text:"VPN", correct:false},
+   {text:"VLAN", correct:true}]},
+{text:"Which acronym describes the following? The name of a wireless network that shows up in a device's list of available Wi-Fi connections.",
+ options:[{text:"WEP", correct:false},
+   {text:"WPA", correct:false},
+   {text:"SSID", correct:true},
+   {text:"WPS", correct:false},
+   {text:"VLAN", correct:false}]},
+{text:"Which acronym describes the following? A wireless security protocol that encrypts Wi-Fi traffic; current versions (WPA2/WPA3) are the recommended standard, replacing older WEP.",
+ options:[{text:"SSID", correct:false},
+   {text:"WPA", correct:true},
+   {text:"AES", correct:false},
+   {text:"WPS", correct:false},
+   {text:"WEP", correct:false}]},
+{text:"Which acronym describes the following? An outdated and easily broken Wi-Fi security protocol, now considered unsafe for any real use.",
+ options:[{text:"WPA", correct:false},
+   {text:"AES", correct:false},
+   {text:"WPS", correct:false},
+   {text:"SSID", correct:false},
+   {text:"WEP", correct:true}]},
+{text:"Which acronym describes the following? A feature that lets a device join a Wi-Fi network by pressing a button or entering a short PIN instead of typing the full password.",
+ options:[{text:"WPA", correct:false},
+   {text:"WEP", correct:false},
+   {text:"SSID", correct:false},
+   {text:"NFC", correct:false},
+   {text:"WPS", correct:true}]},
+{text:"Which acronym describes the following? A very short-range wireless technology, used for tap-to-pay and quick device pairing, that only works within a few centimeters.",
+ options:[{text:"NFC", correct:true},
+   {text:"WPS", correct:false},
+   {text:"Bluetooth", correct:false},
+   {text:"WPAN", correct:false},
+   {text:"RFID", correct:false}]},
+{text:"Which acronym describes the following? A technology that uses radio waves to identify and track tags attached to objects, readable from a greater distance than NFC.",
+ options:[{text:"IoT", correct:false},
+   {text:"WPS", correct:false},
+   {text:"RFID", correct:true},
+   {text:"GPS", correct:false},
+   {text:"NFC", correct:false}]},
+{text:"Which acronym describes the following? A set of techniques that prioritize certain types of network traffic over others to maintain performance for critical applications.",
+ options:[{text:"TCP", correct:false},
+   {text:"VLAN", correct:false},
+   {text:"SNMP", correct:false},
+   {text:"QoS", correct:true},
+   {text:"NAT", correct:false}]},
+{text:"Which acronym describes the following? A standard protocol for transferring files between a client and a server over a network, unencrypted by default.",
+ options:[{text:"FTP", correct:true},
+   {text:"TCP", correct:false},
+   {text:"SFTP", correct:false},
+   {text:"HTTP", correct:false},
+   {text:"SSH", correct:false}]},
+{text:"Which acronym describes the following? A secure file transfer protocol that runs over an encrypted SSH connection, unlike plain FTP.",
+ options:[{text:"SSH", correct:false},
+   {text:"SFTP", correct:true},
+   {text:"HTTPS", correct:false},
+   {text:"TCP", correct:false},
+   {text:"FTP", correct:false}]},
+{text:"Which acronym describes the following? An encrypted protocol used to securely access and manage a remote computer's command line over a network.",
+ options:[{text:"VPN", correct:false},
+   {text:"RDP", correct:false},
+   {text:"SFTP", correct:false},
+   {text:"Telnet", correct:false},
+   {text:"SSH", correct:true}]},
+{text:"Which acronym describes the following? The foundational protocol used to transfer web pages between a browser and a web server, unencrypted by default.",
+ options:[{text:"SMTP", correct:false},
+   {text:"HTTPS", correct:false},
+   {text:"FTP", correct:false},
+   {text:"TCP", correct:false},
+   {text:"HTTP", correct:true}]},
+{text:"Which acronym describes the following? HTTP encrypted with TLS, protecting data exchanged between a browser and a website from being read in transit.",
+ options:[{text:"VPN", correct:false},
+   {text:"SFTP", correct:false},
+   {text:"HTTPS", correct:true},
+   {text:"HTTP", correct:false},
+   {text:"SSH", correct:false}]},
+{text:"Which acronym describes the following? The protocol used to send email from a client to a server, or between mail servers.",
+ options:[{text:"HTTP", correct:false},
+   {text:"FTP", correct:false},
+   {text:"POP3", correct:false},
+   {text:"SMTP", correct:true},
+   {text:"IMAP", correct:false}]},
+{text:"Which acronym describes the following? An email retrieval protocol that keeps messages synced on the server, so they appear the same across every device a user checks email from.",
+ options:[{text:"RDP", correct:false},
+   {text:"SMTP", correct:false},
+   {text:"IMAP", correct:true},
+   {text:"FTP", correct:false},
+   {text:"POP3", correct:false}]},
+{text:"Which acronym describes the following? An older email retrieval protocol that typically downloads messages to one device and can remove them from the server.",
+ options:[{text:"IMAP", correct:false},
+   {text:"FTP", correct:false},
+   {text:"SMTP", correct:false},
+   {text:"POP3", correct:true},
+   {text:"SNMP", correct:false}]},
+{text:"Which acronym describes the following? A Microsoft protocol that lets a user remotely control another Windows computer's full graphical desktop over a network.",
+ options:[{text:"Telnet", correct:false},
+   {text:"RDP", correct:true},
+   {text:"SSH", correct:false},
+   {text:"VPN", correct:false},
+   {text:"VNC", correct:false}]},
+{text:"Which acronym describes the following? A protocol used to monitor and manage network devices like routers and switches, collecting status and performance data.",
+ options:[{text:"SNMP", correct:true},
+   {text:"RDP", correct:false},
+   {text:"DHCP", correct:false},
+   {text:"QoS", correct:false},
+   {text:"DNS", correct:false}]},
+{text:"Which acronym describes the following? A widely used cellular network standard that identifies subscribers via a removable SIM card.",
+ options:[{text:"GSM", correct:true},
+   {text:"IMEI", correct:false},
+   {text:"WWAN", correct:false},
+   {text:"SIM", correct:false},
+   {text:"LTE", correct:false}]},
+{text:"Which acronym describes the following? A high-speed cellular data standard, commonly marketed as 4G, that came before 5G.",
+ options:[{text:"WWAN", correct:false},
+   {text:"SIM", correct:false},
+   {text:"GSM", correct:false},
+   {text:"NFC", correct:false},
+   {text:"LTE", correct:true}]},
+{text:"Which acronym describes the following? A unique serial number that identifies a specific physical mobile device on a cellular network.",
+ options:[{text:"SSID", correct:false},
+   {text:"MAC", correct:false},
+   {text:"GSM", correct:false},
+   {text:"SIM", correct:false},
+   {text:"IMEI", correct:true}]},
+{text:"Which acronym describes the following? A small removable card that stores the information identifying a subscriber to a cellular network.",
+ options:[{text:"NFC", correct:false},
+   {text:"LTE", correct:false},
+   {text:"SIM", correct:true},
+   {text:"GSM", correct:false},
+   {text:"IMEI", correct:false}]},
+{text:"Which acronym describes the following? Software that lets an organization remotely configure, secure, monitor, and wipe employee mobile devices.",
+ options:[{text:"ACL", correct:false},
+   {text:"BYOD", correct:false},
+   {text:"MDM", correct:true},
+   {text:"AAA", correct:false},
+   {text:"COPE", correct:false}]},
+{text:"Which acronym describes the following? A workplace policy allowing employees to use their personal devices for work, typically under some management or security requirement.",
+ options:[{text:"COPE", correct:false},
+   {text:"BYOD", correct:true},
+   {text:"VDI", correct:false},
+   {text:"MDM", correct:false},
+   {text:"VPN", correct:false}]},
+{text:"Which acronym describes the following? A device ownership model where the company owns and issues the device, but the employee may also use it for personal tasks.",
+ options:[{text:"BYOD", correct:false},
+   {text:"COPE", correct:true},
+   {text:"VDI", correct:false},
+   {text:"MDM", correct:false},
+   {text:"SaaS", correct:false}]},
+{text:"Which acronym describes the following? A fully immersive, computer-generated environment that replaces the user's view of the real world, typically through a headset.",
+ options:[{text:"LED", correct:false},
+   {text:"GPU", correct:false},
+   {text:"VR", correct:true},
+   {text:"MDM", correct:false},
+   {text:"AR", correct:false}]},
+{text:"Which acronym describes the following? Technology that overlays digital information onto the real world, viewed through a device's camera and screen rather than replacing it.",
+ options:[{text:"AR", correct:true},
+   {text:"GPS", correct:false},
+   {text:"NFC", correct:false},
+   {text:"VR", correct:false},
+   {text:"IoT", correct:false}]},
+{text:"Which acronym describes the following? A satellite-based navigation system that lets a device determine its precise physical location.",
+ options:[{text:"GPS", correct:true},
+   {text:"LTE", correct:false},
+   {text:"NFC", correct:false},
+   {text:"RFID", correct:false},
+   {text:"WWAN", correct:false}]},
+{text:"Which acronym describes the following? A software-based emulation of a complete computer, running its own operating system on top of a host system's hardware.",
+ options:[{text:"VM", correct:true},
+   {text:"IaaS", correct:false},
+   {text:"NAS", correct:false},
+   {text:"SAN", correct:false},
+   {text:"VDI", correct:false}]},
+{text:"Which acronym describes the following? A system that hosts full desktop environments on a central server, letting users access their desktop remotely from thin clients or other devices.",
+ options:[{text:"SaaS", correct:false},
+   {text:"VM", correct:false},
+   {text:"COPE", correct:false},
+   {text:"VDI", correct:true},
+   {text:"BYOD", correct:false}]},
+{text:"Which acronym describes the following? A cloud model where a provider rents out raw computing infrastructure - servers, storage, networking - that the customer configures themselves.",
+ options:[{text:"VM", correct:false},
+   {text:"PaaS", correct:false},
+   {text:"VDI", correct:false},
+   {text:"IaaS", correct:true},
+   {text:"SaaS", correct:false}]},
+{text:"Which acronym describes the following? A cloud model where a provider supplies a ready-to-use platform for building and running applications, without the customer managing the underlying servers.",
+ options:[{text:"VM", correct:false},
+   {text:"VDI", correct:false},
+   {text:"PaaS", correct:true},
+   {text:"SaaS", correct:false},
+   {text:"IaaS", correct:false}]},
+{text:"Which acronym describes the following? A cloud model where a fully built application is delivered over the internet, with no local installation or infrastructure management needed.",
+ options:[{text:"PaaS", correct:false},
+   {text:"SaaS", correct:true},
+   {text:"IaaS", correct:false},
+   {text:"VDI", correct:false},
+   {text:"VM", correct:false}]},
+{text:"Which acronym describes the following? A dedicated storage device connected to a network, providing file-level storage accessible to multiple users and devices.",
+ options:[{text:"SAN", correct:false},
+   {text:"VM", correct:false},
+   {text:"RAID", correct:false},
+   {text:"IaaS", correct:false},
+   {text:"NAS", correct:true}]},
+{text:"Which acronym describes the following? A dedicated high-speed network providing block-level storage to servers, typically used in enterprise and data center environments.",
+ options:[{text:"RAID", correct:false},
+   {text:"VM", correct:false},
+   {text:"NAS", correct:false},
+   {text:"SAN", correct:true},
+   {text:"PaaS", correct:false}]},
+{text:"Which acronym describes the following? A framework describing three pillars of access control: verifying who you are, determining what you're allowed to do, and logging what you did.",
+ options:[{text:"MFA", correct:false},
+   {text:"AES", correct:false},
+   {text:"AAA", correct:true},
+   {text:"ACL", correct:false},
+   {text:"HSM", correct:false}]},
+{text:"Which acronym describes the following? A set of rules that defines which users or systems are permitted or denied access to a specific resource.",
+ options:[{text:"NAT", correct:false},
+   {text:"VLAN", correct:false},
+   {text:"AAA", correct:false},
+   {text:"ACL", correct:true},
+   {text:"MFA", correct:false}]},
+{text:"Which acronym describes the following? A widely used, highly secure symmetric encryption standard for protecting data.",
+ options:[{text:"SSH", correct:false},
+   {text:"HSM", correct:false},
+   {text:"VPN", correct:false},
+   {text:"AES", correct:true},
+   {text:"TPM", correct:false}]},
+{text:"Which acronym describes the following? A security method requiring two or more independent forms of verification before granting access, such as a password plus a phone code.",
+ options:[{text:"AES", correct:false},
+   {text:"ACL", correct:false},
+   {text:"MFA", correct:true},
+   {text:"AAA", correct:false},
+   {text:"SSH", correct:false}]},
+{text:"Which acronym describes the following? A wireless network that covers a very large area using cellular technology, giving devices internet access far beyond a single building.",
+ options:[{text:"GSM", correct:false},
+   {text:"WPAN", correct:false},
+   {text:"WWAN", correct:true},
+   {text:"LTE", correct:false},
+   {text:"WLAN", correct:false}]},
+{text:"Which acronym describes the following? The broad category of everyday physical devices - thermostats, cameras, appliances - that connect to the internet and each other.",
+ options:[{text:"RFID", correct:false},
+   {text:"IoT", correct:true},
+   {text:"WWAN", correct:false},
+   {text:"GPS", correct:false},
+   {text:"NFC", correct:false}]},
+{text:"Which acronym describes the following? A company that manufactures a component or product that is sold under another company's brand name.",
+ options:[{text:"IDE", correct:false},
+   {text:"OEM", correct:true},
+   {text:"SAS", correct:false},
+   {text:"AMD", correct:false},
+   {text:"ARM", correct:false}]},
+{text:"Which acronym describes the following? Unwanted electrical noise from nearby devices or wiring that disrupts the normal operation of electronic equipment or signals.",
+ options:[{text:"ESD", correct:false},
+   {text:"AES", correct:false},
+   {text:"RFI", correct:false},
+   {text:"EMI", correct:true},
+   {text:"QoS", correct:false}]},
+{text:"Which acronym describes the following? Interference specifically from radio frequency sources that disrupts wireless signals or nearby electronics.",
+ options:[{text:"RFI", correct:true},
+   {text:"ESD", correct:false},
+   {text:"NFC", correct:false},
+   {text:"WPS", correct:false},
+   {text:"EMI", correct:false}]},
+];
+
+    </script>
+
+    <script>
+        (function () {
+            var LETTERS = ['A', 'B', 'C', 'D', 'E'];
+            var currentSet = [];
+
+            function shuffle(arr) {
+                var a = arr.slice();
+                for (var i = a.length - 1; i > 0; i--) {
+                    var j = Math.floor(Math.random() * (i + 1));
+                    var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+                }
+                return a;
+            }
+
+            function renderQuestion(q, index) {
+                var block = document.createElement('div');
+                block.className = 'question-block';
+                block.dataset.qindex = index;
+
+                var num = document.createElement('div');
+                num.className = 'question-number';
+                num.textContent = 'Question ' + (index + 1);
+                block.appendChild(num);
+
+                var text = document.createElement('p');
+                text.className = 'question-text';
+                text.innerHTML = q.text;
+                block.appendChild(text);
+
+                var list = document.createElement('ul');
+                list.className = 'mc-options';
+
+                q.options.forEach(function (opt, i) {
+                    var li = document.createElement('li');
+                    var btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = 'mc-option';
+                    btn.dataset.correct = opt.correct ? 'true' : 'false';
+
+                    var letterSpan = document.createElement('span');
+                    letterSpan.className = 'mc-letter';
+                    letterSpan.textContent = LETTERS[i];
+
+                    var textSpan = document.createElement('span');
+                    textSpan.innerHTML = opt.text;
+
+                    btn.appendChild(letterSpan);
+                    btn.appendChild(textSpan);
+                    li.appendChild(btn);
+                    list.appendChild(li);
+
+                    btn.addEventListener('click', function () {
+                        var siblings = list.querySelectorAll('.mc-option');
+                        siblings.forEach(function (b) {
+                            b.classList.remove('selected', 'graded-correct', 'graded-incorrect', 'graded-missed');
+                        });
+                        btn.classList.add('selected');
+                        block.classList.remove('unanswered-flag');
+                    });
+                });
+
+                block.appendChild(list);
+
+                var note = document.createElement('p');
+                note.className = 'unanswered-note';
+                note.textContent = 'Not yet answered.';
+                block.appendChild(note);
+
+                return block;
+            }
+
+            function loadNewSet() {
+                var pick = shuffle(QUESTION_POOL).slice(0, 20);
+                currentSet = pick;
+
+                var container = document.getElementById('questionContainer');
+                container.innerHTML = '';
+                pick.forEach(function (q, i) {
+                    container.appendChild(renderQuestion(q, i));
+                });
+
+                document.getElementById('resultsSummary').classList.remove('show');
+            }
+
+            function gradeAssessment() {
+                var blocks = Array.prototype.slice.call(document.querySelectorAll('#questionContainer .question-block'));
+                var total = blocks.length;
+                var correctCount = 0;
+                var unansweredCount = 0;
+
+                blocks.forEach(function (block) {
+                    var options = Array.prototype.slice.call(block.querySelectorAll('.mc-option'));
+                    var selected = options.filter(function (b) { return b.classList.contains('selected'); })[0];
+                    var correctBtn = options.filter(function (b) { return b.dataset.correct === 'true'; })[0];
+
+                    options.forEach(function (b) {
+                        b.classList.remove('graded-correct', 'graded-incorrect', 'graded-missed');
+                    });
+
+                    if (!selected) {
+                        unansweredCount++;
+                        block.classList.add('unanswered-flag');
+                        if (correctBtn) correctBtn.classList.add('graded-missed');
+                        return;
+                    }
+
+                    block.classList.remove('unanswered-flag');
+
+                    if (selected.dataset.correct === 'true') {
+                        selected.classList.add('graded-correct');
+                        correctCount++;
+                    } else {
+                        selected.classList.add('graded-incorrect');
+                        if (correctBtn) correctBtn.classList.add('graded-correct');
+                    }
+                });
+
+                var scoreEl = document.getElementById('resultsScore');
+                var msgEl = document.getElementById('resultsMessage');
+                var summaryEl = document.getElementById('resultsSummary');
+
+                scoreEl.textContent = correctCount + ' / ' + total;
+
+                var msg = '';
+                if (unansweredCount > 0) {
+                    msg += unansweredCount + ' question' + (unansweredCount === 1 ? ' was' : 's were') + ' left blank &mdash; go back and pick your best guess before you finish. ';
+                }
+                var pct = Math.round((correctCount / total) * 100);
+                if (pct >= 90) {
+                    msg += '<strong>' + pct + '%.</strong> Strong recall across a random set of acronyms.';
+                } else if (pct >= 70) {
+                    msg += '<strong>' + pct + '%.</strong> Solid. Check which ones you missed and look them up in the answer key.';
+                } else if (pct >= 50) {
+                    msg += '<strong>' + pct + '%.</strong> A mixed result. Review the acronyms you missed, then click <strong>Reset</strong> for a fresh random set.';
+                } else {
+                    msg += '<strong>' + pct + '%.</strong> These have not settled yet. Work through the answer key for the ones you missed, then try another random set.';
+                }
+                msgEl.innerHTML = msg;
+                summaryEl.classList.add('show');
+                summaryEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+
+            function resetAssessment() {
+                loadNewSet();
+                document.getElementById('practiceForm').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+
+            document.getElementById('gradeBtn').addEventListener('click', gradeAssessment);
+            document.getElementById('resetBtn').addEventListener('click', resetAssessment);
+
+            loadNewSet();
+        })();
+    </script>
+</body>
+</html>
