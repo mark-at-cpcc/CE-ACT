@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unit 2 &mdash; 2.7 Practice Questions | CompTIA A+ Core 1</title>
+    <title>Unit 2 &mdash; 2.9 Reflection Activity | CompTIA A+ Core 1</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -299,8 +299,8 @@
     <div class="course-container">
 
         <header class="module-header">
-            <div class="module-label">Unit 2 &middot; Storage, Displays, and Peripherals &middot; Section 2.7</div>
-            <h1 class="module-title">Practice Questions</h1>
+            <div class="module-label">Unit 2 &middot; Storage, Displays, and Peripherals &middot; Section 2.9</div>
+            <h1 class="module-title">Reflection Activity</h1>
             <p class="module-subtitle">Storage, Displays, and Peripherals &mdash; Domains 3.0 and 5.0</p>
         </header>
 
@@ -311,109 +311,150 @@
             <div class="toc-item">2.4 &mdash; Reading Assignment</div>
             <div class="toc-item">2.5 &mdash; Video Assignment</div>
             <div class="toc-item">2.6 &mdash; Classroom Labs</div>
-            <div class="toc-item current">2.7 &mdash; Practice Questions</div>
+            <div class="toc-item">2.7 &mdash; Practice Questions</div>
             <div class="toc-item">2.8 &mdash; Online Labs: NETLAB</div>
-            <div class="toc-item">2.9 &mdash; Reflection Activity</div>
+            <div class="toc-item current">2.9 &mdash; Reflection Activity</div>
             <div class="toc-item">2.10 &mdash; Unit Test</div>
         </nav>
 
         <div class="content-area">
 
-            <p class="text-muted">Ten questions per attempt. Keep resetting until you score a perfect 10 out of 10.</p>
-
-            <div class="tech-box">
-                <div class="callout-title">Test Format</div>
-                <div class="callout-content">
-                    <p>Each attempt draws a fresh random set of 10 questions covering this unit's storage, RAID, peripheral, and print/imaging objectives. Click an answer to select it, then click <strong>Grade My Answers</strong> to score the set.</p>
-                </div>
-            </div>
+            <p class="text-muted">Four prompts, answered directly in the fields below. Responses that summarize rather than reflect, or that address fewer than four prompts, are returned for revision.</p>
 
             <div class="plain-box">
                 <div class="callout-title">In Plain Terms</div>
                 <div class="callout-content">
-                    <p>Confident-and-wrong is the category to watch for: you believe something false and have no reason to double-check it. That category is invisible on an ordinary score report, and it is what fails people on the first attempt.</p>
-                    <p>Select an answer for each question, then click <strong>Grade My Answers</strong> to see your results. Click <strong>Reset</strong> for a brand-new random set of 10, and keep going. You are expected to repeat this until you score a perfect 10 out of 10 in a single attempt &mdash; a fresh random set every time means you cannot simply memorize positions, you actually have to know the material.</p>
+                    <p>Pick one specific moment from this week &mdash; a decision your group made in the storage case studies, a moment during the print technology teach-back that clarified something, or a printer-symptom scenario your group worked through &mdash; and walk through it using the four prompts below. Not a summary of the whole week. One moment, looked at closely.</p>
                 </div>
             </div>
 
-            <div id="quizArea"></div>
+            <div class="callout callout-tip">
+                <div class="callout-title">Full Credit Standard</div>
+                <div class="callout-content">
+                    <p>Full credit requires all four prompts answered directly in the fields below. Responses that summarize rather than reflect, or that address fewer than four prompts, are returned with feedback and resubmitted for full credit. There is no partial score.</p>
+                </div>
+            </div>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">Write About What Went Wrong</div>
+                <div class="callout-content">
+                    <p>Reflections describing a week where everything worked are the least useful ones to write and the least interesting to read. Nobody is grading you on competence here. The mistakes are where the learning is, and I would far rather read about the ten minutes you lost figuring out why the SSD wasn't recognized than a paragraph telling me the lab went well.</p>
+                </div>
+            </div>
+
+            <div class="tech-box">
+                <div class="callout-title">Your Response</div>
+                <div class="callout-content">
+                    <label for="studentName" style="display:block; font-weight:700; margin-bottom: var(--space-xs);">Name</label>
+                    <input type="text" id="studentName" placeholder="Your full name" style="width:100%; padding: var(--space-sm) var(--space-md); border: 2px solid var(--neutral-300); border-radius: var(--radius-sm); font-family: var(--font-body), sans-serif; font-size: 1rem; margin-bottom: var(--space-lg);">
+
+                    <label for="promptCE" style="display:block; font-weight:700; margin-bottom: var(--space-xs);">Describe one specific moment from this unit's storage, peripheral, or printing work.</label>
+                    <textarea id="promptCE" rows="4" style="width:100%; padding: var(--space-md); border: 2px solid var(--neutral-300); border-radius: var(--radius-sm); font-family: var(--font-body), sans-serif; font-size: 1rem;"></textarea>
+                    <p class="text-muted" id="wordCountCE" style="margin-top: var(--space-xs); margin-bottom: var(--space-lg);">0 words</p>
+
+                    <label for="promptRO" style="display:block; font-weight:700; margin-bottom: var(--space-xs);">What surprised you about it, and why?</label>
+                    <textarea id="promptRO" rows="4" style="width:100%; padding: var(--space-md); border: 2px solid var(--neutral-300); border-radius: var(--radius-sm); font-family: var(--font-body), sans-serif; font-size: 1rem;"></textarea>
+                    <p class="text-muted" id="wordCountRO" style="margin-top: var(--space-xs); margin-bottom: var(--space-lg);">0 words</p>
+
+                    <label for="promptAC" style="display:block; font-weight:700; margin-bottom: var(--space-xs);">Connect that moment to a specific concept from the reading or videos this week.</label>
+                    <textarea id="promptAC" rows="4" style="width:100%; padding: var(--space-md); border: 2px solid var(--neutral-300); border-radius: var(--radius-sm); font-family: var(--font-body), sans-serif; font-size: 1rem;"></textarea>
+                    <p class="text-muted" id="wordCountAC" style="margin-top: var(--space-xs); margin-bottom: var(--space-lg);">0 words</p>
+
+                    <label for="promptAE" style="display:block; font-weight:700; margin-bottom: var(--space-xs);">What will you do differently next time you face something similar?</label>
+                    <textarea id="promptAE" rows="4" style="width:100%; padding: var(--space-md); border: 2px solid var(--neutral-300); border-radius: var(--radius-sm); font-family: var(--font-body), sans-serif; font-size: 1rem;"></textarea>
+                    <p class="text-muted" id="wordCountAE" style="margin-top: var(--space-xs);">0 words</p>
+                </div>
+            </div>
+
+            <div id="emptyWarning" class="callout callout-danger" style="display:none;">
+                <div class="callout-title">Missing Fields</div>
+                <div class="callout-content"><p>Your name or one of the four prompts is still empty. An empty reflection will not earn credit &mdash; you can still print, but check that everything is filled in first.</p></div>
+            </div>
 
             <div class="mt-lg">
-                <button class="quiz-btn" onclick="gradeQuiz()">Grade My Answers</button>
-                <button class="quiz-btn secondary" onclick="resetQuiz()">Reset</button>
+                <button class="quiz-btn" id="printBtn">Print</button>
             </div>
 
-            <div id="quizResults">
-                <div>Your Score</div>
-                <div class="score" id="scoreDisplay">0 / 10</div>
-                <div id="scoreNote"></div>
+            <div id="printInstructions" class="callout callout-info" style="display:none; margin-top: var(--space-md);">
+                <div class="callout-title">Saving as a PDF</div>
+                <div class="callout-content"><p>In the print dialog that just opened, choose <strong>Save as PDF</strong> (or "Microsoft Print to PDF" on Windows) as your destination, then upload the resulting file to the submission link in Brightspace.</p></div>
             </div>
+
+            <div class="summary-box">
+                <h3>Before You Print and Submit</h3>
+                <ul>
+                    <li>All four prompts answered, directly in the fields above</li>
+                    <li>One specific moment described, not the whole week</li>
+                    <li>At least one named concept from the reading or videos</li>
+                    <li>A concrete change you will make, stated as an action</li>
+                    <li>Click <strong>Print</strong>, save as a PDF, and upload it to the submission link in Brightspace by Sunday 8/23, 11:59 PM</li>
+                </ul>
+            </div>
+
+            <div class="print-only" style="display:none;">
+                <h2>Unit 2 Reflection</h2>
+                <p><strong>Name:</strong> <span id="printName"></span></p>
+                <h3>Describe one specific moment from this unit's storage, peripheral, or printing work.</h3>
+                <p id="printCE"></p>
+                <h3>What surprised you about it, and why?</h3>
+                <p id="printRO"></p>
+                <h3>Connect that moment to a specific concept from the reading or videos this week.</h3>
+                <p id="printAC"></p>
+                <h3>What will you do differently next time you face something similar?</h3>
+                <p id="printAE"></p>
+            </div>
+
+            <style>
+                @media print {
+                    .module-header, .toc, .module-footer, .callout, .tech-box, .plain-box,
+                    .summary-box, #printBtn, #emptyWarning, #printInstructions, .text-muted { display: none !important; }
+                    .print-only { display: block !important; }
+                }
+            </style>
 
             <script>
-                const POOL = [{"q": "Which storage interface communicates directly over PCIe for the lowest latency?", "opts": ["SATA III", "USB 3.0", "NVMe", "eSATA"], "correct": 2}, {"q": "An HDD is best described as which kind of storage?", "opts": ["Solid-state, no moving parts", "Mechanical, spinning platters", "Optical, laser-read", "Volatile, cache-only"], "correct": 1}, {"q": "What form factor do most modern NVMe SSDs use?", "opts": ["3.5-inch", "2.5-inch", "M.2", "5.25-inch"], "correct": 2}, {"q": "Which RAID level offers striping with zero redundancy?", "opts": ["RAID 0", "RAID 1", "RAID 5", "RAID 10"], "correct": 0}, {"q": "Which RAID level requires a minimum of three drives and survives one drive failure via parity?", "opts": ["RAID 0", "RAID 1", "RAID 5", "RAID 6"], "correct": 2}, {"q": "Which RAID level is a mirrored pair of striped sets, requiring at least four drives?", "opts": ["RAID 0", "RAID 1", "RAID 5", "RAID 10"], "correct": 3}, {"q": "What is the primary advantage of an SSD over an HDD?", "opts": ["Lower cost per gigabyte at scale", "No moving parts, faster access", "Higher maximum capacity", "Longer average lifespan in all cases"], "correct": 1}, {"q": "Which connector type is standard for most modern external peripherals?", "opts": ["PS/2", "Serial (RS-232)", "USB", "Parallel (LPT)"], "correct": 2}, {"q": "What device converts a physical document into a digital image?", "opts": ["Plotter", "Scanner", "Digitizer tablet", "KVM switch"], "correct": 1}, {"q": "A wireless mouse that suddenly stops responding is most likely suffering from what common issue?", "opts": ["A driver conflict", "Dead or low batteries", "A corrupted OS file", "A firmware mismatch"], "correct": 1}, {"q": "Which print technology uses a laser to charge a photosensitive drum?", "opts": ["Inkjet", "Thermal", "Laser", "Impact"], "correct": 2}, {"q": "Which print technology sprays liquid ink through microscopic nozzles?", "opts": ["Laser", "Inkjet", "Thermal", "Dot-matrix"], "correct": 1}, {"q": "Which print technology is most common for point-of-sale receipts?", "opts": ["Laser", "Inkjet", "Thermal", "Impact"], "correct": 2}, {"q": "Which print technology uses pins striking an ink ribbon?", "opts": ["Laser", "Inkjet", "Thermal", "Impact/dot-matrix"], "correct": 3}, {"q": "In the laser imaging process, which step applies a uniform negative charge to the drum?", "opts": ["Processing", "Charging", "Exposing", "Developing"], "correct": 1}, {"q": "In the laser imaging process, which step uses a laser to selectively discharge the drum?", "opts": ["Charging", "Exposing", "Transferring", "Fusing"], "correct": 1}, {"q": "In the laser imaging process, which step causes toner to adhere to the discharged areas?", "opts": ["Charging", "Exposing", "Developing", "Cleaning"], "correct": 2}, {"q": "In the laser imaging process, which step permanently bonds toner to the paper using heat?", "opts": ["Developing", "Transferring", "Fusing", "Cleaning"], "correct": 2}, {"q": "What is the correct order of the first three laser imaging steps?", "opts": ["Exposing, Charging, Developing", "Charging, Exposing, Developing", "Developing, Charging, Exposing", "Charging, Developing, Exposing"], "correct": 1}, {"q": "A laser-printed page shows a repeating vertical streak at the same position on every page. What is most likely worn or damaged?", "opts": ["The fuser assembly only", "The imaging drum", "The paper tray", "The USB cable"], "correct": 1}, {"q": "An inkjet printer produces streaky, faded output after sitting unused for weeks. What is the most likely cause?", "opts": ["Failed motherboard", "Clogged print nozzles", "Wrong paper size selected", "Corrupted driver"], "correct": 1}, {"q": "A thermal receipt printer produces blank paper even though it appears to be printing. What is most likely wrong?", "opts": ["The paper is loaded upside down / wrong side out", "The toner cartridge is empty", "The fuser is overheating", "The USB cable is a charge-only cable"], "correct": 0}, {"q": "Which storage interface is typically the slowest listed?", "opts": ["NVMe (PCIe)", "SATA III", "USB 3.2", "Thunderbolt"], "correct": 1}, {"q": "What is the primary purpose of RAID 1?", "opts": ["Maximize read/write speed", "Maximize usable capacity", "Provide redundancy through mirroring", "Reduce drive count"], "correct": 2}, {"q": "Which peripheral connection type would you most likely find only on legacy equipment?", "opts": ["USB-C", "PS/2", "USB 3.0", "Thunderbolt"], "correct": 1}, {"q": "What is the standard first troubleshooting step when a new peripheral is not recognized by the OS?", "opts": ["Replace the peripheral", "Check or reinstall the driver", "Reformat the storage drive", "Replace the motherboard"], "correct": 1}, {"q": "Which of the following is an output peripheral rather than an input peripheral?", "opts": ["Scanner", "Webcam", "Monitor", "Mouse"], "correct": 2}, {"q": "What does RAID stand for?", "opts": ["Redundant Array of Independent Disks", "Rapid Access Internal Drive", "Reformatted Array of Indexed Data", "Read-Ahead Instant Disk"], "correct": 0}, {"q": "Which storage device type has no moving parts at all?", "opts": ["HDD", "SSD", "Optical drive", "Tape drive"], "correct": 1}, {"q": "A user's laptop display is visible only in a bright room and appears very dim otherwise. What is the likely failing component?", "opts": ["The GPU", "The backlight or inverter", "The RAM", "The keyboard controller"], "correct": 1}, {"q": "A desktop monitor shows no image at all, but the power LED is on. What should be checked first?", "opts": ["The video cable connection", "The RAID controller", "The printer driver", "The NVMe firmware"], "correct": 0}, {"q": "Which of these is NOT one of the seven steps of the laser imaging process?", "opts": ["Processing", "Charging", "Formatting", "Fusing"], "correct": 2}, {"q": "What is the typical role of a fuser in a laser printer?", "opts": ["Charges the drum", "Melts toner permanently onto the page", "Sprays ink onto the page", "Feeds paper into the tray"], "correct": 1}, {"q": "Which RAID level provides no fault tolerance whatsoever?", "opts": ["RAID 0", "RAID 1", "RAID 5", "RAID 10"], "correct": 0}, {"q": "What is a common symptom of a failing hard drive?", "opts": ["Clicking or grinding noises", "Excessive Wi-Fi signal loss", "Overheating GPU", "Slow print queue"], "correct": 0}, {"q": "Which peripheral is best classified as a hybrid input/output device?", "opts": ["Touchscreen monitor", "Keyboard", "Webcam", "Scanner"], "correct": 0}, {"q": "What is the recommended first step when installing a new peripheral?", "opts": ["Manually search for a driver online", "Connect it and let the OS attempt automatic detection", "Reboot into Safe Mode first", "Format the peripheral's storage"], "correct": 1}, {"q": "Which print technology is best suited for multi-part carbon-copy forms?", "opts": ["Laser", "Inkjet", "Thermal", "Impact/dot-matrix"], "correct": 3}, {"q": "What does NVMe stand for?", "opts": ["Non-Volatile Memory Express", "New Volume Memory Extension", "Network Video Memory Enhancement", "Non-Variable Memory Encoding"], "correct": 0}, {"q": "A RAID 5 array with four drives loses one drive. What happens to the array?", "opts": ["Total data loss", "The array continues operating in a degraded state", "The array automatically converts to RAID 0", "The array becomes read-only permanently"], "correct": 1}, {"q": "Which of the following is the best description of SATA?", "opts": ["A wireless peripheral protocol", "A serial interface for connecting storage devices", "A print technology", "A display connector"], "correct": 1}, {"q": "What is the purpose of a print spooler?", "opts": ["Physically feeds paper into the printer", "Manages the queue of print jobs waiting to print", "Charges the imaging drum", "Cleans the fuser assembly"], "correct": 1}, {"q": "Which of the following would most likely cause garbled or nonsensical printed text?", "opts": ["Wrong or corrupted print driver", "Low paper", "Weak Wi-Fi signal", "Overfilled recycle bin"], "correct": 0}, {"q": "What is the primary risk of running a RAID 0 array for critical data?", "opts": ["It is too slow for daily use", "One drive failure destroys all data on the array", "It cannot exceed 1 TB in size", "It requires a minimum of six drives"], "correct": 1}, {"q": "Which storage form factor is most common for a traditional 3.5-inch desktop HDD bay?", "opts": ["M.2", "2.5-inch", "3.5-inch", "5.25-inch"], "correct": 2}, {"q": "What is a common cause of intermittent USB peripheral disconnects?", "opts": ["A failing or loose USB cable/port", "An overfilled hard drive", "A misconfigured RAID array", "A dirty printer drum"], "correct": 0}, {"q": "Which display issue is most associated with a failing or aging backlight?", "opts": ["Screen is completely black with no image at all, even in bright light", "Image visible only in bright ambient light, dim otherwise", "Wrong resolution displayed", "Screen flickers only during video playback"], "correct": 1}, {"q": "What is the general troubleshooting order after identifying a problem?", "opts": ["Establish a theory of probable cause, then test it", "Immediately replace the most expensive component", "Reformat the drive before diagnosing anything", "Escalate to the manufacturer before testing"], "correct": 0}, {"q": "Which of these printer maintenance tasks is most associated with inkjet printers specifically?", "opts": ["Replacing the imaging drum", "Running a nozzle-cleaning cycle", "Replacing the fuser assembly", "Reseating the print head ribbon"], "correct": 1}, {"q": "A laser printer prints pages that are entirely blank. What is a likely cause?", "opts": ["Empty or defective toner cartridge", "Wrong paper size loaded", "USB cable is charge-only", "Backlight failure"], "correct": 0}];
-                let QUESTIONS = [];
-                let answers = [];
+                (function () {
+                    var fields = ['CE', 'RO', 'AC', 'AE'];
 
-                function drawSet() {
-                    const shuffled = POOL.slice().sort(() => Math.random() - 0.5);
-                    QUESTIONS = shuffled.slice(0, 10);
-                    answers = new Array(QUESTIONS.length).fill(null);
-                }
-
-                function renderQuiz() {
-                    const area = document.getElementById('quizArea');
-                    area.innerHTML = QUESTIONS.map((item, qi) => {
-                        const opts = item.opts.map((opt, oi) =>
-                            `<button type="button" class="answer-option" data-qi="${qi}" data-oi="${oi}" onclick="selectAnswer(${qi}, ${oi})">${opt}</button>`
-                        ).join('');
-                        return `<div class="question-block">
-                            <div class="question-number">Question ${qi + 1} of ${QUESTIONS.length}</div>
-                            <p class="question-text">${item.q}</p>
-                            ${opts}
-                        </div>`;
-                    }).join('');
-                }
-
-                function selectAnswer(qi, oi) {
-                    answers[qi] = oi;
-                    document.querySelectorAll(`[data-qi="${qi}"]`).forEach(btn => {
-                        btn.classList.remove('selected');
-                        if (parseInt(btn.dataset.oi) === oi) btn.classList.add('selected');
-                    });
-                }
-
-                function gradeQuiz() {
-                    if (answers.includes(null)) {
-                        alert('Answer all 10 questions before grading.');
-                        return;
+                    function countWords(text) {
+                        var trimmed = text.trim();
+                        return trimmed === '' ? 0 : trimmed.split(/\s+/).length;
                     }
-                    let score = 0;
-                    QUESTIONS.forEach((item, qi) => {
-                        const correct = item.correct;
-                        document.querySelectorAll(`[data-qi="${qi}"]`).forEach(btn => {
-                            const oi = parseInt(btn.dataset.oi);
-                            btn.classList.remove('selected');
-                            if (oi === correct) btn.classList.add('correct');
-                            else if (oi === answers[qi]) btn.classList.add('incorrect');
+
+                    fields.forEach(function (key) {
+                        var textarea = document.getElementById('prompt' + key);
+                        var counter = document.getElementById('wordCount' + key);
+                        textarea.addEventListener('input', function () {
+                            var n = countWords(textarea.value);
+                            counter.textContent = n + (n === 1 ? ' word' : ' words');
                         });
-                        if (answers[qi] === correct) score++;
                     });
-                    document.getElementById('scoreDisplay').textContent = score + ' / ' + QUESTIONS.length;
-                    const note = document.getElementById('scoreNote');
-                    if (score === QUESTIONS.length) note.textContent = 'Perfect set. You are ready to move on.';
-                    else note.textContent = 'Not a perfect 10 yet \u2014 click Reset for a new random set and try again.';
-                    document.getElementById('quizResults').style.display = 'block';
-                    document.getElementById('quizResults').scrollIntoView({behavior: 'smooth'});
-                }
 
-                function resetQuiz() {
-                    document.getElementById('quizResults').style.display = 'none';
-                    drawSet();
-                    renderQuiz();
-                }
+                    function syncPrintView() {
+                        var name = document.getElementById('studentName').value.trim();
+                        document.getElementById('printName').textContent = name || '(name not entered)';
+                        fields.forEach(function (key) {
+                            var value = document.getElementById('prompt' + key).value.trim();
+                            document.getElementById('print' + key).textContent = value || '(no response entered)';
+                        });
+                    }
 
-                drawSet();
-                renderQuiz();
+                    function hasEmptyFields() {
+                        var name = document.getElementById('studentName').value.trim();
+                        if (!name) return true;
+                        return fields.some(function (key) {
+                            return document.getElementById('prompt' + key).value.trim() === '';
+                        });
+                    }
+
+                    document.getElementById('printBtn').addEventListener('click', function () {
+                        var warning = document.getElementById('emptyWarning');
+                        warning.style.display = hasEmptyFields() ? 'block' : 'none';
+                        syncPrintView();
+                        document.getElementById('printInstructions').style.display = 'block';
+                        window.print();
+                    });
+                })();
             </script>
 
         </div>

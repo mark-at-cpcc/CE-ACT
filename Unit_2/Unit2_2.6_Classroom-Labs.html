@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unit 2 &mdash; 2.7 Practice Questions | CompTIA A+ Core 1</title>
+    <title>Unit 2 &mdash; 2.6 Classroom Labs | CompTIA A+ Core 1</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -299,8 +299,8 @@
     <div class="course-container">
 
         <header class="module-header">
-            <div class="module-label">Unit 2 &middot; Storage, Displays, and Peripherals &middot; Section 2.7</div>
-            <h1 class="module-title">Practice Questions</h1>
+            <div class="module-label">Unit 2 &middot; Storage, Displays, and Peripherals &middot; Section 2.6</div>
+            <h1 class="module-title">Classroom Labs</h1>
             <p class="module-subtitle">Storage, Displays, and Peripherals &mdash; Domains 3.0 and 5.0</p>
         </header>
 
@@ -310,8 +310,8 @@
             <div class="toc-item">2.3 &mdash; Content Review</div>
             <div class="toc-item">2.4 &mdash; Reading Assignment</div>
             <div class="toc-item">2.5 &mdash; Video Assignment</div>
-            <div class="toc-item">2.6 &mdash; Classroom Labs</div>
-            <div class="toc-item current">2.7 &mdash; Practice Questions</div>
+            <div class="toc-item current">2.6 &mdash; Lab Activities and Submission</div>
+            <div class="toc-item">2.7 &mdash; Practice Questions</div>
             <div class="toc-item">2.8 &mdash; Online Labs: NETLAB</div>
             <div class="toc-item">2.9 &mdash; Reflection Activity</div>
             <div class="toc-item">2.10 &mdash; Unit Test</div>
@@ -319,102 +319,100 @@
 
         <div class="content-area">
 
-            <p class="text-muted">Ten questions per attempt. Keep resetting until you score a perfect 10 out of 10.</p>
+            <p class="text-muted">Two group activities this unit. No physical hardware is required for either &mdash; both are classroom-based analysis and discussion work.</p>
 
             <div class="tech-box">
-                <div class="callout-title">Test Format</div>
+                <div class="callout-title">Technical Overview</div>
                 <div class="callout-content">
-                    <p>Each attempt draws a fresh random set of 10 questions covering this unit's storage, RAID, peripheral, and print/imaging objectives. Click an answer to select it, then click <strong>Grade My Answers</strong> to score the set.</p>
+                    <p>Two required group activities this unit: a storage-selection case study exercise conducted in teams on Wednesday, and a print-technology investigation and teach-back exercise conducted in teams on Thursday. Both are graded on completion and participation against a published standard, not on individual scores.</p>
                 </div>
             </div>
 
             <div class="plain-box">
                 <div class="callout-title">In Plain Terms</div>
                 <div class="callout-content">
-                    <p>Confident-and-wrong is the category to watch for: you believe something false and have no reason to double-check it. That category is invisible on an ordinary score report, and it is what fails people on the first attempt.</p>
-                    <p>Select an answer for each question, then click <strong>Grade My Answers</strong> to see your results. Click <strong>Reset</strong> for a brand-new random set of 10, and keep going. You are expected to repeat this until you score a perfect 10 out of 10 in a single attempt &mdash; a fresh random set every time means you cannot simply memorize positions, you actually have to know the material.</p>
+                    <p>You won't be opening a case or installing a drive this unit. Instead, you'll work in small groups to reason through real-world scenarios &mdash; the kind of decisions a technician actually makes when a client asks "which drive should I buy?" or "why does my printer keep jamming?" Knowing the terminology cold only matters if you can apply it to a situation you've never seen before, and that's what these two activities are built to practice.</p>
                 </div>
             </div>
 
-            <div id="quizArea"></div>
-
-            <div class="mt-lg">
-                <button class="quiz-btn" onclick="gradeQuiz()">Grade My Answers</button>
-                <button class="quiz-btn secondary" onclick="resetQuiz()">Reset</button>
+            <div class="lab-section">
+                <div class="lab-header">
+                    <div class="lab-icon">&#128300;</div>
+                    <div>
+                        <h3 class="lab-title">Group Lab 2.0 &mdash; Storage Selection Case Studies</h3>
+                        <p class="lab-time">Wednesday 8/19 &middot; In class &middot; 1 hour &middot; Groups of 3&ndash;4</p>
+                    </div>
+                </div>
+                <p>Each group receives two scenario cards describing a fictional client's storage needs. Working from this unit's reading and content review, your group selects and justifies a storage type and, where relevant, a RAID level for each scenario.</p>
+                <ol class="lab-steps">
+                    <li>Read both scenario cards as a group and identify the client's real requirements &mdash; speed, capacity, redundancy, budget, or some combination.</li>
+                    <li>For each scenario, select a storage interface (SATA, NVMe, USB) and, if the scenario calls for it, a RAID level.</li>
+                    <li>Write a two-to-three sentence justification for each choice, naming the specific trade-off your group weighed most heavily.</li>
+                    <li>Choose one scenario to present. Be ready to explain your reasoning and answer a follow-up "what if" question from me or another group.</li>
+                    <li>Submit your worksheet with both scenarios' recommendations and justifications.</li>
+                </ol>
             </div>
 
-            <div id="quizResults">
-                <div>Your Score</div>
-                <div class="score" id="scoreDisplay">0 / 10</div>
-                <div id="scoreNote"></div>
+            <div class="lab-section">
+                <div class="lab-header">
+                    <div class="lab-icon">&#128424;</div>
+                    <div>
+                        <h3 class="lab-title">Group Lab 2.1 &mdash; Print Technology Investigation</h3>
+                        <p class="lab-time">Thursday 8/20 &middot; In class &middot; 1.5 hours &middot; Groups of 3&ndash;4</p>
+                    </div>
+                </div>
+                <p>Each group is assigned one print technology &mdash; laser, inkjet, thermal, or impact. Your group researches it using this unit's reading and videos, prepares a short diagram of its process, and teaches it to the rest of the class. The second half of the session works through printer-symptom scenario cards as a full class.</p>
+                <ol class="lab-steps">
+                    <li>As a group, review your assigned print technology in the Chapter 5 reading and the matching Messer video.</li>
+                    <li>Sketch a simple diagram of how your technology puts ink or toner on the page, in the correct order of steps.</li>
+                    <li>Prepare a two-minute explanation of your technology, aimed at someone who has never seen it before.</li>
+                    <li>Present your diagram and explanation to the class. Take notes during the other three groups' presentations &mdash; you're responsible for all four technologies on the unit test.</li>
+                    <li>As a full class, work through the printer-symptom scenario cards, identifying the likely cause and next troubleshooting step for each.</li>
+                </ol>
             </div>
 
-            <script>
-                const POOL = [{"q": "Which storage interface communicates directly over PCIe for the lowest latency?", "opts": ["SATA III", "USB 3.0", "NVMe", "eSATA"], "correct": 2}, {"q": "An HDD is best described as which kind of storage?", "opts": ["Solid-state, no moving parts", "Mechanical, spinning platters", "Optical, laser-read", "Volatile, cache-only"], "correct": 1}, {"q": "What form factor do most modern NVMe SSDs use?", "opts": ["3.5-inch", "2.5-inch", "M.2", "5.25-inch"], "correct": 2}, {"q": "Which RAID level offers striping with zero redundancy?", "opts": ["RAID 0", "RAID 1", "RAID 5", "RAID 10"], "correct": 0}, {"q": "Which RAID level requires a minimum of three drives and survives one drive failure via parity?", "opts": ["RAID 0", "RAID 1", "RAID 5", "RAID 6"], "correct": 2}, {"q": "Which RAID level is a mirrored pair of striped sets, requiring at least four drives?", "opts": ["RAID 0", "RAID 1", "RAID 5", "RAID 10"], "correct": 3}, {"q": "What is the primary advantage of an SSD over an HDD?", "opts": ["Lower cost per gigabyte at scale", "No moving parts, faster access", "Higher maximum capacity", "Longer average lifespan in all cases"], "correct": 1}, {"q": "Which connector type is standard for most modern external peripherals?", "opts": ["PS/2", "Serial (RS-232)", "USB", "Parallel (LPT)"], "correct": 2}, {"q": "What device converts a physical document into a digital image?", "opts": ["Plotter", "Scanner", "Digitizer tablet", "KVM switch"], "correct": 1}, {"q": "A wireless mouse that suddenly stops responding is most likely suffering from what common issue?", "opts": ["A driver conflict", "Dead or low batteries", "A corrupted OS file", "A firmware mismatch"], "correct": 1}, {"q": "Which print technology uses a laser to charge a photosensitive drum?", "opts": ["Inkjet", "Thermal", "Laser", "Impact"], "correct": 2}, {"q": "Which print technology sprays liquid ink through microscopic nozzles?", "opts": ["Laser", "Inkjet", "Thermal", "Dot-matrix"], "correct": 1}, {"q": "Which print technology is most common for point-of-sale receipts?", "opts": ["Laser", "Inkjet", "Thermal", "Impact"], "correct": 2}, {"q": "Which print technology uses pins striking an ink ribbon?", "opts": ["Laser", "Inkjet", "Thermal", "Impact/dot-matrix"], "correct": 3}, {"q": "In the laser imaging process, which step applies a uniform negative charge to the drum?", "opts": ["Processing", "Charging", "Exposing", "Developing"], "correct": 1}, {"q": "In the laser imaging process, which step uses a laser to selectively discharge the drum?", "opts": ["Charging", "Exposing", "Transferring", "Fusing"], "correct": 1}, {"q": "In the laser imaging process, which step causes toner to adhere to the discharged areas?", "opts": ["Charging", "Exposing", "Developing", "Cleaning"], "correct": 2}, {"q": "In the laser imaging process, which step permanently bonds toner to the paper using heat?", "opts": ["Developing", "Transferring", "Fusing", "Cleaning"], "correct": 2}, {"q": "What is the correct order of the first three laser imaging steps?", "opts": ["Exposing, Charging, Developing", "Charging, Exposing, Developing", "Developing, Charging, Exposing", "Charging, Developing, Exposing"], "correct": 1}, {"q": "A laser-printed page shows a repeating vertical streak at the same position on every page. What is most likely worn or damaged?", "opts": ["The fuser assembly only", "The imaging drum", "The paper tray", "The USB cable"], "correct": 1}, {"q": "An inkjet printer produces streaky, faded output after sitting unused for weeks. What is the most likely cause?", "opts": ["Failed motherboard", "Clogged print nozzles", "Wrong paper size selected", "Corrupted driver"], "correct": 1}, {"q": "A thermal receipt printer produces blank paper even though it appears to be printing. What is most likely wrong?", "opts": ["The paper is loaded upside down / wrong side out", "The toner cartridge is empty", "The fuser is overheating", "The USB cable is a charge-only cable"], "correct": 0}, {"q": "Which storage interface is typically the slowest listed?", "opts": ["NVMe (PCIe)", "SATA III", "USB 3.2", "Thunderbolt"], "correct": 1}, {"q": "What is the primary purpose of RAID 1?", "opts": ["Maximize read/write speed", "Maximize usable capacity", "Provide redundancy through mirroring", "Reduce drive count"], "correct": 2}, {"q": "Which peripheral connection type would you most likely find only on legacy equipment?", "opts": ["USB-C", "PS/2", "USB 3.0", "Thunderbolt"], "correct": 1}, {"q": "What is the standard first troubleshooting step when a new peripheral is not recognized by the OS?", "opts": ["Replace the peripheral", "Check or reinstall the driver", "Reformat the storage drive", "Replace the motherboard"], "correct": 1}, {"q": "Which of the following is an output peripheral rather than an input peripheral?", "opts": ["Scanner", "Webcam", "Monitor", "Mouse"], "correct": 2}, {"q": "What does RAID stand for?", "opts": ["Redundant Array of Independent Disks", "Rapid Access Internal Drive", "Reformatted Array of Indexed Data", "Read-Ahead Instant Disk"], "correct": 0}, {"q": "Which storage device type has no moving parts at all?", "opts": ["HDD", "SSD", "Optical drive", "Tape drive"], "correct": 1}, {"q": "A user's laptop display is visible only in a bright room and appears very dim otherwise. What is the likely failing component?", "opts": ["The GPU", "The backlight or inverter", "The RAM", "The keyboard controller"], "correct": 1}, {"q": "A desktop monitor shows no image at all, but the power LED is on. What should be checked first?", "opts": ["The video cable connection", "The RAID controller", "The printer driver", "The NVMe firmware"], "correct": 0}, {"q": "Which of these is NOT one of the seven steps of the laser imaging process?", "opts": ["Processing", "Charging", "Formatting", "Fusing"], "correct": 2}, {"q": "What is the typical role of a fuser in a laser printer?", "opts": ["Charges the drum", "Melts toner permanently onto the page", "Sprays ink onto the page", "Feeds paper into the tray"], "correct": 1}, {"q": "Which RAID level provides no fault tolerance whatsoever?", "opts": ["RAID 0", "RAID 1", "RAID 5", "RAID 10"], "correct": 0}, {"q": "What is a common symptom of a failing hard drive?", "opts": ["Clicking or grinding noises", "Excessive Wi-Fi signal loss", "Overheating GPU", "Slow print queue"], "correct": 0}, {"q": "Which peripheral is best classified as a hybrid input/output device?", "opts": ["Touchscreen monitor", "Keyboard", "Webcam", "Scanner"], "correct": 0}, {"q": "What is the recommended first step when installing a new peripheral?", "opts": ["Manually search for a driver online", "Connect it and let the OS attempt automatic detection", "Reboot into Safe Mode first", "Format the peripheral's storage"], "correct": 1}, {"q": "Which print technology is best suited for multi-part carbon-copy forms?", "opts": ["Laser", "Inkjet", "Thermal", "Impact/dot-matrix"], "correct": 3}, {"q": "What does NVMe stand for?", "opts": ["Non-Volatile Memory Express", "New Volume Memory Extension", "Network Video Memory Enhancement", "Non-Variable Memory Encoding"], "correct": 0}, {"q": "A RAID 5 array with four drives loses one drive. What happens to the array?", "opts": ["Total data loss", "The array continues operating in a degraded state", "The array automatically converts to RAID 0", "The array becomes read-only permanently"], "correct": 1}, {"q": "Which of the following is the best description of SATA?", "opts": ["A wireless peripheral protocol", "A serial interface for connecting storage devices", "A print technology", "A display connector"], "correct": 1}, {"q": "What is the purpose of a print spooler?", "opts": ["Physically feeds paper into the printer", "Manages the queue of print jobs waiting to print", "Charges the imaging drum", "Cleans the fuser assembly"], "correct": 1}, {"q": "Which of the following would most likely cause garbled or nonsensical printed text?", "opts": ["Wrong or corrupted print driver", "Low paper", "Weak Wi-Fi signal", "Overfilled recycle bin"], "correct": 0}, {"q": "What is the primary risk of running a RAID 0 array for critical data?", "opts": ["It is too slow for daily use", "One drive failure destroys all data on the array", "It cannot exceed 1 TB in size", "It requires a minimum of six drives"], "correct": 1}, {"q": "Which storage form factor is most common for a traditional 3.5-inch desktop HDD bay?", "opts": ["M.2", "2.5-inch", "3.5-inch", "5.25-inch"], "correct": 2}, {"q": "What is a common cause of intermittent USB peripheral disconnects?", "opts": ["A failing or loose USB cable/port", "An overfilled hard drive", "A misconfigured RAID array", "A dirty printer drum"], "correct": 0}, {"q": "Which display issue is most associated with a failing or aging backlight?", "opts": ["Screen is completely black with no image at all, even in bright light", "Image visible only in bright ambient light, dim otherwise", "Wrong resolution displayed", "Screen flickers only during video playback"], "correct": 1}, {"q": "What is the general troubleshooting order after identifying a problem?", "opts": ["Establish a theory of probable cause, then test it", "Immediately replace the most expensive component", "Reformat the drive before diagnosing anything", "Escalate to the manufacturer before testing"], "correct": 0}, {"q": "Which of these printer maintenance tasks is most associated with inkjet printers specifically?", "opts": ["Replacing the imaging drum", "Running a nozzle-cleaning cycle", "Replacing the fuser assembly", "Reseating the print head ribbon"], "correct": 1}, {"q": "A laser printer prints pages that are entirely blank. What is a likely cause?", "opts": ["Empty or defective toner cartridge", "Wrong paper size loaded", "USB cable is charge-only", "Backlight failure"], "correct": 0}];
-                let QUESTIONS = [];
-                let answers = [];
+            <div class="callout callout-tip">
+                <div class="callout-title">Come Prepared</div>
+                <div class="callout-content">
+                    <p>Both activities move fast and depend on the reading and videos already being done. A group that shows up on Wednesday without having read Chapter 2 and 12 will spend the hour catching up instead of reasoning through the scenarios &mdash; do the reading first.</p>
+                </div>
+            </div>
 
-                function drawSet() {
-                    const shuffled = POOL.slice().sort(() => Math.random() - 0.5);
-                    QUESTIONS = shuffled.slice(0, 10);
-                    answers = new Array(QUESTIONS.length).fill(null);
-                }
+            <h2>Submission Summary</h2>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Item</th><th>What to Submit</th><th>Due</th><th>Points</th></tr></thead>
+                    <tbody>
+                        <tr><td>Group Lab 2.0 &mdash; Storage Selection Case Studies</td><td>Group worksheet with both scenarios' recommendations and justifications</td><td>Wed 8/19, end of class</td><td>100</td></tr>
+                        <tr><td>Group Lab 2.1 &mdash; Print Technology Investigation</td><td>Group diagram and notes from all four technology presentations</td><td>Thu 8/20, end of class</td><td>100</td></tr>
+                    </tbody>
+                </table>
+            </div>
 
-                function renderQuiz() {
-                    const area = document.getElementById('quizArea');
-                    area.innerHTML = QUESTIONS.map((item, qi) => {
-                        const opts = item.opts.map((opt, oi) =>
-                            `<button type="button" class="answer-option" data-qi="${qi}" data-oi="${oi}" onclick="selectAnswer(${qi}, ${oi})">${opt}</button>`
-                        ).join('');
-                        return `<div class="question-block">
-                            <div class="question-number">Question ${qi + 1} of ${QUESTIONS.length}</div>
-                            <p class="question-text">${item.q}</p>
-                            ${opts}
-                        </div>`;
-                    }).join('');
-                }
+            <div class="callout callout-tip">
+                <div class="callout-title">Full Credit Standard</div>
+                <div class="callout-content">
+                    <p>Full credit requires active participation in both group activities and a completed worksheet reflecting your group's actual reasoning, not a copied answer. Submissions that are blank, incomplete, or clearly not the group's own work are returned for revision and resubmitted for full credit &mdash; nothing here is partially scored.</p>
+                </div>
+            </div>
 
-                function selectAnswer(qi, oi) {
-                    answers[qi] = oi;
-                    document.querySelectorAll(`[data-qi="${qi}"]`).forEach(btn => {
-                        btn.classList.remove('selected');
-                        if (parseInt(btn.dataset.oi) === oi) btn.classList.add('selected');
-                    });
-                }
+            <div class="summary-box">
+                <h3>Before You Submit</h3>
+                <ul>
+                    <li>Both scenario cards addressed with a named storage type (and RAID level where relevant)</li>
+                    <li>A one- to two-sentence justification for each recommendation</li>
+                    <li>A diagram of your group's assigned print technology, in correct step order</li>
+                    <li>Notes from all four groups' presentations, not just your own</li>
+                </ul>
+            </div>
 
-                function gradeQuiz() {
-                    if (answers.includes(null)) {
-                        alert('Answer all 10 questions before grading.');
-                        return;
-                    }
-                    let score = 0;
-                    QUESTIONS.forEach((item, qi) => {
-                        const correct = item.correct;
-                        document.querySelectorAll(`[data-qi="${qi}"]`).forEach(btn => {
-                            const oi = parseInt(btn.dataset.oi);
-                            btn.classList.remove('selected');
-                            if (oi === correct) btn.classList.add('correct');
-                            else if (oi === answers[qi]) btn.classList.add('incorrect');
-                        });
-                        if (answers[qi] === correct) score++;
-                    });
-                    document.getElementById('scoreDisplay').textContent = score + ' / ' + QUESTIONS.length;
-                    const note = document.getElementById('scoreNote');
-                    if (score === QUESTIONS.length) note.textContent = 'Perfect set. You are ready to move on.';
-                    else note.textContent = 'Not a perfect 10 yet \u2014 click Reset for a new random set and try again.';
-                    document.getElementById('quizResults').style.display = 'block';
-                    document.getElementById('quizResults').scrollIntoView({behavior: 'smooth'});
-                }
-
-                function resetQuiz() {
-                    document.getElementById('quizResults').style.display = 'none';
-                    drawSet();
-                    renderQuiz();
-                }
-
-                drawSet();
-                renderQuiz();
-            </script>
+            <div class="references-section">
+                <h3>Go Further</h3>
+                <ul>
+                    <li>Sybex <em>CompTIA A+ Complete Study Guide</em>, Volume 1 &mdash; Chapter 2, 5, and 12 Performance-Based Questions map directly onto these activities</li>
+                    <li>CompTIA official 220-1201 exam objectives (comptia.org) &mdash; Domain 3.0 and 5.0 task statements for storage and printing</li>
+                </ul>
+            </div>
 
         </div>
 
