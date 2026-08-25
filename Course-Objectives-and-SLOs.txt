@@ -1,0 +1,66 @@
+CTS-ITS7501-80 — CompTIA A+ Core 1 Training
+Course Objectives and Student Learning Outcomes
+
+
+COURSE OBJECTIVES
+==================
+Broad, instructor-facing statements of what the course as a whole is
+designed to accomplish.
+
+1. Prepare students with no prior computer experience to comprehend,
+   articulate, and apply the foundational hardware, networking, and
+   troubleshooting concepts required by the CompTIA A+ Core 1
+   (220-1201) certification exam.
+
+2. Deliver instruction aligned to all five Core 1 exam domains —
+   Mobile Devices, Networking, Hardware, Virtualization and Cloud
+   Computing, and Hardware and Network Troubleshooting — in
+   proportion to their weighting on the official exam.
+
+3. Build technical competency through direct, hands-on experience
+   with physical computer hardware and live networked systems,
+   rather than through lecture or simulation alone.
+
+4. Establish a structured, repeatable troubleshooting methodology
+   that students apply consistently across hardware, network, and
+   system-level problems throughout the course.
+
+5. Instill safe, professional, and legally compliant technical
+   practices, including electrostatic discharge protocols, safe
+   handling of powered components, and appropriate use of
+   diagnostic and lab tools.
+
+6. Assess readiness for certification through progressively
+   rigorous evaluation, culminating in a scaled practice-exam
+   threshold that predicts a first-attempt pass on the official
+   220-1201 exam.
+
+
+STUDENT LEARNING OUTCOMES
+==========================
+Specific, measurable statements of what a student who completes the
+course will be able to do.
+
+Upon successful completion of this course, the student will be able to:
+
+1. Identify and explain the function of core computer hardware
+   components — including motherboards, processors, memory, storage
+   devices, power supplies, and cooling systems — by physical
+   inspection and written assessment.
+
+2. Configure and troubleshoot fundamental networking components and
+   services, including IP addressing, common network protocols and
+   ports, wireless connectivity, and SOHO network configuration,
+   using both live lab environments and written scenarios.
+
+3. Apply a structured, six-step troubleshooting methodology to
+   diagnose and resolve hardware, network, and mobile device
+   problems presented as realistic technical scenarios.
+
+4. Describe virtualization and cloud computing concepts, including
+   hypervisor types, deployment models, and service models, and
+   explain their practical application in a business environment.
+
+5. Demonstrate exam readiness for the CompTIA A+ Core 1 (220-1201)
+   certification by achieving a scaled score of 780 or higher on
+   two consecutive full-length practice examinations.

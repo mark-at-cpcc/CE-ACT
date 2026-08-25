@@ -1,5 +1,5 @@
 # CTS-ITS7501-80 — CompTIA A+ Core 1 Training
-## Course Design Plan — Revision 2 (Approved Decisions Incorporated)
+## Course Design Plan — Revision 3 (Approved Decisions Incorporated)
 
 **Certification target:** CompTIA A+ Core 1, exam 220-1201
 **Delivery:** Brightspace shell + in-person meetings
@@ -41,7 +41,7 @@ CompTIA A+ Core 1 (220-1201): maximum 90 questions, 90 minutes, multiple-choice 
 | 3 | 8/25 – 8/31 | Tue 8/25 · Wed 8/26 · Thu 8/27 | Unit 3 — Networking Foundations |
 | 4 | 9/1 – 9/7 | Tue 9/1 · Wed 9/2 · Thu 9/3 | Unit 4 — Network Services and Configuration |
 | 5 | 9/8 – 9/14 | Tue 9/8 · Wed 9/9 · Thu 9/10 | Unit 5 — Mobile, Virtualization, and Cloud |
-| 6 | 9/15 – 9/17 | Tue 9/15 · Wed 9/16 · Thu 9/17 | Unit 6 — Integration and Exam Readiness |
+| 6 | 9/15 – 9/17 | Tue 9/15 · Wed 9/16 · Thu 9/17 | Unit 6 — Troubleshooting and Exam Readiness |
 
 Labor Day falls Monday 9/7/2026, inside the Week 4 window but on no meeting day. Week 4 work is due before it, giving students the holiday as recovery time — deliberate placement in the heaviest stretch of the course.
 
@@ -111,7 +111,7 @@ Twenty-one labs from the NDG A+ v5 series, distributed across the six units. Eac
 | **3** — Networking Foundations | 05 Command Line – Windows and Linux · 06 Windows Network Settings · 07 Linux Network Settings | 3 | 2.25 – 3.75 |
 | **4** — Network Services and Config | 08 Windows Users and Groups · 09 Linux Users and Groups · 10 Sharing Resources – Folders · 15 Remote Access · 19 Configuring Security on SOHO Networks | 5 | 3.75 – 6.25 |
 | **5** — Mobile, Virtualization, Cloud | 02 Windows Management and Administrative Tools · 03 Windows Customizations · 04 Windows Control Panel · 18 Deploy a Virtual Machine with Hyper-V · 20 Writing Basic Scripts | 5 | 3.75 – 6.25 |
-| **6** — Integration and Exam Readiness | 12 Installing Software · 16 Troubleshooting Tools in Windows · 17 Security and Privacy | 3 | 2.25 – 3.75 |
+| **6** — Troubleshooting and Exam Readiness | 12 Installing Software · 16 Troubleshooting Tools in Windows · 17 Security and Privacy | 3 | 2.25 – 3.75 |
 | | | **21** | **15.75 – 26.25** |
 
 **Placement logic.** Labs were mapped to the unit whose hardware or concepts they exercise: storage and printer labs with Unit 2's storage and output content, command-line and network-settings labs with Unit 3's networking foundations, sharing and remote-access labs with Unit 4's network services, and virtualization with Unit 5. Unit 6 carries Labs 12, 16, and 17 per instructor direction — installing software, Windows troubleshooting tools, and security and privacy make a coherent integration set for the final week.
@@ -232,7 +232,7 @@ The component architecture from the existing course template is retained — obj
 03 — UNIT 3: Networking Foundations
 04 — UNIT 4: Network Services and Configuration
 05 — UNIT 5: Mobile, Virtualization, and Cloud
-06 — UNIT 6: Integration and Exam Readiness
+06 — UNIT 6: Troubleshooting and Exam Readiness
 
 07 — EXAM READINESS
      Full-Length Practice Exams
@@ -390,4 +390,4 @@ Encouraging and direct, no cheerleading. Beginners in an accelerated cert course
 
 ---
 
-*Prepared for Mark E. Turner, Central Piedmont Community College. Revision 2 — awaiting approval to build.*
+*Prepared for Mark E. Turner, Central Piedmont Community College. Revision 3 — awaiting approval to build.*
