@@ -6,7 +6,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <title>Unit 1 &mdash; 1.8 Online Labs: NETLAB | CompTIA A+ Core 1</title>
+    <title>Unit 1 &mdash; 1.B Clearing Your Browser Cache | CompTIA A+ Core 1</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -164,6 +164,7 @@
         }
         .objectives-box h3 { color: var(--text-black); margin-top: 0; margin-bottom: var(--space-md);
             display: flex; align-items: center; gap: var(--space-sm); border-left: none; padding-left: 0; }
+        .objectives-box h3::before { content: '\1F3AF'; font-size: 1.25rem; }
         .objectives-box ol { margin-bottom: 0; }
 
         .tech-box {
@@ -183,14 +184,18 @@
         .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; position: relative; overflow: hidden; }
         .callout::before { position: absolute; top: var(--space-md); left: var(--space-md); font-size: 1.5rem; }
         .callout-title { font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 1rem;
-            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
-        .callout-content { }
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); padding-left: 2.5rem; color: var(--text-black); }
+        .callout-content { padding-left: 2.5rem; }
         .callout-content p:last-child { margin-bottom: 0; }
 
         .callout-tip { background: var(--accent-green-light); border-left: 4px solid var(--accent-green); }
+        .callout-tip::before { content: '\1F4A1'; }
         .callout-warning { background: var(--alert-warning-bg); border-left: 4px solid var(--alert-warning); }
+        .callout-warning::before { content: '\26A0\FE0F'; }
         .callout-danger { background: var(--alert-danger-bg); border-left: 4px solid var(--alert-danger); }
+        .callout-danger::before { content: '\1F6A8'; }
         .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
+        .callout-info::before { content: '\2139\FE0F'; }
 
         .key-concept {
             background: linear-gradient(135deg, var(--accent-purple-light) 0%, var(--white) 100%);
@@ -328,9 +333,9 @@
     <div class="course-container">
 
         <header class="module-header">
-            <div class="module-label">Unit 1 &middot; Inside the Box &middot; Section 1.8</div>
-            <h1 class="module-title">Online Labs: NETLAB</h1>
-            <p class="module-subtitle">CompTIA A+ Core 1 - Domains 3.0 and 5.0</p>
+            <div class="module-label">Unit 1 &middot; Inside the Box &middot; Section 1.B</div>
+            <h1 class="module-title">Clearing Your Browser Cache</h1>
+            <p class="module-subtitle">Step-by-step instructions for Chrome, Firefox, and Edge.</p>
         </header>
 
         <nav class="toc">
@@ -341,163 +346,128 @@
             <div class="toc-item">1.5 &mdash; Video Assignment</div>
             <div class="toc-item">1.6 &mdash; Classroom Labs</div>
             <div class="toc-item">1.7 &mdash; Practice Question Set</div>
-            <div class="toc-item current">1.8 &mdash; Online Labs: NETLAB</div>
+            <div class="toc-item">1.8 &mdash; Online Labs: NETLAB</div>
             <div class="toc-item">1.9 &mdash; Reflection Activity</div>
             <div class="toc-item">1.10 &mdash; Unit Test</div>
             <div class="toc-item">1.A &mdash; Acronym Test</div>
-            <div class="toc-item">1.B &mdash; Clearing Your Browser Cache</div>
+            <div class="toc-item current">1.B &mdash; Clearing Your Browser Cache</div>
         </nav>
 
         <div class="content-area">
 
-            <p class="text-muted">Two labs this unit, roughly 45 minutes to 75 minutes each. These are required and they are graded.</p>
-
-            <div class="tech-box">
-                <div class="callout-title">Technical Overview</div>
-                <div class="callout-content">
-                    <p>NETLAB+ is a remotely accessible virtualization platform that provisions dedicated physical and virtual lab equipment to scheduled student sessions. Access is reservation-based: a pod of resources is allocated to you for a fixed window, and the environment is reset to a clean baseline when that window closes. The CompTIA A+ Core 1 Exam lab series maps directly to CompTIA A+ exam objectives and provides guided procedures against live systems rather than simulations.</p>
-                </div>
-            </div>
+            <p class="text-muted">If a course page looks out of date, is missing a recent change, or an interactive quiz seems stuck on old questions, a cleared cache almost always fixes it. Pick your browser below and follow the steps in order.</p>
 
             <div class="plain-box">
-                <div class="callout-title">In Plain Terms</div>
+                <div class="callout-title">Two Different Fixes &mdash; Use the Right One</div>
                 <div class="callout-content">
-                    <p>NETLAB gives you a real computer to work on through your browser. You book a time slot, the system hands you a machine for that window, and when time is up it wipes it clean for the next person. Nothing you do can break anything permanently, which is exactly why it is the safest place to learn.</p>
+                    <p><strong>Hard refresh</strong> reloads just the page you're looking at with fresh files, skipping the saved copy for that one page only. Try this first &mdash; it takes two seconds and doesn't touch anything else.</p>
+                    <p><strong>Clear cache</strong> deletes saved files for every site you've visited, not just this course. Use this if a hard refresh didn't fix it, or if the problem shows up on more than one page.</p>
                 </div>
             </div>
-
-            <h2>This Unit's Labs</h2>
-            <div class="table-container">
-                <table>
-                    <thead><tr><th>Lab</th><th>Title</th><th>Est. Time</th><th>Objectives</th></tr></thead>
-                    <tbody>
-                        <tr><td><strong>Lab 01A</strong></td><td>Examining PC Hardware</td><td>0.75 &ndash; 1.25 hrs</td><td>3.3, 3.5, 3.6</td></tr>
-                        <tr><td><strong>Lab 01B</strong></td><td>Examining PC Hardware</td><td>0.75 &ndash; 1.25 hrs</td><td>3.3, 3.5, 3.6, 5.1</td></tr>
-                    </tbody>
-                </table>
-            </div>
-            <p>Both labs come from the <strong>CompTIA A+ Core 1 Exam</strong> series and pair directly with the hardware you identified in Lab 1.6.2 and the concepts in Section 1.3.</p>
 
             <div class="key-concept">
-                <h4>Why These Labs Matter More Than They Look</h4>
-                <p>Roughly a quarter of the Core 1 exam is Hardware and another 28% is Troubleshooting. Both are assessed partly through <strong>performance-based questions</strong> &mdash; items that ask you to do something in a simulated environment rather than recognize a correct sentence.</p>
-                <p>Reading about a device manager and navigating one under a countdown are different skills, and the exam tests the second. Students who complete every NETLAB lab consistently report the performance-based questions felt familiar. Students who skipped them report the opposite, usually afterward.</p>
-                <p>These labs are also the only place in this course where you work on a live system with no risk of breaking something that matters. Use that. Click things. Look around beyond the numbered steps.</p>
+                <h4>Try This First: Hard Refresh</h4>
+                <p>Before clearing your entire cache, try reloading just the page you're on with a hard refresh. This works the same way in Chrome, Firefox, and Edge:</p>
+                <ul class="styled-list">
+                    <li><strong>Windows or Linux:</strong> <code>Ctrl</code> + <code>Shift</code> + <code>R</code></li>
+                    <li><strong>Mac:</strong> <code>Cmd</code> + <code>Shift</code> + <code>R</code></li>
+                </ul>
+                <p>If the page still looks wrong afterward, move on to the full steps below for your browser.</p>
             </div>
 
-            <h2>How to Access NETLAB</h2>
-            <p>Complete access instructions, including first-time login and reservation walkthroughs, are in <strong>Unit 0, Section 0.10</strong>. The short version:</p>
+            <hr class="section-divider">
+
+            <h2>Google Chrome</h2>
+
+            <div class="tech-box">
+                <div class="callout-title">Fastest Method &mdash; Keyboard Shortcut</div>
+                <div class="callout-content">
+                    <p>Press <code>Ctrl</code> + <code>Shift</code> + <code>Delete</code> (Windows/Linux) or <code>Cmd</code> + <code>Shift</code> + <code>Delete</code> (Mac). This opens the Clear Browsing Data window directly &mdash; skip to step 3 below.</p>
+                </div>
+            </div>
+
             <ol class="lab-steps">
-                <li><strong>Open the lab link in Brightspace.</strong> Each lab has its own link inside this unit. Do not go directly to the NETLAB site &mdash; launch from the course shell so your session is associated with this class.</li>
-                <li><strong>Make a reservation.</strong> You select a date and time window. The system allocates a pod of equipment to you for that period.</li>
-                <li><strong>Open the lab worksheet first.</strong> Worksheets are in the <strong>NETLAB &mdash; Lab Worksheets</strong> folder under Coursework, and inside NETLAB itself. Read it before your reservation begins, not during.</li>
-                <li><strong>Complete the lab in a single sitting</strong> and capture every required screenshot as you go.</li>
-                <li><strong>Submit your screenshots</strong> to the matching lab quiz in Brightspace.</li>
+                <li><strong>Open the menu.</strong> Click the three vertical dots in the top-right corner of the Chrome window.</li>
+                <li><strong>Go to Clear Browsing Data.</strong> Select <strong>Delete browsing data</strong> from the menu. (On older versions, this is under <strong>More tools &rarr; Clear browsing data</strong>.)</li>
+                <li><strong>Set the time range.</strong> Click the <strong>Time range</strong> dropdown and select <strong>All time</strong>. This makes sure nothing old is left behind.</li>
+                <li><strong>Check the right box.</strong> Make sure <strong>Cached images and files</strong> is checked. You can leave <strong>Cookies and other site data</strong> checked too if you also want to sign out of saved sites, or uncheck it if you just want the cache cleared.</li>
+                <li><strong>Clear the data.</strong> Click <strong>Delete data</strong> (or <strong>Clear data</strong>, depending on your version).</li>
+                <li><strong>Close and reopen Chrome.</strong> Fully quit the browser and open it again before returning to the course page.</li>
             </ol>
 
-            <div class="callout callout-danger">
-                <div class="callout-title">You Get One Continuous Session</div>
+            <div class="callout callout-tip">
+                <div class="callout-title">One Site Only</div>
+                <div class="callout-content"><p>If you only want to clear the cache for this course site specifically, without affecting anything else: open the page, click the small lock or info icon to the left of the address bar, select <strong>Site settings</strong>, then find and clear the stored data for that site only.</p></div>
+            </div>
+
+            <hr class="section-divider">
+
+            <h2>Mozilla Firefox</h2>
+
+            <div class="tech-box">
+                <div class="callout-title">Fastest Method &mdash; Keyboard Shortcut</div>
                 <div class="callout-content">
-                    <p><strong>If your reservation time runs out, the lab resets and you start over from the beginning.</strong> There is no pause, no save state, and no partial progress carried forward.</p>
-                    <p>Book a window longer than you think you need. If a lab is estimated at 1.25 hours, reserve closer to 2. The extra time costs you nothing if you finish early.</p>
+                    <p>Press <code>Ctrl</code> + <code>Shift</code> + <code>Delete</code> (Windows/Linux) or <code>Cmd</code> + <code>Shift</code> + <code>Delete</code> (Mac). This opens the Clear Data window directly &mdash; skip to step 3 below.</p>
                 </div>
             </div>
 
-            <div class="callout callout-warning">
-                <div class="callout-title">Do Not Wait Until the Deadline</div>
-                <div class="callout-content">
-                    <p>There are a <strong>limited number of lab pods</strong> assigned to this course. When everyone books the same Sunday evening, the slots are gone and there is nothing I can do about it &mdash; the resources are finite and the deadline does not move because you could not get a reservation.</p>
-                    <p>Reserve your time early in the week. This is the single most common avoidable way students lose points in this course.</p>
-                </div>
-            </div>
-
-            <h2>Screenshot Requirements</h2>
-            <p>Screenshots are how the lab gets graded, so the mechanics matter. Improperly submitted screenshots cannot receive credit or partial credit.</p>
-
-            <div class="table-container">
-                <table>
-                    <thead><tr><th>Requirement</th><th>Detail</th></tr></thead>
-                    <tbody>
-                        <tr><td><strong>What to capture</strong></td><td>Every screenshot the lab worksheet specifically calls for, showing all the information the step asks you to demonstrate</td></tr>
-                        <tr><td><strong>Timestamp</strong></td><td>The NETLAB date and time stamp and your reservation must be visible in the capture</td></tr>
-                        <tr><td><strong>How to submit</strong></td><td>Open the screenshot, right-click, copy, then <strong>paste directly into the question field</strong> in the lab quiz</td></tr>
-                        <tr><td><strong>How not to submit</strong></td><td>Do <strong>not</strong> attach screenshots as separate files, email them, or link to cloud storage</td></tr>
-                        <tr><td><strong>Verify before saving</strong></td><td>You should see the image displayed inside the question field. If you do not see it, it did not submit.</td></tr>
-                    </tbody>
-                </table>
-            </div>
+            <ol class="lab-steps">
+                <li><strong>Open the menu.</strong> Click the three horizontal lines in the top-right corner of the Firefox window.</li>
+                <li><strong>Go to Settings.</strong> Select <strong>Settings</strong>, then click the <strong>Privacy &amp; Security</strong> panel on the left side.</li>
+                <li><strong>Find Cookies and Site Data.</strong> Scroll to the <strong>Cookies and Site Data</strong> section and click <strong>Clear Data</strong>.</li>
+                <li><strong>Check the right box.</strong> Make sure <strong>Cached Web Content</strong> is checked. Uncheck <strong>Cookies and Site Data</strong> if you don't want to sign out of saved sites.</li>
+                <li><strong>Clear it.</strong> Click <strong>Clear</strong>, then confirm when Firefox asks you to.</li>
+                <li><strong>Close and reopen Firefox.</strong> Fully quit the browser and open it again before returning to the course page.</li>
+            </ol>
 
             <div class="callout callout-tip">
-                <div class="callout-title">Capture As You Go, Not At The End</div>
-                <div class="callout-content"><p>Take each screenshot at the moment the worksheet asks for it. Students who plan to "go back and grab them at the end" discover the environment has moved on, the state is gone, and the only way to recover it is to run the entire lab again on a new reservation.</p></div>
+                <div class="callout-title">Clear It Automatically Every Time</div>
+                <div class="callout-content"><p>In that same Cookies and Site Data section, you can check <strong>Delete cookies and site data when Firefox is closed</strong> so this happens on its own every time you quit the browser. Handy if you find yourself doing this often.</p></div>
             </div>
 
-            <div class="callout callout-danger">
-                <div class="callout-title">Lab Tools Stay Inside NETLAB</div>
+            <hr class="section-divider">
+
+            <h2>Microsoft Edge</h2>
+
+            <div class="tech-box">
+                <div class="callout-title">Fastest Method &mdash; Keyboard Shortcut</div>
                 <div class="callout-content">
-                    <p><strong>Do not attempt these lab procedures on the CPCC network, on college equipment, or on any network or system you do not own.</strong> Tools and techniques used in a lab environment may violate federal or state law, or institutional acceptable use policy, when applied elsewhere.</p>
-                    <p>The NETLAB virtual machines exist precisely so you have a lawful, isolated place to practice. Use them, and only them. You are solely responsible for compliance if you take these techniques outside that environment.</p>
+                    <p>Press <code>Ctrl</code> + <code>Shift</code> + <code>Delete</code> (Windows) or <code>Cmd</code> + <code>Shift</code> + <code>Delete</code> (Mac). This opens the Clear Browsing Data window directly &mdash; skip to step 3 below.</p>
                 </div>
             </div>
 
-            <h2>Before You Start</h2>
-            <ul class="checklist">
-                <li>Complete the Unit 1 instructional material first &mdash; Sections 1.3, 1.4, and 1.5. The labs assume you know the vocabulary.</li>
-                <li>Download and read the lab worksheet before your reservation window opens</li>
-                <li>Reserve a block longer than the estimated time</li>
-                <li>Have a reliable internet connection &mdash; a dropped connection during a session costs you the session</li>
-                <li>Know your screenshot tool before you start, not during</li>
-            </ul>
+            <ol class="lab-steps">
+                <li><strong>Open the menu.</strong> Click the three horizontal dots in the top-right corner of the Edge window.</li>
+                <li><strong>Go to Privacy settings.</strong> Select <strong>Settings</strong>, then <strong>Privacy, search, and services</strong> from the left sidebar.</li>
+                <li><strong>Choose what to clear.</strong> Under <strong>Clear browsing data</strong>, click <strong>Choose what to clear</strong>.</li>
+                <li><strong>Set the time range.</strong> Set the range to <strong>All time</strong> so nothing old is left behind.</li>
+                <li><strong>Check the right box.</strong> Make sure <strong>Cached images and files</strong> is checked.</li>
+                <li><strong>Clear now.</strong> Click <strong>Clear now</strong>.</li>
+                <li><strong>Close and reopen Edge.</strong> Fully quit the browser and open it again before returning to the course page.</li>
+            </ol>
+
+            <div class="callout callout-tip">
+                <div class="callout-title">Alternate Route Through History</div>
+                <div class="callout-content"><p>You can also get here through <strong>Settings and more &rarr; History &rarr; Open history page &rarr; Delete browsing data</strong>, if you'd rather not dig through Settings.</p></div>
+            </div>
+
+            <hr class="section-divider">
+
+            <h2>Confirm It Worked</h2>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Step</th><th>What You Should See</th></tr></thead>
+                    <tbody>
+                        <tr><td>Close and reopen your browser</td><td>A completely fresh browser session</td></tr>
+                        <tr><td>Return to the course page</td><td>The page should reload with fresh content, not the old version</td></tr>
+                        <tr><td>Still looks wrong?</td><td>Try the other browser, or contact your instructor with a screenshot</td></tr>
+                    </tbody>
+                </table>
+            </div>
 
             <div class="callout callout-info">
-                <div class="callout-title">Completion Standard &mdash; 100 Points Each</div>
-                <div class="callout-content">
-                    <p>Full credit requires every screenshot the worksheet specifies, pasted into the correct field of the lab quiz, with the NETLAB timestamp and reservation visible. Submissions missing screenshots or with unreadable captures are returned for revision and resubmitted for full credit.</p>
-                    <p>You may reattempt the labs as many times as you wish before the deadline &mdash; each attempt requires a new reservation.</p>
-                </div>
-            </div>
-
-            <div class="table-container">
-                <table>
-                    <thead><tr><th>Lab</th><th>Submit To</th><th>Due</th><th>Points</th></tr></thead>
-                    <tbody>
-                        <tr><td>CompTIA A+ Core 1 Exam Lab 01A &mdash; Examining PC Hardware</td><td>Lab 01A quiz, Brightspace</td><td>Mon, 11:59 PM</td><td>100</td></tr>
-                        <tr><td>CompTIA A+ Core 1 Exam Lab 01B &mdash; Examining PC Hardware</td><td>Lab 01B quiz, Brightspace</td><td>Mon, 11:59 PM</td><td>100</td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <h2>Getting Help</h2>
-            <div class="table-container">
-                <table>
-                    <thead><tr><th>Problem</th><th>Contact</th></tr></thead>
-                    <tbody>
-                        <tr><td>NETLAB access, reservations, pods, or lab content</td><td><strong>Your instructor</strong> &mdash; not CPCC ITS. ITS does not manage this resource and will redirect you to me.</td></tr>
-                        <tr><td>Brightspace login or platform issues</td><td>CPCC Information Technology Services</td></tr>
-                        <tr><td>Your own internet or device problems</td><td>Your provider. I cannot troubleshoot your home connection remotely.</td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="summary-box">
-                <h3>NETLAB Checklist</h3>
-                <ul>
-                    <li>Unit 1 instructional material completed before starting</li>
-                    <li>Worksheet read in advance, reservation booked early in the week</li>
-                    <li>Reservation window longer than the estimated lab time</li>
-                    <li>Screenshots captured at each required step, with timestamp visible</li>
-                    <li>Screenshots pasted into the question fields &mdash; not attached as files</li>
-                    <li>Both labs submitted by Monday, 11:59 PM</li>
-                </ul>
-            </div>
-
-            <div class="references-section">
-                <h3>Go Further</h3>
-                <ul>
-                    <li>Unit 0, Section 0.10 &mdash; full NETLAB access instructions, first-time login, and reservation walkthrough</li>
-                    <li>NETLAB &mdash; Lab Worksheets folder under Coursework in Brightspace</li>
-                    <li>Your instructor, Mark E. Turner &mdash; all NETLAB questions, access problems, and reservation issues</li>
-                </ul>
+                <div class="callout-title">What You Will and Won't Lose</div>
+                <div class="callout-content"><p>Clearing your cache only removes temporary files &mdash; images, scripts, and page data your browser will simply re-download. Your bookmarks, saved passwords, and browsing history are stored separately and are not affected unless you specifically check those boxes too. The only downside is that sites will load a little slower the first time afterward, since everything has to be downloaded fresh.</p></div>
             </div>
 
         </div>
