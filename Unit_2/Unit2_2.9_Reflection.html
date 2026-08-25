@@ -327,7 +327,7 @@
             <div class="plain-box">
                 <div class="callout-title">In Plain Terms</div>
                 <div class="callout-content">
-                    <p>Pick one specific moment from this week &mdash; a decision your group made in the storage case studies, a moment during the print technology teach-back that clarified something, or a printer-symptom scenario your group worked through &mdash; and walk through it using the four prompts below. Not a summary of the whole week. One moment, looked at closely.</p>
+                    <p>Pick one storage concept from this week &mdash; a device type, an interface, a RAID level, whatever stuck with you most &mdash; and work through it using the four prompts below. Not a summary of the whole week. One concept, examined closely, connected to the real world and to where you're headed professionally.</p>
                 </div>
             </div>
 
@@ -339,9 +339,9 @@
             </div>
 
             <div class="callout callout-warning">
-                <div class="callout-title">Write About What Went Wrong</div>
+                <div class="callout-title">Write About What Was Actually Hard</div>
                 <div class="callout-content">
-                    <p>Reflections describing a week where everything worked are the least useful ones to write and the least interesting to read. Nobody is grading you on competence here. The mistakes are where the learning is, and I would far rather read about the ten minutes you lost figuring out why the SSD wasn't recognized than a paragraph telling me the lab went well.</p>
+                    <p>Reflections claiming a concept was easy from the start are the least useful ones to write and the least interesting to read. Nobody is grading you on how quickly you understood something. The struggle and the discovery are where the learning is, and I would far rather read about the ten minutes you spent untangling RAID 5 from RAID 10 than a paragraph telling me it all made sense right away.</p>
                 </div>
             </div>
 
@@ -351,19 +351,19 @@
                     <label for="studentName" style="display:block; font-weight:700; margin-bottom: var(--space-xs);">Name</label>
                     <input type="text" id="studentName" placeholder="Your full name" style="width:100%; padding: var(--space-sm) var(--space-md); border: 2px solid var(--neutral-300); border-radius: var(--radius-sm); font-family: var(--font-body), sans-serif; font-size: 1rem; margin-bottom: var(--space-lg);">
 
-                    <label for="promptCE" style="display:block; font-weight:700; margin-bottom: var(--space-xs);">Describe one specific moment from this unit's storage, peripheral, or printing work.</label>
+                    <label for="promptCE" style="display:block; font-weight:700; margin-bottom: var(--space-xs);">Reflect on the storage concepts you have covered this week and describe how this storage concept impacts consumers/businesses/server environments. Explain how you have learned to personally remember this concept.</label>
                     <textarea id="promptCE" rows="4" style="width:100%; padding: var(--space-md); border: 2px solid var(--neutral-300); border-radius: var(--radius-sm); font-family: var(--font-body), sans-serif; font-size: 1rem;"></textarea>
                     <p class="text-muted" id="wordCountCE" style="margin-top: var(--space-xs); margin-bottom: var(--space-lg);">0 words</p>
 
-                    <label for="promptRO" style="display:block; font-weight:700; margin-bottom: var(--space-xs);">What surprised you about it, and why?</label>
+                    <label for="promptRO" style="display:block; font-weight:700; margin-bottom: var(--space-xs);">What was difficult or surprised you about it, and why? What discovery did you make about the concept that will improve the desktop experience?</label>
                     <textarea id="promptRO" rows="4" style="width:100%; padding: var(--space-md); border: 2px solid var(--neutral-300); border-radius: var(--radius-sm); font-family: var(--font-body), sans-serif; font-size: 1rem;"></textarea>
                     <p class="text-muted" id="wordCountRO" style="margin-top: var(--space-xs); margin-bottom: var(--space-lg);">0 words</p>
 
-                    <label for="promptAC" style="display:block; font-weight:700; margin-bottom: var(--space-xs);">Connect that moment to a specific concept from the reading or videos this week.</label>
+                    <label for="promptAC" style="display:block; font-weight:700; margin-bottom: var(--space-xs);">Connect this learning moment to a specific concept from the reading or videos this week.</label>
                     <textarea id="promptAC" rows="4" style="width:100%; padding: var(--space-md); border: 2px solid var(--neutral-300); border-radius: var(--radius-sm); font-family: var(--font-body), sans-serif; font-size: 1rem;"></textarea>
                     <p class="text-muted" id="wordCountAC" style="margin-top: var(--space-xs); margin-bottom: var(--space-lg);">0 words</p>
 
-                    <label for="promptAE" style="display:block; font-weight:700; margin-bottom: var(--space-xs);">What will you do differently next time you face something similar?</label>
+                    <label for="promptAE" style="display:block; font-weight:700; margin-bottom: var(--space-xs);">How will this concept impact the field of a desktop technician and how can you apply this to your chosen field? How will this concept change over time? How has this concept improved the field? How has it complicated it?</label>
                     <textarea id="promptAE" rows="4" style="width:100%; padding: var(--space-md); border: 2px solid var(--neutral-300); border-radius: var(--radius-sm); font-family: var(--font-body), sans-serif; font-size: 1rem;"></textarea>
                     <p class="text-muted" id="wordCountAE" style="margin-top: var(--space-xs);">0 words</p>
                 </div>
@@ -397,13 +397,13 @@
             <div class="print-only" style="display:none;">
                 <h2>Unit 2 Reflection</h2>
                 <p><strong>Name:</strong> <span id="printName"></span></p>
-                <h3>Describe one specific moment from this unit's storage, peripheral, or printing work.</h3>
+                <h3>Reflect on the storage concepts you have covered this week and describe how this storage concept impacts consumers/businesses/server environments. Explain how you have learned to personally remember this concept.</h3>
                 <p id="printCE"></p>
-                <h3>What surprised you about it, and why?</h3>
+                <h3>What was difficult or surprised you about it, and why? What discovery did you make about the concept that will improve the desktop experience?</h3>
                 <p id="printRO"></p>
-                <h3>Connect that moment to a specific concept from the reading or videos this week.</h3>
+                <h3>Connect this learning moment to a specific concept from the reading or videos this week.</h3>
                 <p id="printAC"></p>
-                <h3>What will you do differently next time you face something similar?</h3>
+                <h3>How will this concept impact the field of a desktop technician and how can you apply this to your chosen field? How will this concept change over time? How has this concept improved the field? How has it complicated it?</h3>
                 <p id="printAE"></p>
             </div>
 
