@@ -461,18 +461,21 @@
             </div>
 
             <h2>Memory</h2>
+            <p>"Memory" actually covers two genuinely different things, and beginners often blur them together because both get measured in gigabytes. There are <strong>two types of computer memory</strong>: <strong>System Memory</strong>, used to run applications and the operating system, and <strong>Storage Memory</strong>, used to store files, applications, and the operating system when the power is off. One is about speed while the machine is running. The other is about keeping things around after it isn't.</p>
+
+            <h3>System Memory</h3>
             <div class="definition">
                 <div class="definition-term">RAM (Random Access Memory)</div>
                 <p class="definition-text">Fast, volatile working storage that holds the operating system, running applications, and open data. "Volatile" means contents vanish when power is removed. RAM is the desk you work at; storage is the filing cabinet.</p>
             </div>
 
-            <h3>Physical Packages</h3>
+            <h4>Physical Packages</h4>
             <ul class="styled-list">
                 <li><strong>DIMM</strong> &mdash; Dual Inline Memory Module. Full-length, used in desktops and servers.</li>
                 <li><strong>SO-DIMM</strong> &mdash; Small Outline DIMM. Shorter, used in laptops, all-in-ones, and small form factor systems.</li>
             </ul>
 
-            <h3>DDR Generations</h3>
+            <h4>DDR Generations</h4>
             <p>DDR (Double Data Rate) SDRAM transfers data on both the rising and falling edge of the clock signal. Each generation increases speed and density while lowering operating voltage.</p>
 
             <div class="table-container">
@@ -491,19 +494,42 @@
                 <div class="callout-content"><p>DDR3, DDR4, and DDR5 modules use different notch positions specifically so they cannot be installed in the wrong slot. If a module will not seat, stop and check the generation rather than pushing harder. Forcing it damages the slot, and a damaged slot means a new motherboard.</p></div>
             </div>
 
-            <h3>Error Detection and Correction</h3>
+            <h4>Error Detection and Correction</h4>
             <ul class="styled-list">
                 <li><strong>Non-parity</strong> &mdash; no error checking. Standard consumer and business desktop memory.</li>
                 <li><strong>Parity</strong> &mdash; detects single-bit errors but cannot correct them.</li>
                 <li><strong>ECC</strong> (Error Correcting Code) &mdash; detects and corrects single-bit errors on the fly. Requires motherboard and CPU support. Standard in servers, where a silent bit flip is unacceptable.</li>
             </ul>
 
-            <h3>Multi-Channel Memory</h3>
+            <h4>Multi-Channel Memory</h4>
             <p>Installing modules in matched pairs or sets lets the memory controller access them in parallel, widening the effective data path. Dual-channel, triple-channel, and quad-channel configurations exist depending on platform.</p>
 
             <div class="callout callout-tip">
                 <div class="callout-title">Slot Color Is a Hint, Not Decoration</div>
                 <div class="callout-content"><p>Motherboards often alternate slot colors to show which slots pair for multi-channel operation. Two modules in matching colors run dual-channel; the same two modules in adjacent slots may run single-channel and measurably slower. The manual is authoritative.</p></div>
+            </div>
+
+            <h3>Storage Memory</h3>
+            <div class="definition">
+                <div class="definition-term">Storage</div>
+                <p class="definition-text">Non-volatile memory that holds files, installed applications, and the operating system itself even when the power is off. Where System Memory is the desk you're actively working at, Storage is the filing cabinet the desk pulls from &mdash; slower to access, but nothing disappears when you close the drawer.</p>
+            </div>
+
+            <h4>Common Storage Types</h4>
+            <ul class="styled-list">
+                <li><strong>HDD</strong> (Hard Disk Drive) &mdash; mechanical storage that reads and writes on spinning magnetic platters. Larger capacity per dollar, slower access.</li>
+                <li><strong>SSD</strong> (Solid-State Drive) &mdash; flash-based storage with no moving parts. Faster access, no moving parts to wear out or fail mechanically.</li>
+                <li><strong>NVMe</strong> &mdash; a high-speed protocol that connects an SSD directly over the PCIe bus rather than the older SATA interface, for even higher throughput.</li>
+            </ul>
+
+            <div class="callout callout-info">
+                <div class="callout-title">Full Storage Detail Lives in Unit 2</div>
+                <div class="callout-content"><p>This unit only needs you to know that Storage Memory exists as the second category and to recognize the common types above. Drive interfaces, RAID, and troubleshooting storage failures get their own full treatment in Unit 2, once you've had a week with the hardware fundamentals here to build on.</p></div>
+            </div>
+
+            <div class="key-concept">
+                <h4>Why the Distinction Actually Matters</h4>
+                <p>A support call that says "I lost all my open work when the power went out" is a System Memory problem &mdash; RAM is volatile, and that's expected behavior, not a malfunction. A support call that says "my files are gone after a normal shutdown" is a Storage problem, and that one is actually broken. Knowing which category a symptom belongs to is often the fastest way to narrow down what's actually wrong.</p>
             </div>
 
             <h2>Power</h2>
@@ -556,7 +582,51 @@
             </div>
 
             <h3>POST</h3>
-            <p>The <strong>Power-On Self-Test</strong> runs first, verifying that essential hardware is present and responding. When POST fails before video initializes, the system reports through <strong>beep codes</strong> or a diagnostic LED &mdash; patterns whose meanings are defined by the firmware vendor. A machine that beeps is a machine that is telling you something specific.</p>
+            <p>The <strong>Power-On Self-Test</strong> verifies essential hardware in a fixed order, before the system ever reaches firmware setup or a boot device. When POST fails before video initializes, the system reports through <strong>beep codes</strong> or a diagnostic LED &mdash; patterns whose meanings are defined by the firmware vendor. A machine that beeps is a machine that is telling you something specific.</p>
+
+            <h4>The Five Components POST Checks, in Order</h4>
+            <p>POST verifies core hardware in this exact sequence. If an earlier component fails, POST never gets far enough to check the ones after it &mdash; which is exactly why the order matters when you're troubleshooting.</p>
+
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Order</th><th>Component</th><th>What POST Confirms</th></tr></thead>
+                    <tbody>
+                        <tr><td>1</td><td>Power Supply</td><td>Adequate, stable voltage is reaching the motherboard</td></tr>
+                        <tr><td>2</td><td>Motherboard</td><td>The board itself powers on and its firmware can execute</td></tr>
+                        <tr><td>3</td><td>CPU</td><td>The processor is seated, recognized, and can execute instructions</td></tr>
+                        <tr><td>4</td><td>System Memory</td><td>At least one working memory module is present and responding</td></tr>
+                        <tr><td>5</td><td>GPU</td><td>A video output path exists so the system can display something</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="key-concept">
+                <h4>Using This Order to Isolate a Bad DIMM</h4>
+                <p>Because System Memory is its own distinct step, you can use POST itself as a diagnostic tool. If a system won't complete POST and you suspect memory, remove all modules but one and attempt to boot. If it succeeds, power down, swap in the next module alone, and repeat. A module that causes POST to fail every time &mdash; and only that module &mdash; is your bad DIMM.</p>
+                <p>This works because the System Memory step only needs <em>one</em> working module to pass. POST isn't checking total capacity at this stage, just whether memory is present and responding at all &mdash; so testing DIMMs one at a time gives you a clean, isolated answer.</p>
+            </div>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">The GPU Step Has a Catch</div>
+                <div class="callout-content"><p>You can apply the same isolate-and-test logic to a suspected graphics card &mdash; remove it and see whether the system still POSTs. But this only works if the motherboard and CPU support <strong>integrated graphics</strong>. If there is no integrated chipset, the dedicated GPU is the <em>only</em> video output path that exists, and removing it leaves POST with nowhere to send a signal at all. Without integrated graphics, pulling the card doesn't tell you "the GPU is bad" &mdash; it just tells you there's no way to test it that way. You'd need a second known-good discrete card instead.</p></div>
+            </div>
+
+            <h4>From Power-On to a Loaded Operating System</h4>
+            <p>POST is only the first stage. Once it completes successfully, firmware carries the system through a fixed sequence before your operating system ever takes over:</p>
+
+            <ol class="lab-steps">
+                <li><strong>POST completes.</strong> All five hardware checks above pass.</li>
+                <li><strong>BIOS/UEFI loads CMOS settings.</strong> Firmware reads the saved configuration &mdash; boot order, date and time, enabled devices &mdash; that the CMOS battery has been preserving.</li>
+                <li><strong>A standby period begins.</strong> Firmware pauses briefly, typically showing a prompt like "Press [key] to enter Setup," giving you a short window to interrupt the normal boot process.</li>
+                <li><strong>One of two things happens.</strong> Either you press the key and <strong>enter BIOS/UEFI setup</strong> to change settings, or the standby period simply <strong>exhausts</strong> because no key was pressed in time.</li>
+                <li><strong>The configured boot device loads.</strong> Once setup is exited &mdash; or was never entered &mdash; firmware hands off to whichever device is first in the boot order, typically the primary drive.</li>
+                <li><strong>The boot process takes over.</strong> Control passes from firmware to the operating system's own bootloader, and firmware's job is finished until the next power-on.</li>
+            </ol>
+
+            <div class="callout callout-tip">
+                <div class="callout-title">Why the Standby Period Matters for Troubleshooting</div>
+                <div class="callout-content"><p>If you need to check the boot device order, enable virtualization extensions, or review fan and thermal settings, this standby window is your only opportunity &mdash; miss it, and the system moves straight on to loading the OS. If you keep missing the prompt, tap the setup key repeatedly right after power-on rather than waiting to actually see the message; by the time it's visible, the window is often nearly closed.</p></div>
+            </div>
 
             <h3>Common Firmware Settings</h3>
             <ul class="styled-list">
@@ -625,11 +695,12 @@
                     <li>Never open a power supply; the capacitors hold a lethal charge after unplugging</li>
                     <li>Form factor governs fit: ATX, microATX, Mini-ITX, nesting downward into larger cases</li>
                     <li>PCIe lanes come as x1, x4, x8, x16 &mdash; and physical width may exceed electrical width</li>
+                    <li>Two types of memory: System Memory (RAM) runs what's active; Storage Memory keeps things when the power is off</li>
                     <li>RAM is volatile; DIMM for desktops, SO-DIMM for laptops; DDR generations are keyed and not interchangeable</li>
                     <li>ECC detects and corrects; parity only detects; multi-channel needs matched modules in matched slots</li>
                     <li>PSU rails are +3.3 V, +5 V, +12 V; watch wattage, input voltage selection, and 80 PLUS efficiency</li>
                     <li>Thermal paste fills microscopic gaps &mdash; thin and even, never generous</li>
-                    <li>UEFI replaced legacy BIOS; POST reports pre-video faults through beep codes</li>
+                    <li>UEFI replaced legacy BIOS; POST checks power, motherboard, CPU, memory, and GPU in that order, reporting pre-video faults through beep codes</li>
                     <li>Six troubleshooting steps, in order, every time &mdash; and document at the end</li>
                 </ul>
             </div>
