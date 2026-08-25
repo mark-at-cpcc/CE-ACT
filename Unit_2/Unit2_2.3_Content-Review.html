@@ -301,7 +301,7 @@
         <header class="module-header">
             <div class="module-label">Unit 2 &middot; Storage, Displays, and Peripherals &middot; Section 2.3</div>
             <h1 class="module-title">Content Review</h1>
-            <p class="module-subtitle">Storage, Displays, and Peripherals &mdash; Domains 3.0 and 5.0</p>
+            <p class="module-subtitle">CompTIA A+ Core 1 &mdash; Domains 3.0 and 5.0</p>
         </header>
 
         <nav class="toc">
@@ -364,6 +364,47 @@
                 </table>
             </div>
 
+            <h2>Displays</h2>
+
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Display Type</th><th>How It Works</th><th>Common Use</th></tr></thead>
+                    <tbody>
+                        <tr><td>LCD (LED-backlit)</td><td>Liquid crystal panel with an LED backlight illuminating pixels from behind</td><td>Most laptops and budget monitors</td></tr>
+                        <tr><td>OLED</td><td>Each pixel emits its own light &mdash; no separate backlight</td><td>High-end monitors, phones, some laptops</td></tr>
+                        <tr><td>Mini LED</td><td>LCD with a densely zoned LED backlight for finer local dimming</td><td>Higher-end LCD monitors and laptops</td></tr>
+                        <tr><td>Touchscreen</td><td>A digitizer layer over the display senses touch input</td><td>Tablets, 2-in-1 laptops, POS terminals</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="definition">
+                <div class="definition-term">Digitizer</div>
+                <p class="definition-text">The layer of a touchscreen that senses and translates a touch or stylus input into coordinates the system can use. A cracked digitizer can leave the image intact while touch stops responding, and vice versa.</p>
+            </div>
+
+            <div class="definition">
+                <div class="definition-term">Inverter</div>
+                <p class="definition-text">On older CCFL-backlit displays, the inverter powers the backlight. A failing inverter is a classic cause of a screen that's visible only in bright light with a flashlight test &mdash; the image is there, but the backlight isn't lighting it.</p>
+            </div>
+
+            <div class="key-concept">
+                <h4>Display Attributes to Know</h4>
+                <ul>
+                    <li><strong>Resolution</strong> &mdash; the number of pixels, width by height (e.g., 1920x1080). Higher resolution means more detail packed into the same physical screen.</li>
+                    <li><strong>Refresh rate</strong> &mdash; how many times per second the image redraws, in Hz. Higher refresh rates show smoother motion; gaming monitors push well past the old 60 Hz standard.</li>
+                    <li><strong>Pixel density (PPI)</strong> &mdash; pixels packed into each inch of screen. The same resolution looks sharper on a smaller panel because the pixels sit closer together.</li>
+                    <li><strong>Color gamut</strong> &mdash; the range of colors a display can reproduce. Matters most for photo/video editing, where accurate color reproduction is the whole point.</li>
+                </ul>
+            </div>
+
+            <div class="callout callout-tip">
+                <div class="callout-title">Telling OLED and LCD Apart on the Exam</div>
+                <div class="callout-content">
+                    <p>If a question mentions a backlight at all &mdash; LED, Mini LED, or an inverter &mdash; it's describing an LCD variant. OLED has no separate backlight because each pixel lights itself, which is also why OLED can produce a true black (the pixel simply turns off) and why OLED panels are more prone to burn-in on static images.</p>
+                </div>
+            </div>
+
             <h3>RAID (Redundant Array of Independent Disks)</h3>
             <div class="key-concept">
                 <h4>Know These Four Cold</h4>
@@ -384,6 +425,28 @@
 
             <h2>Peripheral Devices</h2>
             <p>A peripheral is any device connected to a computer that isn't part of the core system &mdash; input devices (keyboard, mouse, scanner, webcam), output devices (monitor, speakers), and hybrid devices (touchscreens). Most modern peripherals connect over USB; older systems may still use PS/2, serial, or parallel ports, which you may encounter on legacy equipment.</p>
+
+            <h3>Peripheral, Video, and Storage Cabling</h3>
+            <p>The cable and connector on a peripheral tells you almost as much as the device itself. Four families matter most for this unit:</p>
+
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Cable Family</th><th>Common Connectors</th><th>Typical Use</th></tr></thead>
+                    <tbody>
+                        <tr><td>Peripheral cables</td><td>USB-A, USB-C, USB Micro-B, Thunderbolt, Serial (RS-232)</td><td>Keyboards, mice, scanners, webcams, docking stations</td></tr>
+                        <tr><td>Video cables</td><td>HDMI, DisplayPort, DVI, VGA, video over USB-C</td><td>Connecting a monitor or projector to a system</td></tr>
+                        <tr><td>Storage cables</td><td>SATA, eSATA</td><td>Connecting internal and external drives</td></tr>
+                        <tr><td>Adapters/converters</td><td>DVI-to-HDMI, DVI-to-VGA, USB-to-Ethernet, USB-C-to-USB-A, USB hubs</td><td>Bridging two connector types, or adding ports</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">Digital vs. Analog Video</div>
+                <div class="callout-content">
+                    <p>HDMI and DisplayPort carry a fully digital signal; VGA is analog. DVI can actually be either, depending on the specific connector variant (DVI-D is digital-only, DVI-A is analog-only, DVI-I carries both). A fuzzy or shimmering image over a VGA cable is often just the analog signal doing what analog signals do &mdash; it's not automatically a sign of a failing display.</p>
+                </div>
+            </div>
 
             <div class="callout callout-info">
                 <div class="callout-title">Installation Pattern to Remember</div>
@@ -423,6 +486,58 @@
                 <div class="callout-title">Common Exam Trap</div>
                 <div class="callout-content">
                     <p>Students often reverse Charging and Exposing, or mix up Transferring and Fusing. Anchor it this way: charge first (blank canvas), expose second (draw the image), develop third (toner sticks to the drawing), transfer fourth (move it to paper), fuse fifth (make it permanent).</p>
+                </div>
+            </div>
+
+            <h2>The Print Spooling Process</h2>
+            <p>When you click "Print," the document doesn't go straight to the printer. It goes through a spooler &mdash; a background service that manages the print queue and hands jobs to the printer one at a time. Understanding this process is what separates "the printer is broken" from "the spooler is stuck," which are two very different repairs.</p>
+
+            <div class="key-concept">
+                <h4>From Click to Printed Page &mdash; Four Steps</h4>
+                <ol>
+                    <li><strong>Rendering</strong> &mdash; the application converts the document into a print-ready format the printer's driver understands.</li>
+                    <li><strong>Spooling</strong> &mdash; the rendered job is written to disk as a temporary spool file and placed in the print queue.</li>
+                    <li><strong>Queuing</strong> &mdash; if other jobs are ahead of it, the job waits its turn. You can see this queue, pause it, or cancel jobs from it.</li>
+                    <li><strong>De-spooling</strong> &mdash; the spooler sends the job to the printer in the order the printer can actually accept it, and deletes the spool file once printing completes successfully.</li>
+                </ol>
+            </div>
+
+            <div class="definition">
+                <div class="definition-term">Print Spooler (Service)</div>
+                <p class="definition-text">A background operating system service (<code>spoolsv.exe</code> on Windows) that manages every print job on the system. If this service crashes or hangs, print jobs pile up in the queue and nothing prints &mdash; even though the printer itself, the driver, and the network connection are all working fine.</p>
+            </div>
+
+            <div class="callout callout-tip">
+                <div class="callout-title">The Classic Fix</div>
+                <div class="callout-content">
+                    <p>A stuck queue where nothing will print and nothing will cancel is one of the most common print problems in the field. The standard fix is stopping the Print Spooler service, deleting the stuck files in the spool folder, and restarting the service &mdash; not restarting the printer, and not reinstalling the driver.</p>
+                </div>
+            </div>
+
+            <h2>Printer Installation: The Four Layers</h2>
+            <p>When a printer stops working, "which layer is broken" is the single most useful diagnostic question you can ask. A printer installation is really four separate layers stacked on top of each other, and each one fails in its own distinct way.</p>
+
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Layer</th><th>What It Is</th><th>What Fails Here</th></tr></thead>
+                    <tbody>
+                        <tr><td>Hardware layer</td><td>The physical printer, its cable or network connection, and its consumables (toner, ink, paper)</td><td>Power issues, bad cables, empty consumables, paper jams, worn rollers or drums</td></tr>
+                        <tr><td>Driver layer</td><td>The software that translates OS print commands into a language the specific printer model understands</td><td>Wrong, outdated, or corrupted drivers; driver conflicts after an OS update</td></tr>
+                        <tr><td>Printer object layer</td><td>The printer's representation inside the operating system &mdash; its icon, queue, port assignment, and settings in Devices and Printers</td><td>Wrong port assignment, printer set offline, jobs stuck in the object's queue, incorrect default printer selected</td></tr>
+                        <tr><td>Application layer</td><td>The program the user is printing from and how it hands the job to the printer</td><td>Wrong printer selected in the print dialog, application-specific formatting or page-size settings, a frozen application</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="key-concept">
+                <h4>Work Top-Down, Not Randomly</h4>
+                <p>The four layers form a stack, and a problem lower in the stack can look identical to a problem higher up. A printer that "won't print from Word" might be an application-layer setting &mdash; or it might be a dead print spooler that would also stop every other application from printing. Check whether the problem is isolated to one application (top of the stack) or affects everything (further down) before you start replacing parts.</p>
+            </div>
+
+            <div class="callout callout-info">
+                <div class="callout-title">Working Through the Layers</div>
+                <div class="callout-content">
+                    <p>A practical order: confirm the application layer first (is the right printer selected in this program's print dialog?), then the printer object layer (is the printer online, is the default printer correct, is a job stuck in this printer's queue?), then the driver layer (is the correct driver installed, does reinstalling it help?), and only then the hardware layer (power, cable, network, consumables, physical jam). Working top-down is faster because the higher layers are quicker to check and rule out.</p>
                 </div>
             </div>
 
