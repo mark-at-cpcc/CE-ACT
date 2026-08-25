@@ -6,7 +6,7 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unit 2 &mdash; 2.7 Practice Questions | CompTIA A+ Core 1</title>
+    <title>Unit 2 &mdash; 2.3 Content Review | CompTIA A+ Core 1</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -302,19 +302,19 @@
     <div class="course-container">
 
         <header class="module-header">
-            <div class="module-label">Unit 2 &middot; Storage, Displays, and Peripherals &middot; Section 2.7</div>
-            <h1 class="module-title">Practice Questions</h1>
+            <div class="module-label">Unit 2 &middot; Storage, Displays, and Peripherals &middot; Section 2.3</div>
+            <h1 class="module-title">Content Review</h1>
             <p class="module-subtitle">CompTIA A+ Core 1 &mdash; Domains 3.0 and 5.0</p>
         </header>
 
         <nav class="toc">
             <div class="toc-item">2.1 &mdash; Unit Overview and Learning Objectives</div>
             <div class="toc-item">2.2 &mdash; Unit Pre-Assessment</div>
-            <div class="toc-item">2.3 &mdash; Content Review</div>
+            <div class="toc-item current">2.3 &mdash; Content Review</div>
             <div class="toc-item">2.4 &mdash; Reading Assignment</div>
             <div class="toc-item">2.5 &mdash; Video Assignment</div>
             <div class="toc-item">2.6 &mdash; Classroom Labs</div>
-            <div class="toc-item current">2.7 &mdash; Practice Questions</div>
+            <div class="toc-item">2.7 &mdash; Practice Questions</div>
             <div class="toc-item">2.8 &mdash; Online Labs: NETLAB</div>
             <div class="toc-item">2.9 &mdash; Reflection Activity</div>
             <div class="toc-item">2.10 &mdash; Unit Test</div>
@@ -322,102 +322,227 @@
 
         <div class="content-area">
 
-            <p class="text-muted">Ten questions per attempt. Keep resetting until you score a perfect 10 out of 10.</p>
+            <p class="text-muted">The core concepts for this week, in plain terms, before you go deep in the full chapter reading.</p>
 
             <div class="tech-box">
-                <div class="callout-title">Test Format</div>
+                <div class="callout-title">Technical Overview</div>
                 <div class="callout-content">
-                    <p>Each attempt draws a fresh random set of 10 questions covering this unit's storage, RAID, peripheral, and print/imaging objectives. Click an answer to select it, then click <strong>Grade My Answers</strong> to score the set.</p>
+                    <p>This section walks through the core concepts for Unit 2 before you hit the full chapter reading in 2.4: storage device types and interfaces, RAID, common peripherals and their connectors, and the four major print technologies with a close look at the laser imaging process.</p>
                 </div>
             </div>
 
             <div class="plain-box">
                 <div class="callout-title">In Plain Terms</div>
                 <div class="callout-content">
-                    <p>Confident-and-wrong is the category to watch for: you believe something false and have no reason to double-check it. That category is invisible on an ordinary score report, and it is what fails people on the first attempt.</p>
-                    <p>Select an answer for each question, then click <strong>Grade My Answers</strong> to see your results. Click <strong>Reset</strong> for a brand-new random set of 10, and keep going. You are expected to repeat this until you score a perfect 10 out of 10 in a single attempt &mdash; a fresh random set every time means you cannot simply memorize positions, you actually have to know the material.</p>
+                    <p>Think of this section as the trailer, not the movie. It gives you the shape of the week so the full reading in 2.4 has something to attach to, instead of hitting you cold.</p>
                 </div>
             </div>
 
-            <div id="quizArea"></div>
+            <h2>Storage Devices &amp; Interfaces</h2>
 
-            <div class="mt-lg">
-                <button class="quiz-btn" onclick="gradeQuiz()">Grade My Answers</button>
-                <button class="quiz-btn secondary" onclick="resetQuiz()">Reset</button>
+            <div class="definition">
+                <div class="definition-term">HDD (Hard Disk Drive)</div>
+                <p class="definition-text">Mechanical storage using spinning magnetic platters and a moving read/write head. Slower and more failure-prone than solid-state storage, but cheaper per gigabyte at high capacities.</p>
             </div>
 
-            <div id="quizResults">
-                <div>Your Score</div>
-                <div class="score" id="scoreDisplay">0 / 10</div>
-                <div id="scoreNote"></div>
+            <div class="definition">
+                <div class="definition-term">SSD (Solid State Drive)</div>
+                <p class="definition-text">Storage with no moving parts, built on flash memory chips. Faster, quieter, and more shock-resistant than an HDD.</p>
             </div>
 
-            <script>
-                const POOL = [{"q": "Which storage interface communicates directly over PCIe for the lowest latency?", "opts": ["SATA III", "USB 3.0", "NVMe", "eSATA"], "correct": 2}, {"q": "An HDD is best described as which kind of storage?", "opts": ["Solid-state, no moving parts", "Mechanical, spinning platters", "Optical, laser-read", "Volatile, cache-only"], "correct": 1}, {"q": "What form factor do most modern NVMe SSDs use?", "opts": ["3.5-inch", "2.5-inch", "M.2", "5.25-inch"], "correct": 2}, {"q": "Which RAID level offers striping with zero redundancy?", "opts": ["RAID 0", "RAID 1", "RAID 5", "RAID 10"], "correct": 0}, {"q": "Which RAID level requires a minimum of three drives and survives one drive failure via parity?", "opts": ["RAID 0", "RAID 1", "RAID 5", "RAID 6"], "correct": 2}, {"q": "Which RAID level is a mirrored pair of striped sets, requiring at least four drives?", "opts": ["RAID 0", "RAID 1", "RAID 5", "RAID 10"], "correct": 3}, {"q": "What is the primary advantage of an SSD over an HDD?", "opts": ["Lower cost per gigabyte at scale", "No moving parts, faster access", "Higher maximum capacity", "Longer average lifespan in all cases"], "correct": 1}, {"q": "Which connector type is standard for most modern external peripherals?", "opts": ["PS/2", "Serial (RS-232)", "USB", "Parallel (LPT)"], "correct": 2}, {"q": "What device converts a physical document into a digital image?", "opts": ["Plotter", "Scanner", "Digitizer tablet", "KVM switch"], "correct": 1}, {"q": "A wireless mouse that suddenly stops responding is most likely suffering from what common issue?", "opts": ["A driver conflict", "Dead or low batteries", "A corrupted OS file", "A firmware mismatch"], "correct": 1}, {"q": "Which print technology uses a laser to charge a photosensitive drum?", "opts": ["Inkjet", "Thermal", "Laser", "Impact"], "correct": 2}, {"q": "Which print technology sprays liquid ink through microscopic nozzles?", "opts": ["Laser", "Inkjet", "Thermal", "Dot-matrix"], "correct": 1}, {"q": "Which print technology is most common for point-of-sale receipts?", "opts": ["Laser", "Inkjet", "Thermal", "Impact"], "correct": 2}, {"q": "Which print technology uses pins striking an ink ribbon?", "opts": ["Laser", "Inkjet", "Thermal", "Impact/dot-matrix"], "correct": 3}, {"q": "In the laser imaging process, which step applies a uniform negative charge to the drum?", "opts": ["Processing", "Charging", "Exposing", "Developing"], "correct": 1}, {"q": "In the laser imaging process, which step uses a laser to selectively discharge the drum?", "opts": ["Charging", "Exposing", "Transferring", "Fusing"], "correct": 1}, {"q": "In the laser imaging process, which step causes toner to adhere to the discharged areas?", "opts": ["Charging", "Exposing", "Developing", "Cleaning"], "correct": 2}, {"q": "In the laser imaging process, which step permanently bonds toner to the paper using heat?", "opts": ["Developing", "Transferring", "Fusing", "Cleaning"], "correct": 2}, {"q": "What is the correct order of the first three laser imaging steps?", "opts": ["Exposing, Charging, Developing", "Charging, Exposing, Developing", "Developing, Charging, Exposing", "Charging, Developing, Exposing"], "correct": 1}, {"q": "A laser-printed page shows a repeating vertical streak at the same position on every page. What is most likely worn or damaged?", "opts": ["The fuser assembly only", "The imaging drum", "The paper tray", "The USB cable"], "correct": 1}, {"q": "An inkjet printer produces streaky, faded output after sitting unused for weeks. What is the most likely cause?", "opts": ["Failed motherboard", "Clogged print nozzles", "Wrong paper size selected", "Corrupted driver"], "correct": 1}, {"q": "A thermal receipt printer produces blank paper even though it appears to be printing. What is most likely wrong?", "opts": ["The paper is loaded upside down / wrong side out", "The toner cartridge is empty", "The fuser is overheating", "The USB cable is a charge-only cable"], "correct": 0}, {"q": "Which storage interface is typically the slowest listed?", "opts": ["NVMe (PCIe)", "SATA III", "USB 3.2", "Thunderbolt"], "correct": 1}, {"q": "What is the primary purpose of RAID 1?", "opts": ["Maximize read/write speed", "Maximize usable capacity", "Provide redundancy through mirroring", "Reduce drive count"], "correct": 2}, {"q": "Which peripheral connection type would you most likely find only on legacy equipment?", "opts": ["USB-C", "PS/2", "USB 3.0", "Thunderbolt"], "correct": 1}, {"q": "What is the standard first troubleshooting step when a new peripheral is not recognized by the OS?", "opts": ["Replace the peripheral", "Check or reinstall the driver", "Reformat the storage drive", "Replace the motherboard"], "correct": 1}, {"q": "Which of the following is an output peripheral rather than an input peripheral?", "opts": ["Scanner", "Webcam", "Monitor", "Mouse"], "correct": 2}, {"q": "What does RAID stand for?", "opts": ["Redundant Array of Independent Disks", "Rapid Access Internal Drive", "Reformatted Array of Indexed Data", "Read-Ahead Instant Disk"], "correct": 0}, {"q": "Which storage device type has no moving parts at all?", "opts": ["HDD", "SSD", "Optical drive", "Tape drive"], "correct": 1}, {"q": "A user's laptop display is visible only in a bright room and appears very dim otherwise. What is the likely failing component?", "opts": ["The GPU", "The backlight or inverter", "The RAM", "The keyboard controller"], "correct": 1}, {"q": "A desktop monitor shows no image at all, but the power LED is on. What should be checked first?", "opts": ["The video cable connection", "The RAID controller", "The printer driver", "The NVMe firmware"], "correct": 0}, {"q": "Which of these is NOT one of the seven steps of the laser imaging process?", "opts": ["Processing", "Charging", "Formatting", "Fusing"], "correct": 2}, {"q": "What is the typical role of a fuser in a laser printer?", "opts": ["Charges the drum", "Melts toner permanently onto the page", "Sprays ink onto the page", "Feeds paper into the tray"], "correct": 1}, {"q": "Which RAID level provides no fault tolerance whatsoever?", "opts": ["RAID 0", "RAID 1", "RAID 5", "RAID 10"], "correct": 0}, {"q": "What is a common symptom of a failing hard drive?", "opts": ["Clicking or grinding noises", "Excessive Wi-Fi signal loss", "Overheating GPU", "Slow print queue"], "correct": 0}, {"q": "Which peripheral is best classified as a hybrid input/output device?", "opts": ["Touchscreen monitor", "Keyboard", "Webcam", "Scanner"], "correct": 0}, {"q": "What is the recommended first step when installing a new peripheral?", "opts": ["Manually search for a driver online", "Connect it and let the OS attempt automatic detection", "Reboot into Safe Mode first", "Format the peripheral's storage"], "correct": 1}, {"q": "Which print technology is best suited for multi-part carbon-copy forms?", "opts": ["Laser", "Inkjet", "Thermal", "Impact/dot-matrix"], "correct": 3}, {"q": "What does NVMe stand for?", "opts": ["Non-Volatile Memory Express", "New Volume Memory Extension", "Network Video Memory Enhancement", "Non-Variable Memory Encoding"], "correct": 0}, {"q": "A RAID 5 array with four drives loses one drive. What happens to the array?", "opts": ["Total data loss", "The array continues operating in a degraded state", "The array automatically converts to RAID 0", "The array becomes read-only permanently"], "correct": 1}, {"q": "Which of the following is the best description of SATA?", "opts": ["A wireless peripheral protocol", "A serial interface for connecting storage devices", "A print technology", "A display connector"], "correct": 1}, {"q": "What is the purpose of a print spooler?", "opts": ["Physically feeds paper into the printer", "Manages the queue of print jobs waiting to print", "Charges the imaging drum", "Cleans the fuser assembly"], "correct": 1}, {"q": "Which of the following would most likely cause garbled or nonsensical printed text?", "opts": ["Wrong or corrupted print driver", "Low paper", "Weak Wi-Fi signal", "Overfilled recycle bin"], "correct": 0}, {"q": "What is the primary risk of running a RAID 0 array for critical data?", "opts": ["It is too slow for daily use", "One drive failure destroys all data on the array", "It cannot exceed 1 TB in size", "It requires a minimum of six drives"], "correct": 1}, {"q": "Which storage form factor is most common for a traditional 3.5-inch desktop HDD bay?", "opts": ["M.2", "2.5-inch", "3.5-inch", "5.25-inch"], "correct": 2}, {"q": "What is a common cause of intermittent USB peripheral disconnects?", "opts": ["A failing or loose USB cable/port", "An overfilled hard drive", "A misconfigured RAID array", "A dirty printer drum"], "correct": 0}, {"q": "Which display issue is most associated with a failing or aging backlight?", "opts": ["Screen is completely black with no image at all, even in bright light", "Image visible only in bright ambient light, dim otherwise", "Wrong resolution displayed", "Screen flickers only during video playback"], "correct": 1}, {"q": "What is the general troubleshooting order after identifying a problem?", "opts": ["Establish a theory of probable cause, then test it", "Immediately replace the most expensive component", "Reformat the drive before diagnosing anything", "Escalate to the manufacturer before testing"], "correct": 0}, {"q": "Which of these printer maintenance tasks is most associated with inkjet printers specifically?", "opts": ["Replacing the imaging drum", "Running a nozzle-cleaning cycle", "Replacing the fuser assembly", "Reseating the print head ribbon"], "correct": 1}, {"q": "A laser printer prints pages that are entirely blank. What is a likely cause?", "opts": ["Empty or defective toner cartridge", "Wrong paper size loaded", "USB cable is charge-only", "Backlight failure"], "correct": 0}];
-                let QUESTIONS = [];
-                let answers = [];
+            <div class="definition">
+                <div class="definition-term">NVMe (Non-Volatile Memory Express)</div>
+                <p class="definition-text">A protocol that lets an SSD communicate directly over the PCIe bus instead of the older SATA interface, cutting latency dramatically. Most NVMe drives use the M.2 form factor.</p>
+            </div>
 
-                function drawSet() {
-                    const shuffled = POOL.slice().sort(() => Math.random() - 0.5);
-                    QUESTIONS = shuffled.slice(0, 10);
-                    answers = new Array(QUESTIONS.length).fill(null);
-                }
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Interface</th><th>Typical Use</th><th>Relative Speed</th></tr></thead>
+                    <tbody>
+                        <tr><td>SATA III</td><td>HDDs, budget SSDs</td><td>Up to ~600 MB/s</td></tr>
+                        <tr><td>NVMe (PCIe)</td><td>High-performance SSDs</td><td>2,000&ndash;7,000+ MB/s</td></tr>
+                        <tr><td>USB 3.x (external)</td><td>External drives, flash drives</td><td>Varies by USB generation</td></tr>
+                        <tr><td>eSATA</td><td>External drives (legacy)</td><td>Comparable to internal SATA</td></tr>
+                    </tbody>
+                </table>
+            </div>
 
-                function renderQuiz() {
-                    const area = document.getElementById('quizArea');
-                    area.innerHTML = QUESTIONS.map((item, qi) => {
-                        const opts = item.opts.map((opt, oi) =>
-                            `<button type="button" class="answer-option" data-qi="${qi}" data-oi="${oi}" onclick="selectAnswer(${qi}, ${oi})">${opt}</button>`
-                        ).join('');
-                        return `<div class="question-block">
-                            <div class="question-number">Question ${qi + 1} of ${QUESTIONS.length}</div>
-                            <p class="question-text">${item.q}</p>
-                            ${opts}
-                        </div>`;
-                    }).join('');
-                }
+            <h2>Displays</h2>
 
-                function selectAnswer(qi, oi) {
-                    answers[qi] = oi;
-                    document.querySelectorAll(`[data-qi="${qi}"]`).forEach(btn => {
-                        btn.classList.remove('selected');
-                        if (parseInt(btn.dataset.oi) === oi) btn.classList.add('selected');
-                    });
-                }
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Display Type</th><th>How It Works</th><th>Common Use</th></tr></thead>
+                    <tbody>
+                        <tr><td>LCD (LED-backlit)</td><td>Liquid crystal panel with an LED backlight illuminating pixels from behind</td><td>Most laptops and budget monitors</td></tr>
+                        <tr><td>OLED</td><td>Each pixel emits its own light &mdash; no separate backlight</td><td>High-end monitors, phones, some laptops</td></tr>
+                        <tr><td>Mini LED</td><td>LCD with a densely zoned LED backlight for finer local dimming</td><td>Higher-end LCD monitors and laptops</td></tr>
+                        <tr><td>Touchscreen</td><td>A digitizer layer over the display senses touch input</td><td>Tablets, 2-in-1 laptops, POS terminals</td></tr>
+                    </tbody>
+                </table>
+            </div>
 
-                function gradeQuiz() {
-                    if (answers.includes(null)) {
-                        alert('Answer all 10 questions before grading.');
-                        return;
-                    }
-                    let score = 0;
-                    QUESTIONS.forEach((item, qi) => {
-                        const correct = item.correct;
-                        document.querySelectorAll(`[data-qi="${qi}"]`).forEach(btn => {
-                            const oi = parseInt(btn.dataset.oi);
-                            btn.classList.remove('selected');
-                            if (oi === correct) btn.classList.add('correct');
-                            else if (oi === answers[qi]) btn.classList.add('incorrect');
-                        });
-                        if (answers[qi] === correct) score++;
-                    });
-                    document.getElementById('scoreDisplay').textContent = score + ' / ' + QUESTIONS.length;
-                    const note = document.getElementById('scoreNote');
-                    if (score === QUESTIONS.length) note.textContent = 'Perfect set. You are ready to move on.';
-                    else note.textContent = 'Not a perfect 10 yet \u2014 click Reset for a new random set and try again.';
-                    document.getElementById('quizResults').style.display = 'block';
-                    document.getElementById('quizResults').scrollIntoView({behavior: 'smooth'});
-                }
+            <div class="definition">
+                <div class="definition-term">Digitizer</div>
+                <p class="definition-text">The layer of a touchscreen that senses and translates a touch or stylus input into coordinates the system can use. A cracked digitizer can leave the image intact while touch stops responding, and vice versa.</p>
+            </div>
 
-                function resetQuiz() {
-                    document.getElementById('quizResults').style.display = 'none';
-                    drawSet();
-                    renderQuiz();
-                }
+            <div class="definition">
+                <div class="definition-term">Inverter</div>
+                <p class="definition-text">On older CCFL-backlit displays, the inverter powers the backlight. A failing inverter is a classic cause of a screen that's visible only in bright light with a flashlight test &mdash; the image is there, but the backlight isn't lighting it.</p>
+            </div>
 
-                drawSet();
-                renderQuiz();
-            </script>
+            <div class="key-concept">
+                <h4>Display Attributes to Know</h4>
+                <ul>
+                    <li><strong>Resolution</strong> &mdash; the number of pixels, width by height (e.g., 1920x1080). Higher resolution means more detail packed into the same physical screen.</li>
+                    <li><strong>Refresh rate</strong> &mdash; how many times per second the image redraws, in Hz. Higher refresh rates show smoother motion; gaming monitors push well past the old 60 Hz standard.</li>
+                    <li><strong>Pixel density (PPI)</strong> &mdash; pixels packed into each inch of screen. The same resolution looks sharper on a smaller panel because the pixels sit closer together.</li>
+                    <li><strong>Color gamut</strong> &mdash; the range of colors a display can reproduce. Matters most for photo/video editing, where accurate color reproduction is the whole point.</li>
+                </ul>
+            </div>
+
+            <div class="callout callout-tip">
+                <div class="callout-title">Telling OLED and LCD Apart on the Exam</div>
+                <div class="callout-content">
+                    <p>If a question mentions a backlight at all &mdash; LED, Mini LED, or an inverter &mdash; it's describing an LCD variant. OLED has no separate backlight because each pixel lights itself, which is also why OLED can produce a true black (the pixel simply turns off) and why OLED panels are more prone to burn-in on static images.</p>
+                </div>
+            </div>
+
+            <h3>RAID (Redundant Array of Independent Disks)</h3>
+            <div class="key-concept">
+                <h4>Know These Four Cold</h4>
+                <ul>
+                    <li><strong>RAID 0</strong> &mdash; striping. Faster, more storage, zero redundancy. One drive fails, you lose everything.</li>
+                    <li><strong>RAID 1</strong> &mdash; mirroring. Two drives hold identical data. Full redundancy, no capacity gain.</li>
+                    <li><strong>RAID 5</strong> &mdash; striping with parity, minimum 3 drives. Survives one drive failure; good balance of speed, capacity, and safety.</li>
+                    <li><strong>RAID 10</strong> &mdash; a mirrored pair of striped sets, minimum 4 drives. Fast and redundant, but capacity cost is steep.</li>
+                </ul>
+            </div>
+
+            <div class="callout callout-tip">
+                <div class="callout-title">Memory Hook</div>
+                <div class="callout-content">
+                    <p>RAID 0 = "0 protection." RAID 1 = "1-to-1 mirror." RAID 5 = "5 letters, parity spreads across the drives." If a question describes surviving a single drive failure without doubling your hardware cost, it's almost always RAID 5.</p>
+                </div>
+            </div>
+
+            <h2>Peripheral Devices</h2>
+            <p>A peripheral is any device connected to a computer that isn't part of the core system &mdash; input devices (keyboard, mouse, scanner, webcam), output devices (monitor, speakers), and hybrid devices (touchscreens). Most modern peripherals connect over USB; older systems may still use PS/2, serial, or parallel ports, which you may encounter on legacy equipment.</p>
+
+            <h3>Peripheral, Video, and Storage Cabling</h3>
+            <p>The cable and connector on a peripheral tells you almost as much as the device itself. Four families matter most for this unit:</p>
+
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Cable Family</th><th>Common Connectors</th><th>Typical Use</th></tr></thead>
+                    <tbody>
+                        <tr><td>Peripheral cables</td><td>USB-A, USB-C, USB Micro-B, Thunderbolt, Serial (RS-232)</td><td>Keyboards, mice, scanners, webcams, docking stations</td></tr>
+                        <tr><td>Video cables</td><td>HDMI, DisplayPort, DVI, VGA, video over USB-C</td><td>Connecting a monitor or projector to a system</td></tr>
+                        <tr><td>Storage cables</td><td>SATA, eSATA</td><td>Connecting internal and external drives</td></tr>
+                        <tr><td>Adapters/converters</td><td>DVI-to-HDMI, DVI-to-VGA, USB-to-Ethernet, USB-C-to-USB-A, USB hubs</td><td>Bridging two connector types, or adding ports</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">Digital vs. Analog Video</div>
+                <div class="callout-content">
+                    <p>HDMI and DisplayPort carry a fully digital signal; VGA is analog. DVI can actually be either, depending on the specific connector variant (DVI-D is digital-only, DVI-A is analog-only, DVI-I carries both). A fuzzy or shimmering image over a VGA cable is often just the analog signal doing what analog signals do &mdash; it's not automatically a sign of a failing display.</p>
+                </div>
+            </div>
+
+            <div class="callout callout-info">
+                <div class="callout-title">Installation Pattern to Remember</div>
+                <div class="callout-content">
+                    <p>For most modern peripherals: connect &rarr; let the OS detect and install a driver automatically &rarr; verify in Device Manager (Windows) or System Settings (macOS) &rarr; install manufacturer software only if extra features are needed. If a device isn't recognized, the driver &mdash; not the cable &mdash; is the first thing to suspect.</p>
+                </div>
+            </div>
+
+            <h2>Print Technologies &amp; Imaging</h2>
+
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Technology</th><th>How It Works</th><th>Common Use</th></tr></thead>
+                    <tbody>
+                        <tr><td>Laser</td><td>Laser charges a drum; toner adheres and is fused to paper with heat</td><td>Office/high-volume printing</td></tr>
+                        <tr><td>Inkjet</td><td>Liquid ink sprayed through tiny nozzles onto paper</td><td>Home printing, photo quality</td></tr>
+                        <tr><td>Thermal</td><td>Heat applied to heat-sensitive paper, no ink or toner</td><td>Receipts, labels</td></tr>
+                        <tr><td>Impact (dot-matrix)</td><td>Pins strike an ink ribbon against paper</td><td>Multi-part forms, industrial</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="key-concept">
+                <h4>The Laser Imaging Process &mdash; Seven Steps</h4>
+                <ol>
+                    <li><strong>Processing</strong> &mdash; the print job is rendered into a raster image in the printer's memory.</li>
+                    <li><strong>Charging</strong> &mdash; a charging roller applies a uniform negative charge to the drum.</li>
+                    <li><strong>Exposing</strong> &mdash; a laser selectively discharges areas of the drum to "write" the image.</li>
+                    <li><strong>Developing</strong> &mdash; toner clings to the discharged areas of the drum.</li>
+                    <li><strong>Transferring</strong> &mdash; a transfer roller charges the paper so toner moves from drum to page.</li>
+                    <li><strong>Fusing</strong> &mdash; heat and pressure melt the toner permanently onto the paper.</li>
+                    <li><strong>Cleaning</strong> &mdash; excess toner is removed from the drum before the cycle repeats.</li>
+                </ol>
+            </div>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">Common Exam Trap</div>
+                <div class="callout-content">
+                    <p>Students often reverse Charging and Exposing, or mix up Transferring and Fusing. Anchor it this way: charge first (blank canvas), expose second (draw the image), develop third (toner sticks to the drawing), transfer fourth (move it to paper), fuse fifth (make it permanent).</p>
+                </div>
+            </div>
+
+            <h2>The Print Spooling Process</h2>
+            <p>When you click "Print," the document doesn't go straight to the printer. It goes through a spooler &mdash; a background service that manages the print queue and hands jobs to the printer one at a time. Understanding this process is what separates "the printer is broken" from "the spooler is stuck," which are two very different repairs.</p>
+
+            <div class="key-concept">
+                <h4>From Click to Printed Page &mdash; Four Steps</h4>
+                <ol>
+                    <li><strong>Rendering</strong> &mdash; the application converts the document into a print-ready format the printer's driver understands.</li>
+                    <li><strong>Spooling</strong> &mdash; the rendered job is written to disk as a temporary spool file and placed in the print queue.</li>
+                    <li><strong>Queuing</strong> &mdash; if other jobs are ahead of it, the job waits its turn. You can see this queue, pause it, or cancel jobs from it.</li>
+                    <li><strong>De-spooling</strong> &mdash; the spooler sends the job to the printer in the order the printer can actually accept it, and deletes the spool file once printing completes successfully.</li>
+                </ol>
+            </div>
+
+            <div class="definition">
+                <div class="definition-term">Print Spooler (Service)</div>
+                <p class="definition-text">A background operating system service (<code>spoolsv.exe</code> on Windows) that manages every print job on the system. If this service crashes or hangs, print jobs pile up in the queue and nothing prints &mdash; even though the printer itself, the driver, and the network connection are all working fine.</p>
+            </div>
+
+            <div class="callout callout-tip">
+                <div class="callout-title">The Classic Fix</div>
+                <div class="callout-content">
+                    <p>A stuck queue where nothing will print and nothing will cancel is one of the most common print problems in the field. The standard fix is stopping the Print Spooler service, deleting the stuck files in the spool folder, and restarting the service &mdash; not restarting the printer, and not reinstalling the driver.</p>
+                </div>
+            </div>
+
+            <h2>Printer Installation: The Four Layers</h2>
+            <p>When a printer stops working, "which layer is broken" is the single most useful diagnostic question you can ask. A printer installation is really four separate layers stacked on top of each other, and each one fails in its own distinct way.</p>
+
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Layer</th><th>What It Is</th><th>What Fails Here</th></tr></thead>
+                    <tbody>
+                        <tr><td>Hardware layer</td><td>The physical printer, its cable or network connection, and its consumables (toner, ink, paper)</td><td>Power issues, bad cables, empty consumables, paper jams, worn rollers or drums</td></tr>
+                        <tr><td>Driver layer</td><td>The software that translates OS print commands into a language the specific printer model understands</td><td>Wrong, outdated, or corrupted drivers; driver conflicts after an OS update</td></tr>
+                        <tr><td>Printer object layer</td><td>The printer's representation inside the operating system &mdash; its icon, queue, port assignment, and settings in Devices and Printers</td><td>Wrong port assignment, printer set offline, jobs stuck in the object's queue, incorrect default printer selected</td></tr>
+                        <tr><td>Application layer</td><td>The program the user is printing from and how it hands the job to the printer</td><td>Wrong printer selected in the print dialog, application-specific formatting or page-size settings, a frozen application</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="key-concept">
+                <h4>Work Top-Down, Not Randomly</h4>
+                <p>The four layers form a stack, and a problem lower in the stack can look identical to a problem higher up. A printer that "won't print from Word" might be an application-layer setting &mdash; or it might be a dead print spooler that would also stop every other application from printing. Check whether the problem is isolated to one application (top of the stack) or affects everything (further down) before you start replacing parts.</p>
+            </div>
+
+            <div class="callout callout-info">
+                <div class="callout-title">Working Through the Layers</div>
+                <div class="callout-content">
+                    <p>A practical order: confirm the application layer first (is the right printer selected in this program's print dialog?), then the printer object layer (is the printer online, is the default printer correct, is a job stuck in this printer's queue?), then the driver layer (is the correct driver installed, does reinstalling it help?), and only then the hardware layer (power, cable, network, consumables, physical jam). Working top-down is faster because the higher layers are quicker to check and rule out.</p>
+                </div>
+            </div>
 
         </div>
 
