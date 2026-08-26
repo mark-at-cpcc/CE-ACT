@@ -345,6 +345,13 @@
                 </div>
             </div>
 
+            <div class="callout callout-warning">
+                <div class="callout-title">Submit Your Proof of Completion</div>
+                <div class="callout-content">
+                    <p>Once you've completed this activity, take a screenshot showing your final score and upload it to the appropriate submission link in Brightspace. A screenshot is your only proof of completion &mdash; nothing here is automatically recorded, so don't close this page before you've captured and uploaded it.</p>
+                </div>
+            </div>
+
             <div id="quizArea"></div>
 
             <div class="mt-lg">
@@ -356,6 +363,7 @@
                 <div>Your Score</div>
                 <div class="score" id="scoreDisplay">0 / 20</div>
                 <div id="scoreNote"></div>
+                <p class="text-muted mt-sm">Screenshot this score before leaving the page, and upload it to the submission link in Brightspace.</p>
             </div>
 
             <script>
@@ -408,7 +416,10 @@
                         if (answers[qi] === correct) score++;
                     });
                     document.getElementById('scoreDisplay').textContent = score + ' / ' + QUESTIONS.length;
-                    document.getElementById('scoreNote').textContent = 'Review every missed item below before you move on to Unit 3.';
+                    const note = document.getElementById('scoreNote');
+                    if (score >= 16) note.textContent = 'Strong result. Review any missed items, then you are done.';
+                    else if (score >= 12) note.textContent = 'A passing-range result. Review your missed questions closely before moving on.';
+                    else note.textContent = 'Below where you want to be for exam day. Revisit 2.3 and 2.4 for the topics you missed, then try again.';
                     document.getElementById('quizResults').style.display = 'block';
                     document.getElementById('quizResults').scrollIntoView({behavior: 'smooth'});
                 }
@@ -423,25 +434,6 @@
                 renderQuiz();
             </script>
 
-            <div class="summary-box">
-                <h3>Unit 2 Complete</h3>
-                <ul>
-                    <li>You can identify and compare storage device types and RAID levels</li>
-                    <li>You can install and troubleshoot common peripherals</li>
-                    <li>You know the seven-step laser imaging process cold</li>
-                    <li>You can diagnose common display, drive, and printer failures</li>
-                    <li>Unit 3 opens Tuesday 8/25 &mdash; networking foundations</li>
-                </ul>
-            </div>
-
-            <div class="references-section">
-                <h3>Go Further</h3>
-                <ul>
-                    <li>Sybex online test bank &mdash; full chapter tests for Chapters 2, 3, 5, 12, and 13</li>
-                    <li>Professor Messer's monthly A+ Study Group replays &mdash; free Q&amp;A across the objectives</li>
-                    <li>CompTIA official 220-1201 exam objectives (comptia.org) &mdash; check your comfort against every Domain 3.0 and 5.0 task statement</li>
-                </ul>
-            </div>
 
         </div>
 
