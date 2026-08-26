@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 3 &mdash; 3.10 Unit Test | CompTIA A+ Core 1</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Sans+Pro:wght@400;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           CPCC COURSE TEMPLATE - GOLD / CHARCOAL / BLACK
+           CTS-ITS7501-80 CompTIA A+ Core 1 Training
+           Type: true black. Accents: gold. Chrome: charcoal.
+           ============================================ */
+
+        :root {
+            --primary-dark: #4A4A4A;       /* Charcoal - structural chrome only */
+            --primary-main: #B8962E;       /* Warm Gold - primary accent */
+            --primary-light: #D4AF56;      /* Light Gold */
+            --primary-pale: #FBF3DF;       /* Pale Gold wash */
+
+            --accent-teal: #8A6F1F;        /* Deep bronze-gold */
+            --accent-teal-light: #F3E9CE;  /* Pale bronze */
+            --accent-orange: #A9642A;      /* Warm rust */
+            --accent-orange-light: #F5E2CE;
+            --accent-purple: #6B5B3A;      /* Muted umber */
+            --accent-purple-light: #EFE6D2;
+            --accent-green: #4E7A51;
+            --accent-green-light: #DCEBDD;
+
+            --alert-warning: #B8862E;
+            --alert-warning-bg: #FBF0D9;
+            --alert-danger: #A13A3A;
+            --alert-danger-bg: #F6DEDE;
+            --alert-success: #3F6E42;
+            --alert-success-bg: #DCEBDD;
+            --alert-info: #6E5B2E;
+            --alert-info-bg: #F1E9D4;
+
+            --text-black: #000000;         /* All reading text */
+            --neutral-900: #000000;
+            --neutral-700: #000000;
+            --neutral-500: #5A5A5A;
+            --neutral-300: #D9D3C4;
+            --neutral-100: #FAF8F3;
+            --white: #ffffff;
+
+            --font-heading: 'Nunito', sans-serif;
+            --font-body: 'Source Sans Pro', sans-serif;
+            --font-code: 'Fira Code', monospace;
+
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+
+            --shadow-sm: 0 1px 2px rgba(74, 74, 74, 0.08);
+            --shadow-md: 0 4px 6px rgba(74, 74, 74, 0.12);
+            --shadow-lg: 0 10px 20px rgba(74, 74, 74, 0.15);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body), 'Segoe UI', Tahoma, Verdana, sans-serif;
+            font-size: 1.0625rem;
+            line-height: 1.7;
+            color: var(--text-black);
+            background: linear-gradient(135deg, var(--neutral-100) 0%, var(--white) 100%);
+            min-height: 100vh;
+            padding: var(--space-lg);
+        }
+
+        .course-container {
+            max-width: 950px; margin: 0 auto; background: var(--white);
+            border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); overflow: hidden;
+        }
+
+        .module-header {
+            background: var(--primary-main); color: var(--text-black);
+            padding: var(--space-2xl) var(--space-xl); position: relative; overflow: hidden;
+        }
+        .module-label {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 0.875rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 2px;
+            margin-bottom: var(--space-sm); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-title {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 2.25rem; font-weight: 800;
+            line-height: 1.2; margin-bottom: var(--space-md); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-subtitle { font-size: 1.125rem; max-width: 650px; position: relative; z-index: 1; color: var(--text-black); }
+
+        .toc {
+            display: flex; flex-direction: column; gap: var(--space-sm);
+            padding: var(--space-lg) var(--space-xl);
+            background: var(--primary-pale); border-bottom: 1px solid var(--neutral-300);
+        }
+        .toc-item {
+            width: 100%; text-align: left;
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 0.875rem;
+            color: var(--text-black); background: var(--white);
+            border: 2px solid var(--primary-main);
+            padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md);
+        }
+        .toc-item.current { background: var(--primary-main); }
+
+        .content-area { padding: var(--space-xl); }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif;
+            color: var(--text-black); line-height: 1.3; margin-bottom: var(--space-md);
+        }
+        h1 { font-size: 2rem; font-weight: 800; }
+        h2 { font-size: 1.625rem; font-weight: 700; padding-bottom: var(--space-sm);
+             border-bottom: 3px solid var(--primary-main); margin-top: var(--space-xl); margin-bottom: var(--space-lg); }
+        h3 { font-size: 1.375rem; font-weight: 700; margin-top: var(--space-lg);
+             padding-left: var(--space-sm); border-left: 4px solid var(--primary-main); }
+        h4 { font-size: 1.125rem; font-weight: 600; }
+
+        p { margin-bottom: var(--space-md); }
+        strong { font-weight: 700; color: var(--text-black); }
+        em { font-style: italic; color: var(--text-black); }
+
+        a { color: var(--text-black); text-decoration: none; border-bottom: 2px solid var(--primary-main); transition: all 0.2s ease; }
+        a:hover { background: var(--primary-pale); border-bottom-color: var(--accent-teal); }
+
+        ul, ol { margin-bottom: var(--space-md); padding-left: var(--space-lg); }
+        li { margin-bottom: var(--space-sm); }
+        ul li::marker { color: var(--accent-teal); }
+        ol li::marker { color: var(--accent-teal); font-weight: 700; }
+
+        .tech-box {
+            background: var(--neutral-100); border: 2px solid var(--neutral-500);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .tech-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .tech-box .callout-content { padding-left: 0; }
+
+        .plain-box {
+            background: var(--primary-pale); border: 2px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .plain-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .plain-box .callout-content { padding-left: 0; }
+
+        .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; position: relative; overflow: hidden; }
+        .callout-title { font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 1rem;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
+        .callout-content { }
+        .callout-content p:last-child { margin-bottom: 0; }
+
+        .callout-tip { background: var(--accent-green-light); border-left: 4px solid var(--accent-green); }
+        .callout-warning { background: var(--alert-warning-bg); border-left: 4px solid var(--alert-warning); }
+        .callout-danger { background: var(--alert-danger-bg); border-left: 4px solid var(--alert-danger); }
+        .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
+
+        .objectives-box {
+            background: var(--primary-pale); border-left: 5px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .objectives-box h3 { margin-top: 0; border-left: none; padding-left: 0; color: var(--text-black); }
+        .objectives-box ol { margin-bottom: 0; }
+
+        .key-concept {
+            background: linear-gradient(135deg, var(--accent-purple-light) 0%, var(--white) 100%);
+            border: 2px solid var(--accent-purple); border-radius: var(--radius-lg);
+            padding: var(--space-lg); margin: var(--space-xl) 0 var(--space-lg); position: relative;
+        }
+        .key-concept::before {
+            content: 'KEY CONCEPT'; position: absolute; top: -12px; left: var(--space-lg);
+            background: var(--accent-purple); color: var(--white); font-family: var(--font-heading), sans-serif;
+            font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-md); border-radius: var(--radius-sm);
+        }
+        .key-concept h4 { color: var(--text-black); margin-top: var(--space-sm); }
+
+        .definition {
+            background: var(--neutral-100); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin: var(--space-md) 0; border-left: 4px solid var(--accent-orange);
+        }
+        .definition-term { font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 1.125rem;
+            color: var(--text-black); margin-bottom: var(--space-xs); }
+        .definition-text { color: var(--text-black); margin-bottom: 0; }
+
+        code { font-family: var(--font-code), Consolas, monospace; font-size: 0.9rem; background: var(--primary-pale);
+            color: var(--text-black); padding: 2px 6px; border-radius: var(--radius-sm); }
+        pre { background: #2E2E2E; color: #f1ece0; padding: var(--space-lg); border-radius: var(--radius-md);
+            overflow-x: auto; margin: var(--space-lg) 0; position: relative; }
+        pre::before {
+            content: 'STEPS'; position: absolute; top: 0; right: 0; background: var(--primary-main); color: var(--text-black);
+            font-family: var(--font-heading), sans-serif; font-size: 0.625rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-sm); border-radius: 0 var(--radius-md) 0 var(--radius-sm);
+        }
+        pre code { background: transparent; color: inherit; padding: 0; font-size: 0.875rem; line-height: 1.6; }
+
+        .table-container { overflow-x: auto; margin: var(--space-lg) 0; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); }
+        table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
+        thead { background: var(--primary-dark); color: var(--white); }
+        th { font-family: var(--font-heading), sans-serif; font-weight: 700; text-align: left; padding: var(--space-md) var(--space-lg); color: var(--white); }
+        td { padding: var(--space-md) var(--space-lg); border-bottom: 1px solid var(--neutral-300); color: var(--text-black); }
+        tbody tr:hover { background: var(--primary-pale); }
+        tbody tr:last-child td { border-bottom: none; }
+
+        .activity-section {
+            background: linear-gradient(135deg, var(--accent-orange-light) 0%, var(--white) 100%);
+            border: 2px dashed var(--accent-orange); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .activity-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg); }
+        .activity-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700;
+            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
+        .activity-subtitle { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
+
+        .lab-section {
+            background: var(--white); border: 2px solid var(--primary-dark); border-radius: var(--radius-lg);
+            padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .lab-header { padding-bottom: var(--space-md); margin-bottom: var(--space-lg); border-bottom: 2px solid var(--primary-dark); }
+        .lab-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700; color: var(--text-black); border-left: none; padding-left: 0; }
+        .lab-time { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
+        .lab-steps { list-style: none; counter-reset: lab-step; padding-left: 0; }
+        .lab-steps li { counter-increment: lab-step; position: relative; padding-left: 3rem; margin-bottom: var(--space-lg); }
+        .lab-steps li::before {
+            content: counter(lab-step); position: absolute; left: 0; width: 2rem; height: 2rem;
+            background: var(--accent-teal); color: var(--white); font-family: var(--font-heading), sans-serif; font-weight: 700;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.875rem;
+        }
+
+        .assessment-section { background: var(--primary-pale); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0; }
+        .assessment-header { text-align: center; margin-bottom: var(--space-xl); }
+        .assessment-header h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .question-block { background: var(--white); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin-bottom: var(--space-lg); box-shadow: var(--shadow-sm); }
+        .question-number { font-family: var(--font-heading), sans-serif; font-size: 0.75rem; font-weight: 700;
+            color: var(--text-black); background: var(--primary-main); display: inline-block;
+            padding: 2px 10px; border-radius: var(--radius-sm);
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); }
+        .question-text { font-weight: 600; color: var(--text-black); margin-bottom: var(--space-md); }
+
+        details.answer { margin-top: var(--space-sm); }
+        details.answer summary { cursor: pointer; font-weight: 700; color: var(--text-black);
+            font-family: var(--font-heading), sans-serif; font-size: 0.875rem;
+            border-bottom: 2px solid var(--primary-main); display: inline-block; }
+        details.answer .reveal { margin-top: var(--space-sm); padding: var(--space-md);
+            background: var(--accent-green-light); border-radius: var(--radius-sm); color: var(--text-black); }
+
+        .references-section { background: var(--neutral-100); border-radius: var(--radius-lg);
+            padding: var(--space-lg) var(--space-xl); margin: var(--space-xl) 0; border-top: 3px solid var(--primary-main); }
+        .references-section h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+
+        .progress-bar { background: var(--neutral-300); border-radius: var(--radius-xl); height: 8px; overflow: hidden; margin: var(--space-lg) 0; }
+        .progress-fill { background: var(--primary-main); height: 100%; border-radius: var(--radius-xl); }
+        .progress-label { display: flex; justify-content: space-between; font-size: 0.875rem; color: var(--neutral-500); margin-bottom: var(--space-xs); }
+
+        .module-footer { background: var(--neutral-100); padding: var(--space-lg) var(--space-xl); text-align: center; border-top: 1px solid var(--neutral-300); }
+        .footer-text { font-size: 0.875rem; color: var(--neutral-500); }
+
+        .text-center { text-align: center; }
+        .text-muted { color: var(--neutral-500); }
+        .mt-sm { margin-top: var(--space-sm); } .mt-md { margin-top: var(--space-md); } .mt-lg { margin-top: var(--space-lg); }
+        .mb-sm { margin-bottom: var(--space-sm); } .mb-md { margin-bottom: var(--space-md); } .mb-lg { margin-bottom: var(--space-lg); }
+
+        /* Interactive quiz controls (pre-assessment / practice questions) */
+        .answer-option { display: block; width: 100%; text-align: left; padding: var(--space-sm) var(--space-md);
+            margin-bottom: var(--space-sm); border: 2px solid var(--neutral-300); border-radius: var(--radius-sm);
+            background: var(--white); cursor: pointer; font-family: var(--font-body), sans-serif; font-size: 1rem; color: var(--text-black); }
+        .answer-option:hover { border-color: var(--primary-main); }
+        .answer-option.selected { border-color: var(--primary-dark); background: var(--primary-pale); }
+        .answer-option.correct { border-color: var(--accent-green); background: var(--accent-green-light); }
+        .answer-option.incorrect { border-color: var(--alert-danger); background: var(--alert-danger-bg); }
+        .quiz-btn { font-family: var(--font-heading), sans-serif; font-weight: 700; padding: var(--space-sm) var(--space-xl);
+            border-radius: var(--radius-sm); border: 2px solid var(--primary-dark); background: var(--primary-dark); color: var(--white);
+            cursor: pointer; font-size: 0.95rem; margin-right: var(--space-sm); }
+        .quiz-btn:hover { background: #333333; }
+        .quiz-btn.secondary { background: var(--white); color: var(--primary-dark); }
+        .quiz-btn.secondary:hover { background: var(--neutral-100); }
+        #quizResults { display:none; background: var(--primary-pale); border: 2px solid var(--primary-main); border-radius: var(--radius-md);
+            padding: var(--space-lg); margin-top: var(--space-lg); text-align: center; font-family: var(--font-heading), sans-serif; }
+        #quizResults .score { font-size: 2rem; font-weight: 800; color: var(--text-black); }
+
+        @media (max-width: 768px) {
+            .module-title { font-size: 1.75rem; }
+            .content-area { padding: var(--space-lg); }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="course-container">
+
+        <header class="module-header">
+            <div class="module-label">Unit 3 &middot; Networking Foundations &middot; Section 3.10</div>
+            <h1 class="module-title">Unit Test</h1>
+            <p class="module-subtitle">CompTIA A+ Core 1 &mdash; Domains 2.0 and 3.0</p>
+        </header>
+
+        <nav class="toc">
+            <div class="toc-item">3.1 &mdash; Unit Overview and Learning Objectives</div>
+            <div class="toc-item">3.2 &mdash; Unit Pre-Assessment</div>
+            <div class="toc-item">3.3 &mdash; Content Review</div>
+            <div class="toc-item">3.4 &mdash; Reading Assignment</div>
+            <div class="toc-item">3.5 &mdash; Video Assignment</div>
+            <div class="toc-item">3.6 &mdash; Classroom Labs</div>
+            <div class="toc-item">3.7 &mdash; Practice Questions</div>
+            <div class="toc-item">3.8 &mdash; Online Labs: NETLAB</div>
+            <div class="toc-item">3.9 &mdash; Reflection Activity</div>
+            <div class="toc-item current">3.10 &mdash; Unit Test</div>
+        </nav>
+
+        <div class="content-area">
+
+            <div class="tech-box">
+                <div class="callout-title">Test Format</div>
+                <div class="callout-content">
+                    <p>Each attempt draws 20 items covering this unit's cabling, network hardware, IP addressing, ports/protocols, connection/network type, and networking tool objectives, weighted to mirror how they're represented on the actual 220-1201 exam. Click an answer to select it, then click <strong>Grade My Answers</strong> to see your results.</p>
+                </div>
+            </div>
+
+            <div class="plain-box">
+                <div class="callout-title">In Plain Terms</div>
+                <div class="callout-content">
+                    <p>Because the set is drawn fresh from a large pool, two students &mdash; or two attempts by the same student &mdash; will rarely see the exact same 20 questions. That's intentional: it rewards actually knowing the material over memorizing a fixed answer key.</p>
+                </div>
+            </div>
+
+            <div class="callout callout-info">
+                <div class="callout-title">Full Credit Standard</div>
+                <div class="callout-content">
+                    <p>Full credit requires completion of all 20 items and a review of any missed questions before moving on &mdash; not a specific score. Take the time to understand why an answer was wrong before you close this page.</p>
+                </div>
+            </div>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">Submit Your Proof of Completion</div>
+                <div class="callout-content">
+                    <p>Once you've completed this activity, take a screenshot showing your final score and upload it to the appropriate submission link in Brightspace. A screenshot is your only proof of completion &mdash; nothing here is automatically recorded, so don't close this page before you've captured and uploaded it.</p>
+                </div>
+            </div>
+
+            <div id="quizArea"></div>
+
+            <div class="mt-lg">
+                <button class="quiz-btn" onclick="gradeQuiz()">Grade My Answers</button>
+                <button class="quiz-btn secondary" onclick="resetQuiz()">Reset</button>
+            </div>
+
+            <div id="quizResults">
+                <div>Your Score</div>
+                <div class="score" id="scoreDisplay">0 / 20</div>
+                <div id="scoreNote"></div>
+                <p class="text-muted mt-sm">Screenshot this score before leaving the page, and upload it to the submission link in Brightspace.</p>
+            </div>
+
+            <script>
+                const POOL = [{"q": "Which cable type is best suited for connecting two buildings a long distance apart where electrical interference is a concern?", "opts": ["Unshielded twisted pair", "Coaxial cable", "Fiber optic cable", "Shielded twisted pair"], "correct": 2}, {"q": "Which wiring standard has this conductor order: White/Orange, Orange, White/Green, Blue, White/Blue, Green, White/Brown, Brown?", "opts": ["T568A", "T568B", "RS-232", "Cat 5e"], "correct": 1}, {"q": "A cable is wired to T568A on one end and T568B on the other. What kind of cable is this?", "opts": ["Straight-through", "Crossover", "Rollover", "Loopback"], "correct": 1}, {"q": "Which connector is used to terminate standard Ethernet twisted pair cable?", "opts": ["RJ11", "RJ45", "F-connector", "BNC"], "correct": 1}, {"q": "Which connector is used to terminate coaxial cable for cable internet service?", "opts": ["RJ45", "RJ11", "F-connector", "LC"], "correct": 2}, {"q": "Which fiber connector has a round bayonet twist-lock design?", "opts": ["SC", "LC", "ST", "RJ45"], "correct": 2}, {"q": "Which fiber connector uses a small square push-pull design and is common in dense installations?", "opts": ["ST", "LC", "F-connector", "RJ11"], "correct": 1}, {"q": "What is the primary reason to choose plenum-rated cable over standard PVC-jacketed cable?", "opts": ["It transmits data faster", "It is required by code in air-handling spaces due to fire safety", "It costs less per foot", "It supports longer maximum run lengths"], "correct": 1}, {"q": "What does STP add to a twisted pair cable that UTP does not have?", "opts": ["A fiber optic core", "A shield to resist electrical interference", "A built-in repeater", "A second connector on each end"], "correct": 1}, {"q": "Which device forwards traffic between two different networks, such as a home network and the internet?", "opts": ["Switch", "Router", "Access point", "Patch panel"], "correct": 1}, {"q": "Which device connects multiple devices on the same network and forwards traffic based on MAC address?", "opts": ["Router", "Switch", "Modem", "Firewall"], "correct": 1}, {"q": "Which device provides wireless connectivity, bridging Wi-Fi clients onto the wired network?", "opts": ["Patch panel", "Access point", "Firewall", "NIC"], "correct": 1}, {"q": "What is the primary role of a patch panel?", "opts": ["Assigns IP addresses automatically", "Provides a fixed termination point for cable runs, allowing flexible reconnections at the switch", "Filters traffic by security rule", "Boosts a wireless signal"], "correct": 1}, {"q": "A device that converts a fiber optic signal from an ISP into Ethernet is called a:", "opts": ["Modem", "Router", "ONT (Optical Network Terminal)", "Patch panel"], "correct": 2}, {"q": "What is the purpose of Power over Ethernet (PoE)?", "opts": ["Increases maximum cable run distance", "Delivers electrical power to a device over the same cable that carries its network data", "Encrypts traffic between switches", "Converts coaxial cable to fiber"], "correct": 1}, {"q": "Which device filters traffic between networks based on security rules?", "opts": ["Switch", "Access point", "Firewall", "Patch panel"], "correct": 2}, {"q": "A cable modem converts a signal from which type of ISP connection into Ethernet?", "opts": ["Fiber optic", "Coaxial cable", "Cellular", "Satellite"], "correct": 1}, {"q": "What does NIC stand for?", "opts": ["Network Interface Card", "Network Internet Connector", "Node Identification Code", "Network Integrity Check"], "correct": 0}, {"q": "Which of the following is a private IPv4 address range?", "opts": ["8.8.8.0/24", "10.0.0.0/8", "1.1.1.0/24", "172.32.0.0/16"], "correct": 1}, {"q": "Which of the following is NOT a valid private IPv4 range?", "opts": ["192.168.0.0/16", "172.16.0.0/12", "172.32.0.0/16", "10.0.0.0/8"], "correct": 2}, {"q": "An address in the 169.254.0.0/16 range on a device most likely indicates:", "opts": ["A successfully assigned static address", "APIPA, meaning the device could not reach a DHCP server", "A public IPv6 address", "A misconfigured firewall rule"], "correct": 1}, {"q": "What is the difference between static and dynamic IP addressing?", "opts": ["Static is faster than dynamic", "Static is manually assigned; dynamic is automatically assigned by DHCP", "Static only works with IPv6; dynamic only works with IPv4", "There is no meaningful difference"], "correct": 1}, {"q": "How many bits make up an IPv4 address?", "opts": ["16", "32", "64", "128"], "correct": 1}, {"q": "How many bits make up an IPv6 address?", "opts": ["32", "64", "128", "256"], "correct": 2}, {"q": "Which of the five IPv4 address classes covers the first-octet range 1 to 126?", "opts": ["Class A", "Class B", "Class C", "Class D"], "correct": 0}, {"q": "Which of the five IPv4 address classes covers the first-octet range 192 to 223?", "opts": ["Class A", "Class B", "Class C", "Class D"], "correct": 2}, {"q": "Which IPv4 address class is reserved for multicast traffic and not assigned to hosts?", "opts": ["Class A", "Class B", "Class C", "Class D"], "correct": 3}, {"q": "The entire 127.0.0.0/8 block is reserved for which purpose?", "opts": ["Multicast traffic", "Loopback addresses", "Private Class A addressing", "IPv6 tunneling"], "correct": 1}, {"q": "The private range 172.16.0.0/12 falls within which IPv4 address class?", "opts": ["Class A", "Class B", "Class C", "Class D"], "correct": 1}, {"q": "What is the default subnet mask for a Class C network?", "opts": ["255.0.0.0", "255.255.0.0", "255.255.255.0", "255.255.255.255"], "correct": 2}, {"q": "Which port number is used by DNS?", "opts": ["21", "53", "80", "443"], "correct": 1}, {"q": "Which port number is used by HTTPS?", "opts": ["80", "443", "445", "3389"], "correct": 1}, {"q": "Which port(s) are associated with DHCP?", "opts": ["20 / 21", "25", "53", "67 / 68"], "correct": 3}, {"q": "Which protocol is connection-oriented and confirms delivery, at the cost of some overhead?", "opts": ["UDP", "TCP", "ARP", "ICMP"], "correct": 1}, {"q": "Which protocol is connectionless and favors speed over delivery confirmation?", "opts": ["TCP", "UDP", "FTP", "SSH"], "correct": 1}, {"q": "Which port is used by RDP (Remote Desktop Protocol)?", "opts": ["22", "389", "445", "3389"], "correct": 3}, {"q": "Which port is used by SSH?", "opts": ["21", "22", "23", "25"], "correct": 1}, {"q": "Which type of internet connection sends data over existing copper telephone lines?", "opts": ["Cable", "DSL", "Fiber (FTTH)", "Satellite"], "correct": 1}, {"q": "Which type of internet connection terminates fiber optic cable at an ONT inside the customer's home?", "opts": ["DSL", "Cable", "FTTH", "Cellular"], "correct": 2}, {"q": "Which type of internet connection typically has the highest latency due to signal travel distance?", "opts": ["Cable", "Fiber", "Satellite", "DSL"], "correct": 2}, {"q": "A network confined to a single home or small office is classified as a:", "opts": ["WAN", "LAN", "SAN", "MAN"], "correct": 1}, {"q": "Which network type connects LANs across a large geographic area, with the internet as the largest example?", "opts": ["PAN", "WAN", "SAN", "WLAN"], "correct": 1}, {"q": "Which network type describes a very short-range connection, such as a Bluetooth headset paired to a phone?", "opts": ["LAN", "WAN", "PAN", "SAN"], "correct": 2}, {"q": "Which network type is a dedicated high-speed network connecting servers to shared storage?", "opts": ["SAN", "WAN", "PAN", "WLAN"], "correct": 0}, {"q": "Which tool attaches a connector permanently to the end of a cable?", "opts": ["Cable tester", "Crimper", "Tone generator", "Loopback plug"], "correct": 1}, {"q": "Which tool verifies a finished cable run for continuity and correct wiremap?", "opts": ["Crimper", "Cable tester", "Punch-down tool", "Wi-Fi analyzer"], "correct": 1}, {"q": "Which tool is used to trace a specific cable through a wall or bundle by sending a signal down it?", "opts": ["Loopback plug", "Tone generator and probe", "Network tap", "Cable tester"], "correct": 1}, {"q": "Which tool presses individual wires into the slotted contacts of a patch panel or punchdown block?", "opts": ["Crimper", "Punch-down tool", "Tone generator", "Loopback plug"], "correct": 1}, {"q": "Which tool plugs into a port to test whether the port can send and receive, without a live network connection?", "opts": ["Loopback plug", "Cable tester", "Network tap", "Crimper"], "correct": 0}, {"q": "Which tool passively copies traffic passing through a link for monitoring or analysis?", "opts": ["Tone generator", "Network tap", "Punch-down tool", "Cable tester"], "correct": 1}, {"q": "A technician is running cable through the space above a drop ceiling used for HVAC airflow. What type of cable is required by code?", "opts": ["Standard PVC-jacketed cable", "Plenum-rated cable", "Direct burial cable", "Any UTP cable"], "correct": 1}, {"q": "Which cable construction is best suited for a run buried directly in the ground without conduit?", "opts": ["Standard UTP", "Direct burial-rated STP", "Plenum-rated UTP", "Patch cable"], "correct": 1}, {"q": "A network technician needs to connect two switches directly without an intervening device, on equipment that lacks Auto-MDIX. What cable type is needed?", "opts": ["Straight-through", "Crossover", "Rollover", "Loopback"], "correct": 1}, {"q": "What does Auto-MDIX allow modern network equipment to do?", "opts": ["Automatically detect and correct for straight-through vs. crossover wiring", "Automatically assign IP addresses", "Automatically encrypt traffic", "Automatically boost Wi-Fi signal strength"], "correct": 0}, {"q": "Which connector type would be found on a traditional analog telephone line?", "opts": ["RJ45", "RJ11", "F-connector", "LC"], "correct": 1}, {"q": "A fiber run needs a small-form-factor push-pull connector suited for a dense server room installation. Which is the best fit?", "opts": ["ST", "SC", "LC", "F-connector"], "correct": 2}, {"q": "Multimode fiber is generally best suited for which type of run?", "opts": ["Very long-distance backbone links between cities", "Shorter, in-building or campus links", "Coaxial cable television distribution", "Telephone wiring"], "correct": 1}, {"q": "Which of the following is true of single-mode fiber compared to multimode fiber?", "opts": ["It supports shorter maximum distances", "It supports longer maximum distances", "It cannot be used for networking", "It uses copper conductors"], "correct": 1}, {"q": "A managed switch, compared to an unmanaged switch, adds which capability?", "opts": ["The ability to forward traffic by MAC address", "VLAN configuration, port settings, and monitoring", "A physical power supply", "Fiber connectivity only"], "correct": 1}, {"q": "What is the primary function of a home router's built-in firewall?", "opts": ["Assign private IP addresses via DHCP", "Filter incoming and outgoing traffic based on security rules", "Convert coaxial signal to Ethernet", "Boost the wireless signal range"], "correct": 1}, {"q": "A device labeled as a home 'router' typically combines which set of functions in one box?", "opts": ["Router, switch, access point, modem, and basic firewall", "Only a router and nothing else", "Only a switch and an access point", "Only a modem and a firewall"], "correct": 0}, {"q": "Which device would be installed to extend a wired network's reach without adding wireless capability?", "opts": ["Access point", "Switch", "Patch panel", "NIC"], "correct": 2}, {"q": "What is the main difference between a cable modem and a DSL modem?", "opts": ["A cable modem uses coaxial cable; a DSL modem uses telephone lines", "A cable modem is wireless; a DSL modem is wired", "A cable modem only works with fiber; a DSL modem only works with satellite", "There is no functional difference"], "correct": 0}, {"q": "A patch panel in a wiring closet is best described as a device that:", "opts": ["Assigns dynamic IP addresses", "Provides a fixed, organized termination point for cable runs from the walls", "Encrypts data in transit", "Converts fiber signals to copper"], "correct": 1}, {"q": "Which class of IPv4 address is reserved for experimental use and not assigned to hosts?", "opts": ["Class A", "Class C", "Class D", "Class E"], "correct": 3}, {"q": "What is the default subnet mask for a Class A network?", "opts": ["255.0.0.0", "255.255.0.0", "255.255.255.0", "255.255.255.255"], "correct": 0}, {"q": "What is the default subnet mask for a Class B network?", "opts": ["255.0.0.0", "255.255.0.0", "255.255.255.0", "255.255.255.255"], "correct": 1}, {"q": "The full Class B address range spans which first-octet values?", "opts": ["1 to 126", "128 to 191", "192 to 223", "224 to 239"], "correct": 1}, {"q": "A device on a network shows the IP address 172.32.5.10. Is this address private or public?", "opts": ["Private, because it starts with 172", "Public, because 172.32 falls outside the 172.16&ndash;172.31 private range", "Private, because all 172 addresses are private", "It cannot be determined without more information"], "correct": 1}, {"q": "What is the practical use of the 192.168.0.0/16 private range in most home and small-office networks?", "opts": ["It is never actually used", "It provides a large pool of private addresses commonly used for local devices", "It is reserved strictly for multicast", "It is only valid for IPv6"], "correct": 1}, {"q": "A laptop is configured for DHCP but shows an address of 169.254.34.12. What does this most likely indicate?", "opts": ["A successful connection to a DHCP server", "APIPA, meaning DHCP could not be reached", "A public IP address was assigned", "The device is using IPv6 exclusively"], "correct": 1}, {"q": "Which addressing method would a network administrator choose for a server that other devices need to reach at a predictable address?", "opts": ["Dynamic (DHCP-assigned)", "Static", "APIPA", "Multicast"], "correct": 1}, {"q": "An IPv6 address is written using which numbering system?", "opts": ["Decimal", "Binary", "Hexadecimal", "Octal"], "correct": 2}, {"q": "Which port number is associated with SMTP?", "opts": ["21", "25", "53", "110"], "correct": 1}, {"q": "Which port number is associated with POP3?", "opts": ["25", "80", "110", "143"], "correct": 2}, {"q": "Which port number is associated with IMAP?", "opts": ["110", "143", "443", "3389"], "correct": 1}, {"q": "Which port number is associated with Telnet?", "opts": ["21", "22", "23", "25"], "correct": 2}, {"q": "Which port is associated with LDAP?", "opts": ["389", "443", "445", "3389"], "correct": 0}, {"q": "Which port is associated with SMB?", "opts": ["143", "389", "445", "3389"], "correct": 2}, {"q": "Which port is used by standard, unencrypted HTTP web traffic?", "opts": ["21", "23", "80", "443"], "correct": 2}, {"q": "What is the primary role of DNS on a network?", "opts": ["Assigns IP addresses automatically to devices", "Translates human-readable domain names into IP addresses", "Encrypts traffic between two hosts", "Filters traffic based on security rules"], "correct": 1}, {"q": "What is the primary role of DHCP on a network?", "opts": ["Translates domain names to IP addresses", "Automatically assigns IP addresses and other network settings to devices", "Segments a network into virtual LANs", "Establishes an encrypted tunnel over the internet"], "correct": 1}, {"q": "What is a VLAN used for?", "opts": ["Logically segmenting a physical network into separate broadcast domains", "Physically separating fiber and copper cabling", "Assigning static IP addresses only", "Converting IPv4 addresses to IPv6"], "correct": 0}, {"q": "What is the primary purpose of a VPN?", "opts": ["To assign private IP addresses automatically", "To create a secure, encrypted connection over a public network", "To translate domain names into IP addresses", "To physically extend a cable run"], "correct": 1}, {"q": "Which internet connection type uses the same infrastructure as broadcast cable television?", "opts": ["DSL", "Cable", "Fiber", "Cellular"], "correct": 1}, {"q": "A mobile hotspot on a smartphone shares internet access using which type of connection?", "opts": ["DSL", "Cellular", "Fiber", "Satellite"], "correct": 1}, {"q": "Which network type would best describe a company's dedicated storage backbone connecting servers to a SAN device?", "opts": ["LAN", "PAN", "SAN", "WAN"], "correct": 2}, {"q": "Which network type describes the connection between a smartwatch and a paired smartphone?", "opts": ["LAN", "WAN", "PAN", "SAN"], "correct": 2}, {"q": "A company with offices in three different cities, all connected together, is best described as having which network type linking them?", "opts": ["LAN", "WAN", "PAN", "WLAN"], "correct": 1}, {"q": "Which network type describes a home Wi-Fi network specifically, as opposed to its wired counterpart?", "opts": ["LAN", "WLAN", "PAN", "WAN"], "correct": 1}, {"q": "After terminating a new cable run, which tool confirms the wiremap is correct before it's put into service?", "opts": ["Crimper", "Cable tester", "Tone generator", "Network tap"], "correct": 1}, {"q": "A switch port needs to be tested in isolation without a live network connection. Which tool is appropriate?", "opts": ["Loopback plug", "Punch-down tool", "Tone generator", "Wi-Fi analyzer"], "correct": 0}, {"q": "Which tool would a technician use to survey wireless channel usage and interference in an office?", "opts": ["Cable tester", "Wi-Fi analyzer", "Punch-down tool", "Crimper"], "correct": 1}, {"q": "A device shows a solid link light on its NIC but cannot reach any network resources, and its IP address is 169.254.12.4. What is the most likely cause?", "opts": ["A failed NIC", "The device could not reach a DHCP server and self-assigned an APIPA address", "A bad fiber connector", "An incorrect wiring standard"], "correct": 1}, {"q": "A user reports their computer can reach other devices on the local network but cannot reach the internet. Which device is the most logical first thing to check?", "opts": ["The local switch", "The router and its connection to the ISP", "The user's NIC driver", "The patch panel"], "correct": 1}, {"q": "A newly terminated cable passes a continuity test but network performance is unexpectedly slow. What should be checked next?", "opts": ["Whether the wiremap follows the correct pin order for the intended use", "Whether the cable is coaxial", "Whether DHCP is disabled", "Whether the device uses IPv6 only"], "correct": 0}, {"q": "A small office wants to keep guest Wi-Fi traffic separate from internal staff traffic on the same physical switch. What is the best solution?", "opts": ["Run a second physical network entirely", "Configure separate VLANs on a managed switch", "Replace the router with a modem", "Use APIPA for guest devices"], "correct": 1}, {"q": "An employee working remotely needs a secure, encrypted connection back into the company's internal network. What technology provides this?", "opts": ["DHCP", "DNS", "VPN", "APIPA"], "correct": 2}, {"q": "A user reports that typing a website's name does nothing, but typing its raw IP address loads the site correctly. What is the most likely failure point?", "opts": ["The user's DHCP configuration", "DNS resolution", "The physical patch panel", "The user's RAID array"], "correct": 1}, {"q": "A newly connected laptop is not receiving an IP address at all, not even an APIPA address, and shows 'no network access.' What should be checked first?", "opts": ["The DNS server's IP address", "The physical cable connection or Wi-Fi association", "The RAID controller", "The fiber connector type"], "correct": 1}];
+                let QUESTIONS = [];
+                let answers = [];
+
+                function drawSet() {
+                    const shuffled = POOL.slice().sort(() => Math.random() - 0.5);
+                    QUESTIONS = shuffled.slice(0, 20);
+                    answers = new Array(QUESTIONS.length).fill(null);
+                }
+
+                function renderQuiz() {
+                    const area = document.getElementById('quizArea');
+                    area.innerHTML = QUESTIONS.map((item, qi) => {
+                        const opts = item.opts.map((opt, oi) =>
+                            `<button type="button" class="answer-option" data-qi="${qi}" data-oi="${oi}" onclick="selectAnswer(${qi}, ${oi})">${opt}</button>`
+                        ).join('');
+                        return `<div class="question-block">
+                            <div class="question-number">Question ${qi + 1} of ${QUESTIONS.length}</div>
+                            <p class="question-text">${item.q}</p>
+                            ${opts}
+                        </div>`;
+                    }).join('');
+                }
+
+                function selectAnswer(qi, oi) {
+                    answers[qi] = oi;
+                    document.querySelectorAll(`[data-qi="${qi}"]`).forEach(btn => {
+                        btn.classList.remove('selected');
+                        if (parseInt(btn.dataset.oi) === oi) btn.classList.add('selected');
+                    });
+                }
+
+                function gradeQuiz() {
+                    if (answers.includes(null)) {
+                        alert('Answer all 20 questions before grading.');
+                        return;
+                    }
+                    let score = 0;
+                    QUESTIONS.forEach((item, qi) => {
+                        const correct = item.correct;
+                        document.querySelectorAll(`[data-qi="${qi}"]`).forEach(btn => {
+                            const oi = parseInt(btn.dataset.oi);
+                            btn.classList.remove('selected');
+                            if (oi === correct) btn.classList.add('correct');
+                            else if (oi === answers[qi]) btn.classList.add('incorrect');
+                        });
+                        if (answers[qi] === correct) score++;
+                    });
+                    document.getElementById('scoreDisplay').textContent = score + ' / ' + QUESTIONS.length;
+                    const note = document.getElementById('scoreNote');
+                    if (score >= 16) note.textContent = 'Strong result. Review any missed items, then you are done.';
+                    else if (score >= 12) note.textContent = 'A passing-range result. Review your missed questions closely before moving on.';
+                    else note.textContent = 'Below where you want to be for exam day. Revisit 3.3 and 3.4 for the topics you missed, then try again.';
+                    document.getElementById('quizResults').style.display = 'block';
+                    document.getElementById('quizResults').scrollIntoView({behavior: 'smooth'});
+                }
+
+                function resetQuiz() {
+                    document.getElementById('quizResults').style.display = 'none';
+                    drawSet();
+                    renderQuiz();
+                }
+
+                drawSet();
+                renderQuiz();
+            </script>
+
+
+        </div>
+
+        <footer class="module-footer">
+            <p class="footer-text">CompTIA A+ Core 1 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
+        </footer>
+    </div>
+</body>
+</html>
