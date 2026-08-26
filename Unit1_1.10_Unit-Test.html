@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unit 1 &mdash; 1.10 Unit Test | CompTIA A+ Core 1</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,16 +20,16 @@
            ============================================ */
 
         :root {
-            --primary-dark: #4A4A4A;
-            --primary-main: #B8962E;
-            --primary-light: #D4AF56;
-            --primary-pale: #FBF3DF;
+            --primary-dark: #4A4A4A;       /* Charcoal - structural chrome only */
+            --primary-main: #B8962E;       /* Warm Gold - primary accent */
+            --primary-light: #D4AF56;      /* Light Gold */
+            --primary-pale: #FBF3DF;       /* Pale Gold wash */
 
-            --accent-teal: #8A6F1F;
-            --accent-teal-light: #F3E9CE;
-            --accent-orange: #A9642A;
+            --accent-teal: #8A6F1F;        /* Deep bronze-gold */
+            --accent-teal-light: #F3E9CE;  /* Pale bronze */
+            --accent-orange: #A9642A;      /* Warm rust */
             --accent-orange-light: #F5E2CE;
-            --accent-purple: #6B5B3A;
+            --accent-purple: #6B5B3A;      /* Muted umber */
             --accent-purple-light: #EFE6D2;
             --accent-green: #4E7A51;
             --accent-green-light: #DCEBDD;
@@ -43,7 +43,7 @@
             --alert-info: #6E5B2E;
             --alert-info-bg: #F1E9D4;
 
-            --text-black: #000000;
+            --text-black: #000000;         /* All reading text */
             --neutral-900: #000000;
             --neutral-700: #000000;
             --neutral-500: #5A5A5A;
@@ -136,10 +136,12 @@
         a { color: var(--text-black); text-decoration: none; border-bottom: 2px solid var(--primary-main); transition: all 0.2s ease; }
         a:hover { background: var(--primary-pale); border-bottom-color: var(--accent-teal); }
 
-        ul, ol { margin-bottom: var(--space-md); padding-left: var(--space-lg); }
-        li { margin-bottom: var(--space-sm); }
-        ul li::marker { color: var(--accent-teal); }
-        ol li::marker { color: var(--accent-teal); font-weight: 700; }
+        .tech-box {
+            background: var(--neutral-100); border: 2px solid var(--neutral-500);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .tech-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .tech-box .callout-content { padding-left: 0; }
 
         .plain-box {
             background: var(--primary-pale); border: 2px solid var(--primary-main);
@@ -154,124 +156,51 @@
         .callout-content { }
         .callout-content p:last-child { margin-bottom: 0; }
         .callout-tip { background: var(--accent-green-light); border-left: 4px solid var(--accent-green); }
+        .callout-warning { background: var(--alert-warning-bg); border-left: 4px solid var(--alert-warning); }
+        .callout-danger { background: var(--alert-danger-bg); border-left: 4px solid var(--alert-danger); }
         .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
 
-        .definition { background: var(--neutral-100); border-radius: var(--radius-md); padding: var(--space-lg);
-            margin: var(--space-md) 0; border-left: 4px solid var(--accent-orange); }
+        .text-center { text-align: center; }
+        .text-muted { color: var(--neutral-500); }
+        .mt-sm { margin-top: var(--space-sm); } .mt-md { margin-top: var(--space-md); } .mt-lg { margin-top: var(--space-lg); }
+        .mb-sm { margin-bottom: var(--space-sm); } .mb-md { margin-bottom: var(--space-md); } .mb-lg { margin-bottom: var(--space-lg); }
 
-        .table-container { overflow-x: auto; margin: var(--space-lg) 0; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); }
-        table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
-        thead { background: var(--primary-dark); color: var(--white); }
-        th { font-family: var(--font-heading), sans-serif; font-weight: 700; text-align: left; padding: var(--space-md) var(--space-lg); color: var(--white); }
-        td { padding: var(--space-md) var(--space-lg); border-bottom: 1px solid var(--neutral-300); color: var(--text-black); }
-        tbody tr:hover { background: var(--primary-pale); }
-        tbody tr:last-child td { border-bottom: none; }
-
-        .activity-section {
-            background: linear-gradient(135deg, var(--accent-orange-light) 0%, var(--white) 100%);
-            border: 2px dashed var(--accent-orange); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
-        }
-        .activity-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg); }
-        .activity-icon { width: 50px; height: 50px; background: var(--accent-orange); border-radius: var(--radius-md);
-            display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; }
-        .activity-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700;
-            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
-        .activity-subtitle { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
-
-        .assessment-section { background: var(--primary-pale); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0; }
-        .assessment-header { text-align: center; margin-bottom: var(--space-xl); }
-        .assessment-header h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
-        .pool-note { text-align: center; font-size: 0.875rem; color: var(--neutral-500); margin-top: -0.75rem; margin-bottom: var(--space-lg); }
-
+        /* Interactive quiz controls */
         .question-block { background: var(--white); border-radius: var(--radius-md); padding: var(--space-lg);
-            margin-bottom: var(--space-lg); box-shadow: var(--shadow-sm); border: 2px solid transparent; transition: border-color .15s ease; }
+            margin-bottom: var(--space-lg); box-shadow: var(--shadow-sm); }
         .question-number { font-family: var(--font-heading), sans-serif; font-size: 0.75rem; font-weight: 700;
             color: var(--text-black); background: var(--primary-main); display: inline-block;
             padding: 2px 10px; border-radius: var(--radius-sm);
             text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); }
         .question-text { font-weight: 600; color: var(--text-black); margin-bottom: var(--space-md); }
 
-        .mc-options { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-sm); }
-        .mc-option {
-            display: flex; align-items: center; gap: var(--space-md); width: 100%; text-align: left;
-            padding: var(--space-sm) var(--space-md); border: 2px solid var(--neutral-300); border-radius: var(--radius-md);
-            background: var(--white); color: var(--text-black); font-family: var(--font-body), sans-serif;
-            font-size: 1rem; cursor: pointer; transition: all 0.15s ease;
-        }
-        .mc-option:hover { border-color: var(--primary-main); background: var(--primary-pale); }
-        .mc-option .mc-letter {
-            flex-shrink: 0; width: 1.75rem; height: 1.75rem; border-radius: 50%;
-            background: var(--neutral-100); border: 2px solid var(--neutral-300);
-            display: flex; align-items: center; justify-content: center;
-            font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 0.85rem; color: var(--text-black);
-        }
-        .mc-option.selected { border-color: var(--primary-main); background: var(--primary-pale); font-weight: 700; }
-        .mc-option.selected .mc-letter { background: var(--primary-main); border-color: var(--primary-main); }
-        .mc-option.graded-correct { border-color: var(--alert-success); background: var(--alert-success-bg); font-weight: 700; }
-        .mc-option.graded-correct .mc-letter { background: var(--alert-success); border-color: var(--alert-success); color: var(--white); }
-        .mc-option.graded-incorrect { border-color: var(--alert-danger); background: var(--alert-danger-bg); }
-        .mc-option.graded-incorrect .mc-letter { background: var(--alert-danger); border-color: var(--alert-danger); color: var(--white); }
-        .mc-option.graded-missed { border-color: var(--alert-success); border-style: dashed; }
+        .answer-option { display: block; width: 100%; text-align: left; padding: var(--space-sm) var(--space-md);
+            margin-bottom: var(--space-sm); border: 2px solid var(--neutral-300); border-radius: var(--radius-sm);
+            background: var(--white); cursor: pointer; font-family: var(--font-body), sans-serif; font-size: 1rem; color: var(--text-black); }
+        .answer-option:hover { border-color: var(--primary-main); }
+        .answer-option.selected { border-color: var(--primary-dark); background: var(--primary-pale); }
+        .answer-option.correct { border-color: var(--accent-green); background: var(--accent-green-light); }
+        .answer-option.incorrect { border-color: var(--alert-danger); background: var(--alert-danger-bg); }
+        .quiz-btn { font-family: var(--font-heading), sans-serif; font-weight: 700; padding: var(--space-sm) var(--space-xl);
+            border-radius: var(--radius-sm); border: 2px solid var(--primary-dark); background: var(--primary-dark); color: var(--white);
+            cursor: pointer; font-size: 0.95rem; margin-right: var(--space-sm); }
+        .quiz-btn:hover { background: #333333; }
+        .quiz-btn.secondary { background: var(--white); color: var(--primary-dark); }
+        .quiz-btn.secondary:hover { background: var(--neutral-100); }
+        #quizResults { display:none; background: var(--primary-pale); border: 2px solid var(--primary-main); border-radius: var(--radius-md);
+            padding: var(--space-lg); margin-top: var(--space-lg); text-align: center; font-family: var(--font-heading), sans-serif; }
+        #quizResults .score { font-size: 2rem; font-weight: 800; color: var(--text-black); }
 
-        .question-block.unanswered-flag { border-color: var(--alert-warning); }
-        .unanswered-note {
-            display: none; margin-top: var(--space-sm); font-size: 0.875rem; font-weight: 700;
-            color: var(--alert-warning); font-family: var(--font-heading), sans-serif;
-        }
-        .question-block.unanswered-flag .unanswered-note { display: block; }
-
-        .assessment-controls {
-            display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap;
-            margin-top: var(--space-xl); padding-top: var(--space-lg); border-top: 2px solid var(--neutral-300);
-        }
-        .btn-grade, .btn-reset {
-            font-family: var(--font-heading), sans-serif; font-weight: 800; font-size: 1rem;
-            padding: var(--space-md) var(--space-2xl); border-radius: var(--radius-md);
-            cursor: pointer; transition: all 0.15s ease; border: 2px solid var(--primary-dark);
-        }
-        .btn-grade { background: var(--primary-main); color: var(--text-black); border-color: var(--primary-main); box-shadow: var(--shadow-sm); }
-        .btn-grade:hover { background: var(--primary-light); }
-        .btn-reset { background: var(--white); color: var(--text-black); }
-        .btn-reset:hover { background: var(--neutral-100); }
-
-        .results-summary {
-            display: none; margin-top: var(--space-xl); padding: var(--space-xl);
-            border-radius: var(--radius-lg); background: var(--primary-dark); color: var(--white); text-align: center;
-        }
-        .results-summary.show { display: block; }
-        .results-score { font-family: var(--font-heading), sans-serif; font-size: 2.5rem; font-weight: 800; color: var(--white); margin-bottom: var(--space-sm); }
-        .results-summary p { color: var(--white); margin-bottom: var(--space-sm); }
-        .results-summary p:last-child { margin-bottom: 0; }
-
-        .references-section { background: var(--neutral-100); border-radius: var(--radius-lg);
-            padding: var(--space-lg) var(--space-xl); margin: var(--space-xl) 0; border-top: 3px solid var(--primary-main); }
-        .references-section h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
-        .references-section ul { padding-left: var(--space-lg); }
-
-        .module-footer { background: var(--primary-dark); padding: var(--space-lg) var(--space-xl);
-            text-align: center; border-top: 4px solid var(--primary-main); }
-        .footer-text { font-size: 0.875rem; color: var(--white); margin: 0; }
-
-        .text-muted { color: var(--neutral-500); }
+        .module-footer { background: var(--neutral-100); padding: var(--space-lg) var(--space-xl); text-align: center; border-top: 1px solid var(--neutral-300); }
+        .footer-text { font-size: 0.875rem; color: var(--neutral-500); }
 
         @media (max-width: 768px) {
-            body { padding: var(--space-sm); }
-            .module-header { padding: var(--space-xl) var(--space-lg); }
             .module-title { font-size: 1.75rem; }
             .content-area { padding: var(--space-lg); }
-            h2 { font-size: 1.375rem; }
-            .activity-header { flex-direction: column; align-items: flex-start; }
-            .assessment-controls { flex-direction: column; }
-            .btn-grade, .btn-reset { width: 100%; }
-        }
-        @media print {
-            body { background: white; padding: 0; }
-            .course-container { box-shadow: none; }
-            .toc { display: none; }
-            .assessment-controls { display: none; }
         }
     </style>
 </head>
+
 <body>
     <div class="course-container">
 
@@ -298,103 +227,115 @@
 
         <div class="content-area">
 
-            <p class="text-muted">20 items &middot; Domain-weighted</p>
-
             <div class="tech-box">
                 <div class="callout-title">Test Format</div>
                 <div class="callout-content">
-                    <p>This exam contains 20 questions on the material from this unit, weighted to mirror how this unit's objectives are represented on the 220-1201 exam. Click an answer to select it, then click <strong>Grade My Answers</strong> to score your results.</p>
+                    <p>Each attempt draws 20 items covering this unit's motherboard, CPU, memory, power, cooling, firmware, and troubleshooting objectives, weighted to mirror how they're represented on the actual 220-1201 exam. Click an answer to select it, then click <strong>Grade My Answers</strong> to see your results.</p>
                 </div>
             </div>
 
-            <div class="assessment-section">
-                <div class="assessment-header">
-                    <h3>&#128221; Unit 1 Test</h3>
-                    <p>20 questions on the material from this unit.</p>
-                </div>
-                <p class="pool-note">Bank covers objectives 3.5, 5.1, 3.3, and 3.6 &mdash; motherboards, CPUs, BIOS/UEFI, cooling, memory, troubleshooting, and power.</p>
-
-                <div class="table-container" style="margin-bottom: var(--space-lg);">
-                    <table>
-                        <thead><tr><th>Objective</th><th>Coverage</th></tr></thead>
-                        <tbody>
-                            <tr><td><strong>3.5</strong></td><td>Motherboards, form factors, expansion slots, connections, CPUs, BIOS/UEFI, TPM, cooling</td></tr>
-                            <tr><td><strong>5.1</strong></td><td>Troubleshooting methodology; motherboard, RAM, CPU, and power faults</td></tr>
-                            <tr><td><strong>3.3</strong></td><td>Memory types, DDR generations, ECC and parity, multi-channel</td></tr>
-                            <tr><td><strong>3.6</strong></td><td>Power supplies, rails, connectors, efficiency, input voltage</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="callout callout-info" style="margin-top:0;">
-                    <div class="callout-title">Why Troubleshooting Carries the Most Weight After Hardware</div>
-                    <div class="callout-content"><p>Domain 5.0 is 28% of your certification exam &mdash; the largest single domain. Rather than saving it for the end, every unit tests the troubleshooting that matches its own hardware. You will have diagnosed power and memory faults many times before you sit the real exam.</p></div>
-                </div>
-
-                <form id="practiceForm">
-                    <div id="questionContainer"></div>
-                </form>
-
-                <div class="assessment-controls">
-                    <button type="button" id="gradeBtn" class="btn-grade">Grade My Answers</button>
-                    <button type="button" id="resetBtn" class="btn-reset">Reset</button>
-                </div>
-
-                <div class="results-summary" id="resultsSummary">
-                    <div class="results-score" id="resultsScore">0 / 20</div>
-                    <p id="resultsMessage"></p>
-                    <p style="font-size:0.9rem; opacity:0.85;">Green highlights the correct answer. Red marks an answer you picked that wasn't it. Your correctness here does not change your grade &mdash; completing the test does. Use this to see what to study before Unit 2.</p>
+            <div class="plain-box">
+                <div class="callout-title">In Plain Terms</div>
+                <div class="callout-content">
+                    <p>Because the set is drawn fresh from a large pool, two students &mdash; or two attempts by the same student &mdash; will rarely see the exact same 20 questions. That's intentional: it rewards actually knowing the material over memorizing a fixed answer key.</p>
                 </div>
             </div>
 
-            <h2>Rules</h2>
-            <ul class="styled-list">
-                <li><strong>Format:</strong> 20 questions on the material from this unit.</li>
-                <li><strong>Attempts:</strong> Unlimited. Retake as many times as you find useful &mdash; each draw is genuinely different.</li>
-                <li><strong>Open book:</strong> No. Take it as you would the real thing, then use the results to guide review afterward.</li>
-                <li><strong>Feedback:</strong> Immediate, per question, every time you grade an attempt.</li>
-            </ul>
-
-            <div class="key-concept">
-                <h4>What This Score Is Actually For</h4>
-                <p>Your unit test score does not move your grade. It moves your study plan.</p>
-                <p>Because each attempt draws from all four objectives, a low score on any one attempt can simply mean an unlucky draw of harder items &mdash; reset and take it again before drawing conclusions. If a pattern holds across two or three attempts, that is the signal worth acting on, and that is where your Week 2 review time should go.</p>
-                <p>The score that eventually matters is the full-length practice exam, where you need <strong>85 raw points out of 100 &mdash; a 780 scaled &mdash; on two consecutive attempts</strong> before I will recommend you schedule the real exam. The cut score on 220-1201 is 675 out of 900, which works out to roughly 72% of raw points. The margin between 780 and 675 is deliberate: it absorbs test-day nerves and unfamiliar phrasing.</p>
+            <div class="callout callout-info">
+                <div class="callout-title">Full Credit Standard</div>
+                <div class="callout-content">
+                    <p>Full credit requires completion of all 20 items and a review of any missed questions before moving on &mdash; not a specific score. Take the time to understand why an answer was wrong before you close this page.</p>
+                </div>
             </div>
-
-            <h2>How to Prepare</h2>
-            <ol>
-                <li>Work the Section 1.7 practice set and identify every confident-and-wrong item</li>
-                <li>Complete both NETLAB labs in Section 1.8 &mdash; they are the closest thing to performance-based exam practice you will get</li>
-                <li>Re-read the Exam Essentials for Chapter 1, and the assigned portions of Chapters 2 and 12</li>
-                <li>Complete the Chapter 1 Review Questions and both Performance-Based Questions</li>
-                <li>Rewatch Messer 5.1 Troubleshooting Hardware &mdash; it is the densest exam material of the week</li>
-                <li>Recite the six troubleshooting steps in order, from memory, without looking</li>
-            </ol>
 
             <div class="callout callout-warning">
-                <div class="callout-title">If You Score Below 70% Across Multiple Attempts</div>
-                <div class="callout-content"><p>Email me before Week 2 begins. Not as a formality &mdash; Unit 2 builds directly on this material, and a gap here widens fast in an accelerated course. Catching it in Week 1 costs an hour. Catching it in Week 4 costs the certification.</p></div>
+                <div class="callout-title">Submit Your Proof of Completion</div>
+                <div class="callout-content">
+                    <p>Once you've completed this activity, take a screenshot showing your final score and upload it to the appropriate submission link in Brightspace. A screenshot is your only proof of completion &mdash; nothing here is automatically recorded, so don't close this page before you've captured and uploaded it.</p>
+                </div>
             </div>
 
-            <div class="summary-box">
-                <h3>Unit 1 Complete</h3>
-                <ul>
-                    <li>You can open a system and identify every major component inside it by sight</li>
-                    <li>You have diagnosed a real fault using all six methodology steps</li>
-                    <li>You know what 675 out of 900 actually means, and why it is not 75%</li>
-                    <li>Unit 2 opens Tuesday &mdash; storage, displays, and peripherals</li>
-                </ul>
+            <div id="quizArea"></div>
+
+            <div class="mt-lg">
+                <button class="quiz-btn" onclick="gradeQuiz()">Grade My Answers</button>
+                <button class="quiz-btn secondary" onclick="resetQuiz()">Reset</button>
             </div>
 
-            <div class="references-section">
-                <h3>Go Further</h3>
-                <ul>
-                    <li>Sybex online test bank &mdash; chapter tests and flashcards, included with your book</li>
-                    <li>Sybex <em>CompTIA A+ Complete Study Guide</em>, Volume 1 &mdash; Chapter 1, 2, and 12 Review Questions</li>
-                    <li>CompTIA official 220-1201 exam objectives (comptia.org) &mdash; the acronym list appears at the end</li>
-                </ul>
+            <div id="quizResults">
+                <div>Your Score</div>
+                <div class="score" id="scoreDisplay">0 / 20</div>
+                <div id="scoreNote"></div>
+                <p class="text-muted mt-sm">Screenshot this score before leaving the page, and upload it to the submission link in Brightspace.</p>
             </div>
+
+            <script>
+                const POOL = [{"q":"Which motherboard form factor is most likely to be found in a full-size gaming or workstation desktop with several add-in cards installed?","opts":["Mini-ITX","ATX","SO-DIMM","BTX"],"correct":1},{"q":"A technician is choosing a motherboard for a client who wants the most expansion slots possible in a standard desktop tower. Which form factor should they recommend?","opts":["Mini-ITX","microATX","ATX","SO-DIMM"],"correct":2},{"q":"Why can a Mini-ITX motherboard usually be installed in an ATX-rated case, but not the reverse?","opts":["Mini-ITX boards use a completely different power connector","Smaller form factors are a physical subset of the larger ones, so their mounting holes and I/O cutout line up","ATX cases include a built-in size adapter","There is no real restriction either direction"],"correct":1},{"q":"A PCIe x1 slot would most typically be used for which of the following?","opts":["A high-end graphics card","A sound card or basic network adapter","An NVMe SSD adapter requiring maximum bandwidth","A dual-CPU riser"],"correct":1},{"q":"What generally happens to available bandwidth as PCIe generations increase (e.g., Gen 3 to Gen 4) at the same lane count?","opts":["It stays exactly the same","It decreases due to added overhead","It roughly doubles per lane","Lane count becomes irrelevant"],"correct":2},{"q":"A PCIe Gen 4 card is installed in a PCIe Gen 3 slot. What is the most accurate outcome?","opts":["The card will not function at all","The card will run, but at the lower Gen 3 speed","The motherboard will be physically damaged","The slot will automatically upgrade itself to Gen 4"],"correct":1},{"q":"What is the legacy parallel expansion standard that PCI itself eventually replaced in most desktop systems?","opts":["ISA","SATA","USB","DisplayPort"],"correct":0},{"q":"Which best describes the relationship between a motherboard's chipset and its CPU compatibility?","opts":["Chipsets are universal and work with any CPU brand","The chipset, together with the socket, determines which CPUs a board supports","CPU compatibility is determined entirely by the case, not the motherboard","Chipsets only affect storage speed, not CPU compatibility"],"correct":1},{"q":"A server motherboard is most likely to differ from a consumer desktop board in which of these ways?","opts":["It supports only a single expansion slot","It typically supports multiple CPU sockets and far more memory slots","It cannot use ECC memory","It is always smaller than a Mini-ITX board"],"correct":1},{"q":"Which motherboard connector is specifically dedicated to supplying additional power directly to the CPU, separate from the main board power?","opts":["The 24-pin ATX connector","The 4-pin or 8-pin EPS connector","The SATA power connector","The front panel header"],"correct":1},{"q":"What is the general purpose of the small pin headers on a motherboard labeled for USB and audio?","opts":["They connect the front-panel USB ports and audio jacks on the case to the motherboard","They control the boot order","They regulate CPU voltage","They are only used for diagnostic testing at the factory"],"correct":0},{"q":"A 64-bit CPU is installed in a system running a 32-bit operating system. What is the practical result?","opts":["The system will not boot at all","The OS will run, but the system cannot take advantage of 64-bit addressing","The CPU will automatically convert itself to 32-bit mode permanently","The motherboard will be damaged"],"correct":1},{"q":"What best describes an ARM-based processor compared to a traditional x86/x64 processor?","opts":["ARM chips use an entirely different, generally more power-efficient instruction set architecture","ARM is just a rebranded version of x86","ARM processors cannot be used in any consumer device","ARM and x86 are fully interchangeable in the same socket"],"correct":0},{"q":"Which CPU characteristic most directly indicates how many independent tasks a processor can truly execute simultaneously, distinct from multithreading?","opts":["Clock speed","Core count","Cache size","Socket type"],"correct":1},{"q":"A technician wants to install a Type 1 hypervisor on a server but discovers virtualization fails to enable. What is the most likely firmware-level cause?","opts":["The BIOS/UEFI has virtualization extensions (VT-x/AMD-V) disabled","The CPU physically lacks any cores","The RAM is the wrong DDR generation","The PSU wattage is too low"],"correct":0},{"q":"Which of these is a common reason a technician would enter BIOS/UEFI setup rather than simply booting into the operating system?","opts":["To change the desktop wallpaper","To adjust the boot device order","To install a word processor","To defragment the hard drive"],"correct":1},{"q":"What capability does UEFI provide that legacy BIOS generally does not?","opts":["Support for boot drives larger than 2 TB","The ability to run without any firmware at all","Automatic virus removal","Direct control of the electrical utility company's power grid"],"correct":0},{"q":"Secure Boot, a feature commonly found in UEFI firmware, is primarily designed to do what?","opts":["Prevent unsigned or unauthorized bootloaders from running","Encrypt all files on the hard drive automatically","Speed up the operating system's shutdown process","Back up user data to the cloud"],"correct":0},{"q":"A workstation needs full-disk encryption enabled through BitLocker, but the option is grayed out. What hardware component is most likely missing or disabled?","opts":["The GPU","The TPM","The sound card","The optical drive"],"correct":1},{"q":"An organization's certificate authority stores its root signing keys on a dedicated appliance rather than a general-purpose server. What kind of device is this?","opts":["An HSM","A NAS","A KVM switch","A UPS"],"correct":0},{"q":"Which of the following would most directly indicate a motherboard is failing POST due to a memory issue, before video initializes?","opts":["A silent, completely black screen with fans spinning normally and no beeps at all","A specific repeating beep code pattern from the system speaker","An operating system update notification","A printer error message"],"correct":1},{"q":"What is the primary function of a motherboard's onboard diagnostic LED or two-digit hex display, if present?","opts":["To show the current CPU temperature only","To display a code corresponding to the current stage of POST, useful when troubleshooting a no-boot system","To indicate Wi-Fi signal strength","To show how much storage space remains"],"correct":1},{"q":"Which best explains why case fan direction (intake vs. exhaust) matters for a build's overall cooling performance?","opts":["It has no real effect on cooling","Consistent airflow direction establishes positive pressure and predictable heat exhaust; mismatched fans can create turbulence and hot spots","Fan direction only matters for RGB lighting effects","Reversed fans always destroy the motherboard immediately"],"correct":1},{"q":"A CPU cooler's mounting bracket is designed for a specific range of sockets. What happens if a technician attempts to use an incompatible bracket?","opts":["It always works fine regardless of socket","The cooler may not seat with even, sufficient pressure, leading to poor thermal contact","The CPU will run faster","The motherboard automatically adapts its socket shape"],"correct":1},{"q":"Which cooling method is generally the quietest and has the fewest moving parts, at the cost of lower maximum thermal capacity?","opts":["Liquid cooling with a pump","A large passive heat sink with no fan","A high-RPM case fan array","A dual-tower air cooler with two fans"],"correct":1},{"q":"What is the primary reason thermal pads, rather than paste, are often used on components like VRMs and M.2 drives?","opts":["Pads are cheaper than paste in all cases","Pads bridge larger, uneven gaps between a component and its heat spreader more reliably than a thin paste layer would","Pads conduct electricity better than paste","Paste cannot be used on any component except the CPU"],"correct":1},{"q":"A motherboard's expansion slot is labeled 'x16 physical, x1 electrical.' What does this actually mean for a card installed there?","opts":["The card will run at full x16 bandwidth regardless","The card physically fits but is limited to the bandwidth of a single lane","The slot will refuse to power on","This labeling does not exist in real motherboards"],"correct":1},{"q":"Which statement correctly compares Intel and AMD desktop CPU sockets?","opts":["They are fully interchangeable across brands","They use different physical socket designs and are not cross-compatible","AMD sockets only work with laptop motherboards","Intel sockets accept both Intel and AMD chips"],"correct":1},{"q":"What does it mean when a motherboard manual describes a CPU as being on the board's supported CPU list?","opts":["Any CPU with the correct socket will work regardless of the list","The board's firmware has been tested and, if needed, updated to correctly recognize that specific CPU model","The list is purely a marketing suggestion with no technical meaning","Only CPUs on the list will physically fit the socket"],"correct":1},{"q":"A brand-new CPU fails to POST on an older motherboard, even though the socket physically matches. What is a likely explanation?","opts":["The board's firmware needs a BIOS/UEFI update to recognize the newer CPU","The CPU is defective in all cases","The RAM must be the wrong color","BIOS updates are never required for CPU compatibility"],"correct":0},{"q":"Which of these best describes the role of the Northbridge/Southbridge design in older chipset architectures?","opts":["They had nothing to do with data flow between components","They managed communication between the CPU, memory, and various peripherals, a role now largely consolidated into modern single-chip designs","They were only used for cooling","They controlled only the monitor's brightness"],"correct":1},{"q":"What is a practical reason a technician would check a motherboard's supported RAM speed list before purchasing memory?","opts":["RAM speed has no effect on stability","Installing RAM rated faster than the board officially supports can still work, but may not run at its rated speed without manual configuration","Unsupported RAM speeds always immediately destroy the motherboard","Motherboards refuse to boot with any RAM not on the list"],"correct":1},{"q":"Which of the following is most likely to prevent a system from powering on at all, distinct from a POST failure?","opts":["A missing GPU driver","A completely disconnected or miswired front panel power switch header","An outdated web browser","A full hard drive"],"correct":1},{"q":"A technician notices the CPU fan header on a motherboard is unused, with the cooler's fan instead plugged into a case fan header. What risk does this create?","opts":["None; header choice never matters","The motherboard may not properly monitor and respond to CPU temperature by adjusting that specific fan's speed","The CPU will run at double speed","The board will refuse to boot entirely"],"correct":1},{"q":"What is the general purpose of applying thermal paste evenly rather than in one large glob in the center only?","opts":["Even coverage helps ensure consistent contact and heat transfer across the entire CPU surface, not just the center","Thermal paste placement has no effect on cooling","A single glob always distributes itself perfectly on its own","Even application only matters for laptop CPUs"],"correct":0},{"q":"Which best describes what 'lane bifurcation' allows a PCIe slot to do?","opts":["Split a single physical slot's lanes to support multiple devices simultaneously, such as several NVMe drives on one adapter card","Permanently disable half the slot's lanes","Convert PCIe lanes into USB ports","Double the slot's physical length"],"correct":0},{"q":"A technician needs to identify whether a given motherboard uses UEFI or legacy BIOS. Which is the most reliable way to check?","opts":["Guess based on the case color","Enter the firmware setup screen and look for a UEFI-style graphical interface and mouse support","Assume all motherboards from any era are UEFI","Check the power supply's wattage rating"],"correct":1},{"q":"Which of these motherboard headers, if connected backward or to the wrong pins, is most likely to prevent the reset button from functioning correctly, without otherwise stopping the system from booting?","opts":["The 24-pin ATX connector","The front panel reset switch pins specifically, as opposed to the power switch pins","The CPU fan header","The SATA data cable"],"correct":1},{"q":"What is the main advantage of a modular power supply from a motherboard/case-building perspective, even though it is a PSU feature rather than a motherboard one?","opts":["It has no relevance to motherboard installation","Only the cables actually needed are connected, improving airflow and cable management around the motherboard","It doubles the number of expansion slots available","It eliminates the need for a CPU cooler"],"correct":1},{"q":"A technician wants to confirm whether a specific motherboard supports NVMe boot drives before purchase. What should they check?","opts":["The case's paint color","Whether the board has an M.2 slot wired for PCIe (not just SATA) lanes","The keyboard's connector type","The monitor's refresh rate"],"correct":1},{"q":"According to CompTIA's troubleshooting methodology, what should a technician do before making any changes to a system during the identify-the-problem step?","opts":["Immediately reinstall the operating system","Back up critical data if at all possible","Replace the most expensive component first","Skip straight to documentation"],"correct":1},{"q":"A technician forms a theory about a system's fault, tests it, and finds the theory does not hold. What should happen next, per the methodology?","opts":["Give up and escalate immediately without further diagnosis","Establish a new theory or escalate if needed","Skip directly to documentation","Reinstall the operating system regardless of the actual cause"],"correct":1},{"q":"Why does the troubleshooting methodology explicitly separate 'establish a plan of action' from 'test the theory'?","opts":["They are the same step under two different names","Confirming the cause is different from deciding how to safely fix it, including anticipating side effects","The plan of action always comes before identifying the problem","Plans of action are optional and rarely used"],"correct":1},{"q":"A technician fixes a customer's issue but skips verifying full system functionality afterward. What risk does this create?","opts":["None; verification is purely optional paperwork","A related or secondary problem could go unnoticed until the customer discovers it later","The fix will automatically undo itself","Verification only matters for network issues"],"correct":1},{"q":"A system exhibits a symptom that matches several possible causes equally well. What does the methodology suggest doing first when establishing a theory?","opts":["Test the most expensive and complex cause first","Start with the most probable and easiest-to-test cause","Randomly pick any cause","Replace every component simultaneously"],"correct":1},{"q":"A computer that previously worked fine suddenly won't boot after a thunderstorm caused a brief power flicker. What should the technician suspect and check first?","opts":["A corrupted web browser","Damage to the power supply or motherboard from the power event","A missing printer driver","An expired software license"],"correct":1},{"q":"A system boots fine but randomly reboots only when running graphically demanding applications. What is a reasonable early theory to test?","opts":["A failing keyboard","Insufficient PSU capacity or GPU overheating under load","A slow internet connection","An outdated web browser bookmark"],"correct":1},{"q":"A desktop won't power on, and the technician confirms the wall outlet, power cable, and PSU switch are all fine. What should be checked next?","opts":["The monitor's brightness setting","The front panel power switch connection at the motherboard header","The printer's ink level","The Wi-Fi password"],"correct":1},{"q":"A system posts and boots normally but reports less total RAM than what is physically installed. What is a reasonable first theory?","opts":["The hard drive is failing","A memory module is not fully seated or is faulty, or the OS is 32-bit and address-limited","The keyboard is unplugged","The monitor cable is loose"],"correct":1},{"q":"A user reports their PC randomly shuts down only during warm afternoons in a room without air conditioning. What is the most likely category of cause?","opts":["Software licensing expiration","Thermal shutdown protection triggered by inadequate cooling in a warm environment","A corrupted user profile","A weak Wi-Fi signal"],"correct":1},{"q":"After replacing a suspected faulty stick of RAM, the system still exhibits the exact same symptom. According to the methodology, what should happen next?","opts":["Assume the problem is unsolvable and stop troubleshooting","Reconsider the theory of probable cause, since the test did not confirm it","Document success even though the symptom persists","Replace the monitor instead, unrelated to the original symptom"],"correct":1},{"q":"A technician replaces a component, and the original symptom disappears, but a new, different symptom now appears. What should happen per the methodology?","opts":["Consider the job done since the original symptom is gone","Continue troubleshooting and verify full system functionality before considering it resolved","Immediately reverse the entire repair, including successful steps","Document nothing, since the visit isn't technically finished"],"correct":1},{"q":"Which best describes why documentation is considered a required step rather than an optional courtesy?","opts":["It has no practical use beyond paperwork","It preserves the diagnostic path for future reference, saving time on a repeat issue or for another technician","It is only required for hardware issues, never software","It replaces the need to actually test a theory"],"correct":1},{"q":"A power supply is suspected of intermittently failing under load. What is a reasonable, methodology-consistent way to test this theory?","opts":["Immediately discard the PSU without testing","Swap in a known-good PSU of adequate wattage and observe whether the symptom recurs","Replace the monitor instead","Reinstall the operating system without touching hardware"],"correct":1},{"q":"A system won't POST, and the technician has already reseated RAM and the GPU with no change. What is a reasonable next step in the methodology?","opts":["Give up and order a full replacement system immediately","Continue narrowing the theory, such as testing with minimal components (CPU, one RAM stick, no add-in cards)","Assume the problem is the monitor and stop checking internal hardware","Skip to documentation without resolving anything"],"correct":1},{"q":"Which of the following symptoms would most specifically suggest a motherboard capacitor issue rather than a simple loose connection?","opts":["Visibly bulging or leaking capacitors alongside intermittent instability","A missing mouse cursor","A slow web browser","A dim monitor backlight"],"correct":0},{"q":"A system intermittently fails to detect a specific SATA drive, though the drive works fine in another machine. What should be checked first on the original system?","opts":["The monitor's resolution setting","The SATA data and power cable connections, and possibly the SATA port itself","The keyboard layout","The wireless network adapter"],"correct":1},{"q":"Why is 'question the obvious' considered a useful early step when establishing a theory of probable cause?","opts":["Obvious causes are always wrong and should be ignored","Simple, common causes are statistically more frequent than rare ones and are quick to rule out","It is required by law before any repair","It replaces the need for any further testing"],"correct":1},{"q":"A user's PC randomly restarts, and Event Viewer logs show critical errors tied to power loss events rather than software crashes. What does this evidence point toward?","opts":["A corrupted spreadsheet file","A hardware-level power issue rather than a software fault","A weak Wi-Fi signal","An expired antivirus subscription"],"correct":1},{"q":"A technician is asked to fix a computer that won't boot, but is not told what changed before the failure. What is the most useful first question to ask the user?","opts":["What is your favorite color?","What were you doing, or what changed, right before this started happening?","Do you like this brand of computer?","How long have you worked here?"],"correct":1},{"q":"A system randomly freezes only when a specific USB device is connected. What kind of theory does this symptom pattern support?","opts":["A completely unrelated printer issue","A driver conflict or power draw issue tied specifically to that USB device","A failing monitor","A weak internet connection"],"correct":1},{"q":"Which best describes 'escalate if appropriate' within the troubleshooting methodology?","opts":["It means giving up on the problem entirely","It means passing the issue to someone with more expertise, parts access, or authority when the current technician's testing has been exhausted","It is a mandatory first step before any diagnosis","It only applies to network issues"],"correct":1},{"q":"A desktop that has been recently moved to a new office now exhibits intermittent shutdowns. What environmental factor is reasonable to investigate first?","opts":["The color of the new office walls","Whether the new outlet or power strip provides stable, adequate power","The new office's Wi-Fi password","The new office's chair height"],"correct":1},{"q":"A technician replaces a failed component and confirms the original symptom is gone. What is the final required step before closing the ticket?","opts":["Nothing further is required once the symptom disappears","Document the findings, actions taken, and outcomes","Immediately reinstall the operating system regardless of outcome","Charge for a second visit before finishing"],"correct":1},{"q":"Which of these is the best example of testing a theory, rather than simply guessing at a fix?","opts":["Replacing a part and hoping for the best without further checks","Swapping a suspected faulty RAM module into a known-good system to see if the symptom follows the module","Ignoring the symptom and hoping it resolves itself","Reinstalling the operating system with no other changes"],"correct":1},{"q":"A computer boots but the date and time are incorrect every single time it is powered on, even right after being corrected. What should be suspected?","opts":["A failing graphics card","A dead or dying CMOS battery","A missing printer driver","A corrupted user password"],"correct":1},{"q":"Why might a technician deliberately choose to isolate variables one at a time (e.g., testing with one RAM stick, then another) rather than changing several things simultaneously?","opts":["It saves no time or clarity compared to changing everything at once","Changing one variable at a time makes it possible to identify exactly which component is actually responsible for the symptom","It is required only for software issues","It has no diagnostic value"],"correct":1},{"q":"A customer insists their computer 'just broke for no reason' before the technician has gathered any information. What is the appropriate methodology-consistent response?","opts":["Accept that claim immediately and skip further questioning","Politely continue gathering specific details, since something usually did change even if the user isn't aware of it","Refuse to work on the system at all","Immediately replace the motherboard without further diagnosis"],"correct":1},{"q":"Which of these best describes RAM's defining characteristic compared to storage like an SSD or HDD?","opts":["RAM retains data indefinitely without power","RAM is volatile and loses its contents when power is removed","RAM is always slower than a mechanical hard drive","RAM and storage are technically identical"],"correct":1},{"q":"A desktop's motherboard manual specifies DDR4 memory only. What happens if a technician attempts to install a DDR5 module?","opts":["It will work fine after a firmware update","The module's notch position will not align with a DDR4 slot, physically preventing installation","DDR5 automatically downgrades itself to DDR4 speeds","There is no physical difference between DDR generations"],"correct":1},{"q":"Which memory feature is most associated with server environments where undetected data corruption would be unacceptable?","opts":["RGB lighting on the memory modules","ECC error correction","Higher clock speed alone","A larger physical heat spreader"],"correct":1},{"q":"What is the key limitation of parity memory compared to ECC memory?","opts":["Parity memory can detect an error but cannot correct it","Parity memory is always faster than ECC","Parity memory cannot be installed in any desktop","Parity and ECC are functionally identical"],"correct":0},{"q":"A technician installs two memory modules of different capacities in a motherboard's matched dual-channel slot pair. What is the likely result?","opts":["The system will refuse to boot under all circumstances","The system will typically still boot, but may not achieve full dual-channel performance benefits","The mismatched capacity will destroy the motherboard","Both modules will automatically resize themselves to match"],"correct":1},{"q":"Which best explains why SO-DIMM modules exist as a separate standard from full-size DIMMs?","opts":["They offer no real difference from DIMMs","They are physically shorter to fit the space constraints of laptops and small-form-factor devices","They are exclusively used in server racks","They use an entirely different, non-electrical connection method"],"correct":1},{"q":"A system is populated with four memory modules across four channel-designated slots, all matched in capacity and speed. What memory configuration does this most likely represent?","opts":["Single-channel","Quad-channel","No channel configuration exists with four slots","Dual-channel only, since four is not a valid channel count"],"correct":1},{"q":"What is the most direct consequence of installing memory that runs at a speed the motherboard does not officially support, without further configuration?","opts":["The system always refuses to boot","The memory will typically operate, but may run at a lower, more conservative speed than its rated maximum","The motherboard automatically overclocks the CPU to compensate","The memory permanently loses capacity"],"correct":1},{"q":"Which best describes why DDR generations are not backward or forward compatible with each other's slots?","opts":["Manufacturers add the incompatibility purely for marketing reasons with no technical basis","Each generation uses different voltage requirements and a different notch position, which are deliberately incompatible for protection","All DDR generations are actually fully interchangeable","Only the color of the module differs between generations"],"correct":1},{"q":"A technician wants to maximize memory bandwidth on a motherboard that supports dual-channel operation. What installation approach should they use?","opts":["Install a single large module in any available slot","Install matched module pairs in the motherboard's designated channel-pair slots","Install modules of differing generations together","Channel configuration cannot be influenced by slot placement"],"correct":1},{"q":"What is the practical effect of a memory module not being fully seated in its slot?","opts":["The system will always run normally with no issues","The system may fail to POST, may report reduced memory, or may be unstable","The module will automatically reseat itself over time","Partial seating only affects storage, not memory"],"correct":1},{"q":"Why is memory generally considered the first place to check when a system reports significantly less total capacity than what is physically installed?","opts":["Memory issues are statistically rare and unlikely to be the cause","Seating problems, module failure, or 32-bit OS addressing limits are common, easily checked causes of this exact symptom","This symptom is always caused by a bad monitor cable","This symptom cannot be caused by memory under any circumstance"],"correct":1},{"q":"A workstation intended for professional 3D rendering benefits most from which memory characteristic, generally speaking?","opts":["The physical color of the memory heat spreader","Higher total capacity and adequate speed/channel configuration to handle large datasets","The absence of any heat spreader at all","Using the oldest available DDR generation"],"correct":1},{"q":"What is the relationship between memory channel count and the number of physical slots required?","opts":["Channel configuration requires more physical slots than channels used (e.g., quad-channel typically needs at least four slots populated correctly)","Channel count has no relationship to slot count whatsoever","A single slot can independently provide quad-channel performance","Channel configuration is set entirely by the CPU regardless of slots used"],"correct":0},{"q":"Which best describes why ECC memory is uncommon in mainstream consumer desktops despite its reliability benefit?","opts":["ECC memory is illegal for consumer use","It typically costs more and requires both CPU and motherboard support that many consumer platforms don't include","ECC memory physically cannot fit in any desktop case","Consumer CPUs are incapable of using any RAM at all"],"correct":1},{"q":"A technician upgrading a laptop's memory needs to identify the correct module type before ordering. Which detail matters most?","opts":["The laptop's paint color","Whether the laptop uses SO-DIMM and which DDR generation and speed it supports","The laptop's screen resolution","The laptop's battery capacity"],"correct":1},{"q":"Which voltage rail on a standard ATX power supply typically carries the heaviest load, feeding components like the CPU and GPU?","opts":["+3.3 V","+5 V","+12 V","+24 V"],"correct":2},{"q":"A power supply's wattage rating describes what, specifically?","opts":["Its physical weight","Its maximum total output capacity across all rails combined","Its noise level in decibels","Its warranty length in years"],"correct":1},{"q":"Why would a technician deliberately choose a power supply rated somewhat above a system's calculated power draw, rather than exactly at it?","opts":["Headroom provides margin for peak loads and future upgrades without running the PSU at its absolute maximum constantly","Oversizing a PSU always damages connected components","PSU wattage has no relationship to system stability","Undersizing is always safer than oversizing"],"correct":0},{"q":"What does a fully modular power supply allow a builder to do that a non-modular unit does not?","opts":["Change the PSU's total wattage after purchase","Detach and omit cables that are not needed for a specific build, improving cable management","Run without any cables at all","Automatically match any motherboard form factor"],"correct":1},{"q":"A technician is installing a PSU in a country with a different mains voltage standard than where the unit was originally sold. What must be verified first?","opts":["The color of the PSU casing","That the input voltage selector, if present, is set correctly for the local supply","The PSU's country of manufacture","The PSU's fan noise rating"],"correct":1},{"q":"Which best describes what an 80 PLUS certification actually measures?","opts":["The PSU's maximum wattage output","How efficiently the PSU converts input AC power to usable DC power, minimizing wasted heat","The number of cables included with the PSU","The PSU's physical dimensions"],"correct":1},{"q":"A server rack is designed so that if one power supply fails, a second unit immediately keeps the equipment running. What is this design called?","opts":["Modular power","Redundant power","Passive power","Single-rail power"],"correct":1},{"q":"Which PSU connector is specifically used to provide supplemental power directly to a high-end graphics card, separate from the main motherboard connector?","opts":["The 24-pin ATX connector","A 6-pin or 8-pin PCIe power connector","A SATA data cable","A USB header cable"],"correct":1},{"q":"What is the most likely symptom of a power supply that is undersized for a system's actual peak power demand?","opts":["Perfectly stable operation under all conditions","Random shutdowns or instability specifically under heavy load","Improved battery life","Faster boot times"],"correct":1},{"q":"Why should a technician never attempt to open and repair a failed power supply themselves, even if comfortable with basic electronics?","opts":["It is not actually dangerous, just against typical company policy","Internal capacitors can retain a lethal electrical charge even after the unit is unplugged","PSUs contain no electrical components at all","Opening a PSU voids only the case warranty, nothing else"],"correct":1},{"q":"A power supply provides standby voltage to the motherboard even when the system appears fully powered off via the front panel switch. What does this allow?","opts":["Nothing; standby power serves no functional purpose","Features like Wake-on-LAN and quick power-on response, since part of the board remains lightly powered","The PSU to run at zero watts at all times","The CPU to run continuously at full load while off"],"correct":1},{"q":"Which best explains why a technician should physically unplug a system from the wall, rather than relying on the front-panel power switch alone, before opening the case?","opts":["The front panel switch fully removes all power in every design","Many PSUs still supply some standby power to the board even when switched off at the front panel; unplugging removes power entirely","Unplugging is a purely symbolic, non-technical precaution","The front panel switch controls only the monitor, not the PC"],"correct":1},{"q":"A technician is comparing two power supplies with identical wattage but different 80 PLUS tiers (Bronze vs. Gold). What is the most accurate practical difference?","opts":["The Gold unit can output significantly more total wattage","The Gold unit wastes less power as heat, running more efficiently at the same load","The tiers only affect the color of the PSU casing","There is no real difference between tiers"],"correct":1},{"q":"What is the primary purpose of the +3.3 V and +5 V rails on an ATX power supply, relative to the +12 V rail?","opts":["They power lower-current logic circuits and legacy peripherals, while +12 V typically handles higher-power components","They serve no distinct purpose from +12 V","They exist only for backward compatibility and are never actually used","They exclusively power the case fans"],"correct":0},{"q":"A business wants to protect a critical server from both brief power outages and voltage fluctuations. What device provides this protection, distinct from the power supply itself?","opts":["A UPS (uninterruptible power supply)","An additional case fan","A second monitor","A larger CPU cooler"],"correct":0},{"q":"Which best describes the risk of setting a PSU's voltage selector switch to the wrong regional setting before powering on?","opts":["There is no real risk; the switch is purely cosmetic","It can permanently damage the power supply and any connected components","It only slightly reduces fan speed","It automatically corrects itself on first boot"],"correct":1}];
+                let QUESTIONS = [];
+                let answers = [];
+
+                function drawSet() {
+                    const shuffled = POOL.slice().sort(() => Math.random() - 0.5);
+                    QUESTIONS = shuffled.slice(0, 20);
+                    answers = new Array(QUESTIONS.length).fill(null);
+                }
+
+                function renderQuiz() {
+                    const area = document.getElementById('quizArea');
+                    area.innerHTML = QUESTIONS.map((item, qi) => {
+                        const opts = item.opts.map((opt, oi) =>
+                            `<button type="button" class="answer-option" data-qi="${qi}" data-oi="${oi}" onclick="selectAnswer(${qi}, ${oi})">${opt}</button>`
+                        ).join('');
+                        return `<div class="question-block">
+                            <div class="question-number">Question ${qi + 1} of ${QUESTIONS.length}</div>
+                            <p class="question-text">${item.q}</p>
+                            ${opts}
+                        </div>`;
+                    }).join('');
+                }
+
+                function selectAnswer(qi, oi) {
+                    answers[qi] = oi;
+                    document.querySelectorAll(`[data-qi="${qi}"]`).forEach(btn => {
+                        btn.classList.remove('selected');
+                        if (parseInt(btn.dataset.oi) === oi) btn.classList.add('selected');
+                    });
+                }
+
+                function gradeQuiz() {
+                    if (answers.includes(null)) {
+                        alert('Answer all 20 questions before grading.');
+                        return;
+                    }
+                    let score = 0;
+                    QUESTIONS.forEach((item, qi) => {
+                        const correct = item.correct;
+                        document.querySelectorAll(`[data-qi="${qi}"]`).forEach(btn => {
+                            const oi = parseInt(btn.dataset.oi);
+                            btn.classList.remove('selected');
+                            if (oi === correct) btn.classList.add('correct');
+                            else if (oi === answers[qi]) btn.classList.add('incorrect');
+                        });
+                        if (answers[qi] === correct) score++;
+                    });
+                    document.getElementById('scoreDisplay').textContent = score + ' / ' + QUESTIONS.length;
+                    const note = document.getElementById('scoreNote');
+                    if (score >= 16) note.textContent = 'Strong result. Review any missed items, then you are done.';
+                    else if (score >= 12) note.textContent = 'A passing-range result. Review your missed questions closely before moving on.';
+                    else note.textContent = 'Below where you want to be for exam day. Revisit 1.3 and 1.4 for the topics you missed, then try again.';
+                    document.getElementById('quizResults').style.display = 'block';
+                    document.getElementById('quizResults').scrollIntoView({behavior: 'smooth'});
+                }
+
+                function resetQuiz() {
+                    document.getElementById('quizResults').style.display = 'none';
+                    drawSet();
+                    renderQuiz();
+                }
+
+                drawSet();
+                renderQuiz();
+            </script>
 
         </div>
 
@@ -402,472 +343,5 @@
             <p class="footer-text">CompTIA A+ Core 1 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
         </footer>
     </div>
-
-    <script>
-        /* Unit 1 Exam question source. 20 questions are presented per attempt,
-   weighted across this unit's objectives (3.5, 5.1, 3.3, 3.6). */
-
-const QUESTION_POOL = [
-
-// ===================== 3.5 (40 questions) =====================
-{obj:"3.5", text:"Which motherboard form factor is most likely to be found in a full-size gaming or workstation desktop with several add-in cards installed?",
- options:[{text:"Mini-ITX", correct:false},{text:"ATX", correct:true},{text:"SO-DIMM", correct:false},{text:"BTX", correct:false}]},
-
-{obj:"3.5", text:"A technician is choosing a motherboard for a client who wants the most expansion slots possible in a standard desktop tower. Which form factor should they recommend?",
- options:[{text:"Mini-ITX", correct:false},{text:"microATX", correct:false},{text:"ATX", correct:true},{text:"SO-DIMM", correct:false}]},
-
-{obj:"3.5", text:"Why can a Mini-ITX motherboard usually be installed in an ATX-rated case, but not the reverse?",
- options:[{text:"Mini-ITX boards use a completely different power connector", correct:false},{text:"Smaller form factors are a physical subset of the larger ones, so their mounting holes and I/O cutout line up", correct:true},{text:"ATX cases include a built-in size adapter", correct:false},{text:"There is no real restriction either direction", correct:false}]},
-
-{obj:"3.5", text:"A PCIe x1 slot would most typically be used for which of the following?",
- options:[{text:"A high-end graphics card", correct:false},{text:"A sound card or basic network adapter", correct:true},{text:"An NVMe SSD adapter requiring maximum bandwidth", correct:false},{text:"A dual-CPU riser", correct:false}]},
-
-{obj:"3.5", text:"What generally happens to available bandwidth as PCIe generations increase (e.g., Gen 3 to Gen 4) at the same lane count?",
- options:[{text:"It stays exactly the same", correct:false},{text:"It decreases due to added overhead", correct:false},{text:"It roughly doubles per lane", correct:true},{text:"Lane count becomes irrelevant", correct:false}]},
-
-{obj:"3.5", text:"A PCIe Gen 4 card is installed in a PCIe Gen 3 slot. What is the most accurate outcome?",
- options:[{text:"The card will not function at all", correct:false},{text:"The card will run, but at the lower Gen 3 speed", correct:true},{text:"The motherboard will be physically damaged", correct:false},{text:"The slot will automatically upgrade itself to Gen 4", correct:false}]},
-
-{obj:"3.5", text:"What is the legacy parallel expansion standard that PCI itself eventually replaced in most desktop systems?",
- options:[{text:"ISA", correct:true},{text:"SATA", correct:false},{text:"USB", correct:false},{text:"DisplayPort", correct:false}]},
-
-{obj:"3.5", text:"Which best describes the relationship between a motherboard's chipset and its CPU compatibility?",
- options:[{text:"Chipsets are universal and work with any CPU brand", correct:false},{text:"The chipset, together with the socket, determines which CPUs a board supports", correct:true},{text:"CPU compatibility is determined entirely by the case, not the motherboard", correct:false},{text:"Chipsets only affect storage speed, not CPU compatibility", correct:false}]},
-
-{obj:"3.5", text:"A server motherboard is most likely to differ from a consumer desktop board in which of these ways?",
- options:[{text:"It supports only a single expansion slot", correct:false},{text:"It typically supports multiple CPU sockets and far more memory slots", correct:true},{text:"It cannot use ECC memory", correct:false},{text:"It is always smaller than a Mini-ITX board", correct:false}]},
-
-{obj:"3.5", text:"Which motherboard connector is specifically dedicated to supplying additional power directly to the CPU, separate from the main board power?",
- options:[{text:"The 24-pin ATX connector", correct:false},{text:"The 4-pin or 8-pin EPS connector", correct:true},{text:"The SATA power connector", correct:false},{text:"The front panel header", correct:false}]},
-
-{obj:"3.5", text:"What is the general purpose of the small pin headers on a motherboard labeled for USB and audio?",
- options:[{text:"They connect the front-panel USB ports and audio jacks on the case to the motherboard", correct:true},{text:"They control the boot order", correct:false},{text:"They regulate CPU voltage", correct:false},{text:"They are only used for diagnostic testing at the factory", correct:false}]},
-
-{obj:"3.5", text:"A 64-bit CPU is installed in a system running a 32-bit operating system. What is the practical result?",
- options:[{text:"The system will not boot at all", correct:false},{text:"The OS will run, but the system cannot take advantage of 64-bit addressing", correct:true},{text:"The CPU will automatically convert itself to 32-bit mode permanently", correct:false},{text:"The motherboard will be damaged", correct:false}]},
-
-{obj:"3.5", text:"What best describes an ARM-based processor compared to a traditional x86/x64 processor?",
- options:[{text:"ARM chips use an entirely different, generally more power-efficient instruction set architecture", correct:true},{text:"ARM is just a rebranded version of x86", correct:false},{text:"ARM processors cannot be used in any consumer device", correct:false},{text:"ARM and x86 are fully interchangeable in the same socket", correct:false}]},
-
-{obj:"3.5", text:"Which CPU characteristic most directly indicates how many independent tasks a processor can truly execute simultaneously, distinct from multithreading?",
- options:[{text:"Clock speed", correct:false},{text:"Core count", correct:true},{text:"Cache size", correct:false},{text:"Socket type", correct:false}]},
-
-{obj:"3.5", text:"A technician wants to install a Type 1 hypervisor on a server but discovers virtualization fails to enable. What is the most likely firmware-level cause?",
- options:[{text:"The BIOS/UEFI has virtualization extensions (VT-x/AMD-V) disabled", correct:true},{text:"The CPU physically lacks any cores", correct:false},{text:"The RAM is the wrong DDR generation", correct:false},{text:"The PSU wattage is too low", correct:false}]},
-
-{obj:"3.5", text:"Which of these is a common reason a technician would enter BIOS/UEFI setup rather than simply booting into the operating system?",
- options:[{text:"To change the desktop wallpaper", correct:false},{text:"To adjust the boot device order", correct:true},{text:"To install a word processor", correct:false},{text:"To defragment the hard drive", correct:false}]},
-
-{obj:"3.5", text:"What capability does UEFI provide that legacy BIOS generally does not?",
- options:[{text:"Support for boot drives larger than 2 TB", correct:true},{text:"The ability to run without any firmware at all", correct:false},{text:"Automatic virus removal", correct:false},{text:"Direct control of the electrical utility company's power grid", correct:false}]},
-
-{obj:"3.5", text:"Secure Boot, a feature commonly found in UEFI firmware, is primarily designed to do what?",
- options:[{text:"Prevent unsigned or unauthorized bootloaders from running", correct:true},{text:"Encrypt all files on the hard drive automatically", correct:false},{text:"Speed up the operating system's shutdown process", correct:false},{text:"Back up user data to the cloud", correct:false}]},
-
-{obj:"3.5", text:"A workstation needs full-disk encryption enabled through BitLocker, but the option is grayed out. What hardware component is most likely missing or disabled?",
- options:[{text:"The GPU", correct:false},{text:"The TPM", correct:true},{text:"The sound card", correct:false},{text:"The optical drive", correct:false}]},
-
-{obj:"3.5", text:"An organization's certificate authority stores its root signing keys on a dedicated appliance rather than a general-purpose server. What kind of device is this?",
- options:[{text:"An HSM", correct:true},{text:"A NAS", correct:false},{text:"A KVM switch", correct:false},{text:"A UPS", correct:false}]},
-
-{obj:"3.5", text:"Which of the following would most directly indicate a motherboard is failing POST due to a memory issue, before video initializes?",
- options:[{text:"A silent, completely black screen with fans spinning normally and no beeps at all", correct:false},{text:"A specific repeating beep code pattern from the system speaker", correct:true},{text:"An operating system update notification", correct:false},{text:"A printer error message", correct:false}]},
-
-{obj:"3.5", text:"What is the primary function of a motherboard's onboard diagnostic LED or two-digit hex display, if present?",
- options:[{text:"To show the current CPU temperature only", correct:false},{text:"To display a code corresponding to the current stage of POST, useful when troubleshooting a no-boot system", correct:true},{text:"To indicate Wi-Fi signal strength", correct:false},{text:"To show how much storage space remains", correct:false}]},
-
-{obj:"3.5", text:"Which best explains why case fan direction (intake vs. exhaust) matters for a build's overall cooling performance?",
- options:[{text:"It has no real effect on cooling", correct:false},{text:"Consistent airflow direction establishes positive pressure and predictable heat exhaust; mismatched fans can create turbulence and hot spots", correct:true},{text:"Fan direction only matters for RGB lighting effects", correct:false},{text:"Reversed fans always destroy the motherboard immediately", correct:false}]},
-
-{obj:"3.5", text:"A CPU cooler's mounting bracket is designed for a specific range of sockets. What happens if a technician attempts to use an incompatible bracket?",
- options:[{text:"It always works fine regardless of socket", correct:false},{text:"The cooler may not seat with even, sufficient pressure, leading to poor thermal contact", correct:true},{text:"The CPU will run faster", correct:false},{text:"The motherboard automatically adapts its socket shape", correct:false}]},
-
-{obj:"3.5", text:"Which cooling method is generally the quietest and has the fewest moving parts, at the cost of lower maximum thermal capacity?",
- options:[{text:"Liquid cooling with a pump", correct:false},{text:"A large passive heat sink with no fan", correct:true},{text:"A high-RPM case fan array", correct:false},{text:"A dual-tower air cooler with two fans", correct:false}]},
-
-{obj:"3.5", text:"What is the primary reason thermal pads, rather than paste, are often used on components like VRMs and M.2 drives?",
- options:[{text:"Pads are cheaper than paste in all cases", correct:false},{text:"Pads bridge larger, uneven gaps between a component and its heat spreader more reliably than a thin paste layer would", correct:true},{text:"Pads conduct electricity better than paste", correct:false},{text:"Paste cannot be used on any component except the CPU", correct:false}]},
-
-{obj:"3.5", text:"A motherboard's expansion slot is labeled 'x16 physical, x1 electrical.' What does this actually mean for a card installed there?",
- options:[{text:"The card will run at full x16 bandwidth regardless", correct:false},{text:"The card physically fits but is limited to the bandwidth of a single lane", correct:true},{text:"The slot will refuse to power on", correct:false},{text:"This labeling does not exist in real motherboards", correct:false}]},
-
-{obj:"3.5", text:"Which statement correctly compares Intel and AMD desktop CPU sockets?",
- options:[{text:"They are fully interchangeable across brands", correct:false},{text:"They use different physical socket designs and are not cross-compatible", correct:true},{text:"AMD sockets only work with laptop motherboards", correct:false},{text:"Intel sockets accept both Intel and AMD chips", correct:false}]},
-
-{obj:"3.5", text:"What does it mean when a motherboard manual describes a CPU as being on the board's supported CPU list?",
- options:[{text:"Any CPU with the correct socket will work regardless of the list", correct:false},{text:"The board's firmware has been tested and, if needed, updated to correctly recognize that specific CPU model", correct:true},{text:"The list is purely a marketing suggestion with no technical meaning", correct:false},{text:"Only CPUs on the list will physically fit the socket", correct:false}]},
-
-{obj:"3.5", text:"A brand-new CPU fails to POST on an older motherboard, even though the socket physically matches. What is a likely explanation?",
- options:[{text:"The board's firmware needs a BIOS/UEFI update to recognize the newer CPU", correct:true},{text:"The CPU is defective in all cases", correct:false},{text:"The RAM must be the wrong color", correct:false},{text:"BIOS updates are never required for CPU compatibility", correct:false}]},
-
-{obj:"3.5", text:"Which of these best describes the role of the Northbridge/Southbridge design in older chipset architectures?",
- options:[{text:"They had nothing to do with data flow between components", correct:false},{text:"They managed communication between the CPU, memory, and various peripherals, a role now largely consolidated into modern single-chip designs", correct:true},{text:"They were only used for cooling", correct:false},{text:"They controlled only the monitor's brightness", correct:false}]},
-
-{obj:"3.5", text:"What is a practical reason a technician would check a motherboard's supported RAM speed list before purchasing memory?",
- options:[{text:"RAM speed has no effect on stability", correct:false},{text:"Installing RAM rated faster than the board officially supports can still work, but may not run at its rated speed without manual configuration", correct:true},{text:"Unsupported RAM speeds always immediately destroy the motherboard", correct:false},{text:"Motherboards refuse to boot with any RAM not on the list", correct:false}]},
-
-{obj:"3.5", text:"Which of the following is most likely to prevent a system from powering on at all, distinct from a POST failure?",
- options:[{text:"A missing GPU driver", correct:false},{text:"A completely disconnected or miswired front panel power switch header", correct:true},{text:"An outdated web browser", correct:false},{text:"A full hard drive", correct:false}]},
-
-{obj:"3.5", text:"A technician notices the CPU fan header on a motherboard is unused, with the cooler's fan instead plugged into a case fan header. What risk does this create?",
- options:[{text:"None; header choice never matters", correct:false},{text:"The motherboard may not properly monitor and respond to CPU temperature by adjusting that specific fan's speed", correct:true},{text:"The CPU will run at double speed", correct:false},{text:"The board will refuse to boot entirely", correct:false}]},
-
-{obj:"3.5", text:"What is the general purpose of applying thermal paste evenly rather than in one large glob in the center only?",
- options:[{text:"Even coverage helps ensure consistent contact and heat transfer across the entire CPU surface, not just the center", correct:true},{text:"Thermal paste placement has no effect on cooling", correct:false},{text:"A single glob always distributes itself perfectly on its own", correct:false},{text:"Even application only matters for laptop CPUs", correct:false}]},
-
-{obj:"3.5", text:"Which best describes what 'lane bifurcation' allows a PCIe slot to do?",
- options:[{text:"Split a single physical slot's lanes to support multiple devices simultaneously, such as several NVMe drives on one adapter card", correct:true},{text:"Permanently disable half the slot's lanes", correct:false},{text:"Convert PCIe lanes into USB ports", correct:false},{text:"Double the slot's physical length", correct:false}]},
-
-{obj:"3.5", text:"A technician needs to identify whether a given motherboard uses UEFI or legacy BIOS. Which is the most reliable way to check?",
- options:[{text:"Guess based on the case color", correct:false},{text:"Enter the firmware setup screen and look for a UEFI-style graphical interface and mouse support", correct:true},{text:"Assume all motherboards from any era are UEFI", correct:false},{text:"Check the power supply's wattage rating", correct:false}]},
-
-{obj:"3.5", text:"Which of these motherboard headers, if connected backward or to the wrong pins, is most likely to prevent the reset button from functioning correctly, without otherwise stopping the system from booting?",
- options:[{text:"The 24-pin ATX connector", correct:false},{text:"The front panel reset switch pins specifically, as opposed to the power switch pins", correct:true},{text:"The CPU fan header", correct:false},{text:"The SATA data cable", correct:false}]},
-
-{obj:"3.5", text:"What is the main advantage of a modular power supply from a motherboard/case-building perspective, even though it is a PSU feature rather than a motherboard one?",
- options:[{text:"It has no relevance to motherboard installation", correct:false},{text:"Only the cables actually needed are connected, improving airflow and cable management around the motherboard", correct:true},{text:"It doubles the number of expansion slots available", correct:false},{text:"It eliminates the need for a CPU cooler", correct:false}]},
-
-{obj:"3.5", text:"A technician wants to confirm whether a specific motherboard supports NVMe boot drives before purchase. What should they check?",
- options:[{text:"The case's paint color", correct:false},{text:"Whether the board has an M.2 slot wired for PCIe (not just SATA) lanes", correct:true},{text:"The keyboard's connector type", correct:false},{text:"The monitor's refresh rate", correct:false}]},
-
-// ===================== 5.1 (28 questions) =====================
-{obj:"5.1", text:"According to CompTIA's troubleshooting methodology, what should a technician do before making any changes to a system during the identify-the-problem step?",
- options:[{text:"Immediately reinstall the operating system", correct:false},{text:"Back up critical data if at all possible", correct:true},{text:"Replace the most expensive component first", correct:false},{text:"Skip straight to documentation", correct:false}]},
-
-{obj:"5.1", text:"A technician forms a theory about a system's fault, tests it, and finds the theory does not hold. What should happen next, per the methodology?",
- options:[{text:"Give up and escalate immediately without further diagnosis", correct:false},{text:"Establish a new theory or escalate if needed", correct:true},{text:"Skip directly to documentation", correct:false},{text:"Reinstall the operating system regardless of the actual cause", correct:false}]},
-
-{obj:"5.1", text:"Why does the troubleshooting methodology explicitly separate 'establish a plan of action' from 'test the theory'?",
- options:[{text:"They are the same step under two different names", correct:false},{text:"Confirming the cause is different from deciding how to safely fix it, including anticipating side effects", correct:true},{text:"The plan of action always comes before identifying the problem", correct:false},{text:"Plans of action are optional and rarely used", correct:false}]},
-
-{obj:"5.1", text:"A technician fixes a customer's issue but skips verifying full system functionality afterward. What risk does this create?",
- options:[{text:"None; verification is purely optional paperwork", correct:false},{text:"A related or secondary problem could go unnoticed until the customer discovers it later", correct:true},{text:"The fix will automatically undo itself", correct:false},{text:"Verification only matters for network issues", correct:false}]},
-
-{obj:"5.1", text:"A system exhibits a symptom that matches several possible causes equally well. What does the methodology suggest doing first when establishing a theory?",
- options:[{text:"Test the most expensive and complex cause first", correct:false},{text:"Start with the most probable and easiest-to-test cause", correct:true},{text:"Randomly pick any cause", correct:false},{text:"Replace every component simultaneously", correct:false}]},
-
-{obj:"5.1", text:"A computer that previously worked fine suddenly won't boot after a thunderstorm caused a brief power flicker. What should the technician suspect and check first?",
- options:[{text:"A corrupted web browser", correct:false},{text:"Damage to the power supply or motherboard from the power event", correct:true},{text:"A missing printer driver", correct:false},{text:"An expired software license", correct:false}]},
-
-{obj:"5.1", text:"A system boots fine but randomly reboots only when running graphically demanding applications. What is a reasonable early theory to test?",
- options:[{text:"A failing keyboard", correct:false},{text:"Insufficient PSU capacity or GPU overheating under load", correct:true},{text:"A slow internet connection", correct:false},{text:"An outdated web browser bookmark", correct:false}]},
-
-{obj:"5.1", text:"A desktop won't power on, and the technician confirms the wall outlet, power cable, and PSU switch are all fine. What should be checked next?",
- options:[{text:"The monitor's brightness setting", correct:false},{text:"The front panel power switch connection at the motherboard header", correct:true},{text:"The printer's ink level", correct:false},{text:"The Wi-Fi password", correct:false}]},
-
-{obj:"5.1", text:"A system posts and boots normally but reports less total RAM than what is physically installed. What is a reasonable first theory?",
- options:[{text:"The hard drive is failing", correct:false},{text:"A memory module is not fully seated or is faulty, or the OS is 32-bit and address-limited", correct:true},{text:"The keyboard is unplugged", correct:false},{text:"The monitor cable is loose", correct:false}]},
-
-{obj:"5.1", text:"A user reports their PC randomly shuts down only during warm afternoons in a room without air conditioning. What is the most likely category of cause?",
- options:[{text:"Software licensing expiration", correct:false},{text:"Thermal shutdown protection triggered by inadequate cooling in a warm environment", correct:true},{text:"A corrupted user profile", correct:false},{text:"A weak Wi-Fi signal", correct:false}]},
-
-{obj:"5.1", text:"After replacing a suspected faulty stick of RAM, the system still exhibits the exact same symptom. According to the methodology, what should happen next?",
- options:[{text:"Assume the problem is unsolvable and stop troubleshooting", correct:false},{text:"Reconsider the theory of probable cause, since the test did not confirm it", correct:true},{text:"Document success even though the symptom persists", correct:false},{text:"Replace the monitor instead, unrelated to the original symptom", correct:false}]},
-
-{obj:"5.1", text:"A technician replaces a component, and the original symptom disappears, but a new, different symptom now appears. What should happen per the methodology?",
- options:[{text:"Consider the job done since the original symptom is gone", correct:false},{text:"Continue troubleshooting and verify full system functionality before considering it resolved", correct:true},{text:"Immediately reverse the entire repair, including successful steps", correct:false},{text:"Document nothing, since the visit isn't technically finished", correct:false}]},
-
-{obj:"5.1", text:"Which best describes why documentation is considered a required step rather than an optional courtesy?",
- options:[{text:"It has no practical use beyond paperwork", correct:false},{text:"It preserves the diagnostic path for future reference, saving time on a repeat issue or for another technician", correct:true},{text:"It is only required for hardware issues, never software", correct:false},{text:"It replaces the need to actually test a theory", correct:false}]},
-
-{obj:"5.1", text:"A power supply is suspected of intermittently failing under load. What is a reasonable, methodology-consistent way to test this theory?",
- options:[{text:"Immediately discard the PSU without testing", correct:false},{text:"Swap in a known-good PSU of adequate wattage and observe whether the symptom recurs", correct:true},{text:"Replace the monitor instead", correct:false},{text:"Reinstall the operating system without touching hardware", correct:false}]},
-
-{obj:"5.1", text:"A system won't POST, and the technician has already reseated RAM and the GPU with no change. What is a reasonable next step in the methodology?",
- options:[{text:"Give up and order a full replacement system immediately", correct:false},{text:"Continue narrowing the theory, such as testing with minimal components (CPU, one RAM stick, no add-in cards)", correct:true},{text:"Assume the problem is the monitor and stop checking internal hardware", correct:false},{text:"Skip to documentation without resolving anything", correct:false}]},
-
-{obj:"5.1", text:"Which of the following symptoms would most specifically suggest a motherboard capacitor issue rather than a simple loose connection?",
- options:[{text:"Visibly bulging or leaking capacitors alongside intermittent instability", correct:true},{text:"A missing mouse cursor", correct:false},{text:"A slow web browser", correct:false},{text:"A dim monitor backlight", correct:false}]},
-
-{obj:"5.1", text:"A system intermittently fails to detect a specific SATA drive, though the drive works fine in another machine. What should be checked first on the original system?",
- options:[{text:"The monitor's resolution setting", correct:false},{text:"The SATA data and power cable connections, and possibly the SATA port itself", correct:true},{text:"The keyboard layout", correct:false},{text:"The wireless network adapter", correct:false}]},
-
-{obj:"5.1", text:"Why is 'question the obvious' considered a useful early step when establishing a theory of probable cause?",
- options:[{text:"Obvious causes are always wrong and should be ignored", correct:false},{text:"Simple, common causes are statistically more frequent than rare ones and are quick to rule out", correct:true},{text:"It is required by law before any repair", correct:false},{text:"It replaces the need for any further testing", correct:false}]},
-
-{obj:"5.1", text:"A user's PC randomly restarts, and Event Viewer logs show critical errors tied to power loss events rather than software crashes. What does this evidence point toward?",
- options:[{text:"A corrupted spreadsheet file", correct:false},{text:"A hardware-level power issue rather than a software fault", correct:true},{text:"A weak Wi-Fi signal", correct:false},{text:"An expired antivirus subscription", correct:false}]},
-
-{obj:"5.1", text:"A technician is asked to fix a computer that won't boot, but is not told what changed before the failure. What is the most useful first question to ask the user?",
- options:[{text:"What is your favorite color?", correct:false},{text:"What were you doing, or what changed, right before this started happening?", correct:true},{text:"Do you like this brand of computer?", correct:false},{text:"How long have you worked here?", correct:false}]},
-
-{obj:"5.1", text:"A system randomly freezes only when a specific USB device is connected. What kind of theory does this symptom pattern support?",
- options:[{text:"A completely unrelated printer issue", correct:false},{text:"A driver conflict or power draw issue tied specifically to that USB device", correct:true},{text:"A failing monitor", correct:false},{text:"A weak internet connection", correct:false}]},
-
-{obj:"5.1", text:"Which best describes 'escalate if appropriate' within the troubleshooting methodology?",
- options:[{text:"It means giving up on the problem entirely", correct:false},{text:"It means passing the issue to someone with more expertise, parts access, or authority when the current technician's testing has been exhausted", correct:true},{text:"It is a mandatory first step before any diagnosis", correct:false},{text:"It only applies to network issues", correct:false}]},
-
-{obj:"5.1", text:"A desktop that has been recently moved to a new office now exhibits intermittent shutdowns. What environmental factor is reasonable to investigate first?",
- options:[{text:"The color of the new office walls", correct:false},{text:"Whether the new outlet or power strip provides stable, adequate power", correct:true},{text:"The new office's Wi-Fi password", correct:false},{text:"The new office's chair height", correct:false}]},
-
-{obj:"5.1", text:"A technician replaces a failed component and confirms the original symptom is gone. What is the final required step before closing the ticket?",
- options:[{text:"Nothing further is required once the symptom disappears", correct:false},{text:"Document the findings, actions taken, and outcomes", correct:true},{text:"Immediately reinstall the operating system regardless of outcome", correct:false},{text:"Charge for a second visit before finishing", correct:false}]},
-
-{obj:"5.1", text:"Which of these is the best example of testing a theory, rather than simply guessing at a fix?",
- options:[{text:"Replacing a part and hoping for the best without further checks", correct:false},{text:"Swapping a suspected faulty RAM module into a known-good system to see if the symptom follows the module", correct:true},{text:"Ignoring the symptom and hoping it resolves itself", correct:false},{text:"Reinstalling the operating system with no other changes", correct:false}]},
-
-{obj:"5.1", text:"A computer boots but the date and time are incorrect every single time it is powered on, even right after being corrected. What should be suspected?",
- options:[{text:"A failing graphics card", correct:false},{text:"A dead or dying CMOS battery", correct:true},{text:"A missing printer driver", correct:false},{text:"A corrupted user password", correct:false}]},
-
-{obj:"5.1", text:"Why might a technician deliberately choose to isolate variables one at a time (e.g., testing with one RAM stick, then another) rather than changing several things simultaneously?",
- options:[{text:"It saves no time or clarity compared to changing everything at once", correct:false},{text:"Changing one variable at a time makes it possible to identify exactly which component is actually responsible for the symptom", correct:true},{text:"It is required only for software issues", correct:false},{text:"It has no diagnostic value", correct:false}]},
-
-{obj:"5.1", text:"A customer insists their computer 'just broke for no reason' before the technician has gathered any information. What is the appropriate methodology-consistent response?",
- options:[{text:"Accept that claim immediately and skip further questioning", correct:false},{text:"Politely continue gathering specific details, since something usually did change even if the user isn't aware of it", correct:true},{text:"Refuse to work on the system at all", correct:false},{text:"Immediately replace the motherboard without further diagnosis", correct:false}]},
-
-// ===================== 3.3 (16 questions) =====================
-{obj:"3.3", text:"Which of these best describes RAM's defining characteristic compared to storage like an SSD or HDD?",
- options:[{text:"RAM retains data indefinitely without power", correct:false},{text:"RAM is volatile and loses its contents when power is removed", correct:true},{text:"RAM is always slower than a mechanical hard drive", correct:false},{text:"RAM and storage are technically identical", correct:false}]},
-
-{obj:"3.3", text:"A desktop's motherboard manual specifies DDR4 memory only. What happens if a technician attempts to install a DDR5 module?",
- options:[{text:"It will work fine after a firmware update", correct:false},{text:"The module's notch position will not align with a DDR4 slot, physically preventing installation", correct:true},{text:"DDR5 automatically downgrades itself to DDR4 speeds", correct:false},{text:"There is no physical difference between DDR generations", correct:false}]},
-
-{obj:"3.3", text:"Which memory feature is most associated with server environments where undetected data corruption would be unacceptable?",
- options:[{text:"RGB lighting on the memory modules", correct:false},{text:"ECC error correction", correct:true},{text:"Higher clock speed alone", correct:false},{text:"A larger physical heat spreader", correct:false}]},
-
-{obj:"3.3", text:"What is the key limitation of parity memory compared to ECC memory?",
- options:[{text:"Parity memory can detect an error but cannot correct it", correct:true},{text:"Parity memory is always faster than ECC", correct:false},{text:"Parity memory cannot be installed in any desktop", correct:false},{text:"Parity and ECC are functionally identical", correct:false}]},
-
-{obj:"3.3", text:"A technician installs two memory modules of different capacities in a motherboard's matched dual-channel slot pair. What is the likely result?",
- options:[{text:"The system will refuse to boot under all circumstances", correct:false},{text:"The system will typically still boot, but may not achieve full dual-channel performance benefits", correct:true},{text:"The mismatched capacity will destroy the motherboard", correct:false},{text:"Both modules will automatically resize themselves to match", correct:false}]},
-
-{obj:"3.3", text:"Which best explains why SO-DIMM modules exist as a separate standard from full-size DIMMs?",
- options:[{text:"They offer no real difference from DIMMs", correct:false},{text:"They are physically shorter to fit the space constraints of laptops and small-form-factor devices", correct:true},{text:"They are exclusively used in server racks", correct:false},{text:"They use an entirely different, non-electrical connection method", correct:false}]},
-
-{obj:"3.3", text:"A system is populated with four memory modules across four channel-designated slots, all matched in capacity and speed. What memory configuration does this most likely represent?",
- options:[{text:"Single-channel", correct:false},{text:"Quad-channel", correct:true},{text:"No channel configuration exists with four slots", correct:false},{text:"Dual-channel only, since four is not a valid channel count", correct:false}]},
-
-{obj:"3.3", text:"What is the most direct consequence of installing memory that runs at a speed the motherboard does not officially support, without further configuration?",
- options:[{text:"The system always refuses to boot", correct:false},{text:"The memory will typically operate, but may run at a lower, more conservative speed than its rated maximum", correct:true},{text:"The motherboard automatically overclocks the CPU to compensate", correct:false},{text:"The memory permanently loses capacity", correct:false}]},
-
-{obj:"3.3", text:"Which best describes why DDR generations are not backward or forward compatible with each other's slots?",
- options:[{text:"Manufacturers add the incompatibility purely for marketing reasons with no technical basis", correct:false},{text:"Each generation uses different voltage requirements and a different notch position, which are deliberately incompatible for protection", correct:true},{text:"All DDR generations are actually fully interchangeable", correct:false},{text:"Only the color of the module differs between generations", correct:false}]},
-
-{obj:"3.3", text:"A technician wants to maximize memory bandwidth on a motherboard that supports dual-channel operation. What installation approach should they use?",
- options:[{text:"Install a single large module in any available slot", correct:false},{text:"Install matched module pairs in the motherboard's designated channel-pair slots", correct:true},{text:"Install modules of differing generations together", correct:false},{text:"Channel configuration cannot be influenced by slot placement", correct:false}]},
-
-{obj:"3.3", text:"What is the practical effect of a memory module not being fully seated in its slot?",
- options:[{text:"The system will always run normally with no issues", correct:false},{text:"The system may fail to POST, may report reduced memory, or may be unstable", correct:true},{text:"The module will automatically reseat itself over time", correct:false},{text:"Partial seating only affects storage, not memory", correct:false}]},
-
-{obj:"3.3", text:"Why is memory generally considered the first place to check when a system reports significantly less total capacity than what is physically installed?",
- options:[{text:"Memory issues are statistically rare and unlikely to be the cause", correct:false},{text:"Seating problems, module failure, or 32-bit OS addressing limits are common, easily checked causes of this exact symptom", correct:true},{text:"This symptom is always caused by a bad monitor cable", correct:false},{text:"This symptom cannot be caused by memory under any circumstance", correct:false}]},
-
-{obj:"3.3", text:"A workstation intended for professional 3D rendering benefits most from which memory characteristic, generally speaking?",
- options:[{text:"The physical color of the memory heat spreader", correct:false},{text:"Higher total capacity and adequate speed/channel configuration to handle large datasets", correct:true},{text:"The absence of any heat spreader at all", correct:false},{text:"Using the oldest available DDR generation", correct:false}]},
-
-{obj:"3.3", text:"What is the relationship between memory channel count and the number of physical slots required?",
- options:[{text:"Channel configuration requires more physical slots than channels used (e.g., quad-channel typically needs at least four slots populated correctly)", correct:true},{text:"Channel count has no relationship to slot count whatsoever", correct:false},{text:"A single slot can independently provide quad-channel performance", correct:false},{text:"Channel configuration is set entirely by the CPU regardless of slots used", correct:false}]},
-
-{obj:"3.3", text:"Which best describes why ECC memory is uncommon in mainstream consumer desktops despite its reliability benefit?",
- options:[{text:"ECC memory is illegal for consumer use", correct:false},{text:"It typically costs more and requires both CPU and motherboard support that many consumer platforms don't include", correct:true},{text:"ECC memory physically cannot fit in any desktop case", correct:false},{text:"Consumer CPUs are incapable of using any RAM at all", correct:false}]},
-
-{obj:"3.3", text:"A technician upgrading a laptop's memory needs to identify the correct module type before ordering. Which detail matters most?",
- options:[{text:"The laptop's paint color", correct:false},{text:"Whether the laptop uses SO-DIMM and which DDR generation and speed it supports", correct:true},{text:"The laptop's screen resolution", correct:false},{text:"The laptop's battery capacity", correct:false}]},
-
-// ===================== 3.6 (16 questions) =====================
-{obj:"3.6", text:"Which voltage rail on a standard ATX power supply typically carries the heaviest load, feeding components like the CPU and GPU?",
- options:[{text:"+3.3 V", correct:false},{text:"+5 V", correct:false},{text:"+12 V", correct:true},{text:"+24 V", correct:false}]},
-
-{obj:"3.6", text:"A power supply's wattage rating describes what, specifically?",
- options:[{text:"Its physical weight", correct:false},{text:"Its maximum total output capacity across all rails combined", correct:true},{text:"Its noise level in decibels", correct:false},{text:"Its warranty length in years", correct:false}]},
-
-{obj:"3.6", text:"Why would a technician deliberately choose a power supply rated somewhat above a system's calculated power draw, rather than exactly at it?",
- options:[{text:"Headroom provides margin for peak loads and future upgrades without running the PSU at its absolute maximum constantly", correct:true},{text:"Oversizing a PSU always damages connected components", correct:false},{text:"PSU wattage has no relationship to system stability", correct:false},{text:"Undersizing is always safer than oversizing", correct:false}]},
-
-{obj:"3.6", text:"What does a fully modular power supply allow a builder to do that a non-modular unit does not?",
- options:[{text:"Change the PSU's total wattage after purchase", correct:false},{text:"Detach and omit cables that are not needed for a specific build, improving cable management", correct:true},{text:"Run without any cables at all", correct:false},{text:"Automatically match any motherboard form factor", correct:false}]},
-
-{obj:"3.6", text:"A technician is installing a PSU in a country with a different mains voltage standard than where the unit was originally sold. What must be verified first?",
- options:[{text:"The color of the PSU casing", correct:false},{text:"That the input voltage selector, if present, is set correctly for the local supply", correct:true},{text:"The PSU's country of manufacture", correct:false},{text:"The PSU's fan noise rating", correct:false}]},
-
-{obj:"3.6", text:"Which best describes what an 80 PLUS certification actually measures?",
- options:[{text:"The PSU's maximum wattage output", correct:false},{text:"How efficiently the PSU converts input AC power to usable DC power, minimizing wasted heat", correct:true},{text:"The number of cables included with the PSU", correct:false},{text:"The PSU's physical dimensions", correct:false}]},
-
-{obj:"3.6", text:"A server rack is designed so that if one power supply fails, a second unit immediately keeps the equipment running. What is this design called?",
- options:[{text:"Modular power", correct:false},{text:"Redundant power", correct:true},{text:"Passive power", correct:false},{text:"Single-rail power", correct:false}]},
-
-{obj:"3.6", text:"Which PSU connector is specifically used to provide supplemental power directly to a high-end graphics card, separate from the main motherboard connector?",
- options:[{text:"The 24-pin ATX connector", correct:false},{text:"A 6-pin or 8-pin PCIe power connector", correct:true},{text:"A SATA data cable", correct:false},{text:"A USB header cable", correct:false}]},
-
-{obj:"3.6", text:"What is the most likely symptom of a power supply that is undersized for a system's actual peak power demand?",
- options:[{text:"Perfectly stable operation under all conditions", correct:false},{text:"Random shutdowns or instability specifically under heavy load", correct:true},{text:"Improved battery life", correct:false},{text:"Faster boot times", correct:false}]},
-
-{obj:"3.6", text:"Why should a technician never attempt to open and repair a failed power supply themselves, even if comfortable with basic electronics?",
- options:[{text:"It is not actually dangerous, just against typical company policy", correct:false},{text:"Internal capacitors can retain a lethal electrical charge even after the unit is unplugged", correct:true},{text:"PSUs contain no electrical components at all", correct:false},{text:"Opening a PSU voids only the case warranty, nothing else", correct:false}]},
-
-{obj:"3.6", text:"A power supply provides standby voltage to the motherboard even when the system appears fully powered off via the front panel switch. What does this allow?",
- options:[{text:"Nothing; standby power serves no functional purpose", correct:false},{text:"Features like Wake-on-LAN and quick power-on response, since part of the board remains lightly powered", correct:true},{text:"The PSU to run at zero watts at all times", correct:false},{text:"The CPU to run continuously at full load while off", correct:false}]},
-
-{obj:"3.6", text:"Which best explains why a technician should physically unplug a system from the wall, rather than relying on the front-panel power switch alone, before opening the case?",
- options:[{text:"The front panel switch fully removes all power in every design", correct:false},{text:"Many PSUs still supply some standby power to the board even when switched off at the front panel; unplugging removes power entirely", correct:true},{text:"Unplugging is a purely symbolic, non-technical precaution", correct:false},{text:"The front panel switch controls only the monitor, not the PC", correct:false}]},
-
-{obj:"3.6", text:"A technician is comparing two power supplies with identical wattage but different 80 PLUS tiers (Bronze vs. Gold). What is the most accurate practical difference?",
- options:[{text:"The Gold unit can output significantly more total wattage", correct:false},{text:"The Gold unit wastes less power as heat, running more efficiently at the same load", correct:true},{text:"The tiers only affect the color of the PSU casing", correct:false},{text:"There is no real difference between tiers", correct:false}]},
-
-{obj:"3.6", text:"What is the primary purpose of the +3.3 V and +5 V rails on an ATX power supply, relative to the +12 V rail?",
- options:[{text:"They power lower-current logic circuits and legacy peripherals, while +12 V typically handles higher-power components", correct:true},{text:"They serve no distinct purpose from +12 V", correct:false},{text:"They exist only for backward compatibility and are never actually used", correct:false},{text:"They exclusively power the case fans", correct:false}]},
-
-{obj:"3.6", text:"A business wants to protect a critical server from both brief power outages and voltage fluctuations. What device provides this protection, distinct from the power supply itself?",
- options:[{text:"A UPS (uninterruptible power supply)", correct:true},{text:"An additional case fan", correct:false},{text:"A second monitor", correct:false},{text:"A larger CPU cooler", correct:false}]},
-
-{obj:"3.6", text:"Which best describes the risk of setting a PSU's voltage selector switch to the wrong regional setting before powering on?",
- options:[{text:"There is no real risk; the switch is purely cosmetic", correct:false},{text:"It can permanently damage the power supply and any connected components", correct:true},{text:"It only slightly reduces fan speed", correct:false},{text:"It automatically corrects itself on first boot", correct:false}]},
-];
-
-    </script>
-
-    <script>
-        (function () {
-            var LETTERS = ['A', 'B', 'C', 'D'];
-            var currentSet = [];
-
-            function shuffle(arr) {
-                var a = arr.slice();
-                for (var i = a.length - 1; i > 0; i--) {
-                    var j = Math.floor(Math.random() * (i + 1));
-                    var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
-                }
-                return a;
-            }
-
-            function renderQuestion(q, index) {
-                var block = document.createElement('div');
-                block.className = 'question-block';
-                block.dataset.qindex = index;
-
-                var num = document.createElement('div');
-                num.className = 'question-number';
-                num.textContent = 'Question ' + (index + 1);
-                block.appendChild(num);
-
-                var text = document.createElement('p');
-                text.className = 'question-text';
-                text.innerHTML = q.text;
-                block.appendChild(text);
-
-                var list = document.createElement('ul');
-                list.className = 'mc-options';
-
-                q.options.forEach(function (opt, i) {
-                    var li = document.createElement('li');
-                    var btn = document.createElement('button');
-                    btn.type = 'button';
-                    btn.className = 'mc-option';
-                    btn.dataset.correct = opt.correct ? 'true' : 'false';
-
-                    var letterSpan = document.createElement('span');
-                    letterSpan.className = 'mc-letter';
-                    letterSpan.textContent = LETTERS[i];
-
-                    var textSpan = document.createElement('span');
-                    textSpan.innerHTML = opt.text;
-
-                    btn.appendChild(letterSpan);
-                    btn.appendChild(textSpan);
-                    li.appendChild(btn);
-                    list.appendChild(li);
-
-                    btn.addEventListener('click', function () {
-                        var siblings = list.querySelectorAll('.mc-option');
-                        siblings.forEach(function (b) {
-                            b.classList.remove('selected', 'graded-correct', 'graded-incorrect', 'graded-missed');
-                        });
-                        btn.classList.add('selected');
-                        block.classList.remove('unanswered-flag');
-                    });
-                });
-
-                block.appendChild(list);
-
-                var note = document.createElement('p');
-                note.className = 'unanswered-note';
-                note.textContent = 'Not yet answered.';
-                block.appendChild(note);
-
-                return block;
-            }
-
-            function loadNewSet() {
-                var pick = shuffle(QUESTION_POOL).slice(0, 20);
-                currentSet = pick;
-
-                var container = document.getElementById('questionContainer');
-                container.innerHTML = '';
-                pick.forEach(function (q, i) {
-                    container.appendChild(renderQuestion(q, i));
-                });
-
-                document.getElementById('resultsSummary').classList.remove('show');
-            }
-
-            function gradeAssessment() {
-                var blocks = Array.prototype.slice.call(document.querySelectorAll('#questionContainer .question-block'));
-                var total = blocks.length;
-                var correctCount = 0;
-                var unansweredCount = 0;
-
-                blocks.forEach(function (block) {
-                    var options = Array.prototype.slice.call(block.querySelectorAll('.mc-option'));
-                    var selected = options.filter(function (b) { return b.classList.contains('selected'); })[0];
-                    var correctBtn = options.filter(function (b) { return b.dataset.correct === 'true'; })[0];
-
-                    options.forEach(function (b) {
-                        b.classList.remove('graded-correct', 'graded-incorrect', 'graded-missed');
-                    });
-
-                    if (!selected) {
-                        unansweredCount++;
-                        block.classList.add('unanswered-flag');
-                        if (correctBtn) correctBtn.classList.add('graded-missed');
-                        return;
-                    }
-
-                    block.classList.remove('unanswered-flag');
-
-                    if (selected.dataset.correct === 'true') {
-                        selected.classList.add('graded-correct');
-                        correctCount++;
-                    } else {
-                        selected.classList.add('graded-incorrect');
-                        if (correctBtn) correctBtn.classList.add('graded-correct');
-                    }
-                });
-
-                var scoreEl = document.getElementById('resultsScore');
-                var msgEl = document.getElementById('resultsMessage');
-                var summaryEl = document.getElementById('resultsSummary');
-
-                scoreEl.textContent = correctCount + ' / ' + total;
-
-                var msg = '';
-                if (unansweredCount > 0) {
-                    msg += unansweredCount + ' question' + (unansweredCount === 1 ? ' was' : 's were') + ' left blank &mdash; go back and pick your best guess before you finish. ';
-                }
-                var pct = Math.round((correctCount / total) * 100);
-                if (pct >= 90) {
-                    msg += '<strong>' + pct + '%.</strong> Strong showing across a random draw &mdash; that is a good sign for the material overall.';
-                } else if (pct >= 70) {
-                    msg += '<strong>' + pct + '%.</strong> Solid, but note which items you missed and check those specific concepts before Unit 2.';
-                } else if (pct >= 50) {
-                    msg += '<strong>' + pct + '%.</strong> A mixed result. Reread Section 1.3 and rewatch the Section 1.5 videos, then click <strong>Reset</strong> for a fresh random draw to see if the pattern holds.';
-                } else {
-                    msg += '<strong>' + pct + '%.</strong> The material has not settled yet. That is normal in Week 1 &mdash; go back through Sections 1.3&ndash;1.6, then try another random draw. If this holds across a few attempts, email me before Unit 2 begins.';
-                }
-                msgEl.innerHTML = msg;
-                summaryEl.classList.add('show');
-                summaryEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            }
-
-            function resetAssessment() {
-                loadNewSet();
-                document.getElementById('practiceForm').scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-
-            document.getElementById('gradeBtn').addEventListener('click', gradeAssessment);
-            document.getElementById('resetBtn').addEventListener('click', resetAssessment);
-
-            loadNewSet();
-        })();
-    </script>
 </body>
 </html>
