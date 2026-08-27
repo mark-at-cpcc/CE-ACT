@@ -264,33 +264,19 @@
         @media print {
             body { background: white; padding: 0; margin: 0; }
             .course-container { box-shadow: none; max-width: 100%; }
-            .toc, .form-controls, .print-instructions, .empty-warning,
-            .plain-box, .callout, .table-container, .summary-box,
-            .prompt-textarea, .field-input, .module-footer { display: none !important; }
+            .toc, .reflection-form, .plain-box, .callout, .table-container,
+            .summary-box, .module-footer, .module-header { display: none !important; }
 
             .print-only { display: block !important; }
 
-            .module-header {
-                background: white !important; color: black !important;
-                padding: 0 0 var(--space-lg) 0; border-bottom: 3px solid black;
-            }
-            .module-label, .module-title, .module-subtitle { color: black !important; }
-
             .content-area { padding: 0; }
 
-            .print-only .print-meta {
-                font-family: var(--font-heading), sans-serif; font-size: 1rem; margin-bottom: var(--space-xl);
+            .print-only h2 { color: black; border-bottom: 3px solid black; padding-bottom: var(--space-sm); }
+            .print-only h3 {
+                color: black; border-left: none; padding-left: 0;
+                font-size: 1.1rem; margin-top: var(--space-lg);
             }
-            .print-only .print-meta strong { display: inline-block; min-width: 110px; }
-
-            .print-only .print-prompt-block { margin-bottom: var(--space-xl); page-break-inside: avoid; }
-            .print-only .print-stage {
-                font-family: var(--font-heading), sans-serif; font-weight: 800; font-size: 1.1rem;
-                text-transform: uppercase; letter-spacing: 1px; color: black;
-                border-bottom: 2px solid black; padding-bottom: var(--space-xs); margin-bottom: var(--space-sm);
-            }
-            .print-only .print-prompt-text { font-style: italic; color: #333; margin-bottom: var(--space-sm); }
-            .print-only .print-response { white-space: pre-wrap; color: black; }
+            .print-only p { color: black; white-space: pre-wrap; }
         }
     </style>
 </head>
@@ -390,35 +376,22 @@
 
             <!-- Print-only view: populated from the fields above right before printing -->
             <div class="print-only" id="printView">
-                <div class="print-meta">
-                    <p><strong>Student:</strong> <span id="printName"></span></p>
-                    <p><strong>Assignment:</strong> Unit 1 Reflection Activity &mdash; CTS-ITS7501-80</p>
-                    <p><strong>Due:</strong> Monday, 11:59 PM</p>
-                </div>
+                <h2>Unit 1 Reflection</h2>
+                <p><strong>Name:</strong> <span id="printName"></span></p>
+                <p><strong>Assignment:</strong> Unit 1 Reflection Activity &mdash; CTS-ITS7501-80</p>
+                <p><strong>Due:</strong> Monday, 11:59 PM</p>
 
-                <div class="print-prompt-block">
-                    <div class="print-stage">Concrete Experience</div>
-                    <p class="print-prompt-text">Describe one specific moment from this week's labs. Not a summary of the lab &mdash; one moment. Tell us about that moment and feel free to comment whether positively or negatively. What were you doing, and what happened?</p>
-                    <p class="print-response" id="printCE"></p>
-                </div>
+                <h3>Describe one specific moment from this week's labs. Not a summary of the lab &mdash; one moment. Tell us about that moment and feel free to comment whether positively or negatively. What were you doing, and what happened?</h3>
+                <p id="printCE"></p>
 
-                <div class="print-prompt-block">
-                    <div class="print-stage">Reflective Observation</div>
-                    <p class="print-prompt-text">What surprised you? Name something you assumed and were surprised to discover afterwards. Include anything you assumed would be difficult and was not or in fact was.</p>
-                    <p class="print-response" id="printRO"></p>
-                </div>
+                <h3>What surprised you? Name something you assumed and were surprised to discover afterwards. Include anything you assumed would be difficult and was not or in fact was.</h3>
+                <p id="printRO"></p>
 
-                <div class="print-prompt-block">
-                    <div class="print-stage">Abstract Conceptualization</div>
-                    <p class="print-prompt-text">When thinking about the moments you have been reflecting on, connect that moment to something from the reading or videos. Which concept does it illustrate, and how do you understand that concept differently now?</p>
-                    <p class="print-response" id="printAC"></p>
-                </div>
+                <h3>When thinking about the moments you have been reflecting on, connect that moment to something from the reading or videos. Which concept does it illustrate, and how do you understand that concept differently now?</h3>
+                <p id="printAC"></p>
 
-                <div class="print-prompt-block">
-                    <div class="print-stage">Active Experimentation</div>
-                    <p class="print-prompt-text">What will you do differently next time? Be specific &mdash; a concrete change in procedure, not a resolution to "be more careful." How can this change be applied to the role of a computer technician and how will this impact this role?</p>
-                    <p class="print-response" id="printAE"></p>
-                </div>
+                <h3>What will you do differently next time? Be specific &mdash; a concrete change in procedure, not a resolution to "be more careful." How can this change be applied to the role of a computer technician and how will this impact this role?</h3>
+                <p id="printAE"></p>
             </div>
 
             <h2>Grading</h2>
