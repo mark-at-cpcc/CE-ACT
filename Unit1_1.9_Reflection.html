@@ -508,8 +508,20 @@
                 }
 
                 syncPrintView();
+
+                // Force the browser to actually process the text updates above
+                // before entering print mode. Without this, some browsers can
+                // snapshot the page for printing before the newly-set answer
+                // text has been committed to the render tree, since the
+                // print-only container is display:none until the print
+                // media context itself activates.
+                void document.getElementById('printView').offsetHeight;
+
                 document.getElementById('printInstructions').classList.add('show');
-                window.print();
+
+                window.setTimeout(function () {
+                    window.print();
+                }, 50);
             });
         })();
     </script>
