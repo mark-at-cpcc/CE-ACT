@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 4 &mdash; 4.7 Practice Questions | CompTIA A+ Core 1</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Sans+Pro:wght@400;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           CPCC COURSE TEMPLATE - GOLD / CHARCOAL / BLACK
+           CTS-ITS7501-80 CompTIA A+ Core 1 Training
+           Type: true black. Accents: gold. Chrome: charcoal.
+           ============================================ */
+
+        :root {
+            --primary-dark: #4A4A4A;       /* Charcoal - structural chrome only */
+            --primary-main: #B8962E;       /* Warm Gold - primary accent */
+            --primary-light: #D4AF56;      /* Light Gold */
+            --primary-pale: #FBF3DF;       /* Pale Gold wash */
+
+            --accent-teal: #8A6F1F;        /* Deep bronze-gold */
+            --accent-teal-light: #F3E9CE;  /* Pale bronze */
+            --accent-orange: #A9642A;      /* Warm rust */
+            --accent-orange-light: #F5E2CE;
+            --accent-purple: #6B5B3A;      /* Muted umber */
+            --accent-purple-light: #EFE6D2;
+            --accent-green: #4E7A51;
+            --accent-green-light: #DCEBDD;
+
+            --alert-warning: #B8862E;
+            --alert-warning-bg: #FBF0D9;
+            --alert-danger: #A13A3A;
+            --alert-danger-bg: #F6DEDE;
+            --alert-success: #3F6E42;
+            --alert-success-bg: #DCEBDD;
+            --alert-info: #6E5B2E;
+            --alert-info-bg: #F1E9D4;
+
+            --text-black: #000000;         /* All reading text */
+            --neutral-900: #000000;
+            --neutral-700: #000000;
+            --neutral-500: #5A5A5A;
+            --neutral-300: #D9D3C4;
+            --neutral-100: #FAF8F3;
+            --white: #ffffff;
+
+            --font-heading: 'Nunito', sans-serif;
+            --font-body: 'Source Sans Pro', sans-serif;
+            --font-code: 'Fira Code', monospace;
+
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+
+            --shadow-sm: 0 1px 2px rgba(74, 74, 74, 0.08);
+            --shadow-md: 0 4px 6px rgba(74, 74, 74, 0.12);
+            --shadow-lg: 0 10px 20px rgba(74, 74, 74, 0.15);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body), 'Segoe UI', Tahoma, Verdana, sans-serif;
+            font-size: 1.0625rem;
+            line-height: 1.7;
+            color: var(--text-black);
+            background: linear-gradient(135deg, var(--neutral-100) 0%, var(--white) 100%);
+            min-height: 100vh;
+            padding: var(--space-lg);
+        }
+
+        .course-container {
+            max-width: 950px; margin: 0 auto; background: var(--white);
+            border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); overflow: hidden;
+        }
+
+        .module-header {
+            background: var(--primary-main); color: var(--text-black);
+            padding: var(--space-2xl) var(--space-xl); position: relative; overflow: hidden;
+        }
+        .module-label {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 0.875rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 2px;
+            margin-bottom: var(--space-sm); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-title {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 2.25rem; font-weight: 800;
+            line-height: 1.2; margin-bottom: var(--space-md); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-subtitle { font-size: 1.125rem; max-width: 650px; position: relative; z-index: 1; color: var(--text-black); }
+
+        .toc {
+            display: flex; flex-direction: column; gap: var(--space-sm);
+            padding: var(--space-lg) var(--space-xl);
+            background: var(--primary-pale); border-bottom: 1px solid var(--neutral-300);
+        }
+        .toc-item {
+            width: 100%; text-align: left;
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 0.875rem;
+            color: var(--text-black); background: var(--white);
+            border: 2px solid var(--primary-main);
+            padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md);
+        }
+        .toc-item.current { background: var(--primary-main); }
+
+        .content-area { padding: var(--space-xl); }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif;
+            color: var(--text-black); line-height: 1.3; margin-bottom: var(--space-md);
+        }
+        h1 { font-size: 2rem; font-weight: 800; }
+        h2 { font-size: 1.625rem; font-weight: 700; padding-bottom: var(--space-sm);
+             border-bottom: 3px solid var(--primary-main); margin-top: var(--space-xl); margin-bottom: var(--space-lg); }
+        h3 { font-size: 1.375rem; font-weight: 700; margin-top: var(--space-lg);
+             padding-left: var(--space-sm); border-left: 4px solid var(--primary-main); }
+        h4 { font-size: 1.125rem; font-weight: 600; }
+
+        p { margin-bottom: var(--space-md); }
+        strong { font-weight: 700; color: var(--text-black); }
+        em { font-style: italic; color: var(--text-black); }
+
+        a { color: var(--text-black); text-decoration: none; border-bottom: 2px solid var(--primary-main); transition: all 0.2s ease; }
+        a:hover { background: var(--primary-pale); border-bottom-color: var(--accent-teal); }
+
+        ul, ol { margin-bottom: var(--space-md); padding-left: var(--space-lg); }
+        li { margin-bottom: var(--space-sm); }
+        ul li::marker { color: var(--accent-teal); }
+        ol li::marker { color: var(--accent-teal); font-weight: 700; }
+
+        .tech-box {
+            background: var(--neutral-100); border: 2px solid var(--neutral-500);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .tech-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .tech-box .callout-content { padding-left: 0; }
+
+        .plain-box {
+            background: var(--primary-pale); border: 2px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .plain-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .plain-box .callout-content { padding-left: 0; }
+
+        .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; position: relative; overflow: hidden; }
+        .callout-title { font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 1rem;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
+        .callout-content { }
+        .callout-content p:last-child { margin-bottom: 0; }
+
+        .callout-tip { background: var(--accent-green-light); border-left: 4px solid var(--accent-green); }
+        .callout-warning { background: var(--alert-warning-bg); border-left: 4px solid var(--alert-warning); }
+        .callout-danger { background: var(--alert-danger-bg); border-left: 4px solid var(--alert-danger); }
+        .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
+
+        .objectives-box {
+            background: var(--primary-pale); border-left: 5px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .objectives-box h3 { margin-top: 0; border-left: none; padding-left: 0; color: var(--text-black); }
+        .objectives-box ol { margin-bottom: 0; }
+
+        .key-concept {
+            background: linear-gradient(135deg, var(--accent-purple-light) 0%, var(--white) 100%);
+            border: 2px solid var(--accent-purple); border-radius: var(--radius-lg);
+            padding: var(--space-lg); margin: var(--space-xl) 0 var(--space-lg); position: relative;
+        }
+        .key-concept::before {
+            content: 'KEY CONCEPT'; position: absolute; top: -12px; left: var(--space-lg);
+            background: var(--accent-purple); color: var(--white); font-family: var(--font-heading), sans-serif;
+            font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-md); border-radius: var(--radius-sm);
+        }
+        .key-concept h4 { color: var(--text-black); margin-top: var(--space-sm); }
+
+        .definition {
+            background: var(--neutral-100); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin: var(--space-md) 0; border-left: 4px solid var(--accent-orange);
+        }
+        .definition-term { font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 1.125rem;
+            color: var(--text-black); margin-bottom: var(--space-xs); }
+        .definition-text { color: var(--text-black); margin-bottom: 0; }
+
+        code { font-family: var(--font-code), Consolas, monospace; font-size: 0.9rem; background: var(--primary-pale);
+            color: var(--text-black); padding: 2px 6px; border-radius: var(--radius-sm); }
+        pre { background: #2E2E2E; color: #f1ece0; padding: var(--space-lg); border-radius: var(--radius-md);
+            overflow-x: auto; margin: var(--space-lg) 0; position: relative; }
+        pre::before {
+            content: 'STEPS'; position: absolute; top: 0; right: 0; background: var(--primary-main); color: var(--text-black);
+            font-family: var(--font-heading), sans-serif; font-size: 0.625rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-sm); border-radius: 0 var(--radius-md) 0 var(--radius-sm);
+        }
+        pre code { background: transparent; color: inherit; padding: 0; font-size: 0.875rem; line-height: 1.6; }
+
+        .table-container { overflow-x: auto; margin: var(--space-lg) 0; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); }
+        table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
+        thead { background: var(--primary-dark); color: var(--white); }
+        th { font-family: var(--font-heading), sans-serif; font-weight: 700; text-align: left; padding: var(--space-md) var(--space-lg); color: var(--white); }
+        td { padding: var(--space-md) var(--space-lg); border-bottom: 1px solid var(--neutral-300); color: var(--text-black); }
+        tbody tr:hover { background: var(--primary-pale); }
+        tbody tr:last-child td { border-bottom: none; }
+
+        .activity-section {
+            background: linear-gradient(135deg, var(--accent-orange-light) 0%, var(--white) 100%);
+            border: 2px dashed var(--accent-orange); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .activity-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg); }
+        .activity-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700;
+            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
+        .activity-subtitle { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
+
+        .lab-section {
+            background: var(--white); border: 2px solid var(--primary-dark); border-radius: var(--radius-lg);
+            padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .lab-header { padding-bottom: var(--space-md); margin-bottom: var(--space-lg); border-bottom: 2px solid var(--primary-dark); }
+        .lab-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700; color: var(--text-black); border-left: none; padding-left: 0; }
+        .lab-time { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
+        .lab-steps { list-style: none; counter-reset: lab-step; padding-left: 0; }
+        .lab-steps li { counter-increment: lab-step; position: relative; padding-left: 3rem; margin-bottom: var(--space-lg); }
+        .lab-steps li::before {
+            content: counter(lab-step); position: absolute; left: 0; width: 2rem; height: 2rem;
+            background: var(--accent-teal); color: var(--white); font-family: var(--font-heading), sans-serif; font-weight: 700;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.875rem;
+        }
+
+        .assessment-section { background: var(--primary-pale); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0; }
+        .assessment-header { text-align: center; margin-bottom: var(--space-xl); }
+        .assessment-header h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .question-block { background: var(--white); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin-bottom: var(--space-lg); box-shadow: var(--shadow-sm); }
+        .question-number { font-family: var(--font-heading), sans-serif; font-size: 0.75rem; font-weight: 700;
+            color: var(--text-black); background: var(--primary-main); display: inline-block;
+            padding: 2px 10px; border-radius: var(--radius-sm);
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); }
+        .question-text { font-weight: 600; color: var(--text-black); margin-bottom: var(--space-md); }
+
+        details.answer { margin-top: var(--space-sm); }
+        details.answer summary { cursor: pointer; font-weight: 700; color: var(--text-black);
+            font-family: var(--font-heading), sans-serif; font-size: 0.875rem;
+            border-bottom: 2px solid var(--primary-main); display: inline-block; }
+        details.answer .reveal { margin-top: var(--space-sm); padding: var(--space-md);
+            background: var(--accent-green-light); border-radius: var(--radius-sm); color: var(--text-black); }
+
+        .references-section { background: var(--neutral-100); border-radius: var(--radius-lg);
+            padding: var(--space-lg) var(--space-xl); margin: var(--space-xl) 0; border-top: 3px solid var(--primary-main); }
+        .references-section h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+
+        .progress-bar { background: var(--neutral-300); border-radius: var(--radius-xl); height: 8px; overflow: hidden; margin: var(--space-lg) 0; }
+        .progress-fill { background: var(--primary-main); height: 100%; border-radius: var(--radius-xl); }
+        .progress-label { display: flex; justify-content: space-between; font-size: 0.875rem; color: var(--neutral-500); margin-bottom: var(--space-xs); }
+
+        .module-footer { background: var(--neutral-100); padding: var(--space-lg) var(--space-xl); text-align: center; border-top: 1px solid var(--neutral-300); }
+        .footer-text { font-size: 0.875rem; color: var(--neutral-500); }
+
+        .text-center { text-align: center; }
+        .text-muted { color: var(--neutral-500); }
+        .mt-sm { margin-top: var(--space-sm); } .mt-md { margin-top: var(--space-md); } .mt-lg { margin-top: var(--space-lg); }
+        .mb-sm { margin-bottom: var(--space-sm); } .mb-md { margin-bottom: var(--space-md); } .mb-lg { margin-bottom: var(--space-lg); }
+
+        /* Interactive quiz controls (pre-assessment / practice questions) */
+        .answer-option { display: block; width: 100%; text-align: left; padding: var(--space-sm) var(--space-md);
+            margin-bottom: var(--space-sm); border: 2px solid var(--neutral-300); border-radius: var(--radius-sm);
+            background: var(--white); cursor: pointer; font-family: var(--font-body), sans-serif; font-size: 1rem; color: var(--text-black); }
+        .answer-option:hover { border-color: var(--primary-main); }
+        .answer-option.selected { border-color: var(--primary-dark); background: var(--primary-pale); }
+        .answer-option.correct { border-color: var(--accent-green); background: var(--accent-green-light); }
+        .answer-option.incorrect { border-color: var(--alert-danger); background: var(--alert-danger-bg); }
+        .quiz-btn { font-family: var(--font-heading), sans-serif; font-weight: 700; padding: var(--space-sm) var(--space-xl);
+            border-radius: var(--radius-sm); border: 2px solid var(--primary-dark); background: var(--primary-dark); color: var(--white);
+            cursor: pointer; font-size: 0.95rem; margin-right: var(--space-sm); }
+        .quiz-btn:hover { background: #333333; }
+        .quiz-btn.secondary { background: var(--white); color: var(--primary-dark); }
+        .quiz-btn.secondary:hover { background: var(--neutral-100); }
+        #quizResults { display:none; background: var(--primary-pale); border: 2px solid var(--primary-main); border-radius: var(--radius-md);
+            padding: var(--space-lg); margin-top: var(--space-lg); text-align: center; font-family: var(--font-heading), sans-serif; }
+        #quizResults .score { font-size: 2rem; font-weight: 800; color: var(--text-black); }
+
+        @media (max-width: 768px) {
+            .module-title { font-size: 1.75rem; }
+            .content-area { padding: var(--space-lg); }
+        }
+    </style>
+
+<body>
+    <div class="course-container">
+
+        <header class="module-header">
+            <div class="module-label">Unit 4 &middot; Network Services and Configuration &middot; Section 4.7</div>
+            <h1 class="module-title">Practice Questions</h1>
+            <p class="module-subtitle">CompTIA A+ Core 1 &mdash; Domains 2.0 and 5.0</p>
+        </header>
+
+        <nav class="toc">
+            <div class="toc-item">4.1 &mdash; Unit Overview and Learning Objectives</div>
+            <div class="toc-item">4.2 &mdash; Unit Pre-Assessment</div>
+            <div class="toc-item">4.3 &mdash; Content Review</div>
+            <div class="toc-item">4.4 &mdash; Reading Assignment</div>
+            <div class="toc-item">4.5 &mdash; Video Assignment</div>
+            <div class="toc-item">4.6 &mdash; Classroom Labs</div>
+            <div class="toc-item current">4.7 &mdash; Practice Questions</div>
+            <div class="toc-item">4.8 &mdash; Online Labs: NETLAB</div>
+            <div class="toc-item">4.9 &mdash; Reflection Activity</div>
+            <div class="toc-item">4.10 &mdash; Unit Test</div>
+        </nav>
+
+        <div class="content-area">
+
+            <div class="tech-box">
+                <div class="callout-title">Test Format</div>
+                <div class="callout-content">
+                    <p>Each attempt draws a fresh random set of 10 questions covering this unit's virtual networking, network services, wireless technology, SOHO configuration, and troubleshooting objectives. Click an answer to select it, then click <strong>Grade My Answers</strong> to score the set. Keep resetting until you score a perfect 10 out of 10.</p>
+                </div>
+            </div>
+
+            <div class="plain-box">
+                <div class="callout-title">In Plain Terms</div>
+                <div class="callout-content">
+                    <p>Confident-and-wrong is the category to watch for: you believe something false and have no reason to double-check it. That category is invisible on an ordinary score report, and it is what fails people on the first attempt.</p>
+                    <p>Select an answer for each question, then click <strong>Grade My Answers</strong> to see your results. Click <strong>Reset</strong> for a brand-new random set of 10, and keep going. You are expected to repeat this until you score a perfect 10 out of 10 in a single attempt &mdash; a fresh random set every time means you cannot simply memorize positions, you actually have to know the material.</p>
+                </div>
+            </div>
+
+            <div id="quizArea"></div>
+
+            <div class="mt-lg">
+                <button class="quiz-btn" onclick="gradeQuiz()">Grade My Answers</button>
+                <button class="quiz-btn secondary" onclick="resetQuiz()">Reset</button>
+            </div>
+
+            <div id="quizResults">
+                <div>Your Score</div>
+                <div class="score" id="scoreDisplay">0 / 10</div>
+                <div id="scoreNote"></div>
+            </div>
+
+            <script>
+                const POOL = [{"q": "Segmenting a switch into isolated logical groups describes:", "opts": ["A VLAN", "A DHCP scope", "A DNS zone", "A load balancer"], "correct": 0}, {"q": "A remote employee needs an encrypted path into the office network. Best fit:", "opts": ["A site-to-site VPN", "A client-to-site VPN", "A new VLAN", "A DHCP reservation"], "correct": 1}, {"q": "Two branch offices need a permanent encrypted link. Best fit:", "opts": ["A client-to-site VPN", "A VLAN trunk", "A site-to-site VPN", "A DNS record"], "correct": 2}, {"q": "Devices on separate VLANs need a device to route between them. That device is a:", "opts": ["A patch panel connection", "An access point bridge", "A modem to the ISP", "Router or Layer 3 switch"], "correct": 3}, {"q": "A VPN's core function, compared to a plain internet link, is to add:", "opts": ["Traffic encryption", "Automatic addressing", "Name resolution", "Load balancing"], "correct": 0}, {"q": "Reducing broadcast traffic on a large switch is a direct benefit of:", "opts": ["DHCP reservations", "VLAN segmentation", "DNS caching", "Port forwarding"], "correct": 1}, {"q": "A VLAN exists primarily as a matter of:", "opts": ["Physical cabling", "Router hardware", "Switch configuration", "Modem firmware"], "correct": 2}, {"q": "A technician needing one-time secure access to a client server would use a:", "opts": ["Site-to-site VPN", "New VLAN", "DHCP reservation", "Client-to-site VPN"], "correct": 3}, {"q": "Resolving a domain name into an IP address is the job of:", "opts": ["DNS", "DHCP", "Syslog", "LDAP"], "correct": 0}, {"q": "Which DNS record type points to a domain's mail server?", "opts": ["A", "MX", "TXT", "CNAME"], "correct": 1}, {"q": "An alias record that points to another domain name is a:", "opts": ["A record", "MX record", "CNAME record", "AAAA record"], "correct": 2}, {"q": "A record commonly used to verify domain ownership is a:", "opts": ["A record", "MX record", "AAAA record", "TXT record"], "correct": 3}, {"q": "Automatically assigning IP addresses to new devices is the role of:", "opts": ["DHCP", "DNS", "Syslog", "LDAP"], "correct": 0}, {"q": "Tying a specific device's MAC address to the same IP every time describes:", "opts": ["A DHCP scope", "A DHCP reservation", "A DNS zone", "A VPN profile"], "correct": 1}, {"q": "The block of addresses a DHCP server can hand out is called its:", "opts": ["Domain", "Zone", "Scope", "Record"], "correct": 2}, {"q": "A central location for collecting logs from multiple devices is provided by:", "opts": ["DHCP", "DNS", "LDAP", "Syslog"], "correct": 3}, {"q": "Filtering or caching client requests to the internet is the role of a:", "opts": ["Proxy server", "Load balancer", "Spam gateway", "File server"], "correct": 0}, {"q": "Spreading incoming traffic across multiple servers is the role of a:", "opts": ["Proxy server", "Load balancer", "DNS server", "Syslog server"], "correct": 1}, {"q": "Filtering incoming email for spam before it reaches a mailbox is done by a:", "opts": ["Load balancer", "Proxy server", "Spam gateway", "File server"], "correct": 2}, {"q": "Centralized network authentication is commonly handled through:", "opts": ["DNS", "DHCP", "Syslog", "LDAP"], "correct": 3}, {"q": "A device with a narrow, dedicated purpose connected to a network is best classed as:", "opts": ["An IoT or embedded device", "A general-purpose PC", "A managed switch", "A patch panel"], "correct": 0}, {"q": "Hosting and serving a website to visitors is the job of a:", "opts": ["Print server", "Web server", "Proxy server", "Load balancer"], "correct": 1}, {"q": "A DHCP reservation's advantage over a fully static address is:", "opts": ["No management needed at all", "Built-in traffic encryption", "Centralized, predictable assignment", "Automatic name resolution"], "correct": 2}, {"q": "Which wireless band typically has longer range but more congestion?", "opts": ["5 GHz", "6 GHz", "60 GHz", "2.4 GHz"], "correct": 3}, {"q": "Which short-range technology is commonly used for contactless payment?", "opts": ["NFC", "Bluetooth", "RFID", "802.11"], "correct": 0}, {"q": "Passive tags used to track inventory in a warehouse rely on:", "opts": ["Bluetooth", "RFID", "NFC", "802.11"], "correct": 1}, {"q": "A wireless headset pairing to a laptop most likely uses:", "opts": ["RFID technology", "NFC technology", "Bluetooth technology", "802.11 technology"], "correct": 2}, {"q": "Dividing a wireless band into smaller sections to reduce interference describes:", "opts": ["Scopes", "Zones", "Records", "Channels"], "correct": 3}, {"q": "Which of these is a current wireless encryption standard?", "opts": ["WPA3", "CIDR", "APIPA", "T568B"], "correct": 0}, {"q": "A convenient but PIN-vulnerable way to join a wireless network is:", "opts": ["WPA3", "WPS", "WEP", "802.11"], "correct": 1}, {"q": "Compared to 2.4 GHz, 5 GHz Wi-Fi generally offers:", "opts": ["Longer range, less bandwidth", "Identical performance", "Shorter range, more bandwidth", "No wireless capability"], "correct": 2}, {"q": "An access point's core function on a network is to:", "opts": ["Assigning IP address leases", "Resolving domain names", "Balancing server load", "Bridge wireless clients to the wired network"], "correct": 3}, {"q": "The first thing to change on a brand-new SOHO router is usually the:", "opts": ["Default administrator password", "Wireless channel", "DHCP scope size", "Firmware version number"], "correct": 0}, {"q": "A typical home router usually functions as a combined:", "opts": ["A modem and NIC only", "Router, switch, access point, and firewall", "A patch panel and ONT", "A load balancer and proxy"], "correct": 1}, {"q": "For a SOHO wireless network, the preferred encryption standard is:", "opts": ["WEP", "No encryption", "WPA3", "Original WPA"], "correct": 2}, {"q": "Guest devices on a SOHO network should generally be:", "opts": ["Placed on the main network", "Given administrative rights", "Left without any password", "Placed on a separate guest network"], "correct": 3}, {"q": "The main purpose of a SOHO router's built-in firewall is to:", "opts": ["Filter traffic by rule", "Assign IP addresses", "Resolve domain names", "Boost wireless range"], "correct": 0}, {"q": "Disabling WPS on a SOHO router mainly reduces risk from:", "opts": ["A weak firewall rule", "Its known PIN vulnerability", "An outdated DHCP scope", "A missing DNS record"], "correct": 1}, {"q": "Which is a reasonable first step when setting up a new SOHO router?", "opts": ["Leave every default setting as-is", "Turn off the firewall", "Change the default admin credentials", "Turn on WPS"], "correct": 2}, {"q": "Isolating IoT devices from sensitive work devices on a SOHO network is generally:", "opts": ["Unnecessary", "Only possible with a VPN", "Prohibited by most routers", "A recommended practice"], "correct": 3}, {"q": "Keeping SOHO router firmware current mainly protects against:", "opts": ["Known security vulnerabilities", "Slower Wi-Fi speeds", "Incorrect DNS records", "VLAN misconfiguration"], "correct": 0}, {"q": "The overall goal of hardening a SOHO network is best described as:", "opts": ["Making the network unusable", "Reducing common, exploitable default settings", "Removing the need for any firewall", "Disabling wireless entirely"], "correct": 1}, {"q": "A connection that repeatedly drops for a few seconds at a time describes:", "opts": ["Consistently high latency", "A one-time DNS failure", "Intermittent connectivity", "A one-time DHCP failure"], "correct": 2}, {"q": "Choppy VoIP audio with delay that varies moment to moment points to:", "opts": ["High latency", "A DNS failure", "A DHCP failure", "High jitter"], "correct": 3}, {"q": "A switch port that cycles up and down repeatedly describes:", "opts": ["Port flapping", "High jitter", "A DNS failure", "APIPA assignment"], "correct": 0}, {"q": "A device can reach local resources but not the wider internet. Check first:", "opts": ["The local switch port", "The router or ISP connection", "The device's NIC driver", "The patch panel"], "correct": 1}, {"q": "A site loads by IP address but not by its name. This points to a failure in:", "opts": ["DHCP", "Syslog", "DNS", "A load balancer"], "correct": 2}, {"q": "A device gets no IP address at all, not even an APIPA address. Check first:", "opts": ["The DNS record", "The mail server", "The Syslog service", "The physical connection"], "correct": 3}, {"q": "A whole subnet suddenly stops receiving addresses automatically. The likely failed service is:", "opts": ["DHCP", "DNS", "A proxy server", "A spam gateway"], "correct": 0}, {"q": "Comparing latency and jitter mainly helps distinguish:", "opts": ["A DNS-only problem to isolate", "Consistent delay from inconsistent delay", "A wireless-only problem to isolate", "A hardware-only failure to isolate"], "correct": 1}];
+                let QUESTIONS = [];
+                let answers = [];
+
+                function drawSet() {
+                    const shuffled = POOL.slice().sort(() => Math.random() - 0.5);
+                    QUESTIONS = shuffled.slice(0, 10);
+                    answers = new Array(QUESTIONS.length).fill(null);
+                }
+
+                function renderQuiz() {
+                    const area = document.getElementById('quizArea');
+                    area.innerHTML = QUESTIONS.map((item, qi) => {
+                        const opts = item.opts.map((opt, oi) =>
+                            `<button type="button" class="answer-option" data-qi="${qi}" data-oi="${oi}" onclick="selectAnswer(${qi}, ${oi})">${opt}</button>`
+                        ).join('');
+                        return `<div class="question-block">
+                            <div class="question-number">Question ${qi + 1} of ${QUESTIONS.length}</div>
+                            <p class="question-text">${item.q}</p>
+                            ${opts}
+                        </div>`;
+                    }).join('');
+                }
+
+                function selectAnswer(qi, oi) {
+                    answers[qi] = oi;
+                    document.querySelectorAll(`[data-qi="${qi}"]`).forEach(btn => {
+                        btn.classList.remove('selected');
+                        if (parseInt(btn.dataset.oi) === oi) btn.classList.add('selected');
+                    });
+                }
+
+                function gradeQuiz() {
+                    if (answers.includes(null)) {
+                        alert('Answer all 10 questions before grading.');
+                        return;
+                    }
+                    let score = 0;
+                    QUESTIONS.forEach((item, qi) => {
+                        const correct = item.correct;
+                        document.querySelectorAll(`[data-qi="${qi}"]`).forEach(btn => {
+                            const oi = parseInt(btn.dataset.oi);
+                            btn.classList.remove('selected');
+                            if (oi === correct) btn.classList.add('correct');
+                            else if (oi === answers[qi]) btn.classList.add('incorrect');
+                        });
+                        if (answers[qi] === correct) score++;
+                    });
+                    document.getElementById('scoreDisplay').textContent = score + ' / ' + QUESTIONS.length;
+                    const note = document.getElementById('scoreNote');
+                    if (score === QUESTIONS.length) note.textContent = 'Perfect set. You are ready to move on.';
+                    else note.textContent = 'Not a perfect 10 yet \u2014 click Reset for a new random set and try again.';
+                    document.getElementById('quizResults').style.display = 'block';
+                    document.getElementById('quizResults').scrollIntoView({behavior: 'smooth'});
+                }
+
+                function resetQuiz() {
+                    document.getElementById('quizResults').style.display = 'none';
+                    drawSet();
+                    renderQuiz();
+                }
+
+                drawSet();
+                renderQuiz();
+            </script>
+
+        </div>
+
+        <footer class="module-footer">
+            <p class="footer-text">CompTIA A+ Core 1 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
+        </footer>
+    </div>
+</body>
+</html>
