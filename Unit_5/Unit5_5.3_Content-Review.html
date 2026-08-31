@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 5 &mdash; 5.3 Content Review | CompTIA A+ Core 1</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Sans+Pro:wght@400;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           CPCC COURSE TEMPLATE - GOLD / CHARCOAL / BLACK
+           CTS-ITS7501-80 CompTIA A+ Core 1 Training
+           Type: true black. Accents: gold. Chrome: charcoal.
+           ============================================ */
+
+        :root {
+            --primary-dark: #4A4A4A;       /* Charcoal - structural chrome only */
+            --primary-main: #B8962E;       /* Warm Gold - primary accent */
+            --primary-light: #D4AF56;      /* Light Gold */
+            --primary-pale: #FBF3DF;       /* Pale Gold wash */
+
+            --accent-teal: #8A6F1F;        /* Deep bronze-gold */
+            --accent-teal-light: #F3E9CE;  /* Pale bronze */
+            --accent-orange: #A9642A;      /* Warm rust */
+            --accent-orange-light: #F5E2CE;
+            --accent-purple: #6B5B3A;      /* Muted umber */
+            --accent-purple-light: #EFE6D2;
+            --accent-green: #4E7A51;
+            --accent-green-light: #DCEBDD;
+
+            --alert-warning: #B8862E;
+            --alert-warning-bg: #FBF0D9;
+            --alert-danger: #A13A3A;
+            --alert-danger-bg: #F6DEDE;
+            --alert-success: #3F6E42;
+            --alert-success-bg: #DCEBDD;
+            --alert-info: #6E5B2E;
+            --alert-info-bg: #F1E9D4;
+
+            --text-black: #000000;         /* All reading text */
+            --neutral-900: #000000;
+            --neutral-700: #000000;
+            --neutral-500: #5A5A5A;
+            --neutral-300: #D9D3C4;
+            --neutral-100: #FAF8F3;
+            --white: #ffffff;
+
+            --font-heading: 'Nunito', sans-serif;
+            --font-body: 'Source Sans Pro', sans-serif;
+            --font-code: 'Fira Code', monospace;
+
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+
+            --shadow-sm: 0 1px 2px rgba(74, 74, 74, 0.08);
+            --shadow-md: 0 4px 6px rgba(74, 74, 74, 0.12);
+            --shadow-lg: 0 10px 20px rgba(74, 74, 74, 0.15);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body), 'Segoe UI', Tahoma, Verdana, sans-serif;
+            font-size: 1.0625rem;
+            line-height: 1.7;
+            color: var(--text-black);
+            background: linear-gradient(135deg, var(--neutral-100) 0%, var(--white) 100%);
+            min-height: 100vh;
+            padding: var(--space-lg);
+        }
+
+        .course-container {
+            max-width: 950px; margin: 0 auto; background: var(--white);
+            border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); overflow: hidden;
+        }
+
+        .module-header {
+            background: var(--primary-main); color: var(--text-black);
+            padding: var(--space-2xl) var(--space-xl); position: relative; overflow: hidden;
+        }
+        .module-label {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 0.875rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 2px;
+            margin-bottom: var(--space-sm); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-title {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 2.25rem; font-weight: 800;
+            line-height: 1.2; margin-bottom: var(--space-md); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-subtitle { font-size: 1.125rem; max-width: 650px; position: relative; z-index: 1; color: var(--text-black); }
+
+        .toc {
+            display: flex; flex-direction: column; gap: var(--space-sm);
+            padding: var(--space-lg) var(--space-xl);
+            background: var(--primary-pale); border-bottom: 1px solid var(--neutral-300);
+        }
+        .toc-item {
+            width: 100%; text-align: left;
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 0.875rem;
+            color: var(--text-black); background: var(--white);
+            border: 2px solid var(--primary-main);
+            padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md);
+        }
+        .toc-item.current { background: var(--primary-main); }
+
+        .content-area { padding: var(--space-xl); }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif;
+            color: var(--text-black); line-height: 1.3; margin-bottom: var(--space-md);
+        }
+        h1 { font-size: 2rem; font-weight: 800; }
+        h2 { font-size: 1.625rem; font-weight: 700; padding-bottom: var(--space-sm);
+             border-bottom: 3px solid var(--primary-main); margin-top: var(--space-xl); margin-bottom: var(--space-lg); }
+        h3 { font-size: 1.375rem; font-weight: 700; margin-top: var(--space-lg);
+             padding-left: var(--space-sm); border-left: 4px solid var(--primary-main); }
+        h4 { font-size: 1.125rem; font-weight: 600; }
+
+        p { margin-bottom: var(--space-md); }
+        strong { font-weight: 700; color: var(--text-black); }
+        em { font-style: italic; color: var(--text-black); }
+
+        a { color: var(--text-black); text-decoration: none; border-bottom: 2px solid var(--primary-main); transition: all 0.2s ease; }
+        a:hover { background: var(--primary-pale); border-bottom-color: var(--accent-teal); }
+
+        ul, ol { margin-bottom: var(--space-md); padding-left: var(--space-lg); }
+        li { margin-bottom: var(--space-sm); }
+        ul li::marker { color: var(--accent-teal); }
+        ol li::marker { color: var(--accent-teal); font-weight: 700; }
+
+        .tech-box {
+            background: var(--neutral-100); border: 2px solid var(--neutral-500);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .tech-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .tech-box .callout-content { padding-left: 0; }
+
+        .plain-box {
+            background: var(--primary-pale); border: 2px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .plain-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .plain-box .callout-content { padding-left: 0; }
+
+        .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; position: relative; overflow: hidden; }
+        .callout-title { font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 1rem;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
+        .callout-content { }
+        .callout-content p:last-child { margin-bottom: 0; }
+
+        .callout-tip { background: var(--accent-green-light); border-left: 4px solid var(--accent-green); }
+        .callout-warning { background: var(--alert-warning-bg); border-left: 4px solid var(--alert-warning); }
+        .callout-danger { background: var(--alert-danger-bg); border-left: 4px solid var(--alert-danger); }
+        .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
+
+        .objectives-box {
+            background: var(--primary-pale); border-left: 5px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .objectives-box h3 { margin-top: 0; border-left: none; padding-left: 0; color: var(--text-black); }
+        .objectives-box ol { margin-bottom: 0; }
+
+        .key-concept {
+            background: linear-gradient(135deg, var(--accent-purple-light) 0%, var(--white) 100%);
+            border: 2px solid var(--accent-purple); border-radius: var(--radius-lg);
+            padding: var(--space-lg); margin: var(--space-xl) 0 var(--space-lg); position: relative;
+        }
+        .key-concept::before {
+            content: 'KEY CONCEPT'; position: absolute; top: -12px; left: var(--space-lg);
+            background: var(--accent-purple); color: var(--white); font-family: var(--font-heading), sans-serif;
+            font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-md); border-radius: var(--radius-sm);
+        }
+        .key-concept h4 { color: var(--text-black); margin-top: var(--space-sm); }
+
+        .definition {
+            background: var(--neutral-100); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin: var(--space-md) 0; border-left: 4px solid var(--accent-orange);
+        }
+        .definition-term { font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 1.125rem;
+            color: var(--text-black); margin-bottom: var(--space-xs); }
+        .definition-text { color: var(--text-black); margin-bottom: 0; }
+
+        code { font-family: var(--font-code), Consolas, monospace; font-size: 0.9rem; background: var(--primary-pale);
+            color: var(--text-black); padding: 2px 6px; border-radius: var(--radius-sm); }
+        pre { background: #2E2E2E; color: #f1ece0; padding: var(--space-lg); border-radius: var(--radius-md);
+            overflow-x: auto; margin: var(--space-lg) 0; position: relative; }
+        pre::before {
+            content: 'STEPS'; position: absolute; top: 0; right: 0; background: var(--primary-main); color: var(--text-black);
+            font-family: var(--font-heading), sans-serif; font-size: 0.625rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-sm); border-radius: 0 var(--radius-md) 0 var(--radius-sm);
+        }
+        pre code { background: transparent; color: inherit; padding: 0; font-size: 0.875rem; line-height: 1.6; }
+
+        .table-container { overflow-x: auto; margin: var(--space-lg) 0; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); }
+        table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
+        thead { background: var(--primary-dark); color: var(--white); }
+        th { font-family: var(--font-heading), sans-serif; font-weight: 700; text-align: left; padding: var(--space-md) var(--space-lg); color: var(--white); }
+        td { padding: var(--space-md) var(--space-lg); border-bottom: 1px solid var(--neutral-300); color: var(--text-black); }
+        tbody tr:hover { background: var(--primary-pale); }
+        tbody tr:last-child td { border-bottom: none; }
+
+        .activity-section {
+            background: linear-gradient(135deg, var(--accent-orange-light) 0%, var(--white) 100%);
+            border: 2px dashed var(--accent-orange); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .activity-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg); }
+        .activity-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700;
+            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
+        .activity-subtitle { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
+
+        .lab-section {
+            background: var(--white); border: 2px solid var(--primary-dark); border-radius: var(--radius-lg);
+            padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .lab-header { padding-bottom: var(--space-md); margin-bottom: var(--space-lg); border-bottom: 2px solid var(--primary-dark); }
+        .lab-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700; color: var(--text-black); border-left: none; padding-left: 0; }
+        .lab-time { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
+        .lab-steps { list-style: none; counter-reset: lab-step; padding-left: 0; }
+        .lab-steps li { counter-increment: lab-step; position: relative; padding-left: 3rem; margin-bottom: var(--space-lg); }
+        .lab-steps li::before {
+            content: counter(lab-step); position: absolute; left: 0; width: 2rem; height: 2rem;
+            background: var(--accent-teal); color: var(--white); font-family: var(--font-heading), sans-serif; font-weight: 700;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.875rem;
+        }
+
+        .assessment-section { background: var(--primary-pale); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0; }
+        .assessment-header { text-align: center; margin-bottom: var(--space-xl); }
+        .assessment-header h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .question-block { background: var(--white); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin-bottom: var(--space-lg); box-shadow: var(--shadow-sm); }
+        .question-number { font-family: var(--font-heading), sans-serif; font-size: 0.75rem; font-weight: 700;
+            color: var(--text-black); background: var(--primary-main); display: inline-block;
+            padding: 2px 10px; border-radius: var(--radius-sm);
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); }
+        .question-text { font-weight: 600; color: var(--text-black); margin-bottom: var(--space-md); }
+
+        details.answer { margin-top: var(--space-sm); }
+        details.answer summary { cursor: pointer; font-weight: 700; color: var(--text-black);
+            font-family: var(--font-heading), sans-serif; font-size: 0.875rem;
+            border-bottom: 2px solid var(--primary-main); display: inline-block; }
+        details.answer .reveal { margin-top: var(--space-sm); padding: var(--space-md);
+            background: var(--accent-green-light); border-radius: var(--radius-sm); color: var(--text-black); }
+
+        .references-section { background: var(--neutral-100); border-radius: var(--radius-lg);
+            padding: var(--space-lg) var(--space-xl); margin: var(--space-xl) 0; border-top: 3px solid var(--primary-main); }
+        .references-section h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+
+        .progress-bar { background: var(--neutral-300); border-radius: var(--radius-xl); height: 8px; overflow: hidden; margin: var(--space-lg) 0; }
+        .progress-fill { background: var(--primary-main); height: 100%; border-radius: var(--radius-xl); }
+        .progress-label { display: flex; justify-content: space-between; font-size: 0.875rem; color: var(--neutral-500); margin-bottom: var(--space-xs); }
+
+        .module-footer { background: var(--neutral-100); padding: var(--space-lg) var(--space-xl); text-align: center; border-top: 1px solid var(--neutral-300); }
+        .footer-text { font-size: 0.875rem; color: var(--neutral-500); }
+
+        .text-center { text-align: center; }
+        .text-muted { color: var(--neutral-500); }
+        .mt-sm { margin-top: var(--space-sm); } .mt-md { margin-top: var(--space-md); } .mt-lg { margin-top: var(--space-lg); }
+        .mb-sm { margin-bottom: var(--space-sm); } .mb-md { margin-bottom: var(--space-md); } .mb-lg { margin-bottom: var(--space-lg); }
+
+        /* Interactive quiz controls (pre-assessment / practice questions) */
+        .answer-option { display: block; width: 100%; text-align: left; padding: var(--space-sm) var(--space-md);
+            margin-bottom: var(--space-sm); border: 2px solid var(--neutral-300); border-radius: var(--radius-sm);
+            background: var(--white); cursor: pointer; font-family: var(--font-body), sans-serif; font-size: 1rem; color: var(--text-black); }
+        .answer-option:hover { border-color: var(--primary-main); }
+        .answer-option.selected { border-color: var(--primary-dark); background: var(--primary-pale); }
+        .answer-option.correct { border-color: var(--accent-green); background: var(--accent-green-light); }
+        .answer-option.incorrect { border-color: var(--alert-danger); background: var(--alert-danger-bg); }
+        .quiz-btn { font-family: var(--font-heading), sans-serif; font-weight: 700; padding: var(--space-sm) var(--space-xl);
+            border-radius: var(--radius-sm); border: 2px solid var(--primary-dark); background: var(--primary-dark); color: var(--white);
+            cursor: pointer; font-size: 0.95rem; margin-right: var(--space-sm); }
+        .quiz-btn:hover { background: #333333; }
+        .quiz-btn.secondary { background: var(--white); color: var(--primary-dark); }
+        .quiz-btn.secondary:hover { background: var(--neutral-100); }
+        #quizResults { display:none; background: var(--primary-pale); border: 2px solid var(--primary-main); border-radius: var(--radius-md);
+            padding: var(--space-lg); margin-top: var(--space-lg); text-align: center; font-family: var(--font-heading), sans-serif; }
+        #quizResults .score { font-size: 2rem; font-weight: 800; color: var(--text-black); }
+
+        @media (max-width: 768px) {
+            .module-title { font-size: 1.75rem; }
+            .content-area { padding: var(--space-lg); }
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="course-container">
+
+        <header class="module-header">
+            <div class="module-label">Unit 5 &middot; Mobile, Virtualization, and Cloud &middot; Section 5.3</div>
+            <h1 class="module-title">Content Review</h1>
+            <p class="module-subtitle">CompTIA A+ Core 1 &mdash; Domains 1.0, 4.0, and 5.0</p>
+        </header>
+
+        <nav class="toc">
+            <div class="toc-item">5.1 &mdash; Unit Overview and Learning Objectives</div>
+            <div class="toc-item">5.2 &mdash; Unit Pre-Assessment</div>
+            <div class="toc-item current">5.3 &mdash; Content Review</div>
+            <div class="toc-item">5.4 &mdash; Reading Assignment</div>
+            <div class="toc-item">5.5 &mdash; Video Assignment</div>
+            <div class="toc-item">5.6 &mdash; Classroom Labs</div>
+            <div class="toc-item">5.7 &mdash; Practice Questions</div>
+            <div class="toc-item">5.8 &mdash; Online Labs: NETLAB</div>
+            <div class="toc-item">5.9 &mdash; Reflection Activity</div>
+            <div class="toc-item">5.10 &mdash; Unit Test</div>
+        </nav>
+
+        <div class="content-area">
+
+            <p class="text-muted">The core concepts for this week, in plain terms, before you go deep in the full chapter reading.</p>
+
+            <div class="tech-box">
+                <div class="callout-title">Technical Overview</div>
+                <div class="callout-content">
+                    <p>This section walks through the core concepts for Unit 5 before you hit the full chapter reading in 5.4: laptop and mobile device hardware, mobile connectivity and app support, virtualization, cloud computing, and common mobile device issues.</p>
+                </div>
+            </div>
+
+            <div class="plain-box">
+                <div class="callout-title">In Plain Terms</div>
+                <div class="callout-content">
+                    <p>Think of this section as the trailer, not the movie. It gives you the shape of the week so the full reading in 5.4 has something to attach to, instead of hitting you cold.</p>
+                </div>
+            </div>
+
+            <h2>Laptop and Mobile Device Hardware</h2>
+
+            <p>A laptop packs the same fundamental components as a desktop into a smaller, battery-powered case &mdash; but the way you service it is completely different. Some parts are designed to be opened and swapped in the field. Others are soldered, glued, or bonded, and replacing them means replacing a much larger assembly.</p>
+
+            <div class="definition">
+                <div class="definition-term">Field-Replaceable Unit (FRU)</div>
+                <p class="definition-text">A component designed to be removed and replaced without sending the device to a specialized repair center &mdash; battery, keyboard, RAM (on some models), and storage drive are common examples. Non-FRU components, like a soldered CPU or a display bonded to a digitizer, require disassembly far beyond routine service.</p>
+            </div>
+
+            <div class="key-concept">
+                <h4>Know Before You Open It</h4>
+                <p>Battery type (removable vs. internal), keyboard and keycap replacement, and converting a mechanical hard drive to an SSD are common laptop hardware tasks. Mobile devices add near-field communication (NFC) hardware and integrated cameras and microphones to the mix &mdash; components that don't exist on a typical desktop at all.</p>
+            </div>
+
+            <h3>Mobile Device Accessories</h3>
+
+            <p>Mobile devices are frequently extended with accessories rather than internal upgrades: a stylus for precision input, headsets and external speakers for audio, webcams for video calls, and docking stations or port replicators that turn a laptop into a full desktop setup in one connection. Trackpads and drawing pads round out the input side for specialized work.</p>
+
+            <h2>Mobile Connectivity and Application Support</h2>
+
+            <p>A mobile device is only as useful as its connections. Phones and tablets connect using a mix of wired and wireless standards, and each one serves a different purpose.</p>
+
+            <div class="definition">
+                <div class="definition-term">Tethering vs. Hotspot</div>
+                <p class="definition-text">Tethering connects a single device to a phone's cellular data, usually over USB or Bluetooth. A mobile hotspot broadcasts that same connection over Wi-Fi so multiple devices can share it at once. Both rely on the phone's cellular plan and data allowance.</p>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Technology</th><th>Primary Use</th></tr></thead>
+                    <tbody>
+                        <tr><td>USB / USB-C</td><td>Wired charging and high-speed data transfer</td></tr>
+                        <tr><td>Lightning</td><td>Apple proprietary charging and data connector</td></tr>
+                        <tr><td>Bluetooth</td><td>Short-range wireless pairing &mdash; headsets, keyboards, tethering</td></tr>
+                        <tr><td>NFC</td><td>Very short-range wireless &mdash; contactless payment, quick pairing</td></tr>
+                        <tr><td>Cellular (3G/4G/5G)</td><td>Wide-area mobile data connectivity</td></tr>
+                        <tr><td>GPS</td><td>Satellite-based location services</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="key-concept">
+                <h4>Managing a Fleet of Devices</h4>
+                <p>Organizations that issue or support many mobile devices rely on Mobile Device Management (MDM) platforms to enforce policy, push updates, and remotely wipe lost or stolen hardware. Ownership models shape how much control an organization has: BYOD (Bring Your Own Device) is employee-owned with limited organizational control, while COPE (Corporate-Owned, Personally Enabled) is company-owned with full management rights, even when used personally.</p>
+            </div>
+
+            <h2>Virtualization</h2>
+
+            <p>Virtualization lets one physical system run multiple independent operating systems at the same time, each unaware of the others. It's how a single server can host a dozen isolated environments, and how a technician can safely test software without risking the host machine.</p>
+
+            <div class="definition">
+                <div class="definition-term">Hypervisor</div>
+                <p class="definition-text">The software layer that creates and manages virtual machines. A <strong>Type 1 hypervisor</strong> runs directly on the physical hardware with no underlying OS &mdash; common in data centers, where performance and isolation matter most. A <strong>Type 2 hypervisor</strong> runs as an application on top of an existing operating system &mdash; common on a technician's own laptop for testing and sandboxing.</p>
+            </div>
+
+            <div class="key-concept">
+                <h4>Why Virtualize?</h4>
+                <p>Common reasons include sandboxing (testing something risky in an isolated space), running legacy software that needs an older operating system, cross-platform testing, and Virtual Desktop Infrastructure (VDI), where a user's entire desktop runs on a remote server instead of local hardware. Containerization is a lighter-weight cousin of virtualization &mdash; it packages an application with just what it needs to run, without a full separate operating system underneath.</p>
+            </div>
+
+            <h2>Cloud Computing</h2>
+
+            <p>Cloud computing shifts computing resources off local hardware and onto infrastructure managed elsewhere, delivered over a network connection. The two questions that matter most are: who deploys it, and what layer of the stack are you buying?</p>
+
+            <div class="definition">
+                <div class="definition-term">Service Models: IaaS, PaaS, SaaS</div>
+                <p class="definition-text"><strong>Infrastructure as a Service (IaaS)</strong> provides raw virtualized hardware &mdash; servers, storage, networking &mdash; and the customer manages everything above that. <strong>Platform as a Service (PaaS)</strong> adds the operating system and runtime environment, so the customer focuses only on their application. <strong>Software as a Service (SaaS)</strong> delivers a finished application the customer simply uses, with the provider managing everything underneath.</p>
+            </div>
+
+            <div class="definition">
+                <div class="definition-term">Deployment Models</div>
+                <p class="definition-text">A <strong>public cloud</strong> is shared infrastructure available to anyone who pays for it. A <strong>private cloud</strong> is dedicated to a single organization. A <strong>hybrid cloud</strong> combines both, often keeping sensitive workloads private while bursting into public cloud capacity as needed. A <strong>community cloud</strong> is shared among a small group of organizations with common requirements.</p>
+            </div>
+
+            <div class="key-concept">
+                <h4>What Makes Cloud, Cloud</h4>
+                <p>Beyond the models above, cloud services typically share a few defining traits: metered usage (pay for what you use), rapid elasticity (scale up or down on demand), high availability, and file synchronization across devices. Multitenancy &mdash; multiple customers sharing the same underlying infrastructure, kept logically separate &mdash; is what makes public cloud pricing possible in the first place.</p>
+            </div>
+
+            <h2>Common Mobile Device Issues</h2>
+
+            <p>Mobile devices fail in ways that are physically different from desktops &mdash; smaller components, tighter tolerances, and constant handling all take a toll.</p>
+
+            <div class="key-concept">
+                <h4>What to Check First</h4>
+                <p>Battery issues (won't hold a charge, swelling, rapid drain), broken or unresponsive screens, improper charging behavior, liquid damage, overheating, digitizer problems (touch input not registering correctly), and cursor drift are the issues you'll see most often. Many of these trace back to physical stress &mdash; drops, heat, or moisture &mdash; rather than a software fault, which is why a physical inspection comes before a software fix.</p>
+            </div>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">A Habit Worth Building Now</div>
+                <div class="callout-content">
+                    <p>Before assuming a software problem, rule out the physical one: Is the port clean? Is the cable good? Is there visible damage or heat? Mobile hardware fails in physical ways more often than desktop hardware does, simply from being carried, dropped, and handled all day.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <footer class="module-footer">
+            <p class="footer-text">CompTIA A+ Core 1 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
+        </footer>
+    </div>
+</body>
+</html>
