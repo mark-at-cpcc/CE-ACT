@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unit 1 &mdash; 1.8 Online Labs: NETLAB | CompTIA A+ Core 1</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -92,11 +92,11 @@
 
         .module-header {
             background: var(--primary-main); color: var(--text-black);
-            padding: var(--space-2xl) var(--space-xl); position: relative; overflow: hidden;
+            padding: var(--space-lg) var(--space-xl); position: relative; overflow: hidden;
         }
         .module-label {
             font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 0.875rem; font-weight: 700;
-            text-transform: uppercase; letter-spacing: 2px;
+            text-transform: uppercase; letter-spacing: 2px; text-decoration: underline;
             margin-bottom: var(--space-sm); position: relative; z-index: 1; color: var(--text-black);
         }
         .module-title {
@@ -144,28 +144,6 @@
         ul li::marker { color: var(--accent-teal); }
         ol li::marker { color: var(--accent-teal); font-weight: 700; }
 
-        .styled-list { list-style: none; padding-left: 0; }
-        .styled-list li { position: relative; padding-left: var(--space-lg); margin-bottom: var(--space-sm); }
-        .styled-list li::before { content: '\25B8'; position: absolute; left: 0; color: var(--accent-teal); font-weight: bold; }
-
-        .checklist { list-style: none; padding-left: 0; }
-        .checklist li { position: relative; padding-left: 2rem; margin-bottom: var(--space-sm); }
-        .checklist li::before {
-            content: '\2713'; position: absolute; left: 0; width: 1.5rem; height: 1.5rem;
-            background: var(--accent-green-light); color: var(--accent-green);
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-size: 0.75rem; font-weight: bold;
-        }
-
-        .objectives-box {
-            background: linear-gradient(135deg, var(--primary-pale) 0%, var(--accent-teal-light) 100%);
-            border-left: 5px solid var(--primary-main);
-            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
-        }
-        .objectives-box h3 { color: var(--text-black); margin-top: 0; margin-bottom: var(--space-md);
-            display: flex; align-items: center; gap: var(--space-sm); border-left: none; padding-left: 0; }
-        .objectives-box ol { margin-bottom: 0; }
-
         .tech-box {
             background: var(--neutral-100); border: 2px solid var(--neutral-500);
             border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
@@ -181,7 +159,6 @@
         .plain-box .callout-content { padding-left: 0; }
 
         .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; position: relative; overflow: hidden; }
-        .callout::before { position: absolute; top: var(--space-md); left: var(--space-md); font-size: 1.5rem; }
         .callout-title { font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 1rem;
             text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
         .callout-content { }
@@ -192,21 +169,30 @@
         .callout-danger { background: var(--alert-danger-bg); border-left: 4px solid var(--alert-danger); }
         .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
 
+        .objectives-box {
+            background: var(--primary-pale); border-left: 5px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .objectives-box h3 { margin-top: 0; border-left: none; padding-left: 0; color: var(--text-black); }
+        .objectives-box ol { margin-bottom: 0; }
+
         .key-concept {
             background: linear-gradient(135deg, var(--accent-purple-light) 0%, var(--white) 100%);
             border: 2px solid var(--accent-purple); border-radius: var(--radius-lg);
             padding: var(--space-lg); margin: var(--space-xl) 0 var(--space-lg); position: relative;
         }
         .key-concept::before {
-            content: '\1F511 KEY CONCEPT'; position: absolute; top: -12px; left: var(--space-lg);
+            content: 'KEY CONCEPT'; position: absolute; top: -12px; left: var(--space-lg);
             background: var(--accent-purple); color: var(--white); font-family: var(--font-heading), sans-serif;
             font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
             padding: var(--space-xs) var(--space-md); border-radius: var(--radius-sm);
         }
         .key-concept h4 { color: var(--text-black); margin-top: var(--space-sm); }
 
-        .definition { background: var(--neutral-100); border-radius: var(--radius-md); padding: var(--space-lg);
-            margin: var(--space-md) 0; border-left: 4px solid var(--accent-orange); }
+        .definition {
+            background: var(--neutral-100); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin: var(--space-md) 0; border-left: 4px solid var(--accent-orange);
+        }
         .definition-term { font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 1.125rem;
             color: var(--text-black); margin-bottom: var(--space-xs); }
         .definition-text { color: var(--text-black); margin-bottom: 0; }
@@ -235,25 +221,18 @@
             border: 2px dashed var(--accent-orange); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
         }
         .activity-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg); }
-        .activity-icon { width: 50px; height: 50px; background: var(--accent-orange); border-radius: var(--radius-md);
-            display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; }
         .activity-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700;
             color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
         .activity-subtitle { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
 
         .lab-section {
-            background: linear-gradient(135deg, var(--accent-teal-light) 0%, var(--white) 100%);
-            border: 2px solid var(--accent-teal); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+            background: var(--white); border: 2px solid var(--primary-dark); border-radius: var(--radius-lg);
+            padding: var(--space-xl); margin: var(--space-xl) 0;
         }
-        .lab-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg);
-            padding-bottom: var(--space-md); border-bottom: 2px solid var(--accent-teal); }
-        .lab-icon { width: 60px; height: 60px; background: var(--accent-teal); border-radius: var(--radius-md);
-            display: flex; align-items: center; justify-content: center; font-size: 1.75rem; flex-shrink: 0; }
-        .lab-title { font-family: var(--font-heading), sans-serif; font-size: 1.375rem; font-weight: 700;
-            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
-        .lab-time { font-size: 0.875rem; color: var(--neutral-500); margin: 0; display: flex; align-items: center; gap: var(--space-xs); }
-        .lab-time::before { content: '\23F1\FE0F'; }
-        .lab-steps { counter-reset: lab-step; list-style: none; padding-left: 0; }
+        .lab-header { padding-bottom: var(--space-md); margin-bottom: var(--space-lg); border-bottom: 2px solid var(--primary-dark); }
+        .lab-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700; color: var(--text-black); border-left: none; padding-left: 0; }
+        .lab-time { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
+        .lab-steps { list-style: none; counter-reset: lab-step; padding-left: 0; }
         .lab-steps li { counter-increment: lab-step; position: relative; padding-left: 3rem; margin-bottom: var(--space-lg); }
         .lab-steps li::before {
             content: counter(lab-step); position: absolute; left: 0; width: 2rem; height: 2rem;
@@ -271,6 +250,7 @@
             padding: 2px 10px; border-radius: var(--radius-sm);
             text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); }
         .question-text { font-weight: 600; color: var(--text-black); margin-bottom: var(--space-md); }
+
         details.answer { margin-top: var(--space-sm); }
         details.answer summary { cursor: pointer; font-weight: 700; color: var(--text-black);
             font-family: var(--font-heading), sans-serif; font-size: 0.875rem;
@@ -281,49 +261,35 @@
         .references-section { background: var(--neutral-100); border-radius: var(--radius-lg);
             padding: var(--space-lg) var(--space-xl); margin: var(--space-xl) 0; border-top: 3px solid var(--primary-main); }
         .references-section h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
-        .references-section ul { padding-left: var(--space-lg); }
+
+        .progress-bar { background: var(--neutral-300); border-radius: var(--radius-xl); height: 8px; overflow: hidden; margin: var(--space-lg) 0; }
+        .progress-fill { background: var(--primary-main); height: 100%; border-radius: var(--radius-xl); }
+        .progress-label { display: flex; justify-content: space-between; font-size: 0.875rem; color: var(--neutral-500); margin-bottom: var(--space-xs); }
 
         .summary-box {
             background: var(--primary-dark); color: var(--white);
             border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
         }
-        .summary-box h3 { color: var(--white); margin-top: 0; display: flex; align-items: center;
-            gap: var(--space-sm); border-left: none; padding-left: 0; }
-        .summary-box h3::before { content: '\1F4CB'; }
+        .summary-box h3 { color: var(--white); margin-top: 0; border-left: none; padding-left: 0; }
         .summary-box ul { margin-bottom: 0; }
         .summary-box li { color: var(--white); }
         .summary-box li::marker { color: var(--primary-light); }
 
-        .section-divider {
-            border: none; height: 6px; margin: var(--space-2xl) 0;
-            background: linear-gradient(90deg, transparent 0%, var(--primary-main) 15%, var(--primary-light) 50%, var(--primary-main) 85%, transparent 100%);
-            border-radius: var(--radius-sm); box-shadow: var(--shadow-sm);
-        }
-
-        .module-footer { background: var(--primary-dark); padding: var(--space-lg) var(--space-xl);
-            text-align: center; border-top: 4px solid var(--primary-main); }
-        .footer-text { font-size: 0.875rem; color: var(--white); margin: 0; }
+        .module-footer { background: var(--neutral-100); padding: var(--space-lg) var(--space-xl); text-align: center; border-top: 1px solid var(--neutral-300); }
+        .footer-text { font-size: 0.875rem; color: var(--neutral-500); }
 
         .text-center { text-align: center; }
         .text-muted { color: var(--neutral-500); }
-        .highlight { background: linear-gradient(180deg, transparent 50%, var(--primary-light) 50%); padding: 0 2px; }
+        .mt-sm { margin-top: var(--space-sm); } .mt-md { margin-top: var(--space-md); } .mt-lg { margin-top: var(--space-lg); }
+        .mb-sm { margin-bottom: var(--space-sm); } .mb-md { margin-bottom: var(--space-md); } .mb-lg { margin-bottom: var(--space-lg); }
 
         @media (max-width: 768px) {
-            body { padding: var(--space-sm); }
-            .module-header { padding: var(--space-xl) var(--space-lg); }
             .module-title { font-size: 1.75rem; }
             .content-area { padding: var(--space-lg); }
-            h2 { font-size: 1.375rem; }
-            .lab-header, .activity-header { flex-direction: column; align-items: flex-start; }
-        }
-        @media print {
-            body { background: white; padding: 0; }
-            .course-container { box-shadow: none; }
-            .toc { display: none; }
-            details.answer { display: none; }
         }
     </style>
 </head>
+
 <body>
     <div class="course-container">
 
@@ -333,7 +299,8 @@
             <p class="module-subtitle">CompTIA A+ Core 1 - Domains 3.0 and 5.0</p>
         </header>
 
-        <nav class="toc">
+                <nav class="toc" id="tocNav">
+            <div class="toc-header">Table of Contents</div>
             <div class="toc-item">1.1 &mdash; Unit Overview and Learning Objectives</div>
             <div class="toc-item">1.2 &mdash; Unit Pre-Assessment</div>
             <div class="toc-item">1.3 &mdash; Content Review</div>
@@ -341,162 +308,179 @@
             <div class="toc-item">1.5 &mdash; Video Assignment</div>
             <div class="toc-item">1.6 &mdash; Classroom Labs</div>
             <div class="toc-item">1.7 &mdash; Practice Question Set</div>
-            <div class="toc-item current">1.8 &mdash; Online Labs: NETLAB</div>
+            <div class="toc-item current" id="tocCurrent">1.8 &mdash; Online Labs: NETLAB</div>
             <div class="toc-item">1.9 &mdash; Reflection Activity</div>
             <div class="toc-item">1.10 &mdash; Unit Test</div>
             <div class="toc-item">1.A &mdash; Acronym Test</div>
             <div class="toc-item">1.B &mdash; Clearing Your Browser Cache</div>
         </nav>
+        <style>
+            /* Collapsible TOC: only the current section shows until clicked */
+            nav.toc#tocNav { gap: 0; }
+            nav.toc#tocNav .toc-item {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav .toc-item.current {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                cursor: pointer;
+            }
+            nav.toc#tocNav .toc-item.current::after {
+                content: ' \25BE Click to View';
+                font-size: 0.75em;
+            }
+            nav.toc#tocNav.toc-expanded .toc-item {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                margin-bottom: var(--space-sm);
+            }
+            nav.toc#tocNav.toc-expanded .toc-item.current::after { content: ' \25B4'; }
+
+            nav.toc#tocNav .toc-header {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                font-family: var(--font-heading), 'Segoe UI', sans-serif;
+                font-weight: 700;
+                font-size: 0.875rem;
+                text-align: left;
+                color: var(--text-black);
+                text-decoration: underline;
+                background: var(--primary-main);
+                border-radius: var(--radius-md);
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav.toc-expanded .toc-header {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                padding-left: var(--space-md);
+                border-width: 2px;
+                border-style: solid;
+                border-color: var(--primary-main);
+                margin-bottom: var(--space-sm);
+            }
+        </style>
+
+        <script>
+            (function () {
+                var toc = document.getElementById('tocNav');
+                var currentItem = document.getElementById('tocCurrent');
+
+                toc.addEventListener('click', function (e) {
+                    if (toc.classList.contains('toc-expanded')) {
+                        toc.classList.remove('toc-expanded');
+                    } else if (e.target === currentItem || currentItem.contains(e.target)) {
+                        toc.classList.add('toc-expanded');
+                    }
+                });
+
+                toc.addEventListener('mouseleave', function () {
+                    toc.classList.remove('toc-expanded');
+                });
+            })();
+        </script>
 
         <div class="content-area">
 
-            <p class="text-muted">Two labs this unit, roughly 45 minutes to 75 minutes each. These are required and they are graded.</p>
+            <p class="text-muted">Two labs this unit, roughly 45 minutes to 1.25 hours each. These are required and they are graded.</p>
+
+            <div class="plain-box">
+                <div class="callout-title">What NETLAB Actually Is</div>
+                <div class="callout-content">
+                    <p>NETLAB+ gives you temporary access to a real virtual machine or lab environment through your browser &mdash; no installation, and nothing on your own computer is at risk. You book a slot, do the lab, and when your time is up the system wipes the machine clean for the next student. You cannot permanently break anything, which is the whole point.</p>
+                </div>
+            </div>
 
             <div class="tech-box">
                 <div class="callout-title">Technical Overview</div>
                 <div class="callout-content">
-                    <p>NETLAB+ is a remotely accessible virtualization platform that provisions dedicated physical and virtual lab equipment to scheduled student sessions. Access is reservation-based: a pod of resources is allocated to you for a fixed window, and the environment is reset to a clean baseline when that window closes. The CompTIA A+ Core 1 Exam lab series maps directly to CompTIA A+ exam objectives and provides guided procedures against live systems rather than simulations.</p>
+                    <p>NETLAB+ provisions pods of physical and virtual equipment to reservation-based student sessions. Each pod is allocated exclusively for the duration of the reservation and reset to a clean baseline on release. Because pods are finite and allocated per course, availability is genuinely constrained near deadlines.</p>
                 </div>
             </div>
 
-            <div class="plain-box">
-                <div class="callout-title">In Plain Terms</div>
+            <h3>Getting In</h3>
+            <ol class="lab-steps">
+                <li><strong>Always launch from Brightspace.</strong> Go to the <strong>NETLAB &mdash; Student Labs</strong> folder under Coursework and click the link for the specific lab you're starting &mdash; do not navigate to the NETLAB site directly. Launching from the course shell is what associates your session with this class and your roster entry.</li>
+                <li><strong>Make a reservation.</strong> Choose a date and time window. NETLAB allocates a pod to you for exactly that period.</li>
+                <li><strong>Read the worksheet before your window opens.</strong> Worksheets live in the <strong>NETLAB &mdash; Lab Worksheets</strong> folder under Coursework in Brightspace, and inside NETLAB itself. Reading during your reservation burns time you paid for.</li>
+                <li><strong>Complete the lab in one continuous session,</strong> capturing screenshots as you go.</li>
+                <li><strong>Submit your screenshots</strong> to the matching lab quiz in Brightspace &mdash; Lab 01A's screenshots go to the Lab 01A quiz, and Lab 01B's screenshots go to the Lab 01B quiz.</li>
+            </ol>
+
+            <div class="callout callout-danger">
+                <div class="callout-title">One Session, No Save Point</div>
                 <div class="callout-content">
-                    <p>NETLAB gives you a real computer to work on through your browser. You book a time slot, the system hands you a machine for that window, and when time is up it wipes it clean for the next person. Nothing you do can break anything permanently, which is exactly why it is the safest place to learn.</p>
+                    <p><strong>If your reservation expires mid-lab, the environment resets and you begin again from step one.</strong> There is no pause, no saved progress, and no partial completion.</p>
+                    <p>Book generously. If a lab is estimated at 1.25 hours, reserve closer to 2. Finishing early costs you nothing; running out costs you the entire attempt.</p>
+                </div>
+            </div>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">Pods Are Limited &mdash; Reserve Early</div>
+                <div class="callout-content">
+                    <p>This course has a finite number of lab pods. When the whole class books the same Sunday night, the slots are simply gone, and the deadline does not move because a reservation was unavailable.</p>
+                    <p>Book your window early in the week, not the night before it's due.</p>
                 </div>
             </div>
 
             <h2>This Unit's Labs</h2>
             <div class="table-container">
                 <table>
-                    <thead><tr><th>Lab</th><th>Title</th><th>Est. Time</th><th>Objectives</th></tr></thead>
+                    <thead><tr><th>Lab</th><th>Topic</th><th>Estimated Time</th></tr></thead>
                     <tbody>
-                        <tr><td><strong>Lab 01A</strong></td><td>Examining PC Hardware</td><td>0.75 &ndash; 1.25 hrs</td><td>3.3, 3.5, 3.6</td></tr>
-                        <tr><td><strong>Lab 01B</strong></td><td>Examining PC Hardware</td><td>0.75 &ndash; 1.25 hrs</td><td>3.3, 3.5, 3.6, 5.1</td></tr>
+                        <tr><td>Lab 01A</td><td>Examining PC Hardware</td><td>0.75 &ndash; 1.25 hrs</td></tr>
+                        <tr><td>Lab 01B</td><td>Examining PC Hardware</td><td>0.75 &ndash; 1.25 hrs</td></tr>
                     </tbody>
                 </table>
             </div>
-            <p>Both labs come from the <strong>CompTIA A+ Core 1 Exam</strong> series and pair directly with the hardware you identified in Lab 1.6.2 and the concepts in Section 1.3.</p>
-
-            <div class="key-concept">
-                <h4>Why These Labs Matter More Than They Look</h4>
-                <p>Roughly a quarter of the Core 1 exam is Hardware and another 28% is Troubleshooting. Both are assessed partly through <strong>performance-based questions</strong> &mdash; items that ask you to do something in a simulated environment rather than recognize a correct sentence.</p>
-                <p>Reading about a device manager and navigating one under a countdown are different skills, and the exam tests the second. Students who complete every NETLAB lab consistently report the performance-based questions felt familiar. Students who skipped them report the opposite, usually afterward.</p>
-                <p>These labs are also the only place in this course where you work on a live system with no risk of breaking something that matters. Use that. Click things. Look around beyond the numbered steps.</p>
-            </div>
-
-            <h2>How to Access NETLAB</h2>
-            <p>Complete access instructions, including first-time login and reservation walkthroughs, are in <strong>Unit 0, Section 0.10</strong>. The short version:</p>
-            <ol class="lab-steps">
-                <li><strong>Open the lab link in Brightspace.</strong> Each lab has its own link inside this unit. Do not go directly to the NETLAB site &mdash; launch from the course shell so your session is associated with this class.</li>
-                <li><strong>Make a reservation.</strong> You select a date and time window. The system allocates a pod of equipment to you for that period.</li>
-                <li><strong>Open the lab worksheet first.</strong> Worksheets are in the <strong>NETLAB &mdash; Lab Worksheets</strong> folder under Coursework, and inside NETLAB itself. Read it before your reservation begins, not during.</li>
-                <li><strong>Complete the lab in a single sitting</strong> and capture every required screenshot as you go.</li>
-                <li><strong>Submit your screenshots</strong> to the matching lab quiz in Brightspace.</li>
-            </ol>
-
-            <div class="callout callout-danger">
-                <div class="callout-title">You Get One Continuous Session</div>
-                <div class="callout-content">
-                    <p><strong>If your reservation time runs out, the lab resets and you start over from the beginning.</strong> There is no pause, no save state, and no partial progress carried forward.</p>
-                    <p>Book a window longer than you think you need. If a lab is estimated at 1.25 hours, reserve closer to 2. The extra time costs you nothing if you finish early.</p>
-                </div>
-            </div>
-
-            <div class="callout callout-warning">
-                <div class="callout-title">Do Not Wait Until the Deadline</div>
-                <div class="callout-content">
-                    <p>There are a <strong>limited number of lab pods</strong> assigned to this course. When everyone books the same Sunday evening, the slots are gone and there is nothing I can do about it &mdash; the resources are finite and the deadline does not move because you could not get a reservation.</p>
-                    <p>Reserve your time early in the week. This is the single most common avoidable way students lose points in this course.</p>
-                </div>
-            </div>
-
-            <h2>Screenshot Requirements</h2>
-            <p>Screenshots are how the lab gets graded, so the mechanics matter. Improperly submitted screenshots cannot receive credit or partial credit.</p>
-
-            <div class="table-container">
-                <table>
-                    <thead><tr><th>Requirement</th><th>Detail</th></tr></thead>
-                    <tbody>
-                        <tr><td><strong>What to capture</strong></td><td>Every screenshot the lab worksheet specifically calls for, showing all the information the step asks you to demonstrate</td></tr>
-                        <tr><td><strong>Timestamp</strong></td><td>The NETLAB date and time stamp and your reservation must be visible in the capture</td></tr>
-                        <tr><td><strong>How to submit</strong></td><td>Open the screenshot, right-click, copy, then <strong>paste directly into the question field</strong> in the lab quiz</td></tr>
-                        <tr><td><strong>How not to submit</strong></td><td>Do <strong>not</strong> attach screenshots as separate files, email them, or link to cloud storage</td></tr>
-                        <tr><td><strong>Verify before saving</strong></td><td>You should see the image displayed inside the question field. If you do not see it, it did not submit.</td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="callout callout-tip">
-                <div class="callout-title">Capture As You Go, Not At The End</div>
-                <div class="callout-content"><p>Take each screenshot at the moment the worksheet asks for it. Students who plan to "go back and grab them at the end" discover the environment has moved on, the state is gone, and the only way to recover it is to run the entire lab again on a new reservation.</p></div>
-            </div>
-
-            <div class="callout callout-danger">
-                <div class="callout-title">Lab Tools Stay Inside NETLAB</div>
-                <div class="callout-content">
-                    <p><strong>Do not attempt these lab procedures on the CPCC network, on college equipment, or on any network or system you do not own.</strong> Tools and techniques used in a lab environment may violate federal or state law, or institutional acceptable use policy, when applied elsewhere.</p>
-                    <p>The NETLAB virtual machines exist precisely so you have a lawful, isolated place to practice. Use them, and only them. You are solely responsible for compliance if you take these techniques outside that environment.</p>
-                </div>
-            </div>
-
-            <h2>Before You Start</h2>
-            <ul class="checklist">
-                <li>Complete the Unit 1 instructional material first &mdash; Sections 1.3, 1.4, and 1.5. The labs assume you know the vocabulary.</li>
-                <li>Download and read the lab worksheet before your reservation window opens</li>
-                <li>Reserve a block longer than the estimated time</li>
-                <li>Have a reliable internet connection &mdash; a dropped connection during a session costs you the session</li>
-                <li>Know your screenshot tool before you start, not during</li>
-            </ul>
 
             <div class="callout callout-info">
-                <div class="callout-title">Completion Standard &mdash; 100 Points Each</div>
+                <div class="callout-title">Screenshots Are How This Gets Graded</div>
                 <div class="callout-content">
-                    <p>Full credit requires every screenshot the worksheet specifies, pasted into the correct field of the lab quiz, with the NETLAB timestamp and reservation visible. Submissions missing screenshots or with unreadable captures are returned for revision and resubmitted for full credit.</p>
-                    <p>You may reattempt the labs as many times as you wish before the deadline &mdash; each attempt requires a new reservation.</p>
+                    <p>Each lab has its own quiz in Brightspace, and each lab's screenshots go into that lab's own quiz &mdash; not attached as separate files, and not combined into one submission. Paste each screenshot directly into its assigned question field. Check the worksheet for the full list of required screenshots before you start your reservation. Every screenshot must clearly show the NETLAB timestamp and your reservation ID; screenshots without both are not accepted as proof of completion.</p>
                 </div>
-            </div>
-
-            <div class="table-container">
-                <table>
-                    <thead><tr><th>Lab</th><th>Submit To</th><th>Due</th><th>Points</th></tr></thead>
-                    <tbody>
-                        <tr><td>CompTIA A+ Core 1 Exam Lab 01A &mdash; Examining PC Hardware</td><td>Lab 01A quiz, Brightspace</td><td>Mon, 11:59 PM</td><td>100</td></tr>
-                        <tr><td>CompTIA A+ Core 1 Exam Lab 01B &mdash; Examining PC Hardware</td><td>Lab 01B quiz, Brightspace</td><td>Mon, 11:59 PM</td><td>100</td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <h2>Getting Help</h2>
-            <div class="table-container">
-                <table>
-                    <thead><tr><th>Problem</th><th>Contact</th></tr></thead>
-                    <tbody>
-                        <tr><td>NETLAB access, reservations, pods, or lab content</td><td><strong>Your instructor</strong> &mdash; not CPCC ITS. ITS does not manage this resource and will redirect you to me.</td></tr>
-                        <tr><td>Brightspace login or platform issues</td><td>CPCC Information Technology Services</td></tr>
-                        <tr><td>Your own internet or device problems</td><td>Your provider. I cannot troubleshoot your home connection remotely.</td></tr>
-                    </tbody>
-                </table>
             </div>
 
             <div class="summary-box">
-                <h3>NETLAB Checklist</h3>
+                <h3>Before You Submit</h3>
                 <ul>
-                    <li>Unit 1 instructional material completed before starting</li>
-                    <li>Worksheet read in advance, reservation booked early in the week</li>
-                    <li>Reservation window longer than the estimated lab time</li>
-                    <li>Screenshots captured at each required step, with timestamp visible</li>
-                    <li>Screenshots pasted into the question fields &mdash; not attached as files</li>
-                    <li>Both labs submitted by Monday, 11:59 PM</li>
+                    <li>Both labs completed in a single continuous session each</li>
+                    <li>Every required screenshot shows the NETLAB timestamp and reservation ID</li>
+                    <li>Every screenshot pasted into its assigned field in the matching lab quiz, not attached as a separate file</li>
+                    <li>Submitted before the deadline on Monday at 11:59 PM</li>
                 </ul>
             </div>
 
             <div class="references-section">
                 <h3>Go Further</h3>
                 <ul>
-                    <li>Unit 0, Section 0.10 &mdash; full NETLAB access instructions, first-time login, and reservation walkthrough</li>
-                    <li>NETLAB &mdash; Lab Worksheets folder under Coursework in Brightspace</li>
-                    <li>Your instructor, Mark E. Turner &mdash; all NETLAB questions, access problems, and reservation issues</li>
+                    <li>Section 0.10 in Unit 0 &mdash; the full NETLAB access walkthrough if you need a refresher</li>
+                    <li>NETLAB support contact, listed in the Getting Started folder in Brightspace</li>
                 </ul>
             </div>
 
