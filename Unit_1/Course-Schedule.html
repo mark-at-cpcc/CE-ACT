@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Course Schedule | CompTIA A+ Core 1</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Sans+Pro:wght@400;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================
+           CPCC COURSE TEMPLATE - GOLD / CHARCOAL / BLACK
+           CTS-ITS7501-80 CompTIA A+ Core 1 Training
+           Type: true black. Accents: gold. Chrome: charcoal.
+           ============================================ */
+
+        :root {
+            --primary-dark: #4A4A4A;       /* Charcoal - structural chrome only */
+            --primary-main: #B8962E;       /* Warm Gold - primary accent */
+            --primary-light: #D4AF56;      /* Light Gold */
+            --primary-pale: #FBF3DF;       /* Pale Gold wash */
+
+            --accent-teal: #8A6F1F;        /* Deep bronze-gold */
+            --accent-teal-light: #F3E9CE;  /* Pale bronze */
+            --accent-orange: #A9642A;      /* Warm rust */
+            --accent-orange-light: #F5E2CE;
+            --accent-purple: #6B5B3A;      /* Muted umber */
+            --accent-purple-light: #EFE6D2;
+            --accent-green: #4E7A51;
+            --accent-green-light: #DCEBDD;
+
+            --alert-warning: #B8862E;
+            --alert-warning-bg: #FBF0D9;
+            --alert-danger: #A13A3A;
+            --alert-danger-bg: #F6DEDE;
+            --alert-success: #3F6E42;
+            --alert-success-bg: #DCEBDD;
+            --alert-info: #6E5B2E;
+            --alert-info-bg: #F1E9D4;
+
+            --text-black: #000000;         /* All reading text */
+            --neutral-900: #000000;
+            --neutral-700: #000000;
+            --neutral-500: #5A5A5A;
+            --neutral-300: #D9D3C4;
+            --neutral-100: #FAF8F3;
+            --white: #ffffff;
+
+            --font-heading: 'Nunito', sans-serif;
+            --font-body: 'Source Sans Pro', sans-serif;
+            --font-code: 'Fira Code', monospace;
+
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+
+            --shadow-sm: 0 1px 2px rgba(74, 74, 74, 0.08);
+            --shadow-md: 0 4px 6px rgba(74, 74, 74, 0.12);
+            --shadow-lg: 0 10px 20px rgba(74, 74, 74, 0.15);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body), 'Segoe UI', Tahoma, Verdana, sans-serif;
+            font-size: 1.0625rem;
+            line-height: 1.7;
+            color: var(--text-black);
+            background: linear-gradient(135deg, var(--neutral-100) 0%, var(--white) 100%);
+            min-height: 100vh;
+            padding: var(--space-lg);
+        }
+
+        .course-container {
+            max-width: 950px; margin: 0 auto; background: var(--white);
+            border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); overflow: hidden;
+        }
+
+        .module-header {
+            background: var(--primary-main); color: var(--text-black);
+            padding: var(--space-lg) var(--space-xl); position: relative; overflow: hidden;
+        }
+        .module-label {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 0.875rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 2px; text-decoration: underline;
+            margin-bottom: var(--space-sm); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-title {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 2.25rem; font-weight: 800;
+            line-height: 1.2; margin-bottom: var(--space-md); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-subtitle { font-size: 1.125rem; max-width: 650px; position: relative; z-index: 1; color: var(--text-black); }
+
+        .toc {
+            display: flex; flex-direction: column; gap: var(--space-sm);
+            padding: var(--space-lg) var(--space-xl);
+            background: var(--primary-pale); border-bottom: 1px solid var(--neutral-300);
+        }
+        .toc-item {
+            width: 100%; text-align: left;
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 0.875rem;
+            color: var(--text-black); background: var(--white);
+            border: 2px solid var(--primary-main);
+            padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md);
+        }
+        .toc-item.current { background: var(--primary-main); }
+
+        .content-area { padding: var(--space-xl); }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif;
+            color: var(--text-black); line-height: 1.3; margin-bottom: var(--space-md);
+        }
+        h1 { font-size: 2rem; font-weight: 800; }
+        h2 { font-size: 1.625rem; font-weight: 700; padding-bottom: var(--space-sm);
+             border-bottom: 3px solid var(--primary-main); margin-top: var(--space-xl); margin-bottom: var(--space-lg); }
+        h3 { font-size: 1.375rem; font-weight: 700; margin-top: var(--space-lg);
+             padding-left: var(--space-sm); border-left: 4px solid var(--primary-main); }
+        h4 { font-size: 1.125rem; font-weight: 600; }
+
+        p { margin-bottom: var(--space-md); }
+        strong { font-weight: 700; color: var(--text-black); }
+        em { font-style: italic; color: var(--text-black); }
+
+        a { color: var(--text-black); text-decoration: none; border-bottom: 2px solid var(--primary-main); transition: all 0.2s ease; }
+        a:hover { background: var(--primary-pale); border-bottom-color: var(--accent-teal); }
+
+        ul, ol { margin-bottom: var(--space-md); padding-left: var(--space-lg); }
+        li { margin-bottom: var(--space-sm); }
+        ul li::marker { color: var(--accent-teal); }
+        ol li::marker { color: var(--accent-teal); font-weight: 700; }
+
+        .styled-list { list-style: none; padding-left: 0; }
+        .styled-list li { position: relative; padding-left: var(--space-lg); margin-bottom: var(--space-sm); }
+        .styled-list li::before { content: '\25B8'; position: absolute; left: 0; color: var(--accent-teal); font-weight: bold; }
+
+        .checklist { list-style: none; padding-left: 0; }
+        .checklist li { position: relative; padding-left: 2rem; margin-bottom: var(--space-sm); }
+        .checklist li::before {
+            content: '\2713'; position: absolute; left: 0; width: 1.5rem; height: 1.5rem;
+            background: var(--accent-green-light); color: var(--accent-green);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 0.75rem; font-weight: bold;
+        }
+
+        .objectives-box {
+            background: linear-gradient(135deg, var(--primary-pale) 0%, var(--accent-teal-light) 100%);
+            border-left: 5px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .objectives-box h3 { color: var(--text-black); margin-top: 0; margin-bottom: var(--space-md);
+            display: flex; align-items: center; gap: var(--space-sm); border-left: none; padding-left: 0; }
+        .objectives-box h3::before { content: '\1F3AF'; font-size: 1.25rem; }
+        .objectives-box ol { margin-bottom: 0; }
+
+        .tech-box {
+            background: var(--neutral-100); border: 2px solid var(--neutral-500);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .tech-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .tech-box .callout-content { padding-left: 0; }
+
+        .plain-box {
+            background: var(--primary-pale); border: 2px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .plain-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .plain-box .callout-content { padding-left: 0; }
+
+        .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; position: relative; overflow: hidden; }
+        .callout::before { position: absolute; top: var(--space-md); left: var(--space-md); font-size: 1.5rem; }
+        .callout-title { font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 1rem;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); padding-left: 2.5rem; color: var(--text-black); }
+        .callout-content { padding-left: 2.5rem; }
+        .callout-content p:last-child { margin-bottom: 0; }
+
+        .callout-tip { background: var(--accent-green-light); border-left: 4px solid var(--accent-green); }
+        .callout-tip::before { content: '\1F4A1'; }
+        .callout-warning { background: var(--alert-warning-bg); border-left: 4px solid var(--alert-warning); }
+        .callout-warning::before { content: '\26A0\FE0F'; }
+        .callout-danger { background: var(--alert-danger-bg); border-left: 4px solid var(--alert-danger); }
+        .callout-danger::before { content: '\1F6A8'; }
+        .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
+        .callout-info::before { content: '\2139\FE0F'; }
+
+        .key-concept {
+            background: linear-gradient(135deg, var(--accent-purple-light) 0%, var(--white) 100%);
+            border: 2px solid var(--accent-purple); border-radius: var(--radius-lg);
+            padding: var(--space-lg); margin: var(--space-xl) 0 var(--space-lg); position: relative;
+        }
+        .key-concept::before {
+            content: '\1F511 KEY CONCEPT'; position: absolute; top: -12px; left: var(--space-lg);
+            background: var(--accent-purple); color: var(--white); font-family: var(--font-heading), sans-serif;
+            font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-md); border-radius: var(--radius-sm);
+        }
+        .key-concept h4 { color: var(--text-black); margin-top: var(--space-sm); }
+
+        .definition { background: var(--neutral-100); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin: var(--space-md) 0; border-left: 4px solid var(--accent-orange); }
+        .definition-term { font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 1.125rem;
+            color: var(--text-black); margin-bottom: var(--space-xs); }
+        .definition-text { color: var(--text-black); margin-bottom: 0; }
+
+        code { font-family: var(--font-code), Consolas, monospace; font-size: 0.9rem; background: var(--primary-pale);
+            color: var(--text-black); padding: 2px 6px; border-radius: var(--radius-sm); }
+        pre { background: #2E2E2E; color: #f1ece0; padding: var(--space-lg); border-radius: var(--radius-md);
+            overflow-x: auto; margin: var(--space-lg) 0; position: relative; }
+        pre::before {
+            content: 'STEPS'; position: absolute; top: 0; right: 0; background: var(--primary-main); color: var(--text-black);
+            font-family: var(--font-heading), sans-serif; font-size: 0.625rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-sm); border-radius: 0 var(--radius-md) 0 var(--radius-sm);
+        }
+        pre code { background: transparent; color: inherit; padding: 0; font-size: 0.875rem; line-height: 1.6; }
+
+        .table-container { overflow-x: auto; margin: var(--space-lg) 0; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); }
+        table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
+        thead { background: var(--primary-dark); color: var(--white); }
+        th { font-family: var(--font-heading), sans-serif; font-weight: 700; text-align: left; padding: var(--space-md) var(--space-lg); color: var(--white); }
+        td { padding: var(--space-md) var(--space-lg); border-bottom: 1px solid var(--neutral-300); color: var(--text-black); }
+        tbody tr:hover { background: var(--primary-pale); }
+        tbody tr:last-child td { border-bottom: none; }
+
+        .activity-section {
+            background: linear-gradient(135deg, var(--accent-orange-light) 0%, var(--white) 100%);
+            border: 2px dashed var(--accent-orange); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .activity-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg); }
+        .activity-icon { width: 50px; height: 50px; background: var(--accent-orange); border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; }
+        .activity-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700;
+            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
+        .activity-subtitle { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
+
+        .lab-section {
+            background: linear-gradient(135deg, var(--accent-teal-light) 0%, var(--white) 100%);
+            border: 2px solid var(--accent-teal); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .lab-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg);
+            padding-bottom: var(--space-md); border-bottom: 2px solid var(--accent-teal); }
+        .lab-icon { width: 60px; height: 60px; background: var(--accent-teal); border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center; font-size: 1.75rem; flex-shrink: 0; }
+        .lab-title { font-family: var(--font-heading), sans-serif; font-size: 1.375rem; font-weight: 700;
+            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
+        .lab-time { font-size: 0.875rem; color: var(--neutral-500); margin: 0; display: flex; align-items: center; gap: var(--space-xs); }
+        .lab-time::before { content: '\23F1\FE0F'; }
+        .lab-steps { counter-reset: lab-step; list-style: none; padding-left: 0; }
+        .lab-steps li { counter-increment: lab-step; position: relative; padding-left: 3rem; margin-bottom: var(--space-lg); }
+        .lab-steps li::before {
+            content: counter(lab-step); position: absolute; left: 0; width: 2rem; height: 2rem;
+            background: var(--accent-teal); color: var(--white); font-family: var(--font-heading), sans-serif; font-weight: 700;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.875rem;
+        }
+
+        .assessment-section { background: var(--primary-pale); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0; }
+        .assessment-header { text-align: center; margin-bottom: var(--space-xl); }
+        .assessment-header h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .question-block { background: var(--white); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin-bottom: var(--space-lg); box-shadow: var(--shadow-sm); }
+        .question-number { font-family: var(--font-heading), sans-serif; font-size: 0.75rem; font-weight: 700;
+            color: var(--text-black); background: var(--primary-main); display: inline-block;
+            padding: 2px 10px; border-radius: var(--radius-sm);
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); }
+        .question-text { font-weight: 600; color: var(--text-black); margin-bottom: var(--space-md); }
+        details.answer { margin-top: var(--space-sm); }
+        details.answer summary { cursor: pointer; font-weight: 700; color: var(--text-black);
+            font-family: var(--font-heading), sans-serif; font-size: 0.875rem;
+            border-bottom: 2px solid var(--primary-main); display: inline-block; }
+        details.answer .reveal { margin-top: var(--space-sm); padding: var(--space-md);
+            background: var(--accent-green-light); border-radius: var(--radius-sm); color: var(--text-black); }
+
+        .references-section { background: var(--neutral-100); border-radius: var(--radius-lg);
+            padding: var(--space-lg) var(--space-xl); margin: var(--space-xl) 0; border-top: 3px solid var(--primary-main); }
+        .references-section h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .references-section ul { padding-left: var(--space-lg); }
+
+        .summary-box {
+            background: var(--primary-dark); color: var(--white);
+            border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .summary-box h3 { color: var(--white); margin-top: 0; display: flex; align-items: center;
+            gap: var(--space-sm); border-left: none; padding-left: 0; }
+        .summary-box h3::before { content: '\1F4CB'; }
+        .summary-box ul { margin-bottom: 0; }
+        .summary-box li { color: var(--white); }
+        .summary-box li::marker { color: var(--primary-light); }
+
+        .section-divider {
+            border: none; height: 6px; margin: var(--space-2xl) 0;
+            background: linear-gradient(90deg, transparent 0%, var(--primary-main) 15%, var(--primary-light) 50%, var(--primary-main) 85%, transparent 100%);
+            border-radius: var(--radius-sm); box-shadow: var(--shadow-sm);
+        }
+
+        .module-footer { background: var(--primary-dark); padding: var(--space-lg) var(--space-xl);
+            text-align: center; border-top: 4px solid var(--primary-main); }
+        .footer-text { font-size: 0.875rem; color: var(--white); margin: 0; }
+
+        .text-center { text-align: center; }
+        .text-muted { color: var(--neutral-500); }
+        .highlight { background: linear-gradient(180deg, transparent 50%, var(--primary-light) 50%); padding: 0 2px; }
+
+        @media (max-width: 768px) {
+            body { padding: var(--space-sm); }
+            .module-header { padding: var(--space-xl) var(--space-lg); }
+            .module-title { font-size: 1.75rem; }
+            .content-area { padding: var(--space-lg); }
+            h2 { font-size: 1.375rem; }
+            .lab-header, .activity-header { flex-direction: column; align-items: flex-start; }
+        }
+        @media print {
+            body { background: white; padding: 0; }
+            .course-container { box-shadow: none; }
+            .toc { display: none; }
+            details.answer { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="course-container">
+        <header class="module-header">
+            <div class="module-label">CTS-ITS7501-80 &middot; CompTIA A+ Core 1 Training</div>
+            <h1 class="module-title">Course Schedule</h1>
+            <p class="module-subtitle">Every class meeting and every due date, week by week, August 11 through September 17, 2026.</p>
+        </header>
+        <div class="content-area">
+
+            <p>Every class meeting, reading assignment, video assignment, lab, and due date for CTS-ITS7501-80, in chronological order. This page is the single source of truth for "what's due when" &mdash; if something in a unit page ever seems to conflict with this schedule, this schedule governs.</p>
+
+            <div class="plain-box">
+                <div class="callout-title">How to Read This Page</div>
+                <div class="callout-content">
+                    <p>Each week has two tables. The first is the <strong>class meeting schedule</strong> &mdash; where to be and what happens that day. The second is the <strong>assignment schedule</strong> &mdash; everything due that week, in due-date order. A master list of every deadline across all six weeks is at the bottom of the page.</p>
+                </div>
+            </div>
+
+            <div class="tech-box">
+                <div class="callout-title">Meeting Pattern</div>
+                <div class="callout-content">
+                    <div class="table-container">
+                        <table>
+                            <thead><tr><th>Day</th><th>Time</th><th>Length</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>Tuesday</strong></td><td>10:00 AM &ndash; 1:00 PM</td><td>3 hrs</td></tr>
+                                <tr><td><strong>Wednesday</strong></td><td>11:00 AM &ndash; 2:00 PM</td><td>3 hrs</td></tr>
+                                <tr><td><strong>Thursday</strong></td><td>10:00 AM &ndash; 1:00 PM</td><td>3 hrs</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p>Nine contact hours per week, 54 total across the term. Location: Levine Technology Building, Room LT 5130.</p>
+                </div>
+            </div>
+
+            <hr class="section-divider">
+
+
+            <h2>Week 1 &mdash; August 11 &ndash; 17 &middot; Unit 1: Inside the Box</h2>
+
+            <h3>Class Meetings</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Date</th><th>Day</th><th>Time</th><th>Focus</th></tr></thead>
+                    <tbody>
+                        <tr><td>Aug 11</td><td>Tuesday</td><td>10:00 AM &ndash; 1:00 PM</td><td>Welcome and orientation, course tour, both diagnostics completed in class, how to study for a certification exam. No hardware.</td></tr>
+                        <tr><td>Aug 12</td><td>Wednesday</td><td>11:00 AM &ndash; 2:00 PM</td><td>Lab 1.6.2 Component Identification (first hour), then direct instruction on motherboards, processors, memory, cooling, power, and firmware.</td></tr>
+                        <tr><td>Aug 13</td><td>Thursday</td><td>10:00 AM &ndash; 1:00 PM</td><td>Troubleshooting methodology, unit exit assessment.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Assignments Due</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Due</th><th>Item</th><th>Section</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Tuesday, 11:59 PM</strong></td><td>Lab 1.6.1 &mdash; Safety and ESD (self-paced)</td><td>1.6</td></tr>
+                        <tr><td><strong>Wednesday, end of class</strong></td><td>Lab 1.6.2 &mdash; Component Identification</td><td>1.6</td></tr>
+                        <tr><td><strong>Monday, 11:59 PM</strong></td><td>NETLAB &mdash; CompTIA A+ Core 1 Exam Labs 01A and 01B (Examining PC Hardware)</td><td>1.8</td></tr>
+                        <tr><td><strong>Monday, 11:59 PM</strong></td><td>Lab 1.6.3 &mdash; Take-Home Inventory</td><td>1.6</td></tr>
+                        <tr><td><strong>Monday, 11:59 PM</strong></td><td>Reflection - Four Reflection Prompts</td><td>1.9</td></tr>
+                        <tr><td><strong>Monday, 11:59 PM</strong></td><td>Unit 1 Test &mdash; 25 items, opens Friday</td><td>1.10</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p class="text-muted">Reading: Sybex Vol. 1 &mdash; Assessment Test, Ch. 1 (full), Ch. 2 (expansion cards, power), Ch. 12 (methodology, motherboards, RAM, CPUs, power). Video: Messer 0.1, 3.3, 3.5, 3.6, 5.1 &mdash; 2 hr 26 min.</p>
+
+            <hr class="section-divider">
+
+            <h2>Week 2 &mdash; August 18 &ndash; 24 &middot; Unit 2: Storage, Displays, and Peripherals</h2>
+
+            <h3>Class Meetings</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Date</th><th>Day</th><th>Time</th></tr></thead>
+                    <tbody>
+                        <tr><td>Aug 18</td><td>Tuesday</td><td>10:00 AM &ndash; 1:00 PM</td></tr>
+                        <tr><td>Aug 19</td><td>Wednesday</td><td>11:00 AM &ndash; 2:00 PM</td></tr>
+                        <tr><td>Aug 20</td><td>Thursday</td><td>10:00 AM &ndash; 1:00 PM</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Assignments Due</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Due</th><th>Item</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Monday, 11:59 PM</strong></td><td>NETLAB &mdash; Labs 13 (Managing Storage), 14 (Disk Maintenance and Data Recovery), 11 (Sharing Resources &ndash; Printers)</td></tr>
+                        <tr><td><strong>Monday, 11:59 PM</strong></td><td>In-class and take-home lab submissions</td></tr>
+                        <tr><td><strong>Monday, 11:59 PM</strong></td><td>Reflection - Four Reflection Prompts</td></tr>
+                        <tr><td><strong>Monday, 11:59 PM</strong></td><td>Unit 2 Test &mdash; 25 items</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p class="text-muted">Reading: Sybex Vol. 1 &mdash; Ch. 2 (storage), Ch. 3 (peripherals), Ch. 5 (full), Ch. 12 (drives/RAID), Ch. 13 (video, display, printer issues). Video: Messer 3.1, 3.4, 3.7, 3.8, 5.2, 5.3, 5.6 &mdash; 2 hr 20 min.</p>
+
+            <hr class="section-divider">
+
+            <h2>Week 3 &mdash; August 25 &ndash; 31 &middot; Unit 3: Networking Foundations</h2>
+
+            <h3>Class Meetings</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Date</th><th>Day</th><th>Time</th></tr></thead>
+                    <tbody>
+                        <tr><td>Aug 25</td><td>Tuesday</td><td>10:00 AM &ndash; 1:00 PM</td></tr>
+                        <tr><td>Aug 26</td><td>Wednesday</td><td>11:00 AM &ndash; 2:00 PM</td></tr>
+                        <tr><td>Aug 27</td><td>Thursday</td><td>10:00 AM &ndash; 1:00 PM</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Assignments Due</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Due</th><th>Item</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Monday, 11:59 PM</strong></td><td>NETLAB &mdash; Labs 05 (Command Line &ndash; Windows and Linux), 06 (Windows Network Settings), 07 (Linux Network Settings)</td></tr>
+                        <tr><td><strong>Monday, 11:59 PM</strong></td><td>Networking basics in-class lab</td></tr>
+                        <tr><td><strong>Monday, 11:59 PM</strong></td><td>Reflection - Four Reflection Prompts</td></tr>
+                        <tr><td><strong>Monday, 11:59 PM</strong></td><td>Unit 3 Test &mdash; 25 items</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p class="text-muted">Reading: Sybex Vol. 1 &mdash; Ch. 3 (cables/connectors), Ch. 6 (full), Ch. 7 (Understanding TCP/IP). Video: Messer 2.1, 2.5, 2.6, 2.7, 2.8 &mdash; 2 hr 05 min. Lightest reading week &mdash; use the margin if behind.</p>
+
+            <hr class="section-divider">
+
+            <h2>Week 4 &mdash; September 1 &ndash; 7 &middot; Unit 4: Network Services and Configuration</h2>
+
+            <h3>Class Meetings</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Date</th><th>Day</th><th>Time</th></tr></thead>
+                    <tbody>
+                        <tr><td>Sep 1</td><td>Tuesday</td><td>10:00 AM &ndash; 1:00 PM</td></tr>
+                        <tr><td>Sep 2</td><td>Wednesday</td><td>11:00 AM &ndash; 2:00 PM</td></tr>
+                        <tr><td>Sep 3</td><td>Thursday</td><td>10:00 AM &ndash; 1:00 PM</td></tr>
+                        <tr><td>Sep 7</td><td>Monday</td><td colspan="1"><em>Labor Day &mdash; no class, but Week 4 deadlines are due this evening</em></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Assignments Due</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Due</th><th>Item</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Monday, 11:59 PM</strong></td><td>NETLAB &mdash; Labs 08 (Windows Users and Groups), 09 (Linux Users and Groups), 10 (Sharing Resources &ndash; Folders), 15 (Remote Access), 19 (Configuring Security on SOHO Networks)</td></tr>
+                        <tr><td><strong>Monday, 11:59 PM</strong></td><td>In-class configuration and diagnosis lab</td></tr>
+                        <tr><td><strong>Monday, 11:59 PM</strong></td><td>Reflection - Four Reflection Prompts</td></tr>
+                        <tr><td><strong>Monday, 11:59 PM</strong></td><td>Unit 4 Test &mdash; 25 items</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">Heaviest Week of the Term</div>
+                <div class="callout-content"><p>Five NETLAB labs and every deadline lands on <strong>Monday &mdash; Labor Day</strong>. There is no class that day, but coursework is still due. Book NETLAB reservations early in the week; do not leave five labs for the holiday itself.</p></div>
+            </div>
+
+            <p class="text-muted">Reading: Sybex Vol. 1 &mdash; Ch. 7 (virtual networks), Ch. 8 (full), Ch. 9 (full), Ch. 12 (networking problems). Video: Messer 2.2, 2.3, 2.4, 5.5 &mdash; 1 hr 16 min.</p>
+
+            <hr class="section-divider">
+
+            <h2>Week 5 &mdash; September 8 &ndash; 14 &middot; Unit 5: Mobile, Virtualization, and Cloud</h2>
+
+            <h3>Class Meetings</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Date</th><th>Day</th><th>Time</th></tr></thead>
+                    <tbody>
+                        <tr><td>Sep 8</td><td>Tuesday</td><td>10:00 AM &ndash; 1:00 PM</td></tr>
+                        <tr><td>Sep 9</td><td>Wednesday</td><td>11:00 AM &ndash; 2:00 PM</td></tr>
+                        <tr><td>Sep 10</td><td>Thursday</td><td>10:00 AM &ndash; 1:00 PM</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Assignments Due</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Due</th><th>Item</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Monday, 11:59 PM</strong></td><td>NETLAB &mdash; Labs 02 (Windows Management and Administrative Tools), 03 (Windows Customizations), 04 (Windows Control Panel), 18 (Deploy a Virtual Machine with Hyper-V), 20 (Writing Basic Scripts)</td></tr>
+                        <tr><td><strong>Monday, 11:59 PM</strong></td><td>First full-length practice exam &mdash; 90 items, 90 minutes, timed</td></tr>
+                        <tr><td><strong>Monday, 11:59 PM</strong></td><td>Reflection - Four Reflection Prompts</td></tr>
+                        <tr><td><strong>Monday, 11:59 PM</strong></td><td>Unit 5 Test &mdash; 25 items</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="callout callout-info">
+                <div class="callout-title">First Practice Exam This Week</div>
+                <div class="callout-content"><p>Take it timed and closed-book. The number that matters is your <strong>scaled score out of 900</strong>, not a raw percentage &mdash; you need 780 or better on two consecutive attempts before scheduling the real exam.</p></div>
+            </div>
+
+            <p class="text-muted">Reading: Sybex Vol. 1 &mdash; Ch. 4 (full), Ch. 10 (full), Ch. 11 (full), Ch. 13 (mobile device issues). Video: Messer 1.1, 1.2, 1.3, 4.1, 4.2, 5.4 &mdash; 1 hr 40 min. Last week of new content.</p>
+
+            <hr class="section-divider">
+
+            <h2>Week 6 &mdash; September 15 &ndash; 17 &middot; Unit 6: Troubleshooting and Exam Readiness</h2>
+
+            <h3>Class Meetings</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Date</th><th>Day</th><th>Time</th><th>Focus</th></tr></thead>
+                    <tbody>
+                        <tr><td>Sep 15</td><td>Tuesday</td><td>10:00 AM &ndash; 1:00 PM</td><td>Consolidation, multi-domain troubleshooting scenarios</td></tr>
+                        <tr><td>Sep 16</td><td>Wednesday</td><td>11:00 AM &ndash; 2:00 PM</td><td>Performance-based question practice, targeted review</td></tr>
+                        <tr><td>Sep 17</td><td>Thursday</td><td>10:00 AM &ndash; 1:00 PM</td><td>Final comprehensive exam, A+ scaled scoring &mdash; last class meeting</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Assignments Due</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Due</th><th>Item</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Thursday</strong></td><td>All 14 Performance-Based Questions from Sybex Volume 1</td></tr>
+                        <tr><td><strong>Thursday</strong></td><td>Sybex Assessment Test retake &mdash; compared to Week 1 baseline</td></tr>
+                        <tr><td><strong>Thursday, 11:59 PM</strong></td><td>NETLAB &mdash; Labs 12 (Installing Software), 16 (Troubleshooting Tools in Windows), 17 (Security and Privacy)</td></tr>
+                        <tr><td><strong>Thursday, 11:59 PM</strong></td><td>Two consecutive full-length practice exams &mdash; target 780 scaled or better</td></tr>
+                        <tr><td><strong>Thursday, in class</strong></td><td>Final Comprehensive Exam &mdash; 90 items, 90 minutes, A+ scaled scoring</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">No New Content This Week</div>
+                <div class="callout-content"><p>Everything is due <strong>Thursday</strong> &mdash; the course ends that day. This week is entirely consolidation, practice, and the final exam. Do not schedule the real 220-1201 exam because the course ended; schedule it because your practice scores say 780 or better, twice.</p></div>
+            </div>
+
+            <p class="text-muted">Reading: second pass &mdash; Exam Essentials and Review Questions for Ch. 1, 2, 12, 13. Video: student-selected re-watch, Messer Study Group replays.</p>
+
+            <hr class="section-divider">
+
+            <h2>Master Deadline List</h2>
+            <p>Every graded due date across the six-week term, in chronological order.</p>
+
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Date</th><th>Week</th><th>Item</th></tr></thead>
+                    <tbody>
+                        <tr><td>Tuesday, 11:59 PM</td><td>1</td><td>Lab 1.6.1 &mdash; Safety and ESD</td></tr>
+                        <tr><td>Wednesday, end of class</td><td>1</td><td>Lab 1.6.2 &mdash; Component Identification</td></tr>
+                        <tr><td>Monday, 11:59 PM</td><td>1</td><td>NETLAB Labs 01A, 01B &middot; Lab 1.6.3 Take-Home &middot; Reflection - Four Reflection Prompts</td></tr>
+                        <tr><td>Monday, 11:59 PM</td><td>1</td><td>Unit 1 Test</td></tr>
+                        <tr><td>Monday, 11:59 PM</td><td>2</td><td>NETLAB Labs 13, 14, 11 &middot; Labs &middot; Reflection - Four Reflection Prompts</td></tr>
+                        <tr><td>Monday, 11:59 PM</td><td>2</td><td>Unit 2 Test</td></tr>
+                        <tr><td>Monday, 11:59 PM</td><td>3</td><td>NETLAB Labs 05, 06, 07 &middot; Lab &middot; Reflection - Four Reflection Prompts</td></tr>
+                        <tr><td>Monday, 11:59 PM</td><td>3</td><td>Unit 3 Test</td></tr>
+                        <tr><td>Monday, 11:59 PM</td><td>4</td><td>NETLAB Labs 08, 09, 10, 15, 19 &middot; Lab &middot; Reflection - Four Reflection Prompts &middot; Unit 4 Test &mdash; <em>Labor Day, no class meets, deadline still stands</em></td></tr>
+                        <tr><td>Monday, 11:59 PM</td><td>5</td><td>NETLAB Labs 02, 03, 04, 18, 20 &middot; Practice Exam 1 &middot; Reflection - Four Reflection Prompts</td></tr>
+                        <tr><td>Monday, 11:59 PM</td><td>5</td><td>Unit 5 Test</td></tr>
+                        <tr><td>Thursday</td><td>6</td><td>All 14 PBQs &middot; Assessment Test retake</td></tr>
+                        <tr><td>Thursday, 11:59 PM</td><td>6</td><td>NETLAB Labs 12, 16, 17 &middot; Practice Exams 2 &amp; 3 (target 780 scaled)</td></tr>
+                        <tr><td>Thursday, in class</td><td>6</td><td>Final Comprehensive Exam</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="summary-box">
+                <h3>Course Span</h3>
+                <ul>
+                    <li>18 class meetings, August 11 through September 17, 2026</li>
+                    <li>54 total contact hours</li>
+                    <li>21 NETLAB labs across Units 1 through 6</li>
+                    <li>6 unit tests, 1 mid-course practice exam, 2 final-week practice exams, 1 final comprehensive exam</li>
+                    <li>Certification goal: 220-1201, scaled score of 780 or better on two consecutive practice exams before scheduling</li>
+                </ul>
+            </div>
+
+        </div>
+        <footer class="module-footer">
+            <p class="footer-text">CompTIA A+ Core 1 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
+        </footer>
+    </div>
+</body>
+</html>
