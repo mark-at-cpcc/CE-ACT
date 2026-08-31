@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 1 &mdash; 1.10 Unit Test | CompTIA A+ Core 1</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Sans+Pro:wght@400;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           CPCC COURSE TEMPLATE - GOLD / CHARCOAL / BLACK
+           CTS-ITS7501-80 CompTIA A+ Core 1 Training
+           Type: true black. Accents: gold. Chrome: charcoal.
+           ============================================ */
+
+        :root {
+            --primary-dark: #4A4A4A;       /* Charcoal - structural chrome only */
+            --primary-main: #B8962E;       /* Warm Gold - primary accent */
+            --primary-light: #D4AF56;      /* Light Gold */
+            --primary-pale: #FBF3DF;       /* Pale Gold wash */
+
+            --accent-teal: #8A6F1F;        /* Deep bronze-gold */
+            --accent-teal-light: #F3E9CE;  /* Pale bronze */
+            --accent-orange: #A9642A;      /* Warm rust */
+            --accent-orange-light: #F5E2CE;
+            --accent-purple: #6B5B3A;      /* Muted umber */
+            --accent-purple-light: #EFE6D2;
+            --accent-green: #4E7A51;
+            --accent-green-light: #DCEBDD;
+
+            --alert-warning: #B8862E;
+            --alert-warning-bg: #FBF0D9;
+            --alert-danger: #A13A3A;
+            --alert-danger-bg: #F6DEDE;
+            --alert-success: #3F6E42;
+            --alert-success-bg: #DCEBDD;
+            --alert-info: #6E5B2E;
+            --alert-info-bg: #F1E9D4;
+
+            --text-black: #000000;         /* All reading text */
+            --neutral-900: #000000;
+            --neutral-700: #000000;
+            --neutral-500: #5A5A5A;
+            --neutral-300: #D9D3C4;
+            --neutral-100: #FAF8F3;
+            --white: #ffffff;
+
+            --font-heading: 'Nunito', sans-serif;
+            --font-body: 'Source Sans Pro', sans-serif;
+            --font-code: 'Fira Code', monospace;
+
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+
+            --shadow-sm: 0 1px 2px rgba(74, 74, 74, 0.08);
+            --shadow-md: 0 4px 6px rgba(74, 74, 74, 0.12);
+            --shadow-lg: 0 10px 20px rgba(74, 74, 74, 0.15);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body), 'Segoe UI', Tahoma, Verdana, sans-serif;
+            font-size: 1.0625rem; line-height: 1.7; color: var(--text-black);
+            background: linear-gradient(135deg, var(--neutral-100) 0%, var(--white) 100%);
+            min-height: 100vh; padding: var(--space-lg);
+        }
+
+        .course-container {
+            max-width: 950px; margin: 0 auto; background: var(--white);
+            border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); overflow: hidden;
+        }
+
+        .module-header {
+            background: var(--primary-main); color: var(--text-black);
+            padding: var(--space-lg) var(--space-xl); position: relative; overflow: hidden;
+        }
+        .module-label {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 0.875rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 2px; text-decoration: underline;
+            margin-bottom: var(--space-sm); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-title {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 2.25rem; font-weight: 800;
+            line-height: 1.2; margin-bottom: var(--space-md); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-subtitle { font-size: 1.125rem; max-width: 650px; position: relative; z-index: 1; color: var(--text-black); }
+
+        .toc {
+            display: flex; flex-direction: column; gap: var(--space-sm);
+            padding: var(--space-lg) var(--space-xl);
+            background: var(--primary-pale); border-bottom: 1px solid var(--neutral-300);
+        }
+        .toc-item {
+            width: 100%; text-align: left;
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 0.875rem;
+            color: var(--text-black); background: var(--white);
+            border: 2px solid var(--primary-main);
+            padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md);
+        }
+        .toc-item.current { background: var(--primary-main); }
+
+        .content-area { padding: var(--space-xl); }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif;
+            color: var(--text-black); line-height: 1.3; margin-bottom: var(--space-md);
+        }
+        h1 { font-size: 2rem; font-weight: 800; }
+        h2 { font-size: 1.625rem; font-weight: 700; padding-bottom: var(--space-sm);
+             border-bottom: 3px solid var(--primary-main); margin-top: var(--space-xl); margin-bottom: var(--space-lg); }
+        h3 { font-size: 1.375rem; font-weight: 700; margin-top: var(--space-lg);
+             padding-left: var(--space-sm); border-left: 4px solid var(--primary-main); }
+        h4 { font-size: 1.125rem; font-weight: 600; }
+
+        p { margin-bottom: var(--space-md); }
+        strong { font-weight: 700; color: var(--text-black); }
+        em { font-style: italic; color: var(--text-black); }
+
+        a { color: var(--text-black); text-decoration: none; border-bottom: 2px solid var(--primary-main); transition: all 0.2s ease; }
+        a:hover { background: var(--primary-pale); border-bottom-color: var(--accent-teal); }
+
+        .tech-box {
+            background: var(--neutral-100); border: 2px solid var(--neutral-500);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .tech-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .tech-box .callout-content { padding-left: 0; }
+
+        .plain-box {
+            background: var(--primary-pale); border: 2px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .plain-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .plain-box .callout-content { padding-left: 0; }
+
+        .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; position: relative; overflow: hidden; }
+        .callout-title { font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 1rem;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
+        .callout-content { }
+        .callout-content p:last-child { margin-bottom: 0; }
+        .callout-tip { background: var(--accent-green-light); border-left: 4px solid var(--accent-green); }
+        .callout-warning { background: var(--alert-warning-bg); border-left: 4px solid var(--alert-warning); }
+        .callout-danger { background: var(--alert-danger-bg); border-left: 4px solid var(--alert-danger); }
+        .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
+
+        .text-center { text-align: center; }
+        .text-muted { color: var(--neutral-500); }
+        .mt-sm { margin-top: var(--space-sm); } .mt-md { margin-top: var(--space-md); } .mt-lg { margin-top: var(--space-lg); }
+        .mb-sm { margin-bottom: var(--space-sm); } .mb-md { margin-bottom: var(--space-md); } .mb-lg { margin-bottom: var(--space-lg); }
+
+        /* Interactive quiz controls */
+        .question-block { background: var(--white); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin-bottom: var(--space-lg); box-shadow: var(--shadow-sm); }
+        .question-number { font-family: var(--font-heading), sans-serif; font-size: 0.75rem; font-weight: 700;
+            color: var(--text-black); background: var(--primary-main); display: inline-block;
+            padding: 2px 10px; border-radius: var(--radius-sm);
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); }
+        .question-text { font-weight: 600; color: var(--text-black); margin-bottom: var(--space-md); }
+
+        .answer-option { display: block; width: 100%; text-align: left; padding: var(--space-sm) var(--space-md);
+            margin-bottom: var(--space-sm); border: 2px solid var(--neutral-300); border-radius: var(--radius-sm);
+            background: var(--white); cursor: pointer; font-family: var(--font-body), sans-serif; font-size: 1rem; color: var(--text-black); }
+        .answer-option:hover { border-color: var(--primary-main); }
+        .answer-option.selected { border-color: var(--primary-dark); background: var(--primary-pale); }
+        .answer-option.correct { border-color: var(--accent-green); background: var(--accent-green-light); }
+        .answer-option.incorrect { border-color: var(--alert-danger); background: var(--alert-danger-bg); }
+        .quiz-btn { font-family: var(--font-heading), sans-serif; font-weight: 700; padding: var(--space-sm) var(--space-xl);
+            border-radius: var(--radius-sm); border: 2px solid var(--primary-dark); background: var(--primary-dark); color: var(--white);
+            cursor: pointer; font-size: 0.95rem; margin-right: var(--space-sm); }
+        .quiz-btn:hover { background: #333333; }
+        .quiz-btn.secondary { background: var(--white); color: var(--primary-dark); }
+        .quiz-btn.secondary:hover { background: var(--neutral-100); }
+        #quizResults { display:none; background: var(--primary-pale); border: 2px solid var(--primary-main); border-radius: var(--radius-md);
+            padding: var(--space-lg); margin-top: var(--space-lg); text-align: center; font-family: var(--font-heading), sans-serif; }
+        #quizResults .score { font-size: 2rem; font-weight: 800; color: var(--text-black); }
+
+        .module-footer { background: var(--neutral-100); padding: var(--space-lg) var(--space-xl); text-align: center; border-top: 1px solid var(--neutral-300); }
+        .footer-text { font-size: 0.875rem; color: var(--neutral-500); }
+
+        @media (max-width: 768px) {
+            .module-title { font-size: 1.75rem; }
+            .content-area { padding: var(--space-lg); }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="course-container">
+
+        <header class="module-header">
+            <div class="module-label">Unit 1 &middot; Inside the Box &middot; Section 1.10</div>
+            <h1 class="module-title">Unit Test</h1>
+            <p class="module-subtitle">CompTIA A+ Core 1 - Domains 3.0 and 5.0</p>
+        </header>
+
+                <nav class="toc" id="tocNav">
+            <div class="toc-header">Table of Contents</div>
+            <div class="toc-item">1.1 &mdash; Unit Overview and Learning Objectives</div>
+            <div class="toc-item">1.2 &mdash; Unit Pre-Assessment</div>
+            <div class="toc-item">1.3 &mdash; Content Review</div>
+            <div class="toc-item">1.4 &mdash; Reading Assignment</div>
+            <div class="toc-item">1.5 &mdash; Video Assignment</div>
+            <div class="toc-item">1.6 &mdash; Classroom Labs</div>
+            <div class="toc-item">1.7 &mdash; Practice Question Set</div>
+            <div class="toc-item">1.8 &mdash; Online Labs: NETLAB</div>
+            <div class="toc-item">1.9 &mdash; Reflection Activity</div>
+            <div class="toc-item current" id="tocCurrent">1.10 &mdash; Unit Test</div>
+            <div class="toc-item">1.A &mdash; Acronym Test</div>
+            <div class="toc-item">1.B &mdash; Clearing Your Browser Cache</div>
+        </nav>
+        <style>
+            /* Collapsible TOC: only the current section shows until clicked */
+            nav.toc#tocNav { gap: 0; }
+            nav.toc#tocNav .toc-item {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav .toc-item.current {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                cursor: pointer;
+            }
+            nav.toc#tocNav .toc-item.current::after {
+                content: ' \25BE Click to View';
+                font-size: 0.75em;
+            }
+            nav.toc#tocNav.toc-expanded .toc-item {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                margin-bottom: var(--space-sm);
+            }
+            nav.toc#tocNav.toc-expanded .toc-item.current::after { content: ' \25B4'; }
+
+            nav.toc#tocNav .toc-header {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                font-family: var(--font-heading), 'Segoe UI', sans-serif;
+                font-weight: 700;
+                font-size: 0.875rem;
+                text-align: left;
+                color: var(--text-black);
+                text-decoration: underline;
+                background: var(--primary-main);
+                border-radius: var(--radius-md);
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav.toc-expanded .toc-header {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                padding-left: var(--space-md);
+                border-width: 2px;
+                border-style: solid;
+                border-color: var(--primary-main);
+                margin-bottom: var(--space-sm);
+            }
+        </style>
+
+        <script>
+            (function () {
+                var toc = document.getElementById('tocNav');
+                var currentItem = document.getElementById('tocCurrent');
+
+                toc.addEventListener('click', function (e) {
+                    if (toc.classList.contains('toc-expanded')) {
+                        toc.classList.remove('toc-expanded');
+                    } else if (e.target === currentItem || currentItem.contains(e.target)) {
+                        toc.classList.add('toc-expanded');
+                    }
+                });
+
+                toc.addEventListener('mouseleave', function () {
+                    toc.classList.remove('toc-expanded');
+                });
+            })();
+        </script>
+
+        <div class="content-area">
+
+            <div class="tech-box">
+                <div class="callout-title">Test Format</div>
+                <div class="callout-content">
+                    <p>Each attempt draws 20 items covering this unit's motherboard, CPU, memory, power, cooling, firmware, and troubleshooting objectives, weighted to mirror how they're represented on the actual 220-1201 exam. Click an answer to select it, then click <strong>Grade My Answers</strong> to see your results.</p>
+                </div>
+            </div>
+
+            <div class="callout callout-info">
+                <div class="callout-title">Test Taking Skills</div>
+                <div class="callout-content">
+                    <p>In order to successfully pass the CompTIA exam you should read each question and each answer. Select the best answer that you think is correct. Then read the question again, and each answer. If you agree with the original answer move on; otherwise, "work through" the answers and see which ones are easily dismissable.</p>
+                    <p>Full understanding requires completion of all 20 items and a review of any missed questions before moving on &mdash; not a specific score. Take the time to understand why an answer was wrong before you close this page.</p>
+                </div>
+            </div>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">Submit Your Proof of Completion</div>
+                <div class="callout-content">
+                    <p>Once you've completed this activity, take a screenshot showing your final score and upload it to the appropriate submission link in Brightspace by the due date. A screenshot is your only proof of completion &mdash; nothing here is automatically recorded, so don't close this page before you've captured and uploaded it.</p>
+                </div>
+            </div>
+
+            <div id="quizArea"></div>
+
+            <div class="mt-lg">
+                <button class="quiz-btn" onclick="gradeQuiz()">Grade My Answers</button>
+                <button class="quiz-btn secondary" onclick="resetQuiz()">Reset</button>
+            </div>
+
+            <div id="quizResults">
+                <div>Your Score</div>
+                <div class="score" id="scoreDisplay">0 / 20</div>
+                <div id="scoreNote"></div>
+                <p class="text-muted mt-sm">Screenshot this score before leaving the page, and upload it to the submission link in Brightspace.</p>
+            </div>
+
+            <script>
+                const POOL = [{"q": "Which motherboard form factor is most likely to be found in a full-size gaming or workstation desktop with several add-in cards installed?", "opts": ["Mini-ITX", "ATX", "SO-DIMM", "BTX"], "correct": 1}, {"q": "A technician is choosing a motherboard for a client who wants the most expansion slots possible in a standard desktop tower. Which form factor should they recommend?", "opts": ["Mini-ITX", "microATX", "ATX", "E-ATX"], "correct": 2}, {"q": "Why can a Mini-ITX motherboard usually be installed in an ATX-rated case, but not the reverse?", "opts": ["Mini-ITX boards use a different power connector", "Smaller boards are a physical subset of larger ones", "ATX cases include a built-in size adapter", "There is no real restriction either way"], "correct": 1}, {"q": "A PCIe x1 slot would most typically be used for which of the following?", "opts": ["A high-end graphics card", "A sound card or network adapter", "An NVMe SSD needing maximum bandwidth", "A dual-CPU riser"], "correct": 1}, {"q": "What generally happens to available bandwidth as PCIe generations increase at the same lane count?", "opts": ["It stays exactly the same", "It decreases due to overhead", "It roughly doubles per lane", "Lane count becomes irrelevant"], "correct": 2}, {"q": "A PCIe Gen 4 card is installed in a PCIe Gen 3 slot. What is the most accurate outcome?", "opts": ["The card will not function", "It runs at the lower Gen 3 speed", "The motherboard is physically damaged", "The slot upgrades itself to Gen 4"], "correct": 1}, {"q": "What is the legacy parallel expansion standard that PCI eventually replaced in most desktop systems?", "opts": ["ISA", "SATA", "USB", "DisplayPort"], "correct": 0}, {"q": "Which best describes the relationship between a motherboard's chipset and its CPU compatibility?", "opts": ["Chipsets work with any CPU brand", "The chipset and socket together set CPU support", "The case determines CPU compatibility", "Chipsets only affect storage speed"], "correct": 1}, {"q": "A server motherboard is most likely to differ from a consumer desktop board in which of these ways?", "opts": ["It supports only one expansion slot", "Supports multiple sockets and more RAM slots", "It cannot use ECC memory", "It is always smaller than a Mini-ITX board"], "correct": 1}, {"q": "Which motherboard connector supplies additional power directly to the CPU, separate from main board power?", "opts": ["The 24-pin connector", "The 4/8-pin EPS connector", "The SATA power connector", "The front panel header"], "correct": 1}, {"q": "What is the purpose of the small pin headers on a motherboard labeled for USB and audio?", "opts": ["Linking front USB and audio ports", "Controlling the boot order", "Regulating CPU voltage", "Factory diagnostic testing only"], "correct": 0}, {"q": "A 64-bit CPU is installed in a system running a 32-bit operating system. What is the practical result?", "opts": ["The system will not boot", "It runs, but can't use 64-bit addressing", "The CPU converts to 32-bit permanently", "The motherboard is damaged"], "correct": 1}, {"q": "What best describes an ARM-based processor compared to a traditional x86/x64 processor?", "opts": ["A different, more power-efficient architecture", "A rebranded version of x86", "Unusable in any consumer device", "Fully interchangeable with x86 in the same socket"], "correct": 0}, {"q": "Which CPU characteristic most directly indicates how many independent tasks a processor can truly execute, distinct from multithreading?", "opts": ["Clock speed", "Core count", "Cache size", "Socket type"], "correct": 1}, {"q": "A technician wants to install a Type 1 hypervisor on a server but virtualization fails to enable. What is the most likely firmware-level cause?", "opts": ["Virtualization extensions are disabled", "The CPU physically lacks any cores", "The RAM is the wrong DDR generation", "The PSU wattage is too low"], "correct": 0}, {"q": "Which of these is a common reason a technician would enter BIOS/UEFI setup rather than booting into the OS?", "opts": ["To change the desktop wallpaper", "To adjust the boot device order", "To install a word processor", "To defragment the hard drive"], "correct": 1}, {"q": "What capability does UEFI provide that legacy BIOS generally does not?", "opts": ["Boot drives larger than 2 TB", "Running with no firmware at all", "Automatic virus removal", "Control of grid power delivery"], "correct": 0}, {"q": "Secure Boot, a feature commonly found in UEFI firmware, is primarily designed to do what?", "opts": ["Block unsigned or unauthorized bootloaders", "Encrypt the entire hard drive automatically", "Speed up OS shutdown", "Back up user data to the cloud"], "correct": 0}, {"q": "A workstation needs full-disk encryption enabled through BitLocker, but the option is grayed out. What hardware component is most likely missing?", "opts": ["The GPU", "The TPM", "The sound card", "The optical drive"], "correct": 1}, {"q": "An organization's certificate authority stores its root signing keys on a dedicated appliance rather than a general server. What kind of device is this?", "opts": ["An HSM", "A NAS", "A KVM switch", "A UPS"], "correct": 0}, {"q": "Which of the following would most directly indicate a motherboard is failing POST due to a memory issue, before video initializes?", "opts": ["A silent black screen with no beeps at all", "A specific repeating beep code pattern", "An OS update notification", "A printer error message"], "correct": 1}, {"q": "What is the primary function of a motherboard's onboard diagnostic LED or two-digit hex display, if present?", "opts": ["Showing CPU temperature only", "A code for the current POST stage", "Indicating Wi-Fi signal strength", "Showing remaining storage space"], "correct": 1}, {"q": "Which best explains why case fan direction matters for a build's overall cooling performance?", "opts": ["It has no real effect on cooling", "Consistent airflow sets predictable pressure and exhaust", "Fan direction only matters for lighting effects", "Reversed fans always destroy the motherboard"], "correct": 1}, {"q": "A CPU cooler's mounting bracket is designed for a specific range of sockets. What happens with an incompatible bracket?", "opts": ["It always works fine regardless of socket", "The cooler may not seat with even pressure", "The CPU runs faster", "The motherboard adapts its socket shape"], "correct": 1}, {"q": "Which cooling method is generally the quietest with the fewest moving parts, at the cost of lower thermal capacity?", "opts": ["Liquid cooling with a pump", "A large passive heat sink with no fan", "A high-RPM case fan array", "A dual-tower air cooler with two fans"], "correct": 1}, {"q": "What is the primary reason thermal pads, rather than paste, are often used on components like VRMs and M.2 drives?", "opts": ["Pads are always cheaper than paste", "Pads bridge larger, uneven gaps more reliably", "Pads conduct electricity better than paste", "Paste only works on a CPU"], "correct": 1}, {"q": "A motherboard's expansion slot is labeled 'x16 physical, x1 electrical.' What does this mean for a card installed there?", "opts": ["It runs at full x16 bandwidth regardless", "It fits but is limited to one lane of bandwidth", "The slot refuses to power on", "This labeling doesn't exist on real boards"], "correct": 1}, {"q": "Which statement correctly compares Intel and AMD desktop CPU sockets?", "opts": ["They are fully interchangeable across brands", "Different designs, not cross-compatible", "AMD sockets only work in laptops", "Intel sockets accept AMD chips too"], "correct": 1}, {"q": "What does it mean when a motherboard manual describes a CPU as being on the board's supported CPU list?", "opts": ["Any CPU with the right socket will work regardless", "Firmware has been tested to recognize that CPU", "The list is just a marketing suggestion", "Only listed CPUs physically fit the socket"], "correct": 1}, {"q": "A brand-new CPU fails to POST on an older motherboard, even though the socket physically matches. What is a likely explanation?", "opts": ["The board needs a firmware update", "The CPU is defective in all cases", "The RAM is the wrong color", "Firmware updates are never needed for this"], "correct": 0}, {"q": "Which of these best describes the role of the Northbridge/Southbridge design in older chipset architectures?", "opts": ["It had nothing to do with data flow", "Managed CPU, memory, and peripheral links", "It was only used for cooling", "It controlled only monitor brightness"], "correct": 1}, {"q": "What is a practical reason a technician would check a motherboard's supported RAM speed list before buying memory?", "opts": ["RAM speed has no effect on stability", "Faster-rated RAM may not run at its full speed", "Unsupported speeds always destroy the board", "Boards refuse to boot with unlisted RAM"], "correct": 1}, {"q": "Which of the following is most likely to prevent a system from powering on at all, distinct from a POST failure?", "opts": ["A missing GPU driver update", "A miswired power switch header", "An outdated web browser", "A nearly full hard drive"], "correct": 1}, {"q": "A technician notices the CPU fan is plugged into a case fan header instead of the CPU fan header. What risk does this create?", "opts": ["None; header choice never matters", "The board may not track CPU fan speed", "The CPU runs at double speed", "The board refuses to boot entirely"], "correct": 1}, {"q": "What is the purpose of applying thermal paste evenly rather than in one large glob in the center?", "opts": ["Even coverage keeps contact consistent", "Paste placement has no effect on cooling", "A glob always spreads itself perfectly", "Even application only matters on laptops"], "correct": 0}, {"q": "Which best describes what 'lane bifurcation' allows a PCIe slot to do?", "opts": ["Splits lanes for multiple devices at once", "Permanently disable half the lanes", "Convert PCIe lanes into USB ports", "Double the slot's physical length"], "correct": 0}, {"q": "A technician needs to identify whether a motherboard uses UEFI or legacy BIOS. Which is the most reliable way to check?", "opts": ["Guess based on the case color", "Check firmware setup for a graphical UI", "Assume all boards are UEFI", "Check the PSU's wattage rating"], "correct": 1}, {"q": "Which motherboard header, if miswired, most likely stops the reset button from working without otherwise blocking boot?", "opts": ["The main 24-pin connector", "The front reset switch pins", "The CPU cooling fan header", "The SATA data cable itself"], "correct": 1}, {"q": "What is the main advantage of a modular power supply from a build perspective?", "opts": ["It has no relevance to motherboard installation", "Unused cables can be left out, aiding airflow", "It doubles the available expansion slots", "It removes the need for a CPU cooler"], "correct": 1}, {"q": "A technician wants to confirm a motherboard supports NVMe boot drives before purchase. What should they check?", "opts": ["The case's paint color", "Whether the M.2 slot uses PCIe", "The keyboard connector type", "The monitor's refresh rate"], "correct": 1}, {"q": "According to CompTIA's troubleshooting methodology, what should a technician do before making changes during the identify-the-problem step?", "opts": ["Reinstall the OS immediately", "Back up critical data if possible", "Replace the priciest component first", "Skip straight to documentation"], "correct": 1}, {"q": "A technician forms a theory, tests it, and finds it does not hold. What should happen next, per the methodology?", "opts": ["Escalate immediately without further diagnosis", "Establish a new theory or escalate if needed", "Skip directly to documentation", "Reinstall the OS regardless of cause"], "correct": 1}, {"q": "Why does the methodology separate 'establish a plan of action' from 'test the theory'?", "opts": ["They are the same step under two names", "Confirming a cause differs from planning a safe fix", "A plan always comes before identifying the problem", "Plans of action are rarely used"], "correct": 1}, {"q": "A technician fixes an issue but skips verifying full system functionality. What risk does this create?", "opts": ["None; verification is optional paperwork", "A secondary problem could go unnoticed later", "The fix automatically undoes itself", "Verification only matters for network issues"], "correct": 1}, {"q": "A symptom matches several possible causes equally well. What does the methodology suggest doing first?", "opts": ["Test the most expensive cause first", "Start with the easiest cause to test", "Randomly pick any cause", "Replace every component at once"], "correct": 1}, {"q": "A computer that worked fine suddenly won't boot after a thunderstorm caused a brief power flicker. What should be checked first?", "opts": ["A corrupted browser", "Damage to the PSU or motherboard", "A missing printer driver", "An expired software license"], "correct": 1}, {"q": "A system boots fine but randomly reboots only during graphically demanding tasks. What is a reasonable early theory?", "opts": ["A failing keyboard connection", "Weak PSU or GPU overheating", "A slow internet connection", "An old browser bookmark issue"], "correct": 1}, {"q": "A desktop won't power on, and the outlet, cable, and PSU switch all test fine. What should be checked next?", "opts": ["The monitor's brightness setting", "The front panel power switch connection", "The printer's ink level", "The router's firmware version"], "correct": 1}, {"q": "A system posts and boots normally but reports less RAM than what is physically installed. What is a reasonable first theory?", "opts": ["The hard drive is failing", "A loose module or 32-bit OS limit", "The keyboard is unplugged", "The monitor cable is loose"], "correct": 1}, {"q": "A user's PC shuts down only during warm afternoons in a room without air conditioning. What is the most likely category of cause?", "opts": ["Software licensing expiration", "Thermal shutdown, poor cooling", "A corrupted user profile", "A weak Wi-Fi signal"], "correct": 1}, {"q": "After replacing a suspected faulty RAM stick, the system still shows the exact same symptom. What should happen next?", "opts": ["Assume the problem is unsolvable and stop", "Reconsider the theory; the test didn't confirm it", "Document success even though the symptom persists", "Replace the monitor instead"], "correct": 1}, {"q": "A technician replaces a component, the original symptom disappears, but a new symptom appears. What should happen per the methodology?", "opts": ["Consider the job done since the symptom is gone", "Continue troubleshooting and verify full functionality", "Reverse the entire repair, including successful steps", "Document nothing since the visit isn't finished"], "correct": 1}, {"q": "Which best describes why documentation is a required step rather than an optional courtesy?", "opts": ["It has no practical use beyond paperwork", "It preserves the diagnostic path for next time", "It is required only for hardware issues", "It replaces the need to test a theory"], "correct": 1}, {"q": "A power supply is suspected of intermittently failing under load. What is a reasonable way to test this theory?", "opts": ["Discard the PSU without testing", "Swap in a known-good PSU and observe results", "Replace the monitor instead", "Reinstall the OS without touching hardware"], "correct": 1}, {"q": "A system won't POST after RAM and GPU have already been reseated with no change. What is a reasonable next step?", "opts": ["Order a full replacement system immediately", "Test with minimal components to narrow the cause", "Assume the monitor is the problem and stop", "Skip to documentation without resolving anything"], "correct": 1}, {"q": "Which symptom would most specifically suggest a motherboard capacitor issue rather than a loose connection?", "opts": ["Bulging capacitors with instability", "A missing mouse cursor issue", "A slow-loading web browser", "A dim monitor backlight fault"], "correct": 0}, {"q": "A system intermittently fails to detect a specific SATA drive, though the drive works fine elsewhere. What should be checked first?", "opts": ["The monitor's resolution setting", "The SATA cable or port itself", "The keyboard layout", "The wireless adapter"], "correct": 1}, {"q": "Why is 'question the obvious' a useful early step when establishing a theory of probable cause?", "opts": ["Obvious causes are always wrong", "Common causes are quicker to rule out", "It is required by law before any repair", "It replaces the need for further testing"], "correct": 1}, {"q": "A PC randomly restarts, and event logs show critical errors tied to power loss rather than software crashes. What does this point toward?", "opts": ["A corrupted spreadsheet file", "A hardware-level power issue", "A weak Wi-Fi signal", "An expired antivirus subscription"], "correct": 1}, {"q": "A technician is fixing a computer that won't boot but wasn't told what changed beforehand. What is the most useful first question to ask?", "opts": ["What is your favorite brand of computer?", "What changed right before this started happening?", "How long have you worked here?", "What time do you usually leave the office?"], "correct": 1}, {"q": "A system randomly freezes only when a specific USB device is connected. What kind of theory does this support?", "opts": ["An unrelated printer issue", "A driver or power conflict", "A failing monitor", "A weak internet connection"], "correct": 1}, {"q": "Which best describes 'escalate if appropriate' within the troubleshooting methodology?", "opts": ["Giving up on the problem entirely", "Passing the issue on once testing is exhausted", "A mandatory first step before any diagnosis", "Something that only applies to network issues"], "correct": 1}, {"q": "A desktop recently moved to a new office now shows intermittent shutdowns. What should be investigated first?", "opts": ["The color of the new office walls", "Whether the new outlet is stable", "The new office's Wi-Fi password", "The new office's chair height"], "correct": 1}, {"q": "A technician replaces a failed part and confirms the symptom is gone. What is the final required step before closing the ticket?", "opts": ["Nothing further once the symptom disappears", "Document findings, actions, and outcomes", "Reinstall the OS regardless of outcome", "Charge for a second visit before finishing"], "correct": 1}, {"q": "Which of these is the best example of testing a theory, rather than guessing at a fix?", "opts": ["Replacing a part and hoping for the best", "Swapping a suspected module into a known-good system", "Ignoring the symptom and hoping it resolves", "Reinstalling the OS with no other changes"], "correct": 1}, {"q": "A computer's date and time are wrong every time it powers on, even right after being corrected. What should be suspected?", "opts": ["A failing graphics card", "A dying CMOS battery", "A missing printer driver", "A corrupted user password"], "correct": 1}, {"q": "Why might a technician isolate variables one at a time rather than changing several things at once?", "opts": ["It saves no time compared to changing everything", "It identifies exactly which part causes the symptom", "It is required only for software issues", "It has no diagnostic value"], "correct": 1}, {"q": "A customer insists their computer 'just broke for no reason' before any information has been gathered. What is the appropriate response?", "opts": ["Accept the claim and skip further questioning", "Keep gathering details, since something usually changed", "Refuse to work on the system at all", "Replace the motherboard without further diagnosis"], "correct": 1}, {"q": "Which best describes RAM's defining characteristic compared to storage like an SSD or HDD?", "opts": ["It retains data indefinitely without power", "It is volatile and loses contents without power", "It is always slower than a mechanical drive", "It is technically identical to storage"], "correct": 1}, {"q": "A motherboard manual specifies DDR4 only. What happens if a technician attempts to install a DDR5 module?", "opts": ["It works fine after a firmware update", "The notch won't align with the DDR4 slot", "DDR5 automatically downgrades itself", "There is no physical difference between generations"], "correct": 1}, {"q": "Which memory feature is most associated with server environments where undetected data corruption is unacceptable?", "opts": ["RGB lighting on the modules", "ECC error correction", "Higher clock speed alone", "A larger heat spreader"], "correct": 1}, {"q": "What is the key limitation of parity memory compared to ECC memory?", "opts": ["It can detect an error but not correct it", "It is always faster than ECC", "It cannot be installed in any desktop", "Parity and ECC are functionally identical"], "correct": 0}, {"q": "A technician installs two modules of different capacities in a matched dual-channel slot pair. What is the likely result?", "opts": ["The system refuses to boot under all circumstances", "It boots, but may not get full dual-channel benefit", "The mismatch destroys the motherboard", "Both modules automatically resize to match"], "correct": 1}, {"q": "Which best explains why SO-DIMM exists as a separate standard from full-size DIMM?", "opts": ["There is no real difference from a DIMM", "It is physically shorter for compact devices", "It is used exclusively in server racks", "It uses a non-electrical connection method"], "correct": 1}, {"q": "A system has four memory modules across four channel-designated slots, all matched in capacity and speed. What configuration does this represent?", "opts": ["Single-channel", "Quad-channel", "No valid channel configuration", "Dual-channel only"], "correct": 1}, {"q": "What is the most direct consequence of installing memory rated faster than the board officially supports?", "opts": ["The system always refuses to boot", "It typically runs, but may drop to a lower speed", "The board automatically overclocks the CPU", "The memory permanently loses capacity"], "correct": 1}, {"q": "Which best describes why DDR generations are not compatible with each other's slots?", "opts": ["Incompatibility is purely a marketing choice", "Different voltage and notch position by design", "All DDR generations are fully interchangeable", "Only the module color differs between generations"], "correct": 1}, {"q": "A technician wants to maximize memory bandwidth on a board that supports dual-channel. What installation approach should they use?", "opts": ["A single large module in any slot", "Matched pairs in the designated channel slots", "Modules of differing generations together", "Slot placement never affects channel mode"], "correct": 1}, {"q": "What is the practical effect of a memory module not being fully seated in its slot?", "opts": ["The system always runs normally", "It may fail to POST or report reduced memory", "The module reseats itself over time", "Partial seating only affects storage"], "correct": 1}, {"q": "Why is memory generally the first place to check when a system reports less capacity than what's installed?", "opts": ["Memory issues are statistically rare", "Seating or module failure are common causes", "This symptom is always a bad monitor cable", "Memory cannot cause this symptom"], "correct": 1}, {"q": "A workstation for professional 3D rendering benefits most from which memory characteristic?", "opts": ["The color of the heat spreader", "Higher capacity and adequate speed", "Having no heat spreader at all", "Using the oldest available DDR generation"], "correct": 1}, {"q": "What is the relationship between memory channel count and the number of physical slots required?", "opts": ["Channel mode needs a matching number of slots populated", "Channel count has no relationship to slot count", "A single slot can independently run quad-channel", "Channel mode is set entirely by the CPU"], "correct": 0}, {"q": "Which best describes why ECC memory is uncommon in mainstream consumer desktops?", "opts": ["ECC memory is illegal for consumer use", "It costs more and needs platform support", "It physically cannot fit in a desktop case", "Consumer CPUs cannot use any RAM at all"], "correct": 1}, {"q": "A technician upgrading a laptop's memory needs to identify the correct module type. Which detail matters most?", "opts": ["The laptop's paint color", "The SO-DIMM generation it needs", "The laptop's screen resolution", "The laptop's battery capacity"], "correct": 1}, {"q": "Which voltage rail on a standard ATX PSU typically carries the heaviest load, feeding the CPU and GPU?", "opts": ["+3.3 V", "+5 V", "+12 V", "+24 V"], "correct": 2}, {"q": "A power supply's wattage rating describes what, specifically?", "opts": ["Its physical weight", "Total output capacity", "Its noise level", "Its warranty length"], "correct": 1}, {"q": "Why would a technician choose a PSU rated somewhat above a system's calculated power draw?", "opts": ["Headroom absorbs peak loads and future upgrades", "Oversizing always damages connected components", "PSU wattage has no relationship to stability", "Undersizing is always safer than oversizing"], "correct": 0}, {"q": "What does a fully modular power supply allow a builder to do that a non-modular unit does not?", "opts": ["Change the PSU's total wattage after purchase", "Leave out cables that aren't needed", "Run without any cables at all", "Automatically match any form factor"], "correct": 1}, {"q": "A technician is installing a PSU in a country with a different mains voltage standard. What must be verified first?", "opts": ["The color of the PSU casing", "The voltage selector is set correctly", "The PSU's country of manufacture", "The PSU's fan noise rating"], "correct": 1}, {"q": "Which best describes what an 80 PLUS certification actually measures?", "opts": ["The PSU's maximum wattage", "How efficiently it converts AC to DC", "The number of included cables", "The PSU's physical dimensions"], "correct": 1}, {"q": "A server rack is designed so a second PSU keeps equipment running if one fails. What is this design called?", "opts": ["Modular power", "Redundant power", "Passive power", "Single-rail power"], "correct": 1}, {"q": "Which PSU connector supplies supplemental power directly to a high-end graphics card, separate from the main connector?", "opts": ["The 24-pin connector", "A 6/8-pin PCIe connector", "A SATA data cable", "A USB header cable"], "correct": 1}, {"q": "What is the most likely symptom of a PSU that is undersized for a system's peak demand?", "opts": ["Perfectly stable operation always", "Random shutdowns under heavy load", "Improved battery life", "Faster boot times"], "correct": 1}, {"q": "Why should a technician never open and repair a failed power supply themselves?", "opts": ["It isn't dangerous, just against policy", "Internal capacitors can retain a lethal charge", "PSUs contain no electrical components", "It only voids the case warranty"], "correct": 1}, {"q": "A PSU provides standby voltage to the board even when the system appears off at the front panel. What does this allow?", "opts": ["Nothing; standby power has no purpose", "Features like Wake-on-LAN and quick power-on", "The PSU to run at zero watts always", "The CPU to run at full load while off"], "correct": 1}, {"q": "Why should a technician physically unplug a system rather than rely on the front-panel switch before opening the case?", "opts": ["The switch fully removes all power in every design", "Some standby power remains until the cord is pulled", "Unplugging is purely a symbolic precaution", "The switch controls only the monitor"], "correct": 1}, {"q": "Two PSUs have identical wattage but different 80 PLUS tiers, Bronze vs. Gold. What is the most accurate difference?", "opts": ["Gold outputs significantly more wattage", "Gold wastes less power as heat at the same load", "The tiers only affect casing color", "There is no real difference between tiers"], "correct": 1}, {"q": "What is the purpose of the +3.3 V and +5 V rails relative to the +12 V rail on an ATX PSU?", "opts": ["They power lower-current logic and legacy devices", "They serve no distinct purpose from +12 V", "They exist only for backward compatibility, unused", "They exclusively power case fans"], "correct": 0}, {"q": "A business wants to protect a critical server from brief outages and voltage fluctuations. What device provides this, apart from the PSU itself?", "opts": ["A UPS", "An additional case fan", "A second monitor", "A larger CPU cooler"], "correct": 0}, {"q": "What is the risk of setting a PSU's voltage selector switch to the wrong regional setting before powering on?", "opts": ["No real risk; the switch is cosmetic", "It can permanently damage the PSU and hardware", "It only slightly reduces fan speed", "It corrects itself on first boot"], "correct": 1}];
+                let QUESTIONS = [];
+                let answers = [];
+
+                function drawSet() {
+                    const shuffled = POOL.slice().sort(() => Math.random() - 0.5);
+                    QUESTIONS = shuffled.slice(0, 20);
+                    answers = new Array(QUESTIONS.length).fill(null);
+                }
+
+                function renderQuiz() {
+                    const area = document.getElementById('quizArea');
+                    area.innerHTML = QUESTIONS.map((item, qi) => {
+                        const opts = item.opts.map((opt, oi) =>
+                            `<button type="button" class="answer-option" data-qi="${qi}" data-oi="${oi}" onclick="selectAnswer(${qi}, ${oi})">${opt}</button>`
+                        ).join('');
+                        return `<div class="question-block">
+                            <div class="question-number">Question ${qi + 1} of ${QUESTIONS.length}</div>
+                            <p class="question-text">${item.q}</p>
+                            ${opts}
+                        </div>`;
+                    }).join('');
+                }
+
+                function selectAnswer(qi, oi) {
+                    answers[qi] = oi;
+                    document.querySelectorAll(`[data-qi="${qi}"]`).forEach(btn => {
+                        btn.classList.remove('selected');
+                        if (parseInt(btn.dataset.oi) === oi) btn.classList.add('selected');
+                    });
+                }
+
+                function gradeQuiz() {
+                    if (answers.includes(null)) {
+                        alert('Answer all 20 questions before grading.');
+                        return;
+                    }
+                    let score = 0;
+                    QUESTIONS.forEach((item, qi) => {
+                        const correct = item.correct;
+                        document.querySelectorAll(`[data-qi="${qi}"]`).forEach(btn => {
+                            const oi = parseInt(btn.dataset.oi);
+                            btn.classList.remove('selected');
+                            if (oi === correct) btn.classList.add('correct');
+                            else if (oi === answers[qi]) btn.classList.add('incorrect');
+                        });
+                        if (answers[qi] === correct) score++;
+                    });
+                    document.getElementById('scoreDisplay').textContent = score + ' / ' + QUESTIONS.length;
+                    const note = document.getElementById('scoreNote');
+                    if (score >= 16) note.textContent = 'Strong result. Review any missed items, then you are done.';
+                    else if (score >= 12) note.textContent = 'A passing-range result. Review your missed questions closely before moving on.';
+                    else note.textContent = 'Below where you want to be for exam day. Revisit 1.3 and 1.4 for the topics you missed, then try again.';
+                    document.getElementById('quizResults').style.display = 'block';
+                    document.getElementById('quizResults').scrollIntoView({behavior: 'smooth'});
+                }
+
+                function resetQuiz() {
+                    document.getElementById('quizResults').style.display = 'none';
+                    drawSet();
+                    renderQuiz();
+                }
+
+                drawSet();
+                renderQuiz();
+            </script>
+
+        </div>
+
+        <footer class="module-footer">
+            <p class="footer-text">CompTIA A+ Core 1 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
+        </footer>
+    </div>
+</body>
+</html>

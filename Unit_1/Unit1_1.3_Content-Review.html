@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Unit 1 &mdash; 1.3 Content Review | CompTIA A+ Core 1</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Sans+Pro:wght@400;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           CPCC COURSE TEMPLATE - GOLD / CHARCOAL / BLACK
+           CTS-ITS7501-80 CompTIA A+ Core 1 Training
+           Type: true black. Accents: gold. Chrome: charcoal.
+           ============================================ */
+
+        :root {
+            --primary-dark: #4A4A4A;       /* Charcoal - structural chrome only */
+            --primary-main: #B8962E;       /* Warm Gold - primary accent */
+            --primary-light: #D4AF56;      /* Light Gold */
+            --primary-pale: #FBF3DF;       /* Pale Gold wash */
+
+            --accent-teal: #8A6F1F;        /* Deep bronze-gold */
+            --accent-teal-light: #F3E9CE;  /* Pale bronze */
+            --accent-orange: #A9642A;      /* Warm rust */
+            --accent-orange-light: #F5E2CE;
+            --accent-purple: #6B5B3A;      /* Muted umber */
+            --accent-purple-light: #EFE6D2;
+            --accent-green: #4E7A51;
+            --accent-green-light: #DCEBDD;
+
+            --alert-warning: #B8862E;
+            --alert-warning-bg: #FBF0D9;
+            --alert-danger: #A13A3A;
+            --alert-danger-bg: #F6DEDE;
+            --alert-success: #3F6E42;
+            --alert-success-bg: #DCEBDD;
+            --alert-info: #6E5B2E;
+            --alert-info-bg: #F1E9D4;
+
+            --text-black: #000000;         /* All reading text */
+            --neutral-900: #000000;
+            --neutral-700: #000000;
+            --neutral-500: #5A5A5A;
+            --neutral-300: #D9D3C4;
+            --neutral-100: #FAF8F3;
+            --white: #ffffff;
+
+            --font-heading: 'Nunito', sans-serif;
+            --font-body: 'Source Sans Pro', sans-serif;
+            --font-code: 'Fira Code', monospace;
+
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+
+            --shadow-sm: 0 1px 2px rgba(74, 74, 74, 0.08);
+            --shadow-md: 0 4px 6px rgba(74, 74, 74, 0.12);
+            --shadow-lg: 0 10px 20px rgba(74, 74, 74, 0.15);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body), 'Segoe UI', Tahoma, Verdana, sans-serif;
+            font-size: 1.0625rem;
+            line-height: 1.7;
+            color: var(--text-black);
+            background: linear-gradient(135deg, var(--neutral-100) 0%, var(--white) 100%);
+            min-height: 100vh;
+            padding: var(--space-lg);
+        }
+
+        .course-container {
+            max-width: 950px; margin: 0 auto; background: var(--white);
+            border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); overflow: hidden;
+        }
+
+        .module-header {
+            background: var(--primary-main); color: var(--text-black);
+            padding: var(--space-lg) var(--space-xl); position: relative; overflow: hidden;
+        }
+        .module-label {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 0.875rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 2px; text-decoration: underline;
+            margin-bottom: var(--space-sm); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-title {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 2.25rem; font-weight: 800;
+            line-height: 1.2; margin-bottom: var(--space-md); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-subtitle { font-size: 1.125rem; max-width: 650px; position: relative; z-index: 1; color: var(--text-black); }
+
+        .toc {
+            display: flex; flex-direction: column; gap: var(--space-sm);
+            padding: var(--space-lg) var(--space-xl);
+            background: var(--primary-pale); border-bottom: 1px solid var(--neutral-300);
+        }
+        .toc-item {
+            width: 100%; text-align: left;
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 0.875rem;
+            color: var(--text-black); background: var(--white);
+            border: 2px solid var(--primary-main);
+            padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md);
+        }
+        .toc-item.current { background: var(--primary-main); }
+
+        .content-area { padding: var(--space-xl); }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif;
+            color: var(--text-black); line-height: 1.3; margin-bottom: var(--space-md);
+        }
+        h1 { font-size: 2rem; font-weight: 800; }
+        h2 { font-size: 1.625rem; font-weight: 700; padding-bottom: var(--space-sm);
+             border-bottom: 3px solid var(--primary-main); margin-top: var(--space-xl); margin-bottom: var(--space-lg); }
+        h3 { font-size: 1.375rem; font-weight: 700; margin-top: var(--space-lg);
+             padding-left: var(--space-sm); border-left: 4px solid var(--primary-main); }
+        h4 { font-size: 1.125rem; font-weight: 600; }
+
+        p { margin-bottom: var(--space-md); }
+        strong { font-weight: 700; color: var(--text-black); }
+        em { font-style: italic; color: var(--text-black); }
+
+        a { color: var(--text-black); text-decoration: none; border-bottom: 2px solid var(--primary-main); transition: all 0.2s ease; }
+        a:hover { background: var(--primary-pale); border-bottom-color: var(--accent-teal); }
+
+        ul, ol { margin-bottom: var(--space-md); padding-left: var(--space-lg); }
+        li { margin-bottom: var(--space-sm); }
+        ul li::marker { color: var(--accent-teal); }
+        ol li::marker { color: var(--accent-teal); font-weight: 700; }
+
+        .styled-list { list-style: none; padding-left: 0; }
+        .styled-list li { position: relative; padding-left: var(--space-lg); margin-bottom: var(--space-sm); }
+        .styled-list li::before { content: '\25B8'; position: absolute; left: 0; color: var(--accent-teal); font-weight: bold; }
+
+        .checklist { list-style: none; padding-left: 0; }
+        .checklist li { position: relative; padding-left: 2rem; margin-bottom: var(--space-sm); }
+        .checklist li::before {
+            content: '\2713'; position: absolute; left: 0; width: 1.5rem; height: 1.5rem;
+            background: var(--accent-green-light); color: var(--accent-green);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 0.75rem; font-weight: bold;
+        }
+
+        .objectives-box {
+            background: linear-gradient(135deg, var(--primary-pale) 0%, var(--accent-teal-light) 100%);
+            border-left: 5px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .objectives-box h3 { color: var(--text-black); margin-top: 0; margin-bottom: var(--space-md);
+            display: flex; align-items: center; gap: var(--space-sm); border-left: none; padding-left: 0; }
+        .objectives-box ol { margin-bottom: 0; }
+
+        .tech-box {
+            background: var(--neutral-100); border: 2px solid var(--neutral-500);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .tech-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .tech-box .callout-content { padding-left: 0; }
+
+        .plain-box {
+            background: var(--primary-pale); border: 2px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .plain-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .plain-box .callout-content { padding-left: 0; }
+
+        .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; position: relative; overflow: hidden; }
+        .callout::before { position: absolute; top: var(--space-md); left: var(--space-md); font-size: 1.5rem; }
+        .callout-title { font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 1rem;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
+        .callout-content { }
+        .callout-content p:last-child { margin-bottom: 0; }
+
+        .callout-tip { background: var(--accent-green-light); border-left: 4px solid var(--accent-green); }
+        .callout-warning { background: var(--alert-warning-bg); border-left: 4px solid var(--alert-warning); }
+        .callout-danger { background: var(--alert-danger-bg); border-left: 4px solid var(--alert-danger); }
+        .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
+
+        .key-concept {
+            background: linear-gradient(135deg, var(--accent-purple-light) 0%, var(--white) 100%);
+            border: 2px solid var(--accent-purple); border-radius: var(--radius-lg);
+            padding: var(--space-lg); margin: var(--space-xl) 0 var(--space-lg); position: relative;
+        }
+        .key-concept::before {
+            content: '\1F511 KEY CONCEPT'; position: absolute; top: -12px; left: var(--space-lg);
+            background: var(--accent-purple); color: var(--white); font-family: var(--font-heading), sans-serif;
+            font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-md); border-radius: var(--radius-sm);
+        }
+        .key-concept h4 { color: var(--text-black); margin-top: var(--space-sm); }
+
+        .definition { background: var(--neutral-100); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin: var(--space-md) 0; border-left: 4px solid var(--accent-orange); }
+        .definition-term { font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 1.125rem;
+            color: var(--text-black); margin-bottom: var(--space-xs); }
+        .definition-text { color: var(--text-black); margin-bottom: 0; }
+
+        code { font-family: var(--font-code), Consolas, monospace; font-size: 0.9rem; background: var(--primary-pale);
+            color: var(--text-black); padding: 2px 6px; border-radius: var(--radius-sm); }
+        pre { background: #2E2E2E; color: #f1ece0; padding: var(--space-lg); border-radius: var(--radius-md);
+            overflow-x: auto; margin: var(--space-lg) 0; position: relative; }
+        pre::before {
+            content: 'STEPS'; position: absolute; top: 0; right: 0; background: var(--primary-main); color: var(--text-black);
+            font-family: var(--font-heading), sans-serif; font-size: 0.625rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-sm); border-radius: 0 var(--radius-md) 0 var(--radius-sm);
+        }
+        pre code { background: transparent; color: inherit; padding: 0; font-size: 0.875rem; line-height: 1.6; }
+
+        .table-container { overflow-x: auto; margin: var(--space-lg) 0; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); }
+        table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
+        thead { background: var(--primary-dark); color: var(--white); }
+        th { font-family: var(--font-heading), sans-serif; font-weight: 700; text-align: left; padding: var(--space-md) var(--space-lg); color: var(--white); }
+        td { padding: var(--space-md) var(--space-lg); border-bottom: 1px solid var(--neutral-300); color: var(--text-black); }
+        tbody tr:hover { background: var(--primary-pale); }
+        tbody tr:last-child td { border-bottom: none; }
+
+        .activity-section {
+            background: linear-gradient(135deg, var(--accent-orange-light) 0%, var(--white) 100%);
+            border: 2px dashed var(--accent-orange); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .activity-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg); }
+        .activity-icon { width: 50px; height: 50px; background: var(--accent-orange); border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; }
+        .activity-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700;
+            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
+        .activity-subtitle { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
+
+        .lab-section {
+            background: linear-gradient(135deg, var(--accent-teal-light) 0%, var(--white) 100%);
+            border: 2px solid var(--accent-teal); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .lab-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg);
+            padding-bottom: var(--space-md); border-bottom: 2px solid var(--accent-teal); }
+        .lab-icon { width: 60px; height: 60px; background: var(--accent-teal); border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center; font-size: 1.75rem; flex-shrink: 0; }
+        .lab-title { font-family: var(--font-heading), sans-serif; font-size: 1.375rem; font-weight: 700;
+            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
+        .lab-time { font-size: 0.875rem; color: var(--neutral-500); margin: 0; display: flex; align-items: center; gap: var(--space-xs); }
+        .lab-time::before { content: '\23F1\FE0F'; }
+        .lab-steps { counter-reset: lab-step; list-style: none; padding-left: 0; }
+        .lab-steps li { counter-increment: lab-step; position: relative; padding-left: 3rem; margin-bottom: var(--space-lg); }
+        .lab-steps li::before {
+            content: counter(lab-step); position: absolute; left: 0; width: 2rem; height: 2rem;
+            background: var(--accent-teal); color: var(--white); font-family: var(--font-heading), sans-serif; font-weight: 700;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.875rem;
+        }
+
+        .assessment-section { background: var(--primary-pale); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0; }
+        .assessment-header { text-align: center; margin-bottom: var(--space-xl); }
+        .assessment-header h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .question-block { background: var(--white); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin-bottom: var(--space-lg); box-shadow: var(--shadow-sm); }
+        .question-number { font-family: var(--font-heading), sans-serif; font-size: 0.75rem; font-weight: 700;
+            color: var(--text-black); background: var(--primary-main); display: inline-block;
+            padding: 2px 10px; border-radius: var(--radius-sm);
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); }
+        .question-text { font-weight: 600; color: var(--text-black); margin-bottom: var(--space-md); }
+        details.answer { margin-top: var(--space-sm); }
+        details.answer summary { cursor: pointer; font-weight: 700; color: var(--text-black);
+            font-family: var(--font-heading), sans-serif; font-size: 0.875rem;
+            border-bottom: 2px solid var(--primary-main); display: inline-block; }
+        details.answer .reveal { margin-top: var(--space-sm); padding: var(--space-md);
+            background: var(--accent-green-light); border-radius: var(--radius-sm); color: var(--text-black); }
+
+        .references-section { background: var(--neutral-100); border-radius: var(--radius-lg);
+            padding: var(--space-lg) var(--space-xl); margin: var(--space-xl) 0; border-top: 3px solid var(--primary-main); }
+        .references-section h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .references-section ul { padding-left: var(--space-lg); }
+
+        .summary-box {
+            background: var(--primary-dark); color: var(--white);
+            border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .summary-box h3 { color: var(--white); margin-top: 0; display: flex; align-items: center;
+            gap: var(--space-sm); border-left: none; padding-left: 0; }
+        .summary-box h3::before { content: '\1F4CB'; }
+        .summary-box ul { margin-bottom: 0; }
+        .summary-box li { color: var(--white); }
+        .summary-box li::marker { color: var(--primary-light); }
+
+        .section-divider {
+            border: none; height: 6px; margin: var(--space-2xl) 0;
+            background: linear-gradient(90deg, transparent 0%, var(--primary-main) 15%, var(--primary-light) 50%, var(--primary-main) 85%, transparent 100%);
+            border-radius: var(--radius-sm); box-shadow: var(--shadow-sm);
+        }
+
+        .module-footer { background: var(--primary-dark); padding: var(--space-lg) var(--space-xl);
+            text-align: center; border-top: 4px solid var(--primary-main); }
+        .footer-text { font-size: 0.875rem; color: var(--white); margin: 0; }
+
+        .text-center { text-align: center; }
+        .text-muted { color: var(--neutral-500); }
+        .highlight { background: linear-gradient(180deg, transparent 50%, var(--primary-light) 50%); padding: 0 2px; }
+
+        @media (max-width: 768px) {
+            body { padding: var(--space-sm); }
+            .module-header { padding: var(--space-xl) var(--space-lg); }
+            .module-title { font-size: 1.75rem; }
+            .content-area { padding: var(--space-lg); }
+            h2 { font-size: 1.375rem; }
+            .lab-header, .activity-header { flex-direction: column; align-items: flex-start; }
+        }
+        @media print {
+            body { background: white; padding: 0; }
+            .course-container { box-shadow: none; }
+            .toc { display: none; }
+            details.answer { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="course-container">
+
+        <header class="module-header">
+            <div class="module-label">Unit 1 &middot; Inside the Box &middot; Section 1.3</div>
+            <h1 class="module-title">Content Review</h1>
+            <p class="module-subtitle">CompTIA A+ Core 1 - Domains 3.0 and 5.0</p>
+        </header>
+
+                <nav class="toc" id="tocNav">
+            <div class="toc-header">Table of Contents</div>
+            <div class="toc-item">1.1 &mdash; Unit Overview and Learning Objectives</div>
+            <div class="toc-item">1.2 &mdash; Unit Pre-Assessment</div>
+            <div class="toc-item current" id="tocCurrent">1.3 &mdash; Content Review</div>
+            <div class="toc-item">1.4 &mdash; Reading Assignment</div>
+            <div class="toc-item">1.5 &mdash; Video Assignment</div>
+            <div class="toc-item">1.6 &mdash; Classroom Labs</div>
+            <div class="toc-item">1.7 &mdash; Practice Question Set</div>
+            <div class="toc-item">1.8 &mdash; Online Labs: NETLAB</div>
+            <div class="toc-item">1.9 &mdash; Reflection Activity</div>
+            <div class="toc-item">1.10 &mdash; Unit Test</div>
+            <div class="toc-item">1.A &mdash; Acronym Test</div>
+            <div class="toc-item">1.B &mdash; Clearing Your Browser Cache</div>
+        </nav>
+        <style>
+            /* Collapsible TOC: only the current section shows until clicked */
+            nav.toc#tocNav { gap: 0; }
+            nav.toc#tocNav .toc-item {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav .toc-item.current {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                cursor: pointer;
+            }
+            nav.toc#tocNav .toc-item.current::after {
+                content: ' \25BE Click to View';
+                font-size: 0.75em;
+            }
+            nav.toc#tocNav.toc-expanded .toc-item {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                margin-bottom: var(--space-sm);
+            }
+            nav.toc#tocNav.toc-expanded .toc-item.current::after { content: ' \25B4'; }
+
+            nav.toc#tocNav .toc-header {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                font-family: var(--font-heading), 'Segoe UI', sans-serif;
+                font-weight: 700;
+                font-size: 0.875rem;
+                text-align: left;
+                color: var(--text-black);
+                text-decoration: underline;
+                background: var(--primary-main);
+                border-radius: var(--radius-md);
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav.toc-expanded .toc-header {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                padding-left: var(--space-md);
+                border-width: 2px;
+                border-style: solid;
+                border-color: var(--primary-main);
+                margin-bottom: var(--space-sm);
+            }
+        </style>
+
+        <script>
+            (function () {
+                var toc = document.getElementById('tocNav');
+                var currentItem = document.getElementById('tocCurrent');
+
+                toc.addEventListener('click', function (e) {
+                    if (toc.classList.contains('toc-expanded')) {
+                        toc.classList.remove('toc-expanded');
+                    } else if (e.target === currentItem || currentItem.contains(e.target)) {
+                        toc.classList.add('toc-expanded');
+                    }
+                });
+
+                toc.addEventListener('mouseleave', function () {
+                    toc.classList.remove('toc-expanded');
+                });
+            })();
+        </script>
+
+        <div class="content-area">
+
+            <p class="text-muted">This is the core reference for Unit 1. Read it before Wednesday's session, and come back to it when the textbook feels dense.</p>
+
+            <div class="callout callout-info">
+                <div class="callout-title">How to Use This Page</div>
+                <div class="callout-content"><p>This review covers the same ground as your Sybex reading, but shorter and in plain language. It does not replace the reading &mdash; the exam draws on detail this page does not carry. Use it to build the mental map first, then read the chapter to fill it in.</p></div>
+            </div>
+
+            <h2>Safety Before Anything Else</h2>
+            <p>Before you touch a component, you need two habits. Not because the exam tests them &mdash; though it does &mdash; but because the alternative is destroying equipment in ways nobody can trace back.</p>
+
+            <div class="definition">
+                <div class="definition-term">Electrostatic Discharge (ESD)</div>
+                <p class="definition-text">The sudden transfer of static electricity between two objects at different electrical potentials. You need roughly 3,000 volts to feel a static shock and about 20,000 volts to see a spark &mdash; but as little as <strong>30 volts</strong> can damage a sensitive component. This is the entire problem: the discharge that kills a stick of RAM is one you will never notice.</p>
+            </div>
+
+            <p>Damage from ESD comes in two forms. <strong>Catastrophic</strong> failure kills the component immediately, which is at least honest. <strong>Latent</strong> damage degrades the component so it fails days or weeks later &mdash; and by then nobody connects the failure to the technician who installed it barehanded.</p>
+
+            <h3>ESD Controls</h3>
+            <ul class="styled-list">
+                <li><strong>Anti-static wrist strap</strong> &mdash; clipped to an unpainted metal part of the chassis. This equalizes your potential with the system's. It is the single most effective control.</li>
+                <li><strong>Anti-static mat</strong> &mdash; for the workbench and, in a shop, the floor.</li>
+                <li><strong>Anti-static bags</strong> &mdash; components travel and rest in them. Keep the bag; you will need it when the part comes back out.</li>
+                <li><strong>Self-grounding</strong> &mdash; touching the metal chassis before handling components. This is the fallback when you have no strap, not the preferred method.</li>
+                <li><strong>Humidity</strong> &mdash; dry air raises static risk. Roughly 40&ndash;50% relative humidity is the working target.</li>
+                <li><strong>Handle by the edges</strong> &mdash; never touch gold contacts, pins, or exposed circuitry.</li>
+            </ul>
+
+            <div class="callout callout-danger">
+                <div class="callout-title">Never Open a Power Supply</div>
+                <div class="callout-content"><p>A power supply unit contains capacitors that hold a lethal charge <em>after</em> it is unplugged. There are no user-serviceable parts inside. A PSU is a replaceable unit, full stop. This is the one rule in this course where the consequence of ignoring it is not a broken computer.</p></div>
+            </div>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">A Note on Wrist Straps and Power Supplies</div>
+                <div class="callout-content"><p>Wrist straps protect components from you. They do not protect you from mains voltage &mdash; and wearing one while working near live power is actively dangerous, because it gives current a path to ground through your body. Unplug the system before service.</p></div>
+            </div>
+
+            <h2>The Motherboard</h2>
+            <p>The motherboard is the platform everything else plugs into. It carries the CPU socket, memory slots, expansion slots, storage interfaces, power connectors, firmware chip, and the traces that carry signals between all of them.</p>
+
+            <h3>Form Factors</h3>
+            <p>Form factor defines physical dimensions, mounting hole positions, and the rear I/O panel layout. It determines what fits in which case.</p>
+
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Form Factor</th><th>Typical Size</th><th>Expansion Slots</th><th>Common Use</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>ATX</strong></td><td>12 &times; 9.6 in</td><td>Up to 7</td><td>Full-size desktops, workstations, gaming systems</td></tr>
+                        <tr><td><strong>microATX (mATX)</strong></td><td>9.6 &times; 9.6 in</td><td>Up to 4</td><td>Mainstream office desktops &mdash; the most common business build</td></tr>
+                        <tr><td><strong>Mini-ITX</strong></td><td>6.7 &times; 6.7 in</td><td>1</td><td>Small form factor, home theater, appliances, kiosks</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="key-concept">
+                <h4>Form Factors Nest Downward</h4>
+                <p>A case built for ATX will almost always accept microATX and Mini-ITX boards, because the mounting holes are a subset and the rear I/O cutout is standardized. The reverse is not true &mdash; an ATX board will not fit a Mini-ITX case.</p>
+                <p>This shows up on the exam as a compatibility question and in the field as the reason you can upgrade a small board into a big case but not the other way around.</p>
+            </div>
+
+            <h3>Expansion Slots</h3>
+            <p><strong>PCIe (PCI Express)</strong> is the current standard. It is a serial, point-to-point interface organized into <em>lanes</em>, and slot width is written as x1, x4, x8, or x16 &mdash; the number of lanes available.</p>
+
+            <ul class="styled-list">
+                <li><strong>x16</strong> &mdash; graphics cards, high-throughput adapters</li>
+                <li><strong>x8 / x4</strong> &mdash; RAID controllers, high-speed network cards, NVMe adapters</li>
+                <li><strong>x1</strong> &mdash; sound cards, standard network cards, USB expansion, capture cards</li>
+            </ul>
+
+            <p>Each PCIe generation roughly doubles the bandwidth per lane over the one before. Generations are backward and forward compatible &mdash; a Gen 3 card works in a Gen 4 slot and vice versa, running at the lower of the two speeds.</p>
+
+            <div class="callout callout-tip">
+                <div class="callout-title">Physical Size vs. Electrical Lanes</div>
+                <div class="callout-content"><p>A slot that is physically x16 may only be wired for x4 electrically. The card fits and functions, but at reduced bandwidth. Board documentation lists this; the slot itself does not. This trips up more field technicians than it does exam candidates.</p></div>
+            </div>
+
+            <p><strong>PCI</strong> is the legacy parallel standard that PCIe replaced. You still encounter it in older systems and industrial equipment, so it remains on the objectives.</p>
+
+            <h3>Motherboard Connections and Headers</h3>
+            <ul class="styled-list">
+                <li><strong>24-pin ATX main power</strong> &mdash; primary board power from the PSU</li>
+                <li><strong>4/8-pin CPU power (EPS)</strong> &mdash; dedicated processor power, near the socket</li>
+                <li><strong>SATA ports</strong> &mdash; drive data connections</li>
+                <li><strong>M.2 slots</strong> &mdash; direct-mount NVMe SSDs and wireless cards</li>
+                <li><strong>Front panel header</strong> &mdash; power button, reset, power LED, drive activity LED. Individually wired, easy to get wrong, and a classic no-boot cause.</li>
+                <li><strong>USB and audio headers</strong> &mdash; front panel port connections</li>
+                <li><strong>Fan headers</strong> &mdash; CPU_FAN, SYS_FAN, often with PWM speed control</li>
+            </ul>
+
+            <h3>Chipsets and Compatibility</h3>
+            <p>The chipset governs which features a board supports: how many USB ports, which PCIe generation, how many SATA connections, whether overclocking is permitted. It also determines processor compatibility alongside the socket.</p>
+            <p>Intel and AMD use entirely different sockets and chipsets. They are not interchangeable. Server boards distinguish themselves by supporting multiple sockets, far more memory slots, ECC memory, and redundant power.</p>
+
+            <h2>The Processor</h2>
+            <p>The CPU executes instructions. For the exam, what matters is the characteristics that appear on a spec sheet.</p>
+
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Characteristic</th><th>What It Means</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>32-bit vs. 64-bit</strong></td><td>Determines addressable memory. 32-bit tops out near 4 GB; 64-bit removes that ceiling in any practical sense. A 64-bit CPU runs a 32-bit OS, but not the reverse.</td></tr>
+                        <tr><td><strong>Cores</strong></td><td>Independent processing units on one chip. More cores allow genuine simultaneous execution rather than rapid switching.</td></tr>
+                        <tr><td><strong>Multithreading</strong></td><td>One physical core presenting as two logical processors, improving utilization of idle execution resources.</td></tr>
+                        <tr><td><strong>x86 / x64</strong></td><td>The instruction set architecture used by Intel and AMD desktop and server processors.</td></tr>
+                        <tr><td><strong>ARM</strong></td><td>A different architecture emphasizing performance per watt. Dominant in mobile devices and increasingly present in laptops and servers.</td></tr>
+                        <tr><td><strong>Virtualization support</strong></td><td>Intel VT-x or AMD-V. Hardware extensions that hypervisors require. Frequently disabled by default in firmware &mdash; remember this for Unit 5.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Memory</h2>
+            <p>"Memory" actually covers two genuinely different things, and beginners often blur them together because both get measured in gigabytes. There are <strong>two types of computer memory</strong>: <strong>System Memory</strong>, used to run applications and the operating system, and <strong>Storage Memory</strong>, used to store files, applications, and the operating system when the power is off. One is about speed while the machine is running. The other is about keeping things around after it isn't.</p>
+
+            <h3>System Memory</h3>
+            <div class="definition">
+                <div class="definition-term">RAM (Random Access Memory)</div>
+                <p class="definition-text">Fast, volatile working storage that holds the operating system, running applications, and open data. "Volatile" means contents vanish when power is removed. RAM is the desk you work at; storage is the filing cabinet.</p>
+            </div>
+
+            <h4>Physical Packages</h4>
+            <ul class="styled-list">
+                <li><strong>DIMM</strong> &mdash; Dual Inline Memory Module. Full-length, used in desktops and servers.</li>
+                <li><strong>SO-DIMM</strong> &mdash; Small Outline DIMM. Shorter, used in laptops, all-in-ones, and small form factor systems.</li>
+            </ul>
+
+            <h4>DDR Generations</h4>
+            <p>DDR (Double Data Rate) SDRAM transfers data on both the rising and falling edge of the clock signal. Each generation increases speed and density while lowering operating voltage.</p>
+
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Generation</th><th>Notes</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>DDR3</strong></td><td>Legacy. Still found in systems you will be asked to service.</td></tr>
+                        <tr><td><strong>DDR4</strong></td><td>Very widely deployed. The current baseline in most business fleets.</td></tr>
+                        <tr><td><strong>DDR5</strong></td><td>Current generation. Higher bandwidth, higher density, lower voltage.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">Generations Are Not Interchangeable</div>
+                <div class="callout-content"><p>DDR3, DDR4, and DDR5 modules use different notch positions specifically so they cannot be installed in the wrong slot. If a module will not seat, stop and check the generation rather than pushing harder. Forcing it damages the slot, and a damaged slot means a new motherboard.</p></div>
+            </div>
+
+            <h4>Error Detection and Correction</h4>
+            <ul class="styled-list">
+                <li><strong>Non-parity</strong> &mdash; no error checking. Standard consumer and business desktop memory.</li>
+                <li><strong>Parity</strong> &mdash; detects single-bit errors but cannot correct them.</li>
+                <li><strong>ECC</strong> (Error Correcting Code) &mdash; detects and corrects single-bit errors on the fly. Requires motherboard and CPU support. Standard in servers, where a silent bit flip is unacceptable.</li>
+            </ul>
+
+            <h4>Multi-Channel Memory</h4>
+            <p>Installing modules in matched pairs or sets lets the memory controller access them in parallel, widening the effective data path. Dual-channel, triple-channel, and quad-channel configurations exist depending on platform.</p>
+
+            <div class="callout callout-tip">
+                <div class="callout-title">Slot Color Is a Hint, Not Decoration</div>
+                <div class="callout-content"><p>Motherboards often alternate slot colors to show which slots pair for multi-channel operation. Two modules in matching colors run dual-channel; the same two modules in adjacent slots may run single-channel and measurably slower. The manual is authoritative.</p></div>
+            </div>
+
+            <h3>Storage Memory</h3>
+            <div class="definition">
+                <div class="definition-term">Storage</div>
+                <p class="definition-text">Non-volatile memory that holds files, installed applications, and the operating system itself even when the power is off. Where System Memory is the desk you're actively working at, Storage is the filing cabinet the desk pulls from &mdash; slower to access, but nothing disappears when you close the drawer.</p>
+            </div>
+
+            <h4>Common Storage Types</h4>
+            <ul class="styled-list">
+                <li><strong>HDD</strong> (Hard Disk Drive) &mdash; mechanical storage that reads and writes on spinning magnetic platters. Larger capacity per dollar, slower access.</li>
+                <li><strong>SSD</strong> (Solid-State Drive) &mdash; flash-based storage with no moving parts. Faster access, no moving parts to wear out or fail mechanically.</li>
+                <li><strong>NVMe</strong> &mdash; a high-speed protocol that connects an SSD directly over the PCIe bus rather than the older SATA interface, for even higher throughput.</li>
+            </ul>
+
+            <div class="callout callout-info">
+                <div class="callout-title">Full Storage Detail Lives in Unit 2</div>
+                <div class="callout-content"><p>This unit only needs you to know that Storage Memory exists as the second category and to recognize the common types above. Drive interfaces, RAID, and troubleshooting storage failures get their own full treatment in Unit 2, once you've had a week with the hardware fundamentals here to build on.</p></div>
+            </div>
+
+            <div class="key-concept">
+                <h4>Why the Distinction Actually Matters</h4>
+                <p>A support call that says "I lost all my open work when the power went out" is a System Memory problem &mdash; RAM is volatile, and that's expected behavior, not a malfunction. A support call that says "my files are gone after a normal shutdown" is a Storage problem, and that one is actually broken. Knowing which category a symptom belongs to is often the fastest way to narrow down what's actually wrong.</p>
+            </div>
+
+            <h2>Power</h2>
+            <p>The power supply unit converts AC from the wall into the DC voltages the system needs, and distributes them over standardized connectors.</p>
+
+            <h3>Voltage Rails and Connectors</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Connector</th><th>Supplies</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>24-pin ATX</strong></td><td>Main motherboard power</td></tr>
+                        <tr><td><strong>4-pin / 8-pin EPS</strong></td><td>Dedicated CPU power</td></tr>
+                        <tr><td><strong>6-pin / 8-pin PCIe</strong></td><td>Supplemental graphics card power</td></tr>
+                        <tr><td><strong>SATA power</strong></td><td>Drives and optical devices</td></tr>
+                        <tr><td><strong>Molex</strong></td><td>Legacy peripherals and some fans</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>Standard DC rails are <strong>+3.3 V</strong>, <strong>+5 V</strong>, and <strong>+12 V</strong>. The +12 V rail carries the heaviest load, feeding the processor and graphics card.</p>
+
+            <h3>Specifications That Matter</h3>
+            <ul class="styled-list">
+                <li><strong>Wattage</strong> &mdash; total output capacity. Size to actual load with headroom; oversizing modestly is cheap insurance, and undersizing produces intermittent faults that look like everything except a power problem.</li>
+                <li><strong>Input voltage</strong> &mdash; 115 V versus 230 V. Units with a manual selector switch must match the local supply. Setting one wrong destroys hardware.</li>
+                <li><strong>Efficiency rating</strong> &mdash; the 80 PLUS tiers (Bronze, Silver, Gold, Platinum, Titanium) certify how much input power reaches the components rather than becoming waste heat.</li>
+                <li><strong>Modular cabling</strong> &mdash; detachable cables so you install only what you use. Improves airflow and serviceability.</li>
+                <li><strong>Redundant supplies</strong> &mdash; two or more units in a server so one can fail without downtime.</li>
+            </ul>
+
+            <h2>Cooling</h2>
+            <p>Every watt a component consumes becomes heat. Heat raises failure rates and triggers thermal throttling, in which the processor deliberately slows itself to survive. A machine that feels sluggish under load and runs hot is often a cooling problem wearing a performance costume.</p>
+
+            <ul class="styled-list">
+                <li><strong>Passive cooling</strong> &mdash; heat sinks with no moving parts, relying on surface area and case airflow</li>
+                <li><strong>Active cooling</strong> &mdash; fans over heat sinks; case fans establishing intake and exhaust</li>
+                <li><strong>Thermal paste</strong> &mdash; fills microscopic gaps between CPU and heat sink. A thin, even layer. More is not better; excess acts as an insulator.</li>
+                <li><strong>Thermal pads</strong> &mdash; pre-formed material for memory, VRMs, and M.2 drives</li>
+                <li><strong>Liquid cooling</strong> &mdash; a pump moves coolant to a radiator. Higher thermal capacity, more components that can fail.</li>
+            </ul>
+
+            <div class="callout callout-tip">
+                <div class="callout-title">Airflow Has a Direction</div>
+                <div class="callout-content"><p>Cases are designed for cool air in the front and bottom, warm air out the back and top. A fan installed backward turns a cooling system into a heating system, and nothing about the machine will look wrong. Check the arrow molded into the fan housing.</p></div>
+            </div>
+
+            <h2>Firmware: BIOS and UEFI</h2>
+            <div class="definition">
+                <div class="definition-term">BIOS / UEFI</div>
+                <p class="definition-text">Firmware stored on the motherboard that runs the moment power is applied. It initializes and tests hardware, then locates and hands control to a boot device. <strong>UEFI</strong> is the modern replacement for legacy BIOS, adding support for drives larger than 2 TB, a graphical interface, faster boot, and Secure Boot.</p>
+            </div>
+
+            <h3>POST</h3>
+            <p>The <strong>Power-On Self-Test</strong> verifies essential hardware in a fixed order, before the system ever reaches firmware setup or a boot device. When POST fails before video initializes, the system reports through <strong>beep codes</strong> or a diagnostic LED &mdash; patterns whose meanings are defined by the firmware vendor. A machine that beeps is a machine that is telling you something specific.</p>
+
+            <h4>The Five Components POST Checks, in Order</h4>
+            <p>POST verifies core hardware in this exact sequence. If an earlier component fails, POST never gets far enough to check the ones after it &mdash; which is exactly why the order matters when you're troubleshooting.</p>
+
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Order</th><th>Component</th><th>What POST Confirms</th></tr></thead>
+                    <tbody>
+                        <tr><td>1</td><td>Power Supply</td><td>Adequate, stable voltage is reaching the motherboard</td></tr>
+                        <tr><td>2</td><td>Motherboard</td><td>The board itself powers on and its firmware can execute</td></tr>
+                        <tr><td>3</td><td>CPU</td><td>The processor is seated, recognized, and can execute instructions</td></tr>
+                        <tr><td>4</td><td>System Memory</td><td>At least one working memory module is present and responding</td></tr>
+                        <tr><td>5</td><td>GPU</td><td>A video output path exists so the system can display something</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="key-concept">
+                <h4>Using This Order to Isolate a Bad DIMM</h4>
+                <p>Because System Memory is its own distinct step, you can use POST itself as a diagnostic tool. If a system won't complete POST and you suspect memory, remove all modules but one and attempt to boot. If it succeeds, power down, swap in the next module alone, and repeat. A module that causes POST to fail every time &mdash; and only that module &mdash; is your bad DIMM.</p>
+                <p>This works because the System Memory step only needs <em>one</em> working module to pass. POST isn't checking total capacity at this stage, just whether memory is present and responding at all &mdash; so testing DIMMs one at a time gives you a clean, isolated answer.</p>
+            </div>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">The GPU Step Has a Catch</div>
+                <div class="callout-content"><p>You can apply the same isolate-and-test logic to a suspected graphics card &mdash; remove it and see whether the system still POSTs. But this only works if the motherboard and CPU support <strong>integrated graphics</strong>. If there is no integrated chipset, the dedicated GPU is the <em>only</em> video output path that exists, and removing it leaves POST with nowhere to send a signal at all. Without integrated graphics, pulling the card doesn't tell you "the GPU is bad" &mdash; it just tells you there's no way to test it that way. You'd need a second known-good discrete card instead.</p></div>
+            </div>
+
+            <h4>From Power-On to a Loaded Operating System</h4>
+            <p>POST is only the first stage. Once it completes successfully, firmware carries the system through a fixed sequence before your operating system ever takes over:</p>
+
+            <ol class="lab-steps">
+                <li><strong>POST completes.</strong> All five hardware checks above pass.</li>
+                <li><strong>BIOS/UEFI loads CMOS settings.</strong> Firmware reads the saved configuration &mdash; boot order, date and time, enabled devices &mdash; that the CMOS battery has been preserving.</li>
+                <li><strong>A standby period begins.</strong> Firmware pauses briefly, typically showing a prompt like "Press [key] to enter Setup," giving you a short window to interrupt the normal boot process.</li>
+                <li><strong>One of two things happens.</strong> Either you press the key and <strong>enter BIOS/UEFI setup</strong> to change settings, or the standby period simply <strong>exhausts</strong> because no key was pressed in time.</li>
+                <li><strong>The configured boot device loads.</strong> Once setup is exited &mdash; or was never entered &mdash; firmware hands off to whichever device is first in the boot order, typically the primary drive.</li>
+                <li><strong>The boot process takes over.</strong> Control passes from firmware to the operating system's own bootloader, and firmware's job is finished until the next power-on.</li>
+            </ol>
+
+            <div class="callout callout-tip">
+                <div class="callout-title">Why the Standby Period Matters for Troubleshooting</div>
+                <div class="callout-content"><p>If you need to check the boot device order, enable virtualization extensions, or review fan and thermal settings, this standby window is your only opportunity &mdash; miss it, and the system moves straight on to loading the OS. If you keep missing the prompt, tap the setup key repeatedly right after power-on rather than waiting to actually see the message; by the time it's visible, the window is often nearly closed.</p></div>
+            </div>
+
+            <h3>Common Firmware Settings</h3>
+            <ul class="styled-list">
+                <li><strong>Boot order</strong> &mdash; which device the system tries first</li>
+                <li><strong>Secure Boot</strong> &mdash; permits only signed bootloaders, blocking boot-level malware</li>
+                <li><strong>Virtualization extensions</strong> &mdash; VT-x / AMD-V, commonly disabled by default</li>
+                <li><strong>USB permissions</strong> &mdash; enabling or disabling ports, often for security policy</li>
+                <li><strong>Fan and thermal control</strong> &mdash; curves and monitoring thresholds</li>
+                <li><strong>Passwords</strong> &mdash; supervisor password for firmware access, user password for boot</li>
+            </ul>
+
+            <h3>TPM and HSM</h3>
+            <ul class="styled-list">
+                <li><strong>TPM</strong> (Trusted Platform Module) &mdash; a chip or firmware feature that generates and stores cryptographic keys tied to the specific machine. Full-disk encryption such as BitLocker depends on it.</li>
+                <li><strong>HSM</strong> (Hardware Security Module) &mdash; a dedicated appliance or card providing key generation and storage at scale, typically for servers and certificate authorities.</li>
+            </ul>
+
+            <div class="callout callout-info">
+                <div class="callout-title">The CMOS Battery</div>
+                <div class="callout-content"><p>A small coin cell &mdash; usually a CR2032 &mdash; preserves firmware settings and the real-time clock when the system is unplugged. When it dies, the classic symptom is a system that loses its date and time and reverts to default settings on every boot. It is a five-dollar part and one of the most satisfying diagnoses you will make.</p></div>
+            </div>
+
+            <h2>The Troubleshooting Methodology</h2>
+            <p>This is the spine of Domain 5, which is 28% of your exam &mdash; the largest single domain. Memorize the order.</p>
+
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Step</th><th>Action</th><th>In Practice</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>1</strong></td><td>Identify the problem</td><td>Question the user. Determine what changed. Back up before making changes.</td></tr>
+                        <tr><td><strong>2</strong></td><td>Establish a theory of probable cause</td><td>Question the obvious first. Research symptoms.</td></tr>
+                        <tr><td><strong>3</strong></td><td>Test the theory</td><td>If confirmed, plan the fix. If not, form a new theory or escalate.</td></tr>
+                        <tr><td><strong>4</strong></td><td>Establish a plan of action</td><td>Identify potential effects before you act.</td></tr>
+                        <tr><td><strong>5</strong></td><td>Verify full system functionality</td><td>Confirm the fix and implement preventive measures.</td></tr>
+                        <tr><td><strong>6</strong></td><td>Document findings, actions, and outcomes</td><td>The step everyone skips and everyone later wishes they had not.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="key-concept">
+                <h4>Why the Order Is the Point</h4>
+                <p>Every step exists because technicians reliably skip it. Swapping parts before identifying the problem is how a bad power supply gets "fixed" with a new motherboard, a new stick of RAM, and four hours of labor. Documenting is how the next person &mdash; often you, in six months &mdash; avoids repeating the whole diagnosis.</p>
+                <p>Expect scenario questions that describe a technician doing something out of order and ask what they should have done instead.</p>
+            </div>
+
+            <h3>Common Symptoms in This Unit's Scope</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Symptom</th><th>Where to Look First</th></tr></thead>
+                    <tbody>
+                        <tr><td>No power at all &mdash; no fans, no lights</td><td>Wall outlet, power cable, PSU switch, voltage selector, front panel power button header</td></tr>
+                        <tr><td>Powers on, no display, beep codes</td><td>RAM seating, video card seating, firmware beep code reference</td></tr>
+                        <tr><td>Blue screen of death (BSoD)</td><td>Memory faults, failing drive, recent driver or hardware change</td></tr>
+                        <tr><td>Random shutdowns or reboots</td><td>Overheating, failing or undersized PSU, loose power connections</td></tr>
+                        <tr><td>Sluggish performance under load</td><td>Thermal throttling &mdash; check fans, dust, thermal paste</td></tr>
+                        <tr><td>Date and time reset on every boot</td><td>CMOS battery</td></tr>
+                        <tr><td>Burning smell or visible smoke</td><td>Power down immediately. Do not reapply power. Inspect for swollen capacitors or scorching.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="summary-box">
+                <h3>Unit 1 Content Recap</h3>
+                <ul>
+                    <li>ESD damage happens well below the threshold you can feel &mdash; strap, mat, bag, edges</li>
+                    <li>Never open a power supply; the capacitors hold a lethal charge after unplugging</li>
+                    <li>Form factor governs fit: ATX, microATX, Mini-ITX, nesting downward into larger cases</li>
+                    <li>PCIe lanes come as x1, x4, x8, x16 &mdash; and physical width may exceed electrical width</li>
+                    <li>Two types of memory: System Memory (RAM) runs what's active; Storage Memory keeps things when the power is off</li>
+                    <li>RAM is volatile; DIMM for desktops, SO-DIMM for laptops; DDR generations are keyed and not interchangeable</li>
+                    <li>ECC detects and corrects; parity only detects; multi-channel needs matched modules in matched slots</li>
+                    <li>PSU rails are +3.3 V, +5 V, +12 V; watch wattage, input voltage selection, and 80 PLUS efficiency</li>
+                    <li>Thermal paste fills microscopic gaps &mdash; thin and even, never generous</li>
+                    <li>UEFI replaced legacy BIOS; POST checks power, motherboard, CPU, memory, and GPU in that order, reporting pre-video faults through beep codes</li>
+                    <li>Six troubleshooting steps, in order, every time &mdash; and document at the end</li>
+                </ul>
+            </div>
+
+            <div class="references-section">
+                <h3>Go Further</h3>
+                <ul>
+                    <li>Sybex <em>CompTIA A+ Complete Study Guide</em>, Volume 1 &mdash; Chapter 1 in full; Chapter 2 sections on expansion cards and power supplies; Chapter 12 troubleshooting methodology and core hardware</li>
+                    <li>Professor Messer's free 220-1201 course &mdash; objectives 3.3, 3.5, 3.6, and 5.1 (see Section 1.5 for direct links)</li>
+                    <li>CompTIA official 220-1201 exam objectives (comptia.org) &mdash; read the Domain 3.0 and 5.0 task statements alongside this page</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <footer class="module-footer">
+            <p class="footer-text">CompTIA A+ Core 1 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
+        </footer>
+    </div>
+</body>
+</html>
