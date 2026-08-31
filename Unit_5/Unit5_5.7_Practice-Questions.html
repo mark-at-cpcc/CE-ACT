@@ -6,7 +6,7 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unit 5 &mdash; 5.3 Content Review | CompTIA A+ Core 1</title>
+    <title>Unit 5 &mdash; 5.7 Practice Questions | CompTIA A+ Core 1</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -304,8 +304,8 @@
     <div class="course-container">
 
         <header class="module-header">
-            <div class="module-label">Unit 5 &middot; Mobile, Virtualization, and Cloud &middot; Section 5.3</div>
-            <h1 class="module-title">Content Review</h1>
+            <div class="module-label">Unit 5 &middot; Mobile, Virtualization, and Cloud &middot; Section 5.7</div>
+            <h1 class="module-title">Practice Questions</h1>
             <p class="module-subtitle">CompTIA A+ Core 1 &mdash; Domains 1.0, 4.0, and 5.0</p>
         </header>
 
@@ -313,11 +313,11 @@
             <div class="toc-header">Table of Contents</div>
             <div class="toc-item">5.1 &mdash; Unit Overview and Learning Objectives</div>
             <div class="toc-item">5.2 &mdash; Unit Pre-Assessment</div>
-            <div class="toc-item current" id="tocCurrent">5.3 &mdash; Content Review</div>
+            <div class="toc-item">5.3 &mdash; Content Review</div>
             <div class="toc-item">5.4 &mdash; Reading Assignment</div>
             <div class="toc-item">5.5 &mdash; Video Assignment</div>
             <div class="toc-item">5.6 &mdash; Classroom Labs</div>
-            <div class="toc-item">5.7 &mdash; Practice Questions</div>
+            <div class="toc-item current" id="tocCurrent">5.7 &mdash; Practice Questions</div>
             <div class="toc-item">5.8 &mdash; Online Labs: NETLAB</div>
             <div class="toc-item">5.9 &mdash; Reflection Activity</div>
             <div class="toc-item">5.10 &mdash; Unit Test</div>
@@ -416,116 +416,100 @@
 
         <div class="content-area">
 
-            <p class="text-muted">The core concepts for this week, in plain terms, before you go deep in the full chapter reading.</p>
-
             <div class="tech-box">
-                <div class="callout-title">Technical Overview</div>
+                <div class="callout-title">Test Format</div>
                 <div class="callout-content">
-                    <p>This section walks through the core concepts for Unit 5 before you hit the full chapter reading in 5.4: laptop and mobile device hardware, mobile connectivity and app support, virtualization, cloud computing, and common mobile device issues.</p>
+                    <p>Each attempt draws a fresh random set of 10 questions covering this unit's laptop and mobile device hardware, mobile connectivity, virtualization, cloud computing, and mobile troubleshooting objectives. Click an answer to select it, then click <strong>Grade My Answers</strong> to score the set. Keep resetting until you score a perfect 10 out of 10.</p>
                 </div>
             </div>
 
             <div class="plain-box">
                 <div class="callout-title">In Plain Terms</div>
                 <div class="callout-content">
-                    <p>Think of this section as the trailer, not the movie. It gives you the shape of the week so the full reading in 5.4 has something to attach to, instead of hitting you cold.</p>
+                    <p>Confident-and-wrong is the category to watch for: you believe something false and have no reason to double-check it. That category is invisible on an ordinary score report, and it is what fails people on the first attempt.</p>
+                    <p>Select an answer for each question, then click <strong>Grade My Answers</strong> to see your results. Click <strong>Reset</strong> for a brand-new random set of 10, and keep going. You are expected to repeat this until you score a perfect 10 out of 10 in a single attempt &mdash; a fresh random set every time means you cannot simply memorize positions, you actually have to know the material.</p>
                 </div>
             </div>
 
-            <h2>Laptop and Mobile Device Hardware</h2>
+            <div id="quizArea"></div>
 
-            <p>A laptop packs the same fundamental components as a desktop into a smaller, battery-powered case &mdash; but the way you service it is completely different. Some parts are designed to be opened and swapped in the field. Others are soldered, glued, or bonded, and replacing them means replacing a much larger assembly.</p>
-
-            <div class="definition">
-                <div class="definition-term">Field-Replaceable Unit (FRU)</div>
-                <p class="definition-text">A component designed to be removed and replaced without sending the device to a specialized repair center &mdash; battery, keyboard, RAM (on some models), and storage drive are common examples. Non-FRU components, like a soldered CPU or a display bonded to a digitizer, require disassembly far beyond routine service.</p>
+            <div class="mt-lg">
+                <button class="quiz-btn" onclick="gradeQuiz()">Grade My Answers</button>
+                <button class="quiz-btn secondary" onclick="resetQuiz()">Reset</button>
             </div>
 
-            <div class="key-concept">
-                <h4>Know Before You Open It</h4>
-                <p>Battery type (removable vs. internal), keyboard and keycap replacement, and converting a mechanical hard drive to an SSD are common laptop hardware tasks. Mobile devices add near-field communication (NFC) hardware and integrated cameras and microphones to the mix &mdash; components that don't exist on a typical desktop at all.</p>
+            <div id="quizResults">
+                <div>Your Score</div>
+                <div class="score" id="scoreDisplay">0 / 10</div>
+                <div id="scoreNote"></div>
             </div>
 
-            <h3>Mobile Device Accessories</h3>
+            <script>
+                const POOL = [{"q": "Which of the following is typically a field-replaceable unit on a laptop?", "opts": ["Soldered CPU", "Battery", "System board", "Bonded digitizer"], "correct": 1}, {"q": "Converting a laptop's mechanical hard drive to an SSD primarily improves:", "opts": ["Display resolution", "Read/write speed", "Battery life", "Wireless range"], "correct": 1}, {"q": "Which laptop hardware technology allows contactless data exchange at very short range?", "opts": ["GPS", "NFC", "HDMI", "SATA"], "correct": 1}, {"q": "A laptop's built-in microphone is generally considered best suited for:", "opts": ["Casual video calls", "Professional podcast recording", "Studio music production", "Noise-canceling headsets"], "correct": 0}, {"q": "Which accessory would most directly turn a laptop into a full desktop setup with one connection?", "opts": ["A docking station", "A trackpad", "A stylus", "A headset"], "correct": 0}, {"q": "A non-field-replaceable component is best described as one that:", "opts": ["Is fully covered under every warranty term", "Can be swapped without any tools at all", "Is defined as always being the battery", "Requires disassembly well beyond routine service"], "correct": 3}, {"q": "Which accessory is most associated with precision digital input on a tablet?", "opts": ["Docking station", "External speaker", "Stylus", "Port replicator"], "correct": 2}, {"q": "A port replicator primarily provides:", "opts": ["Provides additional connection ports", "Provides cellular data connectivity", "Provides wireless charging capability", "Provides extra battery capacity"], "correct": 0}, {"q": "Keyboard and keycap replacement on a laptop is generally classified as:", "opts": ["A manufacturer-only repair", "A BIOS setting", "A field-replaceable task", "Non-serviceable"], "correct": 2}, {"q": "Which of these is an example of a mobile device input accessory rather than an output accessory?", "opts": ["External speaker", "Drawing pad", "Headset", "Webcam"], "correct": 1}, {"q": "Tethering a laptop to a phone's cellular connection is most commonly done over:", "opts": ["Over an HDMI connection", "Over a PCIe connection", "Over USB or Bluetooth", "Over a SATA connection"], "correct": 2}, {"q": "A mobile hotspot differs from tethering in that a hotspot:", "opts": ["Is unable to use any cellular data", "Shares the connection over Wi-Fi to many devices", "Only functions over a USB connection", "Always requires swapping the SIM card"], "correct": 1}, {"q": "Which component identifies a mobile device on a cellular network?", "opts": ["SIM card", "Digitizer", "eMMC module", "TPM"], "correct": 0}, {"q": "NFC is most commonly used for:", "opts": ["Contactless payment and quick device pairing", "Long-range file transfer over distance", "Satellite-based navigation and positioning", "Wide-area cellular data connectivity"], "correct": 0}, {"q": "GPS on a mobile device primarily provides:", "opts": ["Bluetooth pairing", "Cellular signal boosting", "Data encryption", "Location services"], "correct": 3}, {"q": "An organization managing hundreds of employee smartphones would most likely rely on:", "opts": ["A physical patch panel", "A virtualization hypervisor", "A SIM cloning utility", "A mobile device management platform"], "correct": 3}, {"q": "In a BYOD model, the mobile device is:", "opts": ["Employee-owned with limited company control", "Leased directly through the cellular carrier", "Company-owned with full management rights", "Managed only by the device manufacturer"], "correct": 0}, {"q": "In a COPE model, the mobile device is:", "opts": ["Unmanaged by design", "Company-owned, personally enabled", "Owned by the cellular carrier", "Employee-owned, personally enabled"], "correct": 1}, {"q": "Which wireless standard generation introduced widely available mobile broadband speeds comparable to home internet?", "opts": ["3G", "NFC", "4G", "Bluetooth"], "correct": 2}, {"q": "A mobile app that fails to sync data across devices most likely has an issue with:", "opts": ["Its network or account sync settings", "The SIM card's physical size", "The device's display panel", "The onscreen keyboard layout"], "correct": 0}, {"q": "A hypervisor that runs directly on physical hardware with no underlying OS is called:", "opts": ["Type 2", "Containerized", "Sandboxed", "Type 1"], "correct": 3}, {"q": "A Type 2 hypervisor is best described as:", "opts": ["A cloud-only method of virtualization", "An application running atop an existing OS", "Hardware built solely for virtualization", "Firmware built into the motherboard"], "correct": 1}, {"q": "Virtual Desktop Infrastructure (VDI) allows a user's desktop environment to run:", "opts": ["Only when the device is offline", "Only inside a web browser window", "On a remote server instead of local hardware", "Only from removable media"], "correct": 2}, {"q": "Containerization differs from full virtualization primarily because it:", "opts": ["Requires a Type 1 hypervisor only", "Always needs more resources than a VM", "Cannot run on cloud infrastructure", "Skips a full separate OS underneath"], "correct": 3}, {"q": "Running an older, unsupported operating system safely for legacy software is a common use case for:", "opts": ["Using a patch panel", "Using APIPA addressing", "Using a firewall rule", "Using virtualization"], "correct": 3}, {"q": "Testing potentially risky software in an isolated space is commonly referred to as:", "opts": ["Multitenancy", "Elasticity", "Sandboxing", "Tethering"], "correct": 2}, {"q": "Cross-platform virtualization is most useful when a technician needs to:", "opts": ["Configure a device's SIM card", "Replace a cracked digitizer panel", "Run software built for another OS", "Increase a laptop's battery life"], "correct": 2}, {"q": "A key resource requirement to consider before deploying a hypervisor is:", "opts": ["The color of the computer case", "Available CPU and memory capacity", "The resolution of the webcam", "The layout of the keyboard"], "correct": 1}, {"q": "A cloud service that provides raw virtualized servers and storage, leaving the OS and above to the customer, is:", "opts": ["DaaS", "IaaS", "PaaS", "SaaS"], "correct": 1}, {"q": "A cloud service that provides a finished application the customer simply uses is:", "opts": ["PaaS", "VDI", "IaaS", "SaaS"], "correct": 3}, {"q": "A cloud service that provides the OS and runtime environment, letting the customer focus on their application, is:", "opts": ["IaaS", "SaaS", "MDM", "PaaS"], "correct": 3}, {"q": "A cloud deployment dedicated to a single organization is a:", "opts": ["Public cloud", "Community cloud", "Private cloud", "Hybrid cloud"], "correct": 2}, {"q": "A cloud deployment that combines private and public resources is a:", "opts": ["Community cloud", "Public cloud", "Hybrid cloud", "Private cloud"], "correct": 2}, {"q": "A cloud deployment shared among a small group of organizations with common requirements is a:", "opts": ["A private cloud deployment", "A public cloud deployment", "A hybrid cloud deployment", "A community cloud deployment"], "correct": 3}, {"q": "The ability of a cloud service to scale resources up or down on demand is called:", "opts": ["Sandboxing", "Elasticity", "Tethering", "Multitenancy"], "correct": 1}, {"q": "Multiple customers sharing the same underlying cloud infrastructure, kept logically separate, describes:", "opts": ["Containerization", "VDI", "Elasticity", "Multitenancy"], "correct": 3}, {"q": "A cloud billing model based on actual resource consumption is described as:", "opts": ["Static allocation", "Perpetual licensing", "Flat-rate only", "Metered usage"], "correct": 3}, {"q": "File synchronization across devices is generally considered a defining trait of:", "opts": ["Cloud services", "Only private clouds", "Only Type 1 hypervisors", "Only IaaS"], "correct": 0}, {"q": "A company that keeps sensitive workloads on private infrastructure while bursting into public cloud capacity as needed is using a:", "opts": ["Community cloud", "Public-only cloud", "Hybrid cloud", "Type 1 hypervisor"], "correct": 2}, {"q": "High availability, in a cloud computing context, refers primarily to:", "opts": ["The fastest possible internet speed", "The lowest possible monthly price", "Consistent uptime and service access", "A single point of failure by design"], "correct": 2}, {"q": "A mobile device that will not hold a charge and shuts down unexpectedly most likely has an issue with the:", "opts": ["Battery", "Digitizer", "Wi-Fi antenna", "SIM card"], "correct": 0}, {"q": "A cracked touchscreen that no longer registers taps accurately points to a problem with the:", "opts": ["The battery", "The speaker", "The digitizer", "The SIM card"], "correct": 2}, {"q": "A phone that becomes uncomfortably hot during extended use is most likely experiencing:", "opts": ["Overheating", "A GPS fault", "A cursor drift issue", "A digitizer fault"], "correct": 0}, {"q": "A device exposed to moisture should generally be checked first for:", "opts": ["Liquid damage", "SIM card corruption", "Digitizer calibration only", "Cellular signal strength"], "correct": 0}, {"q": "A laptop touchpad where the pointer moves on its own without user input describes:", "opts": ["Liquid damage", "Cursor drift", "Overheating", "A SIM fault"], "correct": 1}, {"q": "Before assuming a mobile device software fault, a technician should generally first rule out:", "opts": ["A pending firmware update", "A physical or hardware cause", "A regional cloud outage", "A local DNS issue"], "correct": 1}, {"q": "A phone that charges very slowly despite using the original cable most likely has an issue with:", "opts": ["The device's digitizer", "The charging port or cable", "The device's SIM card", "The device's GPS radio"], "correct": 1}, {"q": "Blocked ventilation is most closely associated with which mobile device issue?", "opts": ["Overheating", "Digitizer miscalibration", "SIM card failure", "Cursor drift"], "correct": 0}, {"q": "A swelling battery on a mobile device should be treated as:", "opts": ["A safety concern needing prompt attention", "A digitizer calibration problem", "A purely cosmetic issue", "Normal wear needing no action"], "correct": 0}, {"q": "A device that intermittently loses touch responsiveness in one corner of the screen most likely has a problem with the:", "opts": ["GPS antenna", "SIM card", "Battery", "Digitizer"], "correct": 3}];
+                let QUESTIONS = [];
+                let answers = [];
 
-            <p>Mobile devices are frequently extended with accessories rather than internal upgrades: a stylus for precision input, headsets and external speakers for audio, webcams for video calls, and docking stations or port replicators that turn a laptop into a full desktop setup in one connection. Trackpads and drawing pads round out the input side for specialized work.</p>
+                function drawSet() {
+                    const shuffled = POOL.slice().sort(() => Math.random() - 0.5);
+                    QUESTIONS = shuffled.slice(0, 10);
+                    answers = new Array(QUESTIONS.length).fill(null);
+                }
 
-            <h2>Mobile Connectivity and Application Support</h2>
+                function renderQuiz() {
+                    const area = document.getElementById('quizArea');
+                    area.innerHTML = QUESTIONS.map((item, qi) => {
+                        const opts = item.opts.map((opt, oi) =>
+                            `<button type="button" class="answer-option" data-qi="${qi}" data-oi="${oi}" onclick="selectAnswer(${qi}, ${oi})">${opt}</button>`
+                        ).join('');
+                        return `<div class="question-block">
+                            <div class="question-number">Question ${qi + 1} of ${QUESTIONS.length}</div>
+                            <p class="question-text">${item.q}</p>
+                            ${opts}
+                        </div>`;
+                    }).join('');
+                }
 
-            <p>A mobile device is only as useful as its connections. Phones and tablets connect using a mix of wired and wireless standards, and each one serves a different purpose.</p>
+                function selectAnswer(qi, oi) {
+                    answers[qi] = oi;
+                    document.querySelectorAll(`[data-qi="${qi}"]`).forEach(btn => {
+                        btn.classList.remove('selected');
+                        if (parseInt(btn.dataset.oi) === oi) btn.classList.add('selected');
+                    });
+                }
 
-            <div class="definition">
-                <div class="definition-term">Tethering vs. Hotspot</div>
-                <p class="definition-text">Tethering connects a single device to a phone's cellular data, usually over USB or Bluetooth. A mobile hotspot broadcasts that same connection over Wi-Fi so multiple devices can share it at once. Both rely on the phone's cellular plan and data allowance.</p>
-            </div>
+                function gradeQuiz() {
+                    if (answers.includes(null)) {
+                        alert('Answer all 10 questions before grading.');
+                        return;
+                    }
+                    let score = 0;
+                    QUESTIONS.forEach((item, qi) => {
+                        const correct = item.correct;
+                        document.querySelectorAll(`[data-qi="${qi}"]`).forEach(btn => {
+                            const oi = parseInt(btn.dataset.oi);
+                            btn.classList.remove('selected');
+                            if (oi === correct) btn.classList.add('correct');
+                            else if (oi === answers[qi]) btn.classList.add('incorrect');
+                        });
+                        if (answers[qi] === correct) score++;
+                    });
+                    document.getElementById('scoreDisplay').textContent = score + ' / ' + QUESTIONS.length;
+                    const note = document.getElementById('scoreNote');
+                    if (score === QUESTIONS.length) note.textContent = 'Perfect set. You are ready to move on.';
+                    else note.textContent = 'Not a perfect 10 yet \u2014 click Reset for a new random set and try again.';
+                    document.getElementById('quizResults').style.display = 'block';
+                    document.getElementById('quizResults').scrollIntoView({behavior: 'smooth'});
+                }
 
-            <div class="table-container">
-                <table>
-                    <thead><tr><th>Technology</th><th>Primary Use</th></tr></thead>
-                    <tbody>
-                        <tr><td>USB / USB-C</td><td>Wired charging and high-speed data transfer</td></tr>
-                        <tr><td>Lightning</td><td>Apple proprietary charging and data connector</td></tr>
-                        <tr><td>Bluetooth</td><td>Short-range wireless pairing &mdash; headsets, keyboards, tethering</td></tr>
-                        <tr><td>NFC</td><td>Very short-range wireless &mdash; contactless payment, quick pairing</td></tr>
-                        <tr><td>Cellular (3G/4G/5G)</td><td>Wide-area mobile data connectivity</td></tr>
-                        <tr><td>GPS</td><td>Satellite-based location services</td></tr>
-                    </tbody>
-                </table>
-            </div>
+                function resetQuiz() {
+                    document.getElementById('quizResults').style.display = 'none';
+                    drawSet();
+                    renderQuiz();
+                }
 
-            <div class="key-concept">
-                <h4>Managing a Fleet of Devices</h4>
-                <p>Organizations that issue or support many mobile devices rely on Mobile Device Management (MDM) platforms to enforce policy, push updates, and remotely wipe lost or stolen hardware. Ownership models shape how much control an organization has: BYOD (Bring Your Own Device) is employee-owned with limited organizational control, while COPE (Corporate-Owned, Personally Enabled) is company-owned with full management rights, even when used personally.</p>
-            </div>
-
-            <h2>Virtualization</h2>
-
-            <p>Virtualization lets one physical system run multiple independent operating systems at the same time, each unaware of the others. It's how a single server can host a dozen isolated environments, and how a technician can safely test software without risking the host machine.</p>
-
-            <div class="definition">
-                <div class="definition-term">Hypervisor</div>
-                <p class="definition-text">The software layer that creates and manages virtual machines. A <strong>Type 1 hypervisor</strong> runs directly on the physical hardware with no underlying OS &mdash; common in data centers, where performance and isolation matter most. A <strong>Type 2 hypervisor</strong> runs as an application on top of an existing operating system &mdash; common on a technician's own laptop for testing and sandboxing.</p>
-            </div>
-
-            <div class="key-concept">
-                <h4>Why Virtualize?</h4>
-                <p>Common reasons include sandboxing (testing something risky in an isolated space), running legacy software that needs an older operating system, cross-platform testing, and Virtual Desktop Infrastructure (VDI), where a user's entire desktop runs on a remote server instead of local hardware. Containerization is a lighter-weight cousin of virtualization &mdash; it packages an application with just what it needs to run, without a full separate operating system underneath.</p>
-            </div>
-
-            <h2>Cloud Computing</h2>
-
-            <p>Cloud computing shifts computing resources off local hardware and onto infrastructure managed elsewhere, delivered over a network connection. The two questions that matter most are: who deploys it, and what layer of the stack are you buying?</p>
-
-            <div class="definition">
-                <div class="definition-term">Service Models: IaaS, PaaS, SaaS</div>
-                <p class="definition-text"><strong>Infrastructure as a Service (IaaS)</strong> provides raw virtualized hardware &mdash; servers, storage, networking &mdash; and the customer manages everything above that. <strong>Platform as a Service (PaaS)</strong> adds the operating system and runtime environment, so the customer focuses only on their application. <strong>Software as a Service (SaaS)</strong> delivers a finished application the customer simply uses, with the provider managing everything underneath.</p>
-            </div>
-
-            <div class="definition">
-                <div class="definition-term">Deployment Models</div>
-                <p class="definition-text">A <strong>public cloud</strong> is shared infrastructure available to anyone who pays for it. A <strong>private cloud</strong> is dedicated to a single organization. A <strong>hybrid cloud</strong> combines both, often keeping sensitive workloads private while bursting into public cloud capacity as needed. A <strong>community cloud</strong> is shared among a small group of organizations with common requirements.</p>
-            </div>
-
-            <div class="key-concept">
-                <h4>What Makes Cloud, Cloud</h4>
-                <p>Beyond the models above, cloud services typically share a few defining traits: metered usage (pay for what you use), rapid elasticity (scale up or down on demand), high availability, and file synchronization across devices. Multitenancy &mdash; multiple customers sharing the same underlying infrastructure, kept logically separate &mdash; is what makes public cloud pricing possible in the first place.</p>
-            </div>
-
-            <h2>Common Mobile Device Issues</h2>
-
-            <p>Mobile devices fail in ways that are physically different from desktops &mdash; smaller components, tighter tolerances, and constant handling all take a toll.</p>
-
-            <div class="key-concept">
-                <h4>What to Check First</h4>
-                <p>Battery issues (won't hold a charge, swelling, rapid drain), broken or unresponsive screens, improper charging behavior, liquid damage, overheating, digitizer problems (touch input not registering correctly), and cursor drift are the issues you'll see most often. Many of these trace back to physical stress &mdash; drops, heat, or moisture &mdash; rather than a software fault, which is why a physical inspection comes before a software fix.</p>
-            </div>
-
-            <div class="callout callout-warning">
-                <div class="callout-title">A Habit Worth Building Now</div>
-                <div class="callout-content">
-                    <p>Before assuming a software problem, rule out the physical one: Is the port clean? Is the cable good? Is there visible damage or heat? Mobile hardware fails in physical ways more often than desktop hardware does, simply from being carried, dropped, and handled all day.</p>
-                </div>
-            </div>
+                drawSet();
+                renderQuiz();
+            </script>
 
         </div>
 
