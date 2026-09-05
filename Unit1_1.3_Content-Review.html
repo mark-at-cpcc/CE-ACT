@@ -508,6 +508,7 @@
                 <li><strong>x16</strong> &mdash; graphics cards, high-throughput adapters</li>
                 <li><strong>x8 / x4</strong> &mdash; RAID controllers, high-speed network cards, NVMe adapters</li>
                 <li><strong>x1</strong> &mdash; sound cards, standard network cards, USB expansion, capture cards</li>
+                <li><strong>M.2</strong> &mdash; a compact slot wired directly to PCIe lanes (or SATA on some boards), used for NVMe SSDs and wireless cards</li>
             </ul>
 
             <p>Each PCIe generation roughly doubles the bandwidth per lane over the one before. Generations are backward and forward compatible &mdash; a Gen 3 card works in a Gen 4 slot and vice versa, running at the lower of the two speeds.</p>
@@ -523,11 +524,11 @@
             <ul class="styled-list">
                 <li><strong>24-pin ATX main power</strong> &mdash; primary board power from the PSU</li>
                 <li><strong>4/8-pin CPU power (EPS)</strong> &mdash; dedicated processor power, near the socket</li>
-                <li><strong>SATA ports</strong> &mdash; drive data connections</li>
+                <li><strong>SATA ports</strong> &mdash; drive data connections, used to connect storage drives such as SSDs and HDDs</li>
                 <li><strong>M.2 slots</strong> &mdash; direct-mount NVMe SSDs and wireless cards</li>
-                <li><strong>Front panel header</strong> &mdash; power button, reset, power LED, drive activity LED. Individually wired, easy to get wrong, and a classic no-boot cause.</li>
+                <li><strong>Front panel header</strong> &mdash; power button, reset, power LED, drive activity LED. These connections are used to connect the front case buttons. Individually wired, easy to get wrong, and a classic no-boot cause.</li>
                 <li><strong>USB and audio headers</strong> &mdash; front panel port connections</li>
-                <li><strong>Fan headers</strong> &mdash; CPU_FAN, SYS_FAN, often with PWM speed control</li>
+                <li><strong>Fan headers</strong> &mdash; CPU_FAN, SYS_FAN, often with PWM (Pulse Width Modulation) speed control. Fans connected here provide heat dissipation throughout the case.</li>
             </ul>
 
             <h3>Chipsets and Compatibility</h3>
@@ -545,7 +546,7 @@
                         <tr><td><strong>Cores</strong></td><td>Independent processing units on one chip. More cores allow genuine simultaneous execution rather than rapid switching.</td></tr>
                         <tr><td><strong>Multithreading</strong></td><td>One physical core presenting as two logical processors, improving utilization of idle execution resources.</td></tr>
                         <tr><td><strong>x86 / x64</strong></td><td>The instruction set architecture used by Intel and AMD desktop and server processors.</td></tr>
-                        <tr><td><strong>ARM</strong></td><td>A different architecture emphasizing performance per watt. Dominant in mobile devices and increasingly present in laptops and servers.</td></tr>
+                        <tr><td><strong>ARM</strong></td><td>The chipset type used to power most mobile devices and now many laptops. A different architecture emphasizing performance per watt, increasingly present in servers as well.</td></tr>
                         <tr><td><strong>Virtualization support</strong></td><td>Intel VT-x or AMD-V. Hardware extensions that hypervisors require. Frequently disabled by default in firmware &mdash; remember this for Unit 5.</td></tr>
                     </tbody>
                 </table>
@@ -560,7 +561,7 @@
                 <p class="definition-text">Fast, volatile working storage that holds the operating system, running applications, and open data. "Volatile" means contents vanish when power is removed. RAM is the desk you work at; storage is the filing cabinet.</p>
             </div>
 
-            <h4>Physical Packages</h4>
+            <h4>Physical Memory Connectors</h4>
             <ul class="styled-list">
                 <li><strong>DIMM</strong> &mdash; Dual Inline Memory Module. Full-length, used in desktops and servers.</li>
                 <li><strong>SO-DIMM</strong> &mdash; Small Outline DIMM. Shorter, used in laptops, all-in-ones, and small form factor systems.</li>
@@ -594,6 +595,7 @@
 
             <h4>Multi-Channel Memory</h4>
             <p>Installing modules in matched pairs or sets lets the memory controller access them in parallel, widening the effective data path. Dual-channel, triple-channel, and quad-channel configurations exist depending on platform.</p>
+            <p>A wider data path means the CPU can move more data to and from memory per cycle, rather than waiting on a single narrow lane. Since memory access is a constant bottleneck for overall system speed, this directly raises real-world performance &mdash; particularly for tasks like gaming, video editing, and virtualization that lean heavily on memory bandwidth.</p>
 
             <div class="callout callout-tip">
                 <div class="callout-title">Slot Color Is a Hint, Not Decoration</div>
@@ -639,13 +641,14 @@
                     </tbody>
                 </table>
             </div>
+            <p>The <strong>Molex</strong> connector is a legacy 4-pin design supplying both +12 V and +5 V. It predates SATA power and originally served PATA hard drives and optical drives; today it mainly shows up feeding case fans and the occasional legacy peripheral.</p>
             <p>Standard DC rails are <strong>+3.3 V</strong>, <strong>+5 V</strong>, and <strong>+12 V</strong>. The +12 V rail carries the heaviest load, feeding the processor and graphics card.</p>
 
             <h3>Specifications That Matter</h3>
             <ul class="styled-list">
                 <li><strong>Wattage</strong> &mdash; total output capacity. Size to actual load with headroom; oversizing modestly is cheap insurance, and undersizing produces intermittent faults that look like everything except a power problem.</li>
                 <li><strong>Input voltage</strong> &mdash; 115 V versus 230 V. Units with a manual selector switch must match the local supply. Setting one wrong destroys hardware.</li>
-                <li><strong>Efficiency rating</strong> &mdash; the 80 PLUS tiers (Bronze, Silver, Gold, Platinum, Titanium) certify how much input power reaches the components rather than becoming waste heat.</li>
+                <li><strong>Efficiency rating</strong> &mdash; the 80 PLUS tiers (from most wasteful to efficient: Bronze, Silver, Gold, Platinum, Titanium) certify how much input power reaches the components rather than becoming waste heat.</li>
                 <li><strong>Modular cabling</strong> &mdash; detachable cables so you install only what you use. Improves airflow and serviceability.</li>
                 <li><strong>Redundant supplies</strong> &mdash; two or more units in a server so one can fail without downtime.</li>
             </ul>
@@ -731,7 +734,7 @@
 
             <h3>TPM and HSM</h3>
             <ul class="styled-list">
-                <li><strong>TPM</strong> (Trusted Platform Module) &mdash; a chip or firmware feature that generates and stores cryptographic keys tied to the specific machine. Full-disk encryption such as BitLocker depends on it.</li>
+                <li><strong>TPM</strong> (Trusted Platform Module) &mdash; a chip or firmware feature that generates and stores cryptographic keys tied to the specific machine. Full-disk encryption such as BitLocker depends on it. Windows 11 requires a TPM to install; earlier versions of Windows do not.</li>
                 <li><strong>HSM</strong> (Hardware Security Module) &mdash; a dedicated appliance or card providing key generation and storage at scale, typically for servers and certificate authorities.</li>
             </ul>
 
