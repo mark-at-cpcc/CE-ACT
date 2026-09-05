@@ -465,7 +465,7 @@
                 <table>
                     <thead><tr><th>Display Type</th><th>How It Works</th><th>Common Use</th></tr></thead>
                     <tbody>
-                        <tr><td>LCD (LED-backlit)</td><td>Liquid crystal panel with an LED backlight illuminating pixels from behind</td><td>Most laptops and budget monitors</td></tr>
+                        <tr><td>LED (LCD-backlit)</td><td>Liquid crystal panel with an LED backlight illuminating pixels from behind</td><td>Most laptops and budget monitors</td></tr>
                         <tr><td>OLED</td><td>Each pixel emits its own light &mdash; no separate backlight</td><td>High-end monitors, phones, some laptops</td></tr>
                         <tr><td>Mini LED</td><td>LCD with a densely zoned LED backlight for finer local dimming</td><td>Higher-end LCD monitors and laptops</td></tr>
                         <tr><td>Touchscreen</td><td>A digitizer layer over the display senses touch input</td><td>Tablets, 2-in-1 laptops, POS terminals</td></tr>
@@ -502,12 +502,13 @@
 
             <h3>RAID (Redundant Array of Independent Disks)</h3>
             <div class="key-concept">
-                <h4>Know These Four Cold</h4>
+                <h4>Know These Five Cold</h4>
                 <ul>
                     <li><strong>RAID 0</strong> &mdash; striping. Faster, more storage, zero redundancy. One drive fails, you lose everything.</li>
                     <li><strong>RAID 1</strong> &mdash; mirroring. Two drives hold identical data. Full redundancy, no capacity gain.</li>
                     <li><strong>RAID 5</strong> &mdash; striping with parity, minimum 3 drives. Survives one drive failure; good balance of speed, capacity, and safety.</li>
-                    <li><strong>RAID 10</strong> &mdash; a mirrored pair of striped sets, minimum 4 drives. Fast and redundant, but capacity cost is steep.</li>
+                    <li><strong>RAID 6 (5+1)</strong> &mdash; striping with dual parity, minimum 4 drives. Survives two simultaneous drive failures, at a greater capacity cost than RAID 5.</li>
+                    <li><strong>RAID 10 (1+0)</strong> &mdash; a mirrored pair of striped sets, minimum 4 drives. Fast and redundant, but capacity cost is steep.</li>
                 </ul>
             </div>
 
@@ -536,6 +537,25 @@
                 </table>
             </div>
 
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Cable Type</th><th>Usage</th><th>Transmission</th></tr></thead>
+                    <tbody>
+                        <tr><td>USB-A</td><td>Current</td><td>Digital</td></tr>
+                        <tr><td>USB-C</td><td>New</td><td>Digital</td></tr>
+                        <tr><td>USB Micro-B</td><td>Legacy</td><td>Digital</td></tr>
+                        <tr><td>Serial (RS-232)</td><td>Legacy</td><td>Digital</td></tr>
+                        <tr><td>Thunderbolt</td><td>New</td><td>Digital</td></tr>
+                        <tr><td>HDMI</td><td>Current</td><td>Digital</td></tr>
+                        <tr><td>DisplayPort</td><td>Current</td><td>Digital</td></tr>
+                        <tr><td>DVI</td><td>Legacy</td><td>Digital/Analog</td></tr>
+                        <tr><td>VGA</td><td>Legacy</td><td>Analog</td></tr>
+                        <tr><td>SATA</td><td>Current</td><td>Digital</td></tr>
+                        <tr><td>eSATA</td><td>Legacy</td><td>Digital</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
             <div class="callout callout-warning">
                 <div class="callout-title">Digital vs. Analog Video</div>
                 <div class="callout-content">
@@ -559,7 +579,7 @@
                         <tr><td>Laser</td><td>Laser charges a drum; toner adheres and is fused to paper with heat</td><td>Office/high-volume printing</td></tr>
                         <tr><td>Inkjet</td><td>Liquid ink sprayed through tiny nozzles onto paper</td><td>Home printing, photo quality</td></tr>
                         <tr><td>Thermal</td><td>Heat applied to heat-sensitive paper, no ink or toner</td><td>Receipts, labels</td></tr>
-                        <tr><td>Impact (dot-matrix)</td><td>Pins strike an ink ribbon against paper</td><td>Multi-part forms, industrial</td></tr>
+                        <tr><td>Impact (Dot-Matrix)</td><td>Pins strike an ink ribbon against paper</td><td>Multi-part forms, industrial</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -633,6 +653,18 @@
                 <div class="callout-title">Working Through the Layers</div>
                 <div class="callout-content">
                     <p>A practical order: confirm the application layer first (is the right printer selected in this program's print dialog?), then the printer object layer (is the printer online, is the default printer correct, is a job stuck in this printer's queue?), then the driver layer (is the correct driver installed, does reinstalling it help?), and only then the hardware layer (power, cable, network, consumables, physical jam). Working top-down is faster because the higher layers are quicker to check and rule out.</p>
+                </div>
+            </div>
+
+            <div class="tech-box">
+                <div class="callout-title">Connected Printers</div>
+                <div class="callout-content">
+                    <p>Not every printer a computer can use is actually attached to that computer. How a printer is connected changes where you go to troubleshoot it.</p>
+                    <ul>
+                        <li><strong>Locally installed printer</strong> &mdash; the printer is directly connected to this computer (typically by USB) and this computer holds the driver and manages the print queue itself. If it fails, the problem lives entirely on this machine &mdash; check the four layers above on this computer only.</li>
+                        <li><strong>Shared printer from a network computer</strong> &mdash; the printer is locally installed on a different computer, and that computer has shared it out for others to use. Your print job travels across the network to that host computer first, which then sends it on to the printer. A failure here can originate on your computer, on the network, or on the host computer sharing the printer &mdash; three places to check instead of one.</li>
+                        <li><strong>Print server</strong> &mdash; a dedicated device or service (not a regular user's workstation) whose entire job is managing print queues and drivers for one or more printers on the network. It removes the dependency on any one person's computer being powered on and logged in, which is exactly the weakness a shared printer setup has.</li>
+                    </ul>
                 </div>
             </div>
 
