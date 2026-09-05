@@ -437,13 +437,15 @@
 
             <p>This unit focuses entirely on <strong>wired</strong> connections: the cables, connectors, and wiring standards that make up a physical, cabled network. Wireless media &mdash; Wi-Fi standards, access point placement, and radio frequency behavior &mdash; is covered in a later unit. For now, every cable and connector below is part of the wired world.</p>
 
+            <h3>Wired Media</h3>
             <div class="table-container">
                 <table>
-                    <thead><tr><th>Cable Type</th><th>Common Use</th><th>Typical Connector(s)</th></tr></thead>
+                    <thead><tr><th>Cable Type</th><th>Common Use</th><th>Typical Connector(s)</th><th>Type</th></tr></thead>
                     <tbody>
-                        <tr><td>Twisted pair (UTP / STP)</td><td>Standard Ethernet networking, wall-to-closet runs</td><td>RJ45</td></tr>
-                        <tr><td>Coaxial</td><td>Cable internet, legacy networks, video distribution</td><td>F-connector</td></tr>
-                        <tr><td>Fiber optic (single-mode / multimode)</td><td>High-speed, long-distance, interference-free links</td><td>SC, ST, LC</td></tr>
+                        <tr><td>Twisted pair (UTP / STP)</td><td>Standard Ethernet networking, wall-to-closet runs</td><td>RJ45</td><td>Copper</td></tr>
+                        <tr><td>Coaxial</td><td>Cable internet, legacy networks, video distribution</td><td>F-connector</td><td>Copper</td></tr>
+                        <tr><td>Fiber optic (single-mode / multimode)</td><td>High-speed, long-distance, interference-free links</td><td>SC, ST, LC</td><td>Optical</td></tr>
+                        <tr><td>Phone lines (POTS)</td><td>Traditional analog telephone service</td><td>RJ11</td><td>Copper</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -493,11 +495,24 @@
 
             <div class="table-container">
                 <table>
-                    <thead><tr><th>Fiber Connector</th><th>Shape</th><th>Notes</th></tr></thead>
+                    <thead><tr><th>Optical Media Connectors</th><th>Illustration</th><th>Shape</th><th>Notes</th></tr></thead>
                     <tbody>
-                        <tr><td>SC (Subscriber Connector)</td><td>Square, push-pull</td><td>Simple to use, common in patch panels</td></tr>
-                        <tr><td>ST (Straight Tip)</td><td>Round, bayonet twist-lock</td><td>Older style, still found in legacy installs</td></tr>
-                        <tr><td>LC (Lucent Connector)</td><td>Small square, push-pull</td><td>Smaller form factor, common in dense installs</td></tr>
+                        <tr><td>SC (Subscriber Connector)</td><td style="text-align:center;"><svg width="110" height="60" viewBox="0 0 110 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="SC connector: square push-pull body"><rect x="6" y="14" width="46" height="32" rx="3" fill="#3a6ea5" stroke="#24405f" stroke-width="2"/><rect x="12" y="20" width="34" height="20" rx="2" fill="#5a8fc7"/><rect x="52" y="24" width="18" height="12" rx="1" fill="#8a8a8a" stroke="#5a5a5a" stroke-width="1.5"/><rect x="70" y="27" width="30" height="6" rx="3" fill="#c9a227"/><text x="29" y="56" font-family="sans-serif" font-size="8" fill="#4A4A4A" text-anchor="middle">SC</text></svg></td><td>Square, push-pull</td><td>Simple to use, common in patch panels</td></tr>
+                        <tr><td>ST (Straight Tip)</td><td style="text-align:center;"><svg width="110" height="60" viewBox="0 0 110 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ST connector: round bayonet body with twist collar"><circle cx="30" cy="30" r="18" fill="#3a6ea5" stroke="#24405f" stroke-width="2"/><circle cx="30" cy="30" r="10" fill="#5a8fc7"/><rect x="26" y="6" width="8" height="8" rx="1" fill="#8a8a8a" stroke="#5a5a5a" stroke-width="1"/><rect x="48" y="27" width="14" height="6" rx="1" fill="#8a8a8a" stroke="#5a5a5a" stroke-width="1.5"/><rect x="62" y="27" width="38" height="6" rx="3" fill="#c9a227"/><text x="30" y="56" font-family="sans-serif" font-size="8" fill="#4A4A4A" text-anchor="middle">ST</text></svg></td><td>Round, bayonet twist-lock</td><td>Older style, still found in legacy installs</td></tr>
+                        <tr><td>LC (Lucent Connector)</td><td style="text-align:center;"><svg width="110" height="60" viewBox="0 0 110 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="LC connector: small duplex clip body"><rect x="6" y="12" width="30" height="15" rx="2" fill="#3a6ea5" stroke="#24405f" stroke-width="1.5"/><rect x="6" y="31" width="30" height="15" rx="2" fill="#3a6ea5" stroke="#24405f" stroke-width="1.5"/><rect x="10" y="8" width="4" height="6" rx="1" fill="#7aa3d0"/><rect x="10" y="44" width="4" height="6" rx="1" fill="#7aa3d0"/><rect x="36" y="16" width="12" height="7" rx="1" fill="#8a8a8a" stroke="#5a5a5a" stroke-width="1"/><rect x="36" y="35" width="12" height="7" rx="1" fill="#8a8a8a" stroke="#5a5a5a" stroke-width="1"/><rect x="48" y="18" width="52" height="4" rx="2" fill="#c9a227"/><rect x="48" y="37" width="52" height="4" rx="2" fill="#c9a227"/><text x="24" y="58" font-family="sans-serif" font-size="8" fill="#4A4A4A" text-anchor="middle">LC (duplex)</text></svg></td><td>Small square, push-pull</td><td>Smaller form factor, common in dense installs</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Copper Media Connectors</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Copper Media Connectors</th><th>Illustration</th><th>Wiring Number</th><th>Usage</th><th>Notes</th></tr></thead>
+                    <tbody>
+                        <tr><td>RJ45</td><td style="text-align:center;"><svg width="110" height="60" viewBox="0 0 110 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="RJ45 (8P8C)"><rect x="49.0" y="40" width="12" height="20" rx="4" fill="#cfcfcf" stroke="#a9a9a9" stroke-width="1"/><rect x="47.0" y="36" width="16" height="8" rx="2" fill="#b7b7b7" stroke="#8f8f8f" stroke-width="1"/><rect x="30" y="6" width="50" height="34" rx="3" fill="#dfe8f2" stroke="#24405f" stroke-width="2"/><g fill="#c9a227"><rect x="38.6" y="10" width="3" height="16" rx="1"/><rect x="42.9" y="10" width="3" height="16" rx="1"/><rect x="47.1" y="10" width="3" height="16" rx="1"/><rect x="51.4" y="10" width="3" height="16" rx="1"/><rect x="55.6" y="10" width="3" height="16" rx="1"/><rect x="59.9" y="10" width="3" height="16" rx="1"/><rect x="64.1" y="10" width="3" height="16" rx="1"/><rect x="68.4" y="10" width="3" height="16" rx="1"/></g><rect x="49.0" y="36" width="12" height="6" rx="1" fill="#c3d0de" stroke="#24405f" stroke-width="1"/><text x="55.0" y="57" font-family="sans-serif" font-size="8" fill="#4A4A4A" text-anchor="middle">RJ45 (8P8C)</text></svg></td><td>8P8C (8 conductors, 4 pairs)</td><td>LAN horizontal</td><td>Standard Ethernet termination for twisted pair; the connector at the wall jack and the workstation</td></tr>
+                        <tr><td>RJ11</td><td style="text-align:center;"><svg width="110" height="60" viewBox="0 0 110 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="RJ11 (6P2C)"><rect x="49.0" y="40" width="12" height="20" rx="4" fill="#cfcfcf" stroke="#a9a9a9" stroke-width="1"/><rect x="47.0" y="36" width="16" height="8" rx="2" fill="#b7b7b7" stroke="#8f8f8f" stroke-width="1"/><rect x="40" y="6" width="30" height="34" rx="3" fill="#dfe8f2" stroke="#24405f" stroke-width="2"/><g fill="#c9a227"><rect x="46.8" y="10" width="3" height="16" rx="1"/><rect x="51.2" y="10" width="3" height="16" rx="1"/><rect x="55.8" y="10" width="3" height="16" rx="1"/><rect x="60.2" y="10" width="3" height="16" rx="1"/></g><rect x="49.0" y="36" width="12" height="6" rx="1" fill="#c3d0de" stroke="#24405f" stroke-width="1"/><text x="55.0" y="57" font-family="sans-serif" font-size="8" fill="#4A4A4A" text-anchor="middle">RJ11 (6P2C)</text></svg></td><td>6P2C (2 conductors, 1 pair)</td><td>WAN</td><td>Analog telephone (POTS) line entering from the service provider</td></tr>
+                        <tr><td>F-connector</td><td style="text-align:center;"><svg width="110" height="60" viewBox="0 0 110 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="F-connector: threaded coaxial connector with center pin"><polygon points="14,18 26,12 38,18 38,42 26,48 14,42" fill="#8a8a8a" stroke="#5a5a5a" stroke-width="1.5"/><rect x="38" y="22" width="20" height="16" rx="2" fill="#b0b0b0" stroke="#5a5a5a" stroke-width="1.5"/><rect x="58" y="27" width="16" height="6" rx="1" fill="#c9a227"/><rect x="74" y="28" width="26" height="4" rx="2" fill="#8a8a8a"/><text x="46" y="58" font-family="sans-serif" font-size="8" fill="#4A4A4A" text-anchor="middle">F-connector</text></svg></td><td>1 conductor (coaxial)</td><td>WAN</td><td>Threaded coaxial connector for cable internet and cable TV from the provider</td></tr>
+                        <tr><td>Punchdown block (66/110)</td><td style="text-align:center;"><svg width="110" height="60" viewBox="0 0 110 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Punchdown block: rows of slotted contacts"><rect x="10" y="10" width="90" height="36" rx="2" fill="#3a6ea5" stroke="#24405f" stroke-width="2"/><g fill="#dfe8f2"><rect x="15.0" y="15" width="5" height="11" rx="1"/><rect x="23.5" y="15" width="5" height="11" rx="1"/><rect x="32.0" y="15" width="5" height="11" rx="1"/><rect x="40.5" y="15" width="5" height="11" rx="1"/><rect x="49.0" y="15" width="5" height="11" rx="1"/><rect x="57.5" y="15" width="5" height="11" rx="1"/><rect x="66.0" y="15" width="5" height="11" rx="1"/><rect x="74.5" y="15" width="5" height="11" rx="1"/><rect x="83.0" y="15" width="5" height="11" rx="1"/><rect x="91.5" y="15" width="5" height="11" rx="1"/><rect x="15.0" y="30" width="5" height="11" rx="1"/><rect x="23.5" y="30" width="5" height="11" rx="1"/><rect x="32.0" y="30" width="5" height="11" rx="1"/><rect x="40.5" y="30" width="5" height="11" rx="1"/><rect x="49.0" y="30" width="5" height="11" rx="1"/><rect x="57.5" y="30" width="5" height="11" rx="1"/><rect x="66.0" y="30" width="5" height="11" rx="1"/><rect x="74.5" y="30" width="5" height="11" rx="1"/><rect x="83.0" y="30" width="5" height="11" rx="1"/><rect x="91.5" y="30" width="5" height="11" rx="1"/></g><g stroke="#c9a227" stroke-width="1.5"><line x1="17.5" y1="15" x2="17.5" y2="41"/><line x1="26.0" y1="15" x2="26.0" y2="41"/><line x1="34.5" y1="15" x2="34.5" y2="41"/><line x1="43.0" y1="15" x2="43.0" y2="41"/><line x1="51.5" y1="15" x2="51.5" y2="41"/><line x1="60.0" y1="15" x2="60.0" y2="41"/><line x1="68.5" y1="15" x2="68.5" y2="41"/><line x1="77.0" y1="15" x2="77.0" y2="41"/><line x1="85.5" y1="15" x2="85.5" y2="41"/><line x1="94.0" y1="15" x2="94.0" y2="41"/></g><text x="55" y="57" font-family="sans-serif" font-size="8" fill="#4A4A4A" text-anchor="middle">Punchdown block</text></svg></td><td>Multiple pairs</td><td>LAN vertical</td><td>Fixed termination point where cable-run pairs are punched down in the telecom room or patch panel backbone</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -626,7 +641,11 @@
                 </div>
             </div>
 
-            <p>Each of the three usable classes sets aside its own private address block. Here's how the private ranges you'll be tested on map back to the classes they come from:</p>
+            <p>Each of the three usable classes sets aside its own private address block.</p>
+
+            <p>Private range addresses are only usable on a LAN, and are not routable onto the WAN. Only public addresses can be used on the WAN and are not usable on a LAN. Routers are the only network device that can hold either of these addresses. All other devices are one or the other.</p>
+
+            <p>Here's how the private ranges you'll be tested on map back to the classes they come from:</p>
 
             <div class="table-container">
                 <table>
@@ -677,33 +696,34 @@
 
             <div class="table-container">
                 <table>
-                    <thead><tr><th>Port(s)</th><th>Protocol</th></tr></thead>
+                    <thead><tr><th>Port</th><th>Protocol</th><th>TCP</th><th>UDP</th></tr></thead>
                     <tbody>
-                        <tr><td>20 / 21</td><td>FTP</td></tr>
-                        <tr><td>22</td><td>SSH</td></tr>
-                        <tr><td>23</td><td>Telnet</td></tr>
-                        <tr><td>25</td><td>SMTP</td></tr>
-                        <tr><td>53</td><td>DNS</td></tr>
-                        <tr><td>80</td><td>HTTP</td></tr>
-                        <tr><td>110</td><td>POP3</td></tr>
-                        <tr><td>143</td><td>IMAP</td></tr>
-                        <tr><td>443</td><td>HTTPS</td></tr>
-                        <tr><td>3389</td><td>RDP</td></tr>
+                        <tr><td>20</td><td>FTP (data transfer)</td><td>&#10004;</td><td></td></tr>
+                        <tr><td>21</td><td>FTP (control / commands)</td><td>&#10004;</td><td></td></tr>
+                        <tr><td>22</td><td>SSH</td><td>&#10004;</td><td></td></tr>
+                        <tr><td>23</td><td>Telnet</td><td>&#10004;</td><td></td></tr>
+                        <tr><td>25</td><td>SMTP</td><td>&#10004;</td><td></td></tr>
+                        <tr><td>53</td><td>DNS</td><td>&#10004;</td><td>&#10004;</td></tr>
+                        <tr><td>80</td><td>HTTP</td><td>&#10004;</td><td></td></tr>
+                        <tr><td>110</td><td>POP3</td><td>&#10004;</td><td></td></tr>
+                        <tr><td>143</td><td>IMAP</td><td>&#10004;</td><td></td></tr>
+                        <tr><td>443</td><td>HTTPS</td><td>&#10004;</td><td></td></tr>
+                        <tr><td>3389</td><td>RDP</td><td>&#10004;</td><td>&#10004;</td></tr>
                     </tbody>
                 </table>
             </div>
 
-            <h2>Internet Connection &amp; Network Types</h2>
+            <h2>Internet Connectivity Types</h2>
 
             <div class="table-container">
                 <table>
-                    <thead><tr><th>Connection Type</th><th>How It Works</th></tr></thead>
+                    <thead><tr><th>Connection Type</th><th>How It Works</th><th>ISP Examples (Charlotte area)</th></tr></thead>
                     <tbody>
-                        <tr><td>DSL</td><td>Data travels over existing copper telephone lines</td></tr>
-                        <tr><td>Cable</td><td>Data travels over the same coaxial cable used for cable television</td></tr>
-                        <tr><td>Fiber (FTTH)</td><td>Fiber optic cable runs directly to the customer premises, terminated at an ONT</td></tr>
-                        <tr><td>Satellite</td><td>Signal relayed through an orbiting satellite &mdash; useful where no wired infrastructure exists, at the cost of higher latency</td></tr>
-                        <tr><td>Cellular</td><td>Data travels over the cellular network (4G/5G), commonly used for mobile hotspots</td></tr>
+                        <tr><td>DSL/ADSL</td><td>Data travels over existing copper telephone lines</td><td>EarthLink, Windstream</td></tr>
+                        <tr><td>Cable</td><td>Data travels over the same coaxial cable used for cable television</td><td>Spectrum, Xfinity</td></tr>
+                        <tr><td>Fiber (FTTH)</td><td>Fiber optic cable runs directly to the customer premises, terminated at an ONT</td><td>AT&amp;T Fiber, Google Fiber</td></tr>
+                        <tr><td>Satellite</td><td>Signal relayed through an orbiting satellite &mdash; useful where no wired infrastructure exists, at the cost of higher latency</td><td>Starlink, Viasat</td></tr>
+                        <tr><td>Cellular</td><td>Data travels over the cellular network (4G/5G), commonly used for mobile hotspots</td><td>Verizon, AT&amp;T</td></tr>
                     </tbody>
                 </table>
             </div>
