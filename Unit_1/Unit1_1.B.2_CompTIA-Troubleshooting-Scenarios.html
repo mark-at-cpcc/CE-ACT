@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 1 &mdash; 1.B.2 CompTIA Troubleshooting Scenarios | CompTIA A+ Core 1</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Sans+Pro:wght@400;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           CPCC COURSE TEMPLATE - GOLD / CHARCOAL / BLACK
+           CTS-ITS7501-80 CompTIA A+ Core 1 Training
+           ============================================ */
+
+        :root {
+            --primary-dark: #4A4A4A;
+            --primary-main: #B8962E;
+            --primary-light: #D4AF56;
+            --primary-pale: #FBF3DF;
+
+            --accent-teal: #8A6F1F;
+            --accent-teal-light: #F3E9CE;
+            --accent-orange: #A9642A;
+            --accent-orange-light: #F5E2CE;
+            --accent-purple: #6B5B3A;
+            --accent-purple-light: #EFE6D2;
+            --accent-green: #4E7A51;
+            --accent-green-light: #DCEBDD;
+
+            --alert-warning: #B8862E;
+            --alert-warning-bg: #FBF0D9;
+            --alert-danger: #A13A3A;
+            --alert-danger-bg: #F6DEDE;
+            --alert-success: #3F6E42;
+            --alert-success-bg: #DCEBDD;
+            --alert-info: #6E5B2E;
+            --alert-info-bg: #F1E9D4;
+
+            --text-black: #000000;
+            --neutral-900: #000000;
+            --neutral-700: #000000;
+            --neutral-500: #5A5A5A;
+            --neutral-300: #D9D3C4;
+            --neutral-100: #FAF8F3;
+            --white: #ffffff;
+
+            --font-heading: 'Nunito', sans-serif;
+            --font-body: 'Source Sans Pro', sans-serif;
+            --font-code: 'Fira Code', monospace;
+
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+
+            --shadow-sm: 0 1px 2px rgba(74, 74, 74, 0.08);
+            --shadow-md: 0 4px 6px rgba(74, 74, 74, 0.12);
+            --shadow-lg: 0 10px 20px rgba(74, 74, 74, 0.15);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body), 'Segoe UI', Tahoma, Verdana, sans-serif;
+            font-size: 1.0625rem; line-height: 1.7; color: var(--text-black);
+            background: linear-gradient(135deg, var(--neutral-100) 0%, var(--white) 100%);
+            min-height: 100vh; padding: var(--space-lg);
+        }
+
+        .course-container {
+            max-width: 950px; margin: 0 auto; background: var(--white);
+            border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); overflow: hidden;
+        }
+
+        .module-header {
+            background: var(--primary-main); color: var(--text-black);
+            padding: var(--space-lg) var(--space-xl); position: relative; overflow: hidden;
+        }
+        .module-label {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 0.875rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 2px; text-decoration: underline;
+            margin-bottom: var(--space-sm); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-title {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 2.25rem; font-weight: 800;
+            line-height: 1.2; margin-bottom: var(--space-md); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-subtitle { font-size: 1.125rem; max-width: 650px; position: relative; z-index: 1; color: var(--text-black); }
+
+        .toc {
+            display: flex; flex-direction: column; gap: var(--space-sm);
+            padding: var(--space-lg) var(--space-xl);
+            background: var(--primary-pale); border-bottom: 1px solid var(--neutral-300);
+        }
+        .toc-item {
+            width: 100%; text-align: left;
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 0.875rem;
+            color: var(--text-black); background: var(--white);
+            border: 2px solid var(--primary-main);
+            padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md);
+        }
+        .toc-item.current { background: var(--primary-main); }
+
+        .content-area { padding: var(--space-xl); }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif;
+            color: var(--text-black); line-height: 1.3; margin-bottom: var(--space-md);
+        }
+        h1 { font-size: 2rem; font-weight: 800; }
+        h2 { font-size: 1.625rem; font-weight: 700; padding-bottom: var(--space-sm);
+             border-bottom: 3px solid var(--primary-main); margin-top: var(--space-xl); margin-bottom: var(--space-lg); }
+        h3 { font-size: 1.375rem; font-weight: 700; margin-top: var(--space-lg);
+             padding-left: var(--space-sm); border-left: 4px solid var(--primary-main); }
+        h4 { font-size: 1.125rem; font-weight: 600; }
+
+        p { margin-bottom: var(--space-md); }
+        strong { font-weight: 700; color: var(--text-black); }
+        em { font-style: italic; color: var(--text-black); }
+
+        ul, ol { margin-bottom: var(--space-md); padding-left: var(--space-lg); }
+        li { margin-bottom: var(--space-sm); }
+        ul li::marker { color: var(--accent-teal); }
+        ol li::marker { color: var(--accent-teal); font-weight: 700; }
+
+        .objectives-box {
+            background: var(--primary-pale); border-left: 5px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .objectives-box h3 { margin-top: 0; border-left: none; padding-left: 0; color: var(--text-black); }
+        .objectives-box ol { margin-bottom: 0; }
+
+        .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; position: relative; overflow: hidden; }
+        .callout-title { font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 1rem;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
+        .callout-content { }
+        .callout-content p:last-child { margin-bottom: 0; }
+        .callout-tip { background: var(--accent-green-light); border-left: 4px solid var(--accent-green); }
+        .callout-warning { background: var(--alert-warning-bg); border-left: 4px solid var(--alert-warning); }
+        .callout-danger { background: var(--alert-danger-bg); border-left: 4px solid var(--alert-danger); }
+        .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
+
+        .scenario-box {
+            background: var(--primary-pale); border: 2px solid var(--primary-main);
+            border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .scenario-box.escalation { border-color: var(--alert-danger); background: var(--alert-danger-bg); }
+        .scenario-header {
+            display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg);
+            padding-bottom: var(--space-md); border-bottom: 2px solid var(--primary-main);
+        }
+        .scenario-box.escalation .scenario-header { border-bottom-color: var(--alert-danger); }
+        .scenario-title { font-family: var(--font-heading), sans-serif; font-size: 1.375rem; font-weight: 700; color: var(--text-black); margin: 0; }
+        .scenario-subtitle { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
+
+        .escalation-badge {
+            display: inline-block; background: var(--alert-danger); color: var(--white);
+            font-size: 0.7rem; font-weight: 700; padding: 2px 8px; border-radius: var(--radius-sm);
+            margin-left: var(--space-sm); text-transform: uppercase;
+        }
+
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-md); margin: var(--space-lg) 0; }
+        .info-card { background: var(--white); border-radius: var(--radius-md); padding: var(--space-md); border: 1px solid var(--neutral-300); }
+        .info-card-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--neutral-500); margin-bottom: var(--space-xs); }
+        .info-card-value { font-weight: 600; color: var(--text-black); }
+
+        .ticket-quote {
+            background: var(--white); padding: var(--space-md); border-radius: var(--radius-sm);
+            font-style: italic; border-left: 4px solid var(--accent-orange); margin-bottom: var(--space-md);
+        }
+
+        .table-container { overflow-x: auto; margin: var(--space-lg) 0; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); }
+        table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
+        thead { background: var(--primary-dark); color: var(--white); }
+        th { font-family: var(--font-heading), sans-serif; font-weight: 700; text-align: left; padding: var(--space-md) var(--space-lg); color: var(--white); }
+        td { padding: var(--space-md) var(--space-lg); border-bottom: 1px solid var(--neutral-300); color: var(--text-black); }
+        tbody tr:nth-child(even) { background: var(--neutral-100); }
+        tbody tr:hover { background: var(--primary-pale); }
+        tbody tr:last-child td { border-bottom: none; }
+
+        code { font-family: var(--font-code), Consolas, monospace; font-size: 0.9rem; background: var(--white);
+            color: var(--text-black); padding: 2px 6px; border-radius: var(--radius-sm); border: 1px solid var(--neutral-300); }
+
+        .resolution-notes {
+            background: var(--white); border: 1px solid var(--neutral-300); border-radius: var(--radius-md);
+            padding: var(--space-md); font-family: var(--font-code), Consolas, monospace; font-size: 0.85rem;
+        }
+
+        .module-footer { background: var(--neutral-100); padding: var(--space-lg) var(--space-xl); text-align: center; border-top: 1px solid var(--neutral-300); }
+        .footer-text { font-size: 0.875rem; color: var(--neutral-500); }
+
+        .text-muted { color: var(--neutral-500); }
+
+        @media (max-width: 768px) {
+            .module-title { font-size: 1.75rem; }
+            .content-area { padding: var(--space-lg); }
+        }
+        @media print {
+            body { background: white; padding: 0; }
+            .course-container { box-shadow: none; }
+            .scenario-box { break-inside: avoid; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="course-container">
+
+        <header class="module-header">
+            <div class="module-label">Unit 1 &middot; Inside the Box &middot; Section 1.B.2</div>
+            <h1 class="module-title">CompTIA Troubleshooting Scenarios</h1>
+            <p class="module-subtitle">CompTIA A+ Core 1 - Domains 3.0 and 5.0</p>
+        </header>
+
+        <nav class="toc" id="tocNav">
+            <div class="toc-header">Table of Contents</div>
+            <div class="toc-item">1.1 &mdash; Unit Overview and Learning Objectives</div>
+            <div class="toc-item">1.2 &mdash; Unit Pre-Assessment</div>
+            <div class="toc-item">1.3 &mdash; Content Review</div>
+            <div class="toc-item">1.4 &mdash; Reading Assignment</div>
+            <div class="toc-item">1.5 &mdash; Video Assignment</div>
+            <div class="toc-item">1.6 &mdash; Classroom Labs</div>
+            <div class="toc-item">1.7 &mdash; Practice Question Set</div>
+            <div class="toc-item">1.8 &mdash; Online Labs: NETLAB</div>
+            <div class="toc-item">1.9 &mdash; Reflection Activity</div>
+            <div class="toc-item">1.10 &mdash; Unit Test</div>
+            <div class="toc-item">1.A &mdash; Acronym Test</div>
+            <div class="toc-item">1.B.1 &mdash; CompTIA Troubleshooting Concepts</div>
+            <div class="toc-item current" id="tocCurrent">1.B.2 &mdash; CompTIA Troubleshooting Scenarios</div>
+        </nav>
+        <style>
+            /* Collapsible TOC: only the current section shows until clicked */
+            nav.toc#tocNav { gap: 0; }
+            nav.toc#tocNav .toc-item {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav .toc-item.current {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                cursor: pointer;
+            }
+            nav.toc#tocNav .toc-item.current::after {
+                content: ' \25BE Click to View';
+                font-size: 0.75em;
+            }
+            nav.toc#tocNav.toc-expanded .toc-item {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                margin-bottom: var(--space-sm);
+            }
+            nav.toc#tocNav.toc-expanded .toc-item.current::after { content: ' \25B4'; }
+
+            nav.toc#tocNav .toc-header {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                font-family: var(--font-heading), 'Segoe UI', sans-serif;
+                font-weight: 700;
+                font-size: 0.875rem;
+                text-align: left;
+                color: var(--text-black);
+                text-decoration: underline;
+                background: var(--primary-main);
+                border-radius: var(--radius-md);
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav.toc-expanded .toc-header {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                padding-left: var(--space-md);
+                border-width: 2px;
+                border-style: solid;
+                border-color: var(--primary-main);
+                margin-bottom: var(--space-sm);
+            }
+        </style>
+
+        <script>
+            (function () {
+                var toc = document.getElementById('tocNav');
+                var currentItem = document.getElementById('tocCurrent');
+
+                toc.addEventListener('click', function (e) {
+                    if (toc.classList.contains('toc-expanded')) {
+                        toc.classList.remove('toc-expanded');
+                    } else if (e.target === currentItem || currentItem.contains(e.target)) {
+                        toc.classList.add('toc-expanded');
+                    }
+                });
+
+                toc.addEventListener('mouseleave', function () {
+                    toc.classList.remove('toc-expanded');
+                });
+            })();
+        </script>
+
+        <div class="content-area">
+
+            <div class="objectives-box">
+                <h3>Scenario Learning Objectives</h3>
+                <p>These scenarios will help you practice:</p>
+                <ol>
+                    <li>Asking effective questions about recent changes during Step 1</li>
+                    <li>Developing and testing multiple theories when the first attempt fails</li>
+                    <li>Recognizing when escalation is required</li>
+                    <li>Producing thorough documentation that includes preventive recommendations</li>
+                </ol>
+            </div>
+
+            <p>These scenarios are built to give you practice applying the six-step methodology from <a href="Unit1_1.B.1_CompTIA-Troubleshooting-Concepts.html">1.B.1 &mdash; CompTIA Troubleshooting Concepts</a>. Read each scenario carefully, and as you work through it, name out loud which step of the methodology you're on.</p>
+
+            <!-- SCENARIO 1 -->
+            <div class="scenario-box">
+                <div class="scenario-header">
+                    <div>
+                        <h3 class="scenario-title">Scenario 1: The Case of the Disappearing Print Jobs</h3>
+                        <p class="scenario-subtitle">Network Printing Issue &middot; Multiple Users Affected &middot; Requires Multiple Passes</p>
+                    </div>
+                </div>
+
+                <h4>Background Information</h4>
+                <p>You are a Level 1 Help Desk Technician at Morrison &amp; Associates, a law firm with 45 employees. You've been with the company for three months and handle desktop support issues. It's Monday morning, and you've just received your first ticket of the day.</p>
+
+                <div class="info-grid">
+                    <div class="info-card"><div class="info-card-label">Ticket Number</div><div class="info-card-value">HD-0892</div></div>
+                    <div class="info-card"><div class="info-card-label">Priority</div><div class="info-card-value">High</div></div>
+                    <div class="info-card"><div class="info-card-label">Submitted By</div><div class="info-card-value">Rebecca Torres, Paralegal</div></div>
+                    <div class="info-card"><div class="info-card-label">Department</div><div class="info-card-value">Litigation Support (3rd Floor)</div></div>
+                </div>
+
+                <h4>Initial Ticket Description</h4>
+                <p class="ticket-quote">"The printer isn't working. I've tried printing several documents this morning and nothing comes out. I have a court filing deadline at 11 AM and I really need this fixed. Other people on my floor are having the same problem."</p>
+
+                <h4>Environment Details</h4>
+                <ul>
+                    <li><strong>Printer:</strong> HP LaserJet Enterprise M608dn (shared network printer)</li>
+                    <li><strong>Location:</strong> 3rd floor copy room, serves approximately 15 users</li>
+                    <li><strong>Connection:</strong> Wired Ethernet to floor switch (IP: 192.168.3.50)</li>
+                    <li><strong>Print Server:</strong> Windows Server 2019 (PRINTSERV01)</li>
+                    <li><strong>Users affected:</strong> Multiple people on 3rd floor</li>
+                </ul>
+
+                <h4>Step 1: Identify the Problem</h4>
+                <p>You call Rebecca to gather more information:</p>
+                <p><strong>Technician:</strong> "Can you describe exactly what happens when you try to print?"</p>
+                <p><strong>Rebecca:</strong> "I click print, I get the notification that it's printing, but nothing ever comes out."</p>
+                <p><strong>Technician:</strong> "When did you first notice this?"</p>
+                <p><strong>Rebecca:</strong> "This morning around 8:15. I didn't try to print on Friday."</p>
+                <p><strong>Technician:</strong> "Do you know of any changes that happened recently &mdash; software updates, equipment moves, anything unusual?"</p>
+                <p><strong>Rebecca:</strong> "Actually, the IT guy was here Friday afternoon, working on cables near the copy room. Said something about upgrading the network."</p>
+                <p><strong>Technician:</strong> "Do you know who specifically was doing the work?"</p>
+                <p><strong>Rebecca:</strong> "I think his name was Marcus? From your department?"</p>
+
+                <p>You check the change management system and find that Marcus (Senior Network Admin) performed a switch firmware upgrade and VLAN reconfiguration on the 3rd floor switch Friday afternoon.</p>
+
+                <p>At the printer, you observe:</p>
+                <ul>
+                    <li>Printer LCD shows "Ready," no error messages</li>
+                    <li>Paper trays full, toner at 67%</li>
+                    <li>Network cable connected, link light green</li>
+                    <li>Print queue on the server shows 23 jobs stuck in "Printing" status</li>
+                </ul>
+
+                <h4>Step 2: Establish a Theory (First Pass)</h4>
+                <p><strong>Theory:</strong> The Friday VLAN changes affected the printer's network configuration, breaking communication between the print server and the printer.</p>
+
+                <h4>Step 3: Test the Theory (First Pass)</h4>
+                <ul>
+                    <li>Ping 192.168.3.50 from your laptop &mdash; successful</li>
+                    <li>Load the printer's web interface at that address &mdash; loads normally</li>
+                    <li>Print a configuration page directly from the printer &mdash; prints fine</li>
+                    <li>Printer's IP, subnet, and gateway settings all look correct</li>
+                </ul>
+
+                <div class="callout callout-warning">
+                    <div class="callout-title">Theory Not Confirmed</div>
+                    <div class="callout-content"><p>The printer has network connectivity and can print locally. The problem sits between the print server and the printer, not at the printer itself. Back to Step 2.</p></div>
+                </div>
+
+                <h4>Step 2: Establish a Theory (Second Pass)</h4>
+                <p><strong>Theory:</strong> The print server can't reach the printer because the Friday VLAN changes altered routing between their two network segments.</p>
+
+                <h4>Step 3: Test the Theory (Second Pass)</h4>
+                <ul>
+                    <li>Remote into PRINTSERV01 and ping 192.168.3.50 &mdash; <strong>request timed out</strong></li>
+                    <li>Check the server's own IP configuration &mdash; it's on a different subnet than the printer</li>
+                    <li>The VLAN reconfiguration likely changed routing between the two segments</li>
+                </ul>
+
+                <div class="callout callout-tip">
+                    <div class="callout-title">Theory Confirmed</div>
+                    <div class="callout-content"><p>The print server cannot reach the printer. Friday's VLAN changes affected inter-VLAN routing. Proceed to Step 4.</p></div>
+                </div>
+
+                <h4>Step 4: Plan and Implement</h4>
+                <p><strong>Plan:</strong></p>
+                <ol>
+                    <li>Contact Marcus to review the VLAN changes</li>
+                    <li>Have him verify and correct the inter-VLAN routing rules</li>
+                    <li>Clear the stuck print queue once connectivity is restored</li>
+                    <li>Test printing from multiple workstations</li>
+                </ol>
+                <p><strong>Implementation:</strong> You contact Marcus and explain your findings. He confirms he accidentally excluded the print server's VLAN from the routing rules during the upgrade, and corrects it within minutes.</p>
+
+                <h4>Step 5: Verify Full System Functionality</h4>
+                <ul>
+                    <li>PRINTSERV01 can now ping the printer</li>
+                    <li>You clear the stuck jobs and restart the print spooler</li>
+                    <li>Rebecca successfully prints her court documents</li>
+                    <li>Two other users confirm printing is working</li>
+                </ul>
+
+                <h4>Step 6: Document Findings, Actions, and Outcomes</h4>
+                <div class="resolution-notes">
+                    <strong>Ticket #HD-0892 &mdash; Resolution Notes</strong><br><br>
+                    <strong>Problem:</strong> 3rd floor users unable to print. 23 jobs stuck in queue.<br><br>
+                    <strong>Root Cause:</strong> Friday's VLAN reconfiguration accidentally excluded the print server's VLAN from the routing rules, breaking communication between PRINTSERV01 and the 3rd floor printer.<br><br>
+                    <strong>Troubleshooting Steps:</strong><br>
+                    1. First theory: printer network config affected &mdash; ruled out (reachable, printed locally)<br>
+                    2. Second theory: print server unable to reach printer &mdash; confirmed (ping from server failed)<br><br>
+                    <strong>Resolution:</strong> Marcus corrected the routing configuration. Cleared the stuck queue and restarted the spooler.<br><br>
+                    <strong>Verification:</strong> Rebecca and two additional users confirmed printing is functional.<br><br>
+                    <strong>Time Spent:</strong> 45 minutes<br><br>
+                    <strong>Preventive Recommendation:</strong> Add printer connectivity testing to the change validation checklist for future network changes.
+                </div>
+
+                <div class="callout callout-info">
+                    <div class="callout-title">Key Learning Points</div>
+                    <div class="callout-content">
+                        <p><strong>Step 1:</strong> Asking about recent changes surfaced the Friday network upgrade &mdash; the actual root cause. Without it, this would have taken far longer.</p>
+                        <p><strong>Step 6:</strong> The documentation included a preventive recommendation, turning one incident into a process improvement.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SCENARIO 2 -->
+            <div class="scenario-box">
+                <div class="scenario-header">
+                    <div>
+                        <h3 class="scenario-title">Scenario 2: The Sluggish Workstation Mystery</h3>
+                        <p class="scenario-subtitle">Performance Issue &middot; Single User &middot; Multiple Possible Causes</p>
+                    </div>
+                </div>
+
+                <h4>Background Information</h4>
+                <p>You're a Desktop Support Technician at Greenfield Medical Center, supporting roughly 200 workstations across three buildings. It's Wednesday afternoon, and you get an urgent call from Radiology.</p>
+
+                <div class="info-grid">
+                    <div class="info-card"><div class="info-card-label">Ticket Number</div><div class="info-card-value">INC-5892</div></div>
+                    <div class="info-card"><div class="info-card-label">Priority</div><div class="info-card-value">High (Clinical Impact)</div></div>
+                    <div class="info-card"><div class="info-card-label">User</div><div class="info-card-value">Dr. Michael Okonkwo, Radiologist</div></div>
+                    <div class="info-card"><div class="info-card-label">Location</div><div class="info-card-value">Radiology Reading Room, Building B</div></div>
+                </div>
+
+                <h4>Initial Report</h4>
+                <p class="ticket-quote">"My computer is extremely slow today. It's taking forever to open patient images in our PACS system. I have 15 studies to read before my shift ends, and at this rate I won't finish."</p>
+
+                <h4>System Information</h4>
+                <ul>
+                    <li><strong>Workstation:</strong> HP Z4 G4 (high-performance, for medical imaging)</li>
+                    <li><strong>Specs:</strong> Intel Xeon W-2245, 64GB RAM, NVIDIA Quadro RTX 4000, 1TB NVMe SSD</li>
+                    <li><strong>OS:</strong> Windows 10 Enterprise LTSC</li>
+                    <li><strong>Key Application:</strong> Sectra PACS (Picture Archiving and Communication System)</li>
+                    <li><strong>Age:</strong> 18 months old, reimaged 2 months ago</li>
+                </ul>
+
+                <h4>Step 1: Identify the Problem</h4>
+                <p><strong>Technician:</strong> "When did you first notice the slowness?"</p>
+                <p><strong>Dr. Okonkwo:</strong> "About two hours ago, around 1 PM. Fine this morning."</p>
+                <p><strong>Technician:</strong> "Is it slow all the time, or only doing specific things?"</p>
+                <p><strong>Dr. Okonkwo:</strong> "Worst loading images in PACS, but honestly everything feels sluggish &mdash; even opening folders takes seconds."</p>
+                <p><strong>Technician:</strong> "Did anything change today? Updates, new software, anything different?"</p>
+                <p><strong>Dr. Okonkwo:</strong> "Not that I recall &mdash; wait, I got a popup this morning about Windows needing to restart for updates. I clicked 'Remind me later.'"</p>
+                <p><strong>Technician:</strong> "Did Windows Update actually install anything?"</p>
+                <p><strong>Dr. Okonkwo:</strong> "Not sure, I don't really pay attention to those."</p>
+
+                <p>Task Manager shows:</p>
+                <ul>
+                    <li>CPU usage 15&ndash;20% (normal)</li>
+                    <li>Memory: 48GB of 64GB used (normal for PACS)</li>
+                    <li><strong>Disk usage: 100%</strong> (abnormal)</li>
+                    <li>Culprit processes: Windows Modules Installer Worker and TiWorker.exe</li>
+                </ul>
+                <p>Windows Update settings show a cumulative update installing in the background, currently 45% complete.</p>
+
+                <h4>Step 2: Establish a Theory</h4>
+                <p><strong>Theory:</strong> Windows Update is running in the background, consuming disk I/O, causing the system-wide slowness and the PACS performance issue.</p>
+
+                <h4>Step 3: Test the Theory</h4>
+                <ul>
+                    <li>Pause updates for 7 days from Windows Update settings</li>
+                    <li>Wait 2 minutes for background processes to settle</li>
+                    <li>Disk usage drops to 5&ndash;10%</li>
+                    <li>Dr. Okonkwo tries loading a patient study &mdash; images load quickly, normal performance restored</li>
+                </ul>
+
+                <div class="callout callout-tip">
+                    <div class="callout-title">Theory Confirmed</div>
+                    <div class="callout-content"><p>The background update install was consuming disk I/O and causing the slowdown. Proceed to Step 4.</p></div>
+                </div>
+
+                <h4>Step 4: Plan and Implement</h4>
+                <p><strong>Plan:</strong></p>
+                <ol>
+                    <li>Keep updates paused so Dr. Okonkwo can finish his work</li>
+                    <li>Schedule the update for tonight, after clinical hours</li>
+                    <li>Configure Active Hours on this workstation to prevent daytime updates</li>
+                    <li>Flag the update-scheduling issue to the PACS team</li>
+                </ol>
+                <p><strong>Implementation:</strong> Updates paused temporarily. Active Hours configured 6 AM&ndash;8 PM. Restart scheduled for 11 PM to complete the update, with a note left for the night shift to verify it completes.</p>
+
+                <h4>Step 5: Verify Full System Functionality</h4>
+                <ul>
+                    <li>Dr. Okonkwo reports normal PACS performance</li>
+                    <li>Test study loads within 2 seconds &mdash; normal</li>
+                    <li>General responsiveness restored</li>
+                    <li>Update completion to be verified the next morning</li>
+                </ul>
+
+                <h4>Step 6: Document Findings, Actions, and Outcomes</h4>
+                <div class="resolution-notes">
+                    <strong>Ticket #INC-5892 &mdash; Resolution Notes</strong><br><br>
+                    <strong>Problem:</strong> Severe slowness affecting PACS image loading during clinical hours.<br><br>
+                    <strong>Root Cause:</strong> A Windows cumulative update installing in the background consumed 100% disk I/O. The user had dismissed the restart prompt earlier, so the update ran during work hours instead.<br><br>
+                    <strong>Resolution:</strong> Paused updates to restore function immediately. Configured Active Hours to prevent future daytime updates. Scheduled an off-hours restart to finish the install.<br><br>
+                    <strong>Clinical Impact:</strong> Roughly 2 hours of reduced productivity. No patient harm; studies were completed after the fix.<br><br>
+                    <strong>Preventive Actions:</strong> Configure Active Hours across all Radiology workstations; recommend a policy change to deploy updates only after hours for clinical workstations; encourage users to restart at end of shift rather than dismiss the prompt.<br><br>
+                    <strong>Time Spent:</strong> 25 minutes
+                </div>
+
+                <div class="callout callout-info">
+                    <div class="callout-title">Key Learning Points</div>
+                    <div class="callout-content">
+                        <p><strong>Step 1:</strong> The user's mention of the update popup directly led to the cause. Always ask about prompts and messages a user may have dismissed.</p>
+                        <p><strong>Step 6:</strong> The documentation included preventive recommendations that help the whole department, not just this one workstation.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SCENARIO 3 - ESCALATION -->
+            <div class="scenario-box escalation">
+                <div class="scenario-header">
+                    <div>
+                        <h3 class="scenario-title">Scenario 3: The Encrypted Files <span class="escalation-badge">Requires Escalation</span></h3>
+                        <p class="scenario-subtitle">Security Incident &middot; Beyond Entry-Level Scope &middot; Critical Business Impact</p>
+                    </div>
+                </div>
+
+                <h4>Background Information</h4>
+                <p>You're a Help Desk Technician at Central State Insurance, a regional insurer with 350 employees. You've been in the role four months. It's early Thursday morning &mdash; you're the first IT person in the office &mdash; and the phone is already ringing.</p>
+
+                <div class="info-grid">
+                    <div class="info-card"><div class="info-card-label">Ticket Number</div><div class="info-card-value">URGENT-001</div></div>
+                    <div class="info-card"><div class="info-card-label">Priority</div><div class="info-card-value">Critical</div></div>
+                    <div class="info-card"><div class="info-card-label">Caller</div><div class="info-card-value">Janet Mills, Claims Manager</div></div>
+                    <div class="info-card"><div class="info-card-label">Urgency</div><div class="info-card-value">"This is an emergency!"</div></div>
+                </div>
+
+                <h4>Initial Call</h4>
+                <p><strong>Janet:</strong> "Something is very wrong! I came in early to finish some claims, and my computer is showing a strange red screen. It says all my files are encrypted and I need to pay to get them back."</p>
+
+                <h4>Step 1: Identify the Problem</h4>
+                <p>This sounds like ransomware. You stay calm and gather information.</p>
+                <p><strong>Technician:</strong> "Janet, please don't click anything on that screen. Can you read me exactly what it says?"</p>
+                <p><strong>Janet:</strong> "It says my files have been encrypted, and I have 72 hours to pay or they'll be permanently deleted."</p>
+                <p><strong>Technician:</strong> "I need to ask some important questions. Have you clicked any links in emails, or opened any attachments recently?"</p>
+                <p><strong>Janet:</strong> "I did open an email attachment yesterday afternoon. It was supposed to be a vendor invoice. It wouldn't open, showed an error, so I figured it was corrupted and deleted it."</p>
+                <p><strong>Technician:</strong> "What time was that?"</p>
+                <p><strong>Janet:</strong> "Around 4 PM."</p>
+                <p><strong>Technician:</strong> "One more question &mdash; has anyone else mentioned a similar problem?"</p>
+                <p><strong>Janet:</strong> "Oh no &mdash; I just got a text from David in my department. He says his computer has the same thing."</p>
+
+                <p>You check the shared network drive from your own workstation and see files with extensions changed to <code>.encrypted</code> in several folders. This is actively spreading.</p>
+
+                <h4>Step 2: Establish a Theory</h4>
+                <p><strong>Theory:</strong> This is an active ransomware infection that started from a phishing email Janet opened the previous afternoon, and it is now spreading across the network through shared drives.</p>
+
+                <h4>Step 3: Test the Theory</h4>
+                <div class="callout callout-danger">
+                    <div class="callout-title">Stop &mdash; This Requires Immediate Escalation</div>
+                    <div class="callout-content"><p>This situation is beyond an entry-level technician's skill level and authority. Active ransomware requires immediate escalation to senior staff or the security team. Your role now is containment and communication, not resolution.</p></div>
+                </div>
+
+                <p><strong>What you can and should do at this level:</strong></p>
+                <ul>
+                    <li>Tell Janet to disconnect her network cable immediately, to stop the spread from her machine</li>
+                    <li>Do not attempt to remove the ransomware yourself</li>
+                    <li>Do not restart infected computers &mdash; this can make recovery harder</li>
+                    <li>Do not pay the ransom</li>
+                    <li>Escalate immediately to the IT security team or manager</li>
+                </ul>
+
+                <h4>Step 4: Plan and Implement &mdash; Escalation</h4>
+                <ol>
+                    <li>Call the IT Manager directly and explain the situation</li>
+                    <li>He instructs you to have Janet disconnect immediately</li>
+                    <li>He contacts the IT Security team lead</li>
+                    <li>Per her instructions, you help disconnect every computer in the Claims department from the network</li>
+                    <li>Security remotely accesses the network and begins isolating the affected segment</li>
+                    <li>The IT Manager invokes the Incident Response Plan and notifies executive leadership</li>
+                </ol>
+
+                <p><strong>What you hand off to the escalation team:</strong></p>
+                <ul>
+                    <li>Timeline of events (the phishing email was opened around 4 PM the day before)</li>
+                    <li>Description of the ransomware message</li>
+                    <li>Users affected so far</li>
+                    <li>Your own observations of encrypted files on the shared drives</li>
+                    <li>Any identifying detail from the phishing email itself</li>
+                </ul>
+
+                <p><strong>Your continued role</strong> while senior staff handles the incident: answer incoming calls reporting the same issue, log each report with a timestamp and affected user, instruct each caller to disconnect and not touch their computer, and route all other questions to the IT Manager.</p>
+
+                <h4>Step 5 &amp; 6: Verification and Documentation</h4>
+                <p>Full verification of containment belongs to the security team once the incident response process takes over. Your documentation still matters and becomes part of their record.</p>
+
+                <div class="resolution-notes">
+                    <strong>Incident Report &mdash; URGENT-001</strong><br><br>
+                    <strong>Classification:</strong> Security incident &mdash; ransomware<br>
+                    <strong>Initial Reporter:</strong> Help Desk, escalated to IT Security<br><br>
+                    <strong>Initial Indicators:</strong><br>
+                    Entry vector: phishing email with a malicious attachment disguised as a vendor invoice.<br>
+                    Encryption spreading to shared network drives; affected files renamed with an <code>.encrypted</code> extension.<br><br>
+                    <strong>Actions Taken by Help Desk:</strong><br>
+                    Gathered initial information from the affected user, identified the probable entry point, escalated immediately, assisted with physical network disconnection, and documented every incoming report.<br><br>
+                    <strong>Status:</strong> Handed off to IT Security for full incident response.<br><br>
+                    <strong>Reason for Escalation:</strong> Active security incident requiring specialized tools, skill, and authority beyond entry-level scope.
+                </div>
+
+                <div class="callout callout-info">
+                    <div class="callout-title">Key Learning Points</div>
+                    <div class="callout-content">
+                        <p><strong>Step 1 still matters:</strong> even when you already know you'll escalate, gathering initial information is genuinely valuable for the response team that takes over.</p>
+                        <p><strong>Recognizing when to escalate is itself a skill.</strong> You added value here by identifying the threat, capturing a timeline, starting containment, and communicating clearly to senior staff &mdash; without attempting a fix beyond your authority.</p>
+                        <p><strong>Step 6 still happened:</strong> even fully escalated, your documentation became part of the incident timeline and the post-incident review.</p>
+                    </div>
+                </div>
+
+                <div class="callout callout-warning">
+                    <div class="callout-title">When to Escalate</div>
+                    <div class="callout-content"><p>Escalate whenever you encounter a security incident, an issue affecting critical systems, a problem clearly beyond your training, anything requiring credentials you don't have, or a situation with legal or compliance implications. Escalation is professional judgment, not failure.</p></div>
+                </div>
+            </div>
+
+            <h2>Scenario Summary Comparison</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr><th>Aspect</th><th>Scenario 1: Printer</th><th>Scenario 2: Performance</th><th>Scenario 3: Ransomware</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Problem Type</strong></td><td>Network / infrastructure</td><td>System performance</td><td>Security incident</td></tr>
+                        <tr><td><strong>Recent Change Identified</strong></td><td>Friday network upgrade</td><td>Windows Update popup</td><td>Phishing email opened</td></tr>
+                        <tr><td><strong>Passes Through Steps 2&ndash;3</strong></td><td>Two passes</td><td>One pass</td><td>Escalated before testing</td></tr>
+                        <tr><td><strong>Resolution Type</strong></td><td>Coordination with a specialist</td><td>Direct fix by the technician</td><td>Full escalation required</td></tr>
+                        <tr><td><strong>Documentation Focus</strong></td><td>Process improvement</td><td>Preventive policy change</td><td>Incident response timeline</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+        <footer class="module-footer">
+            <p class="footer-text">CompTIA A+ Core 1 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
+        </footer>
+    </div>
+</body>
+</html>
