@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 3 &mdash; 3.A.1 PBQ 6 | CompTIA A+ Core 1</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Sans+Pro:wght@400;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           CPCC COURSE TEMPLATE - GOLD / CHARCOAL / BLACK
+           CTS-ITS7501-80 CompTIA A+ Core 1 Training
+           ============================================ */
+
+        :root {
+            --primary-dark: #4A4A4A;
+            --primary-main: #B8962E;
+            --primary-light: #D4AF56;
+            --primary-pale: #FBF3DF;
+
+            --accent-teal: #8A6F1F;
+            --accent-teal-light: #F3E9CE;
+            --accent-orange: #A9642A;
+            --accent-orange-light: #F5E2CE;
+            --accent-purple: #6B5B3A;
+            --accent-purple-light: #EFE6D2;
+            --accent-green: #4E7A51;
+            --accent-green-light: #DCEBDD;
+
+            --alert-warning: #B8862E;
+            --alert-warning-bg: #FBF0D9;
+            --alert-danger: #A13A3A;
+            --alert-danger-bg: #F6DEDE;
+            --alert-success: #3F6E42;
+            --alert-success-bg: #DCEBDD;
+            --alert-info: #6E5B2E;
+            --alert-info-bg: #F1E9D4;
+
+            --text-black: #000000;
+            --neutral-900: #000000;
+            --neutral-700: #000000;
+            --neutral-500: #5A5A5A;
+            --neutral-300: #D9D3C4;
+            --neutral-100: #FAF8F3;
+            --white: #ffffff;
+
+            --font-heading: 'Nunito', sans-serif;
+            --font-body: 'Source Sans Pro', sans-serif;
+            --font-code: 'Fira Code', monospace;
+
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+
+            --shadow-sm: 0 1px 2px rgba(74, 74, 74, 0.08);
+            --shadow-md: 0 4px 6px rgba(74, 74, 74, 0.12);
+            --shadow-lg: 0 10px 20px rgba(74, 74, 74, 0.15);
+
+            --tile-w: 220px;
+            --tile-h: 52px;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body), 'Segoe UI', Tahoma, Verdana, sans-serif;
+            font-size: 1.0625rem; line-height: 1.7; color: var(--text-black);
+            background: linear-gradient(135deg, var(--neutral-100) 0%, var(--white) 100%);
+            min-height: 100vh; padding: var(--space-lg);
+        }
+
+        .course-container {
+            max-width: 950px; margin: 0 auto; background: var(--white);
+            border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); overflow: hidden;
+        }
+
+        .module-header {
+            background: var(--primary-main); color: var(--text-black);
+            padding: var(--space-lg) var(--space-xl); position: relative; overflow: hidden;
+        }
+        .module-label {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 0.875rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 2px; text-decoration: underline;
+            margin-bottom: var(--space-sm); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-title {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 2.25rem; font-weight: 800;
+            line-height: 1.2; margin-bottom: var(--space-md); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-subtitle { font-size: 1.125rem; max-width: 650px; position: relative; z-index: 1; color: var(--text-black); }
+
+        .toc {
+            display: flex; flex-direction: column; gap: var(--space-sm);
+            padding: var(--space-lg) var(--space-xl);
+            background: var(--primary-pale); border-bottom: 1px solid var(--neutral-300);
+        }
+        .toc-item {
+            width: 100%; text-align: left;
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 0.875rem;
+            color: var(--text-black); background: var(--white);
+            border: 2px solid var(--primary-main);
+            padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md);
+        }
+        .toc-item.current { background: var(--primary-main); }
+
+        .content-area { padding: var(--space-xl); }
+
+        h1, h2, h3, h4 { font-family: var(--font-heading), 'Segoe UI', sans-serif; color: var(--text-black); }
+        p { margin-bottom: var(--space-md); }
+        .text-muted { color: var(--neutral-500); }
+
+        .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; }
+        .callout-title { font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 1rem;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
+        .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
+        .callout-warning { background: var(--alert-warning-bg); border-left: 4px solid var(--alert-warning); }
+
+        /* ============================================
+           Reference gallery (labeled connector photos)
+           ============================================ */
+        .gallery {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: var(--space-md); margin: var(--space-lg) 0;
+        }
+        .gallery-item {
+            border: 2px solid var(--neutral-300); border-radius: var(--radius-md); overflow: hidden;
+            background: var(--white); box-shadow: var(--shadow-sm); display: flex; align-items: center; justify-content: center;
+        }
+        .gallery-item img { width: 100%; height: auto; display: block; }
+
+        /* ============================================
+           PBQ WIDGET (drag-and-drop matching)
+           ============================================ */
+        .pbq-container {
+            border-radius: var(--radius-lg); overflow: hidden; border: 2px solid var(--primary-main);
+            margin: var(--space-lg) 0; -webkit-user-select: none; user-select: none;
+        }
+        .pbq-header {
+            display: flex; align-items: center; padding: 0.875rem 1.5rem;
+            border-bottom: 2px solid var(--primary-main); background: var(--primary-pale); gap: 1rem;
+        }
+        .header-btn {
+            font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 0.8125rem;
+            background: var(--primary-dark); color: var(--white); border: none;
+            padding: 0.5rem 1.125rem; border-radius: var(--radius-md);
+            cursor: pointer; transition: background 0.2s, transform 0.1s;
+            white-space: nowrap; letter-spacing: 0.5px; flex-shrink: 0;
+        }
+        .header-btn:hover { background: #333333; transform: translateY(-1px); }
+        .header-btn:active { transform: translateY(0); }
+        .pbq-title {
+            font-family: var(--font-heading), sans-serif; font-size: 1.1875rem; font-weight: 700;
+            color: var(--text-black); flex: 1; text-align: center;
+        }
+
+        .pbq-body { padding: 1.5rem; background: var(--white); }
+        .instruction { font-size: 1.0625rem; color: var(--text-black); text-align: center; margin-bottom: 1.5rem; line-height: 1.5; }
+
+        .columns { display: flex; gap: 1.25rem; align-items: stretch; }
+        .col-flow { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; }
+        .col-type { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; }
+        .col-images { flex: 1.3 1 0; min-width: 0; display: flex; flex-direction: column; }
+        .type-list { display: flex; flex-direction: column; gap: 0.5rem; flex: 1; }
+        .tile.tile-type { box-shadow: inset 4px 0 0 var(--primary-main); }
+        .col-label {
+            font-family: var(--font-heading), sans-serif; font-size: 0.75rem; font-weight: 700;
+            color: var(--neutral-500); text-transform: uppercase; letter-spacing: 1.5px;
+            margin-bottom: 0.75rem; text-align: center;
+        }
+        .flow-list { display: flex; flex-direction: column; align-items: stretch; gap: 0.5rem; flex: 1; }
+        .image-list { display: flex; flex-direction: column; gap: 0.5rem; flex: 1; }
+        .image-cell {
+            height: var(--tile-h); border: 2px solid var(--neutral-300); border-radius: var(--radius-md);
+            overflow: hidden; background: var(--white); display: flex; align-items: center; justify-content: center;
+        }
+        .image-cell img { height: 100%; width: 100%; object-fit: contain; }
+        .pool-section { margin-top: 1.5rem; }
+        .pool {
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem;
+            padding: 0.75rem; border: 2px dashed var(--neutral-300); border-radius: var(--radius-lg);
+            background: var(--neutral-100); transition: background 0.2s, border-color 0.2s;
+        }
+        .pool.drag-over-pool { background: var(--accent-teal-light); border-color: var(--accent-teal); }
+        .pool .tile { width: 100%; }
+
+        .step-box, .tile {
+            width: var(--tile-w); height: var(--tile-h); max-width: 100%;
+            padding: 0.375rem 0.75rem; border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center; text-align: center;
+            font-family: var(--font-heading), sans-serif; font-size: 0.8rem; font-weight: 700; line-height: 1.3;
+            position: relative; flex-shrink: 0;
+        }
+        .step-box { width: 100%; }
+
+        .step-box {
+            background: var(--neutral-100); border: 2px solid var(--neutral-300); color: var(--neutral-500);
+            transition: border-color 0.2s, background-color 0.2s, box-shadow 0.2s, transform 0.15s;
+        }
+        .step-box .empty-text { font-weight: 700; opacity: 0.6; font-size: 0.8125rem; }
+        .step-box .slot-letter {
+            display: inline-flex; align-items: center; justify-content: center;
+            min-width: 2.6rem; height: 1.6rem; padding: 0 0.4rem; border-radius: 0.8rem;
+            background: var(--primary-main); color: var(--text-black); font-weight: 800;
+            margin-right: 0.5rem; flex-shrink: 0;
+        }
+        .step-box.filled .slot-letter { background: var(--white); color: var(--primary-dark); }
+
+        .step-box.drag-over {
+            border-color: var(--accent-teal); background: var(--accent-teal-light);
+            box-shadow: 0 0 0 4px rgba(138, 111, 31, 0.15); transform: scale(1.03);
+        }
+
+        .step-box.filled {
+            background: var(--primary-dark); color: var(--white);
+            border: 2px solid var(--primary-dark); cursor: grab; box-shadow: var(--shadow-sm);
+        }
+        .step-box.filled:hover { box-shadow: var(--shadow-md); transform: translateY(-1px); }
+        .step-box.filled:active { cursor: grabbing; }
+        .step-box.filled.dragging-out { opacity: 0.35; transform: scale(0.96); }
+
+        .step-box.score-correct   { border: 3px solid var(--accent-green) !important; box-shadow: 0 0 0 4px rgba(78,122,81,0.25) !important; }
+        .step-box.score-incorrect{ border: 3px solid var(--alert-danger) !important; box-shadow: 0 0 0 4px rgba(161,58,58,0.2) !important; }
+        .step-box.score-empty    { border: 3px solid var(--alert-danger) !important; background: var(--alert-danger-bg) !important; }
+
+        @keyframes dropFlash { 0%{filter:brightness(1)} 20%{filter:brightness(1.4)} 50%{filter:brightness(1.2)} 100%{filter:brightness(1)} }
+        .tile-flash { animation: dropFlash 0.55s ease-out; }
+
+        .tile {
+            background: var(--primary-dark); color: var(--white); border: 2px solid var(--primary-dark);
+            cursor: grab; -webkit-user-select: none; user-select: none;
+            transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+        }
+        .tile:hover { background: #333333; transform: translateY(-2px); box-shadow: var(--shadow-md); }
+        .tile:active { cursor: grabbing; transform: scale(0.97); }
+        .tile.dragging { opacity: 0.3; transform: scale(0.95); }
+
+        .touch-clone {
+            position: fixed !important; z-index: 9999 !important; pointer-events: none !important; opacity: 0.88 !important;
+            transform: scale(1.06) rotate(1.5deg) !important; box-shadow: 0 12px 30px rgba(0,0,0,0.3) !important;
+            width: var(--tile-w) !important; height: var(--tile-h) !important; max-width: 220px !important;
+        }
+
+        .score-display {
+            font-family: var(--font-heading), sans-serif; font-size: 1rem; font-weight: 700;
+            min-height: 1.5rem; text-align: center; margin-top: 1.25rem;
+        }
+        .score-display .score-perfect { color: var(--accent-green); }
+        .score-display .score-partial { color: var(--alert-warning); }
+        .score-display .score-low { color: var(--alert-danger); }
+
+        .module-footer { background: var(--neutral-100); padding: var(--space-lg) var(--space-xl); text-align: center; border-top: 1px solid var(--neutral-300); }
+        .footer-text { font-size: 0.875rem; color: var(--neutral-500); }
+
+        @media (max-width: 768px) {
+            .module-title { font-size: 1.75rem; }
+            .content-area { padding: var(--space-lg); }
+            .columns { flex-direction: column; gap: 1.25rem; }
+            .step-box, .tile { width: 100%; max-width: 340px; font-size: 0.78rem; }
+        }
+        @media print {
+            body { background: white; padding: 0; }
+            .course-container { box-shadow: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="course-container">
+
+        <header class="module-header">
+            <div class="module-label">Unit 3 &middot; Networking Foundations &middot; Section 3.A.1</div>
+            <h1 class="module-title">PBQ 6: Match the Port to the Protocol</h1>
+            <p class="module-subtitle">CompTIA A+ Core 1 &mdash; Domains 2.0 and 5.0</p>
+        </header>
+
+        <nav class="toc" id="tocNav">
+            <div class="toc-header">Table of Contents</div>
+            <div class="toc-item">3.1 &mdash; Unit Overview and Learning Objectives</div>
+            <div class="toc-item">3.2 &mdash; Unit Pre-Assessment</div>
+            <div class="toc-item">3.3 &mdash; Content Review</div>
+            <div class="toc-item">3.4 &mdash; Reading Assignment</div>
+            <div class="toc-item">3.5 &mdash; Video Assignment</div>
+            <div class="toc-item">3.6 &mdash; Classroom Labs</div>
+            <div class="toc-item">3.7 &mdash; Practice Questions</div>
+            <div class="toc-item">3.8 &mdash; Online Labs: NETLAB</div>
+            <div class="toc-item">3.9 &mdash; Reflection Activity</div>
+            <div class="toc-item">3.10 &mdash; Unit Test</div>
+            <div class="toc-item current" id="tocCurrent">3.A.1 &mdash; PBQ 6</div>
+        </nav>
+        <style>
+            /* Collapsible TOC: only the current section shows until clicked */
+            nav.toc#tocNav { gap: 0; }
+            nav.toc#tocNav .toc-item {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav .toc-item.current {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                cursor: pointer;
+            }
+            nav.toc#tocNav .toc-item.current::after {
+                content: ' \25BE Click to View';
+                font-size: 0.75em;
+            }
+            nav.toc#tocNav.toc-expanded .toc-item {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                margin-bottom: var(--space-sm);
+            }
+            nav.toc#tocNav.toc-expanded .toc-item.current::after { content: ' \25B4'; }
+
+            nav.toc#tocNav .toc-header {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                font-family: var(--font-heading), 'Segoe UI', sans-serif;
+                font-weight: 700;
+                font-size: 0.875rem;
+                text-align: left;
+                color: var(--text-black);
+                text-decoration: underline;
+                background: var(--primary-main);
+                border-radius: var(--radius-md);
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav.toc-expanded .toc-header {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                padding-left: var(--space-md);
+                border-width: 2px;
+                border-style: solid;
+                border-color: var(--primary-main);
+                margin-bottom: var(--space-sm);
+            }
+        </style>
+
+        <script>
+            (function () {
+                var toc = document.getElementById('tocNav');
+                var currentItem = document.getElementById('tocCurrent');
+
+                toc.addEventListener('click', function (e) {
+                    if (toc.classList.contains('toc-expanded')) {
+                        toc.classList.remove('toc-expanded');
+                    } else if (e.target === currentItem || currentItem.contains(e.target)) {
+                        toc.classList.add('toc-expanded');
+                    }
+                });
+
+                toc.addEventListener('mouseleave', function () {
+                    toc.classList.remove('toc-expanded');
+                });
+            })();
+        </script>
+
+        <div class="content-area">
+
+            <div class="pbq-container">
+                <div class="pbq-header">
+                    <button class="header-btn" id="resetBtn">&laquo; RESET</button>
+                    <h1 class="pbq-title">Match Each Port to Its Protocol</h1>
+                    <button class="header-btn" id="checkBtn">SCORE &raquo;</button>
+                </div>
+
+                <div class="pbq-body">
+                    <p class="text-muted" style="text-align:center;">A performance-based question, matching the drag-and-drop format used on the real CompTIA exam.</p>
+
+                    <div class="callout callout-info">
+                        <div class="callout-title">How This Works</div>
+                        <div class="callout-content"><p>Eight port numbers are shown in the left column, drawn at random from a larger set. For each port, drag the correct <strong>protocol</strong> onto its slot in the left column, and drag the correct <strong>transport type</strong> (TCP, UDP, or BOTH) onto its slot in the middle column. Protocol tiles are used once; the TCP/UDP/BOTH tiles can be reused as many times as needed. Click <strong>Score</strong> to check your answers, and <strong>Reset</strong> to draw a fresh set of eight ports and shuffle the tiles.</p></div>
+                    </div>
+
+                    <p class="instruction">Match each port to its protocol and its transport type.</p>
+
+                    <div class="columns">
+                        <div class="col-flow">
+                            <div class="col-label">Port &rarr; Protocol</div>
+                            <div class="flow-list" id="flowList"></div>
+                        </div>
+
+                        <div class="col-type">
+                            <div class="col-label">Transport Type</div>
+                            <div class="type-list" id="typeList"></div>
+                        </div>
+
+                        <div class="col-images">
+                            <div class="col-label">Available Tiles</div>
+                            <div class="pool" id="pool"></div>
+                        </div>
+                    </div>
+
+                    <div class="score-display" id="scoreDisplay"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <footer class="module-footer">
+            <p class="footer-text">CompTIA A+ Core 1 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
+        </footer>
+    </div>
+
+<script>
+const PORT_DATA = {
+    '20':   { proto: 'FTP (Data)',    type: 'TCP'  },
+    '21':   { proto: 'FTP (Control)', type: 'TCP'  },
+    '22':   { proto: 'SSH',           type: 'TCP'  },
+    '23':   { proto: 'Telnet',        type: 'TCP'  },
+    '25':   { proto: 'SMTP',          type: 'TCP'  },
+    '53':   { proto: 'DNS',           type: 'BOTH' },
+    '67':   { proto: 'DHCP (Server)', type: 'UDP'  },
+    '68':   { proto: 'DHCP (Client)', type: 'UDP'  },
+    '80':   { proto: 'HTTP',          type: 'TCP'  },
+    '110':  { proto: 'POP3',          type: 'TCP'  },
+    '143':  { proto: 'IMAP',          type: 'TCP'  },
+    '389':  { proto: 'LDAP',          type: 'TCP'  },
+    '443':  { proto: 'HTTPS',         type: 'TCP'  },
+    '445':  { proto: 'SMB',           type: 'TCP'  },
+    '3389': { proto: 'RDP',           type: 'BOTH' }
+};
+const ALL_PORTS = Object.keys(PORT_DATA);
+const TYPES = ['TCP', 'UDP', 'BOTH'];
+const NUM_SLOTS = 8;
+
+let state = {
+    activePorts: [],   // 8 chosen port strings (kept in a stable display order)
+    protoSlots: {},    // port -> protoTileId | null
+    typeSlots: {},     // port -> 'TCP'|'UDP'|'BOTH' | null
+    protoTiles: [],    // [{id, text}] full protocol tile set (8 correct + 4 decoys)
+    isScored: false
+};
+
+function shuffle(a){ const b=[...a]; for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];} return b; }
+function protoTile(id){ return state.protoTiles.find(t=>t.id===id); }
+
+function newRound(){
+    // pick 8 random ports, display them in ascending numeric order for readability
+    const chosen = shuffle(ALL_PORTS).slice(0, NUM_SLOTS);
+    state.activePorts = chosen.slice().sort((a,b)=>Number(a)-Number(b));
+    state.protoSlots = {}; state.typeSlots = {};
+    state.activePorts.forEach(p=>{ state.protoSlots[p]=null; state.typeSlots[p]=null; });
+    // protocol tiles: correct ones for chosen ports + decoys from the unchosen ports
+    const chosenSet = new Set(chosen);
+    const correct = chosen.map(p=>({id:'proto-'+p, text:PORT_DATA[p].proto}));
+    const decoys  = ALL_PORTS.filter(p=>!chosenSet.has(p)).map(p=>({id:'proto-'+p, text:PORT_DATA[p].proto}));
+    state.protoTiles = shuffle([...correct, ...decoys]);
+    state.isScored = false;
+}
+
+function render(){
+    // ----- Left: Port -> Protocol slots -----
+    const flow = document.getElementById('flowList');
+    flow.innerHTML = state.activePorts.map(p=>{
+        const tid = state.protoSlots[p];
+        if(tid){
+            return `<div class="step-box filled" id="pslot-${p}" data-zone="proto" data-port="${p}" data-tileid="${tid}" draggable="true"><span class="slot-letter">${p}</span><span>${protoTile(tid).text}</span></div>`;
+        }
+        return `<div class="step-box" id="pslot-${p}" data-zone="proto" data-port="${p}"><span class="slot-letter">${p}</span><span class="empty-text">Drop protocol</span></div>`;
+    }).join('');
+
+    // ----- Middle: Transport Type slots -----
+    const typeList = document.getElementById('typeList');
+    typeList.innerHTML = state.activePorts.map(p=>{
+        const tv = state.typeSlots[p];
+        if(tv){
+            return `<div class="step-box filled" id="tslot-${p}" data-zone="type" data-port="${p}" data-type="${tv}" draggable="true"><span class="slot-letter">${p}</span><span>${tv}</span></div>`;
+        }
+        return `<div class="step-box" id="tslot-${p}" data-zone="type" data-port="${p}"><span class="slot-letter">${p}</span><span class="empty-text">Drop type</span></div>`;
+    }).join('');
+
+    // ----- Right: Available Tiles pool -----
+    const pool = document.getElementById('pool');
+    pool.innerHTML = '';
+    const placed = Object.values(state.protoSlots).filter(Boolean);
+    state.protoTiles.filter(t=>!placed.includes(t.id)).forEach(t=>{
+        const el=document.createElement('div');
+        el.className='tile'; el.textContent=t.text;
+        el.dataset.kind='proto'; el.dataset.tileid=t.id;
+        el.setAttribute('draggable','true');
+        pool.appendChild(el);
+    });
+    // the three reusable type tiles, always present
+    TYPES.forEach(tv=>{
+        const el=document.createElement('div');
+        el.className='tile tile-type'; el.textContent=tv;
+        el.dataset.kind='type'; el.dataset.type=tv;
+        el.setAttribute('draggable','true');
+        pool.appendChild(el);
+    });
+
+    if(!state.isScored){
+        state.activePorts.forEach(p=>{
+            const a=document.getElementById('pslot-'+p), b=document.getElementById('tslot-'+p);
+            if(a) a.classList.remove('score-correct','score-incorrect','score-empty');
+            if(b) b.classList.remove('score-correct','score-incorrect','score-empty');
+        });
+        document.getElementById('scoreDisplay').innerHTML='';
+    }
+}
+
+function flash(id){
+    const el=document.getElementById(id); if(!el) return;
+    el.classList.remove('tile-flash'); void el.offsetWidth; el.classList.add('tile-flash');
+    setTimeout(()=>el.classList.remove('tile-flash'),600);
+}
+
+// ---- placement ----
+function placeProto(tileId, port, source){
+    // source: 'pool' or a 'pslot-XX' port string form 'proto:PORT'
+    if(source && source.z==='proto' && source.port===port) return;
+    // if dragging from another proto slot, clear that slot first
+    if(source && source.z==='proto'){ state.protoSlots[source.port]=null; }
+    // if target already holds a tile and we came from a slot, move existing back to that slot
+    const existing = state.protoSlots[port];
+    if(existing && source && source.z==='proto'){ state.protoSlots[source.port]=existing; }
+    state.protoSlots[port]=tileId;
+    state.isScored=false; render(); flash('pslot-'+port);
+    if(existing && source && source.z==='proto') flash('pslot-'+source.port);
+}
+function placeType(typeVal, port){
+    state.typeSlots[port]=typeVal;
+    state.isScored=false; render(); flash('tslot-'+port);
+}
+function clearProto(port){ if(state.protoSlots[port]){ state.protoSlots[port]=null; state.isScored=false; render(); } }
+function clearType(port){ if(state.typeSlots[port]){ state.typeSlots[port]=null; state.isScored=false; render(); } }
+
+// ---- desktop drag ----
+let drag=null; // {kind, tileId|type, source:{z:'pool'|'proto'|'type', port?}}
+function setupDrag(){
+    const pool=document.getElementById('pool');
+    const flow=document.getElementById('flowList');
+    const typeList=document.getElementById('typeList');
+
+    // dragstart from pool
+    pool.addEventListener('dragstart',e=>{
+        const t=e.target.closest('.tile'); if(!t) return;
+        if(t.dataset.kind==='proto'){ drag={kind:'proto', tileId:t.dataset.tileid, source:{z:'pool'}}; }
+        else { drag={kind:'type', type:t.dataset.type, source:{z:'pool'}}; }
+        t.classList.add('dragging'); e.dataTransfer.effectAllowed='move'; e.dataTransfer.setData('text/plain','x');
+    });
+    pool.addEventListener('dragend',e=>{ const t=e.target.closest('.tile'); if(t)t.classList.remove('dragging'); drag=null; });
+
+    // dragstart from a filled proto slot
+    flow.addEventListener('dragstart',e=>{
+        const slot=e.target.closest('.step-box'); if(!slot||!state.protoSlots[slot.dataset.port]){e.preventDefault();return;}
+        drag={kind:'proto', tileId:state.protoSlots[slot.dataset.port], source:{z:'proto', port:slot.dataset.port}};
+        slot.classList.add('dragging-out'); e.dataTransfer.effectAllowed='move'; e.dataTransfer.setData('text/plain','x');
+    });
+    flow.addEventListener('dragend',e=>{ const s=e.target.closest('.step-box'); if(s)s.classList.remove('dragging-out'); drag=null; });
+
+    // dragstart from a filled type slot
+    typeList.addEventListener('dragstart',e=>{
+        const slot=e.target.closest('.step-box'); if(!slot||!state.typeSlots[slot.dataset.port]){e.preventDefault();return;}
+        drag={kind:'type', type:state.typeSlots[slot.dataset.port], source:{z:'type', port:slot.dataset.port}};
+        slot.classList.add('dragging-out'); e.dataTransfer.effectAllowed='move'; e.dataTransfer.setData('text/plain','x');
+    });
+    typeList.addEventListener('dragend',e=>{ const s=e.target.closest('.step-box'); if(s)s.classList.remove('dragging-out'); drag=null; });
+
+    function slotDragHandlers(container){
+        container.addEventListener('dragover',e=>{ if(drag){ e.preventDefault(); e.dataTransfer.dropEffect='move'; } });
+        container.addEventListener('dragenter',e=>{ const slot=e.target.closest('.step-box'); if(slot&&drag&&kindMatchesZone(drag.kind, slot.dataset.zone)){ e.preventDefault(); slot.classList.add('drag-over'); } });
+        container.addEventListener('dragleave',e=>{ const slot=e.target.closest('.step-box'); if(slot&&!slot.contains(e.relatedTarget)) slot.classList.remove('drag-over'); });
+        container.addEventListener('drop',e=>{
+            const slot=e.target.closest('.step-box'); if(!slot) return;
+            e.preventDefault(); slot.classList.remove('drag-over');
+            if(!drag) return;
+            const zone=slot.dataset.zone, port=slot.dataset.port;
+            if(!kindMatchesZone(drag.kind, zone)) { drag=null; return; } // reject mismatched kind
+            if(zone==='proto'){ placeProto(drag.tileId, port, drag.source); }
+            else { placeType(drag.type, port); }
+            drag=null;
+        });
+    }
+    slotDragHandlers(flow);
+    slotDragHandlers(typeList);
+
+    // drop on pool clears source slot (only meaningful when dragging out of a slot)
+    pool.addEventListener('dragover',e=>{ if(drag&&drag.source.z!=='pool'){ e.preventDefault(); e.dataTransfer.dropEffect='move'; } });
+    pool.addEventListener('dragenter',e=>{ if(drag&&drag.source.z!=='pool'){ e.preventDefault(); pool.classList.add('drag-over-pool'); } });
+    pool.addEventListener('dragleave',e=>{ if(!pool.contains(e.relatedTarget)) pool.classList.remove('drag-over-pool'); });
+    pool.addEventListener('drop',e=>{
+        e.preventDefault(); pool.classList.remove('drag-over-pool');
+        if(!drag||drag.source.z==='pool') { drag=null; return; }
+        if(drag.source.z==='proto') clearProto(drag.source.port);
+        else if(drag.source.z==='type') clearType(drag.source.port);
+        drag=null;
+    });
+}
+
+function kindMatchesZone(kind, zone){ return kind===zone; }
+
+// ---- touch ----
+let ts={active:false, kind:null, tileId:null, type:null, source:null, el:null, clone:null, sx:0, sy:0, moved:false};
+function setupTouch(){
+    document.addEventListener('touchstart',e=>{
+        const poolTile=e.target.closest('#pool .tile');
+        const filledSlot=e.target.closest('.step-box.filled');
+        const tgt=poolTile||filledSlot; if(!tgt) return;
+        let kind, tileId=null, type=null, source;
+        if(poolTile){
+            kind=poolTile.dataset.kind; source={z:'pool'};
+            if(kind==='proto') tileId=poolTile.dataset.tileid; else type=poolTile.dataset.type;
+        } else {
+            const zone=filledSlot.dataset.zone, port=filledSlot.dataset.port;
+            kind=zone; source={z:zone, port:port};
+            if(zone==='proto') tileId=state.protoSlots[port]; else type=state.typeSlots[port];
+        }
+        const t=e.touches[0];
+        ts={active:true, kind, tileId, type, source, el:tgt, sx:t.clientX, sy:t.clientY, moved:false, clone:null};
+    },{passive:false});
+
+    document.addEventListener('touchmove',e=>{
+        if(!ts.active) return;
+        const t=e.touches[0];
+        if(!ts.moved && Math.abs(t.clientX-ts.sx)+Math.abs(t.clientY-ts.sy)>8){
+            ts.moved=true; e.preventDefault();
+            const c=document.createElement('div'); c.className='tile touch-clone';
+            c.textContent = ts.kind==='proto' ? (protoTile(ts.tileId)?protoTile(ts.tileId).text:'') : ts.type;
+            c.style.left=(t.clientX-110)+'px'; c.style.top=(t.clientY-26)+'px';
+            document.body.appendChild(c); ts.clone=c; ts.el.style.opacity='0.25';
+        }
+        if(!ts.moved) return;
+        e.preventDefault();
+        if(ts.clone){ ts.clone.style.left=(t.clientX-110)+'px'; ts.clone.style.top=(t.clientY-26)+'px'; ts.clone.style.display='none'; }
+        const below=document.elementFromPoint(t.clientX,t.clientY);
+        if(ts.clone) ts.clone.style.display='';
+        document.querySelectorAll('.drag-over').forEach(x=>x.classList.remove('drag-over'));
+        document.getElementById('pool').classList.remove('drag-over-pool');
+        if(below){
+            const dz=below.closest('.step-box');
+            if(dz && kindMatchesZone(ts.kind, dz.dataset.zone)) dz.classList.add('drag-over');
+            if(below.closest('#pool') && ts.source.z!=='pool') document.getElementById('pool').classList.add('drag-over-pool');
+        }
+    },{passive:false});
+
+    document.addEventListener('touchend',e=>{
+        if(!ts.active) return;
+        document.querySelectorAll('.drag-over').forEach(x=>x.classList.remove('drag-over'));
+        document.getElementById('pool').classList.remove('drag-over-pool');
+        if(!ts.moved){ cleanTouch(); return; }
+        const t=e.changedTouches[0];
+        if(ts.clone) ts.clone.style.display='none';
+        const below=document.elementFromPoint(t.clientX,t.clientY);
+        if(ts.clone) ts.clone.style.display='';
+        let done=false;
+        if(below){
+            const dz=below.closest('.step-box');
+            if(dz && kindMatchesZone(ts.kind, dz.dataset.zone)){
+                const zone=dz.dataset.zone, port=dz.dataset.port;
+                if(zone==='proto') placeProto(ts.tileId, port, ts.source); else placeType(ts.type, port);
+                done=true;
+            }
+            if(!done && below.closest('#pool') && ts.source.z!=='pool'){
+                if(ts.source.z==='proto') clearProto(ts.source.port); else clearType(ts.source.port);
+                done=true;
+            }
+        }
+        if(!done) render();
+        cleanTouch();
+    });
+
+    document.addEventListener('touchcancel',()=>{
+        if(!ts.active) return;
+        document.querySelectorAll('.drag-over').forEach(x=>x.classList.remove('drag-over'));
+        document.getElementById('pool').classList.remove('drag-over-pool');
+        render(); cleanTouch();
+    });
+}
+function cleanTouch(){
+    if(ts.clone&&ts.clone.parentNode) ts.clone.parentNode.removeChild(ts.clone);
+    if(ts.el) ts.el.style.opacity='';
+    ts={active:false, kind:null, tileId:null, type:null, source:null, el:null, clone:null, sx:0, sy:0, moved:false};
+}
+
+// ---- scoring ----
+function checkScore(){
+    let correct=0; const total=state.activePorts.length*2; let anyFilled=false;
+    state.activePorts.forEach(p=>{
+        const ps=document.getElementById('pslot-'+p), tsl=document.getElementById('tslot-'+p);
+        [ps,tsl].forEach(el=>el&&el.classList.remove('score-correct','score-incorrect','score-empty'));
+        // protocol
+        const ptid=state.protoSlots[p];
+        if(ptid){ anyFilled=true; const ok = ptid==='proto-'+p; ps.classList.add(ok?'score-correct':'score-incorrect'); if(ok)correct++; }
+        else ps.classList.add('score-empty');
+        // type
+        const tv=state.typeSlots[p];
+        if(tv){ anyFilled=true; const ok = tv===PORT_DATA[p].type; tsl.classList.add(ok?'score-correct':'score-incorrect'); if(ok)correct++; }
+        else tsl.classList.add('score-empty');
+    });
+    state.isScored=true;
+    const d=document.getElementById('scoreDisplay');
+    if(correct===total) d.innerHTML=`<span class="score-perfect">Perfect! ${correct}/${total} &mdash; outstanding work.</span>`;
+    else if(correct>=Math.ceil(total*0.75)) d.innerHTML=`<span class="score-partial">Score: ${correct}/${total} &mdash; almost there.</span>`;
+    else if(correct>=Math.ceil(total*0.5)) d.innerHTML=`<span class="score-partial">Score: ${correct}/${total} &mdash; good effort, keep refining.</span>`;
+    else if(anyFilled) d.innerHTML=`<span class="score-low">Score: ${correct}/${total} &mdash; give it another try.</span>`;
+    else d.innerHTML=`<span class="score-low">Place the tiles first, then check your score.</span>`;
+}
+
+function reset(){ newRound(); document.getElementById('scoreDisplay').innerHTML=''; render(); }
+
+document.addEventListener('DOMContentLoaded',()=>{
+    newRound(); render(); setupDrag(); setupTouch();
+    document.getElementById('resetBtn').addEventListener('click',reset);
+    document.getElementById('checkBtn').addEventListener('click',checkScore);
+});
+</script>
+</body>
+</html>
