@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 2 &mdash; 2.A.2 PBQ 4 | CompTIA A+ Core 1</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Sans+Pro:wght@400;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           CPCC COURSE TEMPLATE - GOLD / CHARCOAL / BLACK
+           CTS-ITS7501-80 CompTIA A+ Core 1 Training
+           ============================================ */
+
+        :root {
+            --primary-dark: #4A4A4A;
+            --primary-main: #B8962E;
+            --primary-light: #D4AF56;
+            --primary-pale: #FBF3DF;
+
+            --accent-teal: #8A6F1F;
+            --accent-teal-light: #F3E9CE;
+            --accent-orange: #A9642A;
+            --accent-orange-light: #F5E2CE;
+            --accent-purple: #6B5B3A;
+            --accent-purple-light: #EFE6D2;
+            --accent-green: #4E7A51;
+            --accent-green-light: #DCEBDD;
+
+            --alert-warning: #B8862E;
+            --alert-warning-bg: #FBF0D9;
+            --alert-danger: #A13A3A;
+            --alert-danger-bg: #F6DEDE;
+            --alert-success: #3F6E42;
+            --alert-success-bg: #DCEBDD;
+            --alert-info: #6E5B2E;
+            --alert-info-bg: #F1E9D4;
+
+            --text-black: #000000;
+            --neutral-900: #000000;
+            --neutral-700: #000000;
+            --neutral-500: #5A5A5A;
+            --neutral-300: #D9D3C4;
+            --neutral-200: #E5DFCF;
+            --neutral-100: #FAF8F3;
+            --white: #ffffff;
+
+            --font-heading: 'Nunito', sans-serif;
+            --font-body: 'Source Sans Pro', sans-serif;
+            --font-code: 'Fira Code', monospace;
+
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+
+            --shadow-sm: 0 1px 2px rgba(74, 74, 74, 0.08);
+            --shadow-md: 0 4px 6px rgba(74, 74, 74, 0.12);
+            --shadow-lg: 0 10px 20px rgba(74, 74, 74, 0.15);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body), 'Segoe UI', Tahoma, Verdana, sans-serif;
+            font-size: 1.0625rem; line-height: 1.7; color: var(--text-black);
+            background: linear-gradient(135deg, var(--neutral-100) 0%, var(--white) 100%);
+            min-height: 100vh; padding: var(--space-lg);
+        }
+
+        .course-container {
+            max-width: 950px; margin: 0 auto; background: var(--white);
+            border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); overflow: hidden;
+        }
+
+        .module-header {
+            background: var(--primary-main); color: var(--text-black);
+            padding: var(--space-lg) var(--space-xl); position: relative; overflow: hidden;
+        }
+        .module-label {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 0.875rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 2px; text-decoration: underline;
+            margin-bottom: var(--space-sm); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-title {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 2.25rem; font-weight: 800;
+            line-height: 1.2; margin-bottom: var(--space-md); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-subtitle { font-size: 1.125rem; max-width: 650px; position: relative; z-index: 1; color: var(--text-black); }
+
+        .toc {
+            display: flex; flex-direction: column; gap: var(--space-sm);
+            padding: var(--space-lg) var(--space-xl);
+            background: var(--primary-pale); border-bottom: 1px solid var(--neutral-300);
+        }
+        .toc-item {
+            width: 100%; text-align: left;
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 0.875rem;
+            color: var(--text-black); background: var(--white);
+            border: 2px solid var(--primary-main);
+            padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md);
+        }
+        .toc-item.current { background: var(--primary-main); }
+
+        .content-area { padding: var(--space-xl); }
+
+        h1, h2, h3, h4 { font-family: var(--font-heading), 'Segoe UI', sans-serif; color: var(--text-black); }
+        p { margin-bottom: var(--space-md); }
+        .text-muted { color: var(--neutral-500); }
+
+        .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; }
+        .callout-title { font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 1rem;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
+        .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
+
+        /* ============================================
+           PBQ WIDGET (scenario + dropdown matching)
+           ============================================ */
+        .pbq-container {
+            border-radius: var(--radius-lg); overflow: hidden; border: 2px solid var(--primary-main);
+            margin: var(--space-lg) 0;
+        }
+        .pbq-header {
+            display: flex; align-items: center; padding: 0.875rem 1.5rem;
+            border-bottom: 2px solid var(--primary-main); background: var(--primary-pale); gap: 1rem;
+        }
+        .header-btn {
+            font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 0.8125rem;
+            background: var(--primary-dark); color: var(--white); border: none;
+            padding: 0.5rem 1.125rem; border-radius: var(--radius-md);
+            cursor: pointer; transition: background 0.2s, transform 0.1s;
+            white-space: nowrap; letter-spacing: 0.5px; flex-shrink: 0;
+        }
+        .header-btn:hover { background: #333333; transform: translateY(-1px); }
+        .header-btn:active { transform: translateY(0); }
+        .pbq-title {
+            font-family: var(--font-heading), sans-serif; font-size: 1.1875rem; font-weight: 700;
+            color: var(--text-black); flex: 1; text-align: center;
+        }
+
+        .pbq-body { padding: 1.5rem; background: var(--white); }
+
+        .scenario-box {
+            background: var(--neutral-100); border: 2px solid var(--neutral-300);
+            border-radius: var(--radius-lg); padding: 1.25rem 1.5rem; margin-bottom: 1.5rem;
+        }
+        .scenario-label {
+            font-family: var(--font-heading), sans-serif; font-size: 0.6875rem; font-weight: 800;
+            color: var(--accent-teal); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 0.5rem;
+        }
+        .scenario-title {
+            font-family: var(--font-heading), sans-serif; font-size: 1rem; font-weight: 700;
+            color: var(--text-black); margin-bottom: 0.625rem; line-height: 1.35;
+        }
+        .scenario-text { font-size: 0.9375rem; line-height: 1.65; color: var(--text-black); }
+        .scenario-text strong { color: var(--text-black); }
+        .ticket-detail {
+            display: inline-block; background: var(--white); border: 1px solid var(--neutral-300);
+            border-radius: var(--radius-md); padding: 0.25rem 0.625rem;
+            font-family: var(--font-heading), sans-serif; font-size: 0.8125rem; font-weight: 600;
+            color: var(--text-black); margin-top: 0.5rem;
+        }
+
+        .columns { display: flex; gap: 1.25rem; align-items: stretch; }
+        .col-left, .col-right { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+        .col-heading {
+            font-family: var(--font-heading), sans-serif; font-size: 0.75rem; font-weight: 700;
+            color: var(--neutral-500); text-transform: uppercase; letter-spacing: 1.5px;
+            margin-bottom: 0.75rem; text-align: center;
+        }
+        .col-panel {
+            flex: 1; border: 2px solid var(--neutral-300); border-radius: var(--radius-lg);
+            background: var(--neutral-100); padding: 1rem;
+            display: flex; flex-direction: column; justify-content: space-between; gap: 1rem;
+        }
+
+        .menu-group {
+            background: var(--white); border: 1px solid var(--neutral-200); border-radius: var(--radius-md);
+            padding: 0.875rem; transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .menu-label {
+            font-family: var(--font-heading), sans-serif; font-size: 0.8125rem; font-weight: 700;
+            color: var(--text-black); margin-bottom: 0.5rem;
+        }
+
+        select {
+            width: 100%; padding: 0.5rem 2rem 0.5rem 0.625rem;
+            font-family: var(--font-body), sans-serif; font-size: 0.8125rem; color: var(--text-black);
+            border: 2px solid var(--neutral-300); border-radius: var(--radius-md); background: var(--white);
+            cursor: pointer; appearance: none; -webkit-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%235A5A5A' d='M1.41 0L6 4.58 10.59 0 12 1.41l-6 6-6-6z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat; background-position: right 0.75rem center;
+            transition: border-color 0.2s, box-shadow 0.2s; line-height: 1.4;
+        }
+        select:hover { border-color: var(--accent-teal); }
+        select:focus { outline: none; border-color: var(--accent-teal); box-shadow: 0 0 0 3px rgba(138,111,31,0.2); }
+
+        .menu-group.score-correct { border-color: var(--accent-green); box-shadow: 0 0 0 3px rgba(78,122,81,0.2); }
+        .menu-group.score-correct select { border-color: var(--accent-green); background-color: var(--accent-green-light); }
+        .menu-group.score-incorrect { border-color: var(--alert-danger); box-shadow: 0 0 0 3px rgba(161,58,58,0.15); }
+        .menu-group.score-incorrect select { border-color: var(--alert-danger); background-color: var(--alert-danger-bg); }
+        .menu-group.score-empty { border-color: var(--alert-danger); box-shadow: 0 0 0 3px rgba(161,58,58,0.15); }
+
+        .score-display {
+            font-family: var(--font-heading), sans-serif; font-size: 1rem; font-weight: 700;
+            min-height: 1.5rem; text-align: center; margin-top: 1.25rem;
+        }
+        .score-display .score-perfect { color: var(--accent-green); }
+        .score-display .score-partial { color: var(--alert-warning); }
+        .score-display .score-low { color: var(--alert-danger); }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+        .fade-in { animation: fadeIn 0.35s ease-out; }
+
+        .pbq-footer-note { background: var(--neutral-100); padding: 0.75rem 1.5rem; text-align: center; border-top: 1px solid var(--neutral-300); }
+
+        .module-footer { background: var(--neutral-100); padding: var(--space-lg) var(--space-xl); text-align: center; border-top: 1px solid var(--neutral-300); }
+        .footer-text { font-size: 0.875rem; color: var(--neutral-500); }
+
+        @media (max-width: 768px) {
+            .module-title { font-size: 1.75rem; }
+            .content-area { padding: var(--space-lg); }
+            .columns { flex-direction: column; gap: 1rem; }
+        }
+        @media print {
+            body { background: white; padding: 0; }
+            .course-container { box-shadow: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="course-container">
+
+        <header class="module-header">
+            <div class="module-label">Unit 2 &middot; Storage, Displays, and Peripherals &middot; Section 2.A.2</div>
+            <h1 class="module-title">PBQ 4: Diagnose the Display Issue</h1>
+            <p class="module-subtitle">CompTIA A+ Core 1 - Domains 3.0 and 5.0</p>
+        </header>
+
+        <nav class="toc" id="tocNav">
+            <div class="toc-header">Table of Contents</div>
+            <div class="toc-item">2.1 &mdash; Unit Overview and Learning Objectives</div>
+            <div class="toc-item">2.2 &mdash; Unit Pre-Assessment</div>
+            <div class="toc-item">2.3 &mdash; Content Review</div>
+            <div class="toc-item">2.4 &mdash; Reading Assignment</div>
+            <div class="toc-item">2.5 &mdash; Video Assignment</div>
+            <div class="toc-item">2.6 &mdash; Classroom Labs</div>
+            <div class="toc-item">2.7 &mdash; Practice Questions</div>
+            <div class="toc-item">2.8 &mdash; Online Labs: NETLAB</div>
+            <div class="toc-item">2.9 &mdash; Reflection Activity</div>
+            <div class="toc-item">2.10 &mdash; Unit Test</div>
+            <div class="toc-item">2.A.1 &mdash; PBQ 3</div>
+            <div class="toc-item current" id="tocCurrent">2.A.2 &mdash; PBQ 4</div>
+        </nav>
+        <style>
+            /* Collapsible TOC: only the current section shows until clicked */
+            nav.toc#tocNav { gap: 0; }
+            nav.toc#tocNav .toc-item {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav .toc-item.current {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                cursor: pointer;
+            }
+            nav.toc#tocNav .toc-item.current::after {
+                content: ' \25BE Click to View';
+                font-size: 0.75em;
+            }
+            nav.toc#tocNav.toc-expanded .toc-item {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                margin-bottom: var(--space-sm);
+            }
+            nav.toc#tocNav.toc-expanded .toc-item.current::after { content: ' \25B4'; }
+
+            nav.toc#tocNav .toc-header {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                font-family: var(--font-heading), 'Segoe UI', sans-serif;
+                font-weight: 700;
+                font-size: 0.875rem;
+                text-align: left;
+                color: var(--text-black);
+                text-decoration: underline;
+                background: var(--primary-main);
+                border-radius: var(--radius-md);
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav.toc-expanded .toc-header {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                padding-left: var(--space-md);
+                border-width: 2px;
+                border-style: solid;
+                border-color: var(--primary-main);
+                margin-bottom: var(--space-sm);
+            }
+        </style>
+
+        <script>
+            (function () {
+                var toc = document.getElementById('tocNav');
+                var currentItem = document.getElementById('tocCurrent');
+
+                toc.addEventListener('click', function (e) {
+                    if (toc.classList.contains('toc-expanded')) {
+                        toc.classList.remove('toc-expanded');
+                    } else if (e.target === currentItem || currentItem.contains(e.target)) {
+                        toc.classList.add('toc-expanded');
+                    }
+                });
+
+                toc.addEventListener('mouseleave', function () {
+                    toc.classList.remove('toc-expanded');
+                });
+            })();
+        </script>
+
+        <div class="content-area">
+
+            <p class="text-muted">A performance-based question, matching the drag-and-drop and selection formats used on the real CompTIA exam.</p>
+
+            <div class="callout callout-info">
+                <div class="callout-title">How This Works</div>
+                <div class="callout-content"><p>Read the help desk ticket, then use the dropdowns to select the technician's correct next action and the matching step of the troubleshooting methodology. Click <strong>Score</strong> to check your answers. Click <strong>Reset</strong> for a brand-new scenario &mdash; there are five in the rotation, and the answer choices reshuffle within each dropdown every time, so you can work through the whole set without memorizing a position.</p></div>
+            </div>
+
+            <div class="pbq-container">
+                <div class="pbq-header">
+                    <button class="header-btn" id="resetBtn">&laquo; RESET</button>
+                    <h1 class="pbq-title">PBQ 4</h1>
+                    <button class="header-btn" id="checkBtn">SCORE &raquo;</button>
+                </div>
+
+                <div class="pbq-body" id="pbqBody">
+                    <div class="scenario-box" id="scenarioBox"></div>
+
+                    <div class="columns">
+                        <div class="col-left">
+                            <div class="col-heading">Technician Actions</div>
+                            <div class="col-panel" id="panelLeft"></div>
+                        </div>
+                        <div class="col-right">
+                            <div class="col-heading">CompTIA Methodology Step</div>
+                            <div class="col-panel" id="panelRight"></div>
+                        </div>
+                    </div>
+
+                    <div class="score-display" id="scoreDisplay"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <footer class="module-footer">
+            <p class="footer-text">CompTIA A+ Core 1 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
+        </footer>
+    </div>
+
+<script>
+const SCENARIOS = [
+
+/* ── SCENARIO 0: MONITOR HARDWARE FAILURE ── */
+{
+    title: 'Desktop Monitor Shows No Image — Office 112',
+    text: 'A help desk ticket has been submitted by an end user in <strong>Office 112</strong>. The user reports that their <strong>monitor displays no image at all</strong>, though the computer itself powers on normally &mdash; fans spin, the keyboard lights activate, and a POST beep is heard. The user connected a <strong>known-good monitor</strong> to the same computer and cable, and the image displayed correctly. The original monitor was then tested on a <strong>different computer</strong> and still produced no image.',
+    ticket: 'Ticket #31022 &nbsp;|&nbsp; Priority: Medium &nbsp;|&nbsp; Status: Open &nbsp;|&nbsp; Changes: None',
+    left: [
+        {
+            label: 'First Step:',
+            correct: 'c',
+            options: [
+                { v:'a', t:'Replace the computer\u2019s power supply unit' },
+                { v:'b', t:'Reinstall the operating system from a recovery drive' },
+                { v:'c', t:'Test the monitor on a different computer to isolate the fault' },
+                { v:'d', t:'Update the network adapter driver' },
+                { v:'e', t:'Reformat the hard drive and restore from backup' }
+            ]
+        },
+        {
+            label: 'Possible Cause:',
+            correct: 'b',
+            options: [
+                { v:'a', t:'A corrupted display driver on the host computer' },
+                { v:'b', t:'A failed internal component within the monitor itself' },
+                { v:'c', t:'An incorrect BIOS boot order' },
+                { v:'d', t:'A loose or damaged video cable at the source device' },
+                { v:'e', t:'Insufficient wattage from the power supply unit' }
+            ]
+        },
+        {
+            label: 'Corrective Measures:',
+            correct: 'd',
+            options: [
+                { v:'a', t:'Reinstall the display driver from the manufacturer\u2019s website' },
+                { v:'b', t:'Replace the video cable and reseat both ends' },
+                { v:'c', t:'Move the monitor to a different port on the graphics card' },
+                { v:'d', t:'Replace the failed monitor and record the serial number for a warranty claim' },
+                { v:'e', t:'Flash the motherboard BIOS to the latest version' }
+            ]
+        }
+    ],
+    right: [
+        {
+            label: 'Methodology Match:',
+            correct: 'b',
+            options: [
+                { v:'a', t:'Establish a Plan of Action and Implement the Solution' },
+                { v:'b', t:'Test the Theory to Determine Cause' },
+                { v:'c', t:'Document Findings, Actions, and Outcomes' },
+                { v:'d', t:'Identify the Problem' },
+                { v:'e', t:'Verify Full System Functionality' }
+            ]
+        },
+        {
+            label: 'Methodology Match:',
+            correct: 'e',
+            options: [
+                { v:'a', t:'Test the Theory to Determine Cause' },
+                { v:'b', t:'Identify the Problem' },
+                { v:'c', t:'Verify Full System Functionality' },
+                { v:'d', t:'Establish a Plan of Action and Implement the Solution' },
+                { v:'e', t:'Establish a Theory of Probable Cause' }
+            ]
+        },
+        {
+            label: 'Methodology Match:',
+            correct: 'a',
+            options: [
+                { v:'a', t:'Document Findings, Actions, and Outcomes' },
+                { v:'b', t:'Establish a Theory of Probable Cause' },
+                { v:'c', t:'Identify the Problem' },
+                { v:'d', t:'Test the Theory to Determine Cause' },
+                { v:'e', t:'Establish a Plan of Action and Implement the Solution' }
+            ]
+        }
+    ]
+},
+
+/* ── SCENARIO 1: LOOSE VIDEO CONNECTOR ── */
+{
+    title: 'Monitor Image Flickers and Cuts Out — Conference Room B',
+    text: 'A recurring ticket has been opened for <strong>Conference Room B</strong>. Staff report that the <strong>display flickers and occasionally goes black</strong> during meetings, particularly when the presentation cart is bumped or the cable is jostled. The image returns briefly when someone <strong>wiggles the HDMI cable</strong> at the back of the monitor. Testing with a <strong>different HDMI cable</strong> on the same port resolves the issue completely.',
+    ticket: 'Ticket #31058 &nbsp;|&nbsp; Priority: High &nbsp;|&nbsp; Status: Open &nbsp;|&nbsp; Changes: None',
+    left: [
+        {
+            label: 'First Step:',
+            correct: 'e',
+            options: [
+                { v:'a', t:'Replace the monitor with a new unit' },
+                { v:'b', t:'Update the graphics card driver' },
+                { v:'c', t:'Run a memory diagnostic on the connected laptop' },
+                { v:'d', t:'Reformat the presentation laptop' },
+                { v:'e', t:'Physically inspect and reseat the video cable at both ends' }
+            ]
+        },
+        {
+            label: 'Possible Cause:',
+            correct: 'a',
+            options: [
+                { v:'a', t:'A loose or damaged video cable causing an intermittent signal' },
+                { v:'b', t:'A failing power supply unit in the presentation laptop' },
+                { v:'c', t:'Overheating of the graphics processing unit' },
+                { v:'d', t:'A corrupted operating system boot file' },
+                { v:'e', t:'Incorrect display resolution settings' }
+            ]
+        },
+        {
+            label: 'Corrective Measures:',
+            correct: 'c',
+            options: [
+                { v:'a', t:'Reinstall the operating system on the presentation laptop' },
+                { v:'b', t:'Replace the monitor\u2019s internal power board' },
+                { v:'c', t:'Replace the damaged cable and secure it with any available locking connector' },
+                { v:'d', t:'Increase the fan curve in the BIOS' },
+                { v:'e', t:'Roll back the most recent Windows update' }
+            ]
+        }
+    ],
+    right: [
+        {
+            label: 'Methodology Match:',
+            correct: 'd',
+            options: [
+                { v:'a', t:'Identify the Problem' },
+                { v:'b', t:'Document Findings, Actions, and Outcomes' },
+                { v:'c', t:'Verify Full System Functionality' },
+                { v:'d', t:'Establish a Plan of Action and Implement the Solution' },
+                { v:'e', t:'Test the Theory to Determine Cause' }
+            ]
+        },
+        {
+            label: 'Methodology Match:',
+            correct: 'b',
+            options: [
+                { v:'a', t:'Test the Theory to Determine Cause' },
+                { v:'b', t:'Establish a Theory of Probable Cause' },
+                { v:'c', t:'Identify the Problem' },
+                { v:'d', t:'Verify Full System Functionality' },
+                { v:'e', t:'Establish a Plan of Action and Implement the Solution' }
+            ]
+        },
+        {
+            label: 'Methodology Match:',
+            correct: 'c',
+            options: [
+                { v:'a', t:'Establish a Theory of Probable Cause' },
+                { v:'b', t:'Establish a Plan of Action and Implement the Solution' },
+                { v:'c', t:'Verify Full System Functionality' },
+                { v:'d', t:'Identify the Problem' },
+                { v:'e', t:'Document Findings, Actions, and Outcomes' }
+            ]
+        }
+    ]
+},
+
+/* ── SCENARIO 2: FAILED DISPLAY DRIVER ── */
+{
+    title: 'Resolution Locked and Colors Distorted After Update — Workstation 15',
+    text: 'A ticket has been submitted for <strong>Workstation 15</strong> in the accounting department. The user reports that immediately following a <strong>Windows update installed overnight</strong>, the screen resolution reverted to a low default setting and the display now shows <strong>washed-out, distorted colors</strong>. Device Manager lists the video adapter as a <strong>"Generic PnP Monitor"</strong> with a yellow warning icon next to the display adapter entry.',
+    ticket: 'Ticket #31071 &nbsp;|&nbsp; Priority: Medium &nbsp;|&nbsp; Status: Open &nbsp;|&nbsp; Changes: Windows Update (overnight)',
+    left: [
+        {
+            label: 'First Step:',
+            correct: 'b',
+            options: [
+                { v:'a', t:'Replace the monitor with a known-good unit' },
+                { v:'b', t:'Check Device Manager for warning icons on the display adapter' },
+                { v:'c', t:'Swap the video cable for a new one' },
+                { v:'d', t:'Reseat the RAM modules' },
+                { v:'e', t:'Test the monitor on a different computer' }
+            ]
+        },
+        {
+            label: 'Possible Cause:',
+            correct: 'e',
+            options: [
+                { v:'a', t:'A failed internal monitor component' },
+                { v:'b', t:'A loose video cable connection' },
+                { v:'c', t:'A damaged port on the discrete graphics card' },
+                { v:'d', t:'Insufficient power delivery to the monitor' },
+                { v:'e', t:'A corrupted or incompatible display driver following the update' }
+            ]
+        },
+        {
+            label: 'Corrective Measures:',
+            correct: 'a',
+            options: [
+                { v:'a', t:'Roll back or reinstall the correct display driver from the manufacturer' },
+                { v:'b', t:'Replace the monitor\u2019s power cable' },
+                { v:'c', t:'Move the monitor to a different port on the graphics card' },
+                { v:'d', t:'Replace the graphics card entirely' },
+                { v:'e', t:'Plug the monitor into a different power strip' }
+            ]
+        }
+    ],
+    right: [
+        {
+            label: 'Methodology Match:',
+            correct: 'e',
+            options: [
+                { v:'a', t:'Establish a Plan of Action and Implement the Solution' },
+                { v:'b', t:'Test the Theory to Determine Cause' },
+                { v:'c', t:'Verify Full System Functionality' },
+                { v:'d', t:'Document Findings, Actions, and Outcomes' },
+                { v:'e', t:'Identify the Problem' }
+            ]
+        },
+        {
+            label: 'Methodology Match:',
+            correct: 'c',
+            options: [
+                { v:'a', t:'Verify Full System Functionality' },
+                { v:'b', t:'Identify the Problem' },
+                { v:'c', t:'Establish a Theory of Probable Cause' },
+                { v:'d', t:'Document Findings, Actions, and Outcomes' },
+                { v:'e', t:'Test the Theory to Determine Cause' }
+            ]
+        },
+        {
+            label: 'Methodology Match:',
+            correct: 'b',
+            options: [
+                { v:'a', t:'Establish a Theory of Probable Cause' },
+                { v:'b', t:'Establish a Plan of Action and Implement the Solution' },
+                { v:'c', t:'Identify the Problem' },
+                { v:'d', t:'Test the Theory to Determine Cause' },
+                { v:'e', t:'Verify Full System Functionality' }
+            ]
+        }
+    ]
+},
+
+/* ── SCENARIO 3: FAILED DISCRETE GPU PORT ── */
+{
+    title: 'No Signal From One Graphics Card Port — Design Workstation 7',
+    text: 'A ticket has been opened for <strong>Design Workstation 7</strong>, which uses a discrete graphics card with multiple DisplayPort outputs. The user reports that the monitor connected to a <strong>specific DisplayPort output</strong> shows no signal at all. Moving the <strong>same monitor and same cable</strong> to a different port on the same graphics card <strong>resolves the issue immediately</strong>. A second cable was also tested in the original port with no change in symptoms.',
+    ticket: 'Ticket #31094 &nbsp;|&nbsp; Priority: Medium &nbsp;|&nbsp; Status: Open &nbsp;|&nbsp; Changes: None',
+    left: [
+        {
+            label: 'First Step:',
+            correct: 'd',
+            options: [
+                { v:'a', t:'Reinstall the operating system on the workstation' },
+                { v:'b', t:'Replace the monitor with a known-good unit' },
+                { v:'c', t:'Update the motherboard chipset drivers' },
+                { v:'d', t:'Test the same monitor and cable on a different port on the graphics card' },
+                { v:'e', t:'Replace the power supply unit' }
+            ]
+        },
+        {
+            label: 'Possible Cause:',
+            correct: 'c',
+            options: [
+                { v:'a', t:'A corrupted display driver affecting all outputs equally' },
+                { v:'b', t:'Incorrect resolution settings in the operating system' },
+                { v:'c', t:'A physically damaged or failed port on the discrete graphics card' },
+                { v:'d', t:'A failed internal component within the monitor' },
+                { v:'e', t:'The monitor is not receiving power' }
+            ]
+        },
+        {
+            label: 'Corrective Measures:',
+            correct: 'b',
+            options: [
+                { v:'a', t:'Reinstall the graphics card driver' },
+                { v:'b', t:'Use a functioning port as a workaround and submit the graphics card for replacement' },
+                { v:'c', t:'Replace the monitor' },
+                { v:'d', t:'Replace the video cable' },
+                { v:'e', t:'Reset the BIOS to factory defaults' }
+            ]
+        }
+    ],
+    right: [
+        {
+            label: 'Methodology Match:',
+            correct: 'c',
+            options: [
+                { v:'a', t:'Establish a Theory of Probable Cause' },
+                { v:'b', t:'Identify the Problem' },
+                { v:'c', t:'Test the Theory to Determine Cause' },
+                { v:'d', t:'Document Findings, Actions, and Outcomes' },
+                { v:'e', t:'Verify Full System Functionality' }
+            ]
+        },
+        {
+            label: 'Methodology Match:',
+            correct: 'a',
+            options: [
+                { v:'a', t:'Establish a Theory of Probable Cause' },
+                { v:'b', t:'Establish a Plan of Action and Implement the Solution' },
+                { v:'c', t:'Verify Full System Functionality' },
+                { v:'d', t:'Test the Theory to Determine Cause' },
+                { v:'e', t:'Identify the Problem' }
+            ]
+        },
+        {
+            label: 'Methodology Match:',
+            correct: 'd',
+            options: [
+                { v:'a', t:'Identify the Problem' },
+                { v:'b', t:'Verify Full System Functionality' },
+                { v:'c', t:'Establish a Theory of Probable Cause' },
+                { v:'d', t:'Document Findings, Actions, and Outcomes' },
+                { v:'e', t:'Establish a Plan of Action and Implement the Solution' }
+            ]
+        }
+    ]
+},
+
+/* ── SCENARIO 4: MONITOR UNPLUGGED FROM POWER STRIP ── */
+{
+    title: 'Monitor Will Not Power On — Remote Employee Home Office',
+    text: 'A remote employee has submitted a ticket reporting that their <strong>external monitor will not power on at all</strong> &mdash; the power button is unresponsive and no indicator light appears. The employee\u2019s laptop functions normally when used undocked. During troubleshooting over a video call, the technician asks the employee to trace the monitor\u2019s power cable and confirms it is <strong>plugged into a power strip</strong>, along with a desk lamp that is <strong>also currently off</strong>.',
+    ticket: 'Ticket #31103 &nbsp;|&nbsp; Priority: Low &nbsp;|&nbsp; Status: Open &nbsp;|&nbsp; Changes: None',
+    left: [
+        {
+            label: 'First Step:',
+            correct: 'a',
+            options: [
+                { v:'a', t:'Verify power at the source, confirming the power strip is switched on and receiving power' },
+                { v:'b', t:'Ship a replacement monitor to the employee' },
+                { v:'c', t:'Reinstall the display driver remotely' },
+                { v:'d', t:'Have the employee reset the laptop\u2019s BIOS' },
+                { v:'e', t:'Replace the monitor\u2019s video cable' }
+            ]
+        },
+        {
+            label: 'Possible Cause:',
+            correct: 'd',
+            options: [
+                { v:'a', t:'A failed internal power supply within the monitor' },
+                { v:'b', t:'A corrupted display driver on the laptop' },
+                { v:'c', t:'A damaged video cable' },
+                { v:'d', t:'The monitor is not receiving power because the strip is switched off or unplugged' },
+                { v:'e', t:'A failed port on the laptop\u2019s docking station' }
+            ]
+        },
+        {
+            label: 'Corrective Measures:',
+            correct: 'e',
+            options: [
+                { v:'a', t:'Replace the monitor' },
+                { v:'b', t:'Reinstall the operating system on the laptop' },
+                { v:'c', t:'Replace the video cable' },
+                { v:'d', t:'Ship a new power strip to the employee' },
+                { v:'e', t:'Ensure the power strip is switched on and firmly seated in a working outlet' }
+            ]
+        }
+    ],
+    right: [
+        {
+            label: 'Methodology Match:',
+            correct: 'b',
+            options: [
+                { v:'a', t:'Establish a Theory of Probable Cause' },
+                { v:'b', t:'Identify the Problem' },
+                { v:'c', t:'Test the Theory to Determine Cause' },
+                { v:'d', t:'Document Findings, Actions, and Outcomes' },
+                { v:'e', t:'Establish a Plan of Action and Implement the Solution' }
+            ]
+        },
+        {
+            label: 'Methodology Match:',
+            correct: 'c',
+            options: [
+                { v:'a', t:'Identify the Problem' },
+                { v:'b', t:'Verify Full System Functionality' },
+                { v:'c', t:'Establish a Theory of Probable Cause' },
+                { v:'d', t:'Establish a Plan of Action and Implement the Solution' },
+                { v:'e', t:'Document Findings, Actions, and Outcomes' }
+            ]
+        },
+        {
+            label: 'Methodology Match:',
+            correct: 'a',
+            options: [
+                { v:'a', t:'Verify Full System Functionality' },
+                { v:'b', t:'Test the Theory to Determine Cause' },
+                { v:'c', t:'Establish a Theory of Probable Cause' },
+                { v:'d', t:'Identify the Problem' },
+                { v:'e', t:'Document Findings, Actions, and Outcomes' }
+            ]
+        }
+    ]
+}
+
+]; /* end SCENARIOS */
+
+/* ============================================================
+   STATE & ROTATION
+   ============================================================ */
+let scenarioOrder = [];
+let scenarioIdx = -1;
+let current = null;
+
+function shuffle(a) {
+    const b = [...a];
+    for (let i = b.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [b[i], b[j]] = [b[j], b[i]];
+    }
+    return b;
+}
+
+function nextScenario() {
+    scenarioIdx++;
+    if (scenarioIdx >= scenarioOrder.length) {
+        scenarioOrder = shuffle([...Array(SCENARIOS.length).keys()]);
+        scenarioIdx = 0;
+    }
+    current = SCENARIOS[scenarioOrder[scenarioIdx]];
+}
+
+function render() {
+    const box = document.getElementById('scenarioBox');
+    box.innerHTML = `
+        <div class="scenario-label">Help Desk Ticket &mdash; Scenario</div>
+        <div class="scenario-title">${current.title}</div>
+        <p class="scenario-text">${current.text}</p>
+        <span class="ticket-detail">${current.ticket}</span>
+    `;
+
+    const left = document.getElementById('panelLeft');
+    left.innerHTML = '';
+    current.left.forEach((menu, i) => {
+        const shuffledOptions = shuffle(menu.options);
+        const grp = document.createElement('div');
+        grp.className = 'menu-group';
+        grp.id = `grp-l-${i}`;
+        grp.innerHTML = `
+            <div class="menu-label">${menu.label}</div>
+            <select id="sel-l-${i}">
+                <option value="" selected disabled>&mdash; Select &mdash;</option>
+                ${shuffledOptions.map(o => `<option value="${o.v}">${o.t}</option>`).join('')}
+            </select>
+        `;
+        left.appendChild(grp);
+    });
+
+    const right = document.getElementById('panelRight');
+    right.innerHTML = '';
+    current.right.forEach((menu, i) => {
+        const shuffledOptions = shuffle(menu.options);
+        const grp = document.createElement('div');
+        grp.className = 'menu-group';
+        grp.id = `grp-r-${i}`;
+        grp.innerHTML = `
+            <div class="menu-label">${menu.label}</div>
+            <select id="sel-r-${i}">
+                <option value="" selected disabled>&mdash; Select the matching step &mdash;</option>
+                ${shuffledOptions.map(o => `<option value="${o.v}">${o.t}</option>`).join('')}
+            </select>
+        `;
+        right.appendChild(grp);
+    });
+
+    document.getElementById('scoreDisplay').innerHTML = '';
+
+    document.getElementById('pbqBody').classList.remove('fade-in');
+    void document.getElementById('pbqBody').offsetWidth;
+    document.getElementById('pbqBody').classList.add('fade-in');
+}
+
+function checkScore() {
+    let correct = 0;
+    let answered = 0;
+    const total = 6;
+
+    for (let i = 0; i < 3; i++) {
+        const selL = document.getElementById(`sel-l-${i}`);
+        const grpL = document.getElementById(`grp-l-${i}`);
+        grpL.classList.remove('score-correct', 'score-incorrect', 'score-empty');
+        if (selL.value === '') {
+            grpL.classList.add('score-empty');
+        } else {
+            answered++;
+            if (selL.value === current.left[i].correct) {
+                grpL.classList.add('score-correct');
+                correct++;
+            } else {
+                grpL.classList.add('score-incorrect');
+            }
+        }
+
+        const selR = document.getElementById(`sel-r-${i}`);
+        const grpR = document.getElementById(`grp-r-${i}`);
+        grpR.classList.remove('score-correct', 'score-incorrect', 'score-empty');
+        if (selR.value === '') {
+            grpR.classList.add('score-empty');
+        } else {
+            answered++;
+            if (selR.value === current.right[i].correct) {
+                grpR.classList.add('score-correct');
+                correct++;
+            } else {
+                grpR.classList.add('score-incorrect');
+            }
+        }
+    }
+
+    const d = document.getElementById('scoreDisplay');
+    if (correct === total) d.innerHTML = `<span class="score-perfect">Perfect! ${correct}/${total} &mdash; outstanding work.</span>`;
+    else if (correct >= 4) d.innerHTML = `<span class="score-partial">Score: ${correct}/${total} &mdash; almost there.</span>`;
+    else if (correct >= 2) d.innerHTML = `<span class="score-partial">Score: ${correct}/${total} &mdash; good effort, review the methodology.</span>`;
+    else if (answered > 0) d.innerHTML = `<span class="score-low">Score: ${correct}/${total} &mdash; give it another try.</span>`;
+    else d.innerHTML = `<span class="score-low">Make your selections first, then check your score.</span>`;
+}
+
+function reset() {
+    nextScenario();
+    render();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    scenarioOrder = shuffle([...Array(SCENARIOS.length).keys()]);
+    nextScenario();
+    render();
+    document.getElementById('resetBtn').addEventListener('click', reset);
+    document.getElementById('checkBtn').addEventListener('click', checkScore);
+});
+</script>
+</body>
+</html>
