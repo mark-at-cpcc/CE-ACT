@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 2 &mdash; 2.A.3 PBQ 5 | CompTIA A+ Core 1</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Sans+Pro:wght@400;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           CPCC COURSE TEMPLATE - GOLD / CHARCOAL / BLACK
+           CTS-ITS7501-80 CompTIA A+ Core 1 Training
+           ============================================ */
+
+        :root {
+            --primary-dark: #4A4A4A;
+            --primary-main: #B8962E;
+            --primary-light: #D4AF56;
+            --primary-pale: #FBF3DF;
+
+            --accent-teal: #8A6F1F;
+            --accent-teal-light: #F3E9CE;
+            --accent-orange: #A9642A;
+            --accent-orange-light: #F5E2CE;
+            --accent-purple: #6B5B3A;
+            --accent-purple-light: #EFE6D2;
+            --accent-green: #4E7A51;
+            --accent-green-light: #DCEBDD;
+
+            --alert-warning: #B8862E;
+            --alert-warning-bg: #FBF0D9;
+            --alert-danger: #A13A3A;
+            --alert-danger-bg: #F6DEDE;
+            --alert-success: #3F6E42;
+            --alert-success-bg: #DCEBDD;
+            --alert-info: #6E5B2E;
+            --alert-info-bg: #F1E9D4;
+
+            --text-black: #000000;
+            --neutral-900: #000000;
+            --neutral-700: #000000;
+            --neutral-500: #5A5A5A;
+            --neutral-300: #D9D3C4;
+            --neutral-200: #E5DFCF;
+            --neutral-100: #FAF8F3;
+            --white: #ffffff;
+
+            --font-heading: 'Nunito', sans-serif;
+            --font-body: 'Source Sans Pro', sans-serif;
+            --font-code: 'Fira Code', monospace;
+
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+
+            --shadow-sm: 0 1px 2px rgba(74, 74, 74, 0.08);
+            --shadow-md: 0 4px 6px rgba(74, 74, 74, 0.12);
+            --shadow-lg: 0 10px 20px rgba(74, 74, 74, 0.15);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body), 'Segoe UI', Tahoma, Verdana, sans-serif;
+            font-size: 1.0625rem; line-height: 1.7; color: var(--text-black);
+            background: linear-gradient(135deg, var(--neutral-100) 0%, var(--white) 100%);
+            min-height: 100vh; padding: var(--space-lg);
+        }
+
+        .course-container {
+            max-width: 950px; margin: 0 auto; background: var(--white);
+            border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); overflow: hidden;
+        }
+
+        .module-header {
+            background: var(--primary-main); color: var(--text-black);
+            padding: var(--space-lg) var(--space-xl); position: relative; overflow: hidden;
+        }
+        .module-label {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 0.875rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 2px; text-decoration: underline;
+            margin-bottom: var(--space-sm); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-title {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 2.25rem; font-weight: 800;
+            line-height: 1.2; margin-bottom: var(--space-md); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-subtitle { font-size: 1.125rem; max-width: 650px; position: relative; z-index: 1; color: var(--text-black); }
+
+        .toc {
+            display: flex; flex-direction: column; gap: var(--space-sm);
+            padding: var(--space-lg) var(--space-xl);
+            background: var(--primary-pale); border-bottom: 1px solid var(--neutral-300);
+        }
+        .toc-item {
+            width: 100%; text-align: left;
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 0.875rem;
+            color: var(--text-black); background: var(--white);
+            border: 2px solid var(--primary-main);
+            padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md);
+        }
+        .toc-item.current { background: var(--primary-main); }
+
+        .content-area { padding: var(--space-xl); }
+
+        h1, h2, h3, h4 { font-family: var(--font-heading), 'Segoe UI', sans-serif; color: var(--text-black); }
+        p { margin-bottom: var(--space-md); }
+        .text-muted { color: var(--neutral-500); }
+
+        .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; }
+        .callout-title { font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 1rem;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
+        .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
+
+        /* ============================================
+           PBQ WIDGET (scenario + dropdown matching)
+           ============================================ */
+        .pbq-container {
+            border-radius: var(--radius-lg); overflow: hidden; border: 2px solid var(--primary-main);
+            margin: var(--space-lg) 0;
+        }
+        .pbq-header {
+            display: flex; align-items: center; padding: 0.875rem 1.5rem;
+            border-bottom: 2px solid var(--primary-main); background: var(--primary-pale); gap: 1rem;
+        }
+        .header-btn {
+            font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 0.8125rem;
+            background: var(--primary-dark); color: var(--white); border: none;
+            padding: 0.5rem 1.125rem; border-radius: var(--radius-md);
+            cursor: pointer; transition: background 0.2s, transform 0.1s;
+            white-space: nowrap; letter-spacing: 0.5px; flex-shrink: 0;
+        }
+        .header-btn:hover { background: #333333; transform: translateY(-1px); }
+        .header-btn:active { transform: translateY(0); }
+        .pbq-title {
+            font-family: var(--font-heading), sans-serif; font-size: 1.1875rem; font-weight: 700;
+            color: var(--text-black); flex: 1; text-align: center;
+        }
+
+        .pbq-body { padding: 1.5rem; background: var(--white); }
+
+        .scenario-box {
+            background: var(--neutral-100); border: 2px solid var(--neutral-300);
+            border-radius: var(--radius-lg); padding: 1.25rem 1.5rem; margin-bottom: 1.5rem;
+        }
+        .scenario-label {
+            font-family: var(--font-heading), sans-serif; font-size: 0.6875rem; font-weight: 800;
+            color: var(--accent-teal); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 0.5rem;
+        }
+        .scenario-title {
+            font-family: var(--font-heading), sans-serif; font-size: 1rem; font-weight: 700;
+            color: var(--text-black); margin-bottom: 0.625rem; line-height: 1.35;
+        }
+        .scenario-text { font-size: 0.9375rem; line-height: 1.65; color: var(--text-black); }
+        .scenario-text strong { color: var(--text-black); }
+        .ticket-detail {
+            display: inline-block; background: var(--white); border: 1px solid var(--neutral-300);
+            border-radius: var(--radius-md); padding: 0.25rem 0.625rem;
+            font-family: var(--font-heading), sans-serif; font-size: 0.8125rem; font-weight: 600;
+            color: var(--text-black); margin-top: 0.5rem;
+        }
+
+        .col-single { display: flex; flex-direction: column; }
+        .col-heading {
+            font-family: var(--font-heading), sans-serif; font-size: 0.75rem; font-weight: 700;
+            color: var(--neutral-500); text-transform: uppercase; letter-spacing: 1.5px;
+            margin-bottom: 0.75rem; text-align: center;
+        }
+        .col-panel {
+            border: 2px solid var(--neutral-300); border-radius: var(--radius-lg);
+            background: var(--neutral-100); padding: 1rem;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+        }
+
+        .menu-group {
+            background: var(--white); border: 1px solid var(--neutral-200); border-radius: var(--radius-md);
+            padding: 0.875rem; transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .menu-label {
+            font-family: var(--font-heading), sans-serif; font-size: 0.8125rem; font-weight: 700;
+            color: var(--text-black); margin-bottom: 0.5rem;
+        }
+
+        select {
+            width: 100%; padding: 0.5rem 2rem 0.5rem 0.625rem;
+            font-family: var(--font-body), sans-serif; font-size: 0.8125rem; color: var(--text-black);
+            border: 2px solid var(--neutral-300); border-radius: var(--radius-md); background: var(--white);
+            cursor: pointer; appearance: none; -webkit-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%235A5A5A' d='M1.41 0L6 4.58 10.59 0 12 1.41l-6 6-6-6z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat; background-position: right 0.75rem center;
+            transition: border-color 0.2s, box-shadow 0.2s; line-height: 1.4;
+        }
+        select:hover { border-color: var(--accent-teal); }
+        select:focus { outline: none; border-color: var(--accent-teal); box-shadow: 0 0 0 3px rgba(138,111,31,0.2); }
+
+        .menu-group.score-correct { border-color: var(--accent-green); box-shadow: 0 0 0 3px rgba(78,122,81,0.2); }
+        .menu-group.score-correct select { border-color: var(--accent-green); background-color: var(--accent-green-light); }
+        .menu-group.score-incorrect { border-color: var(--alert-danger); box-shadow: 0 0 0 3px rgba(161,58,58,0.15); }
+        .menu-group.score-incorrect select { border-color: var(--alert-danger); background-color: var(--alert-danger-bg); }
+        .menu-group.score-empty { border-color: var(--alert-danger); box-shadow: 0 0 0 3px rgba(161,58,58,0.15); }
+
+        .score-display {
+            font-family: var(--font-heading), sans-serif; font-size: 1rem; font-weight: 700;
+            min-height: 1.5rem; text-align: center; margin-top: 1.25rem;
+        }
+        .score-display .score-perfect { color: var(--accent-green); }
+        .score-display .score-partial { color: var(--alert-warning); }
+        .score-display .score-low { color: var(--alert-danger); }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+        .fade-in { animation: fadeIn 0.35s ease-out; }
+
+        .pbq-footer-note { background: var(--neutral-100); padding: 0.75rem 1.5rem; text-align: center; border-top: 1px solid var(--neutral-300); }
+
+        .module-footer { background: var(--neutral-100); padding: var(--space-lg) var(--space-xl); text-align: center; border-top: 1px solid var(--neutral-300); }
+        .footer-text { font-size: 0.875rem; color: var(--neutral-500); }
+
+        @media (max-width: 768px) {
+            .module-title { font-size: 1.75rem; }
+            .content-area { padding: var(--space-lg); }
+            .col-panel { grid-template-columns: 1fr; }
+        }
+        @media print {
+            body { background: white; padding: 0; }
+            .course-container { box-shadow: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="course-container">
+
+        <header class="module-header">
+            <div class="module-label">Unit 2 &middot; Storage, Displays, and Peripherals &middot; Section 2.A.3</div>
+            <h1 class="module-title">PBQ 5: Diagnose the Printer Issue</h1>
+            <p class="module-subtitle">CompTIA A+ Core 1 - Domains 3.0 and 5.0</p>
+        </header>
+
+        <nav class="toc" id="tocNav">
+            <div class="toc-header">Table of Contents</div>
+            <div class="toc-item">2.1 &mdash; Unit Overview and Learning Objectives</div>
+            <div class="toc-item">2.2 &mdash; Unit Pre-Assessment</div>
+            <div class="toc-item">2.3 &mdash; Content Review</div>
+            <div class="toc-item">2.4 &mdash; Reading Assignment</div>
+            <div class="toc-item">2.5 &mdash; Video Assignment</div>
+            <div class="toc-item">2.6 &mdash; Classroom Labs</div>
+            <div class="toc-item">2.7 &mdash; Practice Questions</div>
+            <div class="toc-item">2.8 &mdash; Online Labs: NETLAB</div>
+            <div class="toc-item">2.9 &mdash; Reflection Activity</div>
+            <div class="toc-item">2.10 &mdash; Unit Test</div>
+            <div class="toc-item">2.A.1 &mdash; PBQ 3</div>
+            <div class="toc-item">2.A.2 &mdash; PBQ 4</div>
+            <div class="toc-item current" id="tocCurrent">2.A.3 &mdash; PBQ 5</div>
+        </nav>
+        <style>
+            /* Collapsible TOC: only the current section shows until clicked */
+            nav.toc#tocNav { gap: 0; }
+            nav.toc#tocNav .toc-item {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav .toc-item.current {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                cursor: pointer;
+            }
+            nav.toc#tocNav .toc-item.current::after {
+                content: ' \25BE Click to View';
+                font-size: 0.75em;
+            }
+            nav.toc#tocNav.toc-expanded .toc-item {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                margin-bottom: var(--space-sm);
+            }
+            nav.toc#tocNav.toc-expanded .toc-item.current::after { content: ' \25B4'; }
+
+            nav.toc#tocNav .toc-header {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                font-family: var(--font-heading), 'Segoe UI', sans-serif;
+                font-weight: 700;
+                font-size: 0.875rem;
+                text-align: left;
+                color: var(--text-black);
+                text-decoration: underline;
+                background: var(--primary-main);
+                border-radius: var(--radius-md);
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav.toc-expanded .toc-header {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                padding-left: var(--space-md);
+                border-width: 2px;
+                border-style: solid;
+                border-color: var(--primary-main);
+                margin-bottom: var(--space-sm);
+            }
+        </style>
+
+        <script>
+            (function () {
+                var toc = document.getElementById('tocNav');
+                var currentItem = document.getElementById('tocCurrent');
+
+                toc.addEventListener('click', function (e) {
+                    if (toc.classList.contains('toc-expanded')) {
+                        toc.classList.remove('toc-expanded');
+                    } else if (e.target === currentItem || currentItem.contains(e.target)) {
+                        toc.classList.add('toc-expanded');
+                    }
+                });
+
+                toc.addEventListener('mouseleave', function () {
+                    toc.classList.remove('toc-expanded');
+                });
+            })();
+        </script>
+
+        <div class="content-area">
+
+            <p class="text-muted">A performance-based question, matching the drag-and-drop and selection formats used on the real CompTIA exam.</p>
+
+            <div class="callout callout-info">
+                <div class="callout-title">How This Works</div>
+                <div class="callout-content"><p>Read the help desk ticket carefully &mdash; it will not name the printer type directly. Use what you know about how each printer technology fails to work out the printer type, the print media involved, the typical cable used, and the best solution. Click <strong>Score</strong> to check your answers. Click <strong>Reset</strong> for a brand-new scenario &mdash; there are seven in the rotation, and the answer choices reshuffle within each dropdown every time.</p></div>
+            </div>
+
+            <div class="pbq-container">
+                <div class="pbq-header">
+                    <button class="header-btn" id="resetBtn">&laquo; RESET</button>
+                    <h1 class="pbq-title">Diagnose the Printer Issue</h1>
+                    <button class="header-btn" id="checkBtn">SCORE &raquo;</button>
+                </div>
+
+                <div class="pbq-body" id="pbqBody">
+                    <div class="scenario-box" id="scenarioBox"></div>
+
+                    <div class="col-single">
+                        <div class="col-heading">Identify the Details</div>
+                        <div class="col-panel" id="panelSingle"></div>
+                    </div>
+
+                    <div class="score-display" id="scoreDisplay"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <footer class="module-footer">
+            <p class="footer-text">CompTIA A+ Core 1 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
+        </footer>
+    </div>
+
+<script>
+/* Reusable option pools shared across scenarios (correct answer varies per scenario) */
+const PRINTER_TYPE_OPTIONS = [
+    { v:'laser', t:'Laser' },
+    { v:'inkjet', t:'Inkjet' },
+    { v:'thermal', t:'Thermal' },
+    { v:'impact', t:'Impact' }
+];
+
+const MEDIA_OPTIONS = [
+    { v:'toner', t:'Toner Cartridge' },
+    { v:'ink', t:'Ink Cartridge' },
+    { v:'thermal-paper', t:'Thermal Paper' },
+    { v:'multipart', t:'Carbon Paper' }
+];
+
+const CABLE_OPTIONS = [
+    { v:'usb-b', t:'USB Type-B' },
+    { v:'usb-a', t:'USB Type-A' },
+    { v:'ethernet', t:'Ethernet' },
+    { v:'serial', t:'Serial (RS-232)' },
+    { v:'parallel', t:'Parallel' }
+];
+
+const SCENARIOS = [
+
+/* ── SCENARIO 0: INKJET PAPER JAM ── */
+{
+    title: 'Print Job Repeatedly Jams at the Same Point — Front Desk',
+    text: 'A ticket has been submitted for the printer at the <strong>front desk</strong>. Staff report that print jobs jam at the <strong>same point in the paper path</strong> every few pages.',
+    ticket: 'Ticket #32011 &nbsp;|&nbsp; Priority: Medium &nbsp;|&nbsp; Status: Open &nbsp;|&nbsp; Changes: None',
+    printerType: 'inkjet',
+    impactLabel: 'Impact',
+    media: 'ink',
+    cable: 'usb-b',
+    solution: {
+        correct: 'b',
+        options: [
+            { v:'a', t:'Replace the ink cartridges' },
+            { v:'b', t:'Inspect the paper path for debris or obstruction and check the feed rollers for wear' },
+            { v:'c', t:'Reinstall the print driver' },
+            { v:'d', t:'Replace the toner cartridge' },
+            { v:'e', t:'Reconfigure the network address' }
+        ]
+    }
+},
+
+/* ── SCENARIO 1: LOOSE THERMAL PRINTER CONNECTOR ── */
+{
+    title: 'Receipt Printer Intermittently Stops Mid-Transaction — Register 3',
+    text: 'Cashiers report that the receipt printer at <strong>Register 3</strong> occasionally stops producing output mid-transaction, then resumes normally after the printer is nudged or the cable is bumped.',
+    ticket: 'Ticket #32034 &nbsp;|&nbsp; Priority: High &nbsp;|&nbsp; Status: Open &nbsp;|&nbsp; Changes: None',
+    printerType: 'thermal',
+    impactLabel: 'Dot-Matrix',
+    media: 'thermal-paper',
+    cable: 'serial',
+    solution: {
+        correct: 'c',
+        options: [
+            { v:'a', t:'Replace the printhead assembly' },
+            { v:'b', t:'Replace the paper roll' },
+            { v:'c', t:'Reseat or replace the data cable at both ends' },
+            { v:'d', t:'Reinstall the print driver' },
+            { v:'e', t:'Replace the power supply unit' }
+        ]
+    }
+},
+
+/* ── SCENARIO 2: FAILED LASER PRINTER DRIVER ── */
+{
+    title: 'Print Jobs From One Workstation Print Garbled Text — Workstation 22',
+    text: 'A ticket has been opened for <strong>Workstation 22</strong>. Print output specific to this one computer now shows strings of nonsensical characters instead of correct text, beginning immediately after a recent operating system update. The shared printer works normally when other computers on the network print to it.',
+    ticket: 'Ticket #32056 &nbsp;|&nbsp; Priority: Medium &nbsp;|&nbsp; Status: Open &nbsp;|&nbsp; Changes: OS Update (Workstation 22 only)',
+    printerType: 'laser',
+    impactLabel: 'Impact',
+    media: 'toner',
+    cable: 'ethernet',
+    solution: {
+        correct: 'a',
+        options: [
+            { v:'a', t:'Reinstall or update the print driver on the affected workstation' },
+            { v:'b', t:'Replace the toner cartridge' },
+            { v:'c', t:'Replace the network cable' },
+            { v:'d', t:'Clean the imaging drum' },
+            { v:'e', t:'Replace the fuser assembly' }
+        ]
+    }
+},
+
+/* ── SCENARIO 3: INK SMUDGING ── */
+{
+    title: 'Printed Photos Smear When Touched — Design Office',
+    text: 'The design team reports that printed photos come out with color that <strong>streaks and smears if touched shortly after printing</strong>.',
+    ticket: 'Ticket #32078 &nbsp;|&nbsp; Priority: Low &nbsp;|&nbsp; Status: Open &nbsp;|&nbsp; Changes: None',
+    printerType: 'inkjet',
+    impactLabel: 'Dot-Matrix',
+    media: 'ink',
+    cable: 'usb-b',
+    solution: {
+        correct: 'd',
+        options: [
+            { v:'a', t:'Replace the toner cartridge' },
+            { v:'b', t:'Replace the fuser assembly' },
+            { v:'c', t:'Reinstall the print driver' },
+            { v:'d', t:'Allow more drying time before handling prints and confirm the correct paper/photo setting is selected' },
+            { v:'e', t:'Replace the thermal paper roll' }
+        ]
+    }
+},
+
+/* ── SCENARIO 4: DRIED UP INK ── */
+{
+    title: 'Faded, Streaky Output After Weeks of Disuse — Home Office',
+    text: 'A remote employee reports that a printer left unused for several weeks now produces <strong>faint, streaky, incomplete output</strong>.',
+    ticket: 'Ticket #32091 &nbsp;|&nbsp; Priority: Low &nbsp;|&nbsp; Status: Open &nbsp;|&nbsp; Changes: None',
+    printerType: 'inkjet',
+    impactLabel: 'Impact',
+    media: 'ink',
+    cable: 'usb-b',
+    solution: {
+        correct: 'e',
+        options: [
+            { v:'a', t:'Replace the fuser assembly' },
+            { v:'b', t:'Replace the toner cartridge' },
+            { v:'c', t:'Reinstall the network driver' },
+            { v:'d', t:'Replace the thermal printhead' },
+            { v:'e', t:'Run the manufacturer\u2019s nozzle-cleaning cycle, replacing cartridges if that does not resolve it' }
+        ]
+    }
+},
+
+/* ── SCENARIO 5: LASER ERRANT LINES ── */
+{
+    title: 'Repeating Vertical Line on Every Page — Copy Room',
+    text: 'A ticket has been submitted for the shared printer in the <strong>copy room</strong>. Every page produced shows the <strong>same vertical streak in the same position</strong>, regardless of the document printed.',
+    ticket: 'Ticket #32104 &nbsp;|&nbsp; Priority: Medium &nbsp;|&nbsp; Status: Open &nbsp;|&nbsp; Changes: None',
+    printerType: 'laser',
+    impactLabel: 'Dot-Matrix',
+    media: 'toner',
+    cable: 'ethernet',
+    solution: {
+        correct: 'b',
+        options: [
+            { v:'a', t:'Replace the ink cartridge' },
+            { v:'b', t:'Replace the worn or damaged imaging drum' },
+            { v:'c', t:'Replace the thermal paper' },
+            { v:'d', t:'Reinstall the print driver' },
+            { v:'e', t:'Replace the power cable' }
+        ]
+    }
+},
+
+/* ── SCENARIO 6: LASER OUT OF TONER ── */
+{
+    title: 'Pages Print Progressively Lighter Until Blank — Accounting',
+    text: 'The accounting department reports that pages have grown <strong>progressively fainter over the past week</strong>, with the most recent pages nearly blank.',
+    ticket: 'Ticket #32119 &nbsp;|&nbsp; Priority: Medium &nbsp;|&nbsp; Status: Open &nbsp;|&nbsp; Changes: None',
+    printerType: 'laser',
+    impactLabel: 'Impact',
+    media: 'toner',
+    cable: 'ethernet',
+    solution: {
+        correct: 'a',
+        options: [
+            { v:'a', t:'Replace the depleted toner cartridge' },
+            { v:'b', t:'Replace the ink cartridge' },
+            { v:'c', t:'Clean the paper feed rollers' },
+            { v:'d', t:'Reinstall the print driver' },
+            { v:'e', t:'Replace the power supply unit' }
+        ]
+    }
+}
+
+]; /* end SCENARIOS */
+
+/* ============================================================
+   STATE & ROTATION
+   ============================================================ */
+let scenarioOrder = [];
+let scenarioIdx = -1;
+let current = null;
+
+function shuffle(a) {
+    const b = [...a];
+    for (let i = b.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [b[i], b[j]] = [b[j], b[i]];
+    }
+    return b;
+}
+
+function nextScenario() {
+    scenarioIdx++;
+    if (scenarioIdx >= scenarioOrder.length) {
+        scenarioOrder = shuffle([...Array(SCENARIOS.length).keys()]);
+        scenarioIdx = 0;
+    }
+    current = SCENARIOS[scenarioOrder[scenarioIdx]];
+}
+
+function buildMenu(id, label, pool, correctValue, placeholder) {
+    const shuffledOptions = shuffle(pool);
+    const grp = document.createElement('div');
+    grp.className = 'menu-group';
+    grp.id = `grp-${id}`;
+    grp.dataset.correct = correctValue;
+    grp.innerHTML = `
+        <div class="menu-label">${label}</div>
+        <select id="sel-${id}">
+            <option value="" selected disabled>${placeholder}</option>
+            ${shuffledOptions.map(o => `<option value="${o.v}">${o.t}</option>`).join('')}
+        </select>
+    `;
+    return grp;
+}
+
+function render() {
+    const box = document.getElementById('scenarioBox');
+    box.innerHTML = `
+        <div class="scenario-label">Help Desk Ticket &mdash; Scenario</div>
+        <div class="scenario-title">${current.title}</div>
+        <p class="scenario-text">${current.text}</p>
+        <span class="ticket-detail">${current.ticket}</span>
+    `;
+
+    const panel = document.getElementById('panelSingle');
+    panel.innerHTML = '';
+    const printerTypeOptions = PRINTER_TYPE_OPTIONS.map(o =>
+        o.v === 'impact' ? { v: 'impact', t: current.impactLabel } : o
+    );
+    panel.appendChild(buildMenu('type', 'Printer Type:', printerTypeOptions, current.printerType, '&mdash; Select &mdash;'));
+    panel.appendChild(buildMenu('solution', 'Potential Solution:', current.solution.options, current.solution.correct, '&mdash; Select &mdash;'));
+    panel.appendChild(buildMenu('media', 'Print Media:', MEDIA_OPTIONS, current.media, '&mdash; Select &mdash;'));
+    panel.appendChild(buildMenu('cable', 'Typical Print Cable:', CABLE_OPTIONS, current.cable, '&mdash; Select &mdash;'));
+
+    document.getElementById('scoreDisplay').innerHTML = '';
+
+    document.getElementById('pbqBody').classList.remove('fade-in');
+    void document.getElementById('pbqBody').offsetWidth;
+    document.getElementById('pbqBody').classList.add('fade-in');
+}
+
+function checkScore() {
+    let correct = 0;
+    let answered = 0;
+    const ids = ['type', 'solution', 'media', 'cable'];
+    const total = ids.length;
+
+    ids.forEach(id => {
+        const sel = document.getElementById(`sel-${id}`);
+        const grp = document.getElementById(`grp-${id}`);
+        grp.classList.remove('score-correct', 'score-incorrect', 'score-empty');
+        if (sel.value === '') {
+            grp.classList.add('score-empty');
+        } else {
+            answered++;
+            if (sel.value === grp.dataset.correct) {
+                grp.classList.add('score-correct');
+                correct++;
+            } else {
+                grp.classList.add('score-incorrect');
+            }
+        }
+    });
+
+    const d = document.getElementById('scoreDisplay');
+    if (correct === total) d.innerHTML = `<span class="score-perfect">Perfect! ${correct}/${total} &mdash; outstanding work.</span>`;
+    else if (correct >= 3) d.innerHTML = `<span class="score-partial">Score: ${correct}/${total} &mdash; almost there.</span>`;
+    else if (correct >= 2) d.innerHTML = `<span class="score-partial">Score: ${correct}/${total} &mdash; good effort, review the clues.</span>`;
+    else if (answered > 0) d.innerHTML = `<span class="score-low">Score: ${correct}/${total} &mdash; give it another try.</span>`;
+    else d.innerHTML = `<span class="score-low">Make your selections first, then check your score.</span>`;
+}
+
+function reset() {
+    nextScenario();
+    render();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    scenarioOrder = shuffle([...Array(SCENARIOS.length).keys()]);
+    nextScenario();
+    render();
+    document.getElementById('resetBtn').addEventListener('click', reset);
+    document.getElementById('checkBtn').addEventListener('click', checkScore);
+});
+</script>
+</body>
+</html>
