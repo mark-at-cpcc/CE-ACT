@@ -419,7 +419,7 @@
             <div class="tech-box">
                 <div class="callout-title">Technical Overview</div>
                 <div class="callout-content">
-                    <p>This section walks through the core concepts for Unit 4 before you hit the full chapter reading in 4.4: virtual networking (VLANs and VPNs), network services, wireless networking technologies, SOHO network installation and configuration, and network troubleshooting.</p>
+                    <p>This section walks through the core concepts for Unit 4 before you hit the full chapter reading in 4.4, in the order they're covered here: wireless media, network services, SOHO network installation and configuration, network troubleshooting, and virtual networking (VLANs and VPNs).</p>
                 </div>
             </div>
 
@@ -430,40 +430,49 @@
                 </div>
             </div>
 
-            <h2>Virtual Networking</h2>
+            <h2>Wireless Media</h2>
 
-            <p>Not every network boundary is a physical cable. Modern networks are frequently divided and protected using <strong>virtual</strong> constructs that live in software and hardware configuration rather than in a separate set of wires.</p>
+            <p>Unit 3 focused on wired media &mdash; the physical cabling that carries a signal from one point to another. This unit shifts to wireless media and to logical networking (how traffic is organized, addressed, and routed) rather than physical networking (the actual cables and connectors carrying it).</p>
 
-            <div class="definition">
-                <div class="definition-term">VLAN (Virtual Local Area Network)</div>
-                <p class="definition-text">A VLAN divides a single physical switch into multiple logical broadcast domains. Devices on different VLANs cannot communicate directly, even if they're plugged into the same physical switch, unless a router or Layer 3 device explicitly routes traffic between them. This is how an organization keeps, say, guest traffic and accounting traffic on the same hardware but fully separated from each other.</p>
-            </div>
+            <p>Wireless media carries signals as radio waves through the air instead of over a cable. This unit covers the wireless standards and technologies &mdash; from short-range to satellite &mdash; a technician needs to identify and configure.</p>
 
-            <div class="key-concept">
-                <h4>Why Segment with VLANs?</h4>
-                <p>VLANs reduce broadcast traffic (smaller broadcast domains mean less noise for every device to process), improve security (a compromised device on one VLAN can't directly reach devices on another), and organize traffic by function or department rather than by physical location. A single managed switch can host dozens of VLANs, each behaving as if it were its own separate physical switch.</p>
-            </div>
-
-            <div class="definition">
-                <div class="definition-term">VPN (Virtual Private Network)</div>
-                <p class="definition-text">A VPN creates an encrypted tunnel across an untrusted network &mdash; almost always the public internet &mdash; so that traffic inside the tunnel is protected from anyone intercepting it along the way.</p>
-            </div>
+            <h3>Wireless Media</h3>
 
             <div class="table-container">
                 <table>
-                    <thead><tr><th>VPN Type</th><th>What It Connects</th><th>Typical Use</th></tr></thead>
+                    <thead><tr><th>Technology</th><th>Typical Range</th><th>Common Use</th><th>Real-World Examples</th></tr></thead>
                     <tbody>
-                        <tr><td>Client-to-site</td><td>A single remote user's device to an organization's internal network</td><td>An employee working from home reaching office resources</td></tr>
-                        <tr><td>Site-to-site</td><td>Two entire networks to each other</td><td>Connecting a branch office network to the main office network permanently</td></tr>
+                        <tr><td>802.11 (Wi-Fi)</td><td>Tens of meters indoors</td><td>General wireless networking for computers, phones, and other devices</td><td>A home Wi-Fi router; an iPhone or MacBook connecting to home Wi-Fi</td></tr>
+                        <tr><td>Bluetooth</td><td>A few meters to about 10 meters</td><td>Pairing peripherals &mdash; headsets, keyboards, mice, speakers</td><td>AirPods pairing to an iPhone; an Apple Watch pairing to an iPhone</td></tr>
+                        <tr><td>NFC (Near Field Communication)</td><td>A few centimeters</td><td>Contactless payment, quick device pairing</td><td>Apple Pay or Samsung Pay at a checkout terminal</td></tr>
+                        <tr><td>RFID (Radio Frequency Identification)</td><td>Centimeters to several meters, depending on tag type</td><td>Inventory tracking, access badges</td><td>A store's inventory security tags; a tap-to-enter employee badge</td></tr>
+                        <tr><td>Cellular (3G/4G/5G)</td><td>Kilometers, dependent on tower proximity</td><td>Mobile phone data and voice, tethering, mobile hotspots</td><td>An iPhone's Personal Hotspot; streaming video over 5G on a phone</td></tr>
+                        <tr><td>Satellite</td><td>Thousands of kilometers (device to orbiting satellite)</td><td>Internet access and communication in remote or rural areas without other infrastructure</td><td>An iPhone's Emergency SOS via satellite; a home satellite internet dish</td></tr>
                     </tbody>
                 </table>
             </div>
 
-            <div class="callout callout-info">
-                <div class="callout-title">VLANs vs. VPNs, in One Line</div>
-                <div class="callout-content">
-                    <p>A VLAN separates traffic that's already inside your building. A VPN protects traffic that has to travel outside your building. They solve different problems and are frequently used together.</p>
-                </div>
+            <div class="definition">
+                <div class="definition-term">802.11 Frequencies and Channels</div>
+                <p class="definition-text">Wi-Fi operates primarily in the 2.4 GHz and 5 GHz bands, with newer standards adding 6 GHz. Lower frequencies (2.4 GHz) travel farther and penetrate walls better but are more crowded and slower; higher frequencies (5 GHz and 6 GHz) offer more bandwidth and less interference at the cost of shorter range. Each band is divided into channels, and choosing a channel with less overlap from neighboring networks reduces interference.</p>
+            </div>
+
+            <h3>802.11 Protocol</h3>
+
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Type</th><th>2.4 GHz</th><th>5 GHz</th><th>6 GHz</th><th>Distance</th><th>Speed</th></tr></thead>
+                    <tbody>
+                        <tr><td>802.11b (Wi-Fi 1)</td><td>&#10003;</td><td>&mdash;</td><td>&mdash;</td><td>Long</td><td>Low</td></tr>
+                        <tr><td>802.11a (Wi-Fi 2)</td><td>&mdash;</td><td>&#10003;</td><td>&mdash;</td><td>Short</td><td>Intermediate</td></tr>
+                        <tr><td>802.11g (Wi-Fi 3)</td><td>&#10003;</td><td>&mdash;</td><td>&mdash;</td><td>Long</td><td>Intermediate</td></tr>
+                        <tr><td>802.11n (Wi-Fi 4)</td><td>&#10003;</td><td>&#10003;</td><td>&mdash;</td><td>Long</td><td>Fast</td></tr>
+                        <tr><td>802.11ac (Wi-Fi 5)</td><td>&mdash;</td><td>&#10003;</td><td>&mdash;</td><td>Short</td><td>Fast</td></tr>
+                        <tr><td>802.11ax (Wi-Fi 6)</td><td>&#10003;</td><td>&#10003;</td><td>&mdash;</td><td>Long</td><td>Fast</td></tr>
+                        <tr><td>802.11ax (Wi-Fi 6E)</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td><td>Long</td><td>Fast</td></tr>
+                        <tr><td>802.11be (Wi-Fi 7)</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td><td>Long</td><td>Fast</td></tr>
+                    </tbody>
+                </table>
             </div>
 
             <h2>Network Services</h2>
@@ -473,18 +482,19 @@
             <div class="definition">
                 <div class="definition-term">DNS (Domain Name System)</div>
                 <p class="definition-text">DNS translates human-readable domain names (like a website address) into the IP addresses computers actually use to communicate. Without DNS, every device on the internet would need to be reached by memorized IP address instead of a name.</p>
+                <p class="definition-text">DNS is like the phone book for the internet. Just as a phone book lets you look up a person's name to find their phone number instead of memorizing every number in town, DNS lets you type a name (like a website address) and get back the numeric IP address behind it &mdash; so people never have to memorize strings of numbers to reach the sites and services they use every day.</p>
             </div>
 
             <div class="table-container">
                 <table>
-                    <thead><tr><th>DNS Record</th><th>Purpose</th></tr></thead>
+                    <thead><tr><th>DNS Record</th><th>Purpose</th><th>Simplified</th></tr></thead>
                     <tbody>
-                        <tr><td>A</td><td>Maps a name to an IPv4 address</td></tr>
-                        <tr><td>AAAA</td><td>Maps a name to an IPv6 address</td></tr>
-                        <tr><td>CNAME</td><td>Maps an alias name to another name (a canonical name)</td></tr>
-                        <tr><td>MX</td><td>Identifies the mail server responsible for a domain</td></tr>
-                        <tr><td>TXT</td><td>Holds arbitrary text, commonly used for domain verification</td></tr>
-                        <tr><td>DKIM / SPF / DMARC</td><td>Email authentication records that help prevent spoofed or spam email claiming to be from your domain</td></tr>
+                        <tr><td>A</td><td>Maps a name to an IPv4 address</td><td>The listing itself &mdash; the name and its number</td></tr>
+                        <tr><td>AAAA</td><td>Maps a name to an IPv6 address</td><td>The same listing, just a newer, longer phone number format</td></tr>
+                        <tr><td>CNAME</td><td>Maps an alias name to another name (a canonical name)</td><td>A "see also" entry pointing to another listing</td></tr>
+                        <tr><td>MX</td><td>Identifies the mail server responsible for a domain</td><td>The listing for where a domain's mail gets delivered</td></tr>
+                        <tr><td>TXT</td><td>Holds arbitrary text, commonly used for domain verification</td><td>A sticky note attached to the listing, proving who it belongs to</td></tr>
+                        <tr><td>DKIM / SPF / DMARC</td><td>Email authentication records that help prevent spoofed or spam email claiming to be from your domain</td><td>Caller ID checks that stop someone from faking the listing's number</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -495,6 +505,25 @@
             </div>
 
             <div class="key-concept">
+                <h4>The DHCP Process: DORA</h4>
+                <p>Every time a device joins a network and needs an address, it goes through a four-step exchange with the DHCP server known by the acronym <strong>DORA</strong>:</p>
+                <ul>
+                    <li><strong>Discover</strong> &mdash; the joining device broadcasts a request to the entire local network, asking "Is there a DHCP server out there?" It doesn't know the server's address yet, so this message goes to everyone.</li>
+                    <li><strong>Offer</strong> &mdash; a DHCP server that hears the request responds directly to the device with an offer: a specific IP address, along with the subnet mask, default gateway, and DNS server it would provide.</li>
+                    <li><strong>Request</strong> &mdash; the device replies, formally requesting that specific offered address. (On a network with more than one DHCP server, this step also tells every other server that its offer was not accepted.)</li>
+                    <li><strong>Acknowledge</strong> &mdash; the server confirms the assignment, and the device configures itself with the address and begins using the network.</li>
+                </ul>
+                <p>The Leasing Process: an assigned address is not permanent &mdash; it is <strong>leased</strong> for a set period of time. A common default lease length is <strong>24 hours</strong>, but that duration is configurable and is often shortened in highly transient environments where devices come and go constantly &mdash; a busy mall's guest Wi-Fi, for example, might use a lease as short as <strong>30 minutes</strong> so addresses free up quickly for the next wave of visitors. As a lease approaches its expiration, the device attempts to renew it directly with the server that issued it, well before time runs out. If the device is renewed successfully, the same address continues uninterrupted; if the original server can't be reached, the device eventually restarts the full DORA process to obtain a new lease.</p>
+            </div>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">Important Point</div>
+                <div class="callout-content">
+                    <p>Remember APIPA from the previous unit? This is exactly where it comes back in. If a device is set to obtain its address dynamically and no DHCP server answers its Discover broadcast, the DORA process never completes &mdash; and Windows doesn't just leave the device with no address at all. Instead, it automatically self-assigns an <strong>APIPA</strong> address in the 169.254.0.0/16 range so the device can still communicate with other APIPA-assigned devices on the same local segment, even though it has no real network or internet access. Seeing a 169.254.x.x address on a Windows device is one of the clearest signs a technician will encounter that DHCP failed somewhere along the way.</p>
+                </div>
+            </div>
+
+            <div class="key-concept">
                 <h4>Other Core Services You Should Recognize</h4>
                 <ul>
                     <li><strong>File and print servers</strong> &mdash; centralize storage and shared printer access for a network of users.</li>
@@ -502,31 +531,9 @@
                     <li><strong>Web servers</strong> &mdash; host and serve websites and web applications.</li>
                     <li><strong>Proxy servers</strong> &mdash; sit between clients and the internet, filtering, caching, or logging traffic.</li>
                     <li><strong>Load balancers</strong> &mdash; spread incoming traffic across multiple servers so no single server is overwhelmed.</li>
-                    <li><strong>Syslog</strong> &mdash; a standard for collecting log messages from network devices in one central place.</li>
-                    <li><strong>Spam gateways</strong> &mdash; filter incoming email for spam and malicious content before it reaches a mail server.</li>
+                    <li><strong>Syslog Servers</strong> &mdash; a centralized system that receives and stores log messages sent from routers, switches, firewalls, and other network devices, giving a technician one place to review activity and troubleshoot issues instead of checking each device individually.</li>
                     <li><strong>SCADA / legacy / embedded / IoT devices</strong> &mdash; specialized and often older systems that still need to be identified and secured on a modern network.</li>
                 </ul>
-            </div>
-
-            <h2>Wireless Networking Technologies</h2>
-
-            <p>Wireless media carries signals as radio waves through the air instead of over a cable. This unit covers the wireless standards and short-range technologies a technician needs to identify and configure.</p>
-
-            <div class="table-container">
-                <table>
-                    <thead><tr><th>Technology</th><th>Typical Range</th><th>Common Use</th></tr></thead>
-                    <tbody>
-                        <tr><td>802.11 (Wi-Fi)</td><td>Tens of meters indoors</td><td>General wireless networking for computers, phones, and other devices</td></tr>
-                        <tr><td>Bluetooth</td><td>A few meters to about 10 meters</td><td>Pairing peripherals &mdash; headsets, keyboards, mice, speakers</td></tr>
-                        <tr><td>NFC (Near Field Communication)</td><td>A few centimeters</td><td>Contactless payment, quick device pairing</td></tr>
-                        <tr><td>RFID (Radio Frequency Identification)</td><td>Centimeters to several meters, depending on tag type</td><td>Inventory tracking, access badges</td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="definition">
-                <div class="definition-term">802.11 Frequencies and Channels</div>
-                <p class="definition-text">Wi-Fi operates primarily in the 2.4 GHz and 5 GHz bands, with newer standards adding 6 GHz. Lower frequencies (2.4 GHz) travel farther and penetrate walls better but are more crowded and slower; higher frequencies (5 GHz and 6 GHz) offer more bandwidth and less interference at the cost of shorter range. Each band is divided into channels, and choosing a channel with less overlap from neighboring networks reduces interference.</p>
             </div>
 
             <h2>Installing and Configuring a SOHO Network</h2>
@@ -557,14 +564,14 @@
 
             <div class="table-container">
                 <table>
-                    <thead><tr><th>Symptom</th><th>What It Often Means</th></tr></thead>
+                    <thead><tr><th>Symptom</th><th>What It Often Means</th><th>Possible Solutions</th></tr></thead>
                     <tbody>
-                        <tr><td>Lack of connectivity</td><td>Cable, port, driver, or configuration failure somewhere along the path</td></tr>
-                        <tr><td>Intermittent wireless connection</td><td>Interference, weak signal, or an overloaded access point</td></tr>
-                        <tr><td>High latency</td><td>Congestion, routing inefficiency, or distance to the destination</td></tr>
-                        <tr><td>High jitter</td><td>Inconsistent delay between packets &mdash; noticeable as choppy audio or video in real-time applications</td></tr>
-                        <tr><td>Port flapping</td><td>A switch port repeatedly going up and down, often from a bad cable or failing NIC</td></tr>
-                        <tr><td>Poor VoIP quality</td><td>Usually a jitter or bandwidth problem rather than a simple connectivity failure</td></tr>
+                        <tr><td>Lack of connectivity</td><td>Cable, port, driver, or configuration failure somewhere along the path</td><td><ul class="styled-list"><li>Check that the cable is fully seated at both ends</li><li>Try a known-good cable</li><li>Confirm the link light on the NIC and switch port</li><li>Verify the adapter is enabled in Device Manager</li></ul></td></tr>
+                        <tr><td>Intermittent wireless connection</td><td>Interference, weak signal, or an overloaded access point</td><td><ul class="styled-list"><li>Move closer to the access point</li><li>Switch to a less congested channel or band</li><li>Check for nearby devices (microwaves, cordless phones) that could be causing interference</li></ul></td></tr>
+                        <tr><td>High latency</td><td>Congestion, routing inefficiency, or distance to the destination</td><td><ul class="styled-list"><li>Run a ping test to compare local versus remote response times</li><li>Check for heavy traffic or downloads competing for bandwidth</li><li>Try a wired connection if currently on Wi-Fi</li></ul></td></tr>
+                        <tr><td>High jitter</td><td>Inconsistent delay between packets &mdash; noticeable as choppy audio or video in real-time applications</td><td><ul class="styled-list"><li>Move real-time traffic (calls, video) to a wired connection where possible</li><li>Close bandwidth-heavy background applications</li><li>Check for a congested or overloaded network segment</li></ul></td></tr>
+                        <tr><td>Port flapping</td><td>A switch port repeatedly going up and down, often from a bad cable or failing NIC</td><td><ul class="styled-list"><li>Swap the cable first</li><li>Test the device on a different switch port to isolate whether the cable, the port, or the device's NIC is at fault</li></ul></td></tr>
+                        <tr><td>Poor VoIP quality</td><td>Usually a jitter or bandwidth problem rather than a simple connectivity failure</td><td><ul class="styled-list"><li>Check for jitter and available bandwidth first rather than assuming a basic connectivity issue</li><li>Move the call to a wired connection if it's currently wireless</li></ul></td></tr>
                     </tbody>
                 </table>
             </div>
@@ -572,6 +579,64 @@
             <div class="key-concept">
                 <h4>Latency vs. Jitter</h4>
                 <p><strong>Latency</strong> is how long it takes a packet to travel from source to destination &mdash; a single delay measurement. <strong>Jitter</strong> is the variation in that delay from one packet to the next. A connection can have high latency but low jitter (consistently slow, but predictable), or low latency but high jitter (usually fast, but unpredictable) &mdash; and it's jitter, not raw latency, that tends to make voice and video calls sound choppy.</p>
+            </div>
+
+            <h2>Virtual Networking</h2>
+
+            <p>Not every network boundary is a physical cable. Modern networks are frequently divided and protected using <strong>virtual</strong> constructs that live in software and hardware configuration rather than in a separate set of wires.</p>
+
+            <p>On a typical LAN with no VLANs configured, every host is part of one single network. Every device can communicate with every other device, and every device sees the broadcast traffic every other device sends &mdash; there's no separation at all. Layer 3 network switches ship from the factory with every port assigned to <strong>VLAN 1</strong>, the default VLAN, which is exactly this flat, everyone-sees-everyone arrangement. A technician can reconfigure individual ports to belong to a different VLAN instead &mdash; for example, moving a set of ports onto <strong>VLAN 10</strong> &mdash; and from that point on, only other ports also assigned to VLAN 10 can communicate with them directly. A device on VLAN 10 and a device still on VLAN 1 can no longer see each other's traffic or talk to each other without a router or Layer 3 device routing between the two VLANs.</p>
+
+            <div class="definition">
+                <div class="definition-term">VLAN (Virtual Local Area Network)</div>
+                <p class="definition-text">A VLAN divides a single physical switch into multiple logical broadcast domains. Devices on different VLANs cannot communicate directly, even if they're plugged into the same physical switch, unless a router or Layer 3 device explicitly routes traffic between them. This is how an organization keeps, say, guest traffic and accounting traffic on the same hardware but fully separated from each other.</p>
+            </div>
+
+            <div class="key-concept">
+                <h4>Why Segment with VLANs?</h4>
+                <p>VLANs reduce broadcast traffic (smaller broadcast domains mean less noise for every device to process), improve security (a compromised device on one VLAN can't directly reach devices on another), and organize traffic by function or department rather than by physical location. A single managed switch can host dozens of VLANs, each behaving as if it were its own separate physical switch. These smaller broadcast domains are known as <strong>subnets</strong> &mdash; each VLAN typically corresponds to its own subnet, with its own range of IP addresses.</p>
+                <p>For example, a single office LAN might be divided into four job-specific VLANs:</p>
+                <ul>
+                    <li><strong>VLAN 10 &mdash; Accounting:</strong> keeps financial systems and records isolated from the rest of the office.</li>
+                    <li><strong>VLAN 20 &mdash; Sales and Marketing:</strong> separates day-to-day staff traffic from more sensitive departments.</li>
+                    <li><strong>VLAN 30 &mdash; Servers/IT:</strong> isolates backend infrastructure so only authorized traffic reaches it.</li>
+                    <li><strong>VLAN 40 &mdash; Guest Wi-Fi:</strong> gives visitors internet access with no path at all into any internal resource.</li>
+                </ul>
+            </div>
+
+            <h2>Remote Access Technologies</h2>
+
+            <div class="definition">
+                <div class="definition-term">VPN (Virtual Private Network)</div>
+                <p class="definition-text">A VPN creates an encrypted tunnel across an untrusted network &mdash; almost always the public internet &mdash; so that traffic inside the tunnel is protected from anyone intercepting it along the way.</p>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>VPN Type</th><th>What It Connects</th><th>Typical Use</th></tr></thead>
+                    <tbody>
+                        <tr><td>Client-to-site</td><td>A single remote user's device to an organization's internal network</td><td>An employee working from home reaching office resources</td></tr>
+                        <tr><td>Site-to-site</td><td>Two entire networks to each other</td><td>Connecting a branch office network to the main office network permanently</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="callout callout-info">
+                <div class="callout-title">VLANs vs. VPNs, in One Line</div>
+                <div class="callout-content">
+                    <p>A VLAN separates traffic that's already inside a LAN &mdash; VLAN traffic cannot be routed onto the internet. A VPN protects traffic coming from the WAN onto the LAN. So one protects individualized traffic on a LAN, and the other protects remote traffic tunneled in from the WAN onto the LAN.</p>
+                </div>
+            </div>
+
+            <div class="definition">
+                <div class="definition-term">SSH (Secure Shell)</div>
+                <p class="definition-text">SSH is an encrypted protocol that gives a technician a remote command-line session with a device, over TCP port 22 by default. Once connected, the technician types commands directly into that remote device exactly as if they were sitting in front of it, without ever leaving their own desk.</p>
+            </div>
+
+            <div class="key-concept">
+                <h4>Why SSH Matters for Core Infrastructure</h4>
+                <p>Servers, routers, switches, and other critical hosts are frequently kept in a locked server room or a remote data center, sometimes hundreds of miles from the technician managing them. SSH is the standard way a technician reaches those devices to configure, update, or troubleshoot them, because everything sent over the connection &mdash; including the username and password used to log in &mdash; is encrypted. That protects both the administrator's credentials and the commands being run from anyone intercepting the traffic along the way.</p>
+                <p>SSH replaced an older protocol called Telnet, which sent everything, including passwords, as plain, unencrypted text. Telnet is no longer considered acceptable for managing a production device, and SSH is the expected standard in its place.</p>
             </div>
 
         </div>
