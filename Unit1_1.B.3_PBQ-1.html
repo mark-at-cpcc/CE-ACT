@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 1 &mdash; 1.B.3 PBQ 1 | CompTIA A+ Core 1</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Sans+Pro:wght@400;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           CPCC COURSE TEMPLATE - GOLD / CHARCOAL / BLACK
+           CTS-ITS7501-80 CompTIA A+ Core 1 Training
+           ============================================ */
+
+        :root {
+            --primary-dark: #4A4A4A;
+            --primary-main: #B8962E;
+            --primary-light: #D4AF56;
+            --primary-pale: #FBF3DF;
+
+            --accent-teal: #8A6F1F;
+            --accent-teal-light: #F3E9CE;
+            --accent-orange: #A9642A;
+            --accent-orange-light: #F5E2CE;
+            --accent-purple: #6B5B3A;
+            --accent-purple-light: #EFE6D2;
+            --accent-green: #4E7A51;
+            --accent-green-light: #DCEBDD;
+
+            --alert-warning: #B8862E;
+            --alert-warning-bg: #FBF0D9;
+            --alert-danger: #A13A3A;
+            --alert-danger-bg: #F6DEDE;
+            --alert-success: #3F6E42;
+            --alert-success-bg: #DCEBDD;
+            --alert-info: #6E5B2E;
+            --alert-info-bg: #F1E9D4;
+
+            --text-black: #000000;
+            --neutral-900: #000000;
+            --neutral-700: #000000;
+            --neutral-500: #5A5A5A;
+            --neutral-300: #D9D3C4;
+            --neutral-100: #FAF8F3;
+            --white: #ffffff;
+
+            --font-heading: 'Nunito', sans-serif;
+            --font-body: 'Source Sans Pro', sans-serif;
+            --font-code: 'Fira Code', monospace;
+
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+
+            --shadow-sm: 0 1px 2px rgba(74, 74, 74, 0.08);
+            --shadow-md: 0 4px 6px rgba(74, 74, 74, 0.12);
+            --shadow-lg: 0 10px 20px rgba(74, 74, 74, 0.15);
+
+            --tile-w: 280px;
+            --tile-h: 52px;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body), 'Segoe UI', Tahoma, Verdana, sans-serif;
+            font-size: 1.0625rem; line-height: 1.7; color: var(--text-black);
+            background: linear-gradient(135deg, var(--neutral-100) 0%, var(--white) 100%);
+            min-height: 100vh; padding: var(--space-lg);
+        }
+
+        .course-container {
+            max-width: 950px; margin: 0 auto; background: var(--white);
+            border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); overflow: hidden;
+        }
+
+        .module-header {
+            background: var(--primary-main); color: var(--text-black);
+            padding: var(--space-lg) var(--space-xl); position: relative; overflow: hidden;
+        }
+        .module-label {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 0.875rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 2px; text-decoration: underline;
+            margin-bottom: var(--space-sm); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-title {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 2.25rem; font-weight: 800;
+            line-height: 1.2; margin-bottom: var(--space-md); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-subtitle { font-size: 1.125rem; max-width: 650px; position: relative; z-index: 1; color: var(--text-black); }
+
+        .toc {
+            display: flex; flex-direction: column; gap: var(--space-sm);
+            padding: var(--space-lg) var(--space-xl);
+            background: var(--primary-pale); border-bottom: 1px solid var(--neutral-300);
+        }
+        .toc-item {
+            width: 100%; text-align: left;
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 0.875rem;
+            color: var(--text-black); background: var(--white);
+            border: 2px solid var(--primary-main);
+            padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md);
+        }
+        .toc-item.current { background: var(--primary-main); }
+
+        .content-area { padding: var(--space-xl); }
+
+        h1, h2, h3, h4 { font-family: var(--font-heading), 'Segoe UI', sans-serif; color: var(--text-black); }
+        p { margin-bottom: var(--space-md); }
+        .text-muted { color: var(--neutral-500); }
+
+        .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; }
+        .callout-title { font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 1rem;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
+        .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
+
+        /* ============================================
+           PBQ WIDGET (drag-and-drop sequencing)
+           ============================================ */
+        .pbq-container {
+            border-radius: var(--radius-lg); overflow: hidden; border: 2px solid var(--primary-main);
+            margin: var(--space-lg) 0; -webkit-user-select: none; user-select: none;
+        }
+        .pbq-header {
+            display: flex; align-items: center; padding: 0.875rem 1.5rem;
+            border-bottom: 2px solid var(--primary-main); background: var(--primary-pale); gap: 1rem;
+        }
+        .header-btn {
+            font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 0.8125rem;
+            background: var(--primary-dark); color: var(--white); border: none;
+            padding: 0.5rem 1.125rem; border-radius: var(--radius-md);
+            cursor: pointer; transition: background 0.2s, transform 0.1s;
+            white-space: nowrap; letter-spacing: 0.5px; flex-shrink: 0;
+        }
+        .header-btn:hover { background: #333333; transform: translateY(-1px); }
+        .header-btn:active { transform: translateY(0); }
+        .pbq-title {
+            font-family: var(--font-heading), sans-serif; font-size: 1.1875rem; font-weight: 700;
+            color: var(--text-black); flex: 1; text-align: center;
+        }
+
+        .pbq-body { padding: 1.5rem; background: var(--white); }
+        .instruction { font-size: 1.0625rem; color: var(--text-black); text-align: center; margin-bottom: 1.5rem; line-height: 1.5; }
+
+        .columns { display: flex; gap: 1.5rem; align-items: stretch; }
+        .col-flow { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+        .col-label {
+            font-family: var(--font-heading), sans-serif; font-size: 0.75rem; font-weight: 700;
+            color: var(--neutral-500); text-transform: uppercase; letter-spacing: 1.5px;
+            margin-bottom: 0.75rem; text-align: center;
+        }
+        .flow-list { display: flex; flex-direction: column; align-items: center; justify-content: space-between; flex: 1; gap: 0; }
+
+        .flow-arrow { display: flex; justify-content: center; padding: 0.125rem 0; }
+        .flow-arrow-line { width: 2px; height: 20px; background: var(--accent-teal); position: relative; }
+        .flow-arrow-line::after {
+            content: ''; position: absolute; bottom: -5px; left: 50%; transform: translateX(-50%);
+            width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent;
+            border-top: 7px solid var(--accent-teal);
+        }
+
+        .col-pool { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+        .pool {
+            display: flex; flex-direction: column; align-items: center; gap: 0.5rem; flex: 1;
+            padding: 0.5rem; border: 2px dashed var(--neutral-300); border-radius: var(--radius-lg);
+            background: var(--neutral-100); transition: background 0.2s, border-color 0.2s; justify-content: center;
+        }
+        .pool.drag-over-pool { background: var(--accent-teal-light); border-color: var(--accent-teal); }
+
+        .step-box, .tile {
+            width: var(--tile-w); height: var(--tile-h); max-width: 100%;
+            padding: 0.375rem 0.75rem; border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center; text-align: center;
+            font-family: var(--font-heading), sans-serif; font-size: 0.8rem; font-weight: 700; line-height: 1.3;
+            position: relative; flex-shrink: 0;
+        }
+
+        .step-box {
+            background: var(--neutral-100); border: 2px solid var(--neutral-300); color: var(--neutral-500);
+            transition: border-color 0.2s, background-color 0.2s, box-shadow 0.2s, transform 0.15s;
+        }
+        .step-box .empty-text { font-weight: 700; opacity: 0.6; font-size: 0.8125rem; }
+
+        .step-box.drag-over {
+            border-color: var(--accent-teal); background: var(--accent-teal-light);
+            box-shadow: 0 0 0 4px rgba(138, 111, 31, 0.15); transform: scale(1.03);
+        }
+
+        .step-box.filled {
+            background: var(--primary-dark); color: var(--white);
+            border: 2px solid var(--primary-dark); cursor: grab; box-shadow: var(--shadow-sm);
+        }
+        .step-box.filled:hover { box-shadow: var(--shadow-md); transform: translateY(-1px); }
+        .step-box.filled:active { cursor: grabbing; }
+        .step-box.filled.dragging-out { opacity: 0.35; transform: scale(0.96); }
+
+        .step-box.score-correct   { border: 3px solid var(--accent-green) !important; box-shadow: 0 0 0 4px rgba(78,122,81,0.25) !important; }
+        .step-box.score-incorrect{ border: 3px solid var(--alert-danger) !important; box-shadow: 0 0 0 4px rgba(161,58,58,0.2) !important; }
+        .step-box.score-empty    { border: 3px solid var(--alert-danger) !important; background: var(--alert-danger-bg) !important; }
+
+        @keyframes dropFlash { 0%{filter:brightness(1)} 20%{filter:brightness(1.4)} 50%{filter:brightness(1.2)} 100%{filter:brightness(1)} }
+        .tile-flash { animation: dropFlash 0.55s ease-out; }
+
+        .tile {
+            background: var(--primary-dark); color: var(--white); border: 2px solid var(--primary-dark);
+            cursor: grab; -webkit-user-select: none; user-select: none;
+            transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+        }
+        .tile:hover { background: #333333; transform: translateY(-2px); box-shadow: var(--shadow-md); }
+        .tile:active { cursor: grabbing; transform: scale(0.97); }
+        .tile.dragging { opacity: 0.3; transform: scale(0.95); }
+
+        .touch-clone {
+            position: fixed !important; z-index: 9999 !important; pointer-events: none !important; opacity: 0.88 !important;
+            transform: scale(1.06) rotate(1.5deg) !important; box-shadow: 0 12px 30px rgba(0,0,0,0.3) !important;
+            width: var(--tile-w) !important; height: var(--tile-h) !important; max-width: 280px !important;
+        }
+
+        .score-display {
+            font-family: var(--font-heading), sans-serif; font-size: 1rem; font-weight: 700;
+            min-height: 1.5rem; text-align: center; margin-top: 1.25rem;
+        }
+        .score-display .score-perfect { color: var(--accent-green); }
+        .score-display .score-partial { color: var(--alert-warning); }
+        .score-display .score-low { color: var(--alert-danger); }
+
+        .pbq-footer-note {
+            background: var(--neutral-100); padding: 0.75rem 1.5rem; text-align: center; border-top: 1px solid var(--neutral-300);
+        }
+
+        .module-footer { background: var(--neutral-100); padding: var(--space-lg) var(--space-xl); text-align: center; border-top: 1px solid var(--neutral-300); }
+        .footer-text { font-size: 0.875rem; color: var(--neutral-500); }
+
+        @media (max-width: 768px) {
+            .module-title { font-size: 1.75rem; }
+            .content-area { padding: var(--space-lg); }
+            .columns { flex-direction: column; gap: 1.25rem; }
+            .step-box, .tile { width: 100%; max-width: 340px; font-size: 0.78rem; }
+        }
+        @media print {
+            body { background: white; padding: 0; }
+            .course-container { box-shadow: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="course-container">
+
+        <header class="module-header">
+            <div class="module-label">Unit 1 &middot; Inside the Box &middot; Section 1.B.3</div>
+            <h1 class="module-title">PBQ 1: Order the Methodology</h1>
+            <p class="module-subtitle">CompTIA A+ Core 1 - Domains 3.0 and 5.0</p>
+        </header>
+
+        <nav class="toc" id="tocNav">
+            <div class="toc-header">Table of Contents</div>
+            <div class="toc-item">1.1 &mdash; Unit Overview and Learning Objectives</div>
+            <div class="toc-item">1.2 &mdash; Unit Pre-Assessment</div>
+            <div class="toc-item">1.3 &mdash; Content Review</div>
+            <div class="toc-item">1.4 &mdash; Reading Assignment</div>
+            <div class="toc-item">1.5 &mdash; Video Assignment</div>
+            <div class="toc-item">1.6 &mdash; Classroom Labs</div>
+            <div class="toc-item">1.7 &mdash; Practice Question Set</div>
+            <div class="toc-item">1.8 &mdash; Online Labs: NETLAB</div>
+            <div class="toc-item">1.9 &mdash; Reflection Activity</div>
+            <div class="toc-item">1.10 &mdash; Unit Test</div>
+            <div class="toc-item">1.A &mdash; Acronym Test</div>
+            <div class="toc-item">1.B.1 &mdash; CompTIA Troubleshooting Concepts</div>
+            <div class="toc-item">1.B.2 &mdash; CompTIA Troubleshooting Scenarios</div>
+            <div class="toc-item current" id="tocCurrent">1.B.3 &mdash; PBQ 1</div>
+        </nav>
+        <style>
+            /* Collapsible TOC: only the current section shows until clicked */
+            nav.toc#tocNav { gap: 0; }
+            nav.toc#tocNav .toc-item {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav .toc-item.current {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                cursor: pointer;
+            }
+            nav.toc#tocNav .toc-item.current::after {
+                content: ' \25BE Click to View';
+                font-size: 0.75em;
+            }
+            nav.toc#tocNav.toc-expanded .toc-item {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                margin-bottom: var(--space-sm);
+            }
+            nav.toc#tocNav.toc-expanded .toc-item.current::after { content: ' \25B4'; }
+
+            nav.toc#tocNav .toc-header {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                font-family: var(--font-heading), 'Segoe UI', sans-serif;
+                font-weight: 700;
+                font-size: 0.875rem;
+                text-align: left;
+                color: var(--text-black);
+                text-decoration: underline;
+                background: var(--primary-main);
+                border-radius: var(--radius-md);
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav.toc-expanded .toc-header {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                padding-left: var(--space-md);
+                border-width: 2px;
+                border-style: solid;
+                border-color: var(--primary-main);
+                margin-bottom: var(--space-sm);
+            }
+        </style>
+
+        <script>
+            (function () {
+                var toc = document.getElementById('tocNav');
+                var currentItem = document.getElementById('tocCurrent');
+
+                toc.addEventListener('click', function (e) {
+                    if (toc.classList.contains('toc-expanded')) {
+                        toc.classList.remove('toc-expanded');
+                    } else if (e.target === currentItem || currentItem.contains(e.target)) {
+                        toc.classList.add('toc-expanded');
+                    }
+                });
+
+                toc.addEventListener('mouseleave', function () {
+                    toc.classList.remove('toc-expanded');
+                });
+            })();
+        </script>
+
+        <div class="content-area">
+
+            <p class="text-muted">A performance-based question, matching the drag-and-drop format used on the real CompTIA exam.</p>
+
+            <div class="callout callout-info">
+                <div class="callout-title">How This Works</div>
+                <div class="callout-content"><p>Drag each tile from the pool on the right into its correct step on the left. Some tiles are decoys &mdash; they sound like a real step but aren't worded quite right. Click <strong>Score</strong> to check your answers, and <strong>Reset</strong> to shuffle and try again.</p></div>
+            </div>
+
+            <div class="pbq-container">
+                <div class="pbq-header">
+                    <button class="header-btn" id="resetBtn">&laquo; RESET</button>
+                    <h1 class="pbq-title">Order the Troubleshooting Methodology</h1>
+                    <button class="header-btn" id="checkBtn">SCORE &raquo;</button>
+                </div>
+
+                <div class="pbq-body">
+                    <p class="instruction">Drag the steps of the troubleshooting methodology into the correct order.</p>
+
+                    <div class="columns">
+                        <div class="col-flow">
+                            <div class="col-label">Troubleshooting Methodology</div>
+                            <div class="flow-list" id="flowList">
+                                <div class="step-box" id="slot-1" data-position="1"><span class="empty-text">Step 1</span></div>
+                                <div class="flow-arrow"><div class="flow-arrow-line"></div></div>
+
+                                <div class="step-box" id="slot-2" data-position="2"><span class="empty-text">Step 2</span></div>
+                                <div class="flow-arrow"><div class="flow-arrow-line"></div></div>
+
+                                <div class="step-box" id="slot-3" data-position="3"><span class="empty-text">Step 3</span></div>
+                                <div class="flow-arrow"><div class="flow-arrow-line"></div></div>
+
+                                <div class="step-box" id="slot-4" data-position="4"><span class="empty-text">Step 4</span></div>
+                                <div class="flow-arrow"><div class="flow-arrow-line"></div></div>
+
+                                <div class="step-box" id="slot-5" data-position="5"><span class="empty-text">Step 5</span></div>
+                                <div class="flow-arrow"><div class="flow-arrow-line"></div></div>
+
+                                <div class="step-box" id="slot-6" data-position="6"><span class="empty-text">Step 6</span></div>
+                            </div>
+                        </div>
+
+                        <div class="col-pool">
+                            <div class="col-label">Available Steps</div>
+                            <div class="pool" id="pool"></div>
+                        </div>
+                    </div>
+
+                    <div class="score-display" id="scoreDisplay"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <footer class="module-footer">
+            <p class="footer-text">CompTIA A+ Core 1 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
+        </footer>
+    </div>
+
+<script>
+const ALL_TILES = [
+    { id: 'identify',         text: 'Identify the Problem' },
+    { id: 'establish-theory', text: 'Establish a Theory of Probable Cause' },
+    { id: 'test-theory',      text: 'Test the Theory to Determine Cause' },
+    { id: 'plan-implement',   text: 'Establish a Plan of Action and Implement the Solution' },
+    { id: 'verify',           text: 'Verify Full System Functionality' },
+    { id: 'document',         text: 'Document Findings, Actions, and Outcomes' },
+    { id: 'distractor-1',     text: 'Establish the Root Cause of the Problem' },
+    { id: 'distractor-2',     text: 'Establish a Theory to Resolve the Problem' },
+    { id: 'distractor-3',     text: 'Test Full System Functionality' },
+    { id: 'distractor-4',     text: 'Implement the Solution' },
+];
+
+const CORRECT = {
+    1:'identify', 2:'establish-theory', 3:'test-theory',
+    4:'plan-implement', 5:'verify', 6:'document'
+};
+
+const POSITIONS = [1,2,3,4,5,6];
+const TOTAL = 6;
+
+let state = { slots:{}, poolOrder:[], isScored:false };
+function initSlots(){ state.slots={}; POSITIONS.forEach(p=>state.slots[p]=null); }
+function shuffle(a){ const b=[...a]; for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];} return b; }
+function tile(id){ return ALL_TILES.find(t=>t.id===id); }
+
+function render(){
+    POSITIONS.forEach(pos=>{
+        const el=document.getElementById(`slot-${pos}`);
+        const tid=state.slots[pos];
+        el.classList.remove('score-correct','score-incorrect','score-empty','dragging-out');
+        if(tid){
+            el.innerHTML=`<span>${pos}. ${tile(tid).text}</span>`;
+            el.classList.add('filled');
+            el.setAttribute('draggable','true');
+            el.dataset.tileId=tid;
+        }else{
+            el.innerHTML=`<span class="empty-text">Step ${pos}</span>`;
+            el.classList.remove('filled');
+            el.removeAttribute('draggable');
+            delete el.dataset.tileId;
+        }
+    });
+
+    const poolEl=document.getElementById('pool');
+    poolEl.innerHTML='';
+    const placed=Object.values(state.slots).filter(Boolean);
+    state.poolOrder.filter(id=>!placed.includes(id)).forEach(id=>{
+        const el=document.createElement('div');
+        el.className='tile';
+        el.textContent=tile(id).text;
+        el.dataset.tileId=id;
+        el.setAttribute('draggable','true');
+        poolEl.appendChild(el);
+    });
+
+    if(!state.isScored){
+        POSITIONS.forEach(p=>{
+            document.getElementById(`slot-${p}`).classList.remove('score-correct','score-incorrect','score-empty');
+        });
+        document.getElementById('scoreDisplay').innerHTML='';
+    }
+}
+
+function flash(pos){
+    const el=document.getElementById(`slot-${pos}`);
+    el.classList.remove('tile-flash');
+    void el.offsetWidth;
+    el.classList.add('tile-flash');
+    setTimeout(()=>el.classList.remove('tile-flash'),600);
+}
+
+function placeTile(tid,target,source){
+    if(source===target)return;
+    const existing=state.slots[target];
+    if(typeof source==='number') state.slots[source]=null;
+    if(existing && typeof source==='number') state.slots[source]=existing;
+    state.slots[target]=tid;
+    state.isScored=false;
+    render();
+    flash(target);
+    if(existing && typeof source==='number') flash(source);
+}
+
+function returnToPool(pos){
+    if(typeof pos==='number'&&state.slots[pos]){
+        state.slots[pos]=null;
+        state.isScored=false;
+        render();
+    }
+}
+
+let drag=null;
+
+function setupDrag(){
+    const poolEl=document.getElementById('pool');
+
+    poolEl.addEventListener('dragstart',e=>{
+        const t=e.target.closest('.tile');
+        if(!t)return;
+        drag={tileId:t.dataset.tileId,source:'pool'};
+        t.classList.add('dragging');
+        e.dataTransfer.effectAllowed='move';
+        e.dataTransfer.setData('text/plain',t.dataset.tileId);
+    });
+    poolEl.addEventListener('dragend',e=>{
+        const t=e.target.closest('.tile');
+        if(t)t.classList.remove('dragging');
+        drag=null;
+    });
+
+    POSITIONS.forEach(pos=>{
+        const slot=document.getElementById(`slot-${pos}`);
+        slot.addEventListener('dragstart',e=>{
+            if(!state.slots[pos]){e.preventDefault();return;}
+            drag={tileId:state.slots[pos],source:pos};
+            slot.classList.add('dragging-out');
+            e.dataTransfer.effectAllowed='move';
+            e.dataTransfer.setData('text/plain',state.slots[pos]);
+        });
+        slot.addEventListener('dragend',()=>{slot.classList.remove('dragging-out');drag=null;});
+        slot.addEventListener('dragover',e=>{if(drag&&drag.source!==pos){e.preventDefault();e.dataTransfer.dropEffect='move';}});
+        slot.addEventListener('dragenter',e=>{if(drag&&drag.source!==pos){e.preventDefault();slot.classList.add('drag-over');}});
+        slot.addEventListener('dragleave',e=>{if(!slot.contains(e.relatedTarget))slot.classList.remove('drag-over');});
+        slot.addEventListener('drop',e=>{
+            e.preventDefault();slot.classList.remove('drag-over');
+            if(!drag||drag.source===pos)return;
+            placeTile(drag.tileId,pos,drag.source);drag=null;
+        });
+    });
+
+    poolEl.addEventListener('dragover',e=>{if(drag&&drag.source!=='pool'){e.preventDefault();e.dataTransfer.dropEffect='move';}});
+    poolEl.addEventListener('dragenter',e=>{if(drag&&drag.source!=='pool'){e.preventDefault();poolEl.classList.add('drag-over-pool');}});
+    poolEl.addEventListener('dragleave',e=>{if(!poolEl.contains(e.relatedTarget))poolEl.classList.remove('drag-over-pool');});
+    poolEl.addEventListener('drop',e=>{
+        e.preventDefault();poolEl.classList.remove('drag-over-pool');
+        if(!drag||drag.source==='pool')return;
+        returnToPool(drag.source);drag=null;
+    });
+}
+
+let ts={active:false,tileId:null,source:null,el:null,clone:null,sx:0,sy:0,moved:false};
+
+function setupTouch(){
+    document.addEventListener('touchstart',e=>{
+        const pt=e.target.closest('.pool .tile');
+        const fs=e.target.closest('.step-box.filled');
+        const tgt=pt||fs;
+        if(!tgt)return;
+        const tid=tgt.dataset.tileId;
+        if(!tid)return;
+        const t=e.touches[0];
+        ts={active:true,tileId:tid,el:tgt,source:pt?'pool':parseInt(fs.dataset.position),sx:t.clientX,sy:t.clientY,moved:false,clone:null};
+    },{passive:false});
+
+    document.addEventListener('touchmove',e=>{
+        if(!ts.active)return;
+        const t=e.touches[0];
+        if(!ts.moved&&Math.abs(t.clientX-ts.sx)+Math.abs(t.clientY-ts.sy)>8){
+            ts.moved=true;e.preventDefault();
+            const c=document.createElement('div');
+            c.className='tile touch-clone';
+            c.textContent=tile(ts.tileId).text;
+            c.style.left=(t.clientX-130)+'px';
+            c.style.top=(t.clientY-26)+'px';
+            document.body.appendChild(c);
+            ts.clone=c;
+            ts.el.style.opacity='0.25';
+        }
+        if(!ts.moved)return;
+        e.preventDefault();
+        if(ts.clone){ts.clone.style.left=(t.clientX-130)+'px';ts.clone.style.top=(t.clientY-26)+'px';}
+        if(ts.clone)ts.clone.style.display='none';
+        const below=document.elementFromPoint(t.clientX,t.clientY);
+        if(ts.clone)ts.clone.style.display='';
+        document.querySelectorAll('.drag-over').forEach(x=>x.classList.remove('drag-over'));
+        document.getElementById('pool').classList.remove('drag-over-pool');
+        if(below){
+            const dz=below.closest('.step-box');
+            if(dz){const p=parseInt(dz.dataset.position);if(p!==ts.source)dz.classList.add('drag-over');}
+            if(below.closest('#pool')&&ts.source!=='pool')document.getElementById('pool').classList.add('drag-over-pool');
+        }
+    },{passive:false});
+
+    document.addEventListener('touchend',e=>{
+        if(!ts.active)return;
+        document.querySelectorAll('.drag-over').forEach(x=>x.classList.remove('drag-over'));
+        document.getElementById('pool').classList.remove('drag-over-pool');
+        if(!ts.moved){cleanTouch();return;}
+        const t=e.changedTouches[0];
+        if(ts.clone)ts.clone.style.display='none';
+        const below=document.elementFromPoint(t.clientX,t.clientY);
+        if(ts.clone)ts.clone.style.display='';
+        let done=false;
+        if(below){
+            const dz=below.closest('.step-box');
+            if(dz){const p=parseInt(dz.dataset.position);if(p!==ts.source){placeTile(ts.tileId,p,ts.source);done=true;}}
+            if(!done&&below.closest('#pool')&&typeof ts.source==='number'){returnToPool(ts.source);done=true;}
+        }
+        if(!done)render();
+        cleanTouch();
+    });
+
+    document.addEventListener('touchcancel',()=>{
+        if(!ts.active)return;
+        document.querySelectorAll('.drag-over').forEach(x=>x.classList.remove('drag-over'));
+        document.getElementById('pool').classList.remove('drag-over-pool');
+        render();cleanTouch();
+    });
+}
+
+function cleanTouch(){
+    if(ts.clone&&ts.clone.parentNode)ts.clone.parentNode.removeChild(ts.clone);
+    if(ts.el)ts.el.style.opacity='';
+    ts={active:false,tileId:null,source:null,el:null,clone:null,sx:0,sy:0,moved:false};
+}
+
+function checkScore(){
+    let correct=0,filled=0;
+    POSITIONS.forEach(pos=>{
+        const el=document.getElementById(`slot-${pos}`);
+        const tid=state.slots[pos];
+        el.classList.remove('score-correct','score-incorrect','score-empty');
+        if(tid){
+            filled++;
+            el.classList.add(tid===CORRECT[pos]?'score-correct':'score-incorrect');
+            if(tid===CORRECT[pos])correct++;
+        }else{
+            el.classList.add('score-empty');
+        }
+    });
+    state.isScored=true;
+    const d=document.getElementById('scoreDisplay');
+    if(correct===TOTAL)d.innerHTML=`<span class="score-perfect">Perfect! ${correct}/${TOTAL} &mdash; outstanding work.</span>`;
+    else if(correct>=4)d.innerHTML=`<span class="score-partial">Score: ${correct}/${TOTAL} &mdash; almost there.</span>`;
+    else if(correct>=2)d.innerHTML=`<span class="score-partial">Score: ${correct}/${TOTAL} &mdash; good effort, keep refining.</span>`;
+    else if(filled>0)d.innerHTML=`<span class="score-low">Score: ${correct}/${TOTAL} &mdash; give it another try.</span>`;
+    else d.innerHTML=`<span class="score-low">Place the steps first, then check your score.</span>`;
+}
+
+function reset(){
+    initSlots();
+    state.poolOrder=shuffle(ALL_TILES.map(t=>t.id));
+    state.isScored=false;
+    document.getElementById('scoreDisplay').innerHTML='';
+    render();
+}
+
+document.addEventListener('DOMContentLoaded',()=>{
+    initSlots();
+    state.poolOrder=shuffle(ALL_TILES.map(t=>t.id));
+    render();
+    setupDrag();
+    setupTouch();
+    document.getElementById('resetBtn').addEventListener('click',reset);
+    document.getElementById('checkBtn').addEventListener('click',checkScore);
+});
+</script>
+</body>
+</html>
