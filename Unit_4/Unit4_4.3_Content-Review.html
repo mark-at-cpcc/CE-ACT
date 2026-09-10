@@ -297,7 +297,7 @@
             .content-area { padding: var(--space-lg); }
         }
     </style>
-
+</head>
 <body>
     <div class="course-container">
 
@@ -516,11 +516,30 @@
                 <p>The Leasing Process: an assigned address is not permanent &mdash; it is <strong>leased</strong> for a set period of time. A common default lease length is <strong>24 hours</strong>, but that duration is configurable and is often shortened in highly transient environments where devices come and go constantly &mdash; a busy mall's guest Wi-Fi, for example, might use a lease as short as <strong>30 minutes</strong> so addresses free up quickly for the next wave of visitors. As a lease approaches its expiration, the device attempts to renew it directly with the server that issued it, well before time runs out. If the device is renewed successfully, the same address continues uninterrupted; if the original server can't be reached, the device eventually restarts the full DORA process to obtain a new lease.</p>
             </div>
 
+            <div class="definition">
+                <div class="definition-term">DHCP Exclusions</div>
+                <p class="definition-text">A DHCP <strong>exclusion</strong> is a range of addresses inside a scope that the DHCP server is told never to hand out. The addresses still belong to the subnet, but the server skips over them when assigning leases, leaving them free for devices that are configured manually.</p>
+                <p class="definition-text">This exists because some devices need a fixed, predictable address that never changes &mdash; routers, switches, servers, and network printers are the usual examples. If those addresses stayed in the assignable pool, the DHCP server could hand one out to a random laptop and create an address conflict with the device already using it. Excluding the range prevents that collision entirely. A common setup is a scope covering an entire subnet with the first block of addresses excluded and reserved for infrastructure, and everything above that left available for DHCP clients.</p>
+                <p class="definition-text">Note the difference between an exclusion and a reservation: an <strong>exclusion</strong> tells the server not to assign those addresses at all, leaving them for manual configuration, while a <strong>reservation</strong> has the server assign one specific address to one specific device every time based on its MAC address.</p>
+            </div>
+
             <div class="callout callout-warning">
                 <div class="callout-title">Important Point</div>
                 <div class="callout-content">
                     <p>Remember APIPA from the previous unit? This is exactly where it comes back in. If a device is set to obtain its address dynamically and no DHCP server answers its Discover broadcast, the DORA process never completes &mdash; and Windows doesn't just leave the device with no address at all. Instead, it automatically self-assigns an <strong>APIPA</strong> address in the 169.254.0.0/16 range so the device can still communicate with other APIPA-assigned devices on the same local segment, even though it has no real network or internet access. Seeing a 169.254.x.x address on a Windows device is one of the clearest signs a technician will encounter that DHCP failed somewhere along the way.</p>
                 </div>
+            </div>
+
+            <div class="definition">
+                <div class="definition-term">NTP (Network Time Protocol)</div>
+                <p class="definition-text">NTP synchronizes the clocks of devices across a network to a common, accurate time source. A device configured to use NTP periodically checks in with a time server and adjusts its own clock to match, keeping every machine on the network within milliseconds of the same time.</p>
+                <p class="definition-text">This matters more than it first appears. When a technician reviews logs from several devices to trace a problem, those logs are only useful if the timestamps line up &mdash; otherwise there's no way to tell what happened first. Accurate time is also required for authentication systems, certificate validation, scheduled tasks, and backups, all of which can fail outright when a device's clock drifts too far from the rest of the network.</p>
+            </div>
+
+            <div class="definition">
+                <div class="definition-term">Database Server</div>
+                <p class="definition-text">In its most basic form, a database server is a computer whose job is to store organized collections of data and hand out or update that data when other systems ask for it. Rather than each application keeping its own separate copy of information, the database server holds one authoritative set that many clients can query at the same time.</p>
+                <p class="definition-text">Think of a store's inventory: the point-of-sale register, the online storefront, and the back-office reporting tool all need to know the same stock numbers. Each one sends a request to the database server, which looks up or updates the record and returns the result &mdash; so a sale rung up at the register is immediately reflected everywhere else. The database server also handles who is allowed to read or change which records, and works to keep the data accurate when many requests arrive at once.</p>
             </div>
 
             <div class="key-concept">
