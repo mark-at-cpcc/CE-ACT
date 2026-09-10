@@ -552,6 +552,93 @@
                 </div>
             </div>
 
+            <h2>Logical and Physical Addressing</h2>
+
+            <p>Every device on a network carries two different kinds of address at the same time, and they do two different jobs. Confusing the two is one of the most common early mistakes in networking, so it's worth getting straight before we go further into IP.</p>
+
+            <div class="definition">
+                <div class="definition-term">Physical Address (MAC Address)</div>
+                <p class="definition-text">A <strong>physical address</strong> is permanently tied to a piece of hardware &mdash; specifically the network interface that connects a device to the network. These are called <strong>MAC addresses</strong>. Every physical address is globally unique, burned into the hardware at the factory, and it identifies that one specific interface and no other. Physical addresses are <strong>not routed onto the Internet</strong>; they stay on the local network, which keeps a device's permanent hardware identity from being exposed publicly.</p>
+            </div>
+
+            <div class="definition">
+                <div class="definition-term">Logical Address (IP Address)</div>
+                <p class="definition-text">A <strong>logical address</strong> is assigned by software rather than built into hardware, and it can be reused. These are <strong>IP addresses</strong>, assigned to a known host or NIC connection either manually (static) or automatically by DHCP (dynamic). Because they are assigned rather than permanent, logical addresses can change &mdash; a laptop gets one address on the office network and a different one at home &mdash; and the same private address can be reused on thousands of separate networks.</p>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Characteristic</th><th>Physical Address (MAC)</th><th>Logical Address (IP)</th></tr></thead>
+                    <tbody>
+                        <tr><td>Assigned by</td><td>Manufacturer, burned into hardware</td><td>Software &mdash; static entry or DHCP</td></tr>
+                        <tr><td>Changeable</td><td>Permanent to the interface</td><td>Can change; reusable</td></tr>
+                        <tr><td>Uniqueness</td><td>Globally unique</td><td>Unique only within its network</td></tr>
+                        <tr><td>Scope</td><td>Local network only</td><td>Local network and, if public, the Internet</td></tr>
+                        <tr><td>Routed onto the Internet</td><td>No</td><td>Yes, when public</td></tr>
+                        <tr><td>Used by</td><td>Switches, on the local segment</td><td>Routers, between networks</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="key-concept">
+                <h4>How the Two Work Together</h4>
+                <p>Think of the logical address as a street address and the physical address as the specific mailbox that address belongs to. Follow a single message from the moment you hit send:</p>
+                <ul>
+                    <li><strong>Leaving your device.</strong> Your computer knows the destination's IP address, but it can't reach the Internet on its own. It looks at the destination IP, sees it isn't on the local network, and addresses the frame to the <strong>MAC address of the router</strong> &mdash; the local doorway out. The destination IP stays untouched inside the packet the whole time.</li>
+                    <li><strong>Crossing your local network.</strong> The switch reads only the <strong>MAC address</strong> and forwards the frame to the correct port until it reaches the router. Switches never look at IP addresses.</li>
+                    <li><strong>Going out to the Internet.</strong> The router strips off the local MAC addressing, applies its own public IP, and sends the packet on using the <strong>destination IP address</strong>. This is the security point from earlier: your device's MAC address never leaves the local network.</li>
+                    <li><strong>Router to router.</strong> Across the Internet, each router reads the <strong>destination IP</strong> to decide the next hop, rewriting the MAC addressing at every step for the next link in the chain.</li>
+                    <li><strong>Arriving at the destination network.</strong> The final router uses the IP address to know the packet has arrived, then uses the <strong>MAC address</strong> of the destination device to hand it to the exact machine.</li>
+                </ul>
+                <p>The pattern to remember: the <strong>IP address stays constant end to end</strong> and gets the message to the right network, while the <strong>MAC address changes at every hop</strong> and moves it across each individual network. Routers work on IP; switches work on MAC.</p>
+            </div>
+
+            <h2>MAC Address Fundamentals</h2>
+
+            <div class="definition">
+                <div class="definition-term">MAC Address</div>
+                <p class="definition-text">A Media Access Control address is a <strong>48-bit</strong> address assigned to a network interface, written as <strong>twelve hexadecimal digits</strong> &mdash; six pairs separated by colons or hyphens, such as <strong>00:1A:2B:3C:4D:5E</strong>. Because it is hexadecimal, only the digits 0&ndash;9 and the letters A&ndash;F appear.</p>
+            </div>
+
+            <div class="key-concept">
+                <h4>The Two Halves of a MAC Address</h4>
+                <p>A MAC address splits evenly into two 24-bit halves, and knowing which half is which is commonly tested:</p>
+                <ul>
+                    <li><strong>First half (first 6 hex digits) &mdash; OUI:</strong> the Organizationally Unique Identifier, assigned to the manufacturer. Every interface built by that manufacturer starts with the same OUI, which is why you can often identify a device's maker from its MAC address alone.</li>
+                    <li><strong>Second half (last 6 hex digits):</strong> the unique serial value the manufacturer assigns to that specific interface.</li>
+                </ul>
+                <p>Together, the two halves guarantee that no two interfaces anywhere share the same address.</p>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Attribute</th><th>Detail</th></tr></thead>
+                    <tbody>
+                        <tr><td>Length</td><td>48 bits</td></tr>
+                        <tr><td>Written as</td><td>12 hexadecimal digits in 6 pairs</td></tr>
+                        <tr><td>Separators</td><td>Colons or hyphens</td></tr>
+                        <tr><td>Valid characters</td><td>0&ndash;9 and A&ndash;F</td></tr>
+                        <tr><td>First 24 bits</td><td>OUI &mdash; identifies the manufacturer</td></tr>
+                        <tr><td>Last 24 bits</td><td>Unique to the individual interface</td></tr>
+                        <tr><td>Operates at</td><td>The local network segment; used by switches</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="callout callout-tip">
+                <div class="callout-title">Finding a MAC Address</div>
+                <div class="callout-content">
+                    <p>On Windows, <strong>ipconfig /all</strong> lists it as the Physical Address for each adapter. On Linux or macOS, <strong>ifconfig</strong> or <strong>ip a</strong> shows it. A device with both wired and wireless interfaces has a <strong>separate MAC address for each one</strong> &mdash; the address belongs to the interface, not to the computer as a whole.</p>
+                </div>
+            </div>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">MAC Spoofing</div>
+                <div class="callout-content">
+                    <p>Although a MAC address is burned into the hardware, software can override the value a device reports. This is called <strong>MAC spoofing</strong>. It has legitimate uses, such as replacing a failed device without reconfiguring the network, but it is also used to bypass MAC filtering on a wireless network &mdash; which is why MAC filtering alone is not considered a strong security control.</p>
+                </div>
+            </div>
+
             <h2>IP Addressing Fundamentals</h2>
 
             <div class="definition">
