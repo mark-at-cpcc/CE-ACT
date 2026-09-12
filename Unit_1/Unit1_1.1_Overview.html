@@ -346,7 +346,10 @@
             <div class="toc-item">1.9 &mdash; Reflection Activity</div>
             <div class="toc-item">1.10 &mdash; Unit Test</div>
             <div class="toc-item">1.A &mdash; Acronym Test</div>
-            <div class="toc-item">1.B &mdash; Clearing Your Browser Cache</div>
+            <div class="toc-item">1.B.1 &mdash; CompTIA Troubleshooting Concepts</div>
+            <div class="toc-item">1.B.2 &mdash; CompTIA Troubleshooting Scenarios</div>
+            <div class="toc-item">1.B.3 &mdash; PBQ 1</div>
+            <div class="toc-item">1.B.4 &mdash; PBQ 2</div>
         </nav>
         <style>
             /* Collapsible TOC: only the current section shows until clicked */
@@ -536,6 +539,47 @@
                 </table>
             </div>
 
+            <p>That table is just this unit's slice. Here's the complete picture of what the 220-1201 exam actually covers, across all five domains, so you can see where Unit 1 sits inside the whole certification.</p>
+
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Domain</th><th>Weight</th><th>What It Covers</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>1.0 Mobile Devices</strong></td><td>13%</td><td>Setting up and configuring laptops, tablets, and phones; comparing display, storage, and accessory options; syncing devices across cloud, local, and corporate accounts; troubleshooting battery, wireless, and app-crash issues.</td></tr>
+                        <tr><td><strong>2.0 Networking</strong></td><td>23%</td><td>Core networking concepts including IP addressing, subnetting, and ports; telling network types and topologies apart; configuring small office/home routers and wireless settings; recognizing protocols like TCP/IP, DHCP, DNS, FTP, SSH, and HTTPS; troubleshooting connectivity with tools like ping, tracert, and ipconfig.</td></tr>
+                        <tr><td><strong>3.0 Hardware</strong></td><td>25%</td><td>Identifying core PC components &mdash; motherboards, CPUs, RAM, power supplies, storage, and GPUs; installing and configuring peripherals; comparing storage types including HDD, SSD, NVMe, and RAID; understanding connector types like USB, HDMI, DisplayPort, and Thunderbolt; proper installation and maintenance procedures.</td></tr>
+                        <tr><td><strong>4.0 Virtualization and Cloud Computing</strong></td><td>11%</td><td>Comparing cloud service models (IaaS, SaaS, PaaS) and deployment types (public, private, hybrid); understanding common cloud services like file storage, hosting, and virtual machines; setting up client-side virtualization; weighing the benefits and limitations of cloud computing.</td></tr>
+                        <tr><td><strong>5.0 Hardware and Network Troubleshooting</strong></td><td>28%</td><td>Diagnosing and repairing PC hardware issues &mdash; power supply, storage, overheating; troubleshooting display and peripheral failures; identifying and resolving network connectivity problems; applying the structured troubleshooting methodology; using tools like a multimeter, loopback plug, and network tester.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>How Much Has Changed From the Last Test?</h2>
+            <p>If you've come across older A+ study materials, videos, or flashcards, you may have noticed they reference an exam called <strong>220-1101</strong> rather than 220-1201. That's the exam this course is built around, and it's worth understanding why the difference matters.</p>
+            <p>220-1101 was CompTIA's previous Core 1 exam. It was formally retired &mdash; the English-language version stopped being offered in September 2025, with other languages following that December. It is no longer available to take at all. 220-1201, released in March 2025, is now the only current Core 1 exam, and it's the one this entire course is built around.</p>
+            <p>The good news: the shift isn't a wholesale rewrite. The five domains are the same, and four of the five domain weights barely moved. What actually changed is <em>what's inside</em> each domain &mdash; older, increasingly irrelevant hardware and standards were dropped, and current, workplace-relevant technology was added in their place.</p>
+
+            <div class="callout callout-info">
+                <div class="callout-title">Why This Matters for How You Study</div>
+                <div class="callout-content">
+                    <p>If a study resource still talks about SCSI drives, PATA, or choosing between GSM and CDMA carriers, it was written for the old exam. Those topics are gone. If it doesn't mention Wi-Fi 6E, Mobile Device Management, or container-based virtualization, it's missing things that are now in scope. Everything assigned in this course is already aligned to 220-1201 &mdash; this section exists so that if you go looking for outside practice material, you know what to check for before you trust it.</p>
+                </div>
+            </div>
+
+            <h2>What Is Different From the 1101 and the 1201?</h2>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Domain</th><th>1101 Weight</th><th>1201 Weight</th><th>Dropped From the Exam</th><th>Newly Added</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Mobile Devices</strong></td><td>15%</td><td>13%</td><td>Mobile display component details; serial interfaces; GSM vs. CDMA carrier selection and PRL updates; carrier account setup</td><td>Wi-Fi network configuration; Mobile Device Management (MDM) policies and business app deployment</td></tr>
+                        <tr><td><strong>Networking</strong></td><td>20%</td><td>23%</td><td>DHCP port numbers; connectionless vs. connection-oriented protocol theory; software-defined networking (SDN); older 802.11 wireless standards</td><td>Wi-Fi channel selection and interference management, including 6 GHz Wi-Fi 6E; basic database servers and NTP; DHCP exclusions; MAC address fundamentals</td></tr>
+                        <tr><td><strong>Hardware</strong></td><td>25%</td><td>25%</td><td>SCSI and PATA drive interfaces; granular DDR memory type detail, virtual RAM, and specific multi-channel configurations; deep dives into server-class CPUs and motherboards</td><td>Mini LED displays, pixel density, and refresh rates; USB-C video cabling; BIOS-level temperature monitoring; power efficiency; printer firmware updates; multipart paper printing</td></tr>
+                        <tr><td><strong>Virtualization and Cloud Computing</strong></td><td>11%</td><td>11%</td><td>Cloud-hosted virtual desktop infrastructure (VDI)</td><td>Containers and hypervisor types; ingress/egress metering for cloud cost tracking</td></tr>
+                        <tr><td><strong>Hardware and Network Troubleshooting</strong></td><td>29%</td><td>28%</td><td>The troubleshooting methodology's steps as an explicitly separate listed topic (it's still tested throughout, just not called out as its own line item)</td><td>Proprietary crash screens; missing drive arrays; display sizing issues; stylus and installation problems and degraded performance; authentication failures and intermittent internet connectivity; frozen print queues and connectivity issues</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
             <h2>How This Unit Is Graded</h2>
             <p>Every item in this unit is worth <strong>100 points</strong> and is awarded in full when it meets the completion standard published on that item's page. Work that falls short is returned for revision and resubmitted for full credit &mdash; it is not partially scored.</p>
             <p>That structure exists so you can stop calculating your grade and start focusing on the only score that decides anything: the <strong>scaled score on your practice exams</strong>. On the real 220-1201 you need <strong>675 out of 900</strong>. Because the scale starts at 100 rather than zero, that works out to roughly 72% of raw points &mdash; not 75%. We will track that number every week.</p>
@@ -543,14 +587,14 @@
             <div class="summary-box">
                 <h3>Unit 1 Checklist</h3>
                 <ul>
-                    <li>Complete the Section 1.2 Pre-Assessment and the Sybex Assessment Test in class on Tuesday 8/11</li>
+                    <li>Complete the Section 1.2 Pre-Assessment and the Sybex Assessment Test in class on Tuesday</li>
                     <li>Read the assigned Sybex sections listed in Section 1.4</li>
                     <li>Watch the fourteen Professor Messer videos in Section 1.5</li>
                     <li>Complete Lab 1.6.1 Safety and ESD on your own time by Tuesday night &mdash; do this before you handle any hardware</li>
                     <li>Complete the in-class component identification lab and submit the take-home lab</li>
-                    <li><em>Optional:</em> the Lab 1.2 written rebuild sequence walkthrough &mdash; ungraded, and strong preparation for performance-based exam questions</li>
+                    <li><em>Optional:</em> the Lab 1.2 written walkthrough &mdash; ungraded, and strong preparation for performance-based exam questions</li>
                     <li>Work the Section 1.7 practice set with confidence marking</li>
-                    <li>Complete NDG A+ v5 Labs 01A and 01B in NETLAB &mdash; reserve your time early in the week</li>
+                    <li>Complete CompTIA A+ Core 1 Exam Labs 01A and 01B in NETLAB &mdash; reserve your time early in the week</li>
                     <li>Post your Section 1.9 reflection</li>
                     <li>Take the Section 1.10 Unit Test by Monday at 11:59 PM</li>
                 </ul>
