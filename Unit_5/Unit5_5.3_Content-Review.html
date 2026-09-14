@@ -299,6 +299,24 @@
             .module-title { font-size: 1.75rem; }
             .content-area { padding: var(--space-lg); }
         }
+
+        .hv-diagrams { display: flex; gap: var(--space-lg); flex-wrap: wrap; margin: var(--space-lg) 0; }
+        .hv-diagram-col { flex: 1 1 300px; min-width: 280px; }
+        .hv-diagram-col p.hv-caption { text-align: center; font-family: var(--font-body), sans-serif; font-weight: 700; font-size: 0.9375rem; margin-top: var(--space-sm); color: var(--neutral-500); }
+        .hv-svg .hv-hw rect { fill: var(--neutral-100); stroke: var(--neutral-500); }
+        .hv-svg .hv-hw text { fill: var(--text-black); }
+        .hv-svg .hv-os rect { fill: #E3EEFA; stroke: #2F6FA8; }
+        .hv-svg .hv-os text { fill: #1B4A73; }
+        .hv-svg .hv-hv rect { fill: var(--primary-pale); stroke: var(--primary-main); }
+        .hv-svg .hv-hv text { fill: var(--text-black); }
+        .hv-svg .hv-vm rect { fill: #E0F2ED; stroke: #1D9E75; }
+        .hv-svg .hv-vm text { fill: #0F6E56; }
+        .hv-svg .hv-app rect { fill: #FDEFD9; stroke: #BA7517; }
+        .hv-svg .hv-app text { fill: #7A4B0E; }
+        .hv-svg .hv-data polygon { fill: #FBEAE7; stroke: #D85A30; }
+        .hv-svg .hv-data text { fill: #8C3A1D; }
+        .hv-svg rect, .hv-svg polygon { stroke-width: 1; }
+        .hv-svg text { font-family: var(--font-body), sans-serif; font-size: 13px; text-anchor: middle; dominant-baseline: central; }
     </style>
 </head>
 
@@ -431,13 +449,29 @@
             <div class="plain-box">
                 <div class="callout-title">In Plain Terms</div>
                 <div class="callout-content">
-                    <p>Think of this section as the trailer, not the movie. It gives you the shape of the week so the full reading in 5.4 has something to attach to, instead of hitting you cold.</p>
+                    <p>Every topic in this unit shares one thread: doing more with less physical hardware in front of you. A phone packs a full computer into a pocket-sized case, a hypervisor lets one server pretend to be a dozen, and a cloud provider lets a business rent someone else's data center instead of building its own. Keep that thread in mind as you read &mdash; it's why mobile hardware, virtualization, and cloud computing show up together in the same unit instead of scattered across the course.</p>
                 </div>
             </div>
 
-            <h2>Laptop and Mobile Device Hardware</h2>
+            <h2>Mobile Device Hardware</h2>
 
-            <p>A laptop packs the same fundamental components as a desktop into a smaller, battery-powered case &mdash; but the way you service it is completely different. Some parts are designed to be opened and swapped in the field. Others are soldered, glued, or bonded, and replacing them means replacing a much larger assembly.</p>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Device Type</th><th>Typical Use</th></tr></thead>
+                    <tbody>
+                        <tr><td>Smartphone</td><td>Pocket-sized, cellular-connected, touchscreen-driven personal computing and communication</td></tr>
+                        <tr><td>Tablet</td><td>Larger touchscreen device for browsing, media, and light productivity; Wi-Fi or cellular</td></tr>
+                        <tr><td>Laptop</td><td>Full-featured, battery-powered computer with a built-in keyboard, display, and trackpad</td></tr>
+                        <tr><td>2-in-1 / Convertible</td><td>Laptop and tablet in one device, with a detachable or foldable keyboard</td></tr>
+                        <tr><td>Wearable</td><td>Smartwatch or fitness tracker paired to a phone for notifications and health tracking</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="key-concept">
+                <h4>Laptop Hardware</h4>
+                <p>A laptop packs the same fundamental components as a desktop into a smaller, battery-powered case &mdash; but the way you service it is completely different. Some parts are designed to be opened and swapped in the field. Others are soldered, glued, or bonded, and replacing them means replacing a much larger assembly.</p>
+            </div>
 
             <div class="definition">
                 <div class="definition-term">Field-Replaceable Unit (FRU)</div>
@@ -452,6 +486,14 @@
             <h3>Mobile Device Accessories</h3>
 
             <p>Mobile devices are frequently extended with accessories rather than internal upgrades: a stylus for precision input, headsets and external speakers for audio, webcams for video calls, and docking stations or port replicators that turn a laptop into a full desktop setup in one connection. Trackpads and drawing pads round out the input side for specialized work.</p>
+
+            <div class="key-concept">
+                <h4>Typical Business Mobile Devices</h4>
+                <p>A single corporate employee's equipment assignment is a working example of nearly every concept in this unit at once. Consider a typical setup: an employer-provided laptop, a wireless mouse for portable use, a desk-based docking station connected to dual monitors with a wired keyboard and mouse, a company cell phone and tablet with MDM (Mobile Device Management) software installed, and a company email and file storage account running entirely in the cloud.</p>
+                <p><strong>How it's managed and used:</strong> The laptop is the employee's primary FRU (Field-Replaceable Unit)-serviceable device &mdash; IT can swap the battery, keyboard, or storage drive without replacing the whole machine. At the desk, the docking station turns that same laptop into a full desktop workstation the moment it's connected, without the employee owning separate desktop hardware; the wired keyboard, mouse, and dual monitors stay at the desk, while the wireless mouse travels with the laptop for use away from the dock. The phone and tablet extend the same identity out into the field &mdash; connected over cellular and Wi-Fi, paired to accessories like a headset for calls, and kept in sync with the same company accounts as the laptop. None of the actual email or files live on any of this hardware: they live in the company's SaaS email platform and cloud storage, which is why losing the laptop or phone is an inconvenience to replace but not a data-loss event on its own.</p>
+                <p><strong>Organizational governance:</strong> Every mobile device in this assignment is enrolled in MDM, which is what makes the arrangement manageable at scale &mdash; policy enforcement, remote wipe, and update pushes all happen centrally rather than device by device. Because the laptop, phone, and tablet are company-owned and IT-managed even though the employee uses them personally day to day, this is a COPE (Corporate-Owned, Personally Enabled) arrangement, not BYOD (Bring Your Own Device); the organization retains full control regardless of how the devices are used. The cloud email and storage typically sit on a private or community deployment model rather than a fully open public one, since the company controls who can access it and what compliance requirements it has to meet &mdash; a distinction covered later in this unit's cloud deployment models.</p>
+                <p>Keep this scenario in mind as you work through the rest of the unit: nearly every term introduced here &mdash; FRU, MDM, COPE, SaaS, and deployment models &mdash; describes one piece of this same everyday setup.</p>
+            </div>
 
             <h2>Mobile Connectivity and Application Support</h2>
 
@@ -479,6 +521,9 @@
             <div class="key-concept">
                 <h4>Managing a Fleet of Devices</h4>
                 <p>Organizations that issue or support many mobile devices rely on Mobile Device Management (MDM) platforms to enforce policy, push updates, and remotely wipe lost or stolen hardware. Ownership models shape how much control an organization has: BYOD (Bring Your Own Device) is employee-owned with limited organizational control, while COPE (Corporate-Owned, Personally Enabled) is company-owned with full management rights, even when used personally.</p>
+                <p>Ownership of the device is what determines ownership and rights over the data on it &mdash; regardless of whether that data was created for personal or for work purposes. The device's owner is the data's owner, and that single fact drives very different privacy expectations under each model.</p>
+                <p><strong>BYOD and Expectation of Privacy:</strong> Because the employee owns the device, they retain a reasonable expectation of privacy over their personal data &mdash; photos, personal messages, personal apps &mdash; even though company email or files may also live on that same phone. MDM on a BYOD device typically works through containerization: policy, remote wipe, and inspection apply only to the walled-off company profile, not to the rest of the device. The employee should expect the company can see and remove its own container at any time, but not the personal data sitting alongside it.</p>
+                <p><strong>COPE and Expectation of Privacy:</strong> Because the company owns the device, the company owns essentially everything on it, personal use or not. Employees are typically permitted to use a COPE device personally, but they should expect little to no privacy on it &mdash; the organization can generally monitor, inspect, or wipe the entire device, including anything personal the employee has stored there, since it's company property from top to bottom. Most organizations spell this out in an acceptable-use policy the employee agrees to when the device is issued, precisely because the ownership-equals-rights principle is easy to overlook until it matters.</p>
             </div>
 
             <h2>Virtualization</h2>
@@ -490,6 +535,100 @@
                 <p class="definition-text">The software layer that creates and manages virtual machines. A <strong>Type 1 hypervisor</strong> runs directly on the physical hardware with no underlying OS &mdash; common in data centers, where performance and isolation matter most. A <strong>Type 2 hypervisor</strong> runs as an application on top of an existing operating system &mdash; common on a technician's own laptop for testing and sandboxing.</p>
             </div>
 
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>&nbsp;</th><th>Type 1 (Bare-Metal)</th><th>Type 2 (Hosted)</th></tr></thead>
+                    <tbody>
+                        <tr><td>Runs on</td><td>Physical hardware directly</td><td>An existing host operating system</td></tr>
+                        <tr><td>Performance</td><td>Higher &mdash; no host OS overhead</td><td>Lower &mdash; shares resources with the host OS</td></tr>
+                        <tr><td>Typical setting</td><td>Data centers and enterprise servers</td><td>A technician's own laptop or desktop</td></tr>
+                        <tr><td>Common use case</td><td>Hosting many production VMs at scale</td><td>Sandboxing, testing, and cross-platform trials</td></tr>
+                        <tr><td>Examples</td><td>VMware ESXi, Microsoft Hyper-V (server role)</td><td>VMware Workstation, Oracle VirtualBox</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="key-concept">
+                <h4>Hypervisor Models</h4>
+                <div class="hv-diagrams">
+                    <div class="hv-diagram-col">
+                        <svg class="hv-svg" width="100%" viewBox="0 0 680 550" role="img">
+                            <title>Type 1 hypervisor stack</title>
+                            <desc>Hardware at the base, hypervisor directly on top, then three VM squares running Windows 11, Windows 10, and Linux, each with a data marker on top of the OS between two applications, and a data layer above each application.</desc>
+                            <g class="hv-hw"><rect x="40" y="460" width="600" height="50" rx="6"/><text x="340" y="485">Hardware</text></g>
+                            <g class="hv-hv"><rect x="40" y="400" width="600" height="50" rx="6"/><text x="340" y="425">Hypervisor (Type 1)</text></g>
+                            <g class="hv-vm"><rect x="70" y="250" width="160" height="140" rx="8"/><text x="150" y="320">VM 1</text></g>
+                            <g class="hv-vm"><rect x="260" y="250" width="160" height="140" rx="8"/><text x="340" y="320">VM 2</text></g>
+                            <g class="hv-vm"><rect x="450" y="250" width="160" height="140" rx="8"/><text x="530" y="320">VM 3</text></g>
+                            <g class="hv-os"><rect x="70" y="196" width="160" height="44" rx="6"/><text x="150" y="218">Win11</text></g>
+                            <g class="hv-os"><rect x="260" y="196" width="160" height="44" rx="6"/><text x="340" y="218">Win10</text></g>
+                            <g class="hv-os"><rect x="450" y="196" width="160" height="44" rx="6"/><text x="530" y="218">Linux</text></g>
+                            <g class="hv-data"><polygon points="150,126 170,196 130,196"/><text x="150" y="184">Data</text></g>
+                            <g class="hv-data"><polygon points="340,126 360,196 320,196"/><text x="340" y="184">Data</text></g>
+                            <g class="hv-data"><polygon points="530,126 550,196 510,196"/><text x="530" y="184">Data</text></g>
+                            <g class="hv-app"><rect x="80" y="120" width="50" height="70" rx="6"/><text x="105" y="155">App</text></g>
+                            <g class="hv-app"><rect x="170" y="120" width="50" height="70" rx="6"/><text x="195" y="155">App</text></g>
+                            <g class="hv-app"><rect x="270" y="120" width="50" height="70" rx="6"/><text x="295" y="155">App</text></g>
+                            <g class="hv-app"><rect x="360" y="120" width="50" height="70" rx="6"/><text x="385" y="155">App</text></g>
+                            <g class="hv-app"><rect x="460" y="120" width="50" height="70" rx="6"/><text x="485" y="155">App</text></g>
+                            <g class="hv-app"><rect x="550" y="120" width="50" height="70" rx="6"/><text x="575" y="155">App</text></g>
+                            <g class="hv-data"><polygon points="105,40 125,110 85,110"/><text x="105" y="98">Data</text></g>
+                            <g class="hv-data"><polygon points="195,40 215,110 175,110"/><text x="195" y="98">Data</text></g>
+                            <g class="hv-data"><polygon points="295,40 315,110 275,110"/><text x="295" y="98">Data</text></g>
+                            <g class="hv-data"><polygon points="385,40 405,110 365,110"/><text x="385" y="98">Data</text></g>
+                            <g class="hv-data"><polygon points="485,40 505,110 465,110"/><text x="485" y="98">Data</text></g>
+                            <g class="hv-data"><polygon points="575,40 595,110 555,110"/><text x="575" y="98">Data</text></g>
+                        </svg>
+                        <p class="hv-caption">Hypervisor &mdash; Host Installation on Bare-Metal</p>
+                    </div>
+                    <div class="hv-diagram-col">
+                        <svg class="hv-svg" width="100%" viewBox="0 0 680 610" role="img">
+                            <title>Type 2 hypervisor stack</title>
+                            <desc>Hardware at the base, a host operating system on top of that, then the hypervisor, then three VM squares running Windows 11, Windows 10, and Linux, each with a data marker on top of the OS between two applications, and a data layer above each application.</desc>
+                            <g class="hv-hw"><rect x="40" y="520" width="600" height="50" rx="6"/><text x="340" y="545">Hardware</text></g>
+                            <g class="hv-os"><rect x="40" y="460" width="600" height="50" rx="6"/><text x="340" y="485">Host OS</text></g>
+                            <g class="hv-hv"><rect x="40" y="400" width="600" height="50" rx="6"/><text x="340" y="425">Hypervisor (Type 2)</text></g>
+                            <g class="hv-vm"><rect x="70" y="250" width="160" height="140" rx="8"/><text x="150" y="320">VM 1</text></g>
+                            <g class="hv-vm"><rect x="260" y="250" width="160" height="140" rx="8"/><text x="340" y="320">VM 2</text></g>
+                            <g class="hv-vm"><rect x="450" y="250" width="160" height="140" rx="8"/><text x="530" y="320">VM 3</text></g>
+                            <g class="hv-os"><rect x="70" y="196" width="160" height="44" rx="6"/><text x="150" y="218">Win11</text></g>
+                            <g class="hv-os"><rect x="260" y="196" width="160" height="44" rx="6"/><text x="340" y="218">Win10</text></g>
+                            <g class="hv-os"><rect x="450" y="196" width="160" height="44" rx="6"/><text x="530" y="218">Linux</text></g>
+                            <g class="hv-data"><polygon points="150,126 170,196 130,196"/><text x="150" y="184">Data</text></g>
+                            <g class="hv-data"><polygon points="340,126 360,196 320,196"/><text x="340" y="184">Data</text></g>
+                            <g class="hv-data"><polygon points="530,126 550,196 510,196"/><text x="530" y="184">Data</text></g>
+                            <g class="hv-app"><rect x="80" y="120" width="50" height="70" rx="6"/><text x="105" y="155">App</text></g>
+                            <g class="hv-app"><rect x="170" y="120" width="50" height="70" rx="6"/><text x="195" y="155">App</text></g>
+                            <g class="hv-app"><rect x="270" y="120" width="50" height="70" rx="6"/><text x="295" y="155">App</text></g>
+                            <g class="hv-app"><rect x="360" y="120" width="50" height="70" rx="6"/><text x="385" y="155">App</text></g>
+                            <g class="hv-app"><rect x="460" y="120" width="50" height="70" rx="6"/><text x="485" y="155">App</text></g>
+                            <g class="hv-app"><rect x="550" y="120" width="50" height="70" rx="6"/><text x="575" y="155">App</text></g>
+                            <g class="hv-data"><polygon points="105,40 125,110 85,110"/><text x="105" y="98">Data</text></g>
+                            <g class="hv-data"><polygon points="195,40 215,110 175,110"/><text x="195" y="98">Data</text></g>
+                            <g class="hv-data"><polygon points="295,40 315,110 275,110"/><text x="295" y="98">Data</text></g>
+                            <g class="hv-data"><polygon points="385,40 405,110 365,110"/><text x="385" y="98">Data</text></g>
+                            <g class="hv-data"><polygon points="485,40 505,110 465,110"/><text x="485" y="98">Data</text></g>
+                            <g class="hv-data"><polygon points="575,40 595,110 555,110"/><text x="575" y="98">Data</text></g>
+                        </svg>
+                        <p class="hv-caption">Hypervisor &mdash; Guest Application on Installed OS</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Real-World Hypervisor Applications</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Type 1 (Bare-Metal)</th><th>Application</th><th>Type 2 (Hosted)</th><th>Application</th></tr></thead>
+                    <tbody>
+                        <tr><td>VMware ESXi</td><td>Datacenter</td><td>VMware Workstation</td><td>Windows</td></tr>
+                        <tr><td>Microsoft Hyper-V (Server)</td><td>Datacenter</td><td>VMware Fusion</td><td>MacOS</td></tr>
+                        <tr><td>Citrix Hypervisor (XenServer)</td><td>Datacenter</td><td>Oracle VirtualBox</td><td>Windows</td></tr>
+                        <tr><td>KVM (Kernel-based Virtual Machine)</td><td>Linux</td><td>Parallels Desktop</td><td>MacOS</td></tr>
+                        <tr><td>Proxmox VE</td><td>Datacenter</td><td>VMware Player</td><td>Windows</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
             <div class="key-concept">
                 <h4>Why Virtualize?</h4>
                 <p>Common reasons include sandboxing (testing something risky in an isolated space), running legacy software that needs an older operating system, cross-platform testing, and Virtual Desktop Infrastructure (VDI), where a user's entire desktop runs on a remote server instead of local hardware. Containerization is a lighter-weight cousin of virtualization &mdash; it packages an application with just what it needs to run, without a full separate operating system underneath.</p>
@@ -499,14 +638,53 @@
 
             <p>Cloud computing shifts computing resources off local hardware and onto infrastructure managed elsewhere, delivered over a network connection. The two questions that matter most are: who deploys it, and what layer of the stack are you buying?</p>
 
-            <div class="definition">
-                <div class="definition-term">Service Models: IaaS, PaaS, SaaS</div>
-                <p class="definition-text"><strong>Infrastructure as a Service (IaaS)</strong> provides raw virtualized hardware &mdash; servers, storage, networking &mdash; and the customer manages everything above that. <strong>Platform as a Service (PaaS)</strong> adds the operating system and runtime environment, so the customer focuses only on their application. <strong>Software as a Service (SaaS)</strong> delivers a finished application the customer simply uses, with the provider managing everything underneath.</p>
+            <h3>Service Models: IaaS, PaaS, SaaS</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Type</th><th>Characteristics</th><th>Real-World Application</th></tr></thead>
+                    <tbody>
+                        <tr><td>IaaS</td><td>Raw virtualized hardware &mdash; servers, storage, networking. The customer manages the OS, runtime, and application; the provider manages only the physical infrastructure.</td><td>Microsoft Azure VM, AWS EC2 VM, GCS Compute VM</td></tr>
+                        <tr><td>PaaS</td><td>Adds the operating system and runtime environment on top of the infrastructure, so the customer focuses only on writing and deploying their application.</td><td>Microsoft Azure App Service, Google App Engine, Salesforce Platform, Heroku</td></tr>
+                        <tr><td>SaaS</td><td>A finished, ready-to-use application. The provider manages everything underneath &mdash; infrastructure, runtime, and the application itself.</td><td>Microsoft 365, Google Workspace, Salesforce</td></tr>
+                    </tbody>
+                </table>
             </div>
 
-            <div class="definition">
-                <div class="definition-term">Deployment Models</div>
-                <p class="definition-text">A <strong>public cloud</strong> is shared infrastructure available to anyone who pays for it. A <strong>private cloud</strong> is dedicated to a single organization. A <strong>hybrid cloud</strong> combines both, often keeping sensitive workloads private while bursting into public cloud capacity as needed. A <strong>community cloud</strong> is shared among a small group of organizations with common requirements.</p>
+            <h3>Deployment Models</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Model Type</th><th>Characteristics</th></tr></thead>
+                    <tbody>
+                        <tr>
+                            <td>Public</td>
+                            <td><strong>Cost:</strong> Lowest upfront cost; pay-as-you-go, metered usage with no hardware investment.<br>
+                                <strong>Location:</strong> Off-premise &mdash; hosted entirely on the provider's infrastructure.<br>
+                                <strong>Primary Purpose:</strong> General-purpose, highly scalable workloads shared across many customers; best fit for variable or unpredictable demand.<br>
+                                <strong>Migration Direction:</strong> Organizations typically migrate <em>to</em> public cloud from on-premise or private infrastructure to cut capital costs and gain elasticity, trading upfront hardware spend for ongoing metered usage fees.</td>
+                        </tr>
+                        <tr>
+                            <td>Private</td>
+                            <td><strong>Cost:</strong> Higher upfront capital investment (hardware, licensing, staff), but predictable long-term costs with no shared-tenant discount.<br>
+                                <strong>Location:</strong> Only on-premise.<br>
+                                <strong>Primary Purpose:</strong> Maximum control, security, and compliance for sensitive data or regulated workloads.<br>
+                                <strong>Migration Direction:</strong> Organizations typically migrate <em>to</em> private cloud from public cloud when compliance, security, or performance-isolation requirements increase, accepting a higher upfront capital cost in exchange for full control.</td>
+                        </tr>
+                        <tr>
+                            <td>Hybrid</td>
+                            <td><strong>Cost:</strong> Mixed &mdash; capital cost for the private portion plus variable, metered cost for public burst capacity.<br>
+                                <strong>Location:</strong> Both on-premise (private) and off-premise (public) at the same time.<br>
+                                <strong>Primary Purpose:</strong> Balances control and compliance with scalability &mdash; sensitive workloads stay private while demand spikes burst into public capacity.<br>
+                                <strong>Migration Direction:</strong> Workloads consistently move <em>between</em> private and public as needed &mdash; bursting <em>to</em> public during peak demand, adding metered public-cloud cost only for that period, then moving back <em>to</em> private as demand subsides.</td>
+                        </tr>
+                        <tr>
+                            <td>Community</td>
+                            <td><strong>Cost:</strong> Shared among member organizations &mdash; lower than a dedicated private cloud, but higher than public due to restricted membership.<br>
+                                <strong>Location:</strong> On-premise or off-premise, hosted by one member or a third party, shared across the group.<br>
+                                <strong>Primary Purpose:</strong> Shared infrastructure for organizations with common regulatory, compliance, or business requirements (e.g., government agencies, healthcare consortiums).<br>
+                                <strong>Migration Direction:</strong> Organizations typically migrate <em>to</em> community cloud from an isolated private setup when joining a consortium, sharing the cost across members, or back <em>to</em> private &mdash; at a higher dedicated cost &mdash; if they outgrow the shared arrangement.</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
 
             <div class="key-concept">
@@ -519,7 +697,7 @@
             <p>Mobile devices fail in ways that are physically different from desktops &mdash; smaller components, tighter tolerances, and constant handling all take a toll.</p>
 
             <div class="key-concept">
-                <h4>What to Check First</h4>
+                <h4>Mobile Device Troubleshooting - What to Check First</h4>
                 <p>Battery issues (won't hold a charge, swelling, rapid drain), broken or unresponsive screens, improper charging behavior, liquid damage, overheating, digitizer problems (touch input not registering correctly), and cursor drift are the issues you'll see most often. Many of these trace back to physical stress &mdash; drops, heat, or moisture &mdash; rather than a software fault, which is why a physical inspection comes before a software fix.</p>
             </div>
 
@@ -527,7 +705,31 @@
                 <div class="callout-title">A Habit Worth Building Now</div>
                 <div class="callout-content">
                     <p>Before assuming a software problem, rule out the physical one: Is the port clean? Is the cable good? Is there visible damage or heat? Mobile hardware fails in physical ways more often than desktop hardware does, simply from being carried, dropped, and handled all day.</p>
+                    <p>CompTIA's troubleshooting methodology calls this <strong>"start at the wall"</strong> &mdash; work outward from the most basic physical layer before touching anything higher up the stack. Power is checked first: is the device plugged in, is the outlet live, is the battery actually charging? Only after power is confirmed do you move to physical connectivity &mdash; cables, ports, and wireless signal &mdash; and only after that do you start troubleshooting software, accounts, or configuration. Skipping straight to a software fix on a device that simply isn't getting power wastes time and can mask the real problem.</p>
+                    <p>This principle gets harder to apply the moment virtualization and cloud computing enter the picture. When a "server" is a VM running on a hypervisor, or an application is running as SaaS in someone else's datacenter, there's no wall outlet or cable for you to walk over and check &mdash; the physical layer belongs to the cloud provider, not to you. "Starting at the wall" for a cloud-hosted resource means checking the provider's status/health dashboard, confirming your own network connection to the provider, and verifying the VM or service is actually powered on and running in the console, before you go looking for a software-level cause. The physical layer hasn't disappeared &mdash; it's just moved out of your building and out of your direct control, so the first troubleshooting step becomes "can I confirm the provider's infrastructure is up" instead of "can I see the blinking lights."</p>
                 </div>
+            </div>
+
+            <h2>Cloud Characteristics and Terms</h2>
+
+            <div class="definition">
+                <div class="definition-term">VDI (Virtual Desktop Infrastructure)</div>
+                <p class="definition-text"><strong>Simple terms:</strong> Your entire desktop &mdash; OS, apps, files, and settings &mdash; runs on a server somewhere else, and your laptop or thin client just shows you a live picture of it and sends your keystrokes and clicks back. <strong>Real-world example:</strong> A hospital gives nurses thin-client terminals at every nursing station. No matter which terminal a nurse logs into, their exact same desktop, open charts, and saved work appear instantly &mdash; because the desktop was never actually on that terminal to begin with.</p>
+            </div>
+
+            <div class="definition">
+                <div class="definition-term">Availability</div>
+                <p class="definition-text"><strong>Simple terms:</strong> How reliably a service is actually up and reachable when someone tries to use it. <strong>Real-world example:</strong> A retailer's online store advertises "99.99% uptime" to its cloud provider &mdash; that's an availability guarantee, and it's why the checkout page rarely goes down even during a huge Black Friday traffic spike.</p>
+            </div>
+
+            <div class="definition">
+                <div class="definition-term">Elasticity</div>
+                <p class="definition-text"><strong>Simple terms:</strong> The ability of a cloud service to automatically add or remove capacity as demand changes, instead of a business having to buy fixed hardware sized for its busiest possible day. <strong>Real-world example:</strong> A tax-prep company's website automatically spins up dozens of extra servers every year in the two weeks before the filing deadline, then scales back down to almost nothing in May &mdash; paying only for the capacity it actually used.</p>
+            </div>
+
+            <div class="definition">
+                <div class="definition-term">Multi-Tenancy</div>
+                <p class="definition-text"><strong>Simple terms:</strong> Many different customers share the same underlying physical infrastructure, while the provider keeps each customer's data and resources logically separated so no one can see or touch anyone else's. <strong>Real-world example:</strong> Two competing small businesses can both run their email through the same cloud email provider, on the very same physical servers, without either one ever being able to access the other's inbox &mdash; that separation is what multi-tenancy guarantees.</p>
             </div>
 
         </div>
