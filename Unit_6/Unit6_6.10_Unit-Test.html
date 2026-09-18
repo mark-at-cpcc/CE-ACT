@@ -436,77 +436,133 @@
 
         <div class="content-area">
 
-            <p class="text-muted">The final unit test for the course, drawing from all five exam domains.</p>
-
             <div class="tech-box">
-                <div class="callout-title">Technical Overview</div>
+                <div class="callout-title">Test Format</div>
                 <div class="callout-content">
-                    <p>The Unit 6 test is cumulative. Items are drawn from every domain on the 220-1201 blueprint and weighted to match the published domain percentages rather than the content of any single unit. Take it in Brightspace using the link for this section.</p>
+                    <p>Each attempt draws 20 items covering every domain on the 220-1201 exam &mdash; mobile devices, networking, hardware, virtualization and cloud, and hardware and network troubleshooting &mdash; weighted to mirror how they are represented on the actual exam. Click an answer to select it, then click <strong>Grade My Answers</strong> to see your results.</p>
                 </div>
             </div>
 
-            <h2>Test Format</h2>
-
-            <div class="table-container">
-                <table>
-                    <thead><tr><th>Item</th><th>Detail</th></tr></thead>
-                    <tbody>
-                        <tr><td><strong>Coverage</strong></td><td>All five domains: mobile devices, networking, hardware, virtualization and cloud, and hardware and network troubleshooting</td></tr>
-                        <tr><td><strong>Weighting</strong></td><td>Matched to the published 220-1201 domain percentages</td></tr>
-                        <tr><td><strong>Item types</strong></td><td>Multiple choice, including scenario-based items that describe a symptom and ask for a diagnosis or next step</td></tr>
-                        <tr><td><strong>Attempts</strong></td><td>Unlimited before the deadline. Items are randomized, so no two attempts are identical.</td></tr>
-                        <tr><td><strong>Feedback</strong></td><td>Released after submission so you can review what you missed</td></tr>
-                        <tr><td><strong>Materials</strong></td><td>Closed book. Treat every attempt as if it were the real exam.</td></tr>
-                    </tbody>
-                </table>
+            <div class="callout callout-info">
+                <div class="callout-title">Test Taking Skills</div>
+                <div class="callout-content">
+                    <p>In order to successfully pass the CompTIA exam you should read each question and each answer. Select the best answer that you think is correct. Then read the question again, and each answer. If you agree with the original answer move on; otherwise, "work through" the answers and see which ones are easily dismissable.</p>
+                    <p>Full understanding requires completion of all 20 items and a review of any missed questions before moving on &mdash; not a specific score. Take the time to understand why an answer was wrong before you close this page.</p>
+                </div>
             </div>
 
             <div class="callout callout-warning">
-                <div class="callout-title">Unlimited Attempts Are Not a Shortcut</div>
+                <div class="callout-title">Submit Your Proof of Completion</div>
                 <div class="callout-content">
-                    <p>Retakes exist so you can close gaps, not so you can grind until the randomizer hands you a favorable set. A student who retakes with the notes open is training a skill the testing center will not let them use. Take each attempt cold, review what you missed, go back to the material, and then take it again.</p>
+                    <p>Once you&rsquo;ve completed this activity, take a screenshot showing your final score and upload it to the appropriate submission link in Brightspace by the due date.</p>
                 </div>
             </div>
 
-            <h2>Test Taking Skills</h2>
-
-            <p>These apply as much to the live CompTIA exam as to this test. The final week is the right time to make them habits.</p>
-
-            <div class="key-concept">
-                <h4>Read the Last Sentence First</h4>
-                <p>Scenario items bury the actual question at the end after a paragraph of setup. Read the final sentence, learn what is being asked, then go back through the scenario knowing what you are looking for. Half the detail in a long stem is deliberately irrelevant, and you can only tell which half once you know the question.</p>
-            </div>
-
-            <div class="key-concept">
-                <h4>Eliminate Before You Select</h4>
-                <p>Find the wrong answers first. Most items include at least one option that is technically real but does not fit the scenario, and one that would be correct for a closely related question. Cutting to two before choosing turns a guess into a decision, and it is faster than evaluating four options on their merits.</p>
-            </div>
-
-            <div class="key-concept">
-                <h4>Answer the Question That Was Asked</h4>
-                <p>&ldquo;What should the technician do <em>next</em>&rdquo; and &ldquo;what is the <em>cause</em>&rdquo; have different correct answers for the same scenario. Watch for <em>next</em>, <em>first</em>, <em>most likely</em>, <em>best</em>, and <em>least</em>. Those words are doing real work, and missing one is the most common way a prepared candidate loses points.</p>
-            </div>
-
-            <div class="key-concept">
-                <h4>Flag It and Move</h4>
-                <p>You have roughly one minute per item on the live exam. If an item is not resolving in ninety seconds, pick your best option, flag it, and move on. Three easy items at the end of the exam are worth more than one hard item in the middle, and a surprising number of flagged items resolve themselves once a later question reminds you of something.</p>
-            </div>
-
-            <div class="key-concept">
-                <h4>Trust the First Read on Recall, Not on Reasoning</h4>
-                <p>If an item tests a fact you either know or do not, your first instinct is usually right and second-guessing costs you. If an item requires reasoning through a scenario, re-checking is worth the time. Knowing which kind of item you are looking at is the skill.</p>
-            </div>
-
-            <h2>Submit Your Proof</h2>
-
-            <p>Complete the test through the Brightspace link for this section by the due date. After your final attempt, review the feedback and note every item you missed, along with every item you got right but were unsure about. Bring that list to your remaining study time.</p>
-
-            <div class="callout callout-info">
-                <div class="callout-title">Before You Schedule the Real Thing</div>
-                <div class="callout-content">
-                    <p>This test measures what you know. It does not, on its own, tell you that you are ready to sit for the 220-1201. That call comes from your performance on full-length practice exams under exam conditions, and your instructor will review that with you before a voucher recommendation is issued. If your results here are uneven across domains, say so &mdash; it is far cheaper to have that conversation now than after a failed attempt.</p>
+            <div class="assessment-section">
+                <div class="assessment-header">
+                    <h3>Unit 6 Cumulative Unit Test</h3>
+                    <p>Answer all 20 items, then grade your attempt.</p>
+                </div>
+                <div id="quizBody"></div>
+                <div class="text-center mt-lg">
+                    <button class="quiz-btn" onclick="gradeQuiz()">Grade My Answers</button>
+                    <button class="quiz-btn secondary" onclick="resetQuiz()">Reset &amp; Draw New Set</button>
+                </div>
+                <div id="quizResults">
+                    <div class="score" id="scoreDisplay"></div>
+                    <p id="scoreNote"></p>
                 </div>
             </div>
+
+            <script>
+                const POOL = [{"dom": "1.0", "q": "Which display technology places a backlight behind a liquid crystal layer?", "opts": ["A plasma panel", "An IPS LCD panel", "An OLED panel", "An E-ink panel"], "correct": 1}, {"dom": "1.0", "q": "Which connector type attaches a laptop keyboard to the system board?", "opts": ["A Molex connector", "A SATA connector", "A barrel connector", "A ribbon cable"], "correct": 3}, {"dom": "1.0", "q": "Which laptop port carries charging, display output, and data on one connector?", "opts": ["HDMI", "RJ45", "USB-C", "USB-A"], "correct": 2}, {"dom": "1.0", "q": "A user wants to send a tablet screen to a conference display without cables. Which feature does this?", "opts": ["Device tethering", "Port forwarding", "Volume licensing", "Screen mirroring"], "correct": 3}, {"dom": "1.0", "q": "Which component converts touch gestures into input signals on a tablet?", "opts": ["The digitizer", "The inverter", "The backlight", "The bezel"], "correct": 0}, {"dom": "1.0", "q": "A phone shows no available networks and cannot place calls. Which setting is likely enabled?", "opts": ["Hotspot mode", "Data saver", "Airplane mode", "Wi-Fi calling"], "correct": 2}, {"dom": "1.0", "q": "Which laptop feature prevents cursor movement while the user is typing?", "opts": ["Pointer acceleration", "Palm rejection", "Gesture scrolling", "Tap to click"], "correct": 1}, {"dom": "1.0", "q": "A company requires that a lost phone can be erased without physical access. Which capability provides this?", "opts": ["Safe mode", "Remote wipe", "Local backup", "Screen pinning"], "correct": 1}, {"dom": "1.0", "q": "Which wireless technology pairs a headset to a phone over a short range?", "opts": ["Bluetooth", "Cellular data", "Satellite link", "Infrared beam"], "correct": 0}, {"dom": "1.0", "q": "A laptop panel stays dark while an attached external monitor works correctly. Which part is least likely at fault?", "opts": ["The display cable", "The panel backlight", "The graphics processor", "The display panel"], "correct": 2}, {"dom": "1.0", "q": "Which synchronization method stores mobile data with a provider rather than on a local machine?", "opts": ["Cloud synchronization", "Cable synchronization", "Local disk imaging", "Direct dock transfer"], "correct": 0}, {"dom": "1.0", "q": "A technician is about to open a laptop to replace memory. What must be done first?", "opts": ["Run a full disk integrity check", "Install the latest chipset drivers", "Disconnect power and battery", "Update the system firmware version"], "correct": 2}, {"dom": "1.0", "q": "Which storage standard is commonly used for an internal laptop drive that seats on the board?", "opts": ["PATA ribbon", "M.2 NVMe", "3.5-inch SATA", "5.25-inch bay"], "correct": 1}, {"dom": "2.0", "q": "Which port carries unencrypted web traffic by default?", "opts": ["80", "443", "8080", "21"], "correct": 0}, {"dom": "2.0", "q": "Which port is used for sending outbound mail between servers?", "opts": ["143", "993", "25", "110"], "correct": 2}, {"dom": "2.0", "q": "Which record type maps a host name to an IPv4 address?", "opts": ["An MX record", "A TXT record", "A CNAME record", "An A record"], "correct": 3}, {"dom": "2.0", "q": "Which record type identifies the mail servers responsible for a domain?", "opts": ["An MX record", "An A record", "A PTR record", "An SRV record"], "correct": 0}, {"dom": "2.0", "q": "How many bits make up an IPv6 address?", "opts": ["512", "128", "64", "256"], "correct": 1}, {"dom": "2.0", "q": "Which address range is reserved for private internal use?", "opts": ["10.0.0.0/8", "11.0.0.0/8", "9.0.0.0/8", "12.0.0.0/8"], "correct": 0}, {"dom": "2.0", "q": "Which device forwards frames based on hardware addresses within a single network?", "opts": ["A modem", "A switch", "A router", "A firewall"], "correct": 1}, {"dom": "2.0", "q": "Which twisted pair category is rated to carry 10 gigabit over short runs?", "opts": ["Cat 4", "Cat 6a", "Cat 3", "Cat 5"], "correct": 1}, {"dom": "2.0", "q": "Which connector terminates a twisted pair network cable?", "opts": ["RJ11", "BNC", "LC", "RJ45"], "correct": 3}, {"dom": "2.0", "q": "Which connector is used on fiber optic patch cables?", "opts": ["LC", "RJ45", "RJ11", "DB9"], "correct": 0}, {"dom": "2.0", "q": "Which wireless band offers longer range at lower throughput?", "opts": ["60 GHz", "2.4 GHz", "5.0 GHz", "6.0 GHz"], "correct": 1}, {"dom": "2.0", "q": "Which wireless security standard should be selected for a newly deployed network?", "opts": ["TKIP", "WPA3", "WEP", "WPA"], "correct": 1}, {"dom": "2.0", "q": "Which service translates many internal addresses to one public address at the network edge?", "opts": ["DHCP", "NTP", "NAT", "DNS"], "correct": 2}, {"dom": "2.0", "q": "Which protocol synchronizes clocks across network devices?", "opts": ["SMTP", "LDAP", "NTP", "SNMP"], "correct": 2}, {"dom": "2.0", "q": "Which protocol is used to monitor and manage network devices remotely?", "opts": ["NTP", "IMAP", "SNMP", "SMTP"], "correct": 2}, {"dom": "2.0", "q": "Which port is used by a directory services protocol in its unencrypted form?", "opts": ["143", "389", "443", "636"], "correct": 1}, {"dom": "2.0", "q": "Which utility verifies that a remote host responds on the network?", "opts": ["ipconfig", "netstat", "nslookup", "ping"], "correct": 3}, {"dom": "2.0", "q": "Which utility displays each hop along the path to a destination?", "opts": ["tracert", "ping", "arp", "netstat"], "correct": 0}, {"dom": "2.0", "q": "Which utility queries name resolution records directly from a resolver?", "opts": ["ipconfig", "nslookup", "netstat", "pathping"], "correct": 1}, {"dom": "2.0", "q": "Which internet connection type delivers service over existing telephone wiring?", "opts": ["Fiber", "Cellular", "DSL", "Cable"], "correct": 2}, {"dom": "2.0", "q": "Which internet connection type carries the highest latency of the common options?", "opts": ["DSL circuit", "Satellite", "Fiber optic", "Cable modem"], "correct": 1}, {"dom": "2.0", "q": "Which device gives wireless clients access to a wired network?", "opts": ["A signal repeater", "A media converter", "A patch panel", "An access point"], "correct": 3}, {"dom": "2.0", "q": "Which switch feature supplies electrical power to a connected device over the data cable?", "opts": ["Port mirroring sessions", "Spanning tree protocol", "Power over Ethernet", "Link aggregation groups"], "correct": 2}, {"dom": "3.0", "q": "Which memory technology transfers data twice per clock cycle?", "opts": ["EDO", "FPM", "DDR", "SDR"], "correct": 2}, {"dom": "3.0", "q": "Which memory feature detects and corrects single-bit errors?", "opts": ["ECC", "Dual channel", "Parity checking", "Registered buffering"], "correct": 0}, {"dom": "3.0", "q": "Which processor socket style places the pins on the socket rather than the chip?", "opts": ["LGA", "PGA", "BGA", "ZIF"], "correct": 0}, {"dom": "3.0", "q": "Which specification states how much heat a cooling solution must dissipate?", "opts": ["Operating core voltage", "Thermal design power", "Base clock multiplier", "External bus width"], "correct": 1}, {"dom": "3.0", "q": "Which interface provides the highest throughput for a solid state drive?", "opts": ["SATA III", "SATA II", "PATA", "NVMe"], "correct": 3}, {"dom": "3.0", "q": "Which array configuration uses striping with distributed parity?", "opts": ["RAID 0", "RAID 1", "RAID 10", "RAID 5"], "correct": 3}, {"dom": "3.0", "q": "Which array configuration combines mirroring with striping?", "opts": ["RAID 0", "RAID 10", "RAID 5", "RAID 6"], "correct": 1}, {"dom": "3.0", "q": "Which connector supplies main power to a modern desktop motherboard?", "opts": ["8-pin EPS", "6-pin PCIe", "4-pin Molex", "24-pin ATX"], "correct": 3}, {"dom": "3.0", "q": "Which connector typically supplies supplemental power to a graphics card?", "opts": ["15-pin SATA", "8-pin PCIe", "24-pin ATX", "4-pin fan"], "correct": 1}, {"dom": "3.0", "q": "Which firmware interface replaced the traditional startup firmware on modern boards?", "opts": ["UEFI", "CMOS", "POST", "ACPI"], "correct": 0}, {"dom": "3.0", "q": "Which component stores keys used for full disk encryption?", "opts": ["A firmware ROM", "A TPM module", "A CMOS battery", "A chipset bridge"], "correct": 1}, {"dom": "3.0", "q": "What does removing the CMOS battery accomplish?", "opts": ["It updates the firmware version", "It resets the network adapter", "It clears stored firmware settings", "It erases the system drive"], "correct": 2}, {"dom": "3.0", "q": "Which printer type uses a print head that strikes an inked ribbon?", "opts": ["Inkjet", "Thermal", "Impact", "Laser"], "correct": 2}, {"dom": "3.0", "q": "Which laser printing step removes residual toner from the drum surface?", "opts": ["Developing", "Cleaning", "Charging", "Fusing"], "correct": 1}, {"dom": "3.0", "q": "Which laser printer component applies heat and pressure to bond toner to paper?", "opts": ["The fuser", "The drum", "The transfer roller", "The pickup roller"], "correct": 0}, {"dom": "3.0", "q": "Which consumable is replaced most often on an inkjet printer?", "opts": ["The fuser unit", "The imaging drum", "The transfer belt", "The ink cartridge"], "correct": 3}, {"dom": "3.0", "q": "Which display connection carries analog video only?", "opts": ["HDMI", "DisplayPort", "USB-C", "VGA"], "correct": 3}, {"dom": "3.0", "q": "Which display specification states the number of pixels shown on screen?", "opts": ["Refresh rate", "Response time", "Aspect ratio", "Resolution"], "correct": 3}, {"dom": "3.0", "q": "Which expansion slot standard is used by current add-in cards?", "opts": ["ISA", "AGP", "PCIe", "PCI-X"], "correct": 2}, {"dom": "3.0", "q": "Which drive type uses flash storage with no moving parts?", "opts": ["An optical disc drive", "A magnetic tape drive", "A solid state drive", "A hard disk drive"], "correct": 2}, {"dom": "3.0", "q": "Which tool measures voltage on a power supply rail?", "opts": ["A cable crimper", "A multimeter", "A tone probe", "A punchdown tool"], "correct": 1}, {"dom": "3.0", "q": "Which practice protects components from electrostatic discharge during service?", "opts": ["A cotton work glove", "A grounded wrist strap", "A rubber floor mat", "A plastic parts tray"], "correct": 1}, {"dom": "3.0", "q": "Which motherboard form factor is the standard full-size desktop board?", "opts": ["Nano ITX", "ATX", "Mini ITX", "Micro ATX"], "correct": 1}, {"dom": "3.0", "q": "Which component provides temporary working storage that clears at power off?", "opts": ["System memory", "The hard drive", "The firmware chip", "The optical drive"], "correct": 0}, {"dom": "3.0", "q": "Which material sits between the processor and the heat sink to improve heat transfer?", "opts": ["Thermal paste", "A fan shroud", "A dust filter", "A drive caddy"], "correct": 0}, {"dom": "4.0", "q": "Which hypervisor type runs as an application on top of an existing operating system?", "opts": ["Type 1", "Type 0", "Type 3", "Type 2"], "correct": 3}, {"dom": "4.0", "q": "Which cloud deployment model dedicates infrastructure to a single organization?", "opts": ["Community", "Private", "Public", "Hybrid"], "correct": 1}, {"dom": "4.0", "q": "Which cloud deployment model shares infrastructure among organizations with common needs?", "opts": ["Private", "Public", "Distributed", "Community"], "correct": 3}, {"dom": "4.0", "q": "Which cloud characteristic lets users provision resources without contacting the provider?", "opts": ["Measured billing service", "Shared resource pooling", "Broad network access", "On-demand self-service"], "correct": 3}, {"dom": "4.0", "q": "Which component allocates physical resources to virtual machines?", "opts": ["The file system", "The hypervisor", "The guest agent", "The boot loader"], "correct": 1}, {"dom": "4.0", "q": "Which file represents a virtual machine's storage on the host?", "opts": ["A system page file", "A swap partition", "A master boot record", "A virtual disk file"], "correct": 3}, {"dom": "4.0", "q": "What does a virtual machine snapshot provide?", "opts": ["A revert point for changes", "A permanent archival backup", "A faster processor clock", "A larger memory allocation"], "correct": 0}, {"dom": "4.0", "q": "Which virtual network mode gives a guest an address on the physical network?", "opts": ["Internal", "Isolated", "Bridged", "Host-only"], "correct": 2}, {"dom": "4.0", "q": "Which virtual network mode allows a guest to communicate with the host only?", "opts": ["Bridged mode", "Routed mode", "External mode", "Host-only"], "correct": 3}, {"dom": "4.0", "q": "Which processor feature must be enabled in firmware to run virtual machines efficiently?", "opts": ["Automatic frequency boosting", "Secure boot enforcement", "Hardware virtualization support", "Simultaneous multithreading support"], "correct": 2}, {"dom": "4.0", "q": "Which model delivers a full desktop operating system to a user from a remote server?", "opts": ["SaaS", "PaaS", "IaaS", "DaaS"], "correct": 3}, {"dom": "5.0", "q": "Which step of the troubleshooting methodology comes first?", "opts": ["Test the theory", "Document findings", "Identify the problem", "Establish a theory"], "correct": 2}, {"dom": "5.0", "q": "Which activity belongs to the identify the problem step?", "opts": ["Replacing the power supply", "Writing the ticket summary", "Verifying the completed repair", "Asking the user what changed"], "correct": 3}, {"dom": "5.0", "q": "A technician tests a theory and it is confirmed. Which step comes next?", "opts": ["Document the outcome", "Verify full functionality", "Establish a plan of action", "Establish a new theory"], "correct": 2}, {"dom": "5.0", "q": "During which step are preventive measures put in place?", "opts": ["Test the probable cause theory", "Document findings and outcomes", "Verify full system functionality", "Identify the reported problem"], "correct": 2}, {"dom": "5.0", "q": "A workstation shows a blank screen while the power light blinks amber. What does this indicate?", "opts": ["A disconnected network cable", "An incorrect display input", "A power or hardware fault", "A failed operating system update"], "correct": 2}, {"dom": "5.0", "q": "A system completes its self-test but reports no bootable device. What should be checked first?", "opts": ["The configured keyboard layout", "Boot order and drive detection", "The installed antivirus product", "The attached monitor cable"], "correct": 1}, {"dom": "5.0", "q": "A computer emits a burning odor and shuts off. What is the correct first action?", "opts": ["Disconnect power immediately", "Restart it in safe mode", "Run a full memory test", "Update the system firmware"], "correct": 0}, {"dom": "5.0", "q": "Memory tests fail intermittently on a desktop. What should the technician try?", "opts": ["Reseat the system processor", "Replace the power supply", "Reset the firmware settings", "Test each module individually"], "correct": 3}, {"dom": "5.0", "q": "A laptop fan runs at full speed continuously. Which cause is most likely?", "opts": ["Blocked vents or dust buildup", "An unseated memory module", "A failing storage drive", "An incorrect display scaling"], "correct": 0}, {"dom": "5.0", "q": "A drive begins reporting self-monitoring errors. What should the technician do?", "opts": ["Increase the page file size", "Back up data and plan replacement", "Defragment the affected volume", "Reinstall the chipset driver"], "correct": 1}, {"dom": "5.0", "q": "One member drive fails in a mirrored array. What happens to the data?", "opts": ["It remains available on the mirror", "It is lost until restored", "It becomes permanently read-only", "It must be rebuilt from backup"], "correct": 0}, {"dom": "5.0", "q": "A monitor reports no signal while the computer is clearly running. What should be checked first?", "opts": ["The graphics driver version", "The power saving timeout", "The cable and selected input", "The display resolution setting"], "correct": 2}, {"dom": "5.0", "q": "A projected image looks washed out in a brightly lit room. Which factor is responsible?", "opts": ["A clogged intake air filter", "Insufficient projector brightness", "An incorrect aspect ratio", "A failed internal color wheel"], "correct": 1}, {"dom": "5.0", "q": "A laser printer produces completely blank pages. Which cause is most likely?", "opts": ["An incorrect paper size setting", "A worn paper pickup roller", "A failed fuser assembly", "An unseated toner cartridge"], "correct": 3}, {"dom": "5.0", "q": "Paper jams occur repeatedly at the same point inside a printer. What should be inspected?", "opts": ["The rollers and paper path", "The installed printer driver", "The network cable and port", "The configured print quality"], "correct": 0}, {"dom": "5.0", "q": "A printer produces garbled characters on every page from every host. What is the likely cause?", "opts": ["An incorrect or corrupt driver", "A low toner cartridge level", "A misaligned input paper tray", "A conflicting duplex setting"], "correct": 0}, {"dom": "5.0", "q": "A wireless client associates successfully but cannot reach any resource. What should be checked?", "opts": ["The wireless security type", "The configured channel width", "The adapter driver version", "Addressing and gateway settings"], "correct": 3}, {"dom": "5.0", "q": "Several users report slow file access in the afternoon but not in the morning. What does the pattern suggest?", "opts": ["An expired address lease", "A misconfigured default gateway", "Congestion during peak hours", "A failing switch uplink port"], "correct": 2}, {"dom": "5.0", "q": "One workstation cannot reach any network resource while its neighbors are unaffected. What is checked first?", "opts": ["The service provider circuit", "The wireless channel plan", "Its cable and link status", "The building distribution switch"], "correct": 2}, {"dom": "5.0", "q": "Connectivity drops intermittently for devices near a microwave oven. What is the cause?", "opts": ["A failed name resolution service", "An expired address lease", "An incorrect subnet mask", "Interference on the 2.4 GHz band"], "correct": 3}, {"dom": "5.0", "q": "A technician replaces a part and the symptom persists. What should happen next?", "opts": ["Document and close the ticket", "Verify full system functionality", "Replace the adjacent components", "Return to establishing a theory"], "correct": 3}, {"dom": "5.0", "q": "Why is documentation the final step of the methodology?", "opts": ["It builds a record for future issues", "It satisfies the ticket close requirement", "It confirms the repair was effective", "It notifies the user of completion"], "correct": 0}, {"dom": "5.0", "q": "A laptop runs hot and its case has bulged near the trackpad. What is the correct action?", "opts": ["Remove it from service immediately", "Continue charging it to full", "Apply pressure to reseat the panel", "Run a battery calibration cycle"], "correct": 0}, {"dom": "5.0", "q": "What does asking whether a problem follows the device or the location accomplish?", "opts": ["It determines the remaining warranty status", "It identifies the correct driver package", "It narrows the fault to hardware or infrastructure", "It satisfies the ticket documentation template"], "correct": 2}, {"dom": "5.0", "q": "A desktop powers on only after several attempts, then runs normally for hours. Which component is suspect?", "opts": ["The power supply", "The system memory", "The storage drive", "The cooling fan"], "correct": 0}, {"dom": "5.0", "q": "Which action confirms that a repair did not break something unrelated?", "opts": ["Rebooting the system one time", "Asking the user to report back later", "Recording the parts that were used", "Testing other functions before closing"], "correct": 3}, {"dom": "5.0", "q": "A newly installed graphics card produces no output and the system beeps at power-on. What should be checked?", "opts": ["That the card is seated and powered", "That the driver is the latest version", "That the refresh rate is supported", "That the operating system is current"], "correct": 0}, {"dom": "5.0", "q": "A user's files are inaccessible and firmware does not detect the drive at all. What does this indicate?", "opts": ["A physical or connection failure", "A corrupted partition table", "An unassigned drive letter", "A missing storage driver"], "correct": 0}];
+                /* Items drawn per domain, weighted to the published exam blueprint. */
+                const PLAN = { "1.0": 3, "2.0": 5, "3.0": 5, "4.0": 2, "5.0": 5 };
+
+                let QUESTIONS = [];
+                let answers = {};
+                let graded = false;
+
+                function shuffle(arr) {
+                    const a = arr.slice();
+                    for (let i = a.length - 1; i > 0; i--) {
+                        const j = Math.floor(Math.random() * (i + 1));
+                        [a[i], a[j]] = [a[j], a[i]];
+                    }
+                    return a;
+                }
+
+                function drawSet() {
+                    let picked = [];
+                    Object.keys(PLAN).forEach(function (dom) {
+                        const bucket = shuffle(POOL.filter(function (x) { return x.dom === dom; }));
+                        picked = picked.concat(bucket.slice(0, PLAN[dom]));
+                    });
+                    QUESTIONS = shuffle(picked);
+                    answers = {};
+                    graded = false;
+                }
+
+                function renderQuiz() {
+                    let html = '';
+                    QUESTIONS.forEach(function (item, qi) {
+                        html += '<div class="question-block">';
+                        html += '<div class="question-number">Question ' + (qi + 1) + '</div>';
+                        html += '<p class="question-text">' + item.q + '</p>';
+                        item.opts.forEach(function (opt, oi) {
+                            html += '<button class="answer-option" data-qi="' + qi + '" data-oi="' + oi + '" '
+                                 + 'onclick="selectAnswer(' + qi + ',' + oi + ')">'
+                                 + String.fromCharCode(65 + oi) + '. ' + opt + '</button>';
+                        });
+                        html += '</div>';
+                    });
+                    document.getElementById('quizBody').innerHTML = html;
+                }
+
+                function selectAnswer(qi, oi) {
+                    if (graded) { return; }
+                    answers[qi] = oi;
+                    document.querySelectorAll('[data-qi="' + qi + '"]').forEach(function (btn) {
+                        btn.classList.remove('selected');
+                    });
+                    document.querySelector('[data-qi="' + qi + '"][data-oi="' + oi + '"]').classList.add('selected');
+                }
+
+                function gradeQuiz() {
+                    if (Object.keys(answers).length < QUESTIONS.length) {
+                        alert('Please answer all ' + QUESTIONS.length + ' questions before grading.');
+                        return;
+                    }
+                    graded = true;
+                    let score = 0;
+                    QUESTIONS.forEach(function (item, qi) {
+                        const correct = item.correct;
+                        document.querySelectorAll('[data-qi="' + qi + '"]').forEach(function (btn) {
+                            const oi = parseInt(btn.dataset.oi);
+                            btn.classList.remove('selected');
+                            if (oi === correct) { btn.classList.add('correct'); }
+                            else if (oi === answers[qi]) { btn.classList.add('incorrect'); }
+                        });
+                        if (answers[qi] === correct) { score++; }
+                    });
+                    document.getElementById('scoreDisplay').textContent = score + ' / ' + QUESTIONS.length;
+                    const note = document.getElementById('scoreNote');
+                    if (score >= 16) { note.textContent = 'Strong result. Review any missed items, then you are done.'; }
+                    else if (score >= 12) { note.textContent = 'A passing-range result. Review your missed questions closely before moving on.'; }
+                    else { note.textContent = 'Not there yet \u2014 review the reading and videos for the objectives you missed, then try again.'; }
+                    document.getElementById('quizResults').style.display = 'block';
+                    document.getElementById('quizResults').scrollIntoView({ behavior: 'smooth' });
+                }
+
+                function resetQuiz() {
+                    document.getElementById('quizResults').style.display = 'none';
+                    drawSet();
+                    renderQuiz();
+                }
+
+                drawSet();
+                renderQuiz();
+            </script>
 
         </div>
 
