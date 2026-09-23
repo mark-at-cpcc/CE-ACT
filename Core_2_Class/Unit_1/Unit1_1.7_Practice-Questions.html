@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 1 &mdash; 1.7 Practice Question Set | CompTIA A+ Core 2</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Sans+Pro:wght@400;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           CPCC COURSE TEMPLATE - GOLD / CHARCOAL / BLACK
+           CTS-ITS7501-80 CompTIA A+ Core 2 Training
+           Type: true black. Accents: gold. Chrome: charcoal.
+           ============================================ */
+
+        :root {
+            --primary-dark: #4A4A4A;       /* Charcoal - structural chrome only */
+            --primary-main: #B8962E;       /* Warm Gold - primary accent */
+            --primary-light: #D4AF56;      /* Light Gold */
+            --primary-pale: #FBF3DF;       /* Pale Gold wash */
+
+            --accent-teal: #8A6F1F;        /* Deep bronze-gold */
+            --accent-teal-light: #F3E9CE;  /* Pale bronze */
+            --accent-orange: #A9642A;      /* Warm rust */
+            --accent-orange-light: #F5E2CE;
+            --accent-purple: #6B5B3A;      /* Muted umber */
+            --accent-purple-light: #EFE6D2;
+            --accent-green: #4E7A51;
+            --accent-green-light: #DCEBDD;
+
+            --alert-warning: #B8862E;
+            --alert-warning-bg: #FBF0D9;
+            --alert-danger: #A13A3A;
+            --alert-danger-bg: #F6DEDE;
+            --alert-success: #3F6E42;
+            --alert-success-bg: #DCEBDD;
+            --alert-info: #6E5B2E;
+            --alert-info-bg: #F1E9D4;
+
+            --text-black: #000000;         /* All reading text */
+            --neutral-900: #000000;
+            --neutral-700: #000000;
+            --neutral-500: #5A5A5A;
+            --neutral-300: #D9D3C4;
+            --neutral-100: #FAF8F3;
+            --white: #ffffff;
+
+            --font-heading: 'Nunito', sans-serif;
+            --font-body: 'Source Sans Pro', sans-serif;
+            --font-code: 'Fira Code', monospace;
+
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+
+            --shadow-sm: 0 1px 2px rgba(74, 74, 74, 0.08);
+            --shadow-md: 0 4px 6px rgba(74, 74, 74, 0.12);
+            --shadow-lg: 0 10px 20px rgba(74, 74, 74, 0.15);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body), 'Segoe UI', Tahoma, Verdana, sans-serif;
+            font-size: 1.0625rem; line-height: 1.7; color: var(--text-black);
+            background: linear-gradient(135deg, var(--neutral-100) 0%, var(--white) 100%);
+            min-height: 100vh; padding: var(--space-lg);
+        }
+
+        .course-container {
+            max-width: 950px; margin: 0 auto; background: var(--white);
+            border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); overflow: hidden;
+        }
+
+        .module-header {
+            background: var(--primary-main); color: var(--text-black);
+            padding: var(--space-lg) var(--space-xl); position: relative; overflow: hidden;
+        }
+        .module-label {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 0.875rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 2px; text-decoration: underline;
+            margin-bottom: var(--space-sm); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-title {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 2.25rem; font-weight: 800;
+            line-height: 1.2; margin-bottom: var(--space-md); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-subtitle { font-size: 1.125rem; max-width: 650px; position: relative; z-index: 1; color: var(--text-black); }
+
+        .toc {
+            display: flex; flex-direction: column; gap: var(--space-sm);
+            padding: var(--space-lg) var(--space-xl);
+            background: var(--primary-pale); border-bottom: 1px solid var(--neutral-300);
+        }
+        .toc-item {
+            width: 100%; text-align: left;
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 0.875rem;
+            color: var(--text-black); background: var(--white);
+            border: 2px solid var(--primary-main);
+            padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md);
+        }
+        .toc-item.current { background: var(--primary-main); }
+
+        .content-area { padding: var(--space-xl); }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif;
+            color: var(--text-black); line-height: 1.3; margin-bottom: var(--space-md);
+        }
+        h1 { font-size: 2rem; font-weight: 800; }
+        h2 { font-size: 1.625rem; font-weight: 700; padding-bottom: var(--space-sm);
+             border-bottom: 3px solid var(--primary-main); margin-top: var(--space-xl); margin-bottom: var(--space-lg); }
+        h3 { font-size: 1.375rem; font-weight: 700; margin-top: var(--space-lg);
+             padding-left: var(--space-sm); border-left: 4px solid var(--primary-main); }
+        h4 { font-size: 1.125rem; font-weight: 600; }
+
+        p { margin-bottom: var(--space-md); }
+        strong { font-weight: 700; color: var(--text-black); }
+        em { font-style: italic; color: var(--text-black); }
+
+        a { color: var(--text-black); text-decoration: none; border-bottom: 2px solid var(--primary-main); transition: all 0.2s ease; }
+        a:hover { background: var(--primary-pale); border-bottom-color: var(--accent-teal); }
+
+        .tech-box {
+            background: var(--neutral-100); border: 2px solid var(--neutral-500);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .tech-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .tech-box .callout-content { padding-left: 0; }
+
+        .plain-box {
+            background: var(--primary-pale); border: 2px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .plain-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .plain-box .callout-content { padding-left: 0; }
+
+        .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; position: relative; overflow: hidden; }
+        .callout-title { font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 1rem;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
+        .callout-content { }
+        .callout-content p:last-child { margin-bottom: 0; }
+        .callout-tip { background: var(--accent-green-light); border-left: 4px solid var(--accent-green); }
+        .callout-warning { background: var(--alert-warning-bg); border-left: 4px solid var(--alert-warning); }
+        .callout-danger { background: var(--alert-danger-bg); border-left: 4px solid var(--alert-danger); }
+        .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
+
+        .text-center { text-align: center; }
+        .text-muted { color: var(--neutral-500); }
+        .mt-sm { margin-top: var(--space-sm); } .mt-md { margin-top: var(--space-md); } .mt-lg { margin-top: var(--space-lg); }
+        .mb-sm { margin-bottom: var(--space-sm); } .mb-md { margin-bottom: var(--space-md); } .mb-lg { margin-bottom: var(--space-lg); }
+
+        /* Interactive quiz controls */
+        .question-block { background: var(--white); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin-bottom: var(--space-lg); box-shadow: var(--shadow-sm); }
+        .question-number { font-family: var(--font-heading), sans-serif; font-size: 0.75rem; font-weight: 700;
+            color: var(--text-black); background: var(--primary-main); display: inline-block;
+            padding: 2px 10px; border-radius: var(--radius-sm);
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); }
+        .question-text { font-weight: 600; color: var(--text-black); margin-bottom: var(--space-md); }
+
+        .answer-option { display: block; width: 100%; text-align: left; padding: var(--space-sm) var(--space-md);
+            margin-bottom: var(--space-sm); border: 2px solid var(--neutral-300); border-radius: var(--radius-sm);
+            background: var(--white); cursor: pointer; font-family: var(--font-body), sans-serif; font-size: 1rem; color: var(--text-black); }
+        .answer-option:hover { border-color: var(--primary-main); }
+        .answer-option.selected { border-color: var(--primary-dark); background: var(--primary-pale); }
+        .answer-option.correct { border-color: var(--accent-green); background: var(--accent-green-light); }
+        .answer-option.incorrect { border-color: var(--alert-danger); background: var(--alert-danger-bg); }
+        .quiz-btn { font-family: var(--font-heading), sans-serif; font-weight: 700; padding: var(--space-sm) var(--space-xl);
+            border-radius: var(--radius-sm); border: 2px solid var(--primary-dark); background: var(--primary-dark); color: var(--white);
+            cursor: pointer; font-size: 0.95rem; margin-right: var(--space-sm); }
+        .quiz-btn:hover { background: #333333; }
+        .quiz-btn.secondary { background: var(--white); color: var(--primary-dark); }
+        .quiz-btn.secondary:hover { background: var(--neutral-100); }
+        #quizResults { display:none; background: var(--primary-pale); border: 2px solid var(--primary-main); border-radius: var(--radius-md);
+            padding: var(--space-lg); margin-top: var(--space-lg); text-align: center; font-family: var(--font-heading), sans-serif; }
+        #quizResults .score { font-size: 2rem; font-weight: 800; color: var(--text-black); }
+
+        .module-footer { background: var(--neutral-100); padding: var(--space-lg) var(--space-xl); text-align: center; border-top: 1px solid var(--neutral-300); }
+        .footer-text { font-size: 0.875rem; color: var(--neutral-500); }
+
+        @media (max-width: 768px) {
+            .module-title { font-size: 1.75rem; }
+            .content-area { padding: var(--space-lg); }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="course-container">
+
+        <header class="module-header">
+            <div class="module-label">Unit 1 &middot; The Technician and the Operating System &middot; Section 1.7</div>
+            <h1 class="module-title">Practice Question Set</h1>
+            <p class="module-subtitle">CompTIA A+ Core 2 - Domains 1.0 and 4.0</p>
+        </header>
+
+                <nav class="toc" id="tocNav">
+            <div class="toc-header">Table of Contents</div>
+            <div class="toc-item">1.1 &mdash; Unit Overview and Schedule</div>
+            <div class="toc-item">1.2 &mdash; Unit Pre-Assessment</div>
+            <div class="toc-item">1.3 &mdash; Content Review</div>
+            <div class="toc-item">1.4 &mdash; Reading Assignment</div>
+            <div class="toc-item">1.5 &mdash; Video Assignment</div>
+            <div class="toc-item">1.6 &mdash; Classroom Labs and Take-Home Lab</div>
+            <div class="toc-item current" id="tocCurrent">1.7 &mdash; Practice Question Set</div>
+            <div class="toc-item">1.8 &mdash; Online Labs: NETLAB</div>
+            <div class="toc-item">1.9 &mdash; Reflection Activity</div>
+            <div class="toc-item">1.10 &mdash; Unit Test</div>
+            <div class="toc-item">1.A &mdash; Acronym Test</div>
+            <div class="toc-item">1.B &mdash; Clearing Your Browser Cache</div>
+        </nav>
+        <style>
+            /* Collapsible TOC: only the current section shows until clicked */
+            nav.toc#tocNav { gap: 0; }
+            nav.toc#tocNav .toc-item {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav .toc-item.current {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                cursor: pointer;
+            }
+            nav.toc#tocNav .toc-item.current::after {
+                content: ' \25BE Click to View';
+                font-size: 0.75em;
+            }
+            nav.toc#tocNav.toc-expanded .toc-item {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                margin-bottom: var(--space-sm);
+            }
+            nav.toc#tocNav.toc-expanded .toc-item.current::after { content: ' \25B4'; }
+
+            nav.toc#tocNav .toc-header {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                font-family: var(--font-heading), 'Segoe UI', sans-serif;
+                font-weight: 700;
+                font-size: 0.875rem;
+                text-align: left;
+                color: var(--text-black);
+                text-decoration: underline;
+                background: var(--primary-main);
+                border-radius: var(--radius-md);
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav.toc-expanded .toc-header {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                padding-left: var(--space-md);
+                border-width: 2px;
+                border-style: solid;
+                border-color: var(--primary-main);
+                margin-bottom: var(--space-sm);
+            }
+        </style>
+
+        <script>
+            (function () {
+                var toc = document.getElementById('tocNav');
+                var currentItem = document.getElementById('tocCurrent');
+
+                toc.addEventListener('click', function (e) {
+                    if (toc.classList.contains('toc-expanded')) {
+                        toc.classList.remove('toc-expanded');
+                    } else if (e.target === currentItem || currentItem.contains(e.target)) {
+                        toc.classList.add('toc-expanded');
+                    }
+                });
+
+                toc.addEventListener('mouseleave', function () {
+                    toc.classList.remove('toc-expanded');
+                });
+            })();
+        </script>
+
+        <div class="content-area">
+
+            <div class="tech-box">
+                <div class="callout-title">Test Format</div>
+                <div class="callout-content">
+                    <p>Each attempt draws a fresh random set of 10 questions from a 50-item pool covering this unit's operating system, installation, Windows edition, application, cloud, documentation, and professionalism objectives. Answer choices are reshuffled every attempt. Click an answer to select it, then click <strong>Grade My Answers</strong> to score the set. Keep resetting until you score a perfect 10 out of 10.</p>
+                </div>
+            </div>
+
+            <div class="plain-box">
+                <div class="callout-title">In Plain Terms</div>
+                <div class="callout-content">
+                    <p>Confident-and-wrong is the category to watch for: you believe something false and have no reason to double-check it. That category is invisible on an ordinary score report, and it is what fails people on the first attempt.</p>
+                    <p>Select an answer for each question, then click <strong>Grade My Answers</strong> to see your results. Click <strong>Reset</strong> for a brand-new random set of 10, and keep going. You are expected to repeat this until you score a perfect 10 out of 10 in a single attempt &mdash; a fresh random set every time means you cannot simply memorize positions, you actually have to know the material.</p>
+                </div>
+            </div>
+
+            <div id="quizArea"></div>
+
+            <div class="mt-lg">
+                <button class="quiz-btn" onclick="gradeQuiz()">Grade My Answers</button>
+                <button class="quiz-btn secondary" onclick="resetQuiz()">Reset</button>
+            </div>
+
+            <div id="quizResults">
+                <div>Your Score</div>
+                <div class="score" id="scoreDisplay">0 / 10</div>
+                <div id="scoreNote"></div>
+            </div>
+
+            <script>
+                const POOL = [{"q": "Which operating system is found on Chromebooks and relies heavily on cloud services?", "opts": ["ChromeOS", "Linux", "iPadOS", "Windows 11 Home"], "correct": 0}, {"q": "A user needs to store a single 9 GB video file on a USB drive that must work on both Windows and macOS. Which file system should be used?", "opts": ["FAT32", "exFAT", "ext4", "NTFS"], "correct": 1}, {"q": "Which file system is the default for current versions of macOS?", "opts": ["XFS", "HFS", "APFS", "NTFS"], "correct": 2}, {"q": "A Windows volume must support file-level permissions and encryption. Which file system meets that requirement?", "opts": ["FAT32", "exFAT", "ext4", "NTFS"], "correct": 3}, {"q": "An operating system has reached end-of-life. What is the primary risk of continuing to use it?", "opts": ["No further security patches are released for newly discovered vulnerabilities", "Installed applications are automatically uninstalled", "The license key is revoked by the vendor", "The system stops booting after the end-of-life date"], "correct": 0}, {"q": "Which two file systems are most commonly associated with Linux installations?", "opts": ["FAT32 and exFAT", "ext4 and XFS", "APFS and HFS+", "NTFS and ReFS"], "correct": 1}, {"q": "Which mobile operating system is developed by Google and used by many different device manufacturers?", "opts": ["iOS", "iPadOS", "Android", "ChromeOS"], "correct": 2}, {"q": "A technician needs a Windows file system designed for very large volumes with automatic detection and repair of data corruption. Which should be selected?", "opts": ["FAT32", "NTFS", "exFAT", "ReFS"], "correct": 3}, {"q": "A user copies a 5 GB file to a FAT32 flash drive and the copy fails. What is the cause?", "opts": ["FAT32 cannot store a single file larger than 4 GB", "The flash drive is failing and must be replaced", "FAT32 volumes cannot exceed 4 GB in total", "Windows blocks copies to removable media over 4 GB"], "correct": 0}, {"q": "Which partitioning scheme is required to boot Windows 11 and supports drives well beyond 2 TB?", "opts": ["FAT32", "GPT", "exFAT", "MBR"], "correct": 1}, {"q": "A technician must install Windows on 200 identical computers with the same applications and settings. Which installation method is most efficient?", "opts": ["Repair installation", "Multiboot installation", "Image deployment", "Clean install on each machine"], "correct": 2}, {"q": "What is the maximum number of primary partitions supported by MBR?", "opts": ["Eight", "One hundred twenty-eight", "Two", "Four"], "correct": 3}, {"q": "A new computer is shipped directly to a remote employee and configures itself when the employee first signs in. Which deployment method is this?", "opts": ["Zero-touch deployment", "Multiboot installation", "Image deployment", "Repair installation"], "correct": 0}, {"q": "Windows is damaged but the user's data and applications must be preserved. Which installation type should be performed?", "opts": ["Image deployment", "Repair installation", "Clean install", "Recovery partition reset to factory state"], "correct": 1}, {"q": "During a Windows installation the setup program does not detect the system's storage drive. What should the technician do?", "opts": ["Convert the drive to FAT32 first", "Replace the drive, since it is incompatible", "Load the third-party storage controller driver during setup", "Install a second operating system, then upgrade"], "correct": 2}, {"q": "Which boot method allows a computer to start installation from a deployment server over the network?", "opts": ["Internet-based recovery boot", "External hot-swappable drive boot", "Internal partition boot", "Network (PXE) boot"], "correct": 3}, {"q": "What is the main difference between a quick format and a full format?", "opts": ["A full format also scans the drive for bad sectors", "A quick format works only on FAT32 volumes", "A quick format erases data permanently and a full format does not", "A full format converts the partition style to GPT"], "correct": 0}, {"q": "Before performing an in-place upgrade of Windows, which step should always be completed first?", "opts": ["Convert the drive from GPT to MBR", "Back up the user's files and preferences", "Disable the local firewall", "Remove all user accounts from the machine"], "correct": 1}, {"q": "A technician installs two operating systems on one computer and selects which to use at startup. What is this configuration called?", "opts": ["Image deployment", "Virtualization", "Multiboot", "Zero-touch deployment"], "correct": 2}, {"q": "A small business needs workstations that can join an Active Directory domain. Which Windows 11 edition is the minimum that supports this?", "opts": ["Home Single Language", "Home N", "Home", "Pro"], "correct": 3}, {"q": "Which hardware security component must be present to install Windows 11?", "opts": ["TPM 2.0", "A second storage drive", "A dedicated graphics card", "An HSM"], "correct": 0}, {"q": "A user with Windows 11 Home wants to allow remote connections into their computer with Remote Desktop. What is the limitation?", "opts": ["Home supports Remote Desktop only over a VPN", "Home can act as a Remote Desktop client but cannot host sessions", "Home supports only one Remote Desktop session at a time", "Home requires a TPM before Remote Desktop can be enabled"], "correct": 1}, {"q": "What distinguishes an N version of Windows from the standard edition?", "opts": ["It is limited to 32-bit processors", "It cannot receive feature updates", "Media-related features are removed", "It supports only domain-joined computers"], "correct": 2}, {"q": "Which Windows feature, available in Pro and above, allows full-disk encryption of the system drive?", "opts": ["File History", "Windows Hello", "Storage Spaces", "BitLocker"], "correct": 3}, {"q": "A technician needs to edit local Group Policy with gpedit.msc on a Windows 11 computer. Which edition does NOT include this tool?", "opts": ["Home", "Pro for Workstations", "Pro", "Enterprise"], "correct": 0}, {"q": "What is the minimum amount of RAM required to install Windows 11?", "opts": ["2 GB", "4 GB", "8 GB", "1 GB"], "correct": 1}, {"q": "A computer fails the Windows 11 upgrade check even though the processor and RAM meet the requirements. Which setting should be verified first?", "opts": ["That a dedicated graphics card is installed", "That the computer is joined to a domain", "That the firmware is in UEFI mode with Secure Boot capability and TPM 2.0 enabled", "That the drive is formatted as exFAT"], "correct": 2}, {"q": "Before installing an application, which check determines whether it can run on a machine at all?", "opts": ["Confirming the antivirus is disabled", "Checking that the drive uses NTFS", "Verifying the user has administrator rights", "Comparing the application's system requirements to the computer's hardware and operating system"], "correct": 3}, {"q": "A 64-bit application will not install on a customer's computer. What is the most likely cause?", "opts": ["The computer is running a 32-bit operating system", "The user is not connected to a domain", "The drive is formatted as exFAT", "The application requires a dedicated graphics card"], "correct": 0}, {"q": "Which distribution method describes a single downloadable file that is mounted and behaves like a physical disc?", "opts": ["Image deployment", "Mountable ISO file", "Physical media", "Downloadable package"], "correct": 1}, {"q": "Some licensed software will not run unless a specific USB device is connected. What is this device called?", "opts": ["A configuration profile", "A security identifier", "An external hardware token", "A recovery partition"], "correct": 2}, {"q": "A company plans to install a large design application on every workstation. Which impact consideration covers the additional bandwidth consumed by its updates?", "opts": ["Impact to the device", "Impact to business", "Impact to operation", "Impact to the network"], "correct": 3}, {"q": "A video editing application lists a VRAM requirement. What is the technician being asked to check?", "opts": ["The memory available on the graphics card", "The amount of RAM reserved by the firmware", "The read speed of the system drive", "The amount of virtual memory configured in Windows"], "correct": 0}, {"q": "A company wants employees to sign in to cloud applications with the same username and password they use on company computers. Which feature makes this possible?", "opts": ["Storage sync settings", "Identity synchronization", "Licensing assignment", "Folder redirection"], "correct": 1}, {"q": "A user's cloud storage folder is consuming too much local disk space. Which setting should the technician adjust?", "opts": ["The user's domain membership", "The application's VRAM allocation", "The sync and folder settings for the storage client", "The drive's partition style"], "correct": 2}, {"q": "A new employee cannot open the company word processing application, although it is installed. What should the technician check first?", "opts": ["Whether Secure Boot is enabled", "Whether the drive is formatted as NTFS", "Whether the computer supports TPM 2.0", "Whether a license has been assigned to the user's account"], "correct": 3}, {"q": "Which of the following is an example of a cloud-based collaboration tool?", "opts": ["A videoconferencing service used for team meetings", "A partition management tool", "A firmware update utility", "A local disk defragmenter"], "correct": 0}, {"q": "What belongs in the progress notes section of a help-desk ticket?", "opts": ["The customer's billing information", "The steps the technician has taken so far and what each one showed", "The final invoice amount", "The user's account password"], "correct": 1}, {"q": "Which document describes the agreed response and resolution times for support requests?", "opts": ["Acceptable use policy", "Standard operating procedure", "Service-level agreement (SLA)", "Incident report"], "correct": 2}, {"q": "A company tracks every device it owns, including purchase date, warranty, and assigned user. What is this practice called?", "opts": ["Incident response", "Change management", "Identity synchronization", "Asset management"], "correct": 3}, {"q": "Which database stores configuration details about the devices and systems an organization supports?", "opts": ["Configuration management database (CMDB)", "Active Directory schema partition", "Ticketing queue", "Knowledge base"], "correct": 0}, {"q": "A technician documents the steps for installing a specialized application so other technicians can repeat it exactly. What type of document is this?", "opts": ["An acceptable use policy", "A standard operating procedure", "A service-level agreement", "An incident report"], "correct": 1}, {"q": "Which document type lists everything that must be set up for a new employee on their first day?", "opts": ["Incident report", "Knowledge base article", "New-user onboarding checklist", "Off-boarding checklist"], "correct": 2}, {"q": "Why does a ticketing system assign a severity to each ticket?", "opts": ["To determine the technician's pay rate for the job", "To set the warranty period for the device", "To decide which file system the device should use", "To prioritize work according to the impact on the user and the business"], "correct": 3}, {"q": "A customer is describing a problem in detail that the technician has already diagnosed. What is the appropriate action?", "opts": ["Listen without interrupting, then confirm the issue before proceeding", "Interrupt politely and begin the repair", "Explain that the description is unnecessary", "Ask the customer to submit a written ticket instead"], "correct": 0}, {"q": "Which practice should a technician follow when speaking with a non-technical customer?", "opts": ["Limit the conversation to written communication", "Avoid jargon, acronyms, and slang", "Describe the fix only after it is complete", "Use precise technical terms to build credibility"], "correct": 1}, {"q": "A technician will arrive later than the scheduled appointment time. What should be done?", "opts": ["Ask a colleague to take the call instead", "Arrive late and apologize in person", "Contact the customer to inform them", "Reschedule without notice"], "correct": 2}, {"q": "A customer becomes argumentative about a repair estimate. What is the appropriate response?", "opts": ["End the call and escalate to management immediately", "Explain firmly that the customer is mistaken", "Offer the repair at no charge to end the dispute", "Remain calm, avoid arguing or becoming defensive, and clarify the customer's concerns"], "correct": 3}, {"q": "While working on a customer's computer, a technician notices confidential documents on the desk. What should the technician do?", "opts": ["Leave them undisturbed and say nothing about their contents", "Move them to a drawer for safekeeping", "Photograph them for the ticket record", "Read them to check for relevance to the issue"], "correct": 0}, {"q": "After completing a repair, what final step demonstrates professionalism?", "opts": ["Closing the ticket immediately without comment", "Following up with the customer later to verify satisfaction", "Asking the customer to leave a public review", "Leaving documentation for the customer to complete"], "correct": 1}];
+                let QUESTIONS = [];
+                let answers = [];
+
+                function drawSet() {
+                    const shuffled = POOL.slice().sort(() => Math.random() - 0.5);
+                    QUESTIONS = shuffled.slice(0, 10).map(item => {
+                        const order = item.opts.map((o, i) => i).sort(() => Math.random() - 0.5);
+                        return {q: item.q, opts: order.map(i => item.opts[i]), correct: order.indexOf(item.correct)};
+                    });
+                    answers = new Array(QUESTIONS.length).fill(null);
+                }
+
+                function renderQuiz() {
+                    const area = document.getElementById('quizArea');
+                    area.innerHTML = QUESTIONS.map((item, qi) => {
+                        const opts = item.opts.map((opt, oi) =>
+                            `<button type="button" class="answer-option" data-qi="${qi}" data-oi="${oi}" onclick="selectAnswer(${qi}, ${oi})">${opt}</button>`
+                        ).join('');
+                        return `<div class="question-block">
+                            <div class="question-number">Question ${qi + 1} of ${QUESTIONS.length}</div>
+                            <p class="question-text">${item.q}</p>
+                            ${opts}
+                        </div>`;
+                    }).join('');
+                }
+
+                function selectAnswer(qi, oi) {
+                    answers[qi] = oi;
+                    document.querySelectorAll(`[data-qi="${qi}"]`).forEach(btn => {
+                        btn.classList.remove('selected');
+                        if (parseInt(btn.dataset.oi) === oi) btn.classList.add('selected');
+                    });
+                }
+
+                function gradeQuiz() {
+                    if (answers.includes(null)) {
+                        alert('Answer all 10 questions before grading.');
+                        return;
+                    }
+                    let score = 0;
+                    QUESTIONS.forEach((item, qi) => {
+                        const correct = item.correct;
+                        document.querySelectorAll(`[data-qi="${qi}"]`).forEach(btn => {
+                            const oi = parseInt(btn.dataset.oi);
+                            btn.classList.remove('selected');
+                            if (oi === correct) btn.classList.add('correct');
+                            else if (oi === answers[qi]) btn.classList.add('incorrect');
+                        });
+                        if (answers[qi] === correct) score++;
+                    });
+                    document.getElementById('scoreDisplay').textContent = score + ' / ' + QUESTIONS.length;
+                    const note = document.getElementById('scoreNote');
+                    if (score === QUESTIONS.length) note.textContent = 'Perfect set. You are ready to move on.';
+                    else note.textContent = 'Not a perfect 10 yet — click Reset for a new random set and try again.';
+                    document.getElementById('quizResults').style.display = 'block';
+                    document.getElementById('quizResults').scrollIntoView({behavior: 'smooth'});
+                }
+
+                function resetQuiz() {
+                    document.getElementById('quizResults').style.display = 'none';
+                    drawSet();
+                    renderQuiz();
+                }
+
+                drawSet();
+                renderQuiz();
+            </script>
+
+        </div>
+
+        <footer class="module-footer">
+            <p class="footer-text">CompTIA A+ Core 2 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
+        </footer>
+    </div>
+</body>
+</html>

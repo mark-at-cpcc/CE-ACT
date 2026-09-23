@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 1 &mdash; 1.10 Unit Test | CompTIA A+ Core 2</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Sans+Pro:wght@400;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           CPCC COURSE TEMPLATE - GOLD / CHARCOAL / BLACK
+           CTS-ITS7501-80 CompTIA A+ Core 2 Training
+           Type: true black. Accents: gold. Chrome: charcoal.
+           ============================================ */
+
+        :root {
+            --primary-dark: #4A4A4A;       /* Charcoal - structural chrome only */
+            --primary-main: #B8962E;       /* Warm Gold - primary accent */
+            --primary-light: #D4AF56;      /* Light Gold */
+            --primary-pale: #FBF3DF;       /* Pale Gold wash */
+
+            --accent-teal: #8A6F1F;        /* Deep bronze-gold */
+            --accent-teal-light: #F3E9CE;  /* Pale bronze */
+            --accent-orange: #A9642A;      /* Warm rust */
+            --accent-orange-light: #F5E2CE;
+            --accent-purple: #6B5B3A;      /* Muted umber */
+            --accent-purple-light: #EFE6D2;
+            --accent-green: #4E7A51;
+            --accent-green-light: #DCEBDD;
+
+            --alert-warning: #B8862E;
+            --alert-warning-bg: #FBF0D9;
+            --alert-danger: #A13A3A;
+            --alert-danger-bg: #F6DEDE;
+            --alert-success: #3F6E42;
+            --alert-success-bg: #DCEBDD;
+            --alert-info: #6E5B2E;
+            --alert-info-bg: #F1E9D4;
+
+            --text-black: #000000;         /* All reading text */
+            --neutral-900: #000000;
+            --neutral-700: #000000;
+            --neutral-500: #5A5A5A;
+            --neutral-300: #D9D3C4;
+            --neutral-100: #FAF8F3;
+            --white: #ffffff;
+
+            --font-heading: 'Nunito', sans-serif;
+            --font-body: 'Source Sans Pro', sans-serif;
+            --font-code: 'Fira Code', monospace;
+
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+
+            --shadow-sm: 0 1px 2px rgba(74, 74, 74, 0.08);
+            --shadow-md: 0 4px 6px rgba(74, 74, 74, 0.12);
+            --shadow-lg: 0 10px 20px rgba(74, 74, 74, 0.15);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body), 'Segoe UI', Tahoma, Verdana, sans-serif;
+            font-size: 1.0625rem; line-height: 1.7; color: var(--text-black);
+            background: linear-gradient(135deg, var(--neutral-100) 0%, var(--white) 100%);
+            min-height: 100vh; padding: var(--space-lg);
+        }
+
+        .course-container {
+            max-width: 950px; margin: 0 auto; background: var(--white);
+            border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); overflow: hidden;
+        }
+
+        .module-header {
+            background: var(--primary-main); color: var(--text-black);
+            padding: var(--space-lg) var(--space-xl); position: relative; overflow: hidden;
+        }
+        .module-label {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 0.875rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 2px; text-decoration: underline;
+            margin-bottom: var(--space-sm); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-title {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 2.25rem; font-weight: 800;
+            line-height: 1.2; margin-bottom: var(--space-md); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-subtitle { font-size: 1.125rem; max-width: 650px; position: relative; z-index: 1; color: var(--text-black); }
+
+        .toc {
+            display: flex; flex-direction: column; gap: var(--space-sm);
+            padding: var(--space-lg) var(--space-xl);
+            background: var(--primary-pale); border-bottom: 1px solid var(--neutral-300);
+        }
+        .toc-item {
+            width: 100%; text-align: left;
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 0.875rem;
+            color: var(--text-black); background: var(--white);
+            border: 2px solid var(--primary-main);
+            padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md);
+        }
+        .toc-item.current { background: var(--primary-main); }
+
+        .content-area { padding: var(--space-xl); }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif;
+            color: var(--text-black); line-height: 1.3; margin-bottom: var(--space-md);
+        }
+        h1 { font-size: 2rem; font-weight: 800; }
+        h2 { font-size: 1.625rem; font-weight: 700; padding-bottom: var(--space-sm);
+             border-bottom: 3px solid var(--primary-main); margin-top: var(--space-xl); margin-bottom: var(--space-lg); }
+        h3 { font-size: 1.375rem; font-weight: 700; margin-top: var(--space-lg);
+             padding-left: var(--space-sm); border-left: 4px solid var(--primary-main); }
+        h4 { font-size: 1.125rem; font-weight: 600; }
+
+        p { margin-bottom: var(--space-md); }
+        strong { font-weight: 700; color: var(--text-black); }
+        em { font-style: italic; color: var(--text-black); }
+
+        a { color: var(--text-black); text-decoration: none; border-bottom: 2px solid var(--primary-main); transition: all 0.2s ease; }
+        a:hover { background: var(--primary-pale); border-bottom-color: var(--accent-teal); }
+
+        .tech-box {
+            background: var(--neutral-100); border: 2px solid var(--neutral-500);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .tech-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .tech-box .callout-content { padding-left: 0; }
+
+        .plain-box {
+            background: var(--primary-pale); border: 2px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .plain-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .plain-box .callout-content { padding-left: 0; }
+
+        .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; position: relative; overflow: hidden; }
+        .callout-title { font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 1rem;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
+        .callout-content { }
+        .callout-content p:last-child { margin-bottom: 0; }
+        .callout-tip { background: var(--accent-green-light); border-left: 4px solid var(--accent-green); }
+        .callout-warning { background: var(--alert-warning-bg); border-left: 4px solid var(--alert-warning); }
+        .callout-danger { background: var(--alert-danger-bg); border-left: 4px solid var(--alert-danger); }
+        .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
+
+        .text-center { text-align: center; }
+        .text-muted { color: var(--neutral-500); }
+        .mt-sm { margin-top: var(--space-sm); } .mt-md { margin-top: var(--space-md); } .mt-lg { margin-top: var(--space-lg); }
+        .mb-sm { margin-bottom: var(--space-sm); } .mb-md { margin-bottom: var(--space-md); } .mb-lg { margin-bottom: var(--space-lg); }
+
+        /* Interactive quiz controls */
+        .question-block { background: var(--white); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin-bottom: var(--space-lg); box-shadow: var(--shadow-sm); }
+        .question-number { font-family: var(--font-heading), sans-serif; font-size: 0.75rem; font-weight: 700;
+            color: var(--text-black); background: var(--primary-main); display: inline-block;
+            padding: 2px 10px; border-radius: var(--radius-sm);
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); }
+        .question-text { font-weight: 600; color: var(--text-black); margin-bottom: var(--space-md); }
+
+        .answer-option { display: block; width: 100%; text-align: left; padding: var(--space-sm) var(--space-md);
+            margin-bottom: var(--space-sm); border: 2px solid var(--neutral-300); border-radius: var(--radius-sm);
+            background: var(--white); cursor: pointer; font-family: var(--font-body), sans-serif; font-size: 1rem; color: var(--text-black); }
+        .answer-option:hover { border-color: var(--primary-main); }
+        .answer-option.selected { border-color: var(--primary-dark); background: var(--primary-pale); }
+        .answer-option.correct { border-color: var(--accent-green); background: var(--accent-green-light); }
+        .answer-option.incorrect { border-color: var(--alert-danger); background: var(--alert-danger-bg); }
+        .quiz-btn { font-family: var(--font-heading), sans-serif; font-weight: 700; padding: var(--space-sm) var(--space-xl);
+            border-radius: var(--radius-sm); border: 2px solid var(--primary-dark); background: var(--primary-dark); color: var(--white);
+            cursor: pointer; font-size: 0.95rem; margin-right: var(--space-sm); }
+        .quiz-btn:hover { background: #333333; }
+        .quiz-btn.secondary { background: var(--white); color: var(--primary-dark); }
+        .quiz-btn.secondary:hover { background: var(--neutral-100); }
+        #quizResults { display:none; background: var(--primary-pale); border: 2px solid var(--primary-main); border-radius: var(--radius-md);
+            padding: var(--space-lg); margin-top: var(--space-lg); text-align: center; font-family: var(--font-heading), sans-serif; }
+        #quizResults .score { font-size: 2rem; font-weight: 800; color: var(--text-black); }
+
+        .module-footer { background: var(--neutral-100); padding: var(--space-lg) var(--space-xl); text-align: center; border-top: 1px solid var(--neutral-300); }
+        .footer-text { font-size: 0.875rem; color: var(--neutral-500); }
+
+        @media (max-width: 768px) {
+            .module-title { font-size: 1.75rem; }
+            .content-area { padding: var(--space-lg); }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="course-container">
+
+        <header class="module-header">
+            <div class="module-label">Unit 1 &middot; The Technician and the Operating System &middot; Section 1.10</div>
+            <h1 class="module-title">Unit Test</h1>
+            <p class="module-subtitle">CompTIA A+ Core 2 - Domains 1.0 and 4.0</p>
+        </header>
+
+                <nav class="toc" id="tocNav">
+            <div class="toc-header">Table of Contents</div>
+            <div class="toc-item">1.1 &mdash; Unit Overview and Schedule</div>
+            <div class="toc-item">1.2 &mdash; Unit Pre-Assessment</div>
+            <div class="toc-item">1.3 &mdash; Content Review</div>
+            <div class="toc-item">1.4 &mdash; Reading Assignment</div>
+            <div class="toc-item">1.5 &mdash; Video Assignment</div>
+            <div class="toc-item">1.6 &mdash; Classroom Labs and Take-Home Lab</div>
+            <div class="toc-item">1.7 &mdash; Practice Question Set</div>
+            <div class="toc-item">1.8 &mdash; Online Labs: NETLAB</div>
+            <div class="toc-item">1.9 &mdash; Reflection Activity</div>
+            <div class="toc-item current" id="tocCurrent">1.10 &mdash; Unit Test</div>
+            <div class="toc-item">1.A &mdash; Acronym Test</div>
+            <div class="toc-item">1.B &mdash; Clearing Your Browser Cache</div>
+        </nav>
+        <style>
+            /* Collapsible TOC: only the current section shows until clicked */
+            nav.toc#tocNav { gap: 0; }
+            nav.toc#tocNav .toc-item {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav .toc-item.current {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                cursor: pointer;
+            }
+            nav.toc#tocNav .toc-item.current::after {
+                content: ' \25BE Click to View';
+                font-size: 0.75em;
+            }
+            nav.toc#tocNav.toc-expanded .toc-item {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                margin-bottom: var(--space-sm);
+            }
+            nav.toc#tocNav.toc-expanded .toc-item.current::after { content: ' \25B4'; }
+
+            nav.toc#tocNav .toc-header {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                font-family: var(--font-heading), 'Segoe UI', sans-serif;
+                font-weight: 700;
+                font-size: 0.875rem;
+                text-align: left;
+                color: var(--text-black);
+                text-decoration: underline;
+                background: var(--primary-main);
+                border-radius: var(--radius-md);
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav.toc-expanded .toc-header {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                padding-left: var(--space-md);
+                border-width: 2px;
+                border-style: solid;
+                border-color: var(--primary-main);
+                margin-bottom: var(--space-sm);
+            }
+        </style>
+
+        <script>
+            (function () {
+                var toc = document.getElementById('tocNav');
+                var currentItem = document.getElementById('tocCurrent');
+
+                toc.addEventListener('click', function (e) {
+                    if (toc.classList.contains('toc-expanded')) {
+                        toc.classList.remove('toc-expanded');
+                    } else if (e.target === currentItem || currentItem.contains(e.target)) {
+                        toc.classList.add('toc-expanded');
+                    }
+                });
+
+                toc.addEventListener('mouseleave', function () {
+                    toc.classList.remove('toc-expanded');
+                });
+            })();
+        </script>
+
+        <div class="content-area">
+
+            <div class="tech-box">
+                <div class="callout-title">Test Format</div>
+                <div class="callout-content">
+                    <p>Each attempt draws 20 items from a 100-item pool covering this unit's objectives &mdash; operating systems and file systems, installations and upgrades, Windows editions, application installation, cloud productivity tools, documentation, and professionalism &mdash; weighted to mirror how they're represented on the actual 220-1202 exam. Answer choices are reshuffled every attempt. Click an answer to select it, then click <strong>Grade My Answers</strong> to see your results.</p>
+                </div>
+            </div>
+
+            <div class="callout callout-info">
+                <div class="callout-title">Test Taking Skills</div>
+                <div class="callout-content">
+                    <p>In order to successfully pass the CompTIA exam you should read each question and each answer. Select the best answer that you think is correct. Then read the question again, and each answer. If you agree with the original answer move on; otherwise, "work through" the answers and see which ones are easily dismissable.</p>
+                    <p>Full understanding requires completion of all 20 items and a review of any missed questions before moving on &mdash; not a specific score. Take the time to understand why an answer was wrong before you close this page.</p>
+                </div>
+            </div>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">Submit Your Proof of Completion</div>
+                <div class="callout-content">
+                    <p>Once you've completed this activity, take a screenshot showing your final score and upload it to the appropriate submission link in Brightspace by the due date. A screenshot is your only proof of completion &mdash; nothing here is automatically recorded, so don't close this page before you've captured and uploaded it.</p>
+                </div>
+            </div>
+
+            <div id="quizArea"></div>
+
+            <div class="mt-lg">
+                <button class="quiz-btn" onclick="gradeQuiz()">Grade My Answers</button>
+                <button class="quiz-btn secondary" onclick="resetQuiz()">Reset</button>
+            </div>
+
+            <div id="quizResults">
+                <div>Your Score</div>
+                <div class="score" id="scoreDisplay">0 / 20</div>
+                <div id="scoreNote"></div>
+                <p class="text-muted mt-sm">Screenshot this score before leaving the page, and upload it to the submission link in Brightspace.</p>
+            </div>
+
+            <script>
+                const POOL = [{"q": "Which of the following is a mobile operating system?", "opts": ["iPadOS", "Windows 11 Pro", "ChromeOS", "ReFS"], "correct": 0}, {"q": "What is the primary role of an operating system?", "opts": ["To store user files in the cloud", "To manage hardware resources and provide services to applications", "To replace the need for device drivers", "To supply power to system components"], "correct": 1}, {"q": "Which file system allows files larger than 4 GB and is readable and writable on both Windows and macOS?", "opts": ["FAT32", "ext4", "exFAT", "HFS"], "correct": 2}, {"q": "A technician formats a drive for a Linux server that will hold very large files. Which file system is the default on Red Hat Enterprise Linux?", "opts": ["APFS", "NTFS", "exFAT", "XFS"], "correct": 3}, {"q": "Which statement about FAT32 is correct?", "opts": ["It offers wide device compatibility but no file permissions", "It supports file-level encryption", "It is the default file system for Windows 11", "It supports single files up to 16 GB"], "correct": 0}, {"q": "What does vendor end-of-life mean for an installed operating system?", "opts": ["The operating system deletes itself after a set date", "The vendor no longer issues updates or security patches for it", "The hardware warranty expires", "All installed applications must be reinstalled"], "correct": 1}, {"q": "Which operating system is open source and distributed in versions called distributions?", "opts": ["iOS", "macOS", "Linux", "ChromeOS"], "correct": 2}, {"q": "A school issues lightweight laptops that boot quickly and run mostly browser-based applications. Which operating system are they most likely using?", "opts": ["macOS", "iPadOS", "Windows 11 Enterprise", "ChromeOS"], "correct": 3}, {"q": "Which file system supports built-in snapshots and is optimized for solid-state storage on Apple computers?", "opts": ["APFS", "ext4", "ReFS", "NTFS"], "correct": 0}, {"q": "A customer asks why their older computer no longer receives feature updates. Which concept explains this?", "opts": ["The computer has too many user accounts", "Update limitations tied to the vendor's product life cycle", "The drive is formatted with the wrong file system", "Feature updates require a domain connection"], "correct": 1}, {"q": "Which file system would be selected for a Windows volume that must automatically detect and repair corrupted data?", "opts": ["FAT32", "exFAT", "ReFS", "APFS"], "correct": 2}, {"q": "A file copied from a Windows computer to a Linux computer will not open correctly. Which concept does this illustrate?", "opts": ["Partition style mismatch", "End-of-life limitations", "License assignment failure", "Compatibility concerns between operating systems"], "correct": 3}, {"q": "Which operating system runs on Apple iPhones?", "opts": ["iOS", "iPadOS", "Android", "macOS"], "correct": 0}, {"q": "Which file system is the default for a new Windows 11 installation on the system drive?", "opts": ["exFAT", "NTFS", "ReFS", "FAT32"], "correct": 1}, {"q": "Which characteristic is shared by ext4 and NTFS?", "opts": ["Both are native to macOS", "Both are limited to 4 GB files", "Both are journaled file systems that recover well from unexpected shutdowns", "Both require UEFI firmware"], "correct": 2}, {"q": "A technician prepares a USB drive that must be readable by a car stereo, a TV, and an older camera. Which file system is the safest choice?", "opts": ["ReFS", "APFS", "NTFS", "FAT32"], "correct": 3}, {"q": "Why is running an end-of-life operating system a security risk even if the computer still works normally?", "opts": ["Newly discovered vulnerabilities will never be patched", "Files are automatically converted to a legacy format", "The antivirus software stops functioning entirely", "The computer loses its network drivers"], "correct": 0}, {"q": "Which workstation operating system is used most widely in business environments and will be the focus of this course?", "opts": ["Android", "Windows", "iPadOS", "ChromeOS"], "correct": 1}, {"q": "Which partition style supports up to 128 partitions in Windows?", "opts": ["MBR", "ReFS", "GPT", "exFAT"], "correct": 2}, {"q": "What is the maximum drive size supported by the MBR partitioning scheme?", "opts": ["16 TB", "Unlimited", "512 GB", "2 TB"], "correct": 3}, {"q": "Which installation type erases the existing operating system and user data?", "opts": ["Clean install", "Feature update", "In-place upgrade", "Repair installation"], "correct": 0}, {"q": "A technician boots a computer from a hidden partition to restore it to its factory configuration. What is this partition called?", "opts": ["A system reserved partition", "A recovery partition", "An extended partition", "A swap partition"], "correct": 1}, {"q": "Which boot method uses a bootable flash drive containing installation files?", "opts": ["PXE boot", "Internet-based recovery", "USB boot", "Internal partition boot"], "correct": 2}, {"q": "A technician must preserve installed applications and user settings while moving to a newer version of Windows. Which installation type should be used?", "opts": ["Image deployment", "Zero-touch deployment", "Clean install", "In-place upgrade"], "correct": 3}, {"q": "Which firmware type is required for a GPT boot drive?", "opts": ["UEFI", "TPM", "Legacy BIOS", "CMOS"], "correct": 0}, {"q": "Which installation approach downloads the installation files from the vendor during setup?", "opts": ["Physical media installation", "Internet-based installation", "Multiboot installation", "Image deployment"], "correct": 1}, {"q": "Before upgrading a computer to a newer version of Windows, a technician verifies that the customer's specialty software will still run. Which upgrade consideration is this?", "opts": ["Partition style verification", "License assignment", "Application and driver support, or backward compatibility", "Product life-cycle planning"], "correct": 2}, {"q": "What must a technician verify before starting an installation onto a drive connected through an unusual storage controller?", "opts": ["Whether the drive is formatted as exFAT", "Whether the system is joined to a domain", "Whether Secure Boot has been disabled", "Whether third-party drivers must be loaded during setup"], "correct": 3}, {"q": "A company deploys Windows to new computers across the network from a deployment server. Which boot method supports this?", "opts": ["Network boot using PXE", "Hot-swappable external drive boot", "USB boot", "Recovery partition boot"], "correct": 0}, {"q": "Which statement best describes image deployment?", "opts": ["Two operating systems are installed side by side", "A prepared system image is copied to many computers at once", "The operating system repairs itself from a hidden partition", "Each computer is installed manually from media"], "correct": 1}, {"q": "Which task is performed during partitioning rather than formatting?", "opts": ["Assigning NTFS permissions to a folder", "Creating the file system structures on a volume", "Dividing a physical drive into separate logical sections", "Scanning the drive for bad sectors"], "correct": 2}, {"q": "A user wants both Windows and Linux on one laptop, choosing at startup. What is required?", "opts": ["Image deployment", "A repair installation", "Zero-touch deployment", "A multiboot configuration"], "correct": 3}, {"q": "Which upgrade consideration involves confirming that the processor, memory, and firmware meet the new version's minimum specifications?", "opts": ["Hardware compatibility", "Backup of user preferences", "License assignment", "Sync folder settings"], "correct": 0}, {"q": "Which feature of Windows delivers large functionality changes on a periodic schedule, each with its own support end date?", "opts": ["Recovery partitions", "Feature updates within the product life cycle", "Repair installations", "Third-party driver packages"], "correct": 1}, {"q": "Which statement about a quick format is correct?", "opts": ["It preserves existing files on the volume", "It converts MBR partitions to GPT", "It creates a new file system without checking for bad sectors", "It permanently overwrites every sector with zeros"], "correct": 2}, {"q": "A technician needs to install Windows on a 4 TB drive that will also be the boot drive. Which combination is required?", "opts": ["MBR partitioning with legacy BIOS", "exFAT formatting with legacy BIOS", "FAT32 formatting with UEFI firmware", "GPT partitioning with UEFI firmware"], "correct": 3}, {"q": "Which installation method requires the least technician involvement once the device ships?", "opts": ["Zero-touch deployment", "Repair installation", "Clean install", "Multiboot installation"], "correct": 0}, {"q": "Why should a technician back up user data before an in-place upgrade, even though files are normally preserved?", "opts": ["The upgrade always deletes the user profile", "Upgrades can fail, and a backup is the only reliable recovery", "The file system must be reformatted first", "Backups are required to activate the license"], "correct": 1}, {"q": "Which Windows 11 editions support joining an Active Directory domain?", "opts": ["Home only", "All editions", "Pro and Enterprise", "Home and Pro"], "correct": 2}, {"q": "A workgroup differs from a domain in which way?", "opts": ["Workgroups are limited to Enterprise editions", "Workgroups support Group Policy centrally", "Workgroups require a domain controller", "Each computer manages its own user accounts rather than a central server doing it"], "correct": 3}, {"q": "Which Windows edition is sold through volume licensing to large organizations?", "opts": ["Enterprise", "Home N", "Home", "Pro"], "correct": 0}, {"q": "What is the maximum amount of RAM supported by Windows 11 Home?", "opts": ["2 TB", "128 GB", "6 TB", "16 GB"], "correct": 1}, {"q": "Which Windows tool for editing local policy settings is unavailable in Home editions?", "opts": ["diskmgmt.msc", "winver.exe", "gpedit.msc", "msinfo32.exe"], "correct": 2}, {"q": "Which requirement for Windows 11 relates to firmware rather than hardware capacity?", "opts": ["64 GB of storage", "A 1 GHz dual-core processor", "4 GB of RAM", "UEFI with Secure Boot capability"], "correct": 3}, {"q": "A customer's computer has a TPM 1.2 module. What does this mean for a Windows 11 upgrade?", "opts": ["The machine does not meet the TPM 2.0 requirement", "TPM applies only to Enterprise editions", "The machine meets the requirement, since any TPM qualifies", "The TPM must be disabled before upgrading"], "correct": 0}, {"q": "Which Windows 11 minimum requirement concerns storage capacity?", "opts": ["32 GB", "64 GB", "16 GB", "128 GB"], "correct": 1}, {"q": "Which statement about upgrade paths is correct?", "opts": ["An in-place upgrade requires reformatting the drive", "A clean install preserves installed applications", "An in-place upgrade preserves files, settings, and applications", "Upgrade paths are identical for every edition"], "correct": 2}, {"q": "Which Windows 10 edition adds support for server-grade hardware and ReFS?", "opts": ["Pro", "Home N", "Home", "Pro for Workstations"], "correct": 3}, {"q": "Which feature allows a user to sign in to Windows with facial recognition or a fingerprint?", "opts": ["Windows Hello", "Storage Spaces", "Remote Desktop", "BitLocker"], "correct": 0}, {"q": "A user on Windows 11 Home reports they cannot encrypt their system drive with BitLocker. Why?", "opts": ["BitLocker requires 2 TB of RAM", "BitLocker requires Pro or higher", "BitLocker works only on exFAT volumes", "BitLocker requires a domain"], "correct": 1}, {"q": "What is the minimum processor requirement for Windows 11?", "opts": ["A quad-core processor at 2 GHz", "Any 32-bit processor at 1 GHz", "A compatible 64-bit processor at 1 GHz or faster with two or more cores", "Any processor with integrated graphics"], "correct": 2}, {"q": "Which edition difference matters most to a company that manages settings centrally with Group Policy?", "opts": ["All editions receive Group Policy equally", "Only Home supports Group Policy", "Group Policy requires an N version", "Only Pro and above can join a domain and receive Group Policy"], "correct": 3}, {"q": "Which statement describes an N version of Windows accurately?", "opts": ["It ships without certain media playback features", "It is limited to non-commercial use", "It includes additional networking tools", "It cannot join a workgroup"], "correct": 0}, {"q": "Where can a technician quickly confirm the installed Windows edition and version?", "opts": ["In the Device Manager properties sheet", "By running winver, or in Settings under System and then About", "In Disk Management", "In the BIOS setup utility"], "correct": 1}, {"q": "Which requirement determines whether an application's graphics performance will be acceptable?", "opts": ["Whether the system is domain joined", "Whether the drive uses GPT partitioning", "Whether the system meets the dedicated graphics and VRAM requirements", "Whether Secure Boot is enabled"], "correct": 2}, {"q": "A 32-bit application is installed on 64-bit Windows. What is the expected result?", "opts": ["It runs only in Safe Mode", "It requires a firmware update first", "It cannot be installed at all", "It generally runs normally"], "correct": 3}, {"q": "Which distribution method places an application into the standard company system image?", "opts": ["Image deployment", "Physical media", "Mountable ISO", "Downloadable package"], "correct": 0}, {"q": "A technician must confirm an application will work with the installed operating system version. Which requirement is being checked?", "opts": ["Drive format type", "Application-to-OS compatibility", "Partition style", "VRAM capacity"], "correct": 1}, {"q": "Which impact consideration addresses whether a new application changes how staff perform daily tasks?", "opts": ["Impact to business", "Impact to network", "Impact to operation", "Impact to device"], "correct": 2}, {"q": "An application requires 20 GB of free space but the drive has 6 GB available. Which requirement blocks the installation?", "opts": ["External hardware token requirements", "VRAM requirements", "CPU requirements", "Storage requirements"], "correct": 3}, {"q": "Which impact consideration covers the licensing cost and support obligations of new software?", "opts": ["Impact to business", "Impact to device", "Impact to operation", "Impact to network"], "correct": 0}, {"q": "A technician mounts an ISO file in Windows to run an installer. What does mounting do?", "opts": ["It converts the file into a bootable USB drive", "It makes the file behave like an inserted disc with a drive letter", "It extracts the file into the recovery partition", "It permanently installs the application"], "correct": 1}, {"q": "Which system requirement is most likely to prevent a demanding video editor from running smoothly on an office laptop?", "opts": ["An NTFS system volume", "A UEFI firmware setting", "Integrated graphics with limited VRAM", "A domain-joined account"], "correct": 2}, {"q": "Why should a technician check an application's minimum and recommended requirements separately?", "opts": ["Minimum requirements apply only to domain computers", "Recommended requirements apply only to servers", "Minimum requirements apply to 32-bit systems only", "Minimum requirements allow it to run, while recommended requirements allow it to run well"], "correct": 3}, {"q": "An application will not launch unless a small USB device supplied by the vendor is attached. What is that device?", "opts": ["An external hardware token", "A configuration profile", "A licensing server", "A recovery drive"], "correct": 0}, {"q": "Which impact consideration would cover the additional load an application places on the computer's processor and memory?", "opts": ["Impact to network", "Impact to device", "Impact to operation", "Impact to business"], "correct": 1}, {"q": "What is the purpose of identity synchronization in a cloud productivity environment?", "opts": ["It copies user files between computers", "It assigns application licenses automatically", "It lets users sign in to cloud services with their existing company credentials", "It encrypts data stored in the cloud"], "correct": 2}, {"q": "A user complains that every file in their cloud storage folder downloads to their laptop and fills the drive. Which setting addresses this?", "opts": ["Partition style", "Identity synchronization", "Licensing assignment", "Sync and folder settings, so only selected content is stored locally"], "correct": 3}, {"q": "Which task must an administrator perform before a user can access a paid cloud application?", "opts": ["Assign a license to that user's account", "Enable Secure Boot on the user's device", "Join the user's computer to a workgroup", "Format the user's drive as NTFS"], "correct": 0}, {"q": "Which of these is a cloud-based productivity tool a technician would configure for a new employee?", "opts": ["A disk partitioning tool", "A hosted email account", "A firmware update utility", "A local print spooler"], "correct": 1}, {"q": "Two employees edit the same spreadsheet at the same time and see each other's changes. Which capability is in use?", "opts": ["Multiboot", "Image deployment", "Cloud collaboration", "Folder redirection"], "correct": 2}, {"q": "What is a common benefit of cloud-based storage for a small business?", "opts": ["Local drives no longer need a file system", "Devices no longer require operating system updates", "Files no longer require any licensing", "Files are available from multiple devices and backed up off site"], "correct": 3}, {"q": "Which cloud productivity category includes instant messaging and videoconferencing?", "opts": ["Collaboration tools", "Identity services", "Licensing services", "Storage services"], "correct": 0}, {"q": "A new employee can sign in to their computer but not to the company's cloud email. What should the technician check first?", "opts": ["Whether the firmware is in UEFI mode", "Whether the account has been licensed and synchronized to the cloud service", "Whether the drive is GPT", "Whether the computer supports TPM 2.0"], "correct": 1}, {"q": "Which element of a ticket identifies the specific computer involved?", "opts": ["Category", "Escalation level", "Device information", "Severity"], "correct": 2}, {"q": "Why are tickets assigned categories?", "opts": ["To decide the file system for the device", "To set the device's warranty length", "To determine the customer's billing rate", "To route them to the right team and support reporting"], "correct": 3}, {"q": "A ticket must be handed to a higher support tier. Which ticket element records this?", "opts": ["Escalation level", "Severity", "Asset tag", "Category"], "correct": 0}, {"q": "What makes a resolution entry useful to the organization?", "opts": ["It lists the customer's contact preferences", "It states specifically what was done to fix the issue", "It records the time the technician arrived", "It includes the device's purchase price"], "correct": 1}, {"q": "Which record tracks a device from purchase through disposal?", "opts": ["The knowledge base", "The service-level agreement", "The procurement life cycle within asset management", "The incident report"], "correct": 2}, {"q": "What is the purpose of an asset tag?", "opts": ["To assign Group Policy settings", "To record the device's file system", "To activate the operating system license", "To uniquely identify a device in the organization's inventory"], "correct": 3}, {"q": "Which document records the details of a security breach or significant outage?", "opts": ["An incident report", "A knowledge base article", "A standard operating procedure", "An onboarding checklist"], "correct": 0}, {"q": "A technician writes an article describing how to resolve a recurring printer error so others can use it. What is this called?", "opts": ["An incident report", "A knowledge base article", "A service-level agreement", "An asset record"], "correct": 1}, {"q": "Which checklist ensures a departing employee's accounts are disabled and equipment is returned?", "opts": ["The procurement checklist", "The change request form", "The off-boarding checklist", "The onboarding checklist"], "correct": 2}, {"q": "An external vendor commits to a four-hour response time for critical outages. Where is this documented?", "opts": ["In an incident report", "In a standard operating procedure", "In the configuration management database", "In an external service-level agreement"], "correct": 3}, {"q": "Why should progress notes be written for someone other than the author?", "opts": ["So another technician can continue the work without having to ask questions", "So the notes qualify as a legal record", "So the ticket can be closed without a resolution", "So the customer can perform the repair themselves"], "correct": 0}, {"q": "Which document would describe a software package's custom installation procedure step by step?", "opts": ["A knowledge base search result", "A standard operating procedure", "A service-level agreement", "An incident report"], "correct": 1}, {"q": "What information does a configuration management database hold?", "opts": ["The organization's financial statements", "The vendor's product catalog", "Details about the organization's devices, systems, and how they are configured", "A record of every customer phone call"], "correct": 2}, {"q": "Which ticket element helps a help desk decide what to work on first?", "opts": ["Device information", "Asset tag", "Assigned user", "Severity"], "correct": 3}, {"q": "Why does an organization record the assigned user of each device?", "opts": ["So support and accountability can be tied to the right person", "So the device can join a workgroup", "So the device can boot from the network", "So the device can be licensed for cloud email"], "correct": 0}, {"q": "What is the first step when a customer begins describing a problem?", "opts": ["Ask them to write it down instead", "Listen actively without interrupting", "Begin troubleshooting while they speak", "Explain the likely cause immediately"], "correct": 1}, {"q": "Which question style is most useful for narrowing the scope of a reported issue?", "opts": ["Questions about the customer's job title", "Questions using technical acronyms", "Open-ended questions", "Yes-or-no questions only"], "correct": 2}, {"q": "A technician is dispatched to a formal corporate office. What is appropriate attire?", "opts": ["A company polo with shorts", "Whatever is comfortable for working under desks", "Attire is not addressed by professional standards", "Attire matching the environment, such as business formal"], "correct": 3}, {"q": "A customer's explanation includes an incorrect technical assumption. How should the technician respond?", "opts": ["Clarify respectfully without being dismissive or judgmental", "Ignore the statement and continue working", "Correct them firmly so the error is not repeated", "End the conversation and escalate the ticket"], "correct": 0}, {"q": "Which behavior violates professional standards while working with a customer?", "opts": ["Restating the issue to confirm understanding", "Taking a personal call during the service visit", "Providing documentation of the work performed", "Offering repair and replacement options"], "correct": 1}, {"q": "A repair will take longer than first estimated. What should the technician do?", "opts": ["Close the ticket and open a new one", "Complete the work and explain afterward", "Communicate the revised timeline to the customer promptly", "Reduce the scope without telling the customer"], "correct": 2}, {"q": "Why should a technician avoid discussing a difficult customer on social media?", "opts": ["It is acceptable after the ticket is closed", "It is permitted if no names are used", "It only matters for government customers", "It breaches confidentiality and professional discretion"], "correct": 3}, {"q": "What does cultural sensitivity include in a support context?", "opts": ["Using appropriate professional titles and designations", "Limiting service to familiar environments", "Speaking only in written form", "Avoiding all small talk with customers"], "correct": 0}, {"q": "Which action best demonstrates setting and meeting expectations?", "opts": ["Letting the customer set the repair procedure", "Giving a realistic timeline and providing status updates", "Waiting until the work is complete to communicate", "Promising the fastest possible turnaround"], "correct": 1}, {"q": "A customer asks a technician to look at a personal file that appears unrelated to the issue. What is the correct action?", "opts": ["Copy it for the ticket record", "Open it to rule out a related problem", "Handle confidential materials appropriately and avoid viewing anything not required for the repair", "Delete it to protect the customer"], "correct": 2}, {"q": "Which follow-up action is part of professional service delivery?", "opts": ["Sending a survey the customer must complete before the ticket closes", "Requesting a public review of the service", "Scheduling an automatic repeat visit", "Contacting the customer later to verify the fix is still working"], "correct": 3}];
+                let QUESTIONS = [];
+                let answers = [];
+
+                function drawSet() {
+                    const shuffled = POOL.slice().sort(() => Math.random() - 0.5);
+                    QUESTIONS = shuffled.slice(0, 20).map(item => {
+                        const order = item.opts.map((o, i) => i).sort(() => Math.random() - 0.5);
+                        return {q: item.q, opts: order.map(i => item.opts[i]), correct: order.indexOf(item.correct)};
+                    });
+                    answers = new Array(QUESTIONS.length).fill(null);
+                }
+
+                function renderQuiz() {
+                    const area = document.getElementById('quizArea');
+                    area.innerHTML = QUESTIONS.map((item, qi) => {
+                        const opts = item.opts.map((opt, oi) =>
+                            `<button type="button" class="answer-option" data-qi="${qi}" data-oi="${oi}" onclick="selectAnswer(${qi}, ${oi})">${opt}</button>`
+                        ).join('');
+                        return `<div class="question-block">
+                            <div class="question-number">Question ${qi + 1} of ${QUESTIONS.length}</div>
+                            <p class="question-text">${item.q}</p>
+                            ${opts}
+                        </div>`;
+                    }).join('');
+                }
+
+                function selectAnswer(qi, oi) {
+                    answers[qi] = oi;
+                    document.querySelectorAll(`[data-qi="${qi}"]`).forEach(btn => {
+                        btn.classList.remove('selected');
+                        if (parseInt(btn.dataset.oi) === oi) btn.classList.add('selected');
+                    });
+                }
+
+                function gradeQuiz() {
+                    if (answers.includes(null)) {
+                        alert('Answer all 20 questions before grading.');
+                        return;
+                    }
+                    let score = 0;
+                    QUESTIONS.forEach((item, qi) => {
+                        const correct = item.correct;
+                        document.querySelectorAll(`[data-qi="${qi}"]`).forEach(btn => {
+                            const oi = parseInt(btn.dataset.oi);
+                            btn.classList.remove('selected');
+                            if (oi === correct) btn.classList.add('correct');
+                            else if (oi === answers[qi]) btn.classList.add('incorrect');
+                        });
+                        if (answers[qi] === correct) score++;
+                    });
+                    document.getElementById('scoreDisplay').textContent = score + ' / ' + QUESTIONS.length;
+                    const note = document.getElementById('scoreNote');
+                    if (score >= 16) note.textContent = 'Strong result. Review any missed items, then you are done.';
+                    else if (score >= 12) note.textContent = 'A passing-range result. Review your missed questions closely before moving on.';
+                    else note.textContent = 'Below where you want to be for exam day. Revisit 1.3 and 1.4 for the topics you missed, then try again.';
+                    document.getElementById('quizResults').style.display = 'block';
+                    document.getElementById('quizResults').scrollIntoView({behavior: 'smooth'});
+                }
+
+                function resetQuiz() {
+                    document.getElementById('quizResults').style.display = 'none';
+                    drawSet();
+                    renderQuiz();
+                }
+
+                drawSet();
+                renderQuiz();
+            </script>
+
+        </div>
+
+        <footer class="module-footer">
+            <p class="footer-text">CompTIA A+ Core 2 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
+        </footer>
+    </div>
+</body>
+</html>
