@@ -333,7 +333,9 @@
             <p class="module-subtitle">Course disclaimers, expectations, materials, and logistics. Read this before anything else.</p>
         </header>
 
-        <nav class="toc">
+        <nav class="toc" id="tocNav">
+            <div class="toc-header">Table of Contents</div>
+            <div class="toc-item current" id="tocCurrent">Unit 0 &mdash; Getting Started &middot; 14 Sections</div>
             <div class="toc-item">0.1 &mdash; Course Disclaimers (Read First)</div>
             <div class="toc-item">0.2 &mdash; What This Course Covers</div>
             <div class="toc-item">0.3 &mdash; Course Schedule and Meeting Times</div>
@@ -349,6 +351,96 @@
             <div class="toc-item">0.13 &mdash; Video Resources &mdash; Ownership and Permitted Use</div>
             <div class="toc-item">0.14 &mdash; Knowledge Check</div>
         </nav>
+        <style>
+            /* Collapsible TOC: only the current section shows until clicked */
+            nav.toc#tocNav { gap: 0; }
+            nav.toc#tocNav .toc-item {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav .toc-item.current {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                cursor: pointer;
+            }
+            nav.toc#tocNav .toc-item.current::after {
+                content: ' \25BE Click to View';
+                font-size: 0.75em;
+            }
+            nav.toc#tocNav.toc-expanded .toc-item {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                margin-bottom: var(--space-sm);
+            }
+            nav.toc#tocNav.toc-expanded .toc-item.current::after { content: ' \25B4'; }
+
+            nav.toc#tocNav .toc-header {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                font-family: var(--font-heading), 'Segoe UI', sans-serif;
+                font-weight: 700;
+                font-size: 0.875rem;
+                text-align: left;
+                color: var(--text-black);
+                text-decoration: underline;
+                background: var(--primary-main);
+                border-radius: var(--radius-md);
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav.toc-expanded .toc-header {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                padding-left: var(--space-md);
+                border-width: 2px;
+                border-style: solid;
+                border-color: var(--primary-main);
+                margin-bottom: var(--space-sm);
+            }
+        </style>
+
+        <script>
+            (function () {
+                var toc = document.getElementById('tocNav');
+                var currentItem = document.getElementById('tocCurrent');
+
+                toc.addEventListener('click', function (e) {
+                    if (toc.classList.contains('toc-expanded')) {
+                        toc.classList.remove('toc-expanded');
+                    } else if (e.target === currentItem || currentItem.contains(e.target)) {
+                        toc.classList.add('toc-expanded');
+                    }
+                });
+
+                toc.addEventListener('mouseleave', function () {
+                    toc.classList.remove('toc-expanded');
+                });
+            })();
+        </script>
 
         <div class="content-area">
 
@@ -499,7 +591,7 @@
                 <div class="callout-title">Attendance Is Not a Formality Here</div>
                 <div class="callout-content">
                     <p>You are expected to come to class and to be on time. In a six-week accelerated course, one missed session is roughly equivalent to missing two weeks of a traditional semester. Your ability to attend regularly and punctually will dictate a large part of your success.</p>
-                    <p>Attending is also not sufficient on its own. Each week carries specific out-of-class work with its own deadlines, described in the unit pages. Students must complete all work!</p>
+                    <p>Attending is also not sufficient on its own. Each week carries specific out-of-class work with its own deadlines, described in the unit pages.</p>
                 </div>
             </div>
 
@@ -553,7 +645,7 @@
                     <thead><tr><th>Location</th><th>Room</th></tr></thead>
                     <tbody>
                         <tr><td><strong>Classroom</strong></td><td>Levine Technology Building, Room LT 5130</td></tr>
-                        <tr><td><strong>A+ Lab</strong></td><td>Levine Technology Building, Room LT 5133</td></tr>
+                        <tr><td><strong>A+ Lab</strong></td><td>Levine Technology Building, Room LT 5135</td></tr>
                         <tr><td><strong>Instructor Office</strong></td><td>Levine Technology Building, Room LT 5116</td></tr>
                     </tbody>
                 </table>
@@ -638,7 +730,7 @@
 
             <div class="tech-box">
                 <div class="callout-title">Technical Overview</div>
-                <div class="callout-content"><p>NETLAB provisions pods of physical and virtual equipment to reservation-based student sessions. Each pod is allocated exclusively for the duration of the reservation and reset to a clean baseline on release. Because pods are finite and allocated per course, availability is genuinely constrained near deadlines.</p></div>
+                <div class="callout-content"><p>NETLAB+ provisions pods of physical and virtual equipment to reservation-based student sessions. Each pod is allocated exclusively for the duration of the reservation and reset to a clean baseline on release. Because pods are finite and allocated per course, availability is genuinely constrained near deadlines.</p></div>
             </div>
 
             <h3>Getting In</h3>
