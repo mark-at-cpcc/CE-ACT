@@ -1,0 +1,410 @@
+CompTIA A+ Core 2 (220-1202) Acronym Quiz
+100 Questions | CTS-ITS7501-80
+============================================================
+
+INSTRUCTIONS: Each question describes what an acronym stands
+for or how it is used. Select the ONE acronym that correctly
+matches the description. Answers are listed at the end of
+each question.
+
+============================================================
+
+--- Question 1: Which acronym describes the following? The software that manages a computer's hardware and provides services to applications.
+a) IP b) NTP c) OS d) GPT e) VRAM
+Answer: c
+
+--- Question 2: Which acronym describes the following? The default file system on current macOS and iOS devices, optimized for solid-state storage.
+a) MBR b) MMC c) DNS d) XFS e) APFS
+Answer: e
+
+--- Question 3: Which acronym describes the following? A file system built for flash drives that removes FAT32's 4 GB file-size limit and works on both Windows and macOS.
+a) VPN b) NTFS c) exFAT d) CPU e) BIOS
+Answer: c
+
+--- Question 4: Which acronym describes the following? An older, simple file system (commonly seen as FAT32) with wide device compatibility but no file permissions and a 4 GB file-size limit.
+a) APIPA b) NTP c) FAT d) GUID e) EOL
+Answer: c
+
+--- Question 5: Which acronym describes the following? The default Windows file system, supporting permissions, encryption, and very large files and volumes.
+a) NTFS b) USB c) SMB d) TCP e) APFS
+Answer: a
+
+--- Question 6: Which acronym describes the following? A Windows file system built for very large storage that automatically detects and repairs data corruption.
+a) ReFS b) XFS c) NTFS d) ARM e) MMC
+Answer: a
+
+--- Question 7: Which acronym describes the following? A high-performance journaled Linux file system suited to very large files, and the default on Red Hat Enterprise Linux.
+a) USB b) DHCP c) MAC d) WWAN e) XFS
+Answer: e
+
+--- Question 8: Which acronym describes the following? The point at which a vendor stops releasing updates and security patches for a product.
+a) EOL b) XFS c) CPU d) WWAN e) SSD
+Answer: a
+
+--- Question 9: Which acronym describes the following? The modern partitioning scheme that supports drives over 2 TB and is required to boot Windows 11 in UEFI mode.
+a) USB b) EOL c) GPT d) VPN e) NTFS
+Answer: c
+
+--- Question 10: Which acronym describes the following? A very long, effectively unique number used to identify things like partitions, objects, or devices.
+a) GUID b) SMB c) ReFS d) VRAM e) MMC
+Answer: a
+
+--- Question 11: Which acronym describes the following? The legacy partitioning scheme, limited to four primary partitions and 2 TB drives.
+a) APIPA b) USB c) MBR d) DHCP e) NTP
+Answer: c
+
+--- Question 12: Which acronym describes the following? The modern firmware that replaces legacy BIOS, supporting Secure Boot and GPT drives, and required for Windows 11.
+a) SSD b) MMC c) POST d) MBR e) UEFI
+Answer: e
+
+--- Question 13: Which acronym describes the following? Legacy firmware that starts a computer and hands control to the operating system, largely replaced by UEFI.
+a) VPN b) BIOS c) IP d) XFS e) NTP
+Answer: b
+
+--- Question 14: Which acronym describes the following? The hardware check firmware performs immediately at power-on, before any operating system loads.
+a) MBR b) MMC c) DHCP d) POST e) GPT
+Answer: d
+
+--- Question 15: Which acronym describes the following? The processor that executes instructions and is a core system requirement for any application.
+a) MAC b) CPU c) APIPA d) FAT e) EOL
+Answer: b
+
+--- Question 16: Which acronym describes the following? Volatile memory that holds actively running programs and data, cleared when the computer powers off.
+a) POST b) IP c) MBR d) RAM e) EOL
+Answer: d
+
+--- Question 17: Which acronym describes the following? Memory dedicated to a graphics card, used to store images and textures being rendered.
+a) APIPA b) APFS c) VRAM d) EOL e) exFAT
+Answer: c
+
+--- Question 18: Which acronym describes the following? Flash-based storage with no moving parts, faster and more durable than a mechanical hard drive.
+a) LDAP b) GUID c) SSD d) DNS e) APFS
+Answer: c
+
+--- Question 19: Which acronym describes the following? A processor architecture, common in mobile devices and some laptops, that differs from traditional x86 processors.
+a) UEFI b) ARM c) TCP d) APIPA e) WWAN
+Answer: b
+
+--- Question 20: Which acronym describes the following? The Windows framework that hosts administrative snap-ins like Event Viewer and Disk Management.
+a) ReFS b) CPU c) MMC d) LDAP e) USB
+Answer: c
+
+--- Question 21: Which acronym describes the following? A protocol that synchronizes a computer's clock with a reliable time source over a network.
+a) LDAP b) exFAT c) NTFS d) RDP e) NTP
+Answer: e
+
+--- Question 22: Which acronym describes the following? A unique hardware address burned into a network interface, used to identify a device on a local network.
+a) exFAT b) EOL c) OS d) GPT e) MAC
+Answer: e
+
+--- Question 23: Which acronym describes the following? The addressing scheme that lets devices locate and communicate with each other on a network.
+a) DHCP b) ARM c) GPT d) OS e) IP
+Answer: e
+
+--- Question 24: Which acronym describes the following? A service that automatically assigns IP addresses and network settings to devices.
+a) XFS b) CPU c) UEFI d) ReFS e) DHCP
+Answer: e
+
+--- Question 25: Which acronym describes the following? A fallback address in the 169.254.x.x range Windows assigns itself when it cannot reach a DHCP server.
+a) APIPA b) TCP c) UEFI d) OS e) VRAM
+Answer: a
+
+--- Question 26: Which acronym describes the following? The service that translates human-readable domain names into IP addresses.
+a) BIOS b) XFS c) DNS d) APIPA e) VRAM
+Answer: c
+
+--- Question 27: Which acronym describes the following? An encrypted tunnel that lets a remote device securely access a private network over the internet.
+a) APIPA b) VPN c) APFS d) NTFS e) GPT
+Answer: b
+
+--- Question 28: Which acronym describes the following? A Microsoft protocol that lets a user remotely control another Windows computer's desktop.
+a) RDP b) APIPA c) DHCP d) XFS e) TCP
+Answer: a
+
+--- Question 29: Which acronym describes the following? A core internet protocol that establishes a reliable, ordered connection between two devices.
+a) RAM b) WWAN c) NTFS d) TCP e) ReFS
+Answer: d
+
+--- Question 30: Which acronym describes the following? The standard connector and protocol for attaching peripherals and storage to a computer.
+a) USB b) OS c) VPN d) VRAM e) ARM
+Answer: a
+
+--- Question 31: Which acronym describes the following? A cellular data connection, such as 4G or 5G, that lets a device access the internet without Wi-Fi.
+a) VRAM b) CPU c) EOL d) WWAN e) DHCP
+Answer: d
+
+--- Question 32: Which acronym describes the following? A protocol applications use to look up and authenticate against directory services like Active Directory.
+a) CPU b) MMC c) ReFS d) exFAT e) LDAP
+Answer: e
+
+--- Question 33: Which acronym describes the following? A network protocol used to share files, folders, and printers between Windows computers.
+a) SMB b) RDP c) FAT d) ARM e) APIPA
+Answer: a
+
+--- Question 34: Which acronym describes the following? The security model covering who you are, what you're allowed to do, and a record of what you did.
+a) XDR b) SQL c) AAA d) AES e) DDoS
+Answer: c
+
+--- Question 35: Which acronym describes the following? A list of rules that permits or denies access to a resource based on user, group, or network address.
+a) EDR b) UAC c) ACL d) WAP e) UPnP
+Answer: c
+
+--- Question 36: Which acronym describes the following? A widely used, strong symmetric encryption algorithm, used in WPA2, WPA3, and BitLocker.
+a) AAA b) XSS c) NFC d) AES e) BYOD
+Answer: d
+
+--- Question 37: Which acronym describes the following? A device that lets wireless clients connect to a wired network.
+a) IAM b) UPnP c) AAA d) BYOD e) AP
+Answer: e
+
+--- Question 38: Which acronym describes the following? A scam where an attacker impersonates an executive or vendor by email to trick an employee into a wire transfer or data leak.
+a) XDR b) BEC c) TACACS d) BYOD e) WAP
+Answer: b
+
+--- Question 39: Which acronym describes the following? A policy allowing employees to use their personal devices for work, usually under MDM management.
+a) BYOD b) EDR c) DDoS d) PAM e) MFA
+Answer: a
+
+--- Question 40: Which acronym describes the following? An attack that overwhelms a target with traffic from many sources at once, taking it offline.
+a) UPnP b) TPM c) TOTP d) HTTPS e) DDoS
+Answer: e
+
+--- Question 41: Which acronym describes the following? An attack that overwhelms a system with traffic or requests so legitimate users can't use it.
+a) EDR b) RFID c) ACL d) UAC e) DoS
+Answer: e
+
+--- Question 42: Which acronym describes the following? Tools and policies that detect and block sensitive data from leaving an organization improperly.
+a) AES b) DLP c) MDM d) AP e) EDR
+Answer: b
+
+--- Question 43: Which acronym describes the following? Security software that monitors endpoints for suspicious behavior and can respond automatically to threats.
+a) FRT b) XDR c) SSID d) EDR e) OTP
+Answer: d
+
+--- Question 44: Which acronym describes the following? A Windows feature that encrypts individual files and folders using the user's account credentials.
+a) PAM b) AES c) AP d) SQL e) EFS
+Answer: e
+
+--- Question 45: Which acronym describes the following? A biometric method that identifies a person from their facial features.
+a) FRT b) DDoS c) SSO d) ACL e) TACACS
+Answer: a
+
+--- Question 46: Which acronym describes the following? A framework of policies and tools for managing user identities and controlling their access to resources.
+a) FRT b) IAM c) TKIP d) MDR e) IoT
+Answer: b
+
+--- Question 47: Which acronym describes the following? Everyday devices, such as thermostats and cameras, connected to the internet or a network.
+a) DDoS b) UPnP c) HTTPS d) IoT e) PUP
+Answer: d
+
+--- Question 48: Which acronym describes the following? Software that lets an organization enforce security policy and remotely manage mobile devices.
+a) WAP b) UAC c) TKIP d) MDM e) DDoS
+Answer: d
+
+--- Question 49: Which acronym describes the following? A security service where a third-party team monitors and responds to threats on an organization's behalf.
+a) RADIUS b) MDR c) HDD d) TKIP e) EFS
+Answer: b
+
+--- Question 50: Which acronym describes the following? Authentication requiring two or more proof types, such as a password plus a phone code.
+a) MFA b) EDR c) TKIP d) DLP e) HTTPS
+Answer: a
+
+--- Question 51: Which acronym describes the following? A very short-range wireless technology used for tap-to-pay and quick device pairing.
+a) MFA b) XDR c) NFC d) FRT e) SSO
+Answer: c
+
+--- Question 52: Which acronym describes the following? A password valid for only a single login attempt or a short window of time.
+a) IAM b) WAP c) UAC d) EFS e) OTP
+Answer: e
+
+--- Question 53: Which acronym describes the following? Tools and policies that tightly control and monitor accounts with elevated system access.
+a) MFA b) SSID c) PAM d) TKIP e) BEC
+Answer: c
+
+--- Question 54: Which acronym describes the following? A short numeric code used to authenticate a user, often as one factor among several.
+a) UPnP b) TPM c) OTP d) AP e) PIN
+Answer: e
+
+--- Question 55: Which acronym describes the following? Software that is not clearly malicious but is unwanted, disruptive, or bundled without clear consent.
+a) BYOD b) AAA c) PUP d) IAM e) HTTPS
+Answer: c
+
+--- Question 56: Which acronym describes the following? A protocol that centralizes authentication, authorization, and accounting for network access.
+a) IoT b) TPM c) TOTP d) PAM e) RADIUS
+Answer: e
+
+--- Question 57: Which acronym describes the following? A short-range wireless technology used in badges and tags to identify or track an object.
+a) RFID b) EDR c) WAP d) DLP e) WPA
+Answer: a
+
+--- Question 58: Which acronym describes the following? Standard text messaging, sometimes used to deliver a one-time authentication code.
+a) SMS b) UAC c) PUP d) FRT e) TKIP
+Answer: a
+
+--- Question 59: Which acronym describes the following? A small network environment, typically built around a single consumer-grade router.
+a) SOHO b) ACL c) AAA d) WAP e) AP
+Answer: a
+
+--- Question 60: Which acronym describes the following? The standard language for querying and managing databases, and the target of SQL injection attacks.
+a) AP b) BEC c) SQL d) SOHO e) RADIUS
+Answer: c
+
+--- Question 61: Which acronym describes the following? The name of a wireless network that appears in a device's list of available Wi-Fi networks.
+a) DLP b) UPnP c) MDR d) DDoS e) SSID
+Answer: e
+
+--- Question 62: Which acronym describes the following? A system letting a user log in once and gain access to multiple applications without signing in again.
+a) ACL b) RADIUS c) XDR d) UAC e) SSO
+Answer: e
+
+--- Question 63: Which acronym describes the following? A protocol, like RADIUS, used to centralize authentication and authorization for network device access.
+a) MDM b) TACACS c) PUP d) XDR e) BYOD
+Answer: b
+
+--- Question 64: Which acronym describes the following? An older wireless encryption protocol, weaker than AES, associated with the original WPA standard.
+a) TKIP b) SSO c) EFS d) PUP e) XSS
+Answer: a
+
+--- Question 65: Which acronym describes the following? A one-time code that changes automatically every 30 to 60 seconds, generated by an authenticator app.
+a) TPM b) TOTP c) MFA d) HTTPS e) DDoS
+Answer: b
+
+--- Question 66: Which acronym describes the following? A dedicated security chip that securely stores encryption keys, required for Windows 11 and BitLocker.
+a) TPM b) IAM c) BEC d) HTTPS e) PUP
+Answer: a
+
+--- Question 67: Which acronym describes the following? The Windows feature that prompts for confirmation before allowing an action that requires elevated privileges.
+a) PAM b) TKIP c) TPM d) UAC e) SMS
+Answer: d
+
+--- Question 68: Which acronym describes the following? A router feature that lets devices automatically open ports for themselves, often disabled for security.
+a) XDR b) TKIP c) UPnP d) TPM e) SAML
+Answer: c
+
+--- Question 69: Which acronym describes the following? A device that connects wireless clients to a wired network, sometimes used interchangeably with AP.
+a) MFA b) WAP c) MDM d) UAC e) BYOD
+Answer: b
+
+--- Question 70: Which acronym describes the following? A family of wireless security protocols (WPA2, WPA3) that encrypt Wi-Fi traffic.
+a) PUP b) AAA c) PAM d) SOHO e) WPA
+Answer: e
+
+--- Question 71: Which acronym describes the following? Security tooling that correlates data across endpoints, networks, and email into one detection platform.
+a) NFC b) XDR c) BYOD d) SQL e) UAC
+Answer: b
+
+--- Question 72: Which acronym describes the following? An attack that injects malicious script into a trusted website so it runs in other users' browsers.
+a) DLP b) MDR c) BYOD d) XSS e) MFA
+Answer: d
+
+--- Question 73: Which acronym describes the following? A standard for exchanging authentication and authorization data, commonly used to enable single sign-on.
+a) BEC b) SAML c) IAM d) RFID e) EDR
+Answer: b
+
+--- Question 74: Which acronym describes the following? The encrypted version of HTTP, indicated by a padlock icon, used to protect data sent to and from a website.
+a) SMS b) HTTPS c) AAA d) SOHO e) DoS
+Answer: b
+
+--- Question 75: Which acronym describes the following? A mechanical storage device using spinning platters, which must be physically destroyed to guarantee data cannot be recovered.
+a) DDoS b) SSO c) WPA d) AAA e) HDD
+Answer: e
+
+--- Question 76: Which acronym describes the following? A full-screen Windows stop error indicating a serious system fault, usually pointing to a driver or hardware problem.
+a) SLA b) RSR c) MAC d) BSOD e) SOP
+Answer: d
+
+--- Question 77: Which acronym describes the following? A document defining how employees are permitted to use company technology and networks.
+a) RMM b) RSR c) AUP d) PC e) UPS
+Answer: c
+
+--- Question 78: Which acronym describes the following? A database that stores detailed records of an organization's devices, systems, and their configurations.
+a) VoIP b) EULA c) CMDB d) RAID e) AUP
+Answer: c
+
+--- Question 79: Which acronym describes the following? Technology used to control and restrict the copying or use of licensed digital content.
+a) SSH b) MSDS c) RAID d) WinRM e) DRM
+Answer: e
+
+--- Question 80: Which acronym describes the following? A sudden static electricity discharge that can silently damage sensitive electronic components.
+a) ESD b) AUP c) RAID d) PC e) NDA
+Answer: a
+
+--- Question 81: Which acronym describes the following? The legal agreement a user accepts before using licensed software.
+a) SOP b) AUP c) LCD d) CMDB e) EULA
+Answer: e
+
+--- Question 82: Which acronym describes the following? A common backup rotation scheme using daily, weekly, and monthly backup sets.
+a) NDA b) PII c) GFS d) ESD e) ISO
+Answer: c
+
+--- Question 83: Which acronym describes the following? In IT support, most often refers to a single file that behaves like a physical installation disc.
+a) UPS b) RMM c) SOP d) ISO e) SPICE
+Answer: d
+
+--- Question 84: Which acronym describes the following? A common flat-panel display technology, relevant to safe handling and disposal procedures.
+a) LCD b) AUP c) RAID d) SLA e) PII
+Answer: a
+
+--- Question 85: Which acronym describes the following? A legal agreement in which two parties both agree to keep shared information confidential.
+a) ESD b) MNDA c) EULA d) AUP e) RMM
+Answer: b
+
+--- Question 86: Which acronym describes the following? A document detailing the safe handling, storage, and disposal of a hazardous material.
+a) PII b) MNDA c) EULA d) MSDS e) RMM
+Answer: d
+
+--- Question 87: Which acronym describes the following? A legal agreement in which one or both parties agree not to share confidential information.
+a) ISO b) GFS c) NDA d) VoIP e) RSR
+Answer: c
+
+--- Question 88: Which acronym describes the following? A general-purpose computer designed for individual use, the basic unit of most IT support work.
+a) PC b) ISO c) RMM d) RSR e) SSH
+Answer: a
+
+--- Question 89: Which acronym describes the following? Data that can identify a specific individual, such as a name, address, or account number.
+a) PII b) SPICE c) RMM d) WinRM e) LCD
+Answer: a
+
+--- Question 90: Which acronym describes the following? A method of combining multiple drives for redundancy, performance, or both.
+a) RSR b) VNC c) RAID d) MNDA e) ISO
+Answer: c
+
+--- Question 91: Which acronym describes the following? Software that lets a technician monitor and manage many client devices remotely from one console.
+a) RMM b) EULA c) PII d) ISO e) DRM
+Answer: a
+
+--- Question 92: Which acronym describes the following? Apple's mechanism for delivering small, urgent security fixes to macOS and iOS between full updates.
+a) ESD b) CMDB c) WinRM d) NDA e) RSR
+Answer: e
+
+--- Question 93: Which acronym describes the following? A commitment defining expected response and resolution times for support requests.
+a) VNC b) SLA c) RSR d) NDA e) MSDS
+Answer: b
+
+--- Question 94: Which acronym describes the following? A documented, repeatable set of steps for performing a routine task consistently.
+a) SLA b) SOP c) CMDB d) PC e) SPICE
+Answer: b
+
+--- Question 95: Which acronym describes the following? A remote display protocol commonly used to access virtual machines.
+a) CMDB b) ISO c) RSR d) SPICE e) GFS
+Answer: d
+
+--- Question 96: Which acronym describes the following? An encrypted protocol for securely accessing and managing a remote computer's command line.
+a) AUP b) SSH c) MSDS d) ISO e) SPICE
+Answer: b
+
+--- Question 97: Which acronym describes the following? A battery backup device that keeps equipment running briefly during a power outage and protects against surges.
+a) VNC b) UPS c) RAID d) WinRM e) DRM
+Answer: b
+
+--- Question 98: Which acronym describes the following? A cross-platform remote-desktop protocol that lets a user view and control another computer's screen.
+a) SPICE b) VNC c) VoIP d) WinRM e) PII
+Answer: b
+
+--- Question 99: Which acronym describes the following? A technology that carries voice calls over a data network instead of traditional phone lines.
+a) NDA b) VoIP c) ESD d) WinRM e) DRM
+Answer: b
+
+--- Question 100: Which acronym describes the following? Microsoft's protocol for remotely managing Windows computers from the command line or scripts.
+a) SLA b) MSDS c) SPICE d) WinRM e) SSH
+Answer: d
