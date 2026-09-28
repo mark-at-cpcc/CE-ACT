@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Unit 1 &mdash; Answer Key Acronym Answer Key and Study Guide | CompTIA A+ Core 2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Sans+Pro:wght@400;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================
+           CPCC COURSE TEMPLATE - GOLD / CHARCOAL / BLACK
+           CTS-ITS7501-80 CompTIA A+ Core 2 Training
+           Type: true black. Accents: gold. Chrome: charcoal.
+           ============================================ */
+
+        :root {
+            --primary-dark: #4A4A4A;       /* Charcoal - structural chrome only */
+            --primary-main: #B8962E;       /* Warm Gold - primary accent */
+            --primary-light: #D4AF56;      /* Light Gold */
+            --primary-pale: #FBF3DF;       /* Pale Gold wash */
+
+            --accent-teal: #8A6F1F;        /* Deep bronze-gold */
+            --accent-teal-light: #F3E9CE;  /* Pale bronze */
+            --accent-orange: #A9642A;      /* Warm rust */
+            --accent-orange-light: #F5E2CE;
+            --accent-purple: #6B5B3A;      /* Muted umber */
+            --accent-purple-light: #EFE6D2;
+            --accent-green: #4E7A51;
+            --accent-green-light: #DCEBDD;
+
+            --alert-warning: #B8862E;
+            --alert-warning-bg: #FBF0D9;
+            --alert-danger: #A13A3A;
+            --alert-danger-bg: #F6DEDE;
+            --alert-success: #3F6E42;
+            --alert-success-bg: #DCEBDD;
+            --alert-info: #6E5B2E;
+            --alert-info-bg: #F1E9D4;
+
+            --text-black: #000000;         /* All reading text */
+            --neutral-900: #000000;
+            --neutral-700: #000000;
+            --neutral-500: #5A5A5A;
+            --neutral-300: #D9D3C4;
+            --neutral-100: #FAF8F3;
+            --white: #ffffff;
+
+            --font-heading: 'Nunito', sans-serif;
+            --font-body: 'Source Sans Pro', sans-serif;
+            --font-code: 'Fira Code', monospace;
+
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+
+            --shadow-sm: 0 1px 2px rgba(74, 74, 74, 0.08);
+            --shadow-md: 0 4px 6px rgba(74, 74, 74, 0.12);
+            --shadow-lg: 0 10px 20px rgba(74, 74, 74, 0.15);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body), 'Segoe UI', Tahoma, Verdana, sans-serif;
+            font-size: 1.0625rem;
+            line-height: 1.7;
+            color: var(--text-black);
+            background: linear-gradient(135deg, var(--neutral-100) 0%, var(--white) 100%);
+            min-height: 100vh;
+            padding: var(--space-lg);
+        }
+
+        .course-container {
+            max-width: 950px; margin: 0 auto; background: var(--white);
+            border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); overflow: hidden;
+        }
+
+        .module-header {
+            background: var(--primary-main); color: var(--text-black);
+            padding: var(--space-2xl) var(--space-xl); position: relative; overflow: hidden;
+        }
+        .module-label {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 0.875rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 2px;
+            margin-bottom: var(--space-sm); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-title {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 2.25rem; font-weight: 800;
+            line-height: 1.2; margin-bottom: var(--space-md); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-subtitle { font-size: 1.125rem; max-width: 650px; position: relative; z-index: 1; color: var(--text-black); }
+
+        .toc {
+            display: flex; flex-direction: column; gap: var(--space-sm);
+            padding: var(--space-lg) var(--space-xl);
+            background: var(--primary-pale); border-bottom: 1px solid var(--neutral-300);
+        }
+        .toc-item {
+            width: 100%; text-align: left;
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 0.875rem;
+            color: var(--text-black); background: var(--white);
+            border: 2px solid var(--primary-main);
+            padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md);
+        }
+        .toc-item.current { background: var(--primary-main); }
+
+        .content-area { padding: var(--space-xl); }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif;
+            color: var(--text-black); line-height: 1.3; margin-bottom: var(--space-md);
+        }
+        h1 { font-size: 2rem; font-weight: 800; }
+        h2 { font-size: 1.625rem; font-weight: 700; padding-bottom: var(--space-sm);
+             border-bottom: 3px solid var(--primary-main); margin-top: var(--space-xl); margin-bottom: var(--space-lg); }
+        h3 { font-size: 1.375rem; font-weight: 700; margin-top: var(--space-lg);
+             padding-left: var(--space-sm); border-left: 4px solid var(--primary-main); }
+        h4 { font-size: 1.125rem; font-weight: 600; }
+
+        p { margin-bottom: var(--space-md); }
+        strong { font-weight: 700; color: var(--text-black); }
+        em { font-style: italic; color: var(--text-black); }
+
+        a { color: var(--text-black); text-decoration: none; border-bottom: 2px solid var(--primary-main); transition: all 0.2s ease; }
+        a:hover { background: var(--primary-pale); border-bottom-color: var(--accent-teal); }
+
+        ul, ol { margin-bottom: var(--space-md); padding-left: var(--space-lg); }
+        li { margin-bottom: var(--space-sm); }
+        ul li::marker { color: var(--accent-teal); }
+        ol li::marker { color: var(--accent-teal); font-weight: 700; }
+
+        .styled-list { list-style: none; padding-left: 0; }
+        .styled-list li { position: relative; padding-left: var(--space-lg); margin-bottom: var(--space-sm); }
+        .styled-list li::before { content: '\25B8'; position: absolute; left: 0; color: var(--accent-teal); font-weight: bold; }
+
+        .checklist { list-style: none; padding-left: 0; }
+        .checklist li { position: relative; padding-left: 2rem; margin-bottom: var(--space-sm); }
+        .checklist li::before {
+            content: '\2713'; position: absolute; left: 0; width: 1.5rem; height: 1.5rem;
+            background: var(--accent-green-light); color: var(--accent-green);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 0.75rem; font-weight: bold;
+        }
+
+        .objectives-box {
+            background: linear-gradient(135deg, var(--primary-pale) 0%, var(--accent-teal-light) 100%);
+            border-left: 5px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .objectives-box h3 { color: var(--text-black); margin-top: 0; margin-bottom: var(--space-md);
+            display: flex; align-items: center; gap: var(--space-sm); border-left: none; padding-left: 0; }
+        .objectives-box h3::before { content: '\1F3AF'; font-size: 1.25rem; }
+        .objectives-box ol { margin-bottom: 0; }
+
+        .tech-box {
+            background: var(--neutral-100); border: 2px solid var(--neutral-500);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .tech-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .tech-box .callout-content { padding-left: 0; }
+
+        .plain-box {
+            background: var(--primary-pale); border: 2px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .plain-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .plain-box .callout-content { padding-left: 0; }
+
+        .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; position: relative; overflow: hidden; }
+        .callout::before { position: absolute; top: var(--space-md); left: var(--space-md); font-size: 1.5rem; }
+        .callout-title { font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 1rem;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); padding-left: 2.5rem; color: var(--text-black); }
+        .callout-content { padding-left: 2.5rem; }
+        .callout-content p:last-child { margin-bottom: 0; }
+
+        .callout-tip { background: var(--accent-green-light); border-left: 4px solid var(--accent-green); }
+        .callout-tip::before { content: '\1F4A1'; }
+        .callout-warning { background: var(--alert-warning-bg); border-left: 4px solid var(--alert-warning); }
+        .callout-warning::before { content: '\26A0\FE0F'; }
+        .callout-danger { background: var(--alert-danger-bg); border-left: 4px solid var(--alert-danger); }
+        .callout-danger::before { content: '\1F6A8'; }
+        .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
+        .callout-info::before { content: '\2139\FE0F'; }
+
+        .key-concept {
+            background: linear-gradient(135deg, var(--accent-purple-light) 0%, var(--white) 100%);
+            border: 2px solid var(--accent-purple); border-radius: var(--radius-lg);
+            padding: var(--space-lg); margin: var(--space-xl) 0 var(--space-lg); position: relative;
+        }
+        .key-concept::before {
+            content: '\1F511 KEY CONCEPT'; position: absolute; top: -12px; left: var(--space-lg);
+            background: var(--accent-purple); color: var(--white); font-family: var(--font-heading), sans-serif;
+            font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-md); border-radius: var(--radius-sm);
+        }
+        .key-concept h4 { color: var(--text-black); margin-top: var(--space-sm); }
+
+        .definition { background: var(--neutral-100); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin: var(--space-md) 0; border-left: 4px solid var(--accent-orange); }
+        .definition-term { font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 1.125rem;
+            color: var(--text-black); margin-bottom: var(--space-xs); }
+        .definition-text { color: var(--text-black); margin-bottom: 0; }
+
+        code { font-family: var(--font-code), Consolas, monospace; font-size: 0.9rem; background: var(--primary-pale);
+            color: var(--text-black); padding: 2px 6px; border-radius: var(--radius-sm); }
+        pre { background: #2E2E2E; color: #f1ece0; padding: var(--space-lg); border-radius: var(--radius-md);
+            overflow-x: auto; margin: var(--space-lg) 0; position: relative; }
+        pre::before {
+            content: 'STEPS'; position: absolute; top: 0; right: 0; background: var(--primary-main); color: var(--text-black);
+            font-family: var(--font-heading), sans-serif; font-size: 0.625rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-sm); border-radius: 0 var(--radius-md) 0 var(--radius-sm);
+        }
+        pre code { background: transparent; color: inherit; padding: 0; font-size: 0.875rem; line-height: 1.6; }
+
+        .table-container { overflow-x: auto; margin: var(--space-lg) 0; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); }
+        table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
+        thead { background: var(--primary-dark); color: var(--white); }
+        th { font-family: var(--font-heading), sans-serif; font-weight: 700; text-align: left; padding: var(--space-md) var(--space-lg); color: var(--white); }
+        td { padding: var(--space-md) var(--space-lg); border-bottom: 1px solid var(--neutral-300); color: var(--text-black); }
+        tbody tr:hover { background: var(--primary-pale); }
+        tbody tr:last-child td { border-bottom: none; }
+
+        .activity-section {
+            background: linear-gradient(135deg, var(--accent-orange-light) 0%, var(--white) 100%);
+            border: 2px dashed var(--accent-orange); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .activity-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg); }
+        .activity-icon { width: 50px; height: 50px; background: var(--accent-orange); border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; }
+        .activity-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700;
+            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
+        .activity-subtitle { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
+
+        .lab-section {
+            background: linear-gradient(135deg, var(--accent-teal-light) 0%, var(--white) 100%);
+            border: 2px solid var(--accent-teal); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .lab-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg);
+            padding-bottom: var(--space-md); border-bottom: 2px solid var(--accent-teal); }
+        .lab-icon { width: 60px; height: 60px; background: var(--accent-teal); border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center; font-size: 1.75rem; flex-shrink: 0; }
+        .lab-title { font-family: var(--font-heading), sans-serif; font-size: 1.375rem; font-weight: 700;
+            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
+        .lab-time { font-size: 0.875rem; color: var(--neutral-500); margin: 0; display: flex; align-items: center; gap: var(--space-xs); }
+        .lab-time::before { content: '\23F1\FE0F'; }
+        .lab-steps { counter-reset: lab-step; list-style: none; padding-left: 0; }
+        .lab-steps li { counter-increment: lab-step; position: relative; padding-left: 3rem; margin-bottom: var(--space-lg); }
+        .lab-steps li::before {
+            content: counter(lab-step); position: absolute; left: 0; width: 2rem; height: 2rem;
+            background: var(--accent-teal); color: var(--white); font-family: var(--font-heading), sans-serif; font-weight: 700;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.875rem;
+        }
+
+        .assessment-section { background: var(--primary-pale); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0; }
+        .assessment-header { text-align: center; margin-bottom: var(--space-xl); }
+        .assessment-header h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .question-block { background: var(--white); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin-bottom: var(--space-lg); box-shadow: var(--shadow-sm); }
+        .question-number { font-family: var(--font-heading), sans-serif; font-size: 0.75rem; font-weight: 700;
+            color: var(--text-black); background: var(--primary-main); display: inline-block;
+            padding: 2px 10px; border-radius: var(--radius-sm);
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); }
+        .question-text { font-weight: 600; color: var(--text-black); margin-bottom: var(--space-md); }
+        details.answer { margin-top: var(--space-sm); }
+        details.answer summary { cursor: pointer; font-weight: 700; color: var(--text-black);
+            font-family: var(--font-heading), sans-serif; font-size: 0.875rem;
+            border-bottom: 2px solid var(--primary-main); display: inline-block; }
+        details.answer .reveal { margin-top: var(--space-sm); padding: var(--space-md);
+            background: var(--accent-green-light); border-radius: var(--radius-sm); color: var(--text-black); }
+
+        .references-section { background: var(--neutral-100); border-radius: var(--radius-lg);
+            padding: var(--space-lg) var(--space-xl); margin: var(--space-xl) 0; border-top: 3px solid var(--primary-main); }
+        .references-section h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .references-section ul { padding-left: var(--space-lg); }
+
+        .summary-box {
+            background: var(--primary-dark); color: var(--white);
+            border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .summary-box h3 { color: var(--white); margin-top: 0; display: flex; align-items: center;
+            gap: var(--space-sm); border-left: none; padding-left: 0; }
+        .summary-box h3::before { content: '\1F4CB'; }
+        .summary-box ul { margin-bottom: 0; }
+        .summary-box li { color: var(--white); }
+        .summary-box li::marker { color: var(--primary-light); }
+
+        .section-divider {
+            border: none; height: 6px; margin: var(--space-2xl) 0;
+            background: linear-gradient(90deg, transparent 0%, var(--primary-main) 15%, var(--primary-light) 50%, var(--primary-main) 85%, transparent 100%);
+            border-radius: var(--radius-sm); box-shadow: var(--shadow-sm);
+        }
+
+        .module-footer { background: var(--primary-dark); padding: var(--space-lg) var(--space-xl);
+            text-align: center; border-top: 4px solid var(--primary-main); }
+        .footer-text { font-size: 0.875rem; color: var(--white); margin: 0; }
+
+        .text-center { text-align: center; }
+        .text-muted { color: var(--neutral-500); }
+        .highlight { background: linear-gradient(180deg, transparent 50%, var(--primary-light) 50%); padding: 0 2px; }
+
+        @media (max-width: 768px) {
+            body { padding: var(--space-sm); }
+            .module-header { padding: var(--space-xl) var(--space-lg); }
+            .module-title { font-size: 1.75rem; }
+            .content-area { padding: var(--space-lg); }
+            h2 { font-size: 1.375rem; }
+            .lab-header, .activity-header { flex-direction: column; align-items: flex-start; }
+        }
+        @media print {
+            body { background: white; padding: 0; }
+            .course-container { box-shadow: none; }
+            .toc { display: none; }
+            details.answer { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="course-container">
+        <header class="module-header">
+            <div class="module-label">Unit 1 &middot; The Technician and the Operating System &middot; Section Answer Key</div>
+            <h1 class="module-title">Acronym Answer Key and Study Guide</h1>
+            <p class="module-subtitle">CompTIA A+ Core 2 - All Domains</p>
+        </header>
+        <div class="content-area">
+
+            <p>This is the completed, annotated version of the Acronym Research Worksheet &mdash; every acronym spelled out, explained in plain language, tied to a real support scenario, and backed by three reference links for deeper reading. Use it to check your own research, fill gaps, or study directly if you've already completed the blank worksheet.</p>
+
+            <div class="key-concept">
+                <h4>A Note on How to Use This as an Adult Learner</h4>
+                <p>The blank worksheet was intentionally structured for you to do the work yourself &mdash; that struggle is what builds recall. This document is different. It's a reference, and how you use a reference is up to you.</p>
+                <p>You already have real experience with technology, even if you don't think of it that way. You've set up a Wi-Fi router, plugged in a monitor, or watched a phone lose signal in a basement. That's not incidental &mdash; it's the raw material this document is built to connect to. As you read each entry, pause on the real-world example and ask yourself: <em>where have I already seen this?</em> Adults retain technical vocabulary far better when it attaches to a memory they already have than when it's memorized cold. Don't just read this top to bottom in one sitting. Pull it up when a term comes up in lecture, in a lab, or in a practice question you got wrong &mdash; that's the moment it will actually stick.</p>
+            </div>
+
+            <div class="tech-box">
+                <div class="callout-title">Technical Overview</div>
+                <div class="callout-content">
+                    <p>All 100 acronyms are organized by CompTIA A+ Core 2 (220-1202) domain: Operating Systems, Security, Software Troubleshooting, and Operational Procedures. Each entry includes the full expansion, a plain-language explanation, a concrete support scenario, and three reference links: a general encyclopedia entry, a Professor Messer video covering the concept, and a plain-spoken industry definition site.</p>
+                </div>
+            </div>
+
+
+            <hr class="section-divider">
+            
+            <div class="callout callout-warning">
+                <div class="callout-title">Link Verification &mdash; In Progress</div>
+                <div class="callout-content"><p>All 100 Professor Messer links point to videos on the live 220-1202 course index and are correct as of this build. The 100 TechTerms definition links follow TechTerms' standard URL pattern but have not yet been opened one by one &mdash; the same status Core 1's answer key carried before its individual verification pass. Treat them as likely correct until that pass is complete.</p></div>
+            </div>
+            <h2>Domain 1 &mdash; Operating Systems</h2>
+            <div class="definition">
+                <div class="definition-term">OS &mdash; Operating System</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> The software that manages a computer's hardware and provides services to applications.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A technician tells a customer their laptop's OS is out of date and needs a feature update.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Operating_system" target="_blank" rel="noopener">Operating system</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/operating-systems-overview-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/os" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">APFS &mdash; Apple File System</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> The default file system on current macOS and iOS devices, optimized for solid-state storage.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A technician formats a new external SSD as APFS so Time Machine can use its snapshot features.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Apple_File_System" target="_blank" rel="noopener">Apple File System</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/file-systems-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/apfs" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">exFAT &mdash; Extensible File Allocation Table</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A file system built for flash drives that removes FAT32's 4 GB file-size limit and works on both Windows and macOS.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A technician reformats a USB drive as exFAT so a customer can copy a 15 GB video file and still use it on a Mac.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/ExFAT" target="_blank" rel="noopener">ExFAT</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/file-systems-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/exfat" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">FAT &mdash; File Allocation Table</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> An older, simple file system (commonly seen as FAT32) with wide device compatibility but no file permissions and a 4 GB file-size limit.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A technician formats a USB drive as FAT32 because an old car stereo can't read anything else.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/File_Allocation_Table" target="_blank" rel="noopener">File Allocation Table</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/file-systems-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/fat" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">NTFS &mdash; New Technology File System</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> The default Windows file system, supporting permissions, encryption, and very large files and volumes.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A technician sets NTFS permissions on a shared folder so only the accounting team can open it.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/NTFS" target="_blank" rel="noopener">NTFS</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/file-systems-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/ntfs" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">ReFS &mdash; Resilient File System</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A Windows file system built for very large storage that automatically detects and repairs data corruption.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A server administrator formats a large storage pool as ReFS to protect against silent data corruption.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/ReFS" target="_blank" rel="noopener">ReFS</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/file-systems-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/refs" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">XFS &mdash; Extended File System</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A high-performance journaled Linux file system suited to very large files, and the default on Red Hat Enterprise Linux.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A Linux administrator chooses XFS for a server that stores large video archives.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/XFS" target="_blank" rel="noopener">XFS</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/linux-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/xfs" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">EOL &mdash; End-of-Life</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> The point at which a vendor stops releasing updates and security patches for a product.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A technician warns a customer that their Windows 10 machine has reached EOL and needs a plan to upgrade.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/End-of-life_product" target="_blank" rel="noopener">End-of-life product</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/operating-systems-overview-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/eol" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">GPT &mdash; GUID Partition Table</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> The modern partitioning scheme that supports drives over 2 TB and is required to boot Windows 11 in UEFI mode.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A technician converts a drive from MBR to GPT so it can be used as a Windows 11 boot drive.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/GUID_Partition_Table" target="_blank" rel="noopener">GUID Partition Table</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/installing-operating-systems-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/gpt" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">GUID &mdash; Globally Unique Identifier</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A very long, effectively unique number used to identify things like partitions, objects, or devices.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A technician looks up a disk's GUID in Disk Management to confirm which physical drive is which.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" target="_blank" rel="noopener">Universally unique identifier</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/installing-operating-systems-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/guid" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">MBR &mdash; Master Boot Record</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> The legacy partitioning scheme, limited to four primary partitions and 2 TB drives.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A technician explains that an old laptop's MBR-partitioned drive can't be resized past 2 TB.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Master_boot_record" target="_blank" rel="noopener">Master boot record</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/installing-operating-systems-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/mbr" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">UEFI &mdash; Unified Extensible Firmware Interface</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> The modern firmware that replaces legacy BIOS, supporting Secure Boot and GPT drives, and required for Windows 11.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A technician enables UEFI and Secure Boot in firmware settings before installing Windows 11.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/UEFI" target="_blank" rel="noopener">UEFI</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/installing-operating-systems-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/uefi" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">BIOS &mdash; Basic Input/Output System</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> Legacy firmware that starts a computer and hands control to the operating system, largely replaced by UEFI.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A technician boots into the legacy BIOS setup screen on an older desktop to change the boot order.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/BIOS" target="_blank" rel="noopener">BIOS</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/installing-operating-systems-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/bios" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">POST &mdash; Power-On Self-Test</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> The hardware check firmware performs immediately at power-on, before any operating system loads.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A computer beeps in a repeating pattern during POST, telling the technician memory failed the self-test.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Power-on_self-test" target="_blank" rel="noopener">Power-on self-test</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/installing-operating-systems-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/post" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">CPU &mdash; Central Processing Unit</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> The processor that executes instructions and is a core system requirement for any application.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A technician checks an application's CPU requirement before installing it on an older laptop.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Central_processing_unit" target="_blank" rel="noopener">Central processing unit</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/installing-applications-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/cpu" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">RAM &mdash; Random-Access Memory</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> Volatile memory that holds actively running programs and data, cleared when the computer powers off.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A technician recommends adding RAM after seeing a customer's computer struggle with many open browser tabs.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Random-access_memory" target="_blank" rel="noopener">Random-access memory</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/installing-applications-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/ram" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">VRAM &mdash; Video Random-Access Memory</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> Memory dedicated to a graphics card, used to store images and textures being rendered.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A technician checks a graphics card's VRAM before recommending it for video editing software.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Video_RAM" target="_blank" rel="noopener">Video RAM</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/installing-applications-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/vram" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">SSD &mdash; Solid-State Drive</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> Flash-based storage with no moving parts, faster and more durable than a mechanical hard drive.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A technician upgrades a slow laptop from a hard drive to an SSD to speed up boot time.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Solid-state_drive" target="_blank" rel="noopener">Solid-state drive</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/file-systems-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/ssd" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">ARM &mdash; Advanced RISC Machine</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A processor architecture, common in mobile devices and some laptops, that differs from traditional x86 processors.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A technician confirms an application has an ARM build before installing it on a new ARM-based laptop.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/ARM_architecture_family" target="_blank" rel="noopener">ARM architecture family</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/operating-systems-overview-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/arm" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">MMC &mdash; Microsoft Management Console</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> The Windows framework that hosts administrative snap-ins like Event Viewer and Disk Management.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A technician opens the MMC to add the Group Policy snap-in for a specific troubleshooting task.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Microsoft_Management_Console" target="_blank" rel="noopener">Microsoft Management Console</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/the-microsoft-management-console-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/mmc" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">NTP &mdash; Network Time Protocol</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A protocol that synchronizes a computer's clock with a reliable time source over a network.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A technician notices Kerberos authentication failing and traces it to an NTP time-sync issue.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Network_Time_Protocol" target="_blank" rel="noopener">Network Time Protocol</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/the-windows-network-command-line-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/ntp" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">MAC &mdash; Media Access Control</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A unique hardware address burned into a network interface, used to identify a device on a local network.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A technician filters a router's wireless access by MAC address to control which devices can connect.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/MAC_address" target="_blank" rel="noopener">MAC address</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/windows-network-technologies-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/mac" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">IP &mdash; Internet Protocol</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> The addressing scheme that lets devices locate and communicate with each other on a network.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A technician assigns a static IP address to a printer so its address never changes.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Internet_Protocol" target="_blank" rel="noopener">Internet Protocol</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/windows-ip-address-configuration-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/ip" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">DHCP &mdash; Dynamic Host Configuration Protocol</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A service that automatically assigns IP addresses and network settings to devices.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A technician troubleshoots a device stuck with an APIPA address by checking whether it can reach the DHCP server.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol" target="_blank" rel="noopener">Dynamic Host Configuration Protocol</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/windows-ip-address-configuration-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/dhcp" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">APIPA &mdash; Automatic Private IP Addressing</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A fallback address in the 169.254.x.x range Windows assigns itself when it cannot reach a DHCP server.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A technician sees a 169.254 address and immediately suspects a DHCP or cabling problem.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Link-local_address" target="_blank" rel="noopener">Link-local address</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/windows-ip-address-configuration-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/apipa" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">DNS &mdash; Domain Name System</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> The service that translates human-readable domain names into IP addresses.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A technician runs nslookup to confirm DNS is correctly resolving a company's internal server name.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Domain_Name_System" target="_blank" rel="noopener">Domain Name System</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/windows-network-technologies-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/dns" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">VPN &mdash; Virtual Private Network</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> An encrypted tunnel that lets a remote device securely access a private network over the internet.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A technician sets up a VPN connection so an employee can reach office file shares from home.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Virtual_private_network" target="_blank" rel="noopener">Virtual private network</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/windows-network-connections-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/vpn" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">RDP &mdash; Remote Desktop Protocol</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A Microsoft protocol that lets a user remotely control another Windows computer's desktop.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A technician uses RDP to remote into a user's Windows 11 Pro workstation and fix a setting.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Remote_Desktop_Protocol" target="_blank" rel="noopener">Remote Desktop Protocol</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/windows-network-technologies-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/rdp" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">TCP &mdash; Transmission Control Protocol</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A core internet protocol that establishes a reliable, ordered connection between two devices.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A technician checks that a firewall isn't blocking the TCP port a business application needs.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Transmission_Control_Protocol" target="_blank" rel="noopener">Transmission Control Protocol</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/windows-network-technologies-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/tcp" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">USB &mdash; Universal Serial Bus</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> The standard connector and protocol for attaching peripherals and storage to a computer.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A technician boots a computer from a USB drive to begin a fresh Windows installation.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/USB" target="_blank" rel="noopener">USB</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/installing-operating-systems-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/usb" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">WWAN &mdash; Wireless Wide Area Network</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A cellular data connection, such as 4G or 5G, that lets a device access the internet without Wi-Fi.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A technician configures a laptop's WWAN adapter so a field technician can work without office Wi-Fi.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Mobile_broadband_modem" target="_blank" rel="noopener">Mobile broadband modem</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/windows-network-connections-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/wwan" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">LDAP &mdash; Lightweight Directory Access Protocol</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A protocol applications use to look up and authenticate against directory services like Active Directory.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A technician configures a company app to use LDAP so employees can sign in with their domain account.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol" target="_blank" rel="noopener">Lightweight Directory Access Protocol</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/active-directory-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/ldap" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">SMB &mdash; Server Message Block</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A network protocol used to share files, folders, and printers between Windows computers.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A technician maps a network drive to a coworker's shared folder using an SMB path.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Server_Message_Block" target="_blank" rel="noopener">Server Message Block</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/windows-network-technologies-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/smb" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <hr class="section-divider">
+            <h2>Domain 2 &mdash; Security</h2>
+            <div class="definition">
+                <div class="definition-term">AAA &mdash; Authentication, Authorization, and Accounting</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> The security model covering who you are, what you're allowed to do, and a record of what you did.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A technician explains that a RADIUS server handles AAA for everyone logging into the company Wi-Fi.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/AAA_(computer_security)" target="_blank" rel="noopener">AAA (computer security)</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/authentication-and-access-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/aaa" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">ACL &mdash; Access Control List</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A list of rules that permits or denies access to a resource based on user, group, or network address.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A technician adds a firewall ACL rule blocking inbound traffic on an unused port.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Access-control_list" target="_blank" rel="noopener">Access-control list</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/logical-security-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/acl" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">AES &mdash; Advanced Encryption Standard</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A widely used, strong symmetric encryption algorithm, used in WPA2, WPA3, and BitLocker.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A technician confirms a wireless network uses AES encryption rather than the weaker TKIP.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Advanced_Encryption_Standard" target="_blank" rel="noopener">Advanced Encryption Standard</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/wireless-encryption-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/aes" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">AP &mdash; Access Point</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A device that lets wireless clients connect to a wired network.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A technician relocates a weak Wi-Fi access point to the center of an office for better coverage.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Wireless_access_point" target="_blank" rel="noopener">Wireless access point</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/physical-security-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/ap" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">BEC &mdash; Business Email Compromise</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A scam where an attacker impersonates an executive or vendor by email to trick an employee into a wire transfer or data leak.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> An employee almost pays a fake invoice after a BEC email appears to come from the CFO.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Business_email_compromise" target="_blank" rel="noopener">Business email compromise</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/business-email-compromise-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/bec" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">BYOD &mdash; Bring Your Own Device</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A policy allowing employees to use their personal devices for work, usually under MDM management.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A company's BYOD policy requires a passcode and remote-wipe capability before a personal phone can access email.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Bring_your_own_device" target="_blank" rel="noopener">Bring your own device</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/mobile-device-security-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/byod" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">DDoS &mdash; Distributed Denial of Service</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> An attack that overwhelms a target with traffic from many sources at once, taking it offline.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A company's website goes down during a DDoS attack launched from thousands of compromised devices.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Denial-of-service_attack" target="_blank" rel="noopener">Denial-of-service attack</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/denial-of-service-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/ddos" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">DoS &mdash; Denial of Service</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> An attack that overwhelms a system with traffic or requests so legitimate users can't use it.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A single misconfigured script accidentally causes a DoS against an internal server by flooding it with requests.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Denial-of-service_attack" target="_blank" rel="noopener">Denial-of-service attack</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/denial-of-service-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/dos" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">DLP &mdash; Data Loss Prevention</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> Tools and policies that detect and block sensitive data from leaving an organization improperly.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A DLP rule blocks an employee from emailing a spreadsheet containing customer credit card numbers.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Data_loss_prevention_software" target="_blank" rel="noopener">Data loss prevention software</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/logical-security-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/dlp" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">EDR &mdash; Endpoint Detection and Response</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> Security software that monitors endpoints for suspicious behavior and can respond automatically to threats.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> An EDR tool isolates an infected laptop from the network the moment it detects ransomware behavior.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Endpoint_detection_and_response" target="_blank" rel="noopener">Endpoint detection and response</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/anti-malware-tools-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/edr" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">EFS &mdash; Encrypting File System</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A Windows feature that encrypts individual files and folders using the user's account credentials.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A technician uses EFS to encrypt a single sensitive folder on a shared workstation.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Encrypting_File_System" target="_blank" rel="noopener">Encrypting File System</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/windows-security-settings-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/efs" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">FRT &mdash; Facial Recognition Technology</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A biometric method that identifies a person from their facial features.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A user unlocks their phone instantly using FRT instead of typing a PIN.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Facial_recognition_system" target="_blank" rel="noopener">Facial recognition system</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/physical-access-security-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/frt" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">IAM &mdash; Identity and Access Management</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A framework of policies and tools for managing user identities and controlling their access to resources.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> An IAM platform automatically removes a departing employee's access to every company system at once.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Identity_management" target="_blank" rel="noopener">Identity management</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/logical-security-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/iam" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">IoT &mdash; Internet of Things</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> Everyday devices, such as thermostats and cameras, connected to the internet or a network.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A technician isolates IoT devices on their own network segment so a compromised camera can't reach the office servers.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Internet_of_things" target="_blank" rel="noopener">Internet of things</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/physical-security-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/iot" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">MDM &mdash; Mobile Device Management</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> Software that lets an organization enforce security policy and remotely manage mobile devices.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> MDM lets an IT admin remotely wipe a lost company phone before it's found by someone else.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Mobile_device_management" target="_blank" rel="noopener">Mobile device management</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/mobile-device-security-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/mdm" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">MDR &mdash; Managed Detection and Response</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A security service where a third-party team monitors and responds to threats on an organization's behalf.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A small company hires an MDR provider instead of building its own 24/7 security operations team.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Managed_detection_and_response" target="_blank" rel="noopener">Managed detection and response</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/anti-malware-tools-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/mdr" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">MFA &mdash; Multifactor Authentication</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> Authentication requiring two or more proof types, such as a password plus a phone code.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A user's stolen password alone can't get an attacker in, because MFA also requires a code from their phone.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Multi-factor_authentication" target="_blank" rel="noopener">Multi-factor authentication</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/authentication-and-access-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/mfa" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">NFC &mdash; Near-Field Communication</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A very short-range wireless technology used for tap-to-pay and quick device pairing.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A customer taps their phone against a terminal to pay using NFC.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Near-field_communication" target="_blank" rel="noopener">Near-field communication</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/logical-security-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/nfc" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">OTP &mdash; One-Time Password</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A password valid for only a single login attempt or a short window of time.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A banking app texts the customer an OTP they must enter within two minutes to complete sign-in.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/One-time_password" target="_blank" rel="noopener">One-time password</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/authentication-and-access-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/otp" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">PAM &mdash; Privileged Access Management</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> Tools and policies that tightly control and monitor accounts with elevated system access.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A PAM system requires administrators to check out a temporary password before using an admin account.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Privileged_access_management" target="_blank" rel="noopener">Privileged access management</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/logical-security-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/pam" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">PIN &mdash; Personal Identification Number</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A short numeric code used to authenticate a user, often as one factor among several.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A user unlocks their laptop with Windows Hello using a PIN instead of typing a full password.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Personal_identification_number" target="_blank" rel="noopener">Personal identification number</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/windows-security-settings-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/pin" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">PUP &mdash; Potentially Unwanted Program</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> Software that is not clearly malicious but is unwanted, disruptive, or bundled without clear consent.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A free download installs a browser toolbar the user never wanted &mdash; a classic PUP.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Potentially_unwanted_program" target="_blank" rel="noopener">Potentially unwanted program</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/malware-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/pup" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">RADIUS &mdash; Remote Authentication Dial-In User Service</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A protocol that centralizes authentication, authorization, and accounting for network access.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A company's Wi-Fi uses a RADIUS server so each employee logs in with their own domain credentials.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/RADIUS" target="_blank" rel="noopener">RADIUS</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/authentication-and-access-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/radius" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">RFID &mdash; Radio-Frequency Identification</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A short-range wireless technology used in badges and tags to identify or track an object.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> An employee badges into a secure server room using an RFID card.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Radio-frequency_identification" target="_blank" rel="noopener">Radio-frequency identification</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/physical-access-security-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/rfid" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">SMS &mdash; Short Message Service</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> Standard text messaging, sometimes used to deliver a one-time authentication code.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A user receives an MFA code by SMS as a second factor when logging into a new device.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/SMS" target="_blank" rel="noopener">SMS</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/authentication-and-access-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/sms" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">SOHO &mdash; Small Office/Home Office</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A small network environment, typically built around a single consumer-grade router.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A technician hardens a customer's SOHO router by changing the default admin password and enabling WPA3.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Small_office/home_office" target="_blank" rel="noopener">Small office/home office</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/securing-a-soho-network-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/soho" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">SQL &mdash; Structured Query Language</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> The standard language for querying and managing databases, and the target of SQL injection attacks.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> An attacker types database commands into a website's login field, attempting a SQL injection attack.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/SQL" target="_blank" rel="noopener">SQL</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/sql-injection-attacks-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/sql" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">SSID &mdash; Service Set Identifier</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> The name of a wireless network that appears in a device's list of available Wi-Fi networks.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A technician disables SSID broadcast on a guest network so it doesn't appear in the visible list.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Service_set_(802.11_network)" target="_blank" rel="noopener">Service set (802.11 network)</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/wireless-encryption-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/ssid" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">SSO &mdash; Single Sign-On</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A system letting a user log in once and gain access to multiple applications without signing in again.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> An employee signs in once in the morning and SSO carries that login into email, chat, and the intranet.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Single_sign-on" target="_blank" rel="noopener">Single sign-on</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/logical-security-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/sso" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">TACACS &mdash; Terminal Access Controller Access-Control System</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A protocol, like RADIUS, used to centralize authentication and authorization for network device access.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A network administrator uses TACACS+ so every router login is centrally logged and controlled.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/TACACS" target="_blank" rel="noopener">TACACS</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/authentication-and-access-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/tacacs" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">TKIP &mdash; Temporal Key Integrity Protocol</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> An older wireless encryption protocol, weaker than AES, associated with the original WPA standard.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A technician upgrades an old router's wireless security from TKIP to AES for stronger encryption.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Temporal_Key_Integrity_Protocol" target="_blank" rel="noopener">Temporal Key Integrity Protocol</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/wireless-encryption-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/tkip" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">TOTP &mdash; Time-Based One-Time Password</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A one-time code that changes automatically every 30 to 60 seconds, generated by an authenticator app.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A user opens an authenticator app to read the current TOTP code before it expires.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Time-based_one-time_password" target="_blank" rel="noopener">Time-based one-time password</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/authentication-and-access-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/totp" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">TPM &mdash; Trusted Platform Module</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A dedicated security chip that securely stores encryption keys, required for Windows 11 and BitLocker.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A technician confirms a computer has TPM 2.0 before attempting to enable BitLocker.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Trusted_Platform_Module" target="_blank" rel="noopener">Trusted Platform Module</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/windows-security-settings-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/tpm" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">UAC &mdash; User Account Control</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> The Windows feature that prompts for confirmation before allowing an action that requires elevated privileges.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A UAC prompt appears asking a standard user to provide an administrator password before installing software.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/User_Account_Control" target="_blank" rel="noopener">User Account Control</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/windows-security-settings-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/uac" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">UPnP &mdash; Universal Plug and Play</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A router feature that lets devices automatically open ports for themselves, often disabled for security.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A technician disables UPnP on a customer's router to prevent devices from opening ports without approval.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Universal_Plug_and_Play" target="_blank" rel="noopener">Universal Plug and Play</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/securing-a-soho-network-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/upnp" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">WAP &mdash; Wireless Access Point</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A device that connects wireless clients to a wired network, sometimes used interchangeably with AP.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A technician adds a second WAP to extend Wi-Fi coverage to the back of a warehouse.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Wireless_access_point" target="_blank" rel="noopener">Wireless access point</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/securing-a-soho-network-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/wap" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">WPA &mdash; Wi-Fi Protected Access</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A family of wireless security protocols (WPA2, WPA3) that encrypt Wi-Fi traffic.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A technician sets a home router to WPA3 for the strongest available wireless encryption.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Wi-Fi_Protected_Access" target="_blank" rel="noopener">Wi-Fi Protected Access</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/wireless-encryption-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/wpa" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">XDR &mdash; Extended Detection and Response</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> Security tooling that correlates data across endpoints, networks, and email into one detection platform.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> An XDR platform links a phishing email and a suspicious login into a single flagged incident.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Extended_detection_and_response" target="_blank" rel="noopener">Extended detection and response</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/anti-malware-tools-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/xdr" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">XSS &mdash; Cross-Site Scripting</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> An attack that injects malicious script into a trusted website so it runs in other users' browsers.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> An attacker plants a script in a comment field that steals cookies from anyone who views the page &mdash; an XSS attack.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Cross-site_scripting" target="_blank" rel="noopener">Cross-site scripting</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/cross-site-scripting-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/xss" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">SAML &mdash; Security Assertion Markup Language</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A standard for exchanging authentication and authorization data, commonly used to enable single sign-on.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A company's SSO portal uses SAML to tell a cloud application that a user has already been authenticated.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language" target="_blank" rel="noopener">Security Assertion Markup Language</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/logical-security-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/saml" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">HTTPS &mdash; Hypertext Transfer Protocol Secure</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> The encrypted version of HTTP, indicated by a padlock icon, used to protect data sent to and from a website.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A technician warns a user never to enter a password on a site that isn't using HTTPS.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/HTTPS" target="_blank" rel="noopener">HTTPS</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/browser-security-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/https" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">HDD &mdash; Hard Disk Drive</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A mechanical storage device using spinning platters, which must be physically destroyed to guarantee data cannot be recovered.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A company drills holes through old HDDs before recycling them to guarantee the data is unrecoverable.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Hard_disk_drive" target="_blank" rel="noopener">Hard disk drive</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/data-destruction-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/hdd" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <hr class="section-divider">
+            <h2>Domain 3 &mdash; Software Troubleshooting</h2>
+            <div class="definition">
+                <div class="definition-term">BSOD &mdash; Blue Screen of Death</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A full-screen Windows stop error indicating a serious system fault, usually pointing to a driver or hardware problem.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A technician records the stop code shown on a BSOD before researching which driver is causing it.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Blue_screen_of_death" target="_blank" rel="noopener">Blue screen of death</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/troubleshooting-windows-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/bsod" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <hr class="section-divider">
+            <h2>Domain 4 &mdash; Operational Procedures</h2>
+            <div class="definition">
+                <div class="definition-term">AUP &mdash; Acceptable Use Policy</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A document defining how employees are permitted to use company technology and networks.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> An employee is reminded of the AUP after using a work laptop for unrelated personal business.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Acceptable_use_policy" target="_blank" rel="noopener">Acceptable use policy</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/privacy-licensing-and-policies-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/aup" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">CMDB &mdash; Configuration Management Database</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A database that stores detailed records of an organization's devices, systems, and their configurations.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A technician checks the CMDB to see which software version is installed on a customer's laptop before troubleshooting.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Configuration_management_database" target="_blank" rel="noopener">Configuration management database</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/asset-management-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/cmdb" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">DRM &mdash; Digital Rights Management</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> Technology used to control and restrict the copying or use of licensed digital content.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> An e-book's DRM prevents a customer from copying its text into another document.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Digital_rights_management" target="_blank" rel="noopener">Digital rights management</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/privacy-licensing-and-policies-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/drm" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">ESD &mdash; Electrostatic Discharge</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A sudden static electricity discharge that can silently damage sensitive electronic components.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A technician wears an ESD wrist strap before handling a memory module to avoid damaging it.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Electrostatic_discharge" target="_blank" rel="noopener">Electrostatic discharge</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/managing-electrostatic-discharge-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/esd" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">EULA &mdash; End-User License Agreement</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> The legal agreement a user accepts before using licensed software.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A customer clicks through a EULA without reading it before installing new software.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/End-user_license_agreement" target="_blank" rel="noopener">End-user license agreement</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/privacy-licensing-and-policies-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/eula" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">GFS &mdash; Grandfather-Father-Son</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A common backup rotation scheme using daily, weekly, and monthly backup sets.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A company keeps daily backups for a week, weekly backups for a month, and monthly backups for a year under a GFS rotation.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Backup_rotation_scheme" target="_blank" rel="noopener">Backup rotation scheme</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/managing-backups-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/gfs" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">ISO &mdash; International Organization for Standardization; also, a disc image file format</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> In IT support, most often refers to a single file that behaves like a physical installation disc.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A technician mounts an ISO file to install software without needing a physical DVD.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Optical_disc_image" target="_blank" rel="noopener">Optical disc image</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/installing-operating-systems-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/iso" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">LCD &mdash; Liquid Crystal Display</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A common flat-panel display technology, relevant to safe handling and disposal procedures.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A technician handles a cracked LCD monitor carefully and disposes of it according to local regulations.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Liquid-crystal_display" target="_blank" rel="noopener">Liquid-crystal display</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/environmental-impacts-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/lcd" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">MNDA &mdash; Mutual Non-Disclosure Agreement</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A legal agreement in which two parties both agree to keep shared information confidential.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> Two companies sign an MNDA before discussing a joint IT project involving sensitive data.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Non-disclosure_agreement" target="_blank" rel="noopener">Non-disclosure agreement</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/privacy-licensing-and-policies-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/mnda" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">MSDS &mdash; Material Safety Data Sheet</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A document detailing the safe handling, storage, and disposal of a hazardous material.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A technician checks the MSDS for a cleaning solvent before using it near electronic equipment.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Safety_data_sheet" target="_blank" rel="noopener">Safety data sheet</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/environmental-impacts-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/msds" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">NDA &mdash; Non-Disclosure Agreement</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A legal agreement in which one or both parties agree not to share confidential information.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A contractor signs an NDA before being given access to a client's internal systems.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Non-disclosure_agreement" target="_blank" rel="noopener">Non-disclosure agreement</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/privacy-licensing-and-policies-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/nda" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">PC &mdash; Personal Computer</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A general-purpose computer designed for individual use, the basic unit of most IT support work.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A help-desk ticket describes a customer's PC that won't boot past the manufacturer logo.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Personal_computer" target="_blank" rel="noopener">Personal computer</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/ticketing-systems-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/pc" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">PII &mdash; Personally Identifiable Information</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> Data that can identify a specific individual, such as a name, address, or account number.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A company encrypts a database because it stores customers' PII.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Personal_data" target="_blank" rel="noopener">Personal data</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/privacy-licensing-and-policies-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/pii" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">RAID &mdash; Redundant Array of Independent Disks</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A method of combining multiple drives for redundancy, performance, or both.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A server uses RAID 1 so if one drive fails, the mirrored drive keeps the system running.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/RAID" target="_blank" rel="noopener">RAID</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/managing-backups-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/raid" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">RMM &mdash; Remote Monitoring and Management</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> Software that lets a technician monitor and manage many client devices remotely from one console.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> An IT provider uses an RMM platform to push a critical update to fifty client computers overnight.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Remote_monitoring_and_management" target="_blank" rel="noopener">Remote monitoring and management</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/remote-access-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/rmm" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">RSR &mdash; Rapid Security Response</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> Apple's mechanism for delivering small, urgent security fixes to macOS and iOS between full updates.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A Mac receives an RSR update overnight to patch a newly discovered vulnerability, without a full OS update.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Rapid_Security_Response" target="_blank" rel="noopener">Rapid Security Response</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/macos-features-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/rsr" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">SLA &mdash; Service-Level Agreement</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A commitment defining expected response and resolution times for support requests.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A vendor's SLA guarantees a four-hour response time for critical outage tickets.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Service-level_agreement" target="_blank" rel="noopener">Service-level agreement</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/document-types-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/sla" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">SOP &mdash; Standard Operating Procedure</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A documented, repeatable set of steps for performing a routine task consistently.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> New technicians follow the SOP for onboarding a laptop so nothing gets missed.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Standard_operating_procedure" target="_blank" rel="noopener">Standard operating procedure</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/document-types-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/sop" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">SPICE &mdash; Simple Protocol for Independent Computing Environments</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A remote display protocol commonly used to access virtual machines.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> An administrator uses SPICE to view and control a virtual machine's console remotely.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/SPICE_(protocol)" target="_blank" rel="noopener">SPICE (protocol)</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/remote-access-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/spice" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">SSH &mdash; Secure Shell</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> An encrypted protocol for securely accessing and managing a remote computer's command line.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A technician uses SSH to remotely run commands on a Linux server instead of using an unencrypted connection.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Secure_Shell" target="_blank" rel="noopener">Secure Shell</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/remote-access-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/ssh" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">UPS &mdash; Uninterruptible Power Supply</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A battery backup device that keeps equipment running briefly during a power outage and protects against surges.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A server room's UPS gives the team enough time to shut systems down safely during a blackout.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Uninterruptible_power_supply" target="_blank" rel="noopener">Uninterruptible power supply</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/environmental-impacts-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/ups" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">VNC &mdash; Virtual Network Computing</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A cross-platform remote-desktop protocol that lets a user view and control another computer's screen.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A technician uses VNC to remotely control a customer's Linux desktop from a Windows laptop.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Virtual_Network_Computing" target="_blank" rel="noopener">Virtual Network Computing</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/remote-access-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/vnc" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">VoIP &mdash; Voice over Internet Protocol</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> A technology that carries voice calls over a data network instead of traditional phone lines.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> A company replaces its office phone system with a VoIP service that runs over the same network as its computers.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/Voice_over_IP" target="_blank" rel="noopener">Voice over IP</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/remote-access-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/voip" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">WinRM &mdash; Windows Remote Management</div>
+                <p class="definition-text"><strong>Plain-spoken:</strong> Microsoft's protocol for remotely managing Windows computers from the command line or scripts.</p>
+                <p class="definition-text"><strong>Real-world example:</strong> An administrator uses WinRM to run a PowerShell script against dozens of servers at once.</p>
+                <p class="definition-text"><strong>Learn more:</strong> <a href="https://en.wikipedia.org/wiki/WS-Management" target="_blank" rel="noopener">WS-Management</a></p>
+                <p class="definition-text"><strong>Watch:</strong> <a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/remote-access-220-1202/" target="_blank" rel="noopener">Professor Messer &mdash; video covering this concept</a></p>
+                <p class="definition-text"><strong>Plain-spoken definition:</strong> <a href="https://techterms.com/definition/winrm" target="_blank" rel="noopener">TechTerms</a> <span class="text-muted">(unverified &mdash; see note above)</span></p>
+            </div>
+            
+        <footer class="module-footer">
+            <p class="footer-text">CompTIA A+ Core 2 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
+        </footer>
+    </div>
+</body>
+</html>
