@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Unit 2 &mdash; 2.6 Classroom Labs and Take-Home Lab | CompTIA A+ Core 2</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Sans+Pro:wght@400;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           CPCC COURSE TEMPLATE - GOLD / CHARCOAL / BLACK
+           CTS-ITS7501-80 CompTIA A+ Core 2 Training
+           Type: true black. Accents: gold. Chrome: charcoal.
+           ============================================ */
+
+        :root {
+            --primary-dark: #4A4A4A;       /* Charcoal - structural chrome only */
+            --primary-main: #B8962E;       /* Warm Gold - primary accent */
+            --primary-light: #D4AF56;      /* Light Gold */
+            --primary-pale: #FBF3DF;       /* Pale Gold wash */
+
+            --accent-teal: #8A6F1F;        /* Deep bronze-gold */
+            --accent-teal-light: #F3E9CE;  /* Pale bronze */
+            --accent-orange: #A9642A;      /* Warm rust */
+            --accent-orange-light: #F5E2CE;
+            --accent-purple: #6B5B3A;      /* Muted umber */
+            --accent-purple-light: #EFE6D2;
+            --accent-green: #4E7A51;
+            --accent-green-light: #DCEBDD;
+
+            --alert-warning: #B8862E;
+            --alert-warning-bg: #FBF0D9;
+            --alert-danger: #A13A3A;
+            --alert-danger-bg: #F6DEDE;
+            --alert-success: #3F6E42;
+            --alert-success-bg: #DCEBDD;
+            --alert-info: #6E5B2E;
+            --alert-info-bg: #F1E9D4;
+
+            --text-black: #000000;         /* All reading text */
+            --neutral-900: #000000;
+            --neutral-700: #000000;
+            --neutral-500: #5A5A5A;
+            --neutral-300: #D9D3C4;
+            --neutral-100: #FAF8F3;
+            --white: #ffffff;
+
+            --font-heading: 'Nunito', sans-serif;
+            --font-body: 'Source Sans Pro', sans-serif;
+            --font-code: 'Fira Code', monospace;
+
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+
+            --shadow-sm: 0 1px 2px rgba(74, 74, 74, 0.08);
+            --shadow-md: 0 4px 6px rgba(74, 74, 74, 0.12);
+            --shadow-lg: 0 10px 20px rgba(74, 74, 74, 0.15);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body), 'Segoe UI', Tahoma, Verdana, sans-serif;
+            font-size: 1.0625rem;
+            line-height: 1.7;
+            color: var(--text-black);
+            background: linear-gradient(135deg, var(--neutral-100) 0%, var(--white) 100%);
+            min-height: 100vh;
+            padding: var(--space-lg);
+        }
+
+        .course-container {
+            max-width: 950px; margin: 0 auto; background: var(--white);
+            border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); overflow: hidden;
+        }
+
+        .module-header {
+            background: var(--primary-main); color: var(--text-black);
+            padding: var(--space-lg) var(--space-xl); position: relative; overflow: hidden;
+        }
+        .module-label {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 0.875rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 2px; text-decoration: underline;
+            margin-bottom: var(--space-sm); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-title {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 2.25rem; font-weight: 800;
+            line-height: 1.2; margin-bottom: var(--space-md); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-subtitle { font-size: 1.125rem; max-width: 650px; position: relative; z-index: 1; color: var(--text-black); }
+
+        .toc {
+            display: flex; flex-direction: column; gap: var(--space-sm);
+            padding: var(--space-lg) var(--space-xl);
+            background: var(--primary-pale); border-bottom: 1px solid var(--neutral-300);
+        }
+        .toc-item {
+            width: 100%; text-align: left;
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 0.875rem;
+            color: var(--text-black); background: var(--white);
+            border: 2px solid var(--primary-main);
+            padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md);
+        }
+        .toc-item.current { background: var(--primary-main); }
+
+        .content-area { padding: var(--space-xl); }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif;
+            color: var(--text-black); line-height: 1.3; margin-bottom: var(--space-md);
+        }
+        h1 { font-size: 2rem; font-weight: 800; }
+        h2 { font-size: 1.625rem; font-weight: 700; padding-bottom: var(--space-sm);
+             border-bottom: 3px solid var(--primary-main); margin-top: var(--space-xl); margin-bottom: var(--space-lg); }
+        h3 { font-size: 1.375rem; font-weight: 700; margin-top: var(--space-lg);
+             padding-left: var(--space-sm); border-left: 4px solid var(--primary-main); }
+        h4 { font-size: 1.125rem; font-weight: 600; }
+
+        p { margin-bottom: var(--space-md); }
+        strong { font-weight: 700; color: var(--text-black); }
+        em { font-style: italic; color: var(--text-black); }
+
+        a { color: var(--text-black); text-decoration: none; border-bottom: 2px solid var(--primary-main); transition: all 0.2s ease; }
+        a:hover { background: var(--primary-pale); border-bottom-color: var(--accent-teal); }
+
+        ul, ol { margin-bottom: var(--space-md); padding-left: var(--space-lg); }
+        li { margin-bottom: var(--space-sm); }
+        ul li::marker { color: var(--accent-teal); }
+        ol li::marker { color: var(--accent-teal); font-weight: 700; }
+
+        .styled-list { list-style: none; padding-left: 0; }
+        .styled-list li { position: relative; padding-left: var(--space-lg); margin-bottom: var(--space-sm); }
+        .styled-list li::before { content: '\25B8'; position: absolute; left: 0; color: var(--accent-teal); font-weight: bold; }
+
+        .checklist { list-style: none; padding-left: 0; }
+        .checklist li { position: relative; padding-left: 2rem; margin-bottom: var(--space-sm); }
+        .checklist li::before {
+            content: '\2713'; position: absolute; left: 0; width: 1.5rem; height: 1.5rem;
+            background: var(--accent-green-light); color: var(--accent-green);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 0.75rem; font-weight: bold;
+        }
+
+        .objectives-box {
+            background: linear-gradient(135deg, var(--primary-pale) 0%, var(--accent-teal-light) 100%);
+            border-left: 5px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .objectives-box h3 { color: var(--text-black); margin-top: 0; margin-bottom: var(--space-md);
+            display: flex; align-items: center; gap: var(--space-sm); border-left: none; padding-left: 0; }
+        .objectives-box ol { margin-bottom: 0; }
+
+        .tech-box {
+            background: var(--neutral-100); border: 2px solid var(--neutral-500);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .tech-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .tech-box .callout-content { padding-left: 0; }
+
+        .plain-box {
+            background: var(--primary-pale); border: 2px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .plain-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .plain-box .callout-content { padding-left: 0; }
+
+        .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; position: relative; overflow: hidden; }
+        .callout::before { position: absolute; top: var(--space-md); left: var(--space-md); font-size: 1.5rem; }
+        .callout-title { font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 1rem;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
+        .callout-content { }
+        .callout-content p:last-child { margin-bottom: 0; }
+
+        .callout-tip { background: var(--accent-green-light); border-left: 4px solid var(--accent-green); }
+        .callout-warning { background: var(--alert-warning-bg); border-left: 4px solid var(--alert-warning); }
+        .callout-danger { background: var(--alert-danger-bg); border-left: 4px solid var(--alert-danger); }
+        .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
+
+        .key-concept {
+            background: linear-gradient(135deg, var(--accent-purple-light) 0%, var(--white) 100%);
+            border: 2px solid var(--accent-purple); border-radius: var(--radius-lg);
+            padding: var(--space-lg); margin: var(--space-xl) 0 var(--space-lg); position: relative;
+        }
+        .key-concept::before {
+            content: '\1F511 KEY CONCEPT'; position: absolute; top: -12px; left: var(--space-lg);
+            background: var(--accent-purple); color: var(--white); font-family: var(--font-heading), sans-serif;
+            font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-md); border-radius: var(--radius-sm);
+        }
+        .key-concept h4 { color: var(--text-black); margin-top: var(--space-sm); }
+
+        .definition { background: var(--neutral-100); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin: var(--space-md) 0; border-left: 4px solid var(--accent-orange); }
+        .definition-term { font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 1.125rem;
+            color: var(--text-black); margin-bottom: var(--space-xs); }
+        .definition-text { color: var(--text-black); margin-bottom: 0; }
+
+        code { font-family: var(--font-code), Consolas, monospace; font-size: 0.9rem; background: var(--primary-pale);
+            color: var(--text-black); padding: 2px 6px; border-radius: var(--radius-sm); }
+        pre { background: #2E2E2E; color: #f1ece0; padding: var(--space-lg); border-radius: var(--radius-md);
+            overflow-x: auto; margin: var(--space-lg) 0; position: relative; }
+        pre::before {
+            content: 'STEPS'; position: absolute; top: 0; right: 0; background: var(--primary-main); color: var(--text-black);
+            font-family: var(--font-heading), sans-serif; font-size: 0.625rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-sm); border-radius: 0 var(--radius-md) 0 var(--radius-sm);
+        }
+        pre code { background: transparent; color: inherit; padding: 0; font-size: 0.875rem; line-height: 1.6; }
+
+        .table-container { overflow-x: auto; margin: var(--space-lg) 0; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); }
+        table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
+        thead { background: var(--primary-dark); color: var(--white); }
+        th { font-family: var(--font-heading), sans-serif; font-weight: 700; text-align: left; padding: var(--space-md) var(--space-lg); color: var(--white); }
+        td { padding: var(--space-md) var(--space-lg); border-bottom: 1px solid var(--neutral-300); color: var(--text-black); }
+        tbody tr:hover { background: var(--primary-pale); }
+        tbody tr:last-child td { border-bottom: none; }
+
+        .activity-section {
+            background: linear-gradient(135deg, var(--accent-orange-light) 0%, var(--white) 100%);
+            border: 2px dashed var(--accent-orange); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .activity-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg); }
+        .activity-icon { width: 50px; height: 50px; background: var(--accent-orange); border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; }
+        .activity-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700;
+            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
+        .activity-subtitle { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
+
+        .lab-section {
+            background: linear-gradient(135deg, var(--accent-teal-light) 0%, var(--white) 100%);
+            border: 2px solid var(--accent-teal); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .lab-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg);
+            padding-bottom: var(--space-md); border-bottom: 2px solid var(--accent-teal); }
+        .lab-icon { width: 60px; height: 60px; background: var(--accent-teal); border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center; font-size: 1.75rem; flex-shrink: 0; }
+        .lab-title { font-family: var(--font-heading), sans-serif; font-size: 1.375rem; font-weight: 700;
+            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
+        .lab-time { font-size: 0.875rem; color: var(--neutral-500); margin: 0; display: flex; align-items: center; gap: var(--space-xs); }
+        .lab-time::before { content: '\23F1\FE0F'; }
+        .lab-steps { counter-reset: lab-step; list-style: none; padding-left: 0; }
+        .lab-steps li { counter-increment: lab-step; position: relative; padding-left: 3rem; margin-bottom: var(--space-lg); }
+        .lab-steps li::before {
+            content: counter(lab-step); position: absolute; left: 0; width: 2rem; height: 2rem;
+            background: var(--accent-teal); color: var(--white); font-family: var(--font-heading), sans-serif; font-weight: 700;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.875rem;
+        }
+
+        .assessment-section { background: var(--primary-pale); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0; }
+        .assessment-header { text-align: center; margin-bottom: var(--space-xl); }
+        .assessment-header h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .question-block { background: var(--white); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin-bottom: var(--space-lg); box-shadow: var(--shadow-sm); }
+        .question-number { font-family: var(--font-heading), sans-serif; font-size: 0.75rem; font-weight: 700;
+            color: var(--text-black); background: var(--primary-main); display: inline-block;
+            padding: 2px 10px; border-radius: var(--radius-sm);
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); }
+        .question-text { font-weight: 600; color: var(--text-black); margin-bottom: var(--space-md); }
+        details.answer { margin-top: var(--space-sm); }
+        details.answer summary { cursor: pointer; font-weight: 700; color: var(--text-black);
+            font-family: var(--font-heading), sans-serif; font-size: 0.875rem;
+            border-bottom: 2px solid var(--primary-main); display: inline-block; }
+        details.answer .reveal { margin-top: var(--space-sm); padding: var(--space-md);
+            background: var(--accent-green-light); border-radius: var(--radius-sm); color: var(--text-black); }
+
+        .references-section { background: var(--neutral-100); border-radius: var(--radius-lg);
+            padding: var(--space-lg) var(--space-xl); margin: var(--space-xl) 0; border-top: 3px solid var(--primary-main); }
+        .references-section h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .references-section ul { padding-left: var(--space-lg); }
+
+        .summary-box {
+            background: var(--primary-dark); color: var(--white);
+            border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .summary-box h3 { color: var(--white); margin-top: 0; display: flex; align-items: center;
+            gap: var(--space-sm); border-left: none; padding-left: 0; }
+        .summary-box h3::before { content: '\1F4CB'; }
+        .summary-box ul { margin-bottom: 0; }
+        .summary-box li { color: var(--white); }
+        .summary-box li::marker { color: var(--primary-light); }
+
+        .section-divider {
+            border: none; height: 6px; margin: var(--space-2xl) 0;
+            background: linear-gradient(90deg, transparent 0%, var(--primary-main) 15%, var(--primary-light) 50%, var(--primary-main) 85%, transparent 100%);
+            border-radius: var(--radius-sm); box-shadow: var(--shadow-sm);
+        }
+
+        .module-footer { background: var(--primary-dark); padding: var(--space-lg) var(--space-xl);
+            text-align: center; border-top: 4px solid var(--primary-main); }
+        .footer-text { font-size: 0.875rem; color: var(--white); margin: 0; }
+
+        .text-center { text-align: center; }
+        .text-muted { color: var(--neutral-500); }
+        .highlight { background: linear-gradient(180deg, transparent 50%, var(--primary-light) 50%); padding: 0 2px; }
+
+        @media (max-width: 768px) {
+            body { padding: var(--space-sm); }
+            .module-header { padding: var(--space-xl) var(--space-lg); }
+            .module-title { font-size: 1.75rem; }
+            .content-area { padding: var(--space-lg); }
+            h2 { font-size: 1.375rem; }
+            .lab-header, .activity-header { flex-direction: column; align-items: flex-start; }
+        }
+        @media print {
+            body { background: white; padding: 0; }
+            .course-container { box-shadow: none; }
+            .toc { display: none; }
+            details.answer { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="course-container">
+
+        <header class="module-header">
+            <div class="module-label">Unit 2 &middot; Inside Windows &mdash; Tools, Settings, and the Command Line &middot; Section 2.6</div>
+            <h1 class="module-title">Classroom Labs and Take-Home Lab</h1>
+            <p class="module-subtitle">CompTIA A+ Core 2 - Domain 1.0</p>
+        </header>
+
+                <nav class="toc" id="tocNav">
+            <div class="toc-header">Table of Contents</div>
+            <div class="toc-item">2.1 &mdash; Unit Overview and Schedule</div>
+            <div class="toc-item">2.2 &mdash; Unit Pre-Assessment</div>
+            <div class="toc-item">2.3 &mdash; Content Review</div>
+            <div class="toc-item">2.4 &mdash; Reading Assignment</div>
+            <div class="toc-item">2.5 &mdash; Video Assignment</div>
+            <div class="toc-item current" id="tocCurrent">2.6 &mdash; Classroom Labs and Take-Home Lab</div>
+            <div class="toc-item">2.7 &mdash; Practice Question Set</div>
+            <div class="toc-item">2.8 &mdash; Online Labs: NETLAB</div>
+            <div class="toc-item">2.9 &mdash; Reflection Activity</div>
+            <div class="toc-item">2.10 &mdash; Unit Test</div>
+        </nav>
+        <style>
+            /* Collapsible TOC: only the current section shows until clicked */
+            nav.toc#tocNav { gap: 0; }
+            nav.toc#tocNav .toc-item {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav .toc-item.current {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                cursor: pointer;
+            }
+            nav.toc#tocNav .toc-item.current::after {
+                content: ' \25BE Click to View';
+                font-size: 0.75em;
+            }
+            nav.toc#tocNav.toc-expanded .toc-item {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                margin-bottom: var(--space-sm);
+            }
+            nav.toc#tocNav.toc-expanded .toc-item.current::after { content: ' \25B4'; }
+
+            nav.toc#tocNav .toc-header {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                font-family: var(--font-heading), 'Segoe UI', sans-serif;
+                font-weight: 700;
+                font-size: 0.875rem;
+                text-align: left;
+                color: var(--text-black);
+                text-decoration: underline;
+                background: var(--primary-main);
+                border-radius: var(--radius-md);
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav.toc-expanded .toc-header {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                padding-left: var(--space-md);
+                border-width: 2px;
+                border-style: solid;
+                border-color: var(--primary-main);
+                margin-bottom: var(--space-sm);
+            }
+        </style>
+
+        <script>
+            (function () {
+                var toc = document.getElementById('tocNav');
+                var currentItem = document.getElementById('tocCurrent');
+
+                toc.addEventListener('click', function (e) {
+                    if (toc.classList.contains('toc-expanded')) {
+                        toc.classList.remove('toc-expanded');
+                    } else if (e.target === currentItem || currentItem.contains(e.target)) {
+                        toc.classList.add('toc-expanded');
+                    }
+                });
+
+                toc.addEventListener('mouseleave', function () {
+                    toc.classList.remove('toc-expanded');
+                });
+            })();
+        </script>
+
+        <div class="content-area">
+
+            <p class="text-muted">Every class opens with a Ticket of the Day. After that come two optional labs we run in class as time permits, and one take-home lab you do on your own machine. None of these is graded. All of them are where this week's reading turns into something you can actually do.</p>
+
+            <div class="callout callout-info">
+                <div class="callout-title">Ungraded Does Not Mean Optional Learning</div>
+                <div class="callout-content"><p>The labs in this section carry no points. They carry something better: this unit is built almost entirely on "Given a scenario" objectives, and a scenario objective is a doing objective. Students who only read about Task Manager can describe it. Students who have opened it and sorted by CPU while something was actually wrong can use it &mdash; and that is what the exam and the job both ask for.</p></div>
+            </div>
+
+            <div class="lab-section">
+                <div class="lab-header">
+                    <div class="lab-icon">&#127915;</div>
+                    <div>
+                        <h3 class="lab-title">Ticket of the Day</h3>
+                        <p class="lab-time">Every class &middot; In class &middot; About 15 minutes &middot; Objectives 4.1, 4.7</p>
+                    </div>
+                </div>
+                <p>Your instructor assigns and discusses each ticket in class.</p>
+                <ul class="styled-list">
+                    <li><strong>Ticket of the Day 1</strong></li>
+                    <li><strong>Ticket of the Day 2</strong></li>
+                    <li><strong>Ticket of the Day 3</strong></li>
+                </ul>
+                <div class="callout callout-tip">
+                    <div class="callout-title">Name the Tool in Your Notes</div>
+                    <div class="callout-content"><p>This unit gives you tools to name, so your progress notes should start naming them. "Checked the computer" becomes "Opened Task Manager; a browser process was using 95% of the CPU. Ended the process; performance returned to normal." The second note tells the next technician what you saw and what you did.</p></div>
+                </div>
+            </div>
+
+            <div class="callout callout-danger">
+                <div class="callout-title">Before You Touch Anything &mdash; Data Safety</div>
+                <div class="callout-content">
+                    <p>This unit puts destructive commands in front of you for the first time. A mistyped command line does its damage instantly, with no confirmation and no undo.</p>
+                    <ul class="checklist">
+                        <li>Never run <code>format</code>, <code>diskpart</code>, <code>rmdir /s</code>, or <code>robocopy /mir</code> on a machine holding data you need</li>
+                        <li>In <code>diskpart</code>, confirm the selected disk with <code>list disk</code> before any command that changes it &mdash; <code>clean</code> wipes whatever is selected</li>
+                        <li>Open Registry Editor and look around as much as you like. Change nothing.</li>
+                        <li>If you turn on Safe boot in <code>msconfig</code>, write "uncheck Safe boot" in your notes before you restart</li>
+                        <li>Assume anything on a lab machine will be wiped &mdash; save nothing there</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="lab-section">
+                <div class="lab-header">
+                    <div class="lab-icon">&#128269;</div>
+                    <div>
+                        <h3 class="lab-title">Lab 2.6.1 &mdash; MMC Scavenger Hunt</h3>
+                        <p class="lab-time">Wednesday &middot; In class &middot; 45 minutes &middot; Objective 1.4</p>
+                    </div>
+                </div>
+                <p>You will work in pairs. Every answer below lives in a different management console, so the real skill being practiced is choosing the right snap-in &mdash; which is exactly how the exam asks about them.</p>
+                <ol class="lab-steps">
+                    <li><strong>Find the last unexpected shutdown.</strong> In Event Viewer, open the System log and locate the most recent Critical or Error entry. Record its date, its Event ID, and its source.</li>
+                    <li><strong>Find a device with a problem.</strong> In Device Manager, look for any device showing a warning icon. If the machine is healthy, pick any device and record its driver version and driver date instead.</li>
+                    <li><strong>Map the disk.</strong> In Disk Management, record how many physical disks the machine has, how each is divided, the file system and drive letter of each volume, and whether any unallocated space exists.</li>
+                    <li><strong>Find something that runs by itself.</strong> In Task Scheduler, open the Task Scheduler Library and find one task that is not Microsoft's own. Record its name, its trigger, and what it runs.</li>
+                    <li><strong>Check a service.</strong> In Task Manager's Services tab, find the print spooler. Record whether it is running and its process ID.</li>
+                    <li><strong>Build your own console.</strong> Run <code>mmc</code>, then use File and Add/Remove Snap-in to put Event Viewer, Device Manager, and Disk Management into one window. Save it to the desktop. This is what technicians actually do.</li>
+                </ol>
+                <div class="callout callout-tip">
+                    <div class="callout-title">Check Your Work</div>
+                    <div class="callout-content"><p>Trade answer sheets with another pair and name the snap-in each answer came from, without looking at your notes. If you can do that for all five, you are ready for the scenario questions on this objective.</p></div>
+                </div>
+            </div>
+
+            <div class="lab-section">
+                <div class="lab-header">
+                    <div class="lab-icon">&#9002;</div>
+                    <div>
+                        <h3 class="lab-title">Lab 2.6.2 &mdash; Command Line Relay</h3>
+                        <p class="lab-time">Thursday &middot; In class &middot; 45 minutes &middot; Objective 1.5</p>
+                    </div>
+                </div>
+                <p>Teams race through a sequence of commands. Speed is the hook; accuracy is the point. Every command here is read-only or works inside a practice folder you create yourself.</p>
+                <ol class="lab-steps">
+                    <li><strong>Navigate.</strong> From wherever the prompt opens, use <code>cd</code> to reach the root of C:, then into your own user folder. Use <code>dir</code> to prove where you are.</li>
+                    <li><strong>Reveal what is hidden.</strong> Run <code>dir</code> again with the switch that includes hidden files. Record one folder that appeared the second time and not the first.</li>
+                    <li><strong>Build and fill.</strong> Create a folder called Relay with <code>md</code>, put two small text files in it, and list them.</li>
+                    <li><strong>Copy it properly.</strong> Use <code>robocopy</code> with the switch that includes subfolders to copy Relay to a second location. Read the summary table it prints and record how many files it copied.</li>
+                    <li><strong>Identify the machine.</strong> Run <code>hostname</code>, <code>whoami</code>, and <code>winver</code>. Record all three answers.</li>
+                    <li><strong>Test the network.</strong> Run <code>ipconfig</code> and record the IP address, subnet mask, and default gateway. Then <code>ping</code> the default gateway and record whether replies came back.</li>
+                    <li><strong>Look it up rather than memorize it.</strong> Run <code>sfc /?</code> and find the switch that scans and repairs system files. Do not run it &mdash; just find it and record what it does.</li>
+                    <li><strong>Clean up.</strong> Remove both Relay folders with <code>rmdir</code>.</li>
+                </ol>
+                <div class="callout callout-warning">
+                    <div class="callout-title">The Winning Team Is Not the Fastest</div>
+                    <div class="callout-content"><p>Teams are scored on correct recorded answers, not finishing order. A team that finishes last with eight right answers beats a team that finishes first with five. On the exam, the same trade applies.</p></div>
+                </div>
+            </div>
+
+            <div class="lab-section">
+                <div class="lab-header">
+                    <div class="lab-icon">&#128187;</div>
+                    <div>
+                        <h3 class="lab-title">Lab 2.6.3 &mdash; Take-Home: Your Machine, Your Tools</h3>
+                        <p class="lab-time">On your own &middot; 1&ndash;1.5 hours &middot; Ungraded &middot; Objectives 1.4, 1.5, 1.6</p>
+                    </div>
+                </div>
+                <p>In Unit 1 you inventoried your own machine. This week you operate it. Same computer, three new sets of tools &mdash; and by the end you will have a personal reference sheet you will still be using in Unit 6.</p>
+                <p><strong>Nothing in this lab changes a setting.</strong> Every step is read-only: you are looking and recording, not configuring.</p>
+
+                <h4>Part 1 &mdash; What Is This Machine Doing? (about 20 minutes)</h4>
+                <ol class="lab-steps">
+                    <li><strong>Open Task Manager</strong> with Ctrl+Shift+Esc. On the Processes tab, sort by CPU and record the top three processes and their percentages. Then sort by Memory and record the top three.</li>
+                    <li><strong>Read the Performance tab.</strong> Record your total installed RAM, how much is in use right now, and your CPU's speed and core count.</li>
+                    <li><strong>Check what starts itself.</strong> On the Startup tab, record how many programs are enabled and name the two with the highest startup impact.</li>
+                    <li><strong>Run <code>msinfo32</code></strong> and record the BIOS mode, the system model, and the page-file location.</li>
+                    <li><strong>Open Event Viewer</strong> and, in the System log, record the date and Event ID of the most recent Error or Critical entry. If there are none, say so &mdash; that is a finding too.</li>
+                </ol>
+
+                <h4>Part 2 &mdash; Eight Commands, One Machine (about 25 minutes)</h4>
+                <p>Run each command and record its output in your own notes. Every one is safe and read-only. Check the Practice Safely box in Section 2.4 before you improvise.</p>
+                <ol class="lab-steps">
+                    <li><code>hostname</code> &mdash; record the computer name</li>
+                    <li><code>whoami</code> &mdash; record the account name, then run it again with the switch that lists group memberships</li>
+                    <li><code>winver</code> &mdash; record the edition, version, and build</li>
+                    <li><code>ipconfig /all</code> &mdash; record your IP address, subnet mask, default gateway, MAC address, and DNS servers</li>
+                    <li><code>ping</code> your default gateway &mdash; record whether replies came back and the average time</li>
+                    <li><code>nslookup www.cpcc.edu</code> &mdash; record the server that answered and the address it returned</li>
+                    <li><code>net use</code> &mdash; record any mapped drives, or note that there are none</li>
+                    <li><code>gpresult /r</code> &mdash; record whether any policies are applied to your machine</li>
+                </ol>
+                <p>For each command, write one line in your own words saying what it told you. That line is what turns eight outputs into eight command cards.</p>
+
+                <h4>Part 3 &mdash; Where Does It Live? (about 20 minutes)</h4>
+                <p>Find each setting below in <strong>both</strong> Control Panel and the Settings app, and record the exact path to each. Some are easier in one than the other, and noticing which is part of the exercise.</p>
+                <ol class="lab-steps">
+                    <li><strong>Show file extensions.</strong> Turn it on while you are there &mdash; it is the one change this lab recommends, and every technician should be running with extensions visible.</li>
+                    <li><strong>Uninstall a program</strong> &mdash; find the list in both places. Do not uninstall anything.</li>
+                    <li><strong>Set the default printer</strong> &mdash; find the setting in both places.</li>
+                    <li><strong>Choose what closing the lid does</strong> (or, on a desktop, when the display turns off) &mdash; and record whether fast startup is on.</li>
+                    <li><strong>Check for Windows updates</strong> &mdash; find it, and record the last date updates were installed.</li>
+                </ol>
+
+                <h4>Part 4 &mdash; Write It Up</h4>
+                <p>One page, in the objective 4.1 ticket format: device information, what you were asked to determine, your progress notes, and a resolution. Your resolution should answer one question in plain language a customer would understand: <strong>based on what these tools showed you, is this machine healthy, and what would you check first if it slowed down tomorrow?</strong></p>
+
+                <div class="callout callout-tip">
+                    <div class="callout-title">Bring It to Class</div>
+                    <div class="callout-content"><p>Bring your write-up and your command notes to Thursday's session. Your Part 2 notes are the reference sheet you will want in front of you during the Command Line Relay, and your Part 3 list is the beginning of the "where does it live" table that Section 2.4 asks you to keep.</p></div>
+                </div>
+            </div>
+
+            <div class="summary-box">
+                <h3>What These Labs Give You</h3>
+                <ul>
+                    <li>Practice choosing the right management console before you need it on a ticket</li>
+                    <li>A saved custom MMC holding the three snap-ins you will open most often</li>
+                    <li>Command-line fluency built on your own machine's real output, not on memorized syntax</li>
+                    <li>A personal reference sheet of eight commands and what each one told you</li>
+                    <li>A two-column map of where the same setting lives in Control Panel and in the Settings app</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <footer class="module-footer">
+            <p class="footer-text">CompTIA A+ Core 2 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Unit 2 &mdash; 2.3 Content Review | CompTIA A+ Core 2</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Sans+Pro:wght@400;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           CPCC COURSE TEMPLATE - GOLD / CHARCOAL / BLACK
+           CTS-ITS7501-80 CompTIA A+ Core 2 Training
+           Type: true black. Accents: gold. Chrome: charcoal.
+           ============================================ */
+
+        :root {
+            --primary-dark: #4A4A4A;       /* Charcoal - structural chrome only */
+            --primary-main: #B8962E;       /* Warm Gold - primary accent */
+            --primary-light: #D4AF56;      /* Light Gold */
+            --primary-pale: #FBF3DF;       /* Pale Gold wash */
+
+            --accent-teal: #8A6F1F;        /* Deep bronze-gold */
+            --accent-teal-light: #F3E9CE;  /* Pale bronze */
+            --accent-orange: #A9642A;      /* Warm rust */
+            --accent-orange-light: #F5E2CE;
+            --accent-purple: #6B5B3A;      /* Muted umber */
+            --accent-purple-light: #EFE6D2;
+            --accent-green: #4E7A51;
+            --accent-green-light: #DCEBDD;
+
+            --alert-warning: #B8862E;
+            --alert-warning-bg: #FBF0D9;
+            --alert-danger: #A13A3A;
+            --alert-danger-bg: #F6DEDE;
+            --alert-success: #3F6E42;
+            --alert-success-bg: #DCEBDD;
+            --alert-info: #6E5B2E;
+            --alert-info-bg: #F1E9D4;
+
+            --text-black: #000000;         /* All reading text */
+            --neutral-900: #000000;
+            --neutral-700: #000000;
+            --neutral-500: #5A5A5A;
+            --neutral-300: #D9D3C4;
+            --neutral-100: #FAF8F3;
+            --white: #ffffff;
+
+            --font-heading: 'Nunito', sans-serif;
+            --font-body: 'Source Sans Pro', sans-serif;
+            --font-code: 'Fira Code', monospace;
+
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+
+            --shadow-sm: 0 1px 2px rgba(74, 74, 74, 0.08);
+            --shadow-md: 0 4px 6px rgba(74, 74, 74, 0.12);
+            --shadow-lg: 0 10px 20px rgba(74, 74, 74, 0.15);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body), 'Segoe UI', Tahoma, Verdana, sans-serif;
+            font-size: 1.0625rem;
+            line-height: 1.7;
+            color: var(--text-black);
+            background: linear-gradient(135deg, var(--neutral-100) 0%, var(--white) 100%);
+            min-height: 100vh;
+            padding: var(--space-lg);
+        }
+
+        .course-container {
+            max-width: 950px; margin: 0 auto; background: var(--white);
+            border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); overflow: hidden;
+        }
+
+        .module-header {
+            background: var(--primary-main); color: var(--text-black);
+            padding: var(--space-lg) var(--space-xl); position: relative; overflow: hidden;
+        }
+        .module-label {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 0.875rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 2px; text-decoration: underline;
+            margin-bottom: var(--space-sm); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-title {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 2.25rem; font-weight: 800;
+            line-height: 1.2; margin-bottom: var(--space-md); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-subtitle { font-size: 1.125rem; max-width: 650px; position: relative; z-index: 1; color: var(--text-black); }
+
+        .toc {
+            display: flex; flex-direction: column; gap: var(--space-sm);
+            padding: var(--space-lg) var(--space-xl);
+            background: var(--primary-pale); border-bottom: 1px solid var(--neutral-300);
+        }
+        .toc-item {
+            width: 100%; text-align: left;
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 0.875rem;
+            color: var(--text-black); background: var(--white);
+            border: 2px solid var(--primary-main);
+            padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md);
+        }
+        .toc-item.current { background: var(--primary-main); }
+
+        .content-area { padding: var(--space-xl); }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif;
+            color: var(--text-black); line-height: 1.3; margin-bottom: var(--space-md);
+        }
+        h1 { font-size: 2rem; font-weight: 800; }
+        h2 { font-size: 1.625rem; font-weight: 700; padding-bottom: var(--space-sm);
+             border-bottom: 3px solid var(--primary-main); margin-top: var(--space-xl); margin-bottom: var(--space-lg); }
+        h3 { font-size: 1.375rem; font-weight: 700; margin-top: var(--space-lg);
+             padding-left: var(--space-sm); border-left: 4px solid var(--primary-main); }
+        h4 { font-size: 1.125rem; font-weight: 600; }
+
+        p { margin-bottom: var(--space-md); }
+        strong { font-weight: 700; color: var(--text-black); }
+        em { font-style: italic; color: var(--text-black); }
+
+        a { color: var(--text-black); text-decoration: none; border-bottom: 2px solid var(--primary-main); transition: all 0.2s ease; }
+        a:hover { background: var(--primary-pale); border-bottom-color: var(--accent-teal); }
+
+        ul, ol { margin-bottom: var(--space-md); padding-left: var(--space-lg); }
+        li { margin-bottom: var(--space-sm); }
+        ul li::marker { color: var(--accent-teal); }
+        ol li::marker { color: var(--accent-teal); font-weight: 700; }
+
+        .styled-list { list-style: none; padding-left: 0; }
+        .styled-list li { position: relative; padding-left: var(--space-lg); margin-bottom: var(--space-sm); }
+        .styled-list li::before { content: '\25B8'; position: absolute; left: 0; color: var(--accent-teal); font-weight: bold; }
+
+        .checklist { list-style: none; padding-left: 0; }
+        .checklist li { position: relative; padding-left: 2rem; margin-bottom: var(--space-sm); }
+        .checklist li::before {
+            content: '\2713'; position: absolute; left: 0; width: 1.5rem; height: 1.5rem;
+            background: var(--accent-green-light); color: var(--accent-green);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 0.75rem; font-weight: bold;
+        }
+
+        .objectives-box {
+            background: linear-gradient(135deg, var(--primary-pale) 0%, var(--accent-teal-light) 100%);
+            border-left: 5px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .objectives-box h3 { color: var(--text-black); margin-top: 0; margin-bottom: var(--space-md);
+            display: flex; align-items: center; gap: var(--space-sm); border-left: none; padding-left: 0; }
+        .objectives-box ol { margin-bottom: 0; }
+
+        .tech-box {
+            background: var(--neutral-100); border: 2px solid var(--neutral-500);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .tech-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .tech-box .callout-content { padding-left: 0; }
+
+        .plain-box {
+            background: var(--primary-pale); border: 2px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .plain-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .plain-box .callout-content { padding-left: 0; }
+
+        .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; position: relative; overflow: hidden; }
+        .callout::before { position: absolute; top: var(--space-md); left: var(--space-md); font-size: 1.5rem; }
+        .callout-title { font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 1rem;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
+        .callout-content { }
+        .callout-content p:last-child { margin-bottom: 0; }
+
+        .callout-tip { background: var(--accent-green-light); border-left: 4px solid var(--accent-green); }
+        .callout-warning { background: var(--alert-warning-bg); border-left: 4px solid var(--alert-warning); }
+        .callout-danger { background: var(--alert-danger-bg); border-left: 4px solid var(--alert-danger); }
+        .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
+
+        .key-concept {
+            background: linear-gradient(135deg, var(--accent-purple-light) 0%, var(--white) 100%);
+            border: 2px solid var(--accent-purple); border-radius: var(--radius-lg);
+            padding: var(--space-lg); margin: var(--space-xl) 0 var(--space-lg); position: relative;
+        }
+        .key-concept::before {
+            content: '\1F511 KEY CONCEPT'; position: absolute; top: -12px; left: var(--space-lg);
+            background: var(--accent-purple); color: var(--white); font-family: var(--font-heading), sans-serif;
+            font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-md); border-radius: var(--radius-sm);
+        }
+        .key-concept h4 { color: var(--text-black); margin-top: var(--space-sm); }
+
+        .definition { background: var(--neutral-100); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin: var(--space-md) 0; border-left: 4px solid var(--accent-orange); }
+        .definition-term { font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 1.125rem;
+            color: var(--text-black); margin-bottom: var(--space-xs); }
+        .definition-text { color: var(--text-black); margin-bottom: 0; }
+
+        code { font-family: var(--font-code), Consolas, monospace; font-size: 0.9rem; background: var(--primary-pale);
+            color: var(--text-black); padding: 2px 6px; border-radius: var(--radius-sm); }
+        pre { background: #2E2E2E; color: #f1ece0; padding: var(--space-lg); border-radius: var(--radius-md);
+            overflow-x: auto; margin: var(--space-lg) 0; position: relative; }
+        pre::before {
+            content: 'STEPS'; position: absolute; top: 0; right: 0; background: var(--primary-main); color: var(--text-black);
+            font-family: var(--font-heading), sans-serif; font-size: 0.625rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-sm); border-radius: 0 var(--radius-md) 0 var(--radius-sm);
+        }
+        pre code { background: transparent; color: inherit; padding: 0; font-size: 0.875rem; line-height: 1.6; }
+
+        .table-container { overflow-x: auto; margin: var(--space-lg) 0; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); }
+        table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
+        thead { background: var(--primary-dark); color: var(--white); }
+        th { font-family: var(--font-heading), sans-serif; font-weight: 700; text-align: left; padding: var(--space-md) var(--space-lg); color: var(--white); }
+        td { padding: var(--space-md) var(--space-lg); border-bottom: 1px solid var(--neutral-300); color: var(--text-black); }
+        tbody tr:hover { background: var(--primary-pale); }
+        tbody tr:last-child td { border-bottom: none; }
+
+        .activity-section {
+            background: linear-gradient(135deg, var(--accent-orange-light) 0%, var(--white) 100%);
+            border: 2px dashed var(--accent-orange); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .activity-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg); }
+        .activity-icon { width: 50px; height: 50px; background: var(--accent-orange); border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; }
+        .activity-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700;
+            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
+        .activity-subtitle { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
+
+        .lab-section {
+            background: linear-gradient(135deg, var(--accent-teal-light) 0%, var(--white) 100%);
+            border: 2px solid var(--accent-teal); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .lab-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg);
+            padding-bottom: var(--space-md); border-bottom: 2px solid var(--accent-teal); }
+        .lab-icon { width: 60px; height: 60px; background: var(--accent-teal); border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center; font-size: 1.75rem; flex-shrink: 0; }
+        .lab-title { font-family: var(--font-heading), sans-serif; font-size: 1.375rem; font-weight: 700;
+            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
+        .lab-time { font-size: 0.875rem; color: var(--neutral-500); margin: 0; display: flex; align-items: center; gap: var(--space-xs); }
+        .lab-time::before { content: '\23F1\FE0F'; }
+        .lab-steps { counter-reset: lab-step; list-style: none; padding-left: 0; }
+        .lab-steps li { counter-increment: lab-step; position: relative; padding-left: 3rem; margin-bottom: var(--space-lg); }
+        .lab-steps li::before {
+            content: counter(lab-step); position: absolute; left: 0; width: 2rem; height: 2rem;
+            background: var(--accent-teal); color: var(--white); font-family: var(--font-heading), sans-serif; font-weight: 700;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.875rem;
+        }
+
+        .assessment-section { background: var(--primary-pale); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0; }
+        .assessment-header { text-align: center; margin-bottom: var(--space-xl); }
+        .assessment-header h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .question-block { background: var(--white); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin-bottom: var(--space-lg); box-shadow: var(--shadow-sm); }
+        .question-number { font-family: var(--font-heading), sans-serif; font-size: 0.75rem; font-weight: 700;
+            color: var(--text-black); background: var(--primary-main); display: inline-block;
+            padding: 2px 10px; border-radius: var(--radius-sm);
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); }
+        .question-text { font-weight: 600; color: var(--text-black); margin-bottom: var(--space-md); }
+        details.answer { margin-top: var(--space-sm); }
+        details.answer summary { cursor: pointer; font-weight: 700; color: var(--text-black);
+            font-family: var(--font-heading), sans-serif; font-size: 0.875rem;
+            border-bottom: 2px solid var(--primary-main); display: inline-block; }
+        details.answer .reveal { margin-top: var(--space-sm); padding: var(--space-md);
+            background: var(--accent-green-light); border-radius: var(--radius-sm); color: var(--text-black); }
+
+        .references-section { background: var(--neutral-100); border-radius: var(--radius-lg);
+            padding: var(--space-lg) var(--space-xl); margin: var(--space-xl) 0; border-top: 3px solid var(--primary-main); }
+        .references-section h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .references-section ul { padding-left: var(--space-lg); }
+
+        .summary-box {
+            background: var(--primary-dark); color: var(--white);
+            border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .summary-box h3 { color: var(--white); margin-top: 0; display: flex; align-items: center;
+            gap: var(--space-sm); border-left: none; padding-left: 0; }
+        .summary-box h3::before { content: '\1F4CB'; }
+        .summary-box ul { margin-bottom: 0; }
+        .summary-box li { color: var(--white); }
+        .summary-box li::marker { color: var(--primary-light); }
+
+        .section-divider {
+            border: none; height: 6px; margin: var(--space-2xl) 0;
+            background: linear-gradient(90deg, transparent 0%, var(--primary-main) 15%, var(--primary-light) 50%, var(--primary-main) 85%, transparent 100%);
+            border-radius: var(--radius-sm); box-shadow: var(--shadow-sm);
+        }
+
+        .module-footer { background: var(--primary-dark); padding: var(--space-lg) var(--space-xl);
+            text-align: center; border-top: 4px solid var(--primary-main); }
+        .footer-text { font-size: 0.875rem; color: var(--white); margin: 0; }
+
+        .text-center { text-align: center; }
+        .text-muted { color: var(--neutral-500); }
+        .highlight { background: linear-gradient(180deg, transparent 50%, var(--primary-light) 50%); padding: 0 2px; }
+
+        @media (max-width: 768px) {
+            body { padding: var(--space-sm); }
+            .module-header { padding: var(--space-xl) var(--space-lg); }
+            .module-title { font-size: 1.75rem; }
+            .content-area { padding: var(--space-lg); }
+            h2 { font-size: 1.375rem; }
+            .lab-header, .activity-header { flex-direction: column; align-items: flex-start; }
+        }
+        @media print {
+            body { background: white; padding: 0; }
+            .course-container { box-shadow: none; }
+            .toc { display: none; }
+            details.answer { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="course-container">
+
+        <header class="module-header">
+            <div class="module-label">Unit 2 &middot; Inside Windows &mdash; Tools, Settings, and the Command Line &middot; Section 2.3</div>
+            <h1 class="module-title">Content Review</h1>
+            <p class="module-subtitle">CompTIA A+ Core 2 - Domain 1.0</p>
+        </header>
+
+                <nav class="toc" id="tocNav">
+            <div class="toc-header">Table of Contents</div>
+            <div class="toc-item">2.1 &mdash; Unit Overview and Schedule</div>
+            <div class="toc-item">2.2 &mdash; Unit Pre-Assessment</div>
+            <div class="toc-item current" id="tocCurrent">2.3 &mdash; Content Review</div>
+            <div class="toc-item">2.4 &mdash; Reading Assignment</div>
+            <div class="toc-item">2.5 &mdash; Video Assignment</div>
+            <div class="toc-item">2.6 &mdash; Classroom Labs and Take-Home Lab</div>
+            <div class="toc-item">2.7 &mdash; Practice Question Set</div>
+            <div class="toc-item">2.8 &mdash; Online Labs: NETLAB</div>
+            <div class="toc-item">2.9 &mdash; Reflection Activity</div>
+            <div class="toc-item">2.10 &mdash; Unit Test</div>
+        </nav>
+        <style>
+            /* Collapsible TOC: only the current section shows until clicked */
+            nav.toc#tocNav { gap: 0; }
+            nav.toc#tocNav .toc-item {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav .toc-item.current {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                cursor: pointer;
+            }
+            nav.toc#tocNav .toc-item.current::after {
+                content: ' \25BE Click to View';
+                font-size: 0.75em;
+            }
+            nav.toc#tocNav.toc-expanded .toc-item {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                margin-bottom: var(--space-sm);
+            }
+            nav.toc#tocNav.toc-expanded .toc-item.current::after { content: ' \25B4'; }
+
+            nav.toc#tocNav .toc-header {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                font-family: var(--font-heading), 'Segoe UI', sans-serif;
+                font-weight: 700;
+                font-size: 0.875rem;
+                text-align: left;
+                color: var(--text-black);
+                text-decoration: underline;
+                background: var(--primary-main);
+                border-radius: var(--radius-md);
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav.toc-expanded .toc-header {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                padding-left: var(--space-md);
+                border-width: 2px;
+                border-style: solid;
+                border-color: var(--primary-main);
+                margin-bottom: var(--space-sm);
+            }
+        </style>
+
+        <script>
+            (function () {
+                var toc = document.getElementById('tocNav');
+                var currentItem = document.getElementById('tocCurrent');
+
+                toc.addEventListener('click', function (e) {
+                    if (toc.classList.contains('toc-expanded')) {
+                        toc.classList.remove('toc-expanded');
+                    } else if (e.target === currentItem || currentItem.contains(e.target)) {
+                        toc.classList.add('toc-expanded');
+                    }
+                });
+
+                toc.addEventListener('mouseleave', function () {
+                    toc.classList.remove('toc-expanded');
+                });
+            })();
+        </script>
+
+        <div class="content-area">
+
+            <p class="text-muted">This is the core reference for Unit 2. Read it before Wednesday's session, and come back to it when the textbook feels dense.</p>
+
+            <div class="callout callout-info">
+                <div class="callout-title">How to Use This Page</div>
+                <div class="callout-content"><p>This review covers the same ground as your Sybex reading, but shorter and in plain language. It does not replace the reading &mdash; the exam draws on detail this page does not carry. Use it to build the mental map first, then read the chapters to fill it in. Better still, keep a Windows computer open beside this page and open each tool as you read about it.</p></div>
+            </div>
+
+            <h2>Three Ways Into Windows</h2>
+            <p>In Unit 1 you learned what Windows is. Now you learn to operate it. A technician reaches into Windows in three ways, and the exam expects you to know all three:</p>
+            <ul class="styled-list">
+                <li><strong>Built-in tools</strong> &mdash; Task Manager, the Microsoft Management Console snap-ins, and utilities such as System Information. These show you what the computer is doing and what went wrong.</li>
+                <li><strong>Settings screens</strong> &mdash; Control Panel and the Settings app. This is where you change how Windows behaves.</li>
+                <li><strong>The command line</strong> &mdash; where you type an instruction and get an answer immediately. It is often the fastest route, and sometimes the only one.</li>
+            </ul>
+
+            <div class="plain-box">
+                <div class="callout-title">In Plain Terms</div>
+                <div class="callout-content"><p>Think of a car mechanic. The dashboard gauges show what is happening right now &mdash; that is Task Manager. The service history in the glove box shows what happened last week &mdash; that is Event Viewer. The adjustment knobs change how the car drives &mdash; that is Control Panel and Settings. And the diagnostic scanner plugged in under the steering wheel gives fast, exact answers to specific questions &mdash; that is the command line. A good mechanic uses all of them, and so will you.</p></div>
+            </div>
+
+            <h2>Task Manager</h2>
+            <p><strong>Task Manager</strong> shows what the computer is doing right now. It is usually the first tool you open on a "my computer is slow" or "a program froze" ticket. Open it with <strong>Ctrl+Shift+Esc</strong>, by right-clicking the Start button, or from the <strong>Ctrl+Alt+Del</strong> screen.</p>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Tab</th><th>What It Shows</th><th>When You Use It</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Processes</strong></td><td>Every running app and background process, with its current CPU, memory, disk, and network use</td><td>Finding the program that is slowing the machine down, and ending a frozen app with <strong>End task</strong></td></tr>
+                        <tr><td><strong>Performance</strong></td><td>Live graphs of CPU, memory, disk, network, and GPU use, plus hardware details such as installed RAM and CPU speed</td><td>Deciding whether a slow computer is short on memory, overloaded, or waiting on a busy disk</td></tr>
+                        <tr><td><strong>Startup</strong></td><td>Programs that launch automatically when the user signs in, with their impact on startup time</td><td>Speeding up a slow sign-in by disabling programs that do not need to start automatically</td></tr>
+                        <tr><td><strong>Users</strong></td><td>Everyone signed in to the computer and the resources each is using</td><td>Seeing which account is running a heavy process on a shared machine</td></tr>
+                        <tr><td><strong>Services</strong></td><td>Background services, whether each is running or stopped, and its process ID</td><td>Checking whether a service a program depends on &mdash; such as the print spooler &mdash; is running, and starting or stopping it</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>Windows 11 moved these tabs into a menu down the left side of the window, and calls the Startup tab <strong>Startup apps</strong>. The information in each one is the same.</p>
+
+            <div class="key-concept">
+                <h4>The Slow-Computer Ticket</h4>
+                <p>A user says, "My computer is crawling." Open Task Manager, go to Processes, and click the <strong>CPU</strong> column heading to sort by use. Then do the same for <strong>Memory</strong>. Most of the time, one program sits at the top using far more than anything else. Now you have a real progress note: which process, how much, and what you did about it.</p>
+                <p>One caution: <strong>End task</strong> closes a program without saving. Ask the user before you end anything that might hold unsaved work.</p>
+            </div>
+
+            <h2>The Microsoft Management Console (MMC)</h2>
+
+            <div class="definition">
+                <div class="definition-term">Microsoft Management Console (MMC)</div>
+                <p class="definition-text">A Windows framework, started with <code>mmc.exe</code>, that hosts administrative tools called <strong>snap-ins</strong>. Each snap-in can also be opened on its own by running its <code>.msc</code> file. A technician can build a custom console that holds several snap-ins together and save it for reuse.</p>
+            </div>
+
+            <p>You can open any snap-in by typing its file name into the Start menu search or the Run box (<strong>Windows key + R</strong>). The exam lists each one with its file name, so learn them in pairs.</p>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Snap-in</th><th>Run</th><th>What It Does</th><th>A Ticket It Solves</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Event Viewer</strong></td><td><code>eventvwr.msc</code></td><td>Shows the logs Windows keeps &mdash; chiefly <strong>Application</strong>, <strong>Security</strong>, and <strong>System</strong> &mdash; with each entry marked as Information, Warning, Error, or Critical</td><td>"My computer restarted by itself last night." The System log shows what happened just before.</td></tr>
+                        <tr><td><strong>Disk Management</strong></td><td><code>diskmgmt.msc</code></td><td>Shows every drive and partition, and lets you create, format, resize, and assign letters to volumes</td><td>"I installed a second drive and it doesn't show up." (See Disk Management, below.)</td></tr>
+                        <tr><td><strong>Task Scheduler</strong></td><td><code>taskschd.msc</code></td><td>Runs a program or script automatically at a set time or when an event happens</td><td>Scheduling a nightly backup script, or finding the scheduled task that launches a pop-up every morning</td></tr>
+                        <tr><td><strong>Device Manager</strong></td><td><code>devmgmt.msc</code></td><td>Lists every hardware device and its driver; lets you update, roll back, disable, or uninstall a driver</td><td>"My new webcam doesn't work." A warning icon beside it points to a driver problem.</td></tr>
+                        <tr><td><strong>Certificate Manager</strong></td><td><code>certmgr.msc</code></td><td>Shows the digital certificates stored for the current user &mdash; the credentials that prove a website, person, or device is who it claims to be</td><td>Checking whether a certificate a company app needs is installed or has expired</td></tr>
+                        <tr><td><strong>Local Users and Groups</strong></td><td><code>lusrmgr.msc</code></td><td>Creates and manages user accounts and groups that exist only on this computer. Not available in Home editions.</td><td>Adding a local account for a new employee on a workgroup computer, or resetting a local password</td></tr>
+                        <tr><td><strong>Performance Monitor</strong></td><td><code>perfmon.msc</code></td><td>Records performance data over hours or days so you can review it later, not just watch it live</td><td>"It gets slow every afternoon, but never while you're here." Record through the afternoon and read the results.</td></tr>
+                        <tr><td><strong>Group Policy Editor</strong></td><td><code>gpedit.msc</code></td><td>Sets local policies that control what users can and cannot do on this computer. Not available in Home editions.</td><td>Blocking USB storage on a kiosk computer, or setting a screen-lock timeout</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="callout callout-tip">
+                <div class="callout-title">Connect It to Core 1</div>
+                <div class="callout-content"><p>You used Device Manager in Core 1 whenever a new card or peripheral needed a driver. The tool is the same; the question is different. In Core 1 the question was "Is the hardware installed?" In Core 2 it is "Is Windows talking to the hardware correctly?" A device that worked yesterday and fails after an update is a classic case for <strong>Roll Back Driver</strong>.</p></div>
+            </div>
+
+            <div class="key-concept">
+                <h4>Now, Over Time, or in Detail?</h4>
+                <p>Three tools show performance, and the exam will make you choose. <strong>Task Manager</strong> shows what is happening <em>now</em>, at a glance. <strong>Resource Monitor</strong> shows what is happening now <em>in detail</em> &mdash; which files a process has open and which network connections it is using. <strong>Performance Monitor</strong> shows what happened <em>over time</em>. Match the question's time frame to the tool.</p>
+            </div>
+
+            <h2>Additional Windows Tools</h2>
+            <p>These tools are not MMC snap-ins, but they sit beside them in every technician's toolkit. Each opens by running its program name.</p>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Tool</th><th>Run</th><th>What It Does</th><th>When You Reach for It</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>System Information</strong></td><td><code>msinfo32.exe</code></td><td>A complete report of the computer's hardware, resources, components, and software environment</td><td>Documenting a machine for a ticket, or confirming the exact BIOS version and installed RAM</td></tr>
+                        <tr><td><strong>Resource Monitor</strong></td><td><code>resmon.exe</code></td><td>Live, detailed CPU, memory, disk, and network activity for every process</td><td>Finding which process is hammering the disk, or which program is talking on the network</td></tr>
+                        <tr><td><strong>System Configuration</strong></td><td><code>msconfig.exe</code></td><td>Controls how Windows starts: boot options (including <strong>Safe boot</strong>), which services start, and startup settings</td><td>Starting in Safe Mode to troubleshoot, or turning off non-Microsoft services to find a conflict</td></tr>
+                        <tr><td><strong>Disk Cleanup</strong></td><td><code>cleanmgr.exe</code></td><td>Removes temporary files, emptied Recycle Bin contents, and old update files to free space</td><td>"My drive is almost full."</td></tr>
+                        <tr><td><strong>Disk Defragment</strong></td><td><code>dfrgui.exe</code></td><td>Opens <strong>Optimize Drives</strong>. Defragments hard disk drives and sends TRIM instructions to solid-state drives. Windows runs it on a schedule automatically.</td><td>A slow hard disk drive with a fragmented file system. Solid-state drives are never defragmented manually.</td></tr>
+                        <tr><td><strong>Registry Editor</strong></td><td><code>regedit.exe</code></td><td>Views and edits the Windows Registry directly</td><td>Only when a documented fix calls for it &mdash; and only after a backup (see below)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">A Real Example You Will Meet on the Job</div>
+                <div class="callout-content"><p>A technician checks <strong>Safe boot</strong> in System Configuration to troubleshoot a problem, fixes it, and forgets to uncheck the box. From then on, the computer starts in Safe Mode every single time &mdash; no network drivers, low resolution, a very confused user. When you turn on Safe boot in msconfig, write "uncheck Safe boot" in your ticket notes before you restart.</p></div>
+            </div>
+
+            <h2>The Windows Registry</h2>
+
+            <div class="definition">
+                <div class="definition-term">Windows Registry</div>
+                <p class="definition-text">A central, hierarchical database where Windows stores configuration settings for the operating system, hardware, installed applications, and each user profile. Settings are organized as keys, subkeys, and values under a small number of root keys.</p>
+            </div>
+
+            <p>Most settings you change in Control Panel or Settings are really stored in the Registry. Those screens are the safe way to change it. Registry Editor is the direct way, with no safety checks.</p>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Root Key</th><th>What It Holds</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>HKEY_LOCAL_MACHINE</strong> (HKLM)</td><td>Settings for the computer as a whole &mdash; hardware, drivers, installed software, and system configuration</td></tr>
+                        <tr><td><strong>HKEY_CURRENT_USER</strong> (HKCU)</td><td>Settings for the user who is signed in right now &mdash; desktop, preferences, and per-user app settings</td></tr>
+                        <tr><td><strong>HKEY_USERS</strong> (HKU)</td><td>Settings for every user profile loaded on the computer</td></tr>
+                        <tr><td><strong>HKEY_CLASSES_ROOT</strong> (HKCR)</td><td>File associations &mdash; which program opens which type of file</td></tr>
+                        <tr><td><strong>HKEY_CURRENT_CONFIG</strong> (HKCC)</td><td>The hardware profile the computer started with</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="callout callout-danger">
+                <div class="callout-title">Back Up Before You Touch It</div>
+                <div class="callout-content"><p>Registry Editor has no undo button, and most changes take effect the moment you make them, with no warning. A wrong change can stop an application from starting, or stop Windows from starting at all. Before any edit, export the key you are about to change (<strong>File &gt; Export</strong>) or create a restore point. For this course, look around the Registry as much as you like, and change nothing.</p></div>
+            </div>
+
+            <div class="plain-box">
+                <div class="callout-title">In Plain Terms</div>
+                <div class="callout-content"><p>The Registry is Windows' filing cabinet of settings. Control Panel and Settings are the receptionist who files things for you correctly. Registry Editor lets you walk into the file room yourself. That is sometimes necessary &mdash; but you photocopy the folder before you change anything in it.</p></div>
+            </div>
+
+            <h2>Disk Management</h2>
+            <p><strong>Disk Management</strong> (<code>diskmgmt.msc</code>) is the graphical tool for preparing drives. It shows every physical disk, how it is divided into partitions, and the file system and drive letter of each volume. With it you can:</p>
+            <ul class="styled-list">
+                <li><strong>Initialize</strong> a new disk, choosing the <strong>MBR</strong> or <strong>GPT</strong> partition style you learned in Unit 1</li>
+                <li><strong>Create</strong> a new volume in unallocated space and <strong>format</strong> it with a file system such as NTFS or exFAT</li>
+                <li><strong>Assign or change</strong> a drive letter</li>
+                <li><strong>Extend</strong> a volume into free space next to it, or <strong>shrink</strong> a volume to make room for another</li>
+                <li><strong>Delete</strong> a volume &mdash; which destroys everything on it</li>
+            </ul>
+
+            <div class="key-concept">
+                <h4>"I Installed a Second Drive and It Doesn't Show Up"</h4>
+                <p>This is one of the most common storage tickets. A brand-new drive does not appear in File Explorer because it has no partition and no file system yet. Open Disk Management. Windows usually asks to <strong>initialize</strong> the disk &mdash; choose GPT for a modern system. Then right-click the unallocated space, choose <strong>New Simple Volume</strong>, pick a size, a drive letter, and a file system, and finish. The drive appears in File Explorer.</p>
+            </div>
+
+            <div class="callout callout-tip">
+                <div class="callout-title">Connect It to Unit 1</div>
+                <div class="callout-content"><p>Every choice in that wizard is something you already studied. MBR or GPT? Unit 1, partitioning. NTFS, exFAT, or FAT32? Unit 1, file systems. Disk Management is where those decisions stop being definitions and become clicks.</p></div>
+            </div>
+
+            <h2>The Windows Command Line</h2>
+            <p>The command line is a text window where you type a command and press Enter. In Windows you reach it through <strong>Command Prompt</strong> (<code>cmd.exe</code>), <strong>Windows Terminal</strong>, or <strong>PowerShell</strong>; every command in this unit works in all three. Some commands &mdash; <code>sfc</code>, <code>diskpart</code>, and <code>chkdsk</code> with repair options, for example &mdash; need an administrator window: right-click Command Prompt or Terminal and choose <strong>Run as administrator</strong>.</p>
+
+            <div class="plain-box">
+                <div class="callout-title">In Plain Terms</div>
+                <div class="callout-content"><p>Why type when you can click? Three reasons. It is <strong>faster</strong> &mdash; one line replaces six windows. It shows <strong>detail</strong> the graphical tools hide. And it can be <strong>repeated</strong> &mdash; a command you type once can be saved in a script and run on a hundred computers, which is exactly where Unit 3's scripting lesson picks up.</p></div>
+            </div>
+
+            <div class="key-concept">
+                <h4>The Most Important Command Is /?</h4>
+                <p>Type any command followed by <code>/?</code> &mdash; for example, <code>ipconfig /?</code> &mdash; and Windows lists every option that command accepts, with a short explanation of each. Nobody memorizes every switch. Technicians look them up in seconds, and so can you. CompTIA lists <code>[command name] /?</code> as an objective in its own right.</p>
+            </div>
+
+            <h3>Navigation and File Management</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Command</th><th>What It Does</th><th>Try It</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>cd</code></td><td>Changes the current directory (folder). <code>cd ..</code> moves up one level; <code>cd \</code> jumps to the root of the drive.</td><td><code>cd Documents</code></td></tr>
+                        <tr><td><code>dir</code></td><td>Lists the files and folders in the current directory. <code>/a</code> includes hidden files; <code>/s</code> includes every subfolder.</td><td><code>dir /a</code></td></tr>
+                        <tr><td><code>md</code></td><td>Makes a new directory. (<code>mkdir</code> does the same thing.)</td><td><code>md Unit2Practice</code></td></tr>
+                        <tr><td><code>rmdir</code></td><td>Removes a directory. It must be empty unless you add <code>/s</code>, which deletes everything inside it as well. (<code>rd</code> does the same thing.)</td><td><code>rmdir Unit2Practice</code></td></tr>
+                        <tr><td><code>robocopy</code></td><td>"Robust file copy." Copies files and whole folder trees, retries after network interruptions, and can resume. <code>/e</code> copies all subfolders; <code>/mir</code> makes the destination an exact mirror of the source &mdash; including deleting files there that the source does not have.</td><td><code>robocopy C:\Source D:\Backup /e</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Disk Management Commands</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Command</th><th>What It Does</th><th>Watch Out For</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>chkdsk</code></td><td>Checks a volume's file system for errors. <code>/f</code> fixes errors it finds; <code>/r</code> also locates bad sectors and recovers readable data. On the drive Windows is running from, repairs are scheduled for the next restart.</td><td>Needs an administrator window for repairs. <code>/r</code> can take hours on a large drive.</td></tr>
+                        <tr><td><code>format</code></td><td>Formats a volume with a file system. <code>/fs:</code> chooses the file system; <code>/q</code> performs a quick format.</td><td>Erases the volume. <code>format E: /fs:NTFS /q</code> wipes drive E.</td></tr>
+                        <tr><td><code>diskpart</code></td><td>An interactive tool for managing disks and partitions from the command line: <code>list disk</code>, <code>select disk</code>, <code>create partition</code>, <code>assign</code>, and more.</td><td><code>clean</code> wipes the partition information from the <em>selected</em> disk instantly. Select the wrong disk and the data is gone.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Informational and OS Management Commands</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Command</th><th>What It Does</th><th>Try It</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>hostname</code></td><td>Shows the computer's name</td><td><code>hostname</code></td></tr>
+                        <tr><td><code>whoami</code></td><td>Shows the account you are signed in as. <code>/groups</code> lists that account's group memberships.</td><td><code>whoami</code></td></tr>
+                        <tr><td><code>winver</code></td><td>Opens a window showing the Windows edition, version, and build number</td><td><code>winver</code></td></tr>
+                        <tr><td><code>net user</code></td><td>Lists the user accounts on the computer; add a name to see one account's details, including when its password was last set</td><td><code>net user</code></td></tr>
+                        <tr><td><code>gpupdate</code></td><td>Applies Group Policy changes now instead of waiting for the next automatic refresh. <code>/force</code> reapplies every policy.</td><td><code>gpupdate</code></td></tr>
+                        <tr><td><code>gpresult</code></td><td>Shows which Group Policy settings are actually applied to this computer and user. <code>/r</code> gives a summary.</td><td><code>gpresult /r</code></td></tr>
+                        <tr><td><code>sfc</code></td><td>System File Checker. <code>sfc /scannow</code> scans protected Windows system files and replaces damaged ones with correct copies.</td><td>Run in an administrator window</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Network Commands</h3>
+            <p>These get their full workout in Unit 3, when we configure Windows networking. Meet them now, because NETLAB Lab 05 and Thursday's Command Line Relay both use them.</p>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Command</th><th>What It Does</th><th>Try It</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>ipconfig</code></td><td>Shows the IP address, subnet mask, and default gateway for each adapter. <code>/all</code> adds the MAC address, DHCP, and DNS details; <code>/release</code> and <code>/renew</code> request a new address; <code>/flushdns</code> clears saved name lookups.</td><td><code>ipconfig /all</code></td></tr>
+                        <tr><td><code>ping</code></td><td>Sends test messages to another device and reports whether replies come back and how long they take</td><td><code>ping 8.8.8.8</code></td></tr>
+                        <tr><td><code>tracert</code></td><td>Lists each router the traffic passes through on the way to a destination</td><td><code>tracert www.cpcc.edu</code></td></tr>
+                        <tr><td><code>pathping</code></td><td>Combines ping and tracert: traces the route, then measures packet loss at every stop along it. Takes a few minutes to finish.</td><td><code>pathping www.cpcc.edu</code></td></tr>
+                        <tr><td><code>netstat</code></td><td>Lists active network connections and listening ports. <code>-a</code> shows all; <code>-n</code> shows numbers instead of names; <code>-b</code> shows which program owns each connection (administrator window).</td><td><code>netstat -an</code></td></tr>
+                        <tr><td><code>nslookup</code></td><td>Asks a DNS server what IP address belongs to a name &mdash; how you test whether name resolution is working</td><td><code>nslookup www.cpcc.edu</code></td></tr>
+                        <tr><td><code>net use</code></td><td>Connects, lists, or removes mapped network drives</td><td><code>net use</code> (lists current mappings)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">A Real Example You Will Meet on the Job</div>
+                <div class="callout-content"><p>"My S: drive disappeared." Type <code>net use</code> to see what is mapped. If S: is missing or marked Unavailable, you can map it again: <code>net use S: \\fileserver\shared</code>. If the command fails, <code>ping fileserver</code> tells you whether the server can be reached at all. Two commands, and you know whether the problem is the mapping or the network.</p></div>
+            </div>
+
+            <div class="callout callout-danger">
+                <div class="callout-title">Commands That Destroy Data</div>
+                <div class="callout-content"><p><code>format</code>, <code>diskpart clean</code>, <code>rmdir /s</code>, and <code>robocopy /mir</code> all delete data without asking twice. Run them only in NETLAB, or on a lab drive you have emptied. Every other command on this page only reads information and is safe to try on your own computer.</p></div>
+            </div>
+
+            <h2>Windows Settings: Control Panel and the Settings App</h2>
+            <p>Windows has two places to change settings. <strong>Control Panel</strong> is the older one, and it is still full of tools technicians use every day. The <strong>Settings app</strong> is the newer one, and Microsoft moves more into it with each release &mdash; in Windows 11, several Control Panel items simply open a Settings page. The exam tests both, so learn where things live in each.</p>
+
+            <h3>Control Panel Items</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Item</th><th>Use It To&hellip;</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Internet Options</strong></td><td>Set connection, proxy, security-zone, and privacy settings that Windows and many applications use</td></tr>
+                        <tr><td><strong>Devices and Printers</strong></td><td>See connected devices and printers, set the default printer, and open printer properties</td></tr>
+                        <tr><td><strong>Programs and Features</strong></td><td>Uninstall or repair programs, and turn Windows features on or off</td></tr>
+                        <tr><td><strong>Network and Sharing Center</strong></td><td>See the current network connection, change adapter settings, and change sharing options</td></tr>
+                        <tr><td><strong>System</strong></td><td>See the Windows edition, computer name, and hardware summary; reach advanced settings such as performance and remote access</td></tr>
+                        <tr><td><strong>Windows Defender Firewall</strong></td><td>Turn the firewall on or off, and allow or block specific apps</td></tr>
+                        <tr><td><strong>Mail</strong></td><td>Manage Outlook desktop mail profiles. Appears only when Outlook is installed.</td></tr>
+                        <tr><td><strong>Sound</strong></td><td>Choose playback and recording devices and set the default speaker or microphone</td></tr>
+                        <tr><td><strong>User Accounts</strong></td><td>Change an account's type, name, or password, and manage stored credentials</td></tr>
+                        <tr><td><strong>Device Manager</strong></td><td>The same Device Manager snap-in you met above, reached from Control Panel</td></tr>
+                        <tr><td><strong>Indexing Options</strong></td><td>Choose which locations Windows Search indexes, and rebuild the index when search results go missing</td></tr>
+                        <tr><td><strong>Administrative Tools</strong></td><td>A folder of shortcuts to the management tools on this page. Windows 11 renames it <strong>Windows Tools</strong>.</td></tr>
+                        <tr><td><strong>File Explorer Options</strong></td><td>Control how File Explorer opens and what it displays (see below)</td></tr>
+                        <tr><td><strong>Power Options</strong></td><td>Choose power plans and sleep, hibernate, and lid behavior (see below)</td></tr>
+                        <tr><td><strong>Ease of Access</strong></td><td>Accessibility settings such as the magnifier, narrator, high contrast, and on-screen keyboard</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>File Explorer Options</h3>
+            <ul class="styled-list">
+                <li><strong>View hidden files</strong> &mdash; shows files and folders marked hidden, such as the AppData folder in each user profile.</li>
+                <li><strong>Hide extensions</strong> for known file types &mdash; on by default, so <em>report.docx</em> shows as just <em>report</em>.</li>
+                <li><strong>General options</strong> &mdash; where File Explorer opens, single-click or double-click, and privacy settings for recent files.</li>
+                <li><strong>View options</strong> &mdash; the advanced list that includes the two settings above and many more.</li>
+            </ul>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">Why Technicians Turn Extensions On</div>
+                <div class="callout-content"><p>With extensions hidden, a file named <em>invoice.pdf.exe</em> appears as <em>invoice.pdf</em> &mdash; a program pretending to be a document. That is a favorite trick in phishing emails, which you study in Unit 4. Showing extensions is one of the first changes many technicians make on a new machine.</p></div>
+            </div>
+
+            <h3>Power Options</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Setting</th><th>What It Means</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Power plans</strong></td><td>Preset groups of power settings, such as Balanced and Power saver, that trade performance against battery life</td></tr>
+                        <tr><td><strong>Sleep/suspend</strong></td><td>Keeps the work in memory and powers down almost everything else. Wakes in seconds, but still uses a little power.</td></tr>
+                        <tr><td><strong>Standby</strong></td><td>Another name for the low-power sleep state; you will see both words in documentation</td></tr>
+                        <tr><td><strong>Hibernate</strong></td><td>Saves the contents of memory to the drive and powers off completely. Uses no power, and resumes where you left off, more slowly than sleep.</td></tr>
+                        <tr><td><strong>Choose what closing the lid does</strong></td><td>Sets a laptop to do nothing, sleep, hibernate, or shut down when the lid closes</td></tr>
+                        <tr><td><strong>Turn on fast startup</strong></td><td>Speeds up starting from a shutdown by saving part of the system to the drive, similar to hibernating</td></tr>
+                        <tr><td><strong>USB selective suspend</strong></td><td>Lets Windows cut power to idle USB ports to save energy</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="key-concept">
+                <h4>Shut Down Is Not Always a Fresh Start</h4>
+                <p>With fast startup on, <strong>Shut down</strong> saves part of the system to the drive instead of closing everything. That is why "turn it off and back on" sometimes fixes nothing. <strong>Restart</strong> always performs a full restart. When a ticket calls for a clean start, choose Restart. And when a USB device keeps disconnecting on a laptop, <strong>USB selective suspend</strong> is worth checking.</p>
+            </div>
+
+            <h3>Settings App Categories</h3>
+            <p>CompTIA names the Settings categories as they appear in Windows 10. Windows 11 renamed a few, so the right-hand column shows what you will see on a current machine.</p>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>CompTIA Category</th><th>What You Do There</th><th>Windows 11 Shows</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>System</strong></td><td>Display, sound, notifications, power, storage, and the About page</td><td>System</td></tr>
+                        <tr><td><strong>Devices</strong></td><td>Bluetooth, printers, mice, and other connected devices</td><td>Bluetooth &amp; devices</td></tr>
+                        <tr><td><strong>Network and Internet</strong></td><td>Wi-Fi, Ethernet, VPN, proxy, and data-usage settings</td><td>Network &amp; internet</td></tr>
+                        <tr><td><strong>Personalization</strong></td><td>Background, colors, lock screen, Start menu, and taskbar</td><td>Personalization</td></tr>
+                        <tr><td><strong>Apps</strong></td><td>Installed apps, default apps, and startup apps</td><td>Apps</td></tr>
+                        <tr><td><strong>Accounts</strong></td><td>Your account, sign-in options, family and other users, and work or school access</td><td>Accounts</td></tr>
+                        <tr><td><strong>Time and Language</strong></td><td>Date, time, time zone, region, and language</td><td>Time &amp; language</td></tr>
+                        <tr><td><strong>Gaming</strong></td><td>Game Mode, the Xbox Game Bar, and screen capture</td><td>Gaming</td></tr>
+                        <tr><td><strong>Privacy</strong></td><td>App permissions for the camera, microphone, and location, and diagnostic data</td><td>Privacy &amp; security</td></tr>
+                        <tr><td><strong>Update and Security</strong></td><td>Windows Update, Windows Security, backup, and recovery</td><td>Windows Update (security items live under Privacy &amp; security)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="key-concept">
+                <h4>Where Does It Live?</h4>
+                <p>Many tasks can be done in either place, and scenario questions love that. Uninstalling a program: <strong>Programs and Features</strong> or <strong>Settings &gt; Apps</strong>. Changing the default printer: <strong>Devices and Printers</strong> or <strong>Settings &gt; Devices</strong>. Allowing an app through the firewall: <strong>Windows Defender Firewall</strong> in Control Panel. Checking for updates: <strong>Settings &gt; Update and Security</strong>. Keep a two-column list as you read &mdash; Section 2.4 shows you how.</p>
+            </div>
+
+            <div class="summary-box">
+                <h3>Unit 2 Content Recap</h3>
+                <ul>
+                    <li>Task Manager shows what is happening now: Processes, Performance, Startup, Users, and Services</li>
+                    <li>Learn each MMC snap-in with its file name: eventvwr, diskmgmt, taskschd, devmgmt, certmgr, lusrmgr, perfmon, and gpedit &mdash; each ending in .msc</li>
+                    <li>Task Manager is now; Resource Monitor is now in detail; Performance Monitor is over time</li>
+                    <li>msinfo32 documents the machine, msconfig controls how it starts, cleanmgr frees space, dfrgui optimizes drives, and regedit edits the Registry</li>
+                    <li>The Registry holds Windows' settings; back up before any change, and prefer Control Panel or Settings</li>
+                    <li>A new drive needs initializing, a volume, a file system, and a letter before it appears &mdash; all in Disk Management</li>
+                    <li>Any command followed by /? lists its options</li>
+                    <li>format, diskpart clean, rmdir /s, and robocopy /mir destroy data; everything else in this unit only reads</li>
+                    <li>Know where each setting lives in Control Panel and in the Settings app</li>
+                    <li>Show file extensions; choose Restart, not Shut down, for a clean start when fast startup is on</li>
+                </ul>
+            </div>
+
+            <div class="references-section">
+                <h3>Go Further</h3>
+                <ul>
+                    <li>Sybex <em>CompTIA A+ Complete Study Guide</em>, Volume 2 &mdash; Chapter 2 in full; Chapter 3, Command-Line Tools</li>
+                    <li>Professor Messer's free 220-1202 course &mdash; objectives 1.4, 1.5, and 1.6 (see Section 2.5 for direct links)</li>
+                    <li>CompTIA official 220-1202 exam objectives (comptia.org) &mdash; read the tool, command, and settings lists under objectives 1.4, 1.5, and 1.6 alongside this page</li>
+                    <li>Microsoft's Windows Commands reference (learn.microsoft.com) &mdash; the official description of every command and switch on this page</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <footer class="module-footer">
+            <p class="footer-text">CompTIA A+ Core 2 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
+        </footer>
+    </div>
+</body>
+</html>

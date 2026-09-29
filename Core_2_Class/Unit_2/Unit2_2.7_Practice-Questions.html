@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 2 &mdash; 2.7 Practice Question Set | CompTIA A+ Core 2</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Sans+Pro:wght@400;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           CPCC COURSE TEMPLATE - GOLD / CHARCOAL / BLACK
+           CTS-ITS7501-80 CompTIA A+ Core 2 Training
+           Type: true black. Accents: gold. Chrome: charcoal.
+           ============================================ */
+
+        :root {
+            --primary-dark: #4A4A4A;       /* Charcoal - structural chrome only */
+            --primary-main: #B8962E;       /* Warm Gold - primary accent */
+            --primary-light: #D4AF56;      /* Light Gold */
+            --primary-pale: #FBF3DF;       /* Pale Gold wash */
+
+            --accent-teal: #8A6F1F;        /* Deep bronze-gold */
+            --accent-teal-light: #F3E9CE;  /* Pale bronze */
+            --accent-orange: #A9642A;      /* Warm rust */
+            --accent-orange-light: #F5E2CE;
+            --accent-purple: #6B5B3A;      /* Muted umber */
+            --accent-purple-light: #EFE6D2;
+            --accent-green: #4E7A51;
+            --accent-green-light: #DCEBDD;
+
+            --alert-warning: #B8862E;
+            --alert-warning-bg: #FBF0D9;
+            --alert-danger: #A13A3A;
+            --alert-danger-bg: #F6DEDE;
+            --alert-success: #3F6E42;
+            --alert-success-bg: #DCEBDD;
+            --alert-info: #6E5B2E;
+            --alert-info-bg: #F1E9D4;
+
+            --text-black: #000000;         /* All reading text */
+            --neutral-900: #000000;
+            --neutral-700: #000000;
+            --neutral-500: #5A5A5A;
+            --neutral-300: #D9D3C4;
+            --neutral-100: #FAF8F3;
+            --white: #ffffff;
+
+            --font-heading: 'Nunito', sans-serif;
+            --font-body: 'Source Sans Pro', sans-serif;
+            --font-code: 'Fira Code', monospace;
+
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+
+            --shadow-sm: 0 1px 2px rgba(74, 74, 74, 0.08);
+            --shadow-md: 0 4px 6px rgba(74, 74, 74, 0.12);
+            --shadow-lg: 0 10px 20px rgba(74, 74, 74, 0.15);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body), 'Segoe UI', Tahoma, Verdana, sans-serif;
+            font-size: 1.0625rem; line-height: 1.7; color: var(--text-black);
+            background: linear-gradient(135deg, var(--neutral-100) 0%, var(--white) 100%);
+            min-height: 100vh; padding: var(--space-lg);
+        }
+
+        .course-container {
+            max-width: 950px; margin: 0 auto; background: var(--white);
+            border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); overflow: hidden;
+        }
+
+        .module-header {
+            background: var(--primary-main); color: var(--text-black);
+            padding: var(--space-lg) var(--space-xl); position: relative; overflow: hidden;
+        }
+        .module-label {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 0.875rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 2px; text-decoration: underline;
+            margin-bottom: var(--space-sm); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-title {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 2.25rem; font-weight: 800;
+            line-height: 1.2; margin-bottom: var(--space-md); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-subtitle { font-size: 1.125rem; max-width: 650px; position: relative; z-index: 1; color: var(--text-black); }
+
+        .toc {
+            display: flex; flex-direction: column; gap: var(--space-sm);
+            padding: var(--space-lg) var(--space-xl);
+            background: var(--primary-pale); border-bottom: 1px solid var(--neutral-300);
+        }
+        .toc-item {
+            width: 100%; text-align: left;
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 0.875rem;
+            color: var(--text-black); background: var(--white);
+            border: 2px solid var(--primary-main);
+            padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md);
+        }
+        .toc-item.current { background: var(--primary-main); }
+
+        .content-area { padding: var(--space-xl); }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif;
+            color: var(--text-black); line-height: 1.3; margin-bottom: var(--space-md);
+        }
+        h1 { font-size: 2rem; font-weight: 800; }
+        h2 { font-size: 1.625rem; font-weight: 700; padding-bottom: var(--space-sm);
+             border-bottom: 3px solid var(--primary-main); margin-top: var(--space-xl); margin-bottom: var(--space-lg); }
+        h3 { font-size: 1.375rem; font-weight: 700; margin-top: var(--space-lg);
+             padding-left: var(--space-sm); border-left: 4px solid var(--primary-main); }
+        h4 { font-size: 1.125rem; font-weight: 600; }
+
+        p { margin-bottom: var(--space-md); }
+        strong { font-weight: 700; color: var(--text-black); }
+        em { font-style: italic; color: var(--text-black); }
+
+        a { color: var(--text-black); text-decoration: none; border-bottom: 2px solid var(--primary-main); transition: all 0.2s ease; }
+        a:hover { background: var(--primary-pale); border-bottom-color: var(--accent-teal); }
+
+        .tech-box {
+            background: var(--neutral-100); border: 2px solid var(--neutral-500);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .tech-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .tech-box .callout-content { padding-left: 0; }
+
+        .plain-box {
+            background: var(--primary-pale); border: 2px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .plain-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .plain-box .callout-content { padding-left: 0; }
+
+        .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; position: relative; overflow: hidden; }
+        .callout-title { font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 1rem;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
+        .callout-content { }
+        .callout-content p:last-child { margin-bottom: 0; }
+        .callout-tip { background: var(--accent-green-light); border-left: 4px solid var(--accent-green); }
+        .callout-warning { background: var(--alert-warning-bg); border-left: 4px solid var(--alert-warning); }
+        .callout-danger { background: var(--alert-danger-bg); border-left: 4px solid var(--alert-danger); }
+        .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
+
+        .text-center { text-align: center; }
+        .text-muted { color: var(--neutral-500); }
+        .mt-sm { margin-top: var(--space-sm); } .mt-md { margin-top: var(--space-md); } .mt-lg { margin-top: var(--space-lg); }
+        .mb-sm { margin-bottom: var(--space-sm); } .mb-md { margin-bottom: var(--space-md); } .mb-lg { margin-bottom: var(--space-lg); }
+
+        /* Interactive quiz controls */
+        .question-block { background: var(--white); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin-bottom: var(--space-lg); box-shadow: var(--shadow-sm); }
+        .question-number { font-family: var(--font-heading), sans-serif; font-size: 0.75rem; font-weight: 700;
+            color: var(--text-black); background: var(--primary-main); display: inline-block;
+            padding: 2px 10px; border-radius: var(--radius-sm);
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); }
+        .question-text { font-weight: 600; color: var(--text-black); margin-bottom: var(--space-md); }
+
+        .answer-option { display: block; width: 100%; text-align: left; padding: var(--space-sm) var(--space-md);
+            margin-bottom: var(--space-sm); border: 2px solid var(--neutral-300); border-radius: var(--radius-sm);
+            background: var(--white); cursor: pointer; font-family: var(--font-body), sans-serif; font-size: 1rem; color: var(--text-black); }
+        .answer-option:hover { border-color: var(--primary-main); }
+        .answer-option.selected { border-color: var(--primary-dark); background: var(--primary-pale); }
+        .answer-option.correct { border-color: var(--accent-green); background: var(--accent-green-light); }
+        .answer-option.incorrect { border-color: var(--alert-danger); background: var(--alert-danger-bg); }
+        .quiz-btn { font-family: var(--font-heading), sans-serif; font-weight: 700; padding: var(--space-sm) var(--space-xl);
+            border-radius: var(--radius-sm); border: 2px solid var(--primary-dark); background: var(--primary-dark); color: var(--white);
+            cursor: pointer; font-size: 0.95rem; margin-right: var(--space-sm); }
+        .quiz-btn:hover { background: #333333; }
+        .quiz-btn.secondary { background: var(--white); color: var(--primary-dark); }
+        .quiz-btn.secondary:hover { background: var(--neutral-100); }
+        #quizResults { display:none; background: var(--primary-pale); border: 2px solid var(--primary-main); border-radius: var(--radius-md);
+            padding: var(--space-lg); margin-top: var(--space-lg); text-align: center; font-family: var(--font-heading), sans-serif; }
+        #quizResults .score { font-size: 2rem; font-weight: 800; color: var(--text-black); }
+
+        .module-footer { background: var(--neutral-100); padding: var(--space-lg) var(--space-xl); text-align: center; border-top: 1px solid var(--neutral-300); }
+        .footer-text { font-size: 0.875rem; color: var(--neutral-500); }
+
+        @media (max-width: 768px) {
+            .module-title { font-size: 1.75rem; }
+            .content-area { padding: var(--space-lg); }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="course-container">
+
+        <header class="module-header">
+            <div class="module-label">Unit 2 &middot; Inside Windows &mdash; Tools, Settings, and the Command Line &middot; Section 2.7</div>
+            <h1 class="module-title">Practice Question Set</h1>
+            <p class="module-subtitle">CompTIA A+ Core 2 - Domain 1.0</p>
+        </header>
+
+                <nav class="toc" id="tocNav">
+            <div class="toc-header">Table of Contents</div>
+            <div class="toc-item">2.1 &mdash; Unit Overview and Schedule</div>
+            <div class="toc-item">2.2 &mdash; Unit Pre-Assessment</div>
+            <div class="toc-item">2.3 &mdash; Content Review</div>
+            <div class="toc-item">2.4 &mdash; Reading Assignment</div>
+            <div class="toc-item">2.5 &mdash; Video Assignment</div>
+            <div class="toc-item">2.6 &mdash; Classroom Labs and Take-Home Lab</div>
+            <div class="toc-item current" id="tocCurrent">2.7 &mdash; Practice Question Set</div>
+            <div class="toc-item">2.8 &mdash; Online Labs: NETLAB</div>
+            <div class="toc-item">2.9 &mdash; Reflection Activity</div>
+            <div class="toc-item">2.10 &mdash; Unit Test</div>
+        </nav>
+        <style>
+            /* Collapsible TOC: only the current section shows until clicked */
+            nav.toc#tocNav { gap: 0; }
+            nav.toc#tocNav .toc-item {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav .toc-item.current {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                cursor: pointer;
+            }
+            nav.toc#tocNav .toc-item.current::after {
+                content: ' \25BE Click to View';
+                font-size: 0.75em;
+            }
+            nav.toc#tocNav.toc-expanded .toc-item {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                margin-bottom: var(--space-sm);
+            }
+            nav.toc#tocNav.toc-expanded .toc-item.current::after { content: ' \25B4'; }
+
+            nav.toc#tocNav .toc-header {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                font-family: var(--font-heading), 'Segoe UI', sans-serif;
+                font-weight: 700;
+                font-size: 0.875rem;
+                text-align: left;
+                color: var(--text-black);
+                text-decoration: underline;
+                background: var(--primary-main);
+                border-radius: var(--radius-md);
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav.toc-expanded .toc-header {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                padding-left: var(--space-md);
+                border-width: 2px;
+                border-style: solid;
+                border-color: var(--primary-main);
+                margin-bottom: var(--space-sm);
+            }
+        </style>
+
+        <script>
+            (function () {
+                var toc = document.getElementById('tocNav');
+                var currentItem = document.getElementById('tocCurrent');
+
+                toc.addEventListener('click', function (e) {
+                    if (toc.classList.contains('toc-expanded')) {
+                        toc.classList.remove('toc-expanded');
+                    } else if (e.target === currentItem || currentItem.contains(e.target)) {
+                        toc.classList.add('toc-expanded');
+                    }
+                });
+
+                toc.addEventListener('mouseleave', function () {
+                    toc.classList.remove('toc-expanded');
+                });
+            })();
+        </script>
+
+        <div class="content-area">
+
+            <div class="tech-box">
+                <div class="callout-title">Test Format</div>
+                <div class="callout-content">
+                    <p>Each attempt draws a fresh random set of 10 questions from a 50-item pool covering this unit's Windows tools, command-line, and settings objectives. Answer choices are reshuffled every attempt. Click an answer to select it, then click <strong>Grade My Answers</strong> to score the set. Keep resetting until you score a perfect 10 out of 10.</p>
+                </div>
+            </div>
+
+            <div class="plain-box">
+                <div class="callout-title">In Plain Terms</div>
+                <div class="callout-content">
+                    <p>Confident-and-wrong is the category to watch for: you believe something false and have no reason to double-check it. That category is invisible on an ordinary score report, and it is what fails people on the first attempt.</p>
+                    <p>Select an answer for each question, then click <strong>Grade My Answers</strong> to see your results. Click <strong>Reset</strong> for a brand-new random set of 10, and keep going. You are expected to repeat this until you score a perfect 10 out of 10 in a single attempt &mdash; a fresh random set every time means you cannot simply memorize positions, you actually have to know the material.</p>
+                </div>
+            </div>
+
+            <div id="quizArea"></div>
+
+            <div class="mt-lg">
+                <button class="quiz-btn" onclick="gradeQuiz()">Grade My Answers</button>
+                <button class="quiz-btn secondary" onclick="resetQuiz()">Reset</button>
+            </div>
+
+            <div id="quizResults">
+                <div>Your Score</div>
+                <div class="score" id="scoreDisplay">0 / 10</div>
+                <div id="scoreNote"></div>
+            </div>
+
+            <script>
+                const POOL = [{"q": "What is the relationship between Control Panel and the Settings app in current versions of Windows?", "opts": ["Control Panel applies settings to the computer and Settings applies them to the user only", "Control Panel has been removed and only Settings remains", "Settings is available only on Home editions", "Both are present, and Microsoft continues moving items into Settings"], "correct": 3}, {"q": "Which command lists every router along the path to a destination?", "opts": ["ping", "tracert", "pathping", "netstat"], "correct": 1}, {"q": "Why do many technicians turn on the display of file extensions as soon as they set up a machine?", "opts": ["A file named invoice.pdf.exe appears as invoice.pdf when extensions are hidden", "Windows Search cannot find files when extensions are hidden", "Hidden extensions prevent files from opening in the correct program", "File properties are unavailable when extensions are hidden"], "correct": 0}, {"q": "In Windows 11, where are the Task Manager tabs such as Processes and Performance located?", "opts": ["In a menu along the left side of the window", "Across the top of the window as in Windows 10", "Inside the Settings app under System", "In a drop-down list under the File menu"], "correct": 0}, {"q": "A user reports that a mapped network drive has disappeared. Which command lists the current drive mappings?", "opts": ["netstat", "net user", "net use", "net share"], "correct": 2}, {"q": "A computer now starts in Safe Mode every time, with no network and a low screen resolution, after a technician troubleshot it yesterday. What is the most likely cause?", "opts": ["The system files are corrupted", "The graphics driver was uninstalled", "Safe boot is still selected in System Configuration", "Fast startup was disabled"], "correct": 2}, {"q": "Several commands, including sfc and diskpart, fail with an access-denied message. What is the most likely cause?", "opts": ["The commands are not installed on this edition of Windows", "The command prompt was not opened as an administrator", "The commands must be run from the system drive's root directory", "Group Policy blocks all command-line tools by default"], "correct": 1}, {"q": "A newly installed webcam shows a warning icon and does not work. Which tool lets a technician update, roll back, disable, or uninstall its driver?", "opts": ["Local Users and Groups", "Disk Management", "Certificate Manager", "Device Manager"], "correct": 3}, {"q": "A technician wants one window containing Event Viewer, Device Manager, and Disk Management for daily use. What should the technician do?", "opts": ["Create a scheduled task that opens all three", "Open each snap-in and pin all three to the taskbar", "Add the snap-ins to Task Manager's Services tab", "Run mmc, add the three snap-ins, and save the console"], "correct": 3}, {"q": "Which Control Panel item contains proxy server settings and security zone configuration?", "opts": ["Internet Options", "Network and Sharing Center", "Windows Defender Firewall", "Indexing Options"], "correct": 0}, {"q": "In Windows 11, which Settings category corresponds to the Windows 10 Devices category?", "opts": ["System", "Bluetooth and devices", "Personalization", "Accounts"], "correct": 1}, {"q": "Why must a technician run list disk and select disk carefully before other diskpart commands?", "opts": ["Commands are queued and cannot be reviewed before they run", "diskpart cannot display which disk is selected", "diskpart applies commands to every disk unless one is excluded", "Commands act on the selected disk, so selecting the wrong disk can destroy data instantly"], "correct": 3}, {"q": "Which statement about Command Prompt, Windows Terminal, and PowerShell is correct for the commands in this unit?", "opts": ["The commands work only in PowerShell", "The commands work only in Command Prompt", "The commands in this unit work in all three", "Windows Terminal cannot run command-line tools"], "correct": 2}, {"q": "A second monitor and a scanner both stopped working after a Windows update. Which tool should a technician open first?", "opts": ["Certificate Manager", "Disk Management", "Task Scheduler", "Device Manager"], "correct": 3}, {"q": "Which command provides an interactive environment for listing, selecting, and creating disk partitions from the command line?", "opts": ["diskmgmt", "diskpart", "chkdsk", "format"], "correct": 1}, {"q": "Which command lists the files and folders in the current directory?", "opts": ["cd", "dir", "md", "ls /w"], "correct": 1}, {"q": "Which Settings category contains display, sound, notifications, power, storage, and the About page?", "opts": ["Personalization", "System", "Devices", "Accounts"], "correct": 1}, {"q": "Which command opens System Configuration?", "opts": ["mmc", "msinfo32", "msconfig", "cleanmgr"], "correct": 2}, {"q": "Which three logs does Event Viewer list under Windows Logs on a standard installation?", "opts": ["Application, Security, and System", "Setup, Network, and Storage", "Error, Warning, and Critical", "User, Device, and Service"], "correct": 0}, {"q": "Which command copies files and entire folder trees, retries after interruptions, and can resume?", "opts": ["format", "dir", "cd", "robocopy"], "correct": 3}, {"q": "Which pair of commands would best determine whether a file server is reachable when a mapped drive fails?", "opts": ["dir and cd", "format and chkdsk", "gpupdate and gpresult", "net use and ping"], "correct": 3}, {"q": "A technician needs to confirm the date updates were last installed on a workstation. Where is this found?", "opts": ["Control Panel, under Programs and Features", "Settings, under Update and Security", "Settings, under Accounts", "Control Panel, under Indexing Options"], "correct": 1}, {"q": "Which Settings category contains the magnifier, narrator, and other accessibility options?", "opts": ["Personalization", "Ease of Access", "System", "Privacy"], "correct": 1}, {"q": "Search results on a workstation have become incomplete. Which Control Panel item allows a technician to review indexed locations and rebuild the index?", "opts": ["Indexing Options", "File Explorer Options", "System", "Programs and Features"], "correct": 0}, {"q": "Which Control Panel item is used to manage Outlook desktop mail profiles, and when does it appear?", "opts": ["Internet Options, which appears when Outlook is installed", "Mail, which appears on every Windows installation", "Mail, which appears when Outlook is installed", "Accounts, which appears on every Windows installation"], "correct": 2}, {"q": "Which command would a technician run to confirm that a workstation received an address from the DHCP server rather than assigning its own?", "opts": ["netstat -a", "ping 127.0.0.1", "ipconfig /all", "nslookup"], "correct": 2}, {"q": "Which Settings category contains Wi-Fi, Ethernet, VPN, and proxy settings?", "opts": ["Devices", "System", "Network and Internet", "Privacy"], "correct": 2}, {"q": "A user reports that a program has stopped responding and will not close. Which Task Manager tab lets a technician end that program?", "opts": ["Processes", "Performance", "Users", "Services"], "correct": 0}, {"q": "Which file name opens Device Manager from the Run box?", "opts": ["devmgmt.msc", "devicemgr.msc", "hdwwiz.msc", "devices.msc"], "correct": 0}, {"q": "Which command changes the current directory at the command prompt?", "opts": ["chdir /list", "dir", "md", "cd"], "correct": 3}, {"q": "A technician opens Task Manager and finds CPU use near 100% with no single process above 5%. Which tool gives a more detailed real-time breakdown of what is consuming the processor?", "opts": ["Resource Monitor", "System Information", "Disk Cleanup", "Task Scheduler"], "correct": 0}, {"q": "Which file name opens the Local Group Policy Editor from the Run box?", "opts": ["gpmc.msc", "gpedit.msc", "grouppol.msc", "gpresult.msc"], "correct": 1}, {"q": "A technician needs to create a user account that exists only on one workgroup computer. Which snap-in provides this, and on which editions is it available?", "opts": ["Certificate Manager, which is not available in Home editions", "Local Users and Groups, which is available in every edition", "Group Policy Editor, which is available in every edition", "Local Users and Groups, which is not available in Home editions"], "correct": 3}, {"q": "Which command checks a volume's file system for errors?", "opts": ["chkdsk", "sfc", "format", "diskpart"], "correct": 0}, {"q": "Which command opens Disk Cleanup?", "opts": ["dfrgui", "cleanmgr", "diskmgmt", "chkdsk"], "correct": 1}, {"q": "Which gpresult switch displays a summary of applied policy?", "opts": ["/r", "/all", "/v", "/s"], "correct": 0}, {"q": "A technician needs to start a computer in Safe Mode to troubleshoot a startup problem. Which tool provides a boot option for this?", "opts": ["System Configuration", "Task Scheduler", "Disk Management", "Device Manager"], "correct": 0}, {"q": "What is the Windows Registry?", "opts": ["A backup of the system files used during recovery", "A log of system errors and warnings kept by Windows", "A folder of configuration text files stored in the Windows directory", "A hierarchical database of configuration settings for the operating system, hardware, applications, and user profiles"], "correct": 3}, {"q": "What is a Windows power plan?", "opts": ["A driver that controls the power supply", "A schedule that powers the computer on and off at set times", "A preset group of power settings that trades performance against energy use", "A report of the battery's remaining capacity"], "correct": 2}, {"q": "Which description of hibernation is correct?", "opts": ["The contents of memory are kept powered so the system resumes instantly", "The contents of memory are saved to the drive and the computer powers off completely", "Open programs are closed and the user is signed out", "The system runs at reduced processor speed to save power"], "correct": 1}, {"q": "Which partition style should a technician normally select when initializing a disk on a modern UEFI system?", "opts": ["exFAT", "MBR", "GPT", "NTFS"], "correct": 2}, {"q": "On a shared workstation, a technician needs to see every account currently signed in and the resources each is using. Which Task Manager tab shows this?", "opts": ["Users", "Processes", "Performance", "Startup"], "correct": 0}, {"q": "Which Settings category contains Game Mode and the Xbox Game Bar?", "opts": ["Apps", "Gaming", "Personalization", "System"], "correct": 1}, {"q": "Which snap-in shows the digital certificates installed for the signed-in user, including their expiration dates?", "opts": ["Group Policy Editor", "Local Users and Groups", "Certificate Manager", "Device Manager"], "correct": 2}, {"q": "A user's microphone is not being used by a conferencing application even though it is plugged in. Which Control Panel item sets the default recording device?", "opts": ["System", "Devices and Printers", "Ease of Access", "Sound"], "correct": 3}, {"q": "Which command prepares a volume with a file system, erasing its contents?", "opts": ["cleanmgr", "chkdsk", "robocopy", "format"], "correct": 3}, {"q": "Which command and switch display the MAC address, DHCP server, and DNS servers for every adapter?", "opts": ["ipconfig /all", "ipconfig /release", "ipconfig /displaydns", "ipconfig /renew"], "correct": 0}, {"q": "Which Disk Management action assigns a different letter to an existing volume?", "opts": ["New Simple Volume", "Extend Volume", "Change Drive Letter and Paths", "Initialize Disk"], "correct": 2}, {"q": "Which Settings category is used to check for and install Windows updates?", "opts": ["System", "Update and Security", "Accounts", "Apps"], "correct": 1}, {"q": "Which statement about the Optimize Drives tool is correct?", "opts": ["It must be run manually because Windows does not schedule it", "It defragments both hard disk drives and solid-state drives the same way", "It defragments hard disk drives and sends TRIM instructions to solid-state drives", "It repairs file system errors on the selected volume"], "correct": 2}];
+                let QUESTIONS = [];
+                let answers = [];
+
+                function drawSet() {
+                    const shuffled = POOL.slice().sort(() => Math.random() - 0.5);
+                    QUESTIONS = shuffled.slice(0, 10).map(item => {
+                        const order = item.opts.map((o, i) => i).sort(() => Math.random() - 0.5);
+                        return {q: item.q, opts: order.map(i => item.opts[i]), correct: order.indexOf(item.correct)};
+                    });
+                    answers = new Array(QUESTIONS.length).fill(null);
+                }
+
+                function renderQuiz() {
+                    const area = document.getElementById('quizArea');
+                    area.innerHTML = QUESTIONS.map((item, qi) => {
+                        const opts = item.opts.map((opt, oi) =>
+                            `<button type="button" class="answer-option" data-qi="${qi}" data-oi="${oi}" onclick="selectAnswer(${qi}, ${oi})">${opt}</button>`
+                        ).join('');
+                        return `<div class="question-block">
+                            <div class="question-number">Question ${qi + 1} of ${QUESTIONS.length}</div>
+                            <p class="question-text">${item.q}</p>
+                            ${opts}
+                        </div>`;
+                    }).join('');
+                }
+
+                function selectAnswer(qi, oi) {
+                    answers[qi] = oi;
+                    document.querySelectorAll(`[data-qi="${qi}"]`).forEach(btn => {
+                        btn.classList.remove('selected');
+                        if (parseInt(btn.dataset.oi) === oi) btn.classList.add('selected');
+                    });
+                }
+
+                function gradeQuiz() {
+                    if (answers.includes(null)) {
+                        alert('Answer all 10 questions before grading.');
+                        return;
+                    }
+                    let score = 0;
+                    QUESTIONS.forEach((item, qi) => {
+                        const correct = item.correct;
+                        document.querySelectorAll(`[data-qi="${qi}"]`).forEach(btn => {
+                            const oi = parseInt(btn.dataset.oi);
+                            btn.classList.remove('selected');
+                            if (oi === correct) btn.classList.add('correct');
+                            else if (oi === answers[qi]) btn.classList.add('incorrect');
+                        });
+                        if (answers[qi] === correct) score++;
+                    });
+                    document.getElementById('scoreDisplay').textContent = score + ' / ' + QUESTIONS.length;
+                    const note = document.getElementById('scoreNote');
+                    if (score === QUESTIONS.length) note.textContent = 'Perfect set. You are ready to move on.';
+                    else note.textContent = 'Not a perfect 10 yet — click Reset for a new random set and try again.';
+                    document.getElementById('quizResults').style.display = 'block';
+                    document.getElementById('quizResults').scrollIntoView({behavior: 'smooth'});
+                }
+
+                function resetQuiz() {
+                    document.getElementById('quizResults').style.display = 'none';
+                    drawSet();
+                    renderQuiz();
+                }
+
+                drawSet();
+                renderQuiz();
+            </script>
+
+        </div>
+
+        <footer class="module-footer">
+            <p class="footer-text">CompTIA A+ Core 2 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
+        </footer>
+    </div>
+</body>
+</html>

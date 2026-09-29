@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 2 &mdash; 2.10 Unit Test | CompTIA A+ Core 2</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Sans+Pro:wght@400;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           CPCC COURSE TEMPLATE - GOLD / CHARCOAL / BLACK
+           CTS-ITS7501-80 CompTIA A+ Core 2 Training
+           Type: true black. Accents: gold. Chrome: charcoal.
+           ============================================ */
+
+        :root {
+            --primary-dark: #4A4A4A;       /* Charcoal - structural chrome only */
+            --primary-main: #B8962E;       /* Warm Gold - primary accent */
+            --primary-light: #D4AF56;      /* Light Gold */
+            --primary-pale: #FBF3DF;       /* Pale Gold wash */
+
+            --accent-teal: #8A6F1F;        /* Deep bronze-gold */
+            --accent-teal-light: #F3E9CE;  /* Pale bronze */
+            --accent-orange: #A9642A;      /* Warm rust */
+            --accent-orange-light: #F5E2CE;
+            --accent-purple: #6B5B3A;      /* Muted umber */
+            --accent-purple-light: #EFE6D2;
+            --accent-green: #4E7A51;
+            --accent-green-light: #DCEBDD;
+
+            --alert-warning: #B8862E;
+            --alert-warning-bg: #FBF0D9;
+            --alert-danger: #A13A3A;
+            --alert-danger-bg: #F6DEDE;
+            --alert-success: #3F6E42;
+            --alert-success-bg: #DCEBDD;
+            --alert-info: #6E5B2E;
+            --alert-info-bg: #F1E9D4;
+
+            --text-black: #000000;         /* All reading text */
+            --neutral-900: #000000;
+            --neutral-700: #000000;
+            --neutral-500: #5A5A5A;
+            --neutral-300: #D9D3C4;
+            --neutral-100: #FAF8F3;
+            --white: #ffffff;
+
+            --font-heading: 'Nunito', sans-serif;
+            --font-body: 'Source Sans Pro', sans-serif;
+            --font-code: 'Fira Code', monospace;
+
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+
+            --shadow-sm: 0 1px 2px rgba(74, 74, 74, 0.08);
+            --shadow-md: 0 4px 6px rgba(74, 74, 74, 0.12);
+            --shadow-lg: 0 10px 20px rgba(74, 74, 74, 0.15);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body), 'Segoe UI', Tahoma, Verdana, sans-serif;
+            font-size: 1.0625rem; line-height: 1.7; color: var(--text-black);
+            background: linear-gradient(135deg, var(--neutral-100) 0%, var(--white) 100%);
+            min-height: 100vh; padding: var(--space-lg);
+        }
+
+        .course-container {
+            max-width: 950px; margin: 0 auto; background: var(--white);
+            border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); overflow: hidden;
+        }
+
+        .module-header {
+            background: var(--primary-main); color: var(--text-black);
+            padding: var(--space-lg) var(--space-xl); position: relative; overflow: hidden;
+        }
+        .module-label {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 0.875rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 2px; text-decoration: underline;
+            margin-bottom: var(--space-sm); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-title {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 2.25rem; font-weight: 800;
+            line-height: 1.2; margin-bottom: var(--space-md); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-subtitle { font-size: 1.125rem; max-width: 650px; position: relative; z-index: 1; color: var(--text-black); }
+
+        .toc {
+            display: flex; flex-direction: column; gap: var(--space-sm);
+            padding: var(--space-lg) var(--space-xl);
+            background: var(--primary-pale); border-bottom: 1px solid var(--neutral-300);
+        }
+        .toc-item {
+            width: 100%; text-align: left;
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 0.875rem;
+            color: var(--text-black); background: var(--white);
+            border: 2px solid var(--primary-main);
+            padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md);
+        }
+        .toc-item.current { background: var(--primary-main); }
+
+        .content-area { padding: var(--space-xl); }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif;
+            color: var(--text-black); line-height: 1.3; margin-bottom: var(--space-md);
+        }
+        h1 { font-size: 2rem; font-weight: 800; }
+        h2 { font-size: 1.625rem; font-weight: 700; padding-bottom: var(--space-sm);
+             border-bottom: 3px solid var(--primary-main); margin-top: var(--space-xl); margin-bottom: var(--space-lg); }
+        h3 { font-size: 1.375rem; font-weight: 700; margin-top: var(--space-lg);
+             padding-left: var(--space-sm); border-left: 4px solid var(--primary-main); }
+        h4 { font-size: 1.125rem; font-weight: 600; }
+
+        p { margin-bottom: var(--space-md); }
+        strong { font-weight: 700; color: var(--text-black); }
+        em { font-style: italic; color: var(--text-black); }
+
+        a { color: var(--text-black); text-decoration: none; border-bottom: 2px solid var(--primary-main); transition: all 0.2s ease; }
+        a:hover { background: var(--primary-pale); border-bottom-color: var(--accent-teal); }
+
+        .tech-box {
+            background: var(--neutral-100); border: 2px solid var(--neutral-500);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .tech-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .tech-box .callout-content { padding-left: 0; }
+
+        .plain-box {
+            background: var(--primary-pale); border: 2px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .plain-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .plain-box .callout-content { padding-left: 0; }
+
+        .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; position: relative; overflow: hidden; }
+        .callout-title { font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 1rem;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
+        .callout-content { }
+        .callout-content p:last-child { margin-bottom: 0; }
+        .callout-tip { background: var(--accent-green-light); border-left: 4px solid var(--accent-green); }
+        .callout-warning { background: var(--alert-warning-bg); border-left: 4px solid var(--alert-warning); }
+        .callout-danger { background: var(--alert-danger-bg); border-left: 4px solid var(--alert-danger); }
+        .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
+
+        .text-center { text-align: center; }
+        .text-muted { color: var(--neutral-500); }
+        .mt-sm { margin-top: var(--space-sm); } .mt-md { margin-top: var(--space-md); } .mt-lg { margin-top: var(--space-lg); }
+        .mb-sm { margin-bottom: var(--space-sm); } .mb-md { margin-bottom: var(--space-md); } .mb-lg { margin-bottom: var(--space-lg); }
+
+        /* Interactive quiz controls */
+        .question-block { background: var(--white); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin-bottom: var(--space-lg); box-shadow: var(--shadow-sm); }
+        .question-number { font-family: var(--font-heading), sans-serif; font-size: 0.75rem; font-weight: 700;
+            color: var(--text-black); background: var(--primary-main); display: inline-block;
+            padding: 2px 10px; border-radius: var(--radius-sm);
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); }
+        .question-text { font-weight: 600; color: var(--text-black); margin-bottom: var(--space-md); }
+
+        .answer-option { display: block; width: 100%; text-align: left; padding: var(--space-sm) var(--space-md);
+            margin-bottom: var(--space-sm); border: 2px solid var(--neutral-300); border-radius: var(--radius-sm);
+            background: var(--white); cursor: pointer; font-family: var(--font-body), sans-serif; font-size: 1rem; color: var(--text-black); }
+        .answer-option:hover { border-color: var(--primary-main); }
+        .answer-option.selected { border-color: var(--primary-dark); background: var(--primary-pale); }
+        .answer-option.correct { border-color: var(--accent-green); background: var(--accent-green-light); }
+        .answer-option.incorrect { border-color: var(--alert-danger); background: var(--alert-danger-bg); }
+        .quiz-btn { font-family: var(--font-heading), sans-serif; font-weight: 700; padding: var(--space-sm) var(--space-xl);
+            border-radius: var(--radius-sm); border: 2px solid var(--primary-dark); background: var(--primary-dark); color: var(--white);
+            cursor: pointer; font-size: 0.95rem; margin-right: var(--space-sm); }
+        .quiz-btn:hover { background: #333333; }
+        .quiz-btn.secondary { background: var(--white); color: var(--primary-dark); }
+        .quiz-btn.secondary:hover { background: var(--neutral-100); }
+        #quizResults { display:none; background: var(--primary-pale); border: 2px solid var(--primary-main); border-radius: var(--radius-md);
+            padding: var(--space-lg); margin-top: var(--space-lg); text-align: center; font-family: var(--font-heading), sans-serif; }
+        #quizResults .score { font-size: 2rem; font-weight: 800; color: var(--text-black); }
+
+        .module-footer { background: var(--neutral-100); padding: var(--space-lg) var(--space-xl); text-align: center; border-top: 1px solid var(--neutral-300); }
+        .footer-text { font-size: 0.875rem; color: var(--neutral-500); }
+
+        @media (max-width: 768px) {
+            .module-title { font-size: 1.75rem; }
+            .content-area { padding: var(--space-lg); }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="course-container">
+
+        <header class="module-header">
+            <div class="module-label">Unit 2 &middot; Inside Windows &mdash; Tools, Settings, and the Command Line &middot; Section 2.10</div>
+            <h1 class="module-title">Unit Test</h1>
+            <p class="module-subtitle">CompTIA A+ Core 2 - Domain 1.0</p>
+        </header>
+
+                <nav class="toc" id="tocNav">
+            <div class="toc-header">Table of Contents</div>
+            <div class="toc-item">2.1 &mdash; Unit Overview and Schedule</div>
+            <div class="toc-item">2.2 &mdash; Unit Pre-Assessment</div>
+            <div class="toc-item">2.3 &mdash; Content Review</div>
+            <div class="toc-item">2.4 &mdash; Reading Assignment</div>
+            <div class="toc-item">2.5 &mdash; Video Assignment</div>
+            <div class="toc-item">2.6 &mdash; Classroom Labs and Take-Home Lab</div>
+            <div class="toc-item">2.7 &mdash; Practice Question Set</div>
+            <div class="toc-item">2.8 &mdash; Online Labs: NETLAB</div>
+            <div class="toc-item">2.9 &mdash; Reflection Activity</div>
+            <div class="toc-item current" id="tocCurrent">2.10 &mdash; Unit Test</div>
+        </nav>
+        <style>
+            /* Collapsible TOC: only the current section shows until clicked */
+            nav.toc#tocNav { gap: 0; }
+            nav.toc#tocNav .toc-item {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav .toc-item.current {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                cursor: pointer;
+            }
+            nav.toc#tocNav .toc-item.current::after {
+                content: ' \25BE Click to View';
+                font-size: 0.75em;
+            }
+            nav.toc#tocNav.toc-expanded .toc-item {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                margin-bottom: var(--space-sm);
+            }
+            nav.toc#tocNav.toc-expanded .toc-item.current::after { content: ' \25B4'; }
+
+            nav.toc#tocNav .toc-header {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                font-family: var(--font-heading), 'Segoe UI', sans-serif;
+                font-weight: 700;
+                font-size: 0.875rem;
+                text-align: left;
+                color: var(--text-black);
+                text-decoration: underline;
+                background: var(--primary-main);
+                border-radius: var(--radius-md);
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav.toc-expanded .toc-header {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                padding-left: var(--space-md);
+                border-width: 2px;
+                border-style: solid;
+                border-color: var(--primary-main);
+                margin-bottom: var(--space-sm);
+            }
+        </style>
+
+        <script>
+            (function () {
+                var toc = document.getElementById('tocNav');
+                var currentItem = document.getElementById('tocCurrent');
+
+                toc.addEventListener('click', function (e) {
+                    if (toc.classList.contains('toc-expanded')) {
+                        toc.classList.remove('toc-expanded');
+                    } else if (e.target === currentItem || currentItem.contains(e.target)) {
+                        toc.classList.add('toc-expanded');
+                    }
+                });
+
+                toc.addEventListener('mouseleave', function () {
+                    toc.classList.remove('toc-expanded');
+                });
+            })();
+        </script>
+
+        <div class="content-area">
+
+            <div class="tech-box">
+                <div class="callout-title">Test Format</div>
+                <div class="callout-content">
+                    <p>Each attempt draws 20 items from a 100-item pool covering this unit's objectives &mdash; Windows features and tools, command-line tools, and Windows settings &mdash; weighted to mirror how they're represented on the actual 220-1202 exam. Answer choices are reshuffled every attempt. Click an answer to select it, then click <strong>Grade My Answers</strong> to see your results.</p>
+                </div>
+            </div>
+
+            <div class="callout callout-info">
+                <div class="callout-title">Test Taking Skills</div>
+                <div class="callout-content">
+                    <p>In order to successfully pass the CompTIA exam you should read each question and each answer. Select the best answer that you think is correct. Then read the question again, and each answer. If you agree with the original answer move on; otherwise, "work through" the answers and see which ones are easily dismissable.</p>
+                    <p>Full understanding requires completion of all 20 items and a review of any missed questions before moving on &mdash; not a specific score. Take the time to understand why an answer was wrong before you close this page.</p>
+                </div>
+            </div>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">Submit Your Proof of Completion</div>
+                <div class="callout-content">
+                    <p>Once you've completed this activity, take a screenshot showing your final score and upload it to the appropriate submission link in Brightspace by the due date. A screenshot is your only proof of completion &mdash; nothing here is automatically recorded, so don't close this page before you've captured and uploaded it.</p>
+                </div>
+            </div>
+
+            <div id="quizArea"></div>
+
+            <div class="mt-lg">
+                <button class="quiz-btn" onclick="gradeQuiz()">Grade My Answers</button>
+                <button class="quiz-btn secondary" onclick="resetQuiz()">Reset</button>
+            </div>
+
+            <div id="quizResults">
+                <div>Your Score</div>
+                <div class="score" id="scoreDisplay">0 / 20</div>
+                <div id="scoreNote"></div>
+                <p class="text-muted mt-sm">Screenshot this score before leaving the page, and upload it to the submission link in Brightspace.</p>
+            </div>
+
+            <script>
+                const POOL = [{"q": "Which Settings category is used to verify how much free space remains on the system drive?", "opts": ["Accounts", "Apps", "Privacy", "System"], "correct": 3}, {"q": "At the command prompt, which entry moves up one directory level?", "opts": ["cd \\\\", "cd ..", "cd /up", "cd -"], "correct": 1}, {"q": "A technician must prepare a brand-new internal disk for use. Which sequence is correct?", "opts": ["Initialize the disk, create a volume, format it, and assign a drive letter", "Format the disk, initialize it, and assign a drive letter", "Assign a drive letter, initialize the disk, and create a volume", "Create a volume, initialize the disk, and format it"], "correct": 0}, {"q": "A Group Policy change was made, and a technician does not want to wait for the next automatic refresh. Which command applies it now?", "opts": ["gpupdate", "gpresult", "gpedit", "netstat"], "correct": 0}, {"q": "Which Control Panel item contains the magnifier, narrator, high contrast, and on-screen keyboard settings?", "opts": ["Sound", "Personalization", "Devices and Printers", "Ease of Access"], "correct": 3}, {"q": "Which robocopy switch makes the destination an exact mirror of the source, including deleting files at the destination that no longer exist at the source?", "opts": ["/copyall", "/e", "/s", "/mir"], "correct": 3}, {"q": "Which snap-in would a technician open to confirm that a company application's certificate has not expired?", "opts": ["Device Manager", "Local Users and Groups", "Group Policy Editor", "Certificate Manager"], "correct": 3}, {"q": "A laptop user wants to choose whether the computer sleeps, hibernates, or shuts down when the lid is closed. Which Control Panel item contains this setting?", "opts": ["Ease of Access", "System", "Devices and Printers", "Power Options"], "correct": 3}, {"q": "A user wants Windows to display file extensions such as .docx and .exe for every file. Which Control Panel item contains this setting?", "opts": ["Indexing Options", "File Explorer Options", "Programs and Features", "System"], "correct": 1}, {"q": "A technician must allow a specific application to communicate through the firewall. Which Control Panel item provides this?", "opts": ["Internet Options", "Network and Sharing Center", "Windows Defender Firewall", "System"], "correct": 2}, {"q": "A company requires that work computers be updated within a set period. Where does a technician verify update status and pause or resume updates?", "opts": ["Control Panel, under System", "Settings, under Update and Security", "Settings, under Privacy", "Control Panel, under Administrative Tools"], "correct": 1}, {"q": "A technician wants to end a process that a user may have unsaved work in. What should the technician do before using End task?", "opts": ["Restart the computer first to clear the memory", "Nothing, because Windows prompts to save automatically", "Ask the user, because End task closes the program without saving", "Disable the program on the Startup tab first"], "correct": 2}, {"q": "A technician needs a machine to never sleep while a long backup runs overnight. Which Control Panel item contains that setting?", "opts": ["Ease of Access", "System", "Power Options", "Indexing Options"], "correct": 2}, {"q": "A user needs to uninstall an application. Which two locations both provide this?", "opts": ["System in Control Panel, and Personalization in the Settings app", "Indexing Options in Control Panel, and System in the Settings app", "Devices and Printers in Control Panel, and Accounts in the Settings app", "Programs and Features in Control Panel, and Apps in the Settings app"], "correct": 3}, {"q": "A pop-up appears on a workstation at the same time every morning, and no user starts it. Which tool should a technician check first?", "opts": ["Certificate Manager", "Task Scheduler", "Disk Cleanup", "Resource Monitor"], "correct": 1}, {"q": "Which chkdsk switch locates bad sectors and attempts to recover readable information?", "opts": ["/x", "/f", "/r", "/scan"], "correct": 2}, {"q": "A workstation restarted overnight and nobody knows why. Which tool shows the errors and warnings logged before the restart?", "opts": ["Event Viewer", "Task Scheduler", "Performance Monitor", "Resource Monitor"], "correct": 0}, {"q": "A technician needs to confirm that the print spooler is running and note its process ID. Which Task Manager tab provides this?", "opts": ["Performance", "Startup", "Services", "Users"], "correct": 2}, {"q": "A technician needs to see every option a command supports. What should be typed after the command name?", "opts": ["-h", "/help", "/?", "/options"], "correct": 2}, {"q": "Which set of commands is safe to run on a production computer that holds data the user needs?", "opts": ["rmdir /s and robocopy /mir", "format, diskpart, and chkdsk /f", "hostname, whoami, and ipconfig", "diskpart clean and format /q"], "correct": 2}, {"q": "Which Disk Management action makes room on a disk for an additional volume by reducing an existing one?", "opts": ["Shrink Volume", "Extend Volume", "Delete Volume", "Initialize Disk"], "correct": 0}, {"q": "Which command opens System Information?", "opts": ["systeminfo.msc", "msconfig", "sysinfo", "msinfo32"], "correct": 3}, {"q": "Which command queries a DNS server to find the IP address associated with a host name?", "opts": ["nslookup", "ping", "netstat", "hostname"], "correct": 0}, {"q": "A volume needs more space, and unallocated space sits directly after it on the same disk. Which Disk Management action adds that space to the volume?", "opts": ["Extend Volume", "Shrink Volume", "New Simple Volume", "Change Drive Letter and Paths"], "correct": 0}, {"q": "Which Control Panel item lets a technician see the driver version for a connected device without opening a separate snap-in window?", "opts": ["Device Manager", "Programs and Features", "Indexing Options", "File Explorer Options"], "correct": 0}, {"q": "Which format switch specifies the file system to use?", "opts": ["/fs:", "/q", "/v:", "/x"], "correct": 0}, {"q": "Which Settings category is used to pair a Bluetooth device or add a printer?", "opts": ["Devices", "System", "Network and Internet", "Apps"], "correct": 0}, {"q": "Which statement about editing the registry is correct?", "opts": ["Registry Editor prompts for confirmation before each change", "Changes are applied only after a restart", "Most changes take effect immediately, and there is no undo", "Windows automatically backs up each key before it is edited"], "correct": 2}, {"q": "Which Settings category is used to set default apps and manage startup apps?", "opts": ["System", "Apps", "Accounts", "Personalization"], "correct": 1}, {"q": "With fast startup enabled, why might shutting down and powering back on fail to clear a problem that a restart resolves?", "opts": ["Shut down does not power off the hardware at all", "Shut down saves part of the system to the drive rather than closing everything", "Restart clears the registry, and shut down does not", "Shut down skips the power-on self-test"], "correct": 1}, {"q": "Which Settings category controls the desktop background, colors, lock screen, Start menu, and taskbar?", "opts": ["System", "Personalization", "Devices", "Gaming"], "correct": 1}, {"q": "Which tool produces a complete report of a computer's hardware resources, components, and software environment for documentation?", "opts": ["System Information", "Task Manager", "Disk Cleanup", "Registry Editor"], "correct": 0}, {"q": "A technician needs to see which specific files a process currently has open and which network connections it is using. Which tool provides that level of detail in real time?", "opts": ["System Information", "Task Manager", "Performance Monitor", "Resource Monitor"], "correct": 3}, {"q": "A user asks why a 4 GB file will not copy to a USB drive. Where in File Explorer can a technician confirm the drive's file system?", "opts": ["Indexing Options", "The drive's Properties window", "Devices and Printers", "Sound"], "correct": 1}, {"q": "Which File Explorer Options setting makes folders such as AppData visible?", "opts": ["Show hidden files, folders, and drives", "Hide extensions for known file types", "Launch folder windows in a separate process", "Restore previous folder windows at logon"], "correct": 0}, {"q": "Which command displays a computer's IP address, subnet mask, and default gateway?", "opts": ["hostname", "ping", "netstat", "ipconfig"], "correct": 3}, {"q": "A technician wants to disable a device temporarily without removing its driver. Which tool provides this?", "opts": ["Device Manager", "System Configuration", "Task Manager", "Disk Cleanup"], "correct": 0}, {"q": "Which Control Panel item shows the current network connection and provides access to adapter settings and sharing options?", "opts": ["Devices and Printers", "Internet Options", "Network and Sharing Center", "System"], "correct": 2}, {"q": "Which file name opens Event Viewer from the Run box?", "opts": ["evtvwr.msc", "eventvwr.msc", "eventlog.msc", "viewer.msc"], "correct": 1}, {"q": "Which command opens Registry Editor?", "opts": ["regmgr", "regsvr32", "regedit", "mmc"], "correct": 2}, {"q": "Which command tests whether another device on the network responds and reports the round-trip time?", "opts": ["ping", "tracert", "netstat", "net use"], "correct": 0}, {"q": "Which command lists the user accounts on the local computer?", "opts": ["net use", "net user", "whoami", "lusrmgr"], "correct": 1}, {"q": "Which command displays the account the user is currently signed in as?", "opts": ["gpresult", "hostname", "net user", "whoami"], "correct": 3}, {"q": "A user cannot hear sound from external speakers, though the speakers work on another computer. Which item should a technician check first?", "opts": ["Ease of Access, to confirm audio descriptions are off", "Sound, to confirm the correct playback device is set as default", "Devices and Printers, to remove the speakers", "Indexing Options, to rebuild the index"], "correct": 1}, {"q": "Which root key stores settings for the user who is currently signed in?", "opts": ["HKEY_LOCAL_MACHINE", "HKEY_CURRENT_USER", "HKEY_USERS", "HKEY_CLASSES_ROOT"], "correct": 1}, {"q": "Which Settings category contains sign-in options and the family and other users settings?", "opts": ["Accounts", "Privacy", "System", "Update and Security"], "correct": 0}, {"q": "A technician needs the directory listing to include hidden files. Which switch does this?", "opts": ["/a", "/s", "/h", "/p"], "correct": 0}, {"q": "A user wants to set a different default printer. Which Control Panel item provides this?", "opts": ["Sound", "Programs and Features", "System", "Devices and Printers"], "correct": 3}, {"q": "Which description of the sleep state is correct?", "opts": ["Memory contents are written to the drive and no power is used", "Work is kept in memory, the system resumes in seconds, and a small amount of power is used", "All open programs are closed and the system powers off completely", "The system restarts and loads only basic drivers"], "correct": 1}, {"q": "Which key combination opens Task Manager directly?", "opts": ["Alt+F4", "Ctrl+Alt+Del", "Windows key+X", "Ctrl+Shift+Esc"], "correct": 3}, {"q": "Why is changing a setting through Control Panel or the Settings app generally safer than editing the registry directly?", "opts": ["Those screens store settings in a separate database from the registry", "Those screens write the setting correctly and include safety checks that Registry Editor does not", "Registry Editor requires a restart before any change takes effect", "Registry Editor can only be used on domain-joined computers"], "correct": 1}, {"q": "A technician runs chkdsk with a repair switch on the drive Windows is running from. What happens?", "opts": ["The repair is scheduled to run at the next restart", "The command fails with an access-denied error", "The volume is dismounted and repaired immediately", "Windows restarts automatically to perform the repair"], "correct": 0}, {"q": "A technician needs to verify that a scheduled task actually ran last night. Where is this confirmed?", "opts": ["In Disk Management, under volume properties", "In Task Scheduler, on the task's history and last run result", "In Device Manager, under driver details", "In System Configuration, on the Services tab"], "correct": 1}, {"q": "Which statement best distinguishes Performance Monitor from Task Manager?", "opts": ["Performance Monitor records data over time for later review; Task Manager shows current activity", "Performance Monitor shows current activity; Task Manager records data over time", "Performance Monitor works only on servers; Task Manager works only on workstations", "Performance Monitor shows hardware details; Task Manager shows only software details"], "correct": 0}, {"q": "Which Task Manager tab shows live graphs of CPU, memory, disk, and network use along with the amount of installed RAM?", "opts": ["Processes", "Performance", "Startup", "Details"], "correct": 1}, {"q": "Which Disk Management action removes a volume and all data it contains?", "opts": ["Shrink Volume", "Delete Volume", "Change Drive Letter and Paths", "Initialize Disk"], "correct": 1}, {"q": "Which root key stores settings that apply to the computer as a whole, including hardware and installed software?", "opts": ["HKEY_CURRENT_CONFIG", "HKEY_CURRENT_USER", "HKEY_CLASSES_ROOT", "HKEY_LOCAL_MACHINE"], "correct": 3}, {"q": "Which command reports which Group Policy settings are actually applied to the computer and user?", "opts": ["gpresult", "gpupdate", "gpedit", "whoami /policies"], "correct": 0}, {"q": "A technician must document how much memory a workstation has and how much is currently in use. Which Task Manager tab reports both?", "opts": ["Performance", "Processes", "Startup", "Users"], "correct": 0}, {"q": "A computer takes several minutes to become usable after a user signs in. Which Task Manager tab identifies programs that launch automatically and their impact on startup time?", "opts": ["Startup", "Processes", "Services", "Users"], "correct": 0}, {"q": "A service that an application depends on has stopped. Besides the Services snap-in, which Task Manager tab allows a technician to start or stop that service?", "opts": ["Processes", "Services", "Details", "Performance"], "correct": 1}, {"q": "Which robocopy switch copies all subfolders, including empty ones?", "opts": ["/e", "/mir", "/a", "/z"], "correct": 0}, {"q": "Which command traces the route to a destination and then measures packet loss at each hop along the way?", "opts": ["tracert", "pathping", "ping", "nslookup"], "correct": 1}, {"q": "A user reports that the system drive is almost full. Which tool removes temporary files, old update files, and emptied Recycle Bin contents?", "opts": ["Disk Defragment", "Disk Management", "Disk Cleanup", "Resource Monitor"], "correct": 2}, {"q": "A workstation cannot reach a website by name, but it reaches the site's IP address. Which command and switch clear the locally cached name lookups?", "opts": ["nslookup /clear", "ipconfig /renew", "ipconfig /flushdns", "netstat -r"], "correct": 2}, {"q": "A technician suspects that corrupted system files are causing an application to crash at startup. Which command should be run first?", "opts": ["diskpart clean", "chkdsk /r", "sfc /scannow", "robocopy /mir"], "correct": 2}, {"q": "Which command opens the Optimize Drives tool?", "opts": ["diskmgmt", "cleanmgr", "dfrgui", "perfmon"], "correct": 2}, {"q": "Which File Explorer Options setting determines whether a single click or a double click opens an item?", "opts": ["View options", "General options", "Search options", "Sharing options"], "correct": 1}, {"q": "Which Event Viewer entry type indicates a failure that requires immediate attention?", "opts": ["Information", "Critical", "Verbose", "Audit Success"], "correct": 1}, {"q": "A backup script must run automatically at 2:00 a.m. every night. Which tool schedules it?", "opts": ["Group Policy Editor", "Task Manager", "Performance Monitor", "Task Scheduler"], "correct": 3}, {"q": "A technician must prevent the use of USB storage devices on a kiosk computer running Windows Pro. Which tool sets that local policy?", "opts": ["Certificate Manager", "Local Users and Groups", "Group Policy Editor", "Device Manager"], "correct": 2}, {"q": "Which command displays the name of the computer?", "opts": ["net user", "whoami", "winver", "hostname"], "correct": 3}, {"q": "Which command opens a window showing the Windows edition, version, and build number?", "opts": ["msinfo32", "winver", "hostname", "ver /edition"], "correct": 1}, {"q": "Which tool would a technician use to confirm a workstation's exact BIOS version and installed memory for a documentation request?", "opts": ["Certificate Manager", "Disk Management", "Task Scheduler", "System Information"], "correct": 3}, {"q": "Which file name opens Disk Management from the Run box?", "opts": ["diskpart.msc", "diskmgr.msc", "dskmgmt.msc", "diskmgmt.msc"], "correct": 3}, {"q": "Which command creates a new directory?", "opts": ["dir /new", "cd", "rd", "md"], "correct": 3}, {"q": "Which Control Panel item would a technician use to confirm whether a workstation is joined to a domain or a workgroup?", "opts": ["User Accounts", "Network and Sharing Center", "System", "Internet Options"], "correct": 2}, {"q": "Which Control Panel item is used to turn Windows features on or off?", "opts": ["System", "Programs and Features", "Administrative Tools", "Indexing Options"], "correct": 1}, {"q": "A USB device on a laptop repeatedly disconnects when idle. Which Power Options setting should a technician check?", "opts": ["Power plan brightness", "Fast startup", "USB selective suspend", "Hibernate after"], "correct": 2}, {"q": "A technician installs a second internal drive, but it does not appear in File Explorer. Which tool is used to initialize the disk and create a volume?", "opts": ["System Configuration", "Disk Cleanup", "Device Manager", "Disk Management"], "correct": 3}, {"q": "Within diskpart, which command removes all partition information from the selected disk?", "opts": ["remove", "delete", "format", "clean"], "correct": 3}, {"q": "Which Settings category contains date, time, time zone, region, and language settings?", "opts": ["Accounts", "System", "Personalization", "Time and Language"], "correct": 3}, {"q": "Which root key stores file associations that determine which program opens each type of file?", "opts": ["HKEY_USERS", "HKEY_CURRENT_CONFIG", "HKEY_LOCAL_MACHINE", "HKEY_CLASSES_ROOT"], "correct": 3}, {"q": "A user is concerned that an application can access the webcam and microphone. Which Settings category controls those app permissions?", "opts": ["Accounts", "Privacy", "System", "Update and Security"], "correct": 1}, {"q": "A printer worked correctly until a driver update was installed, and it now fails. Which Device Manager action is most likely to restore it?", "opts": ["Uninstall the device and restart", "Scan for hardware changes", "Roll Back Driver", "Update Driver"], "correct": 2}, {"q": "Which sfc switch scans all protected system files immediately and repairs those that are damaged?", "opts": ["/scanfile", "/verifyonly", "/scannow", "/repair"], "correct": 2}, {"q": "A user wants applications they use for video calls to stop launching at sign-in. Which two locations both allow this?", "opts": ["Task Scheduler, and Control Panel's User Accounts item", "Control Panel's System item, and Settings under Privacy", "Task Manager's Startup tab, and Settings under Apps", "Device Manager, and Settings under Accounts"], "correct": 2}, {"q": "Which Control Panel item shows the Windows edition, the computer name, and a summary of the hardware?", "opts": ["File Explorer Options", "Indexing Options", "Administrative Tools", "System"], "correct": 3}, {"q": "Which command scans protected Windows system files and replaces corrupted ones with correct copies?", "opts": ["diskpart", "chkdsk", "sfc", "robocopy"], "correct": 2}, {"q": "Which command opens the Microsoft Management Console with no snap-ins loaded, so a technician can build a custom console?", "opts": ["mmc", "msconfig", "msinfo32", "regedit"], "correct": 0}, {"q": "Which Control Panel item is used to change an account type, change a password, or manage stored credentials?", "opts": ["Accounts", "Local Users and Groups", "User Accounts", "Administrative Tools"], "correct": 2}, {"q": "Which format switch performs a quick format?", "opts": ["/c", "/fs:", "/f", "/q"], "correct": 3}, {"q": "Which command removes a directory?", "opts": ["rmdir", "md", "del /d", "cd /r"], "correct": 0}, {"q": "A technician must delete a folder that still contains files and subfolders in one step. Which switch makes rmdir do this?", "opts": ["/q", "/a", "/f", "/s"], "correct": 3}, {"q": "Which switch makes whoami list the group memberships of the current account?", "opts": ["/groups", "/all", "/user", "/list"], "correct": 0}, {"q": "A technician needs to see which ports a workstation is listening on and which connections are active. Which command provides this?", "opts": ["net use", "ipconfig", "netstat", "gpresult"], "correct": 2}, {"q": "A workstation slows noticeably every afternoon, but never while the technician is present. Which tool records performance data over a period for later review?", "opts": ["Resource Monitor", "Task Manager", "Performance Monitor", "System Information"], "correct": 2}, {"q": "A technician suspects a non-Microsoft service is causing a startup conflict. Which System Configuration feature helps isolate it?", "opts": ["Hiding Microsoft services and disabling the rest to test", "Enabling safe boot with networking permanently", "Deleting the service from the registry", "Rolling back the service's driver"], "correct": 0}, {"q": "A documented fix requires editing a registry key. What should a technician do first?", "opts": ["Restart the computer in Safe Mode", "Export the key or create a restore point", "Run System File Checker", "Disable the related service"], "correct": 1}, {"q": "Which Control Panel item is a folder of shortcuts to management tools such as Event Viewer and Task Scheduler, and what is it called in Windows 11?", "opts": ["System, renamed About", "Indexing Options, renamed System Tools", "Administrative Tools, renamed Windows Tools", "Programs and Features, renamed Apps and Features"], "correct": 2}];
+                let QUESTIONS = [];
+                let answers = [];
+
+                function drawSet() {
+                    const shuffled = POOL.slice().sort(() => Math.random() - 0.5);
+                    QUESTIONS = shuffled.slice(0, 20).map(item => {
+                        const order = item.opts.map((o, i) => i).sort(() => Math.random() - 0.5);
+                        return {q: item.q, opts: order.map(i => item.opts[i]), correct: order.indexOf(item.correct)};
+                    });
+                    answers = new Array(QUESTIONS.length).fill(null);
+                }
+
+                function renderQuiz() {
+                    const area = document.getElementById('quizArea');
+                    area.innerHTML = QUESTIONS.map((item, qi) => {
+                        const opts = item.opts.map((opt, oi) =>
+                            `<button type="button" class="answer-option" data-qi="${qi}" data-oi="${oi}" onclick="selectAnswer(${qi}, ${oi})">${opt}</button>`
+                        ).join('');
+                        return `<div class="question-block">
+                            <div class="question-number">Question ${qi + 1} of ${QUESTIONS.length}</div>
+                            <p class="question-text">${item.q}</p>
+                            ${opts}
+                        </div>`;
+                    }).join('');
+                }
+
+                function selectAnswer(qi, oi) {
+                    answers[qi] = oi;
+                    document.querySelectorAll(`[data-qi="${qi}"]`).forEach(btn => {
+                        btn.classList.remove('selected');
+                        if (parseInt(btn.dataset.oi) === oi) btn.classList.add('selected');
+                    });
+                }
+
+                function gradeQuiz() {
+                    if (answers.includes(null)) {
+                        alert('Answer all 20 questions before grading.');
+                        return;
+                    }
+                    let score = 0;
+                    QUESTIONS.forEach((item, qi) => {
+                        const correct = item.correct;
+                        document.querySelectorAll(`[data-qi="${qi}"]`).forEach(btn => {
+                            const oi = parseInt(btn.dataset.oi);
+                            btn.classList.remove('selected');
+                            if (oi === correct) btn.classList.add('correct');
+                            else if (oi === answers[qi]) btn.classList.add('incorrect');
+                        });
+                        if (answers[qi] === correct) score++;
+                    });
+                    document.getElementById('scoreDisplay').textContent = score + ' / ' + QUESTIONS.length;
+                    const note = document.getElementById('scoreNote');
+                    if (score >= 16) note.textContent = 'Strong result. Review any missed items, then you are done.';
+                    else if (score >= 12) note.textContent = 'A passing-range result. Review your missed questions closely before moving on.';
+                    else note.textContent = 'Below where you want to be for exam day. Revisit 1.3 and 1.4 for the topics you missed, then try again.';
+                    document.getElementById('quizResults').style.display = 'block';
+                    document.getElementById('quizResults').scrollIntoView({behavior: 'smooth'});
+                }
+
+                function resetQuiz() {
+                    document.getElementById('quizResults').style.display = 'none';
+                    drawSet();
+                    renderQuiz();
+                }
+
+                drawSet();
+                renderQuiz();
+            </script>
+
+        </div>
+
+        <footer class="module-footer">
+            <p class="footer-text">CompTIA A+ Core 2 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
+        </footer>
+    </div>
+</body>
+</html>
