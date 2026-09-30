@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Unit 3 &mdash; 3.1 Unit Overview and Schedule | CompTIA A+ Core 2</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Sans+Pro:wght@400;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           CPCC COURSE TEMPLATE - GOLD / CHARCOAL / BLACK
+           CTS-ITS7501-80 CompTIA A+ Core 2 Training
+           Type: true black. Accents: gold. Chrome: charcoal.
+           ============================================ */
+
+        :root {
+            --primary-dark: #4A4A4A;       /* Charcoal - structural chrome only */
+            --primary-main: #B8962E;       /* Warm Gold - primary accent */
+            --primary-light: #D4AF56;      /* Light Gold */
+            --primary-pale: #FBF3DF;       /* Pale Gold wash */
+
+            --accent-teal: #8A6F1F;        /* Deep bronze-gold */
+            --accent-teal-light: #F3E9CE;  /* Pale bronze */
+            --accent-orange: #A9642A;      /* Warm rust */
+            --accent-orange-light: #F5E2CE;
+            --accent-purple: #6B5B3A;      /* Muted umber */
+            --accent-purple-light: #EFE6D2;
+            --accent-green: #4E7A51;
+            --accent-green-light: #DCEBDD;
+
+            --alert-warning: #B8862E;
+            --alert-warning-bg: #FBF0D9;
+            --alert-danger: #A13A3A;
+            --alert-danger-bg: #F6DEDE;
+            --alert-success: #3F6E42;
+            --alert-success-bg: #DCEBDD;
+            --alert-info: #6E5B2E;
+            --alert-info-bg: #F1E9D4;
+
+            --text-black: #000000;         /* All reading text */
+            --neutral-900: #000000;
+            --neutral-700: #000000;
+            --neutral-500: #5A5A5A;
+            --neutral-300: #D9D3C4;
+            --neutral-100: #FAF8F3;
+            --white: #ffffff;
+
+            --font-heading: 'Nunito', sans-serif;
+            --font-body: 'Source Sans Pro', sans-serif;
+            --font-code: 'Fira Code', monospace;
+
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+
+            --shadow-sm: 0 1px 2px rgba(74, 74, 74, 0.08);
+            --shadow-md: 0 4px 6px rgba(74, 74, 74, 0.12);
+            --shadow-lg: 0 10px 20px rgba(74, 74, 74, 0.15);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body), 'Segoe UI', Tahoma, Verdana, sans-serif;
+            font-size: 1.0625rem;
+            line-height: 1.7;
+            color: var(--text-black);
+            background: linear-gradient(135deg, var(--neutral-100) 0%, var(--white) 100%);
+            min-height: 100vh;
+            padding: var(--space-lg);
+        }
+
+        .course-container {
+            max-width: 950px; margin: 0 auto; background: var(--white);
+            border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); overflow: hidden;
+        }
+
+        .module-header {
+            background: var(--primary-main); color: var(--text-black);
+            padding: var(--space-lg) var(--space-xl); position: relative; overflow: hidden;
+        }
+        .module-label {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 0.875rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 2px; text-decoration: underline;
+            margin-bottom: var(--space-sm); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-title {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 2.25rem; font-weight: 800;
+            line-height: 1.2; margin-bottom: var(--space-md); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-subtitle { font-size: 1.125rem; max-width: 650px; position: relative; z-index: 1; color: var(--text-black); }
+
+        .toc {
+            display: flex; flex-direction: column; gap: var(--space-sm);
+            padding: var(--space-lg) var(--space-xl);
+            background: var(--primary-pale); border-bottom: 1px solid var(--neutral-300);
+        }
+        .toc-item {
+            width: 100%; text-align: left;
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 0.875rem;
+            color: var(--text-black); background: var(--white);
+            border: 2px solid var(--primary-main);
+            padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md);
+        }
+        .toc-item.current { background: var(--primary-main); }
+
+        .content-area { padding: var(--space-xl); }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif;
+            color: var(--text-black); line-height: 1.3; margin-bottom: var(--space-md);
+        }
+        h1 { font-size: 2rem; font-weight: 800; }
+        h2 { font-size: 1.625rem; font-weight: 700; padding-bottom: var(--space-sm);
+             border-bottom: 3px solid var(--primary-main); margin-top: var(--space-xl); margin-bottom: var(--space-lg); }
+        h3 { font-size: 1.375rem; font-weight: 700; margin-top: var(--space-lg);
+             padding-left: var(--space-sm); border-left: 4px solid var(--primary-main); }
+        h4 { font-size: 1.125rem; font-weight: 600; }
+
+        p { margin-bottom: var(--space-md); }
+        strong { font-weight: 700; color: var(--text-black); }
+        em { font-style: italic; color: var(--text-black); }
+
+        a { color: var(--text-black); text-decoration: none; border-bottom: 2px solid var(--primary-main); transition: all 0.2s ease; }
+        a:hover { background: var(--primary-pale); border-bottom-color: var(--accent-teal); }
+
+        ul, ol { margin-bottom: var(--space-md); padding-left: var(--space-lg); }
+        li { margin-bottom: var(--space-sm); }
+        ul li::marker { color: var(--accent-teal); }
+        ol li::marker { color: var(--accent-teal); font-weight: 700; }
+
+        .styled-list { list-style: none; padding-left: 0; }
+        .styled-list li { position: relative; padding-left: var(--space-lg); margin-bottom: var(--space-sm); }
+        .styled-list li::before { content: '\25B8'; position: absolute; left: 0; color: var(--accent-teal); font-weight: bold; }
+
+        .checklist { list-style: none; padding-left: 0; }
+        .checklist li { position: relative; padding-left: 2rem; margin-bottom: var(--space-sm); }
+        .checklist li::before {
+            content: '\2713'; position: absolute; left: 0; width: 1.5rem; height: 1.5rem;
+            background: var(--accent-green-light); color: var(--accent-green);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 0.75rem; font-weight: bold;
+        }
+
+        .objectives-box {
+            background: linear-gradient(135deg, var(--primary-pale) 0%, var(--accent-teal-light) 100%);
+            border-left: 5px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .objectives-box h3 { color: var(--text-black); margin-top: 0; margin-bottom: var(--space-md);
+            display: flex; align-items: center; gap: var(--space-sm); border-left: none; padding-left: 0; }
+        .objectives-box ol { margin-bottom: 0; }
+
+        .tech-box {
+            background: var(--neutral-100); border: 2px solid var(--neutral-500);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .tech-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .tech-box .callout-content { padding-left: 0; }
+
+        .plain-box {
+            background: var(--primary-pale); border: 2px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .plain-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .plain-box .callout-content { padding-left: 0; }
+
+        .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; position: relative; overflow: hidden; }
+        .callout::before { position: absolute; top: var(--space-md); left: var(--space-md); font-size: 1.5rem; }
+        .callout-title { font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 1rem;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
+        .callout-content { }
+        .callout-content p:last-child { margin-bottom: 0; }
+
+        .callout-tip { background: var(--accent-green-light); border-left: 4px solid var(--accent-green); }
+        .callout-warning { background: var(--alert-warning-bg); border-left: 4px solid var(--alert-warning); }
+        .callout-danger { background: var(--alert-danger-bg); border-left: 4px solid var(--alert-danger); }
+        .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
+
+        .key-concept {
+            background: linear-gradient(135deg, var(--accent-purple-light) 0%, var(--white) 100%);
+            border: 2px solid var(--accent-purple); border-radius: var(--radius-lg);
+            padding: var(--space-lg); margin: var(--space-xl) 0 var(--space-lg); position: relative;
+        }
+        .key-concept::before {
+            content: '\1F511 KEY CONCEPT'; position: absolute; top: -12px; left: var(--space-lg);
+            background: var(--accent-purple); color: var(--white); font-family: var(--font-heading), sans-serif;
+            font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-md); border-radius: var(--radius-sm);
+        }
+        .key-concept h4 { color: var(--text-black); margin-top: var(--space-sm); }
+
+        .definition { background: var(--neutral-100); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin: var(--space-md) 0; border-left: 4px solid var(--accent-orange); }
+        .definition-term { font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 1.125rem;
+            color: var(--text-black); margin-bottom: var(--space-xs); }
+        .definition-text { color: var(--text-black); margin-bottom: 0; }
+
+        code { font-family: var(--font-code), Consolas, monospace; font-size: 0.9rem; background: var(--primary-pale);
+            color: var(--text-black); padding: 2px 6px; border-radius: var(--radius-sm); }
+        pre { background: #2E2E2E; color: #f1ece0; padding: var(--space-lg); border-radius: var(--radius-md);
+            overflow-x: auto; margin: var(--space-lg) 0; position: relative; }
+        pre::before {
+            content: 'STEPS'; position: absolute; top: 0; right: 0; background: var(--primary-main); color: var(--text-black);
+            font-family: var(--font-heading), sans-serif; font-size: 0.625rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-sm); border-radius: 0 var(--radius-md) 0 var(--radius-sm);
+        }
+        pre code { background: transparent; color: inherit; padding: 0; font-size: 0.875rem; line-height: 1.6; }
+
+        .table-container { overflow-x: auto; margin: var(--space-lg) 0; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); }
+        table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
+        thead { background: var(--primary-dark); color: var(--white); }
+        th { font-family: var(--font-heading), sans-serif; font-weight: 700; text-align: left; padding: var(--space-md) var(--space-lg); color: var(--white); }
+        td { padding: var(--space-md) var(--space-lg); border-bottom: 1px solid var(--neutral-300); color: var(--text-black); }
+        tbody tr:hover { background: var(--primary-pale); }
+        tbody tr:last-child td { border-bottom: none; }
+
+        .activity-section {
+            background: linear-gradient(135deg, var(--accent-orange-light) 0%, var(--white) 100%);
+            border: 2px dashed var(--accent-orange); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .activity-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg); }
+        .activity-icon { width: 50px; height: 50px; background: var(--accent-orange); border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; }
+        .activity-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700;
+            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
+        .activity-subtitle { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
+
+        .lab-section {
+            background: linear-gradient(135deg, var(--accent-teal-light) 0%, var(--white) 100%);
+            border: 2px solid var(--accent-teal); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .lab-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg);
+            padding-bottom: var(--space-md); border-bottom: 2px solid var(--accent-teal); }
+        .lab-icon { width: 60px; height: 60px; background: var(--accent-teal); border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center; font-size: 1.75rem; flex-shrink: 0; }
+        .lab-title { font-family: var(--font-heading), sans-serif; font-size: 1.375rem; font-weight: 700;
+            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
+        .lab-time { font-size: 0.875rem; color: var(--neutral-500); margin: 0; display: flex; align-items: center; gap: var(--space-xs); }
+        .lab-time::before { content: '\23F1\FE0F'; }
+        .lab-steps { counter-reset: lab-step; list-style: none; padding-left: 0; }
+        .lab-steps li { counter-increment: lab-step; position: relative; padding-left: 3rem; margin-bottom: var(--space-lg); }
+        .lab-steps li::before {
+            content: counter(lab-step); position: absolute; left: 0; width: 2rem; height: 2rem;
+            background: var(--accent-teal); color: var(--white); font-family: var(--font-heading), sans-serif; font-weight: 700;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.875rem;
+        }
+
+        .assessment-section { background: var(--primary-pale); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0; }
+        .assessment-header { text-align: center; margin-bottom: var(--space-xl); }
+        .assessment-header h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .question-block { background: var(--white); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin-bottom: var(--space-lg); box-shadow: var(--shadow-sm); }
+        .question-number { font-family: var(--font-heading), sans-serif; font-size: 0.75rem; font-weight: 700;
+            color: var(--text-black); background: var(--primary-main); display: inline-block;
+            padding: 2px 10px; border-radius: var(--radius-sm);
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); }
+        .question-text { font-weight: 600; color: var(--text-black); margin-bottom: var(--space-md); }
+        details.answer { margin-top: var(--space-sm); }
+        details.answer summary { cursor: pointer; font-weight: 700; color: var(--text-black);
+            font-family: var(--font-heading), sans-serif; font-size: 0.875rem;
+            border-bottom: 2px solid var(--primary-main); display: inline-block; }
+        details.answer .reveal { margin-top: var(--space-sm); padding: var(--space-md);
+            background: var(--accent-green-light); border-radius: var(--radius-sm); color: var(--text-black); }
+
+        .references-section { background: var(--neutral-100); border-radius: var(--radius-lg);
+            padding: var(--space-lg) var(--space-xl); margin: var(--space-xl) 0; border-top: 3px solid var(--primary-main); }
+        .references-section h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .references-section ul { padding-left: var(--space-lg); }
+
+        .summary-box {
+            background: var(--primary-dark); color: var(--white);
+            border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .summary-box h3 { color: var(--white); margin-top: 0; display: flex; align-items: center;
+            gap: var(--space-sm); border-left: none; padding-left: 0; }
+        .summary-box h3::before { content: '\1F4CB'; }
+        .summary-box ul { margin-bottom: 0; }
+        .summary-box li { color: var(--white); }
+        .summary-box li::marker { color: var(--primary-light); }
+
+        .section-divider {
+            border: none; height: 6px; margin: var(--space-2xl) 0;
+            background: linear-gradient(90deg, transparent 0%, var(--primary-main) 15%, var(--primary-light) 50%, var(--primary-main) 85%, transparent 100%);
+            border-radius: var(--radius-sm); box-shadow: var(--shadow-sm);
+        }
+
+        .module-footer { background: var(--primary-dark); padding: var(--space-lg) var(--space-xl);
+            text-align: center; border-top: 4px solid var(--primary-main); }
+        .footer-text { font-size: 0.875rem; color: var(--white); margin: 0; }
+
+        .text-center { text-align: center; }
+        .text-muted { color: var(--neutral-500); }
+        .highlight { background: linear-gradient(180deg, transparent 50%, var(--primary-light) 50%); padding: 0 2px; }
+
+        @media (max-width: 768px) {
+            body { padding: var(--space-sm); }
+            .module-header { padding: var(--space-xl) var(--space-lg); }
+            .module-title { font-size: 1.75rem; }
+            .content-area { padding: var(--space-lg); }
+            h2 { font-size: 1.375rem; }
+            .lab-header, .activity-header { flex-direction: column; align-items: flex-start; }
+        }
+        @media print {
+            body { background: white; padding: 0; }
+            .course-container { box-shadow: none; }
+            .toc { display: none; }
+            details.answer { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="course-container">
+
+        <header class="module-header">
+            <div class="module-label">Unit 3 &middot; Networking Windows, macOS, and Linux &middot; Section 3.1</div>
+            <h1 class="module-title">Unit Overview and Schedule</h1>
+            <p class="module-subtitle">CompTIA A+ Core 2 - Domains 1.0 and 4.0</p>
+        </header>
+
+                <nav class="toc" id="tocNav">
+            <div class="toc-header">Table of Contents</div>
+            <div class="toc-item current" id="tocCurrent">3.1 &mdash; Unit Overview and Schedule</div>
+            <div class="toc-item">3.2 &mdash; Unit Pre-Assessment</div>
+            <div class="toc-item">3.3 &mdash; Content Review</div>
+            <div class="toc-item">3.4 &mdash; Reading Assignment</div>
+            <div class="toc-item">3.5 &mdash; Video Assignment</div>
+            <div class="toc-item">3.6 &mdash; Classroom Labs and Take-Home Lab</div>
+            <div class="toc-item">3.7 &mdash; Practice Question Set</div>
+            <div class="toc-item">3.8 &mdash; Online Labs: NETLAB</div>
+            <div class="toc-item">3.9 &mdash; Reflection Activity</div>
+            <div class="toc-item">3.10 &mdash; Unit Test</div>
+        </nav>
+        <style>
+            /* Collapsible TOC: only the current section shows until clicked */
+            nav.toc#tocNav { gap: 0; }
+            nav.toc#tocNav .toc-item {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav .toc-item.current {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                cursor: pointer;
+            }
+            nav.toc#tocNav .toc-item.current::after {
+                content: ' \25BE Click to View';
+                font-size: 0.75em;
+            }
+            nav.toc#tocNav.toc-expanded .toc-item {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                margin-bottom: var(--space-sm);
+            }
+            nav.toc#tocNav.toc-expanded .toc-item.current::after { content: ' \25B4'; }
+
+            nav.toc#tocNav .toc-header {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                font-family: var(--font-heading), 'Segoe UI', sans-serif;
+                font-weight: 700;
+                font-size: 0.875rem;
+                text-align: left;
+                color: var(--text-black);
+                text-decoration: underline;
+                background: var(--primary-main);
+                border-radius: var(--radius-md);
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav.toc-expanded .toc-header {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                padding-left: var(--space-md);
+                border-width: 2px;
+                border-style: solid;
+                border-color: var(--primary-main);
+                margin-bottom: var(--space-sm);
+            }
+        </style>
+
+        <script>
+            (function () {
+                var toc = document.getElementById('tocNav');
+                var currentItem = document.getElementById('tocCurrent');
+
+                toc.addEventListener('click', function (e) {
+                    if (toc.classList.contains('toc-expanded')) {
+                        toc.classList.remove('toc-expanded');
+                    } else if (e.target === currentItem || currentItem.contains(e.target)) {
+                        toc.classList.add('toc-expanded');
+                    }
+                });
+
+                toc.addEventListener('mouseleave', function () {
+                    toc.classList.remove('toc-expanded');
+                });
+            })();
+        </script>
+
+        <div class="content-area">
+
+            <p class="text-muted">Unit 2 was one operating system and its tools. This unit is three &mdash; Windows on a network, macOS, and Linux &mdash; plus your first look at the scripts that let a technician do the same job a hundred times without doing it a hundred times.</p>
+
+            <div class="callout callout-info">
+                <div class="callout-title">Start With the Pre-Assessment</div>
+                <div class="callout-content"><p>The Section 3.2 Pre-Assessment is an independent activity you complete on your own. Finish it by the end of Tuesday, the first day of the unit, before you begin the reading and videos, and do not study for it first. Expect the macOS and Linux questions to feel unfamiliar &mdash; that is the point of a diagnostic.</p></div>
+            </div>
+
+            <div class="objectives-box">
+                <h3>Learning Objectives</h3>
+                <p>After completing this unit, you will be able to:</p>
+                <ol>
+                    <li><strong>Configure</strong> a Windows client's IP addressing, subnet mask, gateway, and DNS settings, choosing between static and dynamic assignment</li>
+                    <li><strong>Distinguish</strong> a domain-joined computer from a workgroup computer, and describe how shared resources, printers, file servers, and mapped drives differ between them</li>
+                    <li><strong>Establish and troubleshoot</strong> wired, wireless, VPN, and cellular network connections, including proxy settings and metered connections</li>
+                    <li><strong>Configure</strong> local firewall settings, including application restrictions and exceptions, and apply the right public or private network profile</li>
+                    <li><strong>Describe</strong> the macOS features, tools, and system folders on the exam, and explain how applications are installed and removed on macOS</li>
+                    <li><strong>Identify and use</strong> the Linux commands, configuration files, and OS components on the exam</li>
+                    <li><strong>Explain</strong> the basics of scripting &mdash; the script file types, common use cases, and the risks of running a script you did not write</li>
+                </ol>
+            </div>
+
+            <div class="tech-box">
+                <div class="callout-title">Technical Overview</div>
+                <div class="callout-content">
+                    <p>Unit 3 addresses CompTIA A+ Core 2 (220-1202) Domain 1.0 Operating Systems &mdash; objectives 1.7 (configure Microsoft Windows networking features on a client/desktop), 1.8 (common features and tools of macOS), and 1.9 (common features and tools of the Linux client/desktop) &mdash; and Domain 4.0 Operational Procedures, objective 4.8 (the basics of scripting). Instruction covers domain versus workgroup membership, client network configuration, local OS firewall settings, VPN, wireless, wired and WWAN connections, proxy settings, public versus private network profiles, network paths in File Explorer, and metered connections; macOS installation file types, system folders, System Preferences, Disk Utility, FileVault, Terminal, Force Quit, and the Apple ID; Linux file, filesystem, administrative, package-management, network, and informational commands, the nano text editor, common configuration files, and OS components; and script file types, scripting use cases, and scripting risks.</p>
+                </div>
+            </div>
+
+            <div class="plain-box">
+                <div class="callout-title">In Plain Terms</div>
+                <div class="callout-content">
+                    <p>A technician is rarely allowed to work on only one kind of computer. The graphic designer has a Mac, the web server runs Linux, and everything else runs Windows &mdash; and all of them have to reach the same network and the same printer.</p>
+                    <p>This unit teaches you to get a Windows computer onto a network and keep it there, then shows you that macOS and Linux do the same jobs with different names in different places. Once you see that the jobs are the same, a Mac stops being intimidating and becomes just another machine with a different menu.</p>
+                </div>
+            </div>
+
+            <h2>Why This Unit Comes Next</h2>
+            <p>You finished Unit 2 able to operate one Windows computer. Almost no computer works alone. Objective 1.7 is where the machine you learned to run joins the network it has to live on, and it builds directly on the command line you just learned &mdash; <code>ipconfig</code>, <code>ping</code>, and <code>nslookup</code> stop being commands to memorize and become the way you actually diagnose a connection.</p>
+            <p>macOS and Linux arrive in the same unit on purpose. You have just spent a unit learning where Windows keeps its settings and how its command line works. That knowledge is the hook: macOS keeps settings in System Preferences, Linux keeps them in text files under <code>/etc</code>, and all three have a terminal where the same kinds of tasks get done. Learning them side by side takes far less time than learning each one cold.</p>
+            <p>Scripting closes the unit because it is where the three operating systems meet. A <code>.bat</code> or <code>.ps1</code> file automates Windows, a <code>.sh</code> file automates Linux and macOS, and <code>.py</code> runs on all three.</p>
+
+            <div class="callout callout-tip">
+                <div class="callout-title">You Already Met Some Linux</div>
+                <div class="callout-content"><p>NETLAB Lab 05 in Unit 2 had you run commands in both a Windows prompt and a Linux terminal. You have already used a Linux shell once, guided step by step. This unit names what you were doing.</p></div>
+            </div>
+
+            <h2>Your Week at a Glance</h2>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Day</th><th>Time</th><th>Focus</th><th>What You'll Do</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Tuesday</strong></td><td>10:00 AM &ndash; 1:00 PM</td><td>Experience</td><td>Ticket of the Day. Connect a Windows client to the network and watch what changes &mdash; before we name any of it.</td></tr>
+                        <tr><td><strong>Wednesday</strong></td><td>11:00 AM &ndash; 2:00 PM</td><td>Experience &rarr; Concepts</td><td>Ticket of the Day. Then we name it &mdash; Windows networking features, macOS features and tools, and Linux administration. Optional lab, time permitting: One System of Each Type.</td></tr>
+                        <tr><td><strong>Thursday</strong></td><td>10:00 AM &ndash; 1:00 PM</td><td>Application</td><td>Ticket of the Day. Linux commands and scripting basics applied. Optional lab, time permitting: Break the Address. Unit exit check.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="key-concept">
+                <h4>Halfway Point &mdash; Tell Me How This Is Going</h4>
+                <p>Unit 3 ends the first half of the course. Your Section 3.9 reflection carries one extra question about workload: whether the hours are landing where we planned, and where they are not.</p>
+                <p>Answer it honestly. Three units in is when a pace problem is still fixable &mdash; not in Unit 6, when there is nothing left to adjust. This course was built on a 19-to-20-hour estimate, and estimates are only as good as the feedback that corrects them.</p>
+            </div>
+
+            <h2>Work Outside of Class</h2>
+            <p>Budget <strong>19 to 21 hours</strong> this week outside our meetings. Unit 3 carries two NETLAB labs rather than three, which buys back the time the reading needs.</p>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Component</th><th>Time</th><th>Section</th></tr></thead>
+                    <tbody>
+                        <tr><td>Sybex Volume 2 reading (139 pgs.)</td><td>10 &ndash; 11 hrs</td><td>3.4</td></tr>
+                        <tr><td>Professor Messer videos (2 hr 26 min runtime)</td><td>2.5 &ndash; 3 hrs</td><td>3.5</td></tr>
+                        <tr><td>Take-home lab (ungraded)</td><td>1.0 &ndash; 1.5 hrs</td><td>3.6</td></tr>
+                        <tr><td>NETLAB online labs (2 labs)</td><td>1.5 &ndash; 2.5 hrs</td><td>3.8</td></tr>
+                        <tr><td>Practice questions and unit test</td><td>2.5 hrs</td><td>3.7, 3.10</td></tr>
+                        <tr><td>Reflection journal</td><td>1 hr</td><td>3.9</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">The Widest Reading of the Term</div>
+                <div class="callout-content"><p>This unit's 139 pages cover three operating systems and a fourth topic. No single chapter is long, but the material changes character twice. Read Chapter 3's networking section and Chapter 4 on separate days rather than in one sitting &mdash; Section 3.4 lays out a pacing plan that does this for you.</p></div>
+            </div>
+
+            <div class="callout callout-info">
+                <div class="callout-title">Where to Find Due Dates</div>
+                <div class="callout-content"><p>Every date and deadline for this course lives in one place: the <strong>Course Schedule</strong> in the Start Here module. Unit pages tell you what to do; the Course Schedule tells you when it is due.</p></div>
+            </div>
+
+            <h2>Exam Objectives Covered</h2>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Objective</th><th>Title</th><th>Exam Weight of Parent Domain</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>1.7</strong></td><td>Configure Microsoft Windows networking features on a client/desktop</td><td rowspan="3">Domain 1.0 Operating Systems &mdash; 28%</td></tr>
+                        <tr><td><strong>1.8</strong></td><td>Common features and tools of the macOS/desktop operating system</td></tr>
+                        <tr><td><strong>1.9</strong></td><td>Common features and tools of the Linux client/desktop operating system</td></tr>
+                        <tr><td><strong>4.8</strong></td><td>The basics of scripting</td><td>Domain 4.0 Operational Procedures &mdash; 21%</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>How This Unit Is Graded</h2>
+            <p>Three things are graded: the <strong>NETLAB labs (3.8)</strong>, the <strong>reflection (3.9)</strong>, and the <strong>unit test (3.10)</strong>. Each is worth <strong>100 points</strong>, awarded in full when it meets the completion standard on that item's page. Work that falls short is returned for revision and resubmitted for full credit &mdash; it is not partially scored.</p>
+            <p>Everything else in this unit is ungraded: the pre-assessment, your reading and video notes, the practice questions, and the labs. They are still expected, and they are where the learning actually happens &mdash; the graded items only measure it.</p>
+
+            <div class="key-concept">
+                <h4>Core 2 Passes at 700, Not 675</h4>
+                <p>Core 1 passed at 675 out of 900. <strong>Core 2 passes at 700.</strong> Because the scale starts at 100 rather than zero, 700 works out to about <strong>75% of raw points</strong> &mdash; not the roughly 72% you needed in Core 1.</p>
+                <p>That difference matters. A student who passed Core 1 comfortably at 73% would fail Core 2 with the same performance. Aim higher from day one.</p>
+            </div>
+
+            <div class="summary-box">
+                <h3>Unit 3 Checklist</h3>
+                <ul>
+                    <li>Complete the Section 3.2 Pre-Assessment on your own by the end of Tuesday, before the reading</li>
+                    <li>Read the assigned Sybex Volume 2 sections listed in Section 3.4</li>
+                    <li>Watch the twelve Professor Messer videos in Section 3.5</li>
+                    <li>Complete the take-home lab in Section 3.6</li>
+                    <li>Work the Section 3.7 practice set with confidence marking until you score 10 out of 10</li>
+                    <li>Complete NDG A+ v5 Labs 06 and 07 in NETLAB</li>
+                    <li>Submit your Section 3.9 reflection, including the workload check-in</li>
+                    <li>Take the Section 3.10 Unit Test</li>
+                    <li>Keep drilling the Section 1.A Acronym Test &mdash; this unit adds a lot of them</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <footer class="module-footer">
+            <p class="footer-text">CompTIA A+ Core 2 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Unit 3 &mdash; 3.6 Classroom Labs and Take-Home Lab | CompTIA A+ Core 2</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Sans+Pro:wght@400;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           CPCC COURSE TEMPLATE - GOLD / CHARCOAL / BLACK
+           CTS-ITS7501-80 CompTIA A+ Core 2 Training
+           Type: true black. Accents: gold. Chrome: charcoal.
+           ============================================ */
+
+        :root {
+            --primary-dark: #4A4A4A;       /* Charcoal - structural chrome only */
+            --primary-main: #B8962E;       /* Warm Gold - primary accent */
+            --primary-light: #D4AF56;      /* Light Gold */
+            --primary-pale: #FBF3DF;       /* Pale Gold wash */
+
+            --accent-teal: #8A6F1F;        /* Deep bronze-gold */
+            --accent-teal-light: #F3E9CE;  /* Pale bronze */
+            --accent-orange: #A9642A;      /* Warm rust */
+            --accent-orange-light: #F5E2CE;
+            --accent-purple: #6B5B3A;      /* Muted umber */
+            --accent-purple-light: #EFE6D2;
+            --accent-green: #4E7A51;
+            --accent-green-light: #DCEBDD;
+
+            --alert-warning: #B8862E;
+            --alert-warning-bg: #FBF0D9;
+            --alert-danger: #A13A3A;
+            --alert-danger-bg: #F6DEDE;
+            --alert-success: #3F6E42;
+            --alert-success-bg: #DCEBDD;
+            --alert-info: #6E5B2E;
+            --alert-info-bg: #F1E9D4;
+
+            --text-black: #000000;         /* All reading text */
+            --neutral-900: #000000;
+            --neutral-700: #000000;
+            --neutral-500: #5A5A5A;
+            --neutral-300: #D9D3C4;
+            --neutral-100: #FAF8F3;
+            --white: #ffffff;
+
+            --font-heading: 'Nunito', sans-serif;
+            --font-body: 'Source Sans Pro', sans-serif;
+            --font-code: 'Fira Code', monospace;
+
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+
+            --shadow-sm: 0 1px 2px rgba(74, 74, 74, 0.08);
+            --shadow-md: 0 4px 6px rgba(74, 74, 74, 0.12);
+            --shadow-lg: 0 10px 20px rgba(74, 74, 74, 0.15);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body), 'Segoe UI', Tahoma, Verdana, sans-serif;
+            font-size: 1.0625rem;
+            line-height: 1.7;
+            color: var(--text-black);
+            background: linear-gradient(135deg, var(--neutral-100) 0%, var(--white) 100%);
+            min-height: 100vh;
+            padding: var(--space-lg);
+        }
+
+        .course-container {
+            max-width: 950px; margin: 0 auto; background: var(--white);
+            border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); overflow: hidden;
+        }
+
+        .module-header {
+            background: var(--primary-main); color: var(--text-black);
+            padding: var(--space-lg) var(--space-xl); position: relative; overflow: hidden;
+        }
+        .module-label {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 0.875rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 2px; text-decoration: underline;
+            margin-bottom: var(--space-sm); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-title {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 2.25rem; font-weight: 800;
+            line-height: 1.2; margin-bottom: var(--space-md); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-subtitle { font-size: 1.125rem; max-width: 650px; position: relative; z-index: 1; color: var(--text-black); }
+
+        .toc {
+            display: flex; flex-direction: column; gap: var(--space-sm);
+            padding: var(--space-lg) var(--space-xl);
+            background: var(--primary-pale); border-bottom: 1px solid var(--neutral-300);
+        }
+        .toc-item {
+            width: 100%; text-align: left;
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 0.875rem;
+            color: var(--text-black); background: var(--white);
+            border: 2px solid var(--primary-main);
+            padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md);
+        }
+        .toc-item.current { background: var(--primary-main); }
+
+        .content-area { padding: var(--space-xl); }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif;
+            color: var(--text-black); line-height: 1.3; margin-bottom: var(--space-md);
+        }
+        h1 { font-size: 2rem; font-weight: 800; }
+        h2 { font-size: 1.625rem; font-weight: 700; padding-bottom: var(--space-sm);
+             border-bottom: 3px solid var(--primary-main); margin-top: var(--space-xl); margin-bottom: var(--space-lg); }
+        h3 { font-size: 1.375rem; font-weight: 700; margin-top: var(--space-lg);
+             padding-left: var(--space-sm); border-left: 4px solid var(--primary-main); }
+        h4 { font-size: 1.125rem; font-weight: 600; }
+
+        p { margin-bottom: var(--space-md); }
+        strong { font-weight: 700; color: var(--text-black); }
+        em { font-style: italic; color: var(--text-black); }
+
+        a { color: var(--text-black); text-decoration: none; border-bottom: 2px solid var(--primary-main); transition: all 0.2s ease; }
+        a:hover { background: var(--primary-pale); border-bottom-color: var(--accent-teal); }
+
+        ul, ol { margin-bottom: var(--space-md); padding-left: var(--space-lg); }
+        li { margin-bottom: var(--space-sm); }
+        ul li::marker { color: var(--accent-teal); }
+        ol li::marker { color: var(--accent-teal); font-weight: 700; }
+
+        .styled-list { list-style: none; padding-left: 0; }
+        .styled-list li { position: relative; padding-left: var(--space-lg); margin-bottom: var(--space-sm); }
+        .styled-list li::before { content: '\25B8'; position: absolute; left: 0; color: var(--accent-teal); font-weight: bold; }
+
+        .checklist { list-style: none; padding-left: 0; }
+        .checklist li { position: relative; padding-left: 2rem; margin-bottom: var(--space-sm); }
+        .checklist li::before {
+            content: '\2713'; position: absolute; left: 0; width: 1.5rem; height: 1.5rem;
+            background: var(--accent-green-light); color: var(--accent-green);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 0.75rem; font-weight: bold;
+        }
+
+        .objectives-box {
+            background: linear-gradient(135deg, var(--primary-pale) 0%, var(--accent-teal-light) 100%);
+            border-left: 5px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .objectives-box h3 { color: var(--text-black); margin-top: 0; margin-bottom: var(--space-md);
+            display: flex; align-items: center; gap: var(--space-sm); border-left: none; padding-left: 0; }
+        .objectives-box ol { margin-bottom: 0; }
+
+        .tech-box {
+            background: var(--neutral-100); border: 2px solid var(--neutral-500);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .tech-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .tech-box .callout-content { padding-left: 0; }
+
+        .plain-box {
+            background: var(--primary-pale); border: 2px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .plain-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .plain-box .callout-content { padding-left: 0; }
+
+        .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; position: relative; overflow: hidden; }
+        .callout::before { position: absolute; top: var(--space-md); left: var(--space-md); font-size: 1.5rem; }
+        .callout-title { font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 1rem;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
+        .callout-content { }
+        .callout-content p:last-child { margin-bottom: 0; }
+
+        .callout-tip { background: var(--accent-green-light); border-left: 4px solid var(--accent-green); }
+        .callout-warning { background: var(--alert-warning-bg); border-left: 4px solid var(--alert-warning); }
+        .callout-danger { background: var(--alert-danger-bg); border-left: 4px solid var(--alert-danger); }
+        .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
+
+        .key-concept {
+            background: linear-gradient(135deg, var(--accent-purple-light) 0%, var(--white) 100%);
+            border: 2px solid var(--accent-purple); border-radius: var(--radius-lg);
+            padding: var(--space-lg); margin: var(--space-xl) 0 var(--space-lg); position: relative;
+        }
+        .key-concept::before {
+            content: '\1F511 KEY CONCEPT'; position: absolute; top: -12px; left: var(--space-lg);
+            background: var(--accent-purple); color: var(--white); font-family: var(--font-heading), sans-serif;
+            font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-md); border-radius: var(--radius-sm);
+        }
+        .key-concept h4 { color: var(--text-black); margin-top: var(--space-sm); }
+
+        .definition { background: var(--neutral-100); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin: var(--space-md) 0; border-left: 4px solid var(--accent-orange); }
+        .definition-term { font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 1.125rem;
+            color: var(--text-black); margin-bottom: var(--space-xs); }
+        .definition-text { color: var(--text-black); margin-bottom: 0; }
+
+        code { font-family: var(--font-code), Consolas, monospace; font-size: 0.9rem; background: var(--primary-pale);
+            color: var(--text-black); padding: 2px 6px; border-radius: var(--radius-sm); }
+        pre { background: #2E2E2E; color: #f1ece0; padding: var(--space-lg); border-radius: var(--radius-md);
+            overflow-x: auto; margin: var(--space-lg) 0; position: relative; }
+        pre::before {
+            content: 'STEPS'; position: absolute; top: 0; right: 0; background: var(--primary-main); color: var(--text-black);
+            font-family: var(--font-heading), sans-serif; font-size: 0.625rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-sm); border-radius: 0 var(--radius-md) 0 var(--radius-sm);
+        }
+        pre code { background: transparent; color: inherit; padding: 0; font-size: 0.875rem; line-height: 1.6; }
+
+        .table-container { overflow-x: auto; margin: var(--space-lg) 0; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); }
+        table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
+        thead { background: var(--primary-dark); color: var(--white); }
+        th { font-family: var(--font-heading), sans-serif; font-weight: 700; text-align: left; padding: var(--space-md) var(--space-lg); color: var(--white); }
+        td { padding: var(--space-md) var(--space-lg); border-bottom: 1px solid var(--neutral-300); color: var(--text-black); }
+        tbody tr:hover { background: var(--primary-pale); }
+        tbody tr:last-child td { border-bottom: none; }
+
+        .activity-section {
+            background: linear-gradient(135deg, var(--accent-orange-light) 0%, var(--white) 100%);
+            border: 2px dashed var(--accent-orange); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .activity-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg); }
+        .activity-icon { width: 50px; height: 50px; background: var(--accent-orange); border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; }
+        .activity-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700;
+            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
+        .activity-subtitle { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
+
+        .lab-section {
+            background: linear-gradient(135deg, var(--accent-teal-light) 0%, var(--white) 100%);
+            border: 2px solid var(--accent-teal); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .lab-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg);
+            padding-bottom: var(--space-md); border-bottom: 2px solid var(--accent-teal); }
+        .lab-icon { width: 60px; height: 60px; background: var(--accent-teal); border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center; font-size: 1.75rem; flex-shrink: 0; }
+        .lab-title { font-family: var(--font-heading), sans-serif; font-size: 1.375rem; font-weight: 700;
+            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
+        .lab-time { font-size: 0.875rem; color: var(--neutral-500); margin: 0; display: flex; align-items: center; gap: var(--space-xs); }
+        .lab-time::before { content: '\23F1\FE0F'; }
+        .lab-steps { counter-reset: lab-step; list-style: none; padding-left: 0; }
+        .lab-steps li { counter-increment: lab-step; position: relative; padding-left: 3rem; margin-bottom: var(--space-lg); }
+        .lab-steps li::before {
+            content: counter(lab-step); position: absolute; left: 0; width: 2rem; height: 2rem;
+            background: var(--accent-teal); color: var(--white); font-family: var(--font-heading), sans-serif; font-weight: 700;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.875rem;
+        }
+
+        .assessment-section { background: var(--primary-pale); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0; }
+        .assessment-header { text-align: center; margin-bottom: var(--space-xl); }
+        .assessment-header h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .question-block { background: var(--white); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin-bottom: var(--space-lg); box-shadow: var(--shadow-sm); }
+        .question-number { font-family: var(--font-heading), sans-serif; font-size: 0.75rem; font-weight: 700;
+            color: var(--text-black); background: var(--primary-main); display: inline-block;
+            padding: 2px 10px; border-radius: var(--radius-sm);
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); }
+        .question-text { font-weight: 600; color: var(--text-black); margin-bottom: var(--space-md); }
+        details.answer { margin-top: var(--space-sm); }
+        details.answer summary { cursor: pointer; font-weight: 700; color: var(--text-black);
+            font-family: var(--font-heading), sans-serif; font-size: 0.875rem;
+            border-bottom: 2px solid var(--primary-main); display: inline-block; }
+        details.answer .reveal { margin-top: var(--space-sm); padding: var(--space-md);
+            background: var(--accent-green-light); border-radius: var(--radius-sm); color: var(--text-black); }
+
+        .references-section { background: var(--neutral-100); border-radius: var(--radius-lg);
+            padding: var(--space-lg) var(--space-xl); margin: var(--space-xl) 0; border-top: 3px solid var(--primary-main); }
+        .references-section h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .references-section ul { padding-left: var(--space-lg); }
+
+        .summary-box {
+            background: var(--primary-dark); color: var(--white);
+            border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .summary-box h3 { color: var(--white); margin-top: 0; display: flex; align-items: center;
+            gap: var(--space-sm); border-left: none; padding-left: 0; }
+        .summary-box h3::before { content: '\1F4CB'; }
+        .summary-box ul { margin-bottom: 0; }
+        .summary-box li { color: var(--white); }
+        .summary-box li::marker { color: var(--primary-light); }
+
+        .section-divider {
+            border: none; height: 6px; margin: var(--space-2xl) 0;
+            background: linear-gradient(90deg, transparent 0%, var(--primary-main) 15%, var(--primary-light) 50%, var(--primary-main) 85%, transparent 100%);
+            border-radius: var(--radius-sm); box-shadow: var(--shadow-sm);
+        }
+
+        .module-footer { background: var(--primary-dark); padding: var(--space-lg) var(--space-xl);
+            text-align: center; border-top: 4px solid var(--primary-main); }
+        .footer-text { font-size: 0.875rem; color: var(--white); margin: 0; }
+
+        .text-center { text-align: center; }
+        .text-muted { color: var(--neutral-500); }
+        .highlight { background: linear-gradient(180deg, transparent 50%, var(--primary-light) 50%); padding: 0 2px; }
+
+        @media (max-width: 768px) {
+            body { padding: var(--space-sm); }
+            .module-header { padding: var(--space-xl) var(--space-lg); }
+            .module-title { font-size: 1.75rem; }
+            .content-area { padding: var(--space-lg); }
+            h2 { font-size: 1.375rem; }
+            .lab-header, .activity-header { flex-direction: column; align-items: flex-start; }
+        }
+        @media print {
+            body { background: white; padding: 0; }
+            .course-container { box-shadow: none; }
+            .toc { display: none; }
+            details.answer { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="course-container">
+
+        <header class="module-header">
+            <div class="module-label">Unit 3 &middot; Networking Windows, macOS, and Linux &middot; Section 3.6</div>
+            <h1 class="module-title">Classroom Labs and Take-Home Lab</h1>
+            <p class="module-subtitle">CompTIA A+ Core 2 - Domains 1.0 and 4.0</p>
+        </header>
+
+                <nav class="toc" id="tocNav">
+            <div class="toc-header">Table of Contents</div>
+            <div class="toc-item">3.1 &mdash; Unit Overview and Schedule</div>
+            <div class="toc-item">3.2 &mdash; Unit Pre-Assessment</div>
+            <div class="toc-item">3.3 &mdash; Content Review</div>
+            <div class="toc-item">3.4 &mdash; Reading Assignment</div>
+            <div class="toc-item">3.5 &mdash; Video Assignment</div>
+            <div class="toc-item current" id="tocCurrent">3.6 &mdash; Classroom Labs and Take-Home Lab</div>
+            <div class="toc-item">3.7 &mdash; Practice Question Set</div>
+            <div class="toc-item">3.8 &mdash; Online Labs: NETLAB</div>
+            <div class="toc-item">3.9 &mdash; Reflection Activity</div>
+            <div class="toc-item">3.10 &mdash; Unit Test</div>
+        </nav>
+        <style>
+            /* Collapsible TOC: only the current section shows until clicked */
+            nav.toc#tocNav { gap: 0; }
+            nav.toc#tocNav .toc-item {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav .toc-item.current {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                cursor: pointer;
+            }
+            nav.toc#tocNav .toc-item.current::after {
+                content: ' \25BE Click to View';
+                font-size: 0.75em;
+            }
+            nav.toc#tocNav.toc-expanded .toc-item {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                margin-bottom: var(--space-sm);
+            }
+            nav.toc#tocNav.toc-expanded .toc-item.current::after { content: ' \25B4'; }
+
+            nav.toc#tocNav .toc-header {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                font-family: var(--font-heading), 'Segoe UI', sans-serif;
+                font-weight: 700;
+                font-size: 0.875rem;
+                text-align: left;
+                color: var(--text-black);
+                text-decoration: underline;
+                background: var(--primary-main);
+                border-radius: var(--radius-md);
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav.toc-expanded .toc-header {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                padding-left: var(--space-md);
+                border-width: 2px;
+                border-style: solid;
+                border-color: var(--primary-main);
+                margin-bottom: var(--space-sm);
+            }
+        </style>
+
+        <script>
+            (function () {
+                var toc = document.getElementById('tocNav');
+                var currentItem = document.getElementById('tocCurrent');
+
+                toc.addEventListener('click', function (e) {
+                    if (toc.classList.contains('toc-expanded')) {
+                        toc.classList.remove('toc-expanded');
+                    } else if (e.target === currentItem || currentItem.contains(e.target)) {
+                        toc.classList.add('toc-expanded');
+                    }
+                });
+
+                toc.addEventListener('mouseleave', function () {
+                    toc.classList.remove('toc-expanded');
+                });
+            })();
+        </script>
+
+        <div class="content-area">
+
+            <p class="text-muted">Every class opens with a Ticket of the Day. After that come two optional labs we run in class as time permits, and one take-home lab you do on your own machine. None of these is graded. All of them are where this unit's reading turns into something you can actually do.</p>
+
+            <div class="callout callout-info">
+                <div class="callout-title">The One Scenario Objective in This Unit</div>
+                <div class="callout-content"><p>Objective 1.7 is the only "Given a scenario" objective in Unit 3 &mdash; the others ask you to explain and identify. That makes the network labs the most exam-relevant hands-on work of the unit. Both the take-home lab and Break the Address are built on 1.7 for exactly that reason.</p></div>
+            </div>
+
+            <div class="lab-section">
+                <div class="lab-header">
+                    <div class="lab-icon">&#127915;</div>
+                    <div>
+                        <h3 class="lab-title">Ticket of the Day</h3>
+                        <p class="lab-time">Every class &middot; In class &middot; About 15 minutes &middot; Objectives 4.1, 4.7</p>
+                    </div>
+                </div>
+                <p>Your instructor assigns and discusses each ticket in class.</p>
+                <ul class="styled-list">
+                    <li><strong>Ticket of the Day 1</strong></li>
+                    <li><strong>Ticket of the Day 2</strong></li>
+                    <li><strong>Ticket of the Day 3</strong></li>
+                </ul>
+                <div class="callout callout-tip">
+                    <div class="callout-title">Write Down What You Ruled Out</div>
+                    <div class="callout-content"><p>Network problems are diagnosed by elimination, so your progress notes should record what you eliminated, not just what you found. "Pinged the gateway successfully; pinged 8.8.8.8 successfully; nslookup failed. Problem is name resolution, not connectivity." The next technician can pick that ticket up without repeating a single step.</p></div>
+                </div>
+            </div>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">Before You Change Any Setting</div>
+                <div class="callout-content">
+                    <ul class="checklist">
+                        <li>Record the current setting before you change it &mdash; a screenshot of <code>ipconfig /all</code> takes five seconds and saves an hour</li>
+                        <li>Change one thing at a time, then test. Two changes at once means you will not know which one worked</li>
+                        <li>Put the original setting back before you leave a lab machine</li>
+                        <li>On your own machine, everything in the take-home lab is read-only except one optional step, which is clearly marked</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="lab-section">
+                <div class="lab-header">
+                    <div class="lab-icon">&#128225;</div>
+                    <div>
+                        <h3 class="lab-title">Lab 3.6.1 &mdash; Break the Address</h3>
+                        <p class="lab-time">Thursday &middot; In class &middot; 45&ndash;60 minutes &middot; Objective 1.7</p>
+                    </div>
+                </div>
+                <p>You will work in pairs on a lab PC, and you are going to break the network on purpose. Every fault in this lab produces a symptom you will meet on a real ticket.</p>
+                <ol class="lab-steps">
+                    <li><strong>Record the working configuration.</strong> Run <code>ipconfig /all</code> and write down the address, subnet mask, default gateway, and DNS servers. You cannot restore what you did not record.</li>
+                    <li><strong>Watch a good machine work.</strong> Ping the default gateway, then ping an address outside the network, then run <code>nslookup</code> on a website name. All three should succeed. This is your baseline.</li>
+                    <li><strong>Break DNS.</strong> Change the DNS server to an address that does not answer. Test all three steps again. Record exactly which succeeded and which failed, and what the failure looked like on screen.</li>
+                    <li><strong>Break the gateway.</strong> Restore DNS, then set the default gateway to a wrong address. Test again and record the pattern.</li>
+                    <li><strong>Break the subnet mask.</strong> Restore the gateway, then change the mask. Test again and record the pattern.</li>
+                    <li><strong>Produce an APIPA address.</strong> Set the adapter to obtain an address automatically, then disconnect it from the network and run <code>ipconfig /release</code> and <code>ipconfig /renew</code>. Record the address Windows assigns itself.</li>
+                    <li><strong>Restore everything</strong> from your step 1 notes and confirm all three tests succeed again.</li>
+                </ol>
+                <div class="key-concept">
+                    <h4>Build the Symptom Table</h4>
+                    <p>By the end, you will have a table matching each broken setting to its symptom: names fail but addresses work; the local network works but nothing beyond it does; some local devices are reachable and some are not; an address starting 169.254 means nobody answered the DHCP request.</p>
+                    <p>That table is the answer to a whole family of exam questions, and you built it yourself rather than memorizing it. Keep it.</p>
+                </div>
+            </div>
+
+            <div class="lab-section">
+                <div class="lab-header">
+                    <div class="lab-icon">&#128187;</div>
+                    <div>
+                        <h3 class="lab-title">Lab 3.6.2 &mdash; One System of Each Type: Requirements Review</h3>
+                        <p class="lab-time">Wednesday &middot; In class &middot; 45 minutes &middot; Objectives 1.1, 1.8, 1.9, 1.10</p>
+                    </div>
+                </div>
+                <p>Working in small groups with internet access, each group takes one of the four workstation operating systems on the exam &mdash; <strong>Windows, macOS, Linux, and ChromeOS</strong> &mdash; and reports back to the class.</p>
+                <ol class="lab-steps">
+                    <li><strong>Find the published requirements</strong> for a current version of your assigned system, from the vendor's own documentation rather than a summary site.</li>
+                    <li><strong>Record the hardware requirements:</strong> CPU architecture, minimum RAM, minimum storage, and any firmware or TPM requirement.</li>
+                    <li><strong>Record the supported filesystems</strong> for that operating system.</li>
+                    <li><strong>Record the update and end-of-life policy:</strong> how long a version is supported, and what happens when support ends.</li>
+                    <li><strong>Report out.</strong> Each group presents its system in about three minutes. Take notes on the other three.</li>
+                </ol>
+                <div class="callout callout-tip">
+                    <div class="callout-title">Why This Lab Sits in Unit 3</div>
+                    <div class="callout-content"><p>You met these four systems in Unit 1 as a list to recognize. Now that you have read about macOS and Linux in depth, the same list becomes a comparison you can actually reason about &mdash; and vendor life-cycle limitations and end-of-life are named directly in objective 1.1. Meeting material twice, further apart, is how it stays learned.</p></div>
+                </div>
+            </div>
+
+            <div class="lab-section">
+                <div class="lab-header">
+                    <div class="lab-icon">&#128269;</div>
+                    <div>
+                        <h3 class="lab-title">Lab 3.6.3 &mdash; Take-Home: Where Does Your Traffic Go?</h3>
+                        <p class="lab-time">On your own &middot; 1&ndash;1.5 hours &middot; Ungraded &middot; Objectives 1.7, 1.8, 1.9</p>
+                    </div>
+                </div>
+                <p>In Unit 2 you documented what your machine was doing. This unit you follow what it is <em>saying</em> &mdash; where its traffic goes, what has to be configured correctly for it to arrive, and what breaks when one piece is wrong.</p>
+                <p><strong>Parts 1 through 3 are entirely read-only.</strong> Part 4 has one optional change, clearly marked, that you can undo in a click.</p>
+
+                <h4>Part 1 &mdash; What Is My Configuration? (about 20 minutes)</h4>
+                <ol class="lab-steps">
+                    <li><strong>Run <code>ipconfig /all</code></strong> and record, for your active adapter: the IP address, subnet mask, default gateway, DNS servers, MAC address, and whether DHCP is enabled.</li>
+                    <li><strong>Say what each one does</strong> in your own words &mdash; one sentence each, without looking at Section 3.3. Check yourself afterward.</li>
+                    <li><strong>Static or dynamic?</strong> Record whether your address came from DHCP or was typed in, and how the output told you.</li>
+                    <li><strong>Find the same information in the graphical interface.</strong> Open the adapter's properties and locate the same four settings. Record where they live, so you can reach them both ways.</li>
+                </ol>
+
+                <h4>Part 2 &mdash; Follow the Traffic (about 25 minutes)</h4>
+                <p>Run each test and record the result. All of these are safe and read-only.</p>
+                <ol class="lab-steps">
+                    <li><strong>Ping your own machine</strong> at <code>127.0.0.1</code>. This tests only that networking is working on the computer itself.</li>
+                    <li><strong>Ping your default gateway.</strong> This tests your local network &mdash; the cable or Wi-Fi, and the router.</li>
+                    <li><strong>Ping an outside address</strong> such as <code>8.8.8.8</code>. This tests the path beyond your router.</li>
+                    <li><strong>Run <code>nslookup</code> on a website name</strong> and record which server answered and what address came back. This tests name resolution.</li>
+                    <li><strong>Run <code>tracert</code> to a website</strong> and record how many hops it took and where the first noticeable delay appeared.</li>
+                    <li><strong>Answer in writing:</strong> if step 4 failed but steps 1 through 3 succeeded, what exactly is broken &mdash; and what would you check first?</li>
+                </ol>
+
+                <h4>Part 3 &mdash; Where Am I, and What Is Allowed? (about 20 minutes)</h4>
+                <ol class="lab-steps">
+                    <li><strong>Find your network profile.</strong> Is this connection set to public or private? Record which, and whether that is the correct setting for where the machine actually is.</li>
+                    <li><strong>Open your firewall's allowed-apps list</strong> and record three applications that are permitted to communicate, and on which profiles.</li>
+                    <li><strong>Check for a proxy.</strong> Record whether one is configured, and what it would mean if it were set incorrectly.</li>
+                    <li><strong>Check for a metered connection.</strong> Record whether your connection is marked metered, and what Windows changes when it is.</li>
+                    <li><strong>Check for mapped drives</strong> with <code>net use</code>. Record any you find, or note that there are none.</li>
+                </ol>
+
+                <h4>Part 4 &mdash; Write It Up</h4>
+                <p>One page, in the objective 4.1 ticket format: device information, what you were asked to determine, your progress notes, and a resolution. Your resolution answers one question in plain language: <strong>if this machine lost internet access tomorrow, what are the first three things you would check, in order, and why that order?</strong></p>
+                <p><em>Optional last step, and the only change in this lab:</em> if your connection is set to a profile that does not match where the machine is, correct it &mdash; and record why the setting you chose is the right one.</p>
+
+                <div class="callout callout-tip">
+                    <div class="callout-title">Three Rows for the Comparison Sheet</div>
+                    <div class="callout-content"><p>Finish by adding three rows to the command comparison sheet you started in Section 3.3: the Linux equivalent of <code>ipconfig</code>, of <code>nslookup</code>, and of <code>tracert</code>. Two minutes, and you have connected this unit's Windows work to its Linux objective.</p></div>
+                </div>
+
+                <div class="callout callout-info">
+                    <div class="callout-title">Bring It to Class</div>
+                    <div class="callout-content"><p>Bring your write-up to Thursday's session. Your Part 2 baseline is exactly what Break the Address asks you to establish before breaking anything, so the students who did this lab start that one already ahead.</p></div>
+                </div>
+            </div>
+
+            <div class="summary-box">
+                <h3>What These Labs Give You</h3>
+                <ul>
+                    <li>A symptom table you built yourself: which broken setting produces which failure</li>
+                    <li>A tested order for diagnosing any "no internet" ticket &mdash; loopback, gateway, outside address, then name resolution</li>
+                    <li>Your own machine's full network configuration, documented, with each setting explained in your own words</li>
+                    <li>A comparison of the four workstation operating systems on the exam, including their life-cycle limits</li>
+                    <li>Three more rows on your Windows-to-Linux command sheet</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <footer class="module-footer">
+            <p class="footer-text">CompTIA A+ Core 2 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
+        </footer>
+    </div>
+</body>
+</html>

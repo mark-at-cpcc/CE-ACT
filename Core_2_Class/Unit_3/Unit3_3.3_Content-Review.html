@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Unit 3 &mdash; 3.3 Content Review | CompTIA A+ Core 2</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Sans+Pro:wght@400;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           CPCC COURSE TEMPLATE - GOLD / CHARCOAL / BLACK
+           CTS-ITS7501-80 CompTIA A+ Core 2 Training
+           Type: true black. Accents: gold. Chrome: charcoal.
+           ============================================ */
+
+        :root {
+            --primary-dark: #4A4A4A;       /* Charcoal - structural chrome only */
+            --primary-main: #B8962E;       /* Warm Gold - primary accent */
+            --primary-light: #D4AF56;      /* Light Gold */
+            --primary-pale: #FBF3DF;       /* Pale Gold wash */
+
+            --accent-teal: #8A6F1F;        /* Deep bronze-gold */
+            --accent-teal-light: #F3E9CE;  /* Pale bronze */
+            --accent-orange: #A9642A;      /* Warm rust */
+            --accent-orange-light: #F5E2CE;
+            --accent-purple: #6B5B3A;      /* Muted umber */
+            --accent-purple-light: #EFE6D2;
+            --accent-green: #4E7A51;
+            --accent-green-light: #DCEBDD;
+
+            --alert-warning: #B8862E;
+            --alert-warning-bg: #FBF0D9;
+            --alert-danger: #A13A3A;
+            --alert-danger-bg: #F6DEDE;
+            --alert-success: #3F6E42;
+            --alert-success-bg: #DCEBDD;
+            --alert-info: #6E5B2E;
+            --alert-info-bg: #F1E9D4;
+
+            --text-black: #000000;         /* All reading text */
+            --neutral-900: #000000;
+            --neutral-700: #000000;
+            --neutral-500: #5A5A5A;
+            --neutral-300: #D9D3C4;
+            --neutral-100: #FAF8F3;
+            --white: #ffffff;
+
+            --font-heading: 'Nunito', sans-serif;
+            --font-body: 'Source Sans Pro', sans-serif;
+            --font-code: 'Fira Code', monospace;
+
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+
+            --shadow-sm: 0 1px 2px rgba(74, 74, 74, 0.08);
+            --shadow-md: 0 4px 6px rgba(74, 74, 74, 0.12);
+            --shadow-lg: 0 10px 20px rgba(74, 74, 74, 0.15);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body), 'Segoe UI', Tahoma, Verdana, sans-serif;
+            font-size: 1.0625rem;
+            line-height: 1.7;
+            color: var(--text-black);
+            background: linear-gradient(135deg, var(--neutral-100) 0%, var(--white) 100%);
+            min-height: 100vh;
+            padding: var(--space-lg);
+        }
+
+        .course-container {
+            max-width: 950px; margin: 0 auto; background: var(--white);
+            border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); overflow: hidden;
+        }
+
+        .module-header {
+            background: var(--primary-main); color: var(--text-black);
+            padding: var(--space-lg) var(--space-xl); position: relative; overflow: hidden;
+        }
+        .module-label {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 0.875rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 2px; text-decoration: underline;
+            margin-bottom: var(--space-sm); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-title {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 2.25rem; font-weight: 800;
+            line-height: 1.2; margin-bottom: var(--space-md); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-subtitle { font-size: 1.125rem; max-width: 650px; position: relative; z-index: 1; color: var(--text-black); }
+
+        .toc {
+            display: flex; flex-direction: column; gap: var(--space-sm);
+            padding: var(--space-lg) var(--space-xl);
+            background: var(--primary-pale); border-bottom: 1px solid var(--neutral-300);
+        }
+        .toc-item {
+            width: 100%; text-align: left;
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 0.875rem;
+            color: var(--text-black); background: var(--white);
+            border: 2px solid var(--primary-main);
+            padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md);
+        }
+        .toc-item.current { background: var(--primary-main); }
+
+        .content-area { padding: var(--space-xl); }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif;
+            color: var(--text-black); line-height: 1.3; margin-bottom: var(--space-md);
+        }
+        h1 { font-size: 2rem; font-weight: 800; }
+        h2 { font-size: 1.625rem; font-weight: 700; padding-bottom: var(--space-sm);
+             border-bottom: 3px solid var(--primary-main); margin-top: var(--space-xl); margin-bottom: var(--space-lg); }
+        h3 { font-size: 1.375rem; font-weight: 700; margin-top: var(--space-lg);
+             padding-left: var(--space-sm); border-left: 4px solid var(--primary-main); }
+        h4 { font-size: 1.125rem; font-weight: 600; }
+
+        p { margin-bottom: var(--space-md); }
+        strong { font-weight: 700; color: var(--text-black); }
+        em { font-style: italic; color: var(--text-black); }
+
+        a { color: var(--text-black); text-decoration: none; border-bottom: 2px solid var(--primary-main); transition: all 0.2s ease; }
+        a:hover { background: var(--primary-pale); border-bottom-color: var(--accent-teal); }
+
+        ul, ol { margin-bottom: var(--space-md); padding-left: var(--space-lg); }
+        li { margin-bottom: var(--space-sm); }
+        ul li::marker { color: var(--accent-teal); }
+        ol li::marker { color: var(--accent-teal); font-weight: 700; }
+
+        .styled-list { list-style: none; padding-left: 0; }
+        .styled-list li { position: relative; padding-left: var(--space-lg); margin-bottom: var(--space-sm); }
+        .styled-list li::before { content: '\25B8'; position: absolute; left: 0; color: var(--accent-teal); font-weight: bold; }
+
+        .checklist { list-style: none; padding-left: 0; }
+        .checklist li { position: relative; padding-left: 2rem; margin-bottom: var(--space-sm); }
+        .checklist li::before {
+            content: '\2713'; position: absolute; left: 0; width: 1.5rem; height: 1.5rem;
+            background: var(--accent-green-light); color: var(--accent-green);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 0.75rem; font-weight: bold;
+        }
+
+        .objectives-box {
+            background: linear-gradient(135deg, var(--primary-pale) 0%, var(--accent-teal-light) 100%);
+            border-left: 5px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .objectives-box h3 { color: var(--text-black); margin-top: 0; margin-bottom: var(--space-md);
+            display: flex; align-items: center; gap: var(--space-sm); border-left: none; padding-left: 0; }
+        .objectives-box ol { margin-bottom: 0; }
+
+        .tech-box {
+            background: var(--neutral-100); border: 2px solid var(--neutral-500);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .tech-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .tech-box .callout-content { padding-left: 0; }
+
+        .plain-box {
+            background: var(--primary-pale); border: 2px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .plain-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .plain-box .callout-content { padding-left: 0; }
+
+        .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; position: relative; overflow: hidden; }
+        .callout::before { position: absolute; top: var(--space-md); left: var(--space-md); font-size: 1.5rem; }
+        .callout-title { font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 1rem;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
+        .callout-content { }
+        .callout-content p:last-child { margin-bottom: 0; }
+
+        .callout-tip { background: var(--accent-green-light); border-left: 4px solid var(--accent-green); }
+        .callout-warning { background: var(--alert-warning-bg); border-left: 4px solid var(--alert-warning); }
+        .callout-danger { background: var(--alert-danger-bg); border-left: 4px solid var(--alert-danger); }
+        .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
+
+        .key-concept {
+            background: linear-gradient(135deg, var(--accent-purple-light) 0%, var(--white) 100%);
+            border: 2px solid var(--accent-purple); border-radius: var(--radius-lg);
+            padding: var(--space-lg); margin: var(--space-xl) 0 var(--space-lg); position: relative;
+        }
+        .key-concept::before {
+            content: '\1F511 KEY CONCEPT'; position: absolute; top: -12px; left: var(--space-lg);
+            background: var(--accent-purple); color: var(--white); font-family: var(--font-heading), sans-serif;
+            font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-md); border-radius: var(--radius-sm);
+        }
+        .key-concept h4 { color: var(--text-black); margin-top: var(--space-sm); }
+
+        .definition { background: var(--neutral-100); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin: var(--space-md) 0; border-left: 4px solid var(--accent-orange); }
+        .definition-term { font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 1.125rem;
+            color: var(--text-black); margin-bottom: var(--space-xs); }
+        .definition-text { color: var(--text-black); margin-bottom: 0; }
+
+        code { font-family: var(--font-code), Consolas, monospace; font-size: 0.9rem; background: var(--primary-pale);
+            color: var(--text-black); padding: 2px 6px; border-radius: var(--radius-sm); }
+        pre { background: #2E2E2E; color: #f1ece0; padding: var(--space-lg); border-radius: var(--radius-md);
+            overflow-x: auto; margin: var(--space-lg) 0; position: relative; }
+        pre::before {
+            content: 'STEPS'; position: absolute; top: 0; right: 0; background: var(--primary-main); color: var(--text-black);
+            font-family: var(--font-heading), sans-serif; font-size: 0.625rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-sm); border-radius: 0 var(--radius-md) 0 var(--radius-sm);
+        }
+        pre code { background: transparent; color: inherit; padding: 0; font-size: 0.875rem; line-height: 1.6; }
+
+        .table-container { overflow-x: auto; margin: var(--space-lg) 0; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); }
+        table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
+        thead { background: var(--primary-dark); color: var(--white); }
+        th { font-family: var(--font-heading), sans-serif; font-weight: 700; text-align: left; padding: var(--space-md) var(--space-lg); color: var(--white); }
+        td { padding: var(--space-md) var(--space-lg); border-bottom: 1px solid var(--neutral-300); color: var(--text-black); }
+        tbody tr:hover { background: var(--primary-pale); }
+        tbody tr:last-child td { border-bottom: none; }
+
+        .activity-section {
+            background: linear-gradient(135deg, var(--accent-orange-light) 0%, var(--white) 100%);
+            border: 2px dashed var(--accent-orange); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .activity-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg); }
+        .activity-icon { width: 50px; height: 50px; background: var(--accent-orange); border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; }
+        .activity-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700;
+            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
+        .activity-subtitle { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
+
+        .lab-section {
+            background: linear-gradient(135deg, var(--accent-teal-light) 0%, var(--white) 100%);
+            border: 2px solid var(--accent-teal); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .lab-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg);
+            padding-bottom: var(--space-md); border-bottom: 2px solid var(--accent-teal); }
+        .lab-icon { width: 60px; height: 60px; background: var(--accent-teal); border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center; font-size: 1.75rem; flex-shrink: 0; }
+        .lab-title { font-family: var(--font-heading), sans-serif; font-size: 1.375rem; font-weight: 700;
+            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
+        .lab-time { font-size: 0.875rem; color: var(--neutral-500); margin: 0; display: flex; align-items: center; gap: var(--space-xs); }
+        .lab-time::before { content: '\23F1\FE0F'; }
+        .lab-steps { counter-reset: lab-step; list-style: none; padding-left: 0; }
+        .lab-steps li { counter-increment: lab-step; position: relative; padding-left: 3rem; margin-bottom: var(--space-lg); }
+        .lab-steps li::before {
+            content: counter(lab-step); position: absolute; left: 0; width: 2rem; height: 2rem;
+            background: var(--accent-teal); color: var(--white); font-family: var(--font-heading), sans-serif; font-weight: 700;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.875rem;
+        }
+
+        .assessment-section { background: var(--primary-pale); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0; }
+        .assessment-header { text-align: center; margin-bottom: var(--space-xl); }
+        .assessment-header h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .question-block { background: var(--white); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin-bottom: var(--space-lg); box-shadow: var(--shadow-sm); }
+        .question-number { font-family: var(--font-heading), sans-serif; font-size: 0.75rem; font-weight: 700;
+            color: var(--text-black); background: var(--primary-main); display: inline-block;
+            padding: 2px 10px; border-radius: var(--radius-sm);
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); }
+        .question-text { font-weight: 600; color: var(--text-black); margin-bottom: var(--space-md); }
+        details.answer { margin-top: var(--space-sm); }
+        details.answer summary { cursor: pointer; font-weight: 700; color: var(--text-black);
+            font-family: var(--font-heading), sans-serif; font-size: 0.875rem;
+            border-bottom: 2px solid var(--primary-main); display: inline-block; }
+        details.answer .reveal { margin-top: var(--space-sm); padding: var(--space-md);
+            background: var(--accent-green-light); border-radius: var(--radius-sm); color: var(--text-black); }
+
+        .references-section { background: var(--neutral-100); border-radius: var(--radius-lg);
+            padding: var(--space-lg) var(--space-xl); margin: var(--space-xl) 0; border-top: 3px solid var(--primary-main); }
+        .references-section h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .references-section ul { padding-left: var(--space-lg); }
+
+        .summary-box {
+            background: var(--primary-dark); color: var(--white);
+            border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .summary-box h3 { color: var(--white); margin-top: 0; display: flex; align-items: center;
+            gap: var(--space-sm); border-left: none; padding-left: 0; }
+        .summary-box h3::before { content: '\1F4CB'; }
+        .summary-box ul { margin-bottom: 0; }
+        .summary-box li { color: var(--white); }
+        .summary-box li::marker { color: var(--primary-light); }
+
+        .section-divider {
+            border: none; height: 6px; margin: var(--space-2xl) 0;
+            background: linear-gradient(90deg, transparent 0%, var(--primary-main) 15%, var(--primary-light) 50%, var(--primary-main) 85%, transparent 100%);
+            border-radius: var(--radius-sm); box-shadow: var(--shadow-sm);
+        }
+
+        .module-footer { background: var(--primary-dark); padding: var(--space-lg) var(--space-xl);
+            text-align: center; border-top: 4px solid var(--primary-main); }
+        .footer-text { font-size: 0.875rem; color: var(--white); margin: 0; }
+
+        .text-center { text-align: center; }
+        .text-muted { color: var(--neutral-500); }
+        .highlight { background: linear-gradient(180deg, transparent 50%, var(--primary-light) 50%); padding: 0 2px; }
+
+        @media (max-width: 768px) {
+            body { padding: var(--space-sm); }
+            .module-header { padding: var(--space-xl) var(--space-lg); }
+            .module-title { font-size: 1.75rem; }
+            .content-area { padding: var(--space-lg); }
+            h2 { font-size: 1.375rem; }
+            .lab-header, .activity-header { flex-direction: column; align-items: flex-start; }
+        }
+        @media print {
+            body { background: white; padding: 0; }
+            .course-container { box-shadow: none; }
+            .toc { display: none; }
+            details.answer { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="course-container">
+
+        <header class="module-header">
+            <div class="module-label">Unit 3 &middot; Networking Windows, macOS, and Linux &middot; Section 3.3</div>
+            <h1 class="module-title">Content Review</h1>
+            <p class="module-subtitle">CompTIA A+ Core 2 - Domains 1.0 and 4.0</p>
+        </header>
+
+                <nav class="toc" id="tocNav">
+            <div class="toc-header">Table of Contents</div>
+            <div class="toc-item">3.1 &mdash; Unit Overview and Schedule</div>
+            <div class="toc-item">3.2 &mdash; Unit Pre-Assessment</div>
+            <div class="toc-item current" id="tocCurrent">3.3 &mdash; Content Review</div>
+            <div class="toc-item">3.4 &mdash; Reading Assignment</div>
+            <div class="toc-item">3.5 &mdash; Video Assignment</div>
+            <div class="toc-item">3.6 &mdash; Classroom Labs and Take-Home Lab</div>
+            <div class="toc-item">3.7 &mdash; Practice Question Set</div>
+            <div class="toc-item">3.8 &mdash; Online Labs: NETLAB</div>
+            <div class="toc-item">3.9 &mdash; Reflection Activity</div>
+            <div class="toc-item">3.10 &mdash; Unit Test</div>
+        </nav>
+        <style>
+            /* Collapsible TOC: only the current section shows until clicked */
+            nav.toc#tocNav { gap: 0; }
+            nav.toc#tocNav .toc-item {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav .toc-item.current {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                cursor: pointer;
+            }
+            nav.toc#tocNav .toc-item.current::after {
+                content: ' \25BE Click to View';
+                font-size: 0.75em;
+            }
+            nav.toc#tocNav.toc-expanded .toc-item {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                margin-bottom: var(--space-sm);
+            }
+            nav.toc#tocNav.toc-expanded .toc-item.current::after { content: ' \25B4'; }
+
+            nav.toc#tocNav .toc-header {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                font-family: var(--font-heading), 'Segoe UI', sans-serif;
+                font-weight: 700;
+                font-size: 0.875rem;
+                text-align: left;
+                color: var(--text-black);
+                text-decoration: underline;
+                background: var(--primary-main);
+                border-radius: var(--radius-md);
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav.toc-expanded .toc-header {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                padding-left: var(--space-md);
+                border-width: 2px;
+                border-style: solid;
+                border-color: var(--primary-main);
+                margin-bottom: var(--space-sm);
+            }
+        </style>
+
+        <script>
+            (function () {
+                var toc = document.getElementById('tocNav');
+                var currentItem = document.getElementById('tocCurrent');
+
+                toc.addEventListener('click', function (e) {
+                    if (toc.classList.contains('toc-expanded')) {
+                        toc.classList.remove('toc-expanded');
+                    } else if (e.target === currentItem || currentItem.contains(e.target)) {
+                        toc.classList.add('toc-expanded');
+                    }
+                });
+
+                toc.addEventListener('mouseleave', function () {
+                    toc.classList.remove('toc-expanded');
+                });
+            })();
+        </script>
+
+        <div class="content-area">
+
+            <p class="text-muted">This is the core reference for Unit 3. Read it before Wednesday's session, and come back to it when the textbook feels dense.</p>
+
+            <div class="callout callout-info">
+                <div class="callout-title">How to Use This Page</div>
+                <div class="callout-content"><p>This review covers the same ground as your Sybex reading, but shorter and in plain language. It does not replace the reading &mdash; the exam draws on detail this page does not carry. Use it to build the mental map first, then read the chapters to fill it in. The command comparison sheet near the end is worth printing.</p></div>
+            </div>
+
+            <h2>Part 1 &mdash; Windows on a Network (Objective 1.7)</h2>
+
+            <p>A computer that cannot reach the network cannot do its job. Objective 1.7 is about four things: <strong>where the computer's account lives</strong>, <strong>what address it uses</strong>, <strong>how it connects</strong>, and <strong>what its firewall allows</strong>.</p>
+
+            <h3>Domain or Workgroup</h3>
+            <div class="definition">
+                <div class="definition-term">Workgroup</div>
+                <p class="definition-text">A peer-to-peer arrangement. Every computer keeps its own list of user accounts, and sharing is arranged machine by machine. Fine for a handful of computers; unmanageable beyond that.</p>
+            </div>
+            <div class="definition">
+                <div class="definition-term">Domain</div>
+                <p class="definition-text">A centrally managed network. Accounts, permissions, and policy live on a server, and a user signs in to the domain rather than to one computer. Windows Home editions cannot join a domain.</p>
+            </div>
+
+            <p>The difference shows up in the resources people actually use:</p>
+            <ul class="styled-list">
+                <li><strong>Shared resources</strong> &mdash; folders and devices made available to other users on the network</li>
+                <li><strong>Printers</strong> &mdash; installed once on a print server and offered to everyone, rather than added machine by machine</li>
+                <li><strong>File servers</strong> &mdash; central storage for departmental files, backed up on a schedule</li>
+                <li><strong>Mapped drives</strong> &mdash; a drive letter that points to a folder on a server, so S: means the same thing on every computer</li>
+            </ul>
+
+            <div class="callout callout-tip">
+                <div class="callout-title">Connect It to Unit 1</div>
+                <div class="callout-content"><p>This is why Windows editions mattered. A Home edition cannot join a domain, which means it cannot receive Group Policy, cannot use a domain account, and cannot be managed centrally. The dental office in Section 1.3 that bought Home laptops ran into exactly this.</p></div>
+            </div>
+
+            <h3>Network Paths in File Explorer</h3>
+            <p>Shared resources are reached by a network path in the form <code>\\servername\sharename</code>. Typing that path into File Explorer's address bar opens the share directly, which is often faster than hunting through Network. The same path is what <code>net use</code> maps to a drive letter.</p>
+
+            <h3>Client Network Configuration</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Setting</th><th>What It Does</th><th>Symptom When It Is Wrong</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>IP address</strong></td><td>Identifies this computer on the network</td><td>No connectivity, or an address conflict message</td></tr>
+                        <tr><td><strong>Subnet mask</strong></td><td>Tells the computer which addresses are on its own local network</td><td>Local devices reachable but remote ones are not, or the reverse</td></tr>
+                        <tr><td><strong>Default gateway</strong></td><td>The router traffic is sent to when the destination is elsewhere</td><td>Local network works; nothing beyond it does</td></tr>
+                        <tr><td><strong>DNS</strong></td><td>Translates names into addresses</td><td>Sites fail by name but work by IP address</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="key-concept">
+                <h4>Static or Dynamic</h4>
+                <p><strong>Dynamic</strong> addressing lets a DHCP server hand out the address automatically. This is the default and the right answer for nearly every workstation, because nothing has to be tracked by hand.</p>
+                <p><strong>Static</strong> addressing means a technician types the address in. Use it when something must always be found at the same address &mdash; a network printer, a server, or a device other computers are configured to reach.</p>
+                <p><strong>The symptom that gives it away:</strong> a computer with an address starting <strong>169.254</strong> assigned itself an APIPA address because it asked for a DHCP address and got no answer. That is not a "bad IP address" problem; it is a "cannot reach the DHCP server" problem, and the cable, the switch port, or the DHCP service is where you look.</p>
+            </div>
+
+            <h3>Establishing Connections</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Connection</th><th>What It Is</th><th>Where You Meet It</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Wired</strong></td><td>An Ethernet cable to a switch or wall jack</td><td>Desktops and docking stations; the most reliable option</td></tr>
+                        <tr><td><strong>Wireless</strong></td><td>Wi-Fi to an access point</td><td>Laptops and mobile devices</td></tr>
+                        <tr><td><strong>VPN</strong></td><td>An encrypted tunnel across the public internet into the private network</td><td>Remote workers reaching internal file servers</td></tr>
+                        <tr><td><strong>WWAN / cellular</strong></td><td>A connection through a mobile carrier, built into the device or shared from a phone</td><td>Field technicians and travel; usually metered</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Public and Private Network Profiles</h3>
+            <p>When Windows joins a network it asks whether the network is public or private, and the answer changes the firewall rules. On a <strong>private</strong> network, discovery and file sharing are allowed, because you trust the other machines. On a <strong>public</strong> network &mdash; an airport, a hotel, a coffee shop &mdash; the computer hides itself and blocks sharing.</p>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">A Real Example You Will Meet on the Job</div>
+                <div class="callout-content"><p>A user cannot see the shared folder on a colleague's laptop in the same office, and both machines have internet access. Check the network profile before anything else. If one laptop joined the office Wi-Fi as Public, Windows is blocking discovery and sharing exactly as designed. Switching that connection to Private fixes it in seconds &mdash; and switching a coffee-shop connection to Private is the mistake that exposes the machine later.</p></div>
+            </div>
+
+            <h3>Local Firewall Settings</h3>
+            <p>The local OS firewall decides which traffic is allowed in and out of this computer. Two ideas carry the objective:</p>
+            <ul class="styled-list">
+                <li><strong>Application restrictions and exceptions</strong> &mdash; allowing a specific program to communicate, rather than opening a port to everything. This is the usual fix when a line-of-business application cannot reach its server.</li>
+                <li><strong>Configuration</strong> &mdash; rules are set per profile, so a rule that applies on a private network may not apply on a public one. A "it works at the office but not at home" complaint often ends here.</li>
+            </ul>
+
+            <h3>Proxy Settings and Metered Connections</h3>
+            <p>A <strong>proxy</strong> sits between the computer and the internet, forwarding and often filtering web requests. Many organizations require one, and a wrong proxy setting produces a machine that reaches internal resources but not the web &mdash; or the reverse.</p>
+            <p>A <strong>metered connection</strong> tells Windows that data costs money. Windows then limits background activity such as large updates and sync. Set it on a cellular hotspot; forget it is set, and you have a machine that mysteriously stops receiving updates.</p>
+
+            <div class="key-concept">
+                <h4>Your Unit 2 Commands Are the Diagnosis</h4>
+                <p>Everything above is diagnosed with commands you already know. <code>ipconfig /all</code> shows the address, mask, gateway, and DNS in one screen &mdash; and reveals a 169.254 address immediately. <code>ping</code> the gateway to test the local network, then ping an outside address to test beyond it. <code>nslookup</code> tests name resolution when addresses work and names do not. <code>net use</code> shows mapped drives. Unit 2's commands are Unit 3's troubleshooting method.</p>
+            </div>
+
+            <h2>Part 2 &mdash; macOS (Objective 1.8)</h2>
+
+            <p>You do not need to become a Mac expert. You need to do on a Mac the same things you already do on Windows: install and remove software, find a setting, back it up, encrypt it, and rescue it when something hangs.</p>
+
+            <div class="plain-box">
+                <div class="callout-title">In Plain Terms</div>
+                <div class="callout-content"><p>Every task in this section has a Windows twin you already know. System Preferences is Control Panel. Finder is File Explorer. Terminal is Command Prompt. Disk Utility is Disk Management. Time Machine is a backup job. Force Quit is End task. Learn the pairs, not the platform.</p></div>
+            </div>
+
+            <h3>Installing and Uninstalling Applications</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>File Type</th><th>What It Is</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>.dmg</code></td><td>A disk image. Double-clicking mounts it like a drive; you then drag the application into the Applications folder.</td></tr>
+                        <tr><td><code>.pkg</code></td><td>An installer package that runs a guided installation, closer to a Windows setup program.</td></tr>
+                        <tr><td><code>.app</code></td><td>The application itself. On macOS an application is a bundle that looks like a single file.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>The <strong>App Store</strong> is the managed alternative: software is installed and updated through Apple's store with no file to download by hand. <strong>Uninstalling</strong> is usually just dragging the application from Applications to the Trash &mdash; there is no Programs and Features equivalent for most software, though some suites ship their own uninstaller.</p>
+
+            <h3>System Folders</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Folder</th><th>What Lives There</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>/Applications</code></td><td>Installed applications, available to every user</td></tr>
+                        <tr><td><code>/Users</code></td><td>The home folder for each user account</td></tr>
+                        <tr><td><code>/Library</code></td><td>Support files, preferences, and components shared across the system</td></tr>
+                        <tr><td><code>/System</code></td><td>The operating system itself. Protected; not a place to make changes.</td></tr>
+                        <tr><td><code>/Users/Library</code></td><td>The same kind of support files, but for one user only. Hidden by default.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>System Preferences</h3>
+            <p>System Preferences is where macOS settings live. The exam names <strong>Displays</strong>, <strong>Networks</strong>, <strong>Printers</strong>, <strong>Scanners</strong>, <strong>Privacy</strong>, <strong>Accessibility</strong>, and <strong>Time Machine</strong>. Apple renamed this System Settings in recent macOS versions; both names refer to the same place, and the exam uses System Preferences.</p>
+
+            <h3>Features</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Feature</th><th>What It Does</th><th>Windows Cousin</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Multiple desktops</strong></td><td>Separate workspaces for different sets of windows</td><td>Virtual desktops</td></tr>
+                        <tr><td><strong>Mission Control</strong></td><td>Shows every open window and desktop at once</td><td>Task View</td></tr>
+                        <tr><td><strong>Keychain</strong></td><td>Stores passwords and certificates securely</td><td>Credential Manager</td></tr>
+                        <tr><td><strong>Spotlight</strong></td><td>System-wide search for files, applications, and settings</td><td>Windows Search</td></tr>
+                        <tr><td><strong>iCloud</strong></td><td>Apple's cloud service, including iMessage, FaceTime, and Drive</td><td>OneDrive and its companions</td></tr>
+                        <tr><td><strong>Gestures</strong></td><td>Trackpad movements that switch desktops, show Mission Control, and more</td><td>Precision touchpad gestures</td></tr>
+                        <tr><td><strong>Finder</strong></td><td>The file manager</td><td>File Explorer</td></tr>
+                        <tr><td><strong>Dock</strong></td><td>The bar of applications and running programs</td><td>Taskbar</td></tr>
+                        <tr><td><strong>Continuity</strong></td><td>Moving work between a Mac, iPhone, and iPad</td><td>Phone Link and similar</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Tools and Best Practices</h3>
+            <ul class="styled-list">
+                <li><strong>Disk Utility</strong> &mdash; erase, format, partition, and repair disks. The Disk Management of macOS.</li>
+                <li><strong>FileVault</strong> &mdash; full-disk encryption. The BitLocker of macOS, and it will come back in Unit 5.</li>
+                <li><strong>Terminal</strong> &mdash; the command line. It is a Unix shell, so the Linux commands in Part 3 largely work here too.</li>
+                <li><strong>Force Quit</strong> &mdash; closes an application that has stopped responding.</li>
+                <li><strong>Apple ID and corporate restrictions</strong> &mdash; an Apple ID ties a Mac to a person's purchases and iCloud. In a managed environment, organizations restrict what a personal Apple ID may do on a company machine.</li>
+                <li><strong>Best practices</strong> &mdash; <strong>backups</strong> (Time Machine), <strong>antivirus</strong>, <strong>updates and patches</strong>, and <strong>Rapid Security Response</strong>, Apple's mechanism for pushing urgent security fixes without a full OS update.</li>
+            </ul>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">A Real Example You Will Meet on the Job</div>
+                <div class="callout-content"><p>A designer's Mac is running slowly and an application has frozen. You open <strong>Force Quit</strong> to close the frozen application, then <strong>Activity Monitor</strong> &mdash; the Task Manager of macOS &mdash; to see what is consuming the processor. If the drive is nearly full, <strong>Disk Utility</strong> confirms capacity. Three tools, all with a Windows twin you learned in Unit 2.</p></div>
+            </div>
+
+            <h2>Part 3 &mdash; Linux (Objective 1.9)</h2>
+
+            <p>Linux is where the exam expects you to recognize commands rather than administer servers. Group them by job and they stop being a list to memorize.</p>
+
+            <h3>File Management</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Command</th><th>What It Does</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>ls</code></td><td>Lists the contents of a directory</td></tr>
+                        <tr><td><code>pwd</code></td><td>Prints the working directory &mdash; where you are right now</td></tr>
+                        <tr><td><code>mv</code></td><td>Moves or renames a file</td></tr>
+                        <tr><td><code>cp</code></td><td>Copies a file</td></tr>
+                        <tr><td><code>rm</code></td><td>Removes a file. There is no Recycle Bin.</td></tr>
+                        <tr><td><code>chmod</code></td><td>Changes a file's permissions</td></tr>
+                        <tr><td><code>chown</code></td><td>Changes a file's owner</td></tr>
+                        <tr><td><code>grep</code></td><td>Searches for text inside files</td></tr>
+                        <tr><td><code>find</code></td><td>Searches for files by name, size, date, or other criteria</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Filesystem, Administration, and Packages</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Command</th><th>What It Does</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>fsck</code></td><td>Checks and repairs a filesystem &mdash; the chkdsk of Linux</td></tr>
+                        <tr><td><code>mount</code></td><td>Attaches a filesystem so its contents can be used</td></tr>
+                        <tr><td><code>su</code></td><td>Switches to another user, typically the root account</td></tr>
+                        <tr><td><code>sudo</code></td><td>Runs one command with administrative privileges. The everyday choice.</td></tr>
+                        <tr><td><code>apt</code></td><td>Installs, updates, and removes software on Debian-based distributions</td></tr>
+                        <tr><td><code>dnf</code></td><td>Does the same on Red Hat-based distributions</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Network and Informational</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Command</th><th>What It Does</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>ip</code></td><td>Shows and configures addresses and interfaces</td></tr>
+                        <tr><td><code>ping</code></td><td>Tests whether another host responds &mdash; the same command you already use</td></tr>
+                        <tr><td><code>curl</code></td><td>Transfers data to or from a URL; commonly used to test whether a web service answers</td></tr>
+                        <tr><td><code>dig</code></td><td>Queries DNS &mdash; the nslookup of Linux</td></tr>
+                        <tr><td><code>traceroute</code></td><td>Lists the routers along a path &mdash; the tracert of Linux</td></tr>
+                        <tr><td><code>man</code></td><td>Opens a command's manual page. The <code>/?</code> of Linux.</td></tr>
+                        <tr><td><code>cat</code></td><td>Displays the contents of a file</td></tr>
+                        <tr><td><code>top</code></td><td>Shows running processes and resource use, updating live &mdash; the Task Manager of Linux</td></tr>
+                        <tr><td><code>ps</code></td><td>Lists running processes as a snapshot</td></tr>
+                        <tr><td><code>du</code></td><td>Reports how much space files and directories are using</td></tr>
+                        <tr><td><code>df</code></td><td>Reports free space on each filesystem</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Editors, Configuration Files, and Components</h3>
+            <p><strong><code>nano</code></strong> is the text editor the exam names. Linux configuration lives in plain text files, which is the single biggest difference from Windows: where Windows has a registry, Linux has files you can read with <code>cat</code> and edit with <code>nano</code>.</p>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>File</th><th>What It Holds</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>/etc/passwd</code></td><td>The local user accounts</td></tr>
+                        <tr><td><code>/etc/shadow</code></td><td>The encrypted passwords for those accounts</td></tr>
+                        <tr><td><code>/etc/hosts</code></td><td>Local name-to-address mappings, checked before DNS</td></tr>
+                        <tr><td><code>/etc/fstab</code></td><td>Which filesystems are mounted at startup, and where</td></tr>
+                        <tr><td><code>/etc/resolv.conf</code></td><td>Which DNS servers the system uses</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>Three <strong>OS components</strong> round out the objective: the <strong>kernel</strong>, the core of the operating system; the <strong>bootloader</strong>, which loads the kernel at startup; and <strong>systemd</strong>, which starts and manages services once the system is running. The <strong>root account</strong> is the full administrator &mdash; which is why <code>sudo</code>, not a root login, is the normal way to work.</p>
+
+            <div class="callout callout-danger">
+                <div class="callout-title">Linux Does Not Ask Twice</div>
+                <div class="callout-content"><p><code>rm</code> deletes immediately, with no Recycle Bin and no confirmation. Combined with <code>sudo</code>, it will remove system files just as willingly as your own. In NETLAB this costs you nothing. On a production server it costs somebody their weekend.</p></div>
+            </div>
+
+            <h3>The Command Comparison Sheet</h3>
+            <p>Print this one. The same job, three shells &mdash; and macOS Terminal uses the Linux column.</p>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>The Job</th><th>Windows</th><th>Linux and macOS</th></tr></thead>
+                    <tbody>
+                        <tr><td>List what is in this folder</td><td><code>dir</code></td><td><code>ls</code></td></tr>
+                        <tr><td>Change folder</td><td><code>cd</code></td><td><code>cd</code></td></tr>
+                        <tr><td>Show where I am</td><td><code>cd</code> (with no argument)</td><td><code>pwd</code></td></tr>
+                        <tr><td>Make a folder</td><td><code>md</code></td><td><code>mkdir</code></td></tr>
+                        <tr><td>Copy a file</td><td><code>copy</code> or <code>robocopy</code></td><td><code>cp</code></td></tr>
+                        <tr><td>Move or rename</td><td><code>move</code> or <code>ren</code></td><td><code>mv</code></td></tr>
+                        <tr><td>Delete</td><td><code>del</code> or <code>rmdir</code></td><td><code>rm</code></td></tr>
+                        <tr><td>Show a file's contents</td><td><code>type</code></td><td><code>cat</code></td></tr>
+                        <tr><td>Search inside files</td><td><code>findstr</code></td><td><code>grep</code></td></tr>
+                        <tr><td>Show the IP configuration</td><td><code>ipconfig</code></td><td><code>ip</code></td></tr>
+                        <tr><td>Test whether a host answers</td><td><code>ping</code></td><td><code>ping</code></td></tr>
+                        <tr><td>Trace the route to a host</td><td><code>tracert</code></td><td><code>traceroute</code></td></tr>
+                        <tr><td>Query DNS</td><td><code>nslookup</code></td><td><code>dig</code></td></tr>
+                        <tr><td>See running processes</td><td>Task Manager</td><td><code>top</code> or <code>ps</code></td></tr>
+                        <tr><td>Check free disk space</td><td>File Explorer Properties</td><td><code>df</code></td></tr>
+                        <tr><td>Check a filesystem for errors</td><td><code>chkdsk</code></td><td><code>fsck</code></td></tr>
+                        <tr><td>Run as administrator</td><td>Run as administrator</td><td><code>sudo</code></td></tr>
+                        <tr><td>Get help for a command</td><td><code>command /?</code></td><td><code>man command</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Part 4 &mdash; The Basics of Scripting (Objective 4.8)</h2>
+
+            <p>A script is a text file of commands that runs in order. Everything in a script could be typed by hand; the value is that it runs the same way every time, on every machine, without a technician being present.</p>
+
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Extension</th><th>Language</th><th>Runs On</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>.bat</code></td><td>Windows batch file &mdash; command-prompt commands in a file</td><td>Windows</td></tr>
+                        <tr><td><code>.ps1</code></td><td>PowerShell &mdash; Microsoft's current scripting language</td><td>Windows (and cross-platform PowerShell)</td></tr>
+                        <tr><td><code>.vbs</code></td><td>VBScript &mdash; older Microsoft scripting, still found in legacy environments</td><td>Windows</td></tr>
+                        <tr><td><code>.sh</code></td><td>Shell script &mdash; Linux and macOS terminal commands in a file</td><td>Linux, macOS</td></tr>
+                        <tr><td><code>.js</code></td><td>JavaScript</td><td>Browsers and other hosts</td></tr>
+                        <tr><td><code>.py</code></td><td>Python</td><td>Windows, Linux, macOS</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Use Cases</h3>
+            <p>The exam lists these, and each one is a job someone is doing by hand somewhere right now:</p>
+            <ul class="styled-list">
+                <li><strong>Basic automation</strong> &mdash; any repeated sequence of steps</li>
+                <li><strong>Restarting machines</strong> &mdash; on a schedule, or across a set of computers at once</li>
+                <li><strong>Remapping network drives</strong> &mdash; the sign-in script that gives every user the same S: drive</li>
+                <li><strong>Installation of applications</strong> &mdash; installing the same software on many machines identically</li>
+                <li><strong>Automated backups</strong> &mdash; copying data on a schedule without anyone remembering to</li>
+                <li><strong>Gathering of information or data</strong> &mdash; collecting an inventory from every machine on the network</li>
+                <li><strong>Initiating updates</strong> &mdash; starting patch installation at a chosen time</li>
+            </ul>
+
+            <div class="key-concept">
+                <h4>You Have Already Written Half a Script</h4>
+                <p>In the Unit 2 take-home lab you ran eight commands and recorded what each returned. Put those same eight lines in a text file, save it as <code>inventory.bat</code>, and you have automated the information-gathering use case &mdash; the machine now does in two seconds what took you twenty-five minutes. That is the whole idea, and it is why scripting sits in Domain 4.0 with the rest of the operational procedures rather than with the operating systems.</p>
+            </div>
+
+            <h3>Other Considerations</h3>
+            <div class="callout callout-danger">
+                <div class="callout-title">A Script Is Someone Else's Commands Running as You</div>
+                <div class="callout-content">
+                    <p>CompTIA names three risks, and all three are real:</p>
+                    <ul class="checklist">
+                        <li><strong>Unintentionally introducing malware</strong> &mdash; a downloaded script is executable code from a stranger, and it runs with your permissions</li>
+                        <li><strong>Inadvertently changing system settings</strong> &mdash; a script written for a different environment can change configuration you depended on</li>
+                        <li><strong>Browser or system crashes from mishandling resources</strong> &mdash; a badly written loop can consume memory or processor time until the machine stops responding</li>
+                    </ul>
+                    <p>The professional habit: read a script before you run it, test it on one machine before a hundred, and never run a script you cannot explain line by line.</p>
+                </div>
+            </div>
+
+            <div class="summary-box">
+                <h3>Unit 3 Content Recap</h3>
+                <ul>
+                    <li>Domain membership means central accounts, policy, and managed resources; a workgroup manages each machine separately</li>
+                    <li>Four client settings carry objective 1.7: IP address, subnet mask, default gateway, and DNS &mdash; static when something must always be found, dynamic everywhere else</li>
+                    <li>An address starting 169.254 means the DHCP request got no answer</li>
+                    <li>The public or private network profile decides what the firewall allows, and explains most "I can't see the shared folder" tickets</li>
+                    <li>macOS pairs to Windows one tool at a time: System Preferences, Finder, Terminal, Disk Utility, Time Machine, FileVault, Force Quit</li>
+                    <li>macOS applications arrive as .dmg, .pkg, or .app, or through the App Store; the system folders are /Applications, /Users, /Library, /System, and /Users/Library</li>
+                    <li>Linux commands group by job: files, filesystem, administration, packages, network, and information</li>
+                    <li>Where Windows has a registry, Linux has readable configuration files under /etc</li>
+                    <li>sudo runs one command as an administrator; root is the full administrator account</li>
+                    <li>Script types: .bat, .ps1, and .vbs on Windows; .sh on Linux and macOS; .js and .py across platforms</li>
+                    <li>Scripts save enormous time and can introduce malware, change settings, or crash a system &mdash; read before you run</li>
+                </ul>
+            </div>
+
+            <div class="references-section">
+                <h3>Go Further</h3>
+                <ul>
+                    <li>Sybex <em>CompTIA A+ Complete Study Guide</em>, Volume 2 &mdash; Chapter 3, Networking in Windows; Chapter 4 in full; Chapter 8, Scripting</li>
+                    <li>Professor Messer's free 220-1202 course &mdash; objectives 1.7, 1.8, 1.9, and 4.8 (see Section 3.5 for direct links)</li>
+                    <li>CompTIA official 220-1202 exam objectives (comptia.org) &mdash; the Linux command list under objective 1.9 is a ready-made study checklist</li>
+                    <li>Microsoft's Windows Commands reference and the Linux <code>man</code> pages &mdash; the official documentation behind both columns of the comparison sheet</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <footer class="module-footer">
+            <p class="footer-text">CompTIA A+ Core 2 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
+        </footer>
+    </div>
+</body>
+</html>
