@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Unit 4 &mdash; 4.3 Content Review | CompTIA A+ Core 2</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Sans+Pro:wght@400;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           CPCC COURSE TEMPLATE - GOLD / CHARCOAL / BLACK
+           CTS-ITS7501-80 CompTIA A+ Core 2 Training
+           Type: true black. Accents: gold. Chrome: charcoal.
+           ============================================ */
+
+        :root {
+            --primary-dark: #4A4A4A;       /* Charcoal - structural chrome only */
+            --primary-main: #B8962E;       /* Warm Gold - primary accent */
+            --primary-light: #D4AF56;      /* Light Gold */
+            --primary-pale: #FBF3DF;       /* Pale Gold wash */
+
+            --accent-teal: #8A6F1F;        /* Deep bronze-gold */
+            --accent-teal-light: #F3E9CE;  /* Pale bronze */
+            --accent-orange: #A9642A;      /* Warm rust */
+            --accent-orange-light: #F5E2CE;
+            --accent-purple: #6B5B3A;      /* Muted umber */
+            --accent-purple-light: #EFE6D2;
+            --accent-green: #4E7A51;
+            --accent-green-light: #DCEBDD;
+
+            --alert-warning: #B8862E;
+            --alert-warning-bg: #FBF0D9;
+            --alert-danger: #A13A3A;
+            --alert-danger-bg: #F6DEDE;
+            --alert-success: #3F6E42;
+            --alert-success-bg: #DCEBDD;
+            --alert-info: #6E5B2E;
+            --alert-info-bg: #F1E9D4;
+
+            --text-black: #000000;         /* All reading text */
+            --neutral-900: #000000;
+            --neutral-700: #000000;
+            --neutral-500: #5A5A5A;
+            --neutral-300: #D9D3C4;
+            --neutral-100: #FAF8F3;
+            --white: #ffffff;
+
+            --font-heading: 'Nunito', sans-serif;
+            --font-body: 'Source Sans Pro', sans-serif;
+            --font-code: 'Fira Code', monospace;
+
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+
+            --shadow-sm: 0 1px 2px rgba(74, 74, 74, 0.08);
+            --shadow-md: 0 4px 6px rgba(74, 74, 74, 0.12);
+            --shadow-lg: 0 10px 20px rgba(74, 74, 74, 0.15);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body), 'Segoe UI', Tahoma, Verdana, sans-serif;
+            font-size: 1.0625rem;
+            line-height: 1.7;
+            color: var(--text-black);
+            background: linear-gradient(135deg, var(--neutral-100) 0%, var(--white) 100%);
+            min-height: 100vh;
+            padding: var(--space-lg);
+        }
+
+        .course-container {
+            max-width: 950px; margin: 0 auto; background: var(--white);
+            border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); overflow: hidden;
+        }
+
+        .module-header {
+            background: var(--primary-main); color: var(--text-black);
+            padding: var(--space-lg) var(--space-xl); position: relative; overflow: hidden;
+        }
+        .module-label {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 0.875rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 2px; text-decoration: underline;
+            margin-bottom: var(--space-sm); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-title {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 2.25rem; font-weight: 800;
+            line-height: 1.2; margin-bottom: var(--space-md); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-subtitle { font-size: 1.125rem; max-width: 650px; position: relative; z-index: 1; color: var(--text-black); }
+
+        .toc {
+            display: flex; flex-direction: column; gap: var(--space-sm);
+            padding: var(--space-lg) var(--space-xl);
+            background: var(--primary-pale); border-bottom: 1px solid var(--neutral-300);
+        }
+        .toc-item {
+            width: 100%; text-align: left;
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 0.875rem;
+            color: var(--text-black); background: var(--white);
+            border: 2px solid var(--primary-main);
+            padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md);
+        }
+        .toc-item.current { background: var(--primary-main); }
+
+        .content-area { padding: var(--space-xl); }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif;
+            color: var(--text-black); line-height: 1.3; margin-bottom: var(--space-md);
+        }
+        h1 { font-size: 2rem; font-weight: 800; }
+        h2 { font-size: 1.625rem; font-weight: 700; padding-bottom: var(--space-sm);
+             border-bottom: 3px solid var(--primary-main); margin-top: var(--space-xl); margin-bottom: var(--space-lg); }
+        h3 { font-size: 1.375rem; font-weight: 700; margin-top: var(--space-lg);
+             padding-left: var(--space-sm); border-left: 4px solid var(--primary-main); }
+        h4 { font-size: 1.125rem; font-weight: 600; }
+
+        p { margin-bottom: var(--space-md); }
+        strong { font-weight: 700; color: var(--text-black); }
+        em { font-style: italic; color: var(--text-black); }
+
+        a { color: var(--text-black); text-decoration: none; border-bottom: 2px solid var(--primary-main); transition: all 0.2s ease; }
+        a:hover { background: var(--primary-pale); border-bottom-color: var(--accent-teal); }
+
+        ul, ol { margin-bottom: var(--space-md); padding-left: var(--space-lg); }
+        li { margin-bottom: var(--space-sm); }
+        ul li::marker { color: var(--accent-teal); }
+        ol li::marker { color: var(--accent-teal); font-weight: 700; }
+
+        .styled-list { list-style: none; padding-left: 0; }
+        .styled-list li { position: relative; padding-left: var(--space-lg); margin-bottom: var(--space-sm); }
+        .styled-list li::before { content: '\25B8'; position: absolute; left: 0; color: var(--accent-teal); font-weight: bold; }
+
+        .checklist { list-style: none; padding-left: 0; }
+        .checklist li { position: relative; padding-left: 2rem; margin-bottom: var(--space-sm); }
+        .checklist li::before {
+            content: '\2713'; position: absolute; left: 0; width: 1.5rem; height: 1.5rem;
+            background: var(--accent-green-light); color: var(--accent-green);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 0.75rem; font-weight: bold;
+        }
+
+        .objectives-box {
+            background: linear-gradient(135deg, var(--primary-pale) 0%, var(--accent-teal-light) 100%);
+            border-left: 5px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .objectives-box h3 { color: var(--text-black); margin-top: 0; margin-bottom: var(--space-md);
+            display: flex; align-items: center; gap: var(--space-sm); border-left: none; padding-left: 0; }
+        .objectives-box ol { margin-bottom: 0; }
+
+        .tech-box {
+            background: var(--neutral-100); border: 2px solid var(--neutral-500);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .tech-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .tech-box .callout-content { padding-left: 0; }
+
+        .plain-box {
+            background: var(--primary-pale); border: 2px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .plain-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .plain-box .callout-content { padding-left: 0; }
+
+        .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; position: relative; overflow: hidden; }
+        .callout::before { position: absolute; top: var(--space-md); left: var(--space-md); font-size: 1.5rem; }
+        .callout-title { font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 1rem;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
+        .callout-content { }
+        .callout-content p:last-child { margin-bottom: 0; }
+
+        .callout-tip { background: var(--accent-green-light); border-left: 4px solid var(--accent-green); }
+        .callout-warning { background: var(--alert-warning-bg); border-left: 4px solid var(--alert-warning); }
+        .callout-danger { background: var(--alert-danger-bg); border-left: 4px solid var(--alert-danger); }
+        .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
+
+        .key-concept {
+            background: linear-gradient(135deg, var(--accent-purple-light) 0%, var(--white) 100%);
+            border: 2px solid var(--accent-purple); border-radius: var(--radius-lg);
+            padding: var(--space-lg); margin: var(--space-xl) 0 var(--space-lg); position: relative;
+        }
+        .key-concept::before {
+            content: '\1F511 KEY CONCEPT'; position: absolute; top: -12px; left: var(--space-lg);
+            background: var(--accent-purple); color: var(--white); font-family: var(--font-heading), sans-serif;
+            font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-md); border-radius: var(--radius-sm);
+        }
+        .key-concept h4 { color: var(--text-black); margin-top: var(--space-sm); }
+
+        .definition { background: var(--neutral-100); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin: var(--space-md) 0; border-left: 4px solid var(--accent-orange); }
+        .definition-term { font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 1.125rem;
+            color: var(--text-black); margin-bottom: var(--space-xs); }
+        .definition-text { color: var(--text-black); margin-bottom: 0; }
+
+        code { font-family: var(--font-code), Consolas, monospace; font-size: 0.9rem; background: var(--primary-pale);
+            color: var(--text-black); padding: 2px 6px; border-radius: var(--radius-sm); }
+        pre { background: #2E2E2E; color: #f1ece0; padding: var(--space-lg); border-radius: var(--radius-md);
+            overflow-x: auto; margin: var(--space-lg) 0; position: relative; }
+        pre::before {
+            content: 'STEPS'; position: absolute; top: 0; right: 0; background: var(--primary-main); color: var(--text-black);
+            font-family: var(--font-heading), sans-serif; font-size: 0.625rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-sm); border-radius: 0 var(--radius-md) 0 var(--radius-sm);
+        }
+        pre code { background: transparent; color: inherit; padding: 0; font-size: 0.875rem; line-height: 1.6; }
+
+        .table-container { overflow-x: auto; margin: var(--space-lg) 0; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); }
+        table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
+        thead { background: var(--primary-dark); color: var(--white); }
+        th { font-family: var(--font-heading), sans-serif; font-weight: 700; text-align: left; padding: var(--space-md) var(--space-lg); color: var(--white); }
+        td { padding: var(--space-md) var(--space-lg); border-bottom: 1px solid var(--neutral-300); color: var(--text-black); }
+        tbody tr:hover { background: var(--primary-pale); }
+        tbody tr:last-child td { border-bottom: none; }
+
+        .activity-section {
+            background: linear-gradient(135deg, var(--accent-orange-light) 0%, var(--white) 100%);
+            border: 2px dashed var(--accent-orange); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .activity-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg); }
+        .activity-icon { width: 50px; height: 50px; background: var(--accent-orange); border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; }
+        .activity-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700;
+            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
+        .activity-subtitle { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
+
+        .lab-section {
+            background: linear-gradient(135deg, var(--accent-teal-light) 0%, var(--white) 100%);
+            border: 2px solid var(--accent-teal); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .lab-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg);
+            padding-bottom: var(--space-md); border-bottom: 2px solid var(--accent-teal); }
+        .lab-icon { width: 60px; height: 60px; background: var(--accent-teal); border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center; font-size: 1.75rem; flex-shrink: 0; }
+        .lab-title { font-family: var(--font-heading), sans-serif; font-size: 1.375rem; font-weight: 700;
+            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
+        .lab-time { font-size: 0.875rem; color: var(--neutral-500); margin: 0; display: flex; align-items: center; gap: var(--space-xs); }
+        .lab-time::before { content: '\23F1\FE0F'; }
+        .lab-steps { counter-reset: lab-step; list-style: none; padding-left: 0; }
+        .lab-steps li { counter-increment: lab-step; position: relative; padding-left: 3rem; margin-bottom: var(--space-lg); }
+        .lab-steps li::before {
+            content: counter(lab-step); position: absolute; left: 0; width: 2rem; height: 2rem;
+            background: var(--accent-teal); color: var(--white); font-family: var(--font-heading), sans-serif; font-weight: 700;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.875rem;
+        }
+
+        .assessment-section { background: var(--primary-pale); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0; }
+        .assessment-header { text-align: center; margin-bottom: var(--space-xl); }
+        .assessment-header h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .question-block { background: var(--white); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin-bottom: var(--space-lg); box-shadow: var(--shadow-sm); }
+        .question-number { font-family: var(--font-heading), sans-serif; font-size: 0.75rem; font-weight: 700;
+            color: var(--text-black); background: var(--primary-main); display: inline-block;
+            padding: 2px 10px; border-radius: var(--radius-sm);
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); }
+        .question-text { font-weight: 600; color: var(--text-black); margin-bottom: var(--space-md); }
+        details.answer { margin-top: var(--space-sm); }
+        details.answer summary { cursor: pointer; font-weight: 700; color: var(--text-black);
+            font-family: var(--font-heading), sans-serif; font-size: 0.875rem;
+            border-bottom: 2px solid var(--primary-main); display: inline-block; }
+        details.answer .reveal { margin-top: var(--space-sm); padding: var(--space-md);
+            background: var(--accent-green-light); border-radius: var(--radius-sm); color: var(--text-black); }
+
+        .references-section { background: var(--neutral-100); border-radius: var(--radius-lg);
+            padding: var(--space-lg) var(--space-xl); margin: var(--space-xl) 0; border-top: 3px solid var(--primary-main); }
+        .references-section h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .references-section ul { padding-left: var(--space-lg); }
+
+        .summary-box {
+            background: var(--primary-dark); color: var(--white);
+            border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .summary-box h3 { color: var(--white); margin-top: 0; display: flex; align-items: center;
+            gap: var(--space-sm); border-left: none; padding-left: 0; }
+        .summary-box h3::before { content: '\1F4CB'; }
+        .summary-box ul { margin-bottom: 0; }
+        .summary-box li { color: var(--white); }
+        .summary-box li::marker { color: var(--primary-light); }
+
+        .section-divider {
+            border: none; height: 6px; margin: var(--space-2xl) 0;
+            background: linear-gradient(90deg, transparent 0%, var(--primary-main) 15%, var(--primary-light) 50%, var(--primary-main) 85%, transparent 100%);
+            border-radius: var(--radius-sm); box-shadow: var(--shadow-sm);
+        }
+
+        .module-footer { background: var(--primary-dark); padding: var(--space-lg) var(--space-xl);
+            text-align: center; border-top: 4px solid var(--primary-main); }
+        .footer-text { font-size: 0.875rem; color: var(--white); margin: 0; }
+
+        .text-center { text-align: center; }
+        .text-muted { color: var(--neutral-500); }
+        .highlight { background: linear-gradient(180deg, transparent 50%, var(--primary-light) 50%); padding: 0 2px; }
+
+        @media (max-width: 768px) {
+            body { padding: var(--space-sm); }
+            .module-header { padding: var(--space-xl) var(--space-lg); }
+            .module-title { font-size: 1.75rem; }
+            .content-area { padding: var(--space-lg); }
+            h2 { font-size: 1.375rem; }
+            .lab-header, .activity-header { flex-direction: column; align-items: flex-start; }
+        }
+        @media print {
+            body { background: white; padding: 0; }
+            .course-container { box-shadow: none; }
+            .toc { display: none; }
+            details.answer { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="course-container">
+
+        <header class="module-header">
+            <div class="module-label">Unit 4 &middot; Security Concepts and Threats &middot; Section 4.3</div>
+            <h1 class="module-title">Content Review</h1>
+            <p class="module-subtitle">CompTIA A+ Core 2 - Domains 2.0 and 4.0</p>
+        </header>
+
+                <nav class="toc" id="tocNav">
+            <div class="toc-header">Table of Contents</div>
+            <div class="toc-item">4.1 &mdash; Unit Overview and Schedule</div>
+            <div class="toc-item">4.2 &mdash; Unit Pre-Assessment</div>
+            <div class="toc-item current" id="tocCurrent">4.3 &mdash; Content Review</div>
+            <div class="toc-item">4.4 &mdash; Reading Assignment</div>
+            <div class="toc-item">4.5 &mdash; Video Assignment</div>
+            <div class="toc-item">4.6 &mdash; Classroom Labs and Take-Home Lab</div>
+            <div class="toc-item">4.7 &mdash; Practice Question Set</div>
+            <div class="toc-item">4.8 &mdash; Online Labs: NETLAB</div>
+            <div class="toc-item">4.9 &mdash; Reflection Activity</div>
+            <div class="toc-item">4.10 &mdash; Unit Test</div>
+        </nav>
+        <style>
+            /* Collapsible TOC: only the current section shows until clicked */
+            nav.toc#tocNav { gap: 0; }
+            nav.toc#tocNav .toc-item {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav .toc-item.current {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                cursor: pointer;
+            }
+            nav.toc#tocNav .toc-item.current::after {
+                content: ' \25BE Click to View';
+                font-size: 0.75em;
+            }
+            nav.toc#tocNav.toc-expanded .toc-item {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                margin-bottom: var(--space-sm);
+            }
+            nav.toc#tocNav.toc-expanded .toc-item.current::after { content: ' \25B4'; }
+
+            nav.toc#tocNav .toc-header {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                font-family: var(--font-heading), 'Segoe UI', sans-serif;
+                font-weight: 700;
+                font-size: 0.875rem;
+                text-align: left;
+                color: var(--text-black);
+                text-decoration: underline;
+                background: var(--primary-main);
+                border-radius: var(--radius-md);
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav.toc-expanded .toc-header {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                padding-left: var(--space-md);
+                border-width: 2px;
+                border-style: solid;
+                border-color: var(--primary-main);
+                margin-bottom: var(--space-sm);
+            }
+        </style>
+
+        <script>
+            (function () {
+                var toc = document.getElementById('tocNav');
+                var currentItem = document.getElementById('tocCurrent');
+
+                toc.addEventListener('click', function (e) {
+                    if (toc.classList.contains('toc-expanded')) {
+                        toc.classList.remove('toc-expanded');
+                    } else if (e.target === currentItem || currentItem.contains(e.target)) {
+                        toc.classList.add('toc-expanded');
+                    }
+                });
+
+                toc.addEventListener('mouseleave', function () {
+                    toc.classList.remove('toc-expanded');
+                });
+            })();
+        </script>
+
+        <div class="content-area">
+
+            <p class="text-muted">This is the core reference for Unit 4. Read it before Wednesday's session, and come back to it when the textbook feels dense.</p>
+
+            <div class="callout callout-info">
+                <div class="callout-title">How to Use This Page</div>
+                <div class="callout-content"><p>This is the longest content review of the term, because Unit 4 is the largest unit. Do not read it in one sitting. Take Parts 1 through 3 on one day and Parts 4 through 6 on another. Each part matches one or two exam objectives, so you can stop at a heading and pick up cleanly later.</p></div>
+            </div>
+
+            <h2>Part 1 &mdash; Security Measures (Objective 2.1)</h2>
+
+            <div class="plain-box">
+                <div class="callout-title">In Plain Terms</div>
+                <div class="callout-content"><p>Security comes in three layers. <strong>Physical security</strong> keeps people away from the equipment. <strong>Physical access security</strong> controls which people are allowed past a barrier. <strong>Logical security</strong> controls what a person may do once they are at a keyboard. An attacker only needs one layer to fail.</p></div>
+            </div>
+
+            <h3>Physical Security</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Control</th><th>What It Does</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Bollards</strong></td><td>Posts that stop a vehicle from reaching a building or entrance</td></tr>
+                        <tr><td><strong>Access control vestibule</strong></td><td>A two-door entry where only one door opens at a time, so one badge admits one person</td></tr>
+                        <tr><td><strong>Badge reader</strong></td><td>Grants entry to a credential rather than to a key</td></tr>
+                        <tr><td><strong>Video surveillance</strong></td><td>Records activity; deters, and provides evidence afterward</td></tr>
+                        <tr><td><strong>Alarm systems</strong></td><td>Signal an intrusion or an environmental problem</td></tr>
+                        <tr><td><strong>Motion sensors</strong></td><td>Detect movement in an area that should be empty</td></tr>
+                        <tr><td><strong>Door locks</strong> and <strong>equipment locks</strong></td><td>Secure rooms, and secure devices such as laptops to a desk</td></tr>
+                        <tr><td><strong>Security guards</strong></td><td>Apply judgment where a device cannot</td></tr>
+                        <tr><td><strong>Fences</strong></td><td>Define the perimeter and slow an intruder down</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Physical Access Security</h3>
+            <p>These are the credentials a person carries or is: <strong>key fobs</strong>, <strong>smart cards</strong>, a <strong>mobile digital key</strong>, ordinary <strong>keys</strong>, and <strong>biometrics</strong> &mdash; retina scanner, fingerprint scanner, palm print scanner, facial recognition technology, and voice recognition technology. <strong>Lighting</strong> supports all of them by making people and cameras able to see, and <strong>magnetometers</strong> detect metal a person is carrying.</p>
+
+            <h3>Logical Security</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Concept</th><th>What It Means</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Principle of least privilege</strong></td><td>Give each account the minimum access its job requires, and nothing more</td></tr>
+                        <tr><td><strong>Zero Trust model</strong></td><td>Trust nothing by default; verify every request regardless of where it comes from</td></tr>
+                        <tr><td><strong>Access control lists (ACLs)</strong></td><td>Explicit lists of who may do what to a resource</td></tr>
+                        <tr><td><strong>Multifactor authentication (MFA)</strong></td><td>Two or more different kinds of proof &mdash; email, hardware token, authenticator application, SMS, voice call, TOTP, or OTP</td></tr>
+                        <tr><td><strong>SAML</strong> and <strong>single sign-on (SSO)</strong></td><td>One authentication that grants access to many systems</td></tr>
+                        <tr><td><strong>Just-in-time access</strong> and <strong>PAM</strong></td><td>Elevated rights granted only for the moment they are needed, then withdrawn</td></tr>
+                        <tr><td><strong>MDM</strong></td><td>Central management of mobile devices and what they may do</td></tr>
+                        <tr><td><strong>DLP</strong></td><td>Watches for sensitive data leaving the organization and blocks it</td></tr>
+                        <tr><td><strong>IAM</strong> and <strong>directory services</strong></td><td>The systems that hold identities and decide what each one may access</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="key-concept">
+                <h4>Least Privilege Is the One You Will Actually Apply</h4>
+                <p>Most of this list is designed by someone else. Least privilege is a decision technicians make constantly &mdash; whether to give a user local administrator rights so a program will install, whether a shared folder needs write access or read access.</p>
+                <p>The honest tension: least privilege creates help-desk tickets. It is still right. Most ransomware that encrypts a whole file server does so because the account that opened the attachment had more access than the job needed.</p>
+            </div>
+
+            <h2>Part 2 &mdash; Malware (Objective 2.4)</h2>
+
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Type</th><th>What Makes It Distinct</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Virus</strong></td><td>Attaches to a file or program and spreads when that file runs</td></tr>
+                        <tr><td><strong>Trojan</strong></td><td>Disguised as something desirable so the user installs it willingly</td></tr>
+                        <tr><td><strong>Rootkit</strong></td><td>Hides itself deep in the operating system to avoid detection</td></tr>
+                        <tr><td><strong>Spyware</strong></td><td>Collects information about the user and sends it elsewhere</td></tr>
+                        <tr><td><strong>Ransomware</strong></td><td>Encrypts files and demands payment for the key</td></tr>
+                        <tr><td><strong>Keylogger</strong></td><td>Records keystrokes to capture passwords and other typed data</td></tr>
+                        <tr><td><strong>Boot sector virus</strong></td><td>Infects the startup code so it loads before the operating system</td></tr>
+                        <tr><td><strong>Cryptominer</strong></td><td>Uses the machine's processor to mine cryptocurrency for someone else</td></tr>
+                        <tr><td><strong>Stalkerware</strong></td><td>Monitors a specific person's device activity and location, usually installed by someone who knows them</td></tr>
+                        <tr><td><strong>Fileless</strong></td><td>Runs in memory using built-in tools, leaving little on disk for a scanner to find</td></tr>
+                        <tr><td><strong>Adware</strong> and <strong>PUP</strong></td><td>Displays unwanted advertising, or installs alongside wanted software without clear consent</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Tools and Methods</h3>
+            <ul class="styled-list">
+                <li><strong>Antivirus</strong> and <strong>anti-malware</strong> &mdash; detection and removal on the endpoint</li>
+                <li><strong>EDR, MDR, and XDR</strong> &mdash; endpoint, managed, and extended detection and response: monitoring that watches behavior rather than matching known signatures</li>
+                <li><strong>Email security gateway</strong> &mdash; filters malicious mail before it reaches the user</li>
+                <li><strong>Software firewalls</strong> &mdash; control what a compromised machine can talk to</li>
+                <li><strong>Recovery console</strong> &mdash; a repair environment for a machine that will not start cleanly</li>
+                <li><strong>OS reinstallation</strong> &mdash; the certain answer when removal cannot be trusted</li>
+                <li><strong>User education regarding common threats,</strong> including <strong>antiphishing training</strong> &mdash; the control with the best return of anything on this list</li>
+            </ul>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">A Real Example You Will Meet on the Job</div>
+                <div class="callout-content"><p>A user's machine is slow, the fan runs constantly, and Task Manager shows a process at 95% CPU that the user does not recognize. Nothing is encrypted and nothing is being stolen &mdash; the machine is mining cryptocurrency for someone else. Cryptominers are common precisely because they do not announce themselves; the only symptom is a computer that is inexplicably busy. Your Unit 2 skills found it.</p></div>
+            </div>
+
+            <div class="callout callout-info">
+                <div class="callout-title">Removal Comes in Unit 6</div>
+                <div class="callout-content"><p>This unit is about recognizing malware. CompTIA's ten-step malware removal procedure is objective 2.6, and it is taught in Unit 6 with the rest of troubleshooting. For now, learn what each type does and which tool addresses it.</p></div>
+            </div>
+
+            <h2>Part 3 &mdash; Social Engineering, Threats, and Vulnerabilities (Objective 2.5)</h2>
+
+            <h3>Social Engineering &mdash; Attacking the Person</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Attack</th><th>How It Works</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Phishing</strong></td><td>A fraudulent message that appears legitimate, aiming to collect credentials or deliver malware</td></tr>
+                        <tr><td><strong>Vishing</strong></td><td>Phishing by voice call</td></tr>
+                        <tr><td><strong>Smishing</strong></td><td>Phishing by text message</td></tr>
+                        <tr><td><strong>QR code phishing</strong></td><td>A malicious link hidden in a QR code, which a person cannot inspect before scanning</td></tr>
+                        <tr><td><strong>Spear phishing</strong></td><td>Phishing tailored to a specific person using details about them</td></tr>
+                        <tr><td><strong>Whaling</strong></td><td>Spear phishing aimed at an executive</td></tr>
+                        <tr><td><strong>Shoulder surfing</strong></td><td>Reading a screen or keyboard over someone's shoulder</td></tr>
+                        <tr><td><strong>Tailgating</strong></td><td>Following an authorized person through a controlled door</td></tr>
+                        <tr><td><strong>Impersonation</strong></td><td>Pretending to be someone with a right to access &mdash; often "IT support"</td></tr>
+                        <tr><td><strong>Dumpster diving</strong></td><td>Recovering useful information from discarded paper and equipment</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="key-concept">
+                <h4>Impersonation Is About You</h4>
+                <p>The most effective impersonation script in the world is "Hi, this is IT &mdash; I need your password to fix your account." It works because technicians really do call users, and users want to be helpful.</p>
+                <p>Two habits protect your users: never ask for a password, ever, so that anyone who does is immediately suspect; and tell users plainly, on the first call you make to them, that you will never ask. That one sentence does more for an organization's security than most software.</p>
+            </div>
+
+            <h3>Threats</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Threat</th><th>What It Is</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>DoS</strong> and <strong>DDoS</strong></td><td>Overwhelming a service so it cannot serve legitimate users &mdash; from one source, or from many at once</td></tr>
+                        <tr><td><strong>Evil twin</strong></td><td>A rogue wireless access point impersonating a legitimate one</td></tr>
+                        <tr><td><strong>Zero-day attack</strong></td><td>Exploits a flaw before a patch exists</td></tr>
+                        <tr><td><strong>Spoofing</strong></td><td>Falsifying an identity &mdash; an address, a sender, a caller ID</td></tr>
+                        <tr><td><strong>On-path attack</strong></td><td>Sitting between two parties and relaying, and possibly altering, their traffic</td></tr>
+                        <tr><td><strong>Brute-force attack</strong></td><td>Trying every possible password combination</td></tr>
+                        <tr><td><strong>Dictionary attack</strong></td><td>Trying likely passwords from a list &mdash; far faster than brute force, and usually enough</td></tr>
+                        <tr><td><strong>Insider threat</strong></td><td>Harm from someone who already has legitimate access</td></tr>
+                        <tr><td><strong>SQL injection</strong></td><td>Sending database commands through an input field an application failed to sanitize</td></tr>
+                        <tr><td><strong>Cross-site scripting (XSS)</strong></td><td>Injecting script into a web page so it runs in another user's browser</td></tr>
+                        <tr><td><strong>Business email compromise (BEC)</strong></td><td>Using a real or convincingly faked internal account to authorize a fraudulent payment</td></tr>
+                        <tr><td><strong>Supply chain or pipeline attack</strong></td><td>Compromising a trusted vendor or update so the victim installs the attack themselves</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Vulnerabilities</h3>
+            <p>A threat is what someone might do; a vulnerability is the opening that lets them. CompTIA names five: <strong>non-compliant systems</strong>, <strong>unpatched systems</strong>, <strong>unprotected systems</strong> (missing antivirus or firewall), <strong>end-of-life</strong> software no longer receiving fixes, and <strong>bring your own device</strong>, where personal equipment the organization does not control holds its data.</p>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">A Real Example You Will Meet on the Job</div>
+                <div class="callout-content"><p>An accounts-payable clerk receives an email from the company's real domain, from a real colleague's address, referring to a real project, asking for a vendor's bank details to be updated before Friday's run. Nothing is misspelled and no attachment is involved &mdash; the colleague's mailbox was compromised weeks ago. This is business email compromise, and it is why "check the sender address" is not enough advice. The control that stops it is a procedure: bank detail changes are verified by phone, using a number already on file.</p></div>
+            </div>
+
+            <h2>Part 4 &mdash; Hardening the Workstation (Objective 2.7)</h2>
+
+            <p>Everything so far has been recognition. This objective is the first set of defenses you apply yourself, and Unit 5 continues it.</p>
+
+            <h3>Passwords and Encryption</h3>
+            <p><strong>Data-at-rest encryption</strong> protects information on a drive that is powered off &mdash; the control that makes a stolen laptop a lost asset rather than a data breach.</p>
+            <p>CompTIA names five password considerations: <strong>length</strong>, <strong>character types</strong>, <strong>uniqueness</strong>, <strong>complexity</strong>, and <strong>expiration</strong>. Length does the most work; a long passphrase resists brute force better than a short password with symbols substituted for letters. <strong>BIOS/UEFI passwords</strong> protect the firmware itself, so an attacker cannot simply change the boot order and start from their own media.</p>
+
+            <h3>Account Management</h3>
+            <ul class="styled-list">
+                <li><strong>Restrict user permissions</strong> &mdash; least privilege, applied to accounts</li>
+                <li><strong>Restrict log-in times</strong> &mdash; a warehouse account that only works during shift hours cannot be used at 3 a.m.</li>
+                <li><strong>Disable the guest account</strong> &mdash; an unmonitored way in</li>
+                <li><strong>Use failed attempts lockout</strong> &mdash; the control that defeats brute-force and dictionary attacks</li>
+                <li><strong>Use timeout and screen lock</strong> &mdash; protects an unattended desk</li>
+                <li><strong>Apply account expiration dates</strong> &mdash; contractor accounts that close themselves</li>
+            </ul>
+
+            <h3>System Hardening</h3>
+            <p><strong>Change the default administrator account and password</strong> &mdash; default credentials remain one of the most reliable ways into a network. <strong>Disable AutoRun</strong> so inserted media cannot execute on its own. <strong>Disable unused services</strong> so that software nobody uses cannot be attacked.</p>
+
+            <h3>End-User Best Practices</h3>
+            <p>These are what you teach users: <strong>use screensaver locks</strong>, <strong>log off when not in use</strong>, <strong>secure and protect critical hardware</strong> such as laptops, <strong>secure personally identifiable information and passwords</strong>, and <strong>use password managers</strong>.</p>
+
+            <div class="key-concept">
+                <h4>Why Password Managers Are on a Certification Exam</h4>
+                <p>Uniqueness is the password rule people break, because nobody can remember forty different passwords. So they reuse one, and a breach at any site becomes a breach everywhere.</p>
+                <p>A password manager is the only practical way an ordinary person achieves uniqueness across every account. Recommending one is real security advice, not a product pitch &mdash; and it is why CompTIA lists it as an end-user best practice.</p>
+            </div>
+
+            <h2>Part 5 &mdash; Data Destruction and Disposal (Objective 2.9)</h2>
+
+            <p>A drive that leaves your control still holding data is a breach that has not been discovered yet. There are two paths: destroy the drive, or clear it for reuse.</p>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Method</th><th>What It Does</th><th>When to Use It</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Drilling</strong></td><td>Physically punctures the platters</td><td>Quick on-site destruction of a small number of drives</td></tr>
+                        <tr><td><strong>Shredding</strong></td><td>Reduces the drive to fragments</td><td>Bulk destruction, usually by a vendor</td></tr>
+                        <tr><td><strong>Degaussing</strong></td><td>Destroys the magnetic data with a strong field</td><td>Magnetic hard drives. It does not work on solid-state drives.</td></tr>
+                        <tr><td><strong>Incineration</strong></td><td>Burns the media</td><td>High-security environments, by a certified vendor</td></tr>
+                        <tr><td><strong>Erasing or wiping</strong></td><td>Overwrites the data so the drive can be reused</td><td>Redeploying a machine inside the organization, or donating it</td></tr>
+                        <tr><td><strong>Low-level formatting</strong></td><td>Resets the drive's structures at the factory level</td><td>Rare in practice on modern drives</td></tr>
+                        <tr><td><strong>Standard formatting</strong></td><td>Prepares a filesystem &mdash; it does <em>not</em> reliably destroy data</td><td>Preparing a drive for use, never for secure disposal</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>When a vendor does the work, <strong>outsourcing concepts</strong> apply: a <strong>third-party vendor</strong> performs the destruction and provides a <strong>certification of destruction or recycling</strong> &mdash; your proof that the data is gone. <strong>Regulatory and environmental requirements</strong> govern both the data and the electronic waste.</p>
+
+            <div class="callout callout-danger">
+                <div class="callout-title">Formatting Is Not Destruction</div>
+                <div class="callout-content"><p>A standard format removes the filesystem's index, not the data. Freely available tools recover from formatted drives routinely. If the question involves a drive leaving the organization and the data is sensitive, the answer is destruction or a verified wipe &mdash; never "format it."</p></div>
+            </div>
+
+            <h2>Part 6 &mdash; Safety, Environment, and Policy (Objectives 4.4, 4.5, 4.6)</h2>
+
+            <h3>Safety Procedures (4.4)</h3>
+            <p>You met electrostatic discharge in Core 1; it returns here because it belongs to the technician's professional practice, not just to hardware. <strong>ESD straps</strong>, <strong>ESD mats</strong>, and <strong>antistatic bags</strong> control static. <strong>Electrical safety</strong> includes <strong>equipment grounding</strong>. <strong>Proper component handling and storage</strong> and <strong>cable management</strong> prevent damage and trip hazards, and technicians work in <strong>compliance with government regulations</strong>.</p>
+            <p><strong>Personal safety</strong> is the half people skip: <strong>disconnect power before repairing a PC</strong>, use proper <strong>lifting techniques</strong>, observe <strong>fire safety</strong>, and wear <strong>safety goggles</strong> and an <strong>air filter mask</strong> when the work calls for them.</p>
+
+            <div class="callout callout-tip">
+                <div class="callout-title">Connect It to Core 1</div>
+                <div class="callout-content"><p>In Core 1 ESD was about protecting the component. Here it is about the procedure you follow every time, whether or not you think this particular job is risky. The difference between a technician and someone who is good with computers is that the technician does it the same way on the boring jobs too.</p></div>
+            </div>
+
+            <h3>Environmental Controls (4.5)</h3>
+            <ul class="styled-list">
+                <li><strong>MSDS documentation</strong> &mdash; the material safety data sheet tells you how to handle and dispose of a substance, including <strong>proper battery disposal</strong>, <strong>proper toner disposal</strong>, and proper disposal of other devices and assets</li>
+                <li><strong>Temperature, humidity awareness, and proper ventilation</strong> &mdash; including <strong>location and equipment placement</strong>, <strong>dust cleanup</strong>, and the use of <strong>compressed air and vacuums</strong></li>
+                <li><strong>Power surges, brownouts, and blackouts</strong> &mdash; a <strong>surge suppressor</strong> absorbs a spike; an <strong>uninterruptible power supply</strong> carries equipment through a sag or a short outage so it can shut down in an orderly way</li>
+            </ul>
+
+            <div class="key-concept">
+                <h4>Surge Suppressor or UPS?</h4>
+                <p>A scenario question will describe one of two situations. If the concern is a <strong>spike</strong> &mdash; lightning, a large motor switching on &mdash; the answer is a surge suppressor. If the concern is <strong>power going away</strong>, even briefly, and equipment needing to stay up or shut down cleanly, the answer is a UPS. A UPS also suppresses surges; a surge suppressor does nothing when the power stops.</p>
+            </div>
+
+            <h3>Policy, Licensing, and Privacy (4.6)</h3>
+            <p><strong>Incident response</strong> is what a technician does when they find something that should not be there:</p>
+            <ul class="styled-list">
+                <li><strong>Chain of custody</strong> &mdash; documenting everyone who handled the evidence and when</li>
+                <li><strong>Informing management or law enforcement as necessary</strong> &mdash; escalate; do not investigate alone</li>
+                <li><strong>Copy of drive</strong> &mdash; work from an image to preserve data integrity</li>
+                <li><strong>Incident documentation</strong> &mdash; what was found, when, by whom</li>
+                <li><strong>Order of volatility</strong> &mdash; collect the evidence that disappears first, such as memory contents, before the evidence that persists</li>
+            </ul>
+            <p><strong>Licensing</strong> covers <strong>DRM</strong> and the <strong>EULA</strong>, <strong>valid licenses</strong>, <strong>perpetual license agreements</strong>, the difference between a <strong>personal-use and a corporate-use license</strong>, and <strong>open-source licenses</strong>. An <strong>NDA</strong> or <strong>MNDA</strong> governs confidential information.</p>
+            <p><strong>Regulated data</strong> gets special handling: <strong>credit card payment information</strong>, <strong>personal government-issued information</strong>, <strong>PII</strong>, <strong>healthcare data</strong>, and <strong>data retention requirements</strong>. An <strong>acceptable use policy</strong> defines what users may do with company systems, and <strong>regulatory and business compliance requirements</strong> &mdash; including <strong>splash screens</strong> that state terms before access &mdash; round out the objective.</p>
+
+            <div class="callout callout-danger">
+                <div class="callout-title">The Hardest Part of This Job Is in This Objective</div>
+                <div class="callout-content"><p>Sooner or later a technician working on a machine finds something they wish they had not. The rule is the same every time: <strong>stop, preserve, and escalate.</strong> Do not open more files to be certain. Do not delete anything. Do not tell a colleague. Follow your organization's incident response procedure, document what you did, and hand it to the people whose job it is. Knowing this before it happens is the entire reason the objective exists.</p></div>
+            </div>
+
+            <div class="summary-box">
+                <h3>Unit 4 Content Recap</h3>
+                <ul>
+                    <li>Security has three layers: physical, physical access, and logical &mdash; an attacker needs only one to fail</li>
+                    <li>Least privilege is the logical control technicians apply most often, and the one that limits the damage of everything else</li>
+                    <li>Malware types differ by what they do: encrypt, record, hide, spy, mine, or advertise</li>
+                    <li>Detection ranges from signature-based antivirus to behavior-based EDR, MDR, and XDR &mdash; and user education outperforms most of it</li>
+                    <li>Social engineering attacks the person: phishing and its variants, shoulder surfing, tailgating, impersonation, and dumpster diving</li>
+                    <li>A threat is what someone might do; a vulnerability is the opening that lets them</li>
+                    <li>Hardening is passwords, account management, disabling what is unused, and teaching users</li>
+                    <li>Standard formatting does not destroy data; wiping, drilling, shredding, degaussing, and incineration do</li>
+                    <li>Personal safety matters as much as equipment safety &mdash; disconnect power, lift properly, wear protection</li>
+                    <li>A surge suppressor handles spikes; a UPS handles power going away</li>
+                    <li>When you find something that should not be there: stop, preserve, escalate, document</li>
+                </ul>
+            </div>
+
+            <div class="references-section">
+                <h3>Go Further</h3>
+                <ul>
+                    <li>Sybex <em>CompTIA A+ Complete Study Guide</em>, Volume 2 &mdash; Chapter 5 and Chapter 9, both in full</li>
+                    <li>Professor Messer's free 220-1202 course &mdash; objectives 2.1, 2.4, 2.5, 2.7, 2.9, 4.4, 4.5, and 4.6 (see Section 4.5 for direct links)</li>
+                    <li>CompTIA official 220-1202 exam objectives (comptia.org) &mdash; objective 2.5's threat list is long and precise; read it beside this page</li>
+                    <li>The CISA and FBI public advisories on business email compromise &mdash; current, official, and written for people who have to stop it</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <footer class="module-footer">
+            <p class="footer-text">CompTIA A+ Core 2 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
+        </footer>
+    </div>
+</body>
+</html>
