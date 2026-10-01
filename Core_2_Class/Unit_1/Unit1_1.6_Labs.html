@@ -480,24 +480,175 @@
 
             <div class="lab-section">
                 <div class="lab-header">
-                    <div class="lab-icon">&#128221;</div>
+                    <div class="lab-icon">&#127911;</div>
                     <div>
-                        <h3 class="lab-title">Lab 1.6.1 &mdash; Ticket Triage</h3>
-                        <p class="lab-time">Thursday &middot; In class &middot; 30&ndash;45 minutes &middot; Objectives 4.1, 4.7</p>
+                        <h3 class="lab-title">Lab 1.6.1 &mdash; Tier 1 and Tier 2 Support: Roles, Tickets, and the Handoff</h3>
+                        <p class="lab-time">Thursday &middot; In class &middot; 45&ndash;60 minutes &middot; Objectives 4.1, 4.7</p>
                     </div>
                 </div>
-                <p>You will work in pairs. One person plays a customer with a problem and a personality; the other plays the technician. Then you swap.</p>
+
+                <div class="callout callout-info">
+                    <div class="callout-title">Purpose</div>
+                    <div class="callout-content"><p>Your first IT job will almost certainly be a Tier 1 or Tier 2 support role, remote or in person. This lab shows you what each role actually does, what a ticket looks like from the inside, and how a problem moves from one tier to the next without being dropped. Read Parts A through C, then complete the practice in Part D.</p></div>
+                </div>
+
+                <h4>The Support Tiers at a Glance</h4>
+                <p>Most help desks organize support in levels, with each level taking the problems the level below it cannot resolve. The goal is simple: solve the common problems quickly at the first point of contact, and send the hard ones to people with the depth to fix them &mdash; with nothing lost in the handoff.</p>
+                <div class="table-container">
+                    <table>
+                        <thead><tr><th>Tier</th><th>Who</th><th>Typical Work</th><th>Escalates To</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Tier 0</strong></td><td>Self-service</td><td>Knowledge base articles, password reset portals, chatbots</td><td>Tier 1</td></tr>
+                            <tr><td><strong>Tier 1</strong></td><td>Help desk or service desk technician &mdash; the first human contact</td><td>Logging and categorizing tickets, password resets after identity verification, account lockouts, basic connectivity, email and printer setup, known fixes from the knowledge base</td><td>Tier 2</td></tr>
+                            <tr><td><strong>Tier 2</strong></td><td>Experienced technician or desktop support specialist</td><td>Deeper diagnosis, driver and software configuration, hardware replacement, problems that need administrative access or a site visit</td><td>Tier 3, or the vendor</td></tr>
+                            <tr><td><strong>Tier 3</strong></td><td>Engineers, administrators, or the vendor</td><td>Server, network, and application problems that need design-level knowledge or a code fix</td><td>Vendor or development team</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4>Remote or In Person</h4>
+                <p>Both tiers exist in both settings, and the setting changes how the work is done more than what the work is.</p>
+                <div class="table-container">
+                    <table>
+                        <thead><tr><th></th><th>Remote</th><th>In Person</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Tier 1</strong></td><td>Phone, chat, email, and portal tickets. Guides the user through steps, or connects with a remote support tool after the user agrees. Most of the volume lives here.</td><td>A walk-up counter or service desk at a school, hospital, or office. Same tickets, plus loaner equipment, badge or account issues handled face to face.</td></tr>
+                            <tr><td><strong>Tier 2</strong></td><td>Advanced remote tools: remote monitoring and management, administrative consoles, log review. Works the escalations Tier 1 could not close.</td><td>Desktop support or field technicians. Takes the problems that need hands on hardware: failed parts, docking stations, new device setup, printers, cabling.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4>Part A &mdash; Best Practices in Each Role</h4>
+                <p><strong>Tier 1 &mdash; first contact.</strong></p>
+                <ul class="checklist">
+                    <li><strong>Verify identity before you change anything.</strong> A password reset for the wrong person is a security incident, and impersonating a user to the help desk is one of the oldest social engineering attacks there is. Follow your organization's verification procedure every time, even when the caller sounds rushed or important.</li>
+                    <li><strong>Log the contact as it happens.</strong> Open the ticket at the start of the call, not after it. Notes written from memory an hour later lose the details that matter.</li>
+                    <li><strong>Gather before you fix.</strong> Who is affected, what exactly is happening, when it started, what changed, and what the user has already tried. "What changed?" finds more causes than any tool.</li>
+                    <li><strong>Prioritize by impact and urgency,</strong> not by who called first or who is loudest. One person who cannot print is not the same as a department that cannot work.</li>
+                    <li><strong>Use the knowledge base first.</strong> Most Tier 1 problems have been solved before. Following the documented fix is faster and safer than improvising.</li>
+                    <li><strong>Set expectations honestly.</strong> Tell the user what happens next and roughly when. "I'm escalating this to desktop support; you should hear from them within two hours" beats a vague "someone will get back to you."</li>
+                    <li><strong>Escalate early, and completely.</strong> When the problem is outside your scope, permissions, or time limit, hand it off with everything you learned &mdash; so the next technician never has to ask the user to repeat themselves.</li>
+                    <li><strong>Never close a ticket the user has not confirmed is resolved.</strong></li>
+                </ul>
+                <p><strong>Tier 2 &mdash; the escalation.</strong></p>
+                <ul class="checklist">
+                    <li><strong>Read the full ticket before you contact the user.</strong> Asking questions Tier 1 already asked tells the user nobody is paying attention.</li>
+                    <li><strong>Reproduce the problem,</strong> then test one change at a time. If you cannot make it happen, you cannot prove you fixed it.</li>
+                    <li><strong>Find the cause, not just a workaround.</strong> Record the root cause in the ticket, not only what made the symptom go away.</li>
+                    <li><strong>Follow change management</strong> for anything that affects more than one machine or touches production systems.</li>
+                    <li><strong>Teach the fix back down.</strong> Write or update the knowledge base article so Tier 1 can resolve the next one without escalating. Good Tier 2 work makes Tier 1 more capable over time.</li>
+                    <li><strong>Escalate to Tier 3 or the vendor with evidence</strong> &mdash; logs, error messages, versions, and what you have ruled out.</li>
+                </ul>
+                <p><strong>Remote work, specifically.</strong></p>
+                <ul class="styled-list">
+                    <li>Ask permission before starting a remote session, and say what you are about to do.</li>
+                    <li>Do not open files, email, or windows unrelated to the problem. If personal information is on screen, ask the user to close it.</li>
+                    <li>On the phone, describe what the user should see before asking them to click &mdash; "you should see a blue button labeled Restart."</li>
+                    <li>End the session clearly and confirm the remote connection is closed.</li>
+                </ul>
+                <p><strong>In-person work, specifically.</strong></p>
+                <ul class="styled-list">
+                    <li>Arrive when you said you would; if you will be late, call ahead.</li>
+                    <li>Respect the workspace. Ask before moving personal items, and do not read documents on the desk.</li>
+                    <li>Keep the user's screen private while you work, and lock it if you step away.</li>
+                    <li>Before you leave, explain what you did in plain language and confirm the problem is gone.</li>
+                </ul>
+
+                <h4>Part B &mdash; The Anatomy of a Ticket</h4>
+                <p>A ticket is the official record of a problem from the moment it is reported to the moment it is closed. Every field exists so that someone who was not there can understand what happened.</p>
+                <div class="table-container">
+                    <table>
+                        <thead><tr><th>Field</th><th>What It Holds</th><th>Why It Matters</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Ticket ID</strong></td><td>A unique number the system assigns</td><td>The reference everyone uses, including the user</td></tr>
+                            <tr><td><strong>Requester and contact</strong></td><td>Who reported it and how to reach them</td><td>Follow-up, and confirming identity</td></tr>
+                            <tr><td><strong>Device or asset</strong></td><td>Asset tag, model, and operating system</td><td>Links this problem to the machine's history</td></tr>
+                            <tr><td><strong>Channel</strong></td><td>Phone, email, chat, portal, or walk-up</td><td>How to respond, and how the desk measures its workload</td></tr>
+                            <tr><td><strong>Category and subcategory</strong></td><td>For example, Hardware &gt; Printer, or Access &gt; Password</td><td>Routing to the right group, and spotting trends</td></tr>
+                            <tr><td><strong>Description</strong></td><td>The problem in the user's words, then a clear technical summary</td><td>The single most important field for the next technician</td></tr>
+                            <tr><td><strong>Impact, urgency, and priority</strong></td><td>How many are affected, how soon it matters, and the resulting priority</td><td>Decides what gets worked first</td></tr>
+                            <tr><td><strong>Assignment</strong></td><td>The group and person who own it now</td><td>Someone is always accountable</td></tr>
+                            <tr><td><strong>Status</strong></td><td>New, Assigned, In Progress, Escalated, Pending User, Resolved, Closed</td><td>Shows where it stands at a glance</td></tr>
+                            <tr><td><strong>Progress notes</strong></td><td>Dated entries: what was checked, what was found, what was done</td><td>Lets anyone pick the work up mid-stream</td></tr>
+                            <tr><td><strong>Escalation record</strong></td><td>When, to whom, and why it was escalated</td><td>Proves a clean handoff</td></tr>
+                            <tr><td><strong>Resolution and root cause</strong></td><td>What fixed it, specifically, and why it happened</td><td>Prevents the next occurrence; feeds the knowledge base</td></tr>
+                            <tr><td><strong>Closure</strong></td><td>The user's confirmation, and the closing date</td><td>The problem is gone for the user, not just for the technician</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p><strong>How priority is set.</strong> Most desks combine <em>impact</em> (how much of the business is affected) with <em>urgency</em> (how quickly it hurts) to reach a priority, instead of judging by feel:</p>
+                <div class="table-container">
+                    <table>
+                        <thead><tr><th>Impact &darr; / Urgency &rarr;</th><th>Low</th><th>Medium</th><th>High</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>High</strong> &mdash; many users or a critical service</td><td>Medium</td><td>High</td><td><strong>Critical</strong></td></tr>
+                            <tr><td><strong>Medium</strong> &mdash; a team or an important function</td><td>Low</td><td>Medium</td><td>High</td></tr>
+                            <tr><td><strong>Low</strong> &mdash; one user, a workaround exists</td><td>Low</td><td>Low</td><td>Medium</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p><strong>How a ticket moves.</strong> Nearly every help desk follows the same path:</p>
                 <ol class="lab-steps">
-                    <li><strong>Take the call.</strong> The customer describes the problem in their own words, which will be vague, partly wrong, or both. Ask open-ended questions to narrow it. Do not interrupt.</li>
-                    <li><strong>Restate the issue</strong> back to the customer and get their confirmation that you understood it.</li>
-                    <li><strong>Write the ticket:</strong> user information, device information, a clear issue description, a category, and a severity.</li>
-                    <li><strong>Add two progress notes</strong> describing what you checked, written so another technician could pick up where you stopped.</li>
-                    <li><strong>Write the resolution</strong> &mdash; what fixed it, specifically. "Fixed it" is not a resolution.</li>
-                    <li><strong>Swap roles</strong> and run a second scenario.</li>
+                    <li><strong>Log</strong> &mdash; the ticket is created with the requester, device, channel, and description.</li>
+                    <li><strong>Categorize and prioritize</strong> &mdash; the category routes it; impact and urgency set its place in the queue.</li>
+                    <li><strong>Assign</strong> &mdash; a person or group takes ownership.</li>
+                    <li><strong>Investigate</strong> &mdash; the troubleshooting method you learned in Core 1, recorded as progress notes.</li>
+                    <li><strong>Escalate, if needed</strong> &mdash; with everything learned so far.</li>
+                    <li><strong>Resolve</strong> &mdash; the fix is applied and the root cause recorded.</li>
+                    <li><strong>Confirm and close</strong> &mdash; the user agrees it is fixed; the ticket closes; anything worth sharing becomes a knowledge base article.</li>
+                </ol>
+
+                <h4>Part C &mdash; A Ticket From Start to Finish</h4>
+                <p>Here is a real-world kind of ticket, shown the way it would look in the system. Times are shown as minutes from when the call arrived.</p>
+                <div class="table-container">
+                    <table>
+                        <thead><tr><th colspan="2">Ticket HD-48211</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Requester</strong></td><td>Maya Chen, Account Manager, Sales &mdash; works from the office three days a week</td></tr>
+                            <tr><td><strong>Device</strong></td><td>Asset LT-2207 &middot; Laptop &middot; Windows 11 Pro</td></tr>
+                            <tr><td><strong>Channel</strong></td><td>Phone</td></tr>
+                            <tr><td><strong>Category</strong></td><td>Network &gt; Wireless</td></tr>
+                            <tr><td><strong>Description</strong></td><td>User's words: "My laptop won't connect to the office Wi-Fi since this morning, and I have a client call in an hour." Summary: laptop cannot join the corporate wireless network; other users on the same floor are connected.</td></tr>
+                            <tr><td><strong>Impact / Urgency / Priority</strong></td><td>Low (one user) / High (client call soon) / <strong>Medium</strong></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead><tr><th>Time</th><th>Who</th><th>Progress Note</th></tr></thead>
+                        <tbody>
+                            <tr><td>+0 min</td><td>Tier 1 (remote)</td><td>Verified identity per procedure. Confirmed other users on the floor are connected, so the network itself is up. User says Windows installed updates overnight.</td></tr>
+                            <tr><td>+6 min</td><td>Tier 1 (remote)</td><td>Followed knowledge base article KB-0193: toggled Wi-Fi, forgot and rejoined the network, restarted. Network still not listed. Device Manager shows a warning icon on the wireless adapter.</td></tr>
+                            <tr><td>+12 min</td><td>Tier 1 (remote)</td><td>Gave the user a wired dock at the hot desk as a workaround so the client call can go ahead. <strong>Escalated to Tier 2 desktop support:</strong> wireless adapter failing after overnight update; KB-0193 steps did not help; workaround in place. Told the user to expect a desk visit within the hour.</td></tr>
+                            <tr><td>+40 min</td><td>Tier 2 (in person)</td><td>Read ticket before arriving. Confirmed the wireless adapter driver was replaced by the overnight update. Rolled back the driver; adapter healthy; network joins normally. Restarted twice to confirm the fix holds.</td></tr>
+                            <tr><td>+48 min</td><td>Tier 2 (in person)</td><td>User confirmed Wi-Fi working. <strong>Root cause:</strong> incompatible wireless driver delivered by update. Paused that driver update for this model and notified the systems team. Updated KB-0193 with a new step: check Device Manager for an adapter warning after updates, and escalate for a driver rollback.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="key-concept">
+                    <h4>What Made This a Good Ticket</h4>
+                    <p>Tier 1 confirmed the problem was one laptop, not the network, before doing anything else. They solved the user's real problem &mdash; the client call &mdash; with a workaround while the actual fault waited for the right person. The escalation note told Tier 2 exactly what had been tried, so Tier 2 walked in already knowing where to look. And Tier 2 did not stop at the fix: they recorded the root cause and changed the knowledge base, so the next technician who sees this resolves it at Tier 1.</p>
+                </div>
+
+                <h4>Part D &mdash; Practice</h4>
+                <p>Work on your own. Use this call:</p>
+                <div class="plain-box">
+                    <div class="callout-title">The Call</div>
+                    <div class="callout-content"><p>"Hi, this is Robert in Payroll. I can't print to the second-floor printer. It just sits in the queue. Everybody else in Payroll seems fine, and I really need to print checks by noon."</p></div>
+                </div>
+                <ol class="lab-steps">
+                    <li><strong>Decide who you are.</strong> You are Tier 1, working remotely by phone. Write down the first three questions you would ask, in order.</li>
+                    <li><strong>Build the ticket header.</strong> Fill in requester, device (invent reasonable details), channel, category, and a description with Robert's words and your summary.</li>
+                    <li><strong>Set the priority</strong> with the impact-and-urgency table, and explain your choice in one sentence.</li>
+                    <li><strong>Write two progress notes</strong> for the Tier 1 steps you would try first.</li>
+                    <li><strong>Decide: resolve or escalate.</strong> Assume your steps did not work. Write the escalation note to Tier 2 desktop support &mdash; detailed enough that they never have to call Robert to ask what happened.</li>
+                    <li><strong>Write what you would tell Robert</strong> before you hang up, so he knows what happens next and when.</li>
                 </ol>
                 <div class="callout callout-tip">
                     <div class="callout-title">Check Your Work</div>
-                    <div class="callout-content"><p>Trade tickets with another pair. If they can tell you exactly what was wrong and what was done without asking you a single question, the ticket is good.</p></div>
+                    <div class="callout-content"><p>Read your escalation note as if you were the Tier 2 technician who just received it. Could you walk to Robert's desk and start working without asking him a single question? If not, add what is missing. Then compare your ticket with the anatomy table in Part B: every field should be filled in.</p></div>
                 </div>
             </div>
 
@@ -506,36 +657,246 @@
                     <div class="lab-icon">&#128190;</div>
                     <div>
                         <h3 class="lab-title">Lab 1.6.2 &mdash; File System Face-Off</h3>
-                        <p class="lab-time">Wednesday &middot; In class &middot; 45 minutes &middot; Objective 1.1</p>
+                        <p class="lab-time">Wednesday &middot; In class &middot; 45&ndash;60 minutes &middot; Objective 1.1</p>
                     </div>
                 </div>
-                <p>The 4 GB limit is the kind of fact that sounds arbitrary until you watch a copy fail in front of you.</p>
+
+                <div class="callout callout-info">
+                    <div class="callout-title">Purpose</div>
+                    <div class="callout-content"><p>Format the same drive three ways &mdash; FAT32, exFAT, and NTFS &mdash; copy the same oversized file each time, and record what changes. By the end you will be able to choose the right file system for a drive and explain why, from evidence you produced yourself.</p></div>
+                </div>
+
+                <h4>Why This Method</h4>
+                <p>This lab is a <strong>controlled comparison</strong>: one thing changes and everything else stays the same. The drive, the computer, and the test file are identical in every round. Only the file system changes. That design matters for four reasons.</p>
+                <ul class="checklist">
+                    <li><strong>It isolates the cause.</strong> When the copy fails on FAT32 and succeeds on exFAT with the same drive and the same file, the file system is the only possible explanation. This is the same logic as step 3 of the troubleshooting method &mdash; test the theory by changing one thing at a time. You are practicing it on purpose.</li>
+                    <li><strong>It produces the symptom you will meet on the job.</strong> Customers do not report "a FAT32 single-file size limit." They report "it says the file is too large, but the drive is empty." Seeing that exact error once means you recognize it instantly later &mdash; and the exam describes symptoms the same way.</li>
+                    <li><strong>It turns a memorized fact into a judgment.</strong> Knowing that FAT32 cannot hold a file over 4 GB is recall. Choosing exFAT for a drive shared between a PC and a Mac, and NTFS for files that need permissions, is the skill. Your recommendations at the end come from your own results.</li>
+                    <li><strong>It is safe and repeatable.</strong> You use an empty lab drive and a test file generated for the purpose, so no real data is ever at risk, and any classmate can repeat your steps and get the same result.</li>
+                </ul>
+
+                <h4>Materials</h4>
+                <ul class="styled-list">
+                    <li>A Windows lab computer you can sign in to as an administrator</li>
+                    <li>An empty USB flash drive of <strong>32 GB or smaller</strong>, issued for the lab. Windows' built-in formatting tools will not offer FAT32 for larger drives.</li>
+                    <li>At least 6 GB of free space on the computer's own drive, for the test file</li>
+                    <li>Optional: a Mac, for the cross-platform test in step 9</li>
+                </ul>
+
+                <div class="callout callout-danger">
+                    <div class="callout-title">Before You Begin</div>
+                    <div class="callout-content"><p>Formatting erases everything on the drive. Confirm the USB drive is the lab drive and is empty, and double-check the drive letter before every format. Formatting the wrong drive is the most common way people lose data on purpose.</p></div>
+                </div>
+
+                <h4>Procedure</h4>
                 <ol class="lab-steps">
-                    <li><strong>Format a USB drive as FAT32</strong> on a lab machine. Note how long the format takes and what options you are offered.</li>
-                    <li><strong>Copy a file larger than 4 GB</strong> to it. Record the exact error message word for word &mdash; the exam describes symptoms, not causes.</li>
-                    <li><strong>Reformat the drive as exFAT</strong> and copy the same file. Note the difference.</li>
-                    <li><strong>Reformat as NTFS,</strong> then right-click a file on the drive and open Properties, then Security. Note what NTFS gives you that the other two did not.</li>
-                    <li><strong>Test cross-platform behavior</strong> if a Mac is available: which of the three drives can the Mac read, and which can it write to?</li>
-                    <li><strong>Record your recommendation</strong> for three scenarios: a drive shared between a Windows PC and a Mac, a drive holding company files that need permissions, and a drive that must work in a car stereo.</li>
+                    <li><strong>Create the test file.</strong> Open Command Prompt as administrator, then run <code>mkdir C:\Lab</code> followed by <code>fsutil file createnew C:\Lab\testfile.bin 5368709120</code>. This creates an empty file of exactly 5 GB &mdash; larger than FAT32 can hold &mdash; without needing a real video. Confirm its size in File Explorer.</li>
+                    <li><strong>Identify the USB drive.</strong> Insert it, open File Explorer, and note its drive letter and capacity. Open its Properties and confirm it is empty.</li>
+                    <li><strong>Round 1: format as FAT32.</strong> Right-click the drive, choose Format, select <strong>FAT32</strong>, leave Quick Format checked, and start. Record the file system options offered, the default allocation unit size, and how long the format took.</li>
+                    <li><strong>Copy the test file.</strong> Copy <code>testfile.bin</code> to the drive. Record the <strong>exact error message, word for word</strong>, and the drive's free space at the moment the copy failed.</li>
+                    <li><strong>Round 2: format as exFAT</strong> using the same steps, then copy the same test file. Record whether it succeeded and how long it took.</li>
+                    <li><strong>Round 3: format as NTFS,</strong> then copy the same test file. Record the result.</li>
+                    <li><strong>Inspect what NTFS adds.</strong> Right-click the copied file, choose Properties, and look for the <strong>Security</strong> tab. Record what you find. Then check the FAT32 and exFAT results from your notes: did those rounds have a Security tab?</li>
+                    <li><strong>Fill in the results table</strong> below from your notes.</li>
+                    <li><strong>Optional cross-platform test.</strong> If a Mac is available, connect the drive after each format and record whether the Mac can read it, write to it, or both.</li>
+                    <li><strong>Clean up.</strong> Delete <code>C:\Lab\testfile.bin</code>, and return the USB drive formatted as exFAT, empty.</li>
                 </ol>
+
+                <h4>Results Table</h4>
+                <p>Copy this into your notes and complete it from your own observations.</p>
+                <div class="table-container">
+                    <table>
+                        <thead><tr><th>Check</th><th>FAT32</th><th>exFAT</th><th>NTFS</th></tr></thead>
+                        <tbody>
+                            <tr><td>5 GB file copied?</td><td></td><td></td><td></td></tr>
+                            <tr><td>Exact message, if any</td><td></td><td></td><td></td></tr>
+                            <tr><td>Security tab (permissions)?</td><td></td><td></td><td></td></tr>
+                            <tr><td>Mac can read / write? (optional)</td><td></td><td></td><td></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4>Analysis: Make the Recommendation</h4>
+                <p>Using only your results table, recommend a file system for each scenario and give the one result that decided it:</p>
+                <ol class="lab-steps">
+                    <li>A flash drive shared between a Windows PC and a Mac, holding video files larger than 4 GB.</li>
+                    <li>An internal drive holding company files that must allow some employees access and deny it to others.</li>
+                    <li>A flash drive of music for a car stereo that only supports older formats.</li>
+                </ol>
+
+                <div class="callout callout-tip">
+                    <div class="callout-title">Check Your Work</div>
+                    <div class="callout-content"><p>Your recommendations should be exFAT for the shared drive, NTFS for the company files, and FAT32 for the car stereo &mdash; with each justified by something you saw, not something you remembered. If your evidence pointed somewhere else, look at the step where it diverged; that is the most useful thing you will learn today.</p></div>
+                </div>
             </div>
 
             <div class="lab-section">
                 <div class="lab-header">
                     <div class="lab-icon">&#128269;</div>
                     <div>
-                        <h3 class="lab-title">Lab 1.6.3 &mdash; Will It Run?</h3>
-                        <p class="lab-time">Thursday &middot; In class &middot; 30 minutes &middot; Objectives 1.10, 1.3</p>
+                        <h3 class="lab-title">Lab 1.6.3 &mdash; Will It Run? Minimum Versus Recommended Requirements</h3>
+                        <p class="lab-time">Thursday &middot; In class &middot; 45&ndash;60 minutes &middot; Objectives 1.10, 1.3</p>
                     </div>
                 </div>
-                <p>Customers ask this question constantly. Answering it well is a five-minute skill that makes you look like a professional.</p>
+
+                <div class="callout callout-info">
+                    <div class="callout-title">Purpose</div>
+                    <div class="callout-content"><p>"Will this run on my computer?" is one of the questions customers ask most. A professional answer is never just yes or no. It says whether the software will install, how well it will run, and which specific part of the computer decides that. This lab teaches you to read both sets of requirements and give that answer.</p></div>
+                </div>
+
+                <h4>What the Two Numbers Mean</h4>
+                <div class="definition">
+                    <div class="definition-term">Minimum requirements</div>
+                    <p class="definition-text">The lowest configuration on which the vendor says the software will install and run in a supported way. Meeting the minimum means it works &mdash; often slowly, with features turned down, or only for light work.</p>
+                </div>
+                <div class="definition">
+                    <div class="definition-term">Recommended requirements</div>
+                    <p class="definition-text">The configuration the vendor expects to deliver the intended experience for typical work. Meeting the recommended specifications means it runs the way the vendor designed it to.</p>
+                </div>
+
+                <div class="key-concept">
+                    <h4>How the Two Relate</h4>
+                    <p>Minimum and recommended are not two different answers to the same question. They describe the <strong>same software at two levels of performance</strong>. Between them is a range where the software runs, but with limits the user will notice. That gives you three possible verdicts, not two:</p>
+                    <ul class="styled-list">
+                        <li><strong>Below minimum</strong> &mdash; may not install, or installs unsupported. Vendor support may decline to help.</li>
+                        <li><strong>Between minimum and recommended</strong> &mdash; runs, with limits. Your job is to name the limit: slow previews, lower settings, smaller projects.</li>
+                        <li><strong>At or above recommended</strong> &mdash; runs as intended.</li>
+                    </ul>
+                    <p>When a customer is <em>buying</em> a computer, recommend at least the recommended specifications. A machine bought at the minimum is at the minimum on its first day and below it after the next software update.</p>
+                </div>
+
+                <h4>Three Real-World Examples</h4>
+                <p>Each example below was taken from the vendor's own published requirements when this course was prepared. Vendors change these figures &mdash; one of the three changed in 2026 &mdash; so always check the vendor's current page before you advise anyone.</p>
+
+                <p><strong>Example 1: Adobe Premiere Pro (video editing), Windows</strong></p>
+                <div class="table-container">
+                    <table>
+                        <thead><tr><th>Component</th><th>Minimum</th><th>Recommended</th></tr></thead>
+                        <tbody>
+                            <tr><td>Operating system</td><td>Windows 11 (64-bit), version 24H2</td><td>Windows 11 (64-bit), version 24H2</td></tr>
+                            <tr><td>Processor</td><td>Intel 6th Gen or newer, or AMD Ryzen 1000 series or newer, with AVX2 support</td><td>A newer generation processor</td></tr>
+                            <tr><td>Memory</td><td>8 GB</td><td>16 GB for HD video; 32 GB or more for 4K</td></tr>
+                            <tr><td>Graphics</td><td>GPU with 4 GB of GPU memory</td><td>GPU with 8 GB of GPU memory</td></tr>
+                            <tr><td>Storage</td><td>8 GB free for installation</td><td>Fast SSD for the application and its cache</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="text-muted">The lesson: "recommended" depends on the work. The same computer can be recommended for HD editing and below recommended for 4K.</p>
+
+                <p><strong>Example 2: AutoCAD 2026 (computer-aided design), Windows</strong></p>
+                <div class="table-container">
+                    <table>
+                        <thead><tr><th>Component</th><th>Basic (Autodesk's word for minimum)</th><th>Recommended</th></tr></thead>
+                        <tbody>
+                            <tr><td>Operating system</td><td>64-bit Windows 10 or Windows 11</td><td>64-bit Windows 10 or Windows 11</td></tr>
+                            <tr><td>Processor</td><td>2.5&ndash;2.9 GHz</td><td>3+ GHz base, 4+ GHz turbo</td></tr>
+                            <tr><td>Memory</td><td>8 GB</td><td>32 GB</td></tr>
+                            <tr><td>Graphics</td><td>2 GB GPU, DirectX 11</td><td>8 GB GPU, DirectX 12</td></tr>
+                            <tr><td>Storage</td><td>10 GB (SSD suggested)</td><td>10 GB (SSD suggested)</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="text-muted">The lesson: vendors use different words for the same idea, and the gap can be large. Recommended memory here is four times the minimum.</p>
+
+                <p><strong>Example 3: Minecraft: Java Edition (game), requirements raised in July 2026</strong></p>
+                <div class="table-container">
+                    <table>
+                        <thead><tr><th>Component</th><th>Minimum</th><th>Recommended</th></tr></thead>
+                        <tbody>
+                            <tr><td>Performance target</td><td>1080p at 30 frames per second, Fast settings</td><td>1080p at 60 frames per second, Fancy settings</td></tr>
+                            <tr><td>Operating system</td><td>64-bit</td><td>64-bit</td></tr>
+                            <tr><td>Processor</td><td>4 cores</td><td>Intel Core i5-12400 or AMD Ryzen 5 5600</td></tr>
+                            <tr><td>Memory</td><td>8 GB with a dedicated GPU; 12 GB with integrated graphics</td><td>16 GB</td></tr>
+                            <tr><td>Graphics</td><td>2 GB of video memory, with Vulkan 1.3 support</td><td>6 GB GPU, such as a GeForce RTX 2060 or Radeon RX 5600 XT</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="text-muted">The lesson: requirements change over time. A computer that met the minimum in June 2026 may not meet it in August. The vendor also stated the performance target for each level, which is exactly what minimum and recommended really mean.</p>
+
+                <div class="callout callout-warning">
+                    <div class="callout-title">What the Three Examples Teach Together</div>
+                    <div class="callout-content">
+                        <ul class="checklist">
+                            <li><strong>Recommended is tied to a workload or performance target</strong> &mdash; HD versus 4K, 30 versus 60 frames per second.</li>
+                            <li><strong>Memory and graphics are usually where the gap is largest.</strong> Check those two lines first.</li>
+                            <li><strong>Some requirements are features, not sizes.</strong> AVX2, DirectX 12, and Vulkan 1.3 are yes-or-no. A computer with plenty of memory can still fail on a feature.</li>
+                            <li><strong>Requirements belong to a specific version.</strong> "Will AutoCAD run?" has no answer until you know which AutoCAD.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h4>Best Practices for Requirements Research</h4>
+                <ul class="checklist">
+                    <li><strong>Use the vendor's official page</strong> for the exact product and version. Third-party summary sites often disagree with each other and with the vendor; while this lab was being prepared, different sites listed different memory and graphics figures for the same software.</li>
+                    <li><strong>Record the date you checked</strong> and the version, so your answer can be verified later.</li>
+                    <li><strong>Check every line,</strong> not just memory. Operating system version, processor features, graphics memory, free storage, and display resolution can each block an installation.</li>
+                    <li><strong>Ask what the person will actually do with it.</strong> Light use and heavy use have different answers on the same computer.</li>
+                    <li><strong>Read the computer's specifications from the computer,</strong> using the tools below &mdash; not from memory, a sales sticker, or what the user believes it has.</li>
+                    <li><strong>Document your answer</strong> the way you would in a ticket: the requirement, the computer's value, and the verdict.</li>
+                </ul>
+
+                <h4>Step 1 &mdash; Gather the Computer's Specifications</h4>
+                <p>Do this once; you will use the results for both comparisons.</p>
+                <div class="table-container">
+                    <table>
+                        <thead><tr><th>What You Need</th><th>Where to Find It on Windows</th></tr></thead>
+                        <tbody>
+                            <tr><td>Windows edition and version</td><td>Press Windows key + R, type <code>winver</code>, and press Enter</td></tr>
+                            <tr><td>Processor, installed RAM, and system type (64-bit)</td><td>Settings &gt; System &gt; About</td></tr>
+                            <tr><td>Processor features such as AVX2</td><td>Note the exact processor model from About, then look it up on the Intel or AMD website</td></tr>
+                            <tr><td>Graphics card and dedicated GPU memory</td><td>Task Manager &gt; Performance &gt; GPU (Dedicated GPU memory), or run <code>dxdiag</code> and open the Display tab</td></tr>
+                            <tr><td>DirectX version</td><td>Run <code>dxdiag</code>; the System tab lists it</td></tr>
+                            <tr><td>Free storage, and SSD or HDD</td><td>File Explorer &gt; This PC for free space; Task Manager &gt; Performance &gt; Disk for the drive type</td></tr>
+                            <tr><td>Display resolution</td><td>Settings &gt; System &gt; Display</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4>Step 2 &mdash; Research and Compare: Minimum Requirements First</h4>
+                <p>Always start with the minimum. If the computer fails it, the recommended comparison does not matter yet.</p>
                 <ol class="lab-steps">
-                    <li><strong>Pick three real applications</strong> of different weights &mdash; something small, something mid-sized, and something demanding such as a video editor or a current game.</li>
-                    <li><strong>Find each one's published system requirements,</strong> minimum and recommended.</li>
-                    <li><strong>Inventory the lab machine:</strong> processor, installed RAM, free storage, graphics (integrated or dedicated), and Windows edition and version.</li>
-                    <li><strong>Compare and decide</strong> for each application: runs well, runs poorly, or will not install. Say which specific requirement decided it.</li>
-                    <li><strong>Name one impact</strong> of installing the demanding application on this machine for each of the four exam categories: device, network, operation, and business.</li>
+                    <li><strong>Find the vendor's official requirements page</strong> for the exact product and version, and record the date.</li>
+                    <li><strong>Copy the minimum requirements line by line</strong> into the Minimum column of the comparison table below.</li>
+                    <li><strong>Enter the computer's value</strong> for each line from Step 1.</li>
+                    <li><strong>Mark each line Meets or Fails.</strong> Treat feature requirements, such as DirectX 12, as yes or no.</li>
+                    <li><strong>Reach the minimum verdict.</strong> If any line fails, the verdict is <em>below minimum &mdash; will not install, or unsupported</em>. Name the failing requirement. If every line meets, continue to Step 3.</li>
                 </ol>
+
+                <h4>Step 3 &mdash; Repeat the Process for Recommended Requirements</h4>
+                <ol class="lab-steps">
+                    <li><strong>Return to the same vendor page</strong> and copy the recommended requirements line by line into the Recommended column.</li>
+                    <li><strong>Compare each line</strong> with the computer's values from Step 1, and mark Meets or Falls short.</li>
+                    <li><strong>Reach the final verdict.</strong> If every line meets, the verdict is <em>runs as intended</em>. If any line falls short, the verdict is <em>runs, with limits</em> &mdash; name the line and describe what the user will notice.</li>
+                    <li><strong>Write the answer</strong> in one or two sentences a customer would understand, naming the specific requirement that decided it.</li>
+                </ol>
+
+                <div class="table-container">
+                    <table>
+                        <thead><tr><th>Requirement</th><th>Minimum</th><th>Recommended</th><th>This Computer</th><th>Meets Minimum?</th><th>Meets Recommended?</th></tr></thead>
+                        <tbody>
+                            <tr><td>Operating system</td><td></td><td></td><td></td><td></td><td></td></tr>
+                            <tr><td>Processor</td><td></td><td></td><td></td><td></td><td></td></tr>
+                            <tr><td>Memory</td><td></td><td></td><td></td><td></td><td></td></tr>
+                            <tr><td>Graphics</td><td></td><td></td><td></td><td></td><td></td></tr>
+                            <tr><td>Storage</td><td></td><td></td><td></td><td></td><td></td></tr>
+                            <tr><td>Display</td><td></td><td></td><td></td><td></td><td></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4>Procedure</h4>
+                <ol class="lab-steps">
+                    <li><strong>Complete Step 1</strong> on the lab computer.</li>
+                    <li><strong>Choose three applications</strong> of different weights: something small, something mid-sized, and something demanding. You may use the three examples above, but check their current vendor pages rather than copying this page.</li>
+                    <li><strong>Run Steps 2 and 3 for each application,</strong> using a fresh comparison table each time.</li>
+                    <li><strong>Give each application one of the three verdicts,</strong> naming the requirement that decided it.</li>
+                    <li><strong>For the demanding application,</strong> name one impact of installing it on this computer for each of the four exam categories: device, network, operation, and business.</li>
+                </ol>
+
+                <div class="callout callout-tip">
+                    <div class="callout-title">Check Your Work</div>
+                    <div class="callout-content"><p>Every verdict should name a specific requirement and a specific value, such as "below recommended: this computer has 2 GB of GPU memory and the vendor recommends 8 GB." If any verdict just says "it should be fine," go back and find the line that decides it.</p></div>
+                </div>
             </div>
 
             <div class="lab-section">
@@ -546,8 +907,12 @@
                         <p class="lab-time">On your own &middot; 1&ndash;1.5 hours &middot; Ungraded &middot; Objectives 1.1, 1.3, 1.10, 4.1</p>
                     </div>
                 </div>
-                <p>Every technician should be able to inventory a computer in ten minutes. This week you do it on the machine you know best &mdash; your own &mdash; and write it up the way a help desk would.</p>
+                <div class="callout callout-info">
+                    <div class="callout-title">Purpose</div>
+                    <div class="callout-content"><p>Every technician should be able to inventory a computer in ten minutes. This week you do it on the machine you know best &mdash; your own &mdash; and write it up the way a help desk would.</p></div>
+                </div>
                 <p><strong>Nothing in this lab changes a setting.</strong> Every step is read-only: you are looking, not configuring.</p>
+                <h4>Procedure</h4>
                 <ol class="lab-steps">
                     <li><strong>Identify the operating system.</strong> Press Windows key + R, type <code>winver</code>, and press Enter. Record the edition and version. On macOS, use the Apple menu, then About This Mac. On Linux, run <code>cat /etc/os-release</code> in a terminal.</li>
                     <li><strong>Record the hardware.</strong> Open Settings, then System, then About (or the equivalent on your OS). Record the processor, installed RAM, and system type.</li>
@@ -566,9 +931,10 @@
             <div class="summary-box">
                 <h3>What These Labs Give You</h3>
                 <ul>
-                    <li>A ticket you have written and had someone else read, before you ever write one for a customer</li>
-                    <li>First-hand knowledge of what the 4 GB FAT32 limit looks like when it fails</li>
-                    <li>A repeatable method for answering "will this run on my computer?"</li>
+                    <li>A clear picture of Tier 1 and Tier 2 support, remote and in person &mdash; the roles your first IT job will most likely be</li>
+                    <li>The anatomy of a ticket, a worked example from first call to closure, and an escalation note another technician could act on</li>
+                    <li>First-hand evidence of what FAT32, exFAT, and NTFS each can and cannot do, and a defensible recommendation for each</li>
+                    <li>A repeatable method for answering "will this run?" against both minimum and recommended requirements</li>
                     <li>A complete inventory of your own machine, and a defensible answer about its Windows 11 upgrade path</li>
                 </ul>
             </div>
