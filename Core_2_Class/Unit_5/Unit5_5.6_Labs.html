@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Unit 5 &mdash; 5.6 Classroom Labs and Take-Home Lab | CompTIA A+ Core 2</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Sans+Pro:wght@400;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           CPCC COURSE TEMPLATE - GOLD / CHARCOAL / BLACK
+           CTS-ITS7501-80 CompTIA A+ Core 2 Training
+           Type: true black. Accents: gold. Chrome: charcoal.
+           ============================================ */
+
+        :root {
+            --primary-dark: #4A4A4A;       /* Charcoal - structural chrome only */
+            --primary-main: #B8962E;       /* Warm Gold - primary accent */
+            --primary-light: #D4AF56;      /* Light Gold */
+            --primary-pale: #FBF3DF;       /* Pale Gold wash */
+
+            --accent-teal: #8A6F1F;        /* Deep bronze-gold */
+            --accent-teal-light: #F3E9CE;  /* Pale bronze */
+            --accent-orange: #A9642A;      /* Warm rust */
+            --accent-orange-light: #F5E2CE;
+            --accent-purple: #6B5B3A;      /* Muted umber */
+            --accent-purple-light: #EFE6D2;
+            --accent-green: #4E7A51;
+            --accent-green-light: #DCEBDD;
+
+            --alert-warning: #B8862E;
+            --alert-warning-bg: #FBF0D9;
+            --alert-danger: #A13A3A;
+            --alert-danger-bg: #F6DEDE;
+            --alert-success: #3F6E42;
+            --alert-success-bg: #DCEBDD;
+            --alert-info: #6E5B2E;
+            --alert-info-bg: #F1E9D4;
+
+            --text-black: #000000;         /* All reading text */
+            --neutral-900: #000000;
+            --neutral-700: #000000;
+            --neutral-500: #5A5A5A;
+            --neutral-300: #D9D3C4;
+            --neutral-100: #FAF8F3;
+            --white: #ffffff;
+
+            --font-heading: 'Nunito', sans-serif;
+            --font-body: 'Source Sans Pro', sans-serif;
+            --font-code: 'Fira Code', monospace;
+
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+
+            --shadow-sm: 0 1px 2px rgba(74, 74, 74, 0.08);
+            --shadow-md: 0 4px 6px rgba(74, 74, 74, 0.12);
+            --shadow-lg: 0 10px 20px rgba(74, 74, 74, 0.15);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body), 'Segoe UI', Tahoma, Verdana, sans-serif;
+            font-size: 1.0625rem;
+            line-height: 1.7;
+            color: var(--text-black);
+            background: linear-gradient(135deg, var(--neutral-100) 0%, var(--white) 100%);
+            min-height: 100vh;
+            padding: var(--space-lg);
+        }
+
+        .course-container {
+            max-width: 950px; margin: 0 auto; background: var(--white);
+            border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); overflow: hidden;
+        }
+
+        .module-header {
+            background: var(--primary-main); color: var(--text-black);
+            padding: var(--space-lg) var(--space-xl); position: relative; overflow: hidden;
+        }
+        .module-label {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 0.875rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 2px; text-decoration: underline;
+            margin-bottom: var(--space-sm); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-title {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 2.25rem; font-weight: 800;
+            line-height: 1.2; margin-bottom: var(--space-md); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-subtitle { font-size: 1.125rem; max-width: 650px; position: relative; z-index: 1; color: var(--text-black); }
+
+        .toc {
+            display: flex; flex-direction: column; gap: var(--space-sm);
+            padding: var(--space-lg) var(--space-xl);
+            background: var(--primary-pale); border-bottom: 1px solid var(--neutral-300);
+        }
+        .toc-item {
+            width: 100%; text-align: left;
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 0.875rem;
+            color: var(--text-black); background: var(--white);
+            border: 2px solid var(--primary-main);
+            padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md);
+        }
+        .toc-item.current { background: var(--primary-main); }
+
+        .content-area { padding: var(--space-xl); }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif;
+            color: var(--text-black); line-height: 1.3; margin-bottom: var(--space-md);
+        }
+        h1 { font-size: 2rem; font-weight: 800; }
+        h2 { font-size: 1.625rem; font-weight: 700; padding-bottom: var(--space-sm);
+             border-bottom: 3px solid var(--primary-main); margin-top: var(--space-xl); margin-bottom: var(--space-lg); }
+        h3 { font-size: 1.375rem; font-weight: 700; margin-top: var(--space-lg);
+             padding-left: var(--space-sm); border-left: 4px solid var(--primary-main); }
+        h4 { font-size: 1.125rem; font-weight: 600; }
+
+        p { margin-bottom: var(--space-md); }
+        strong { font-weight: 700; color: var(--text-black); }
+        em { font-style: italic; color: var(--text-black); }
+
+        a { color: var(--text-black); text-decoration: none; border-bottom: 2px solid var(--primary-main); transition: all 0.2s ease; }
+        a:hover { background: var(--primary-pale); border-bottom-color: var(--accent-teal); }
+
+        ul, ol { margin-bottom: var(--space-md); padding-left: var(--space-lg); }
+        li { margin-bottom: var(--space-sm); }
+        ul li::marker { color: var(--accent-teal); }
+        ol li::marker { color: var(--accent-teal); font-weight: 700; }
+
+        .styled-list { list-style: none; padding-left: 0; }
+        .styled-list li { position: relative; padding-left: var(--space-lg); margin-bottom: var(--space-sm); }
+        .styled-list li::before { content: '\25B8'; position: absolute; left: 0; color: var(--accent-teal); font-weight: bold; }
+
+        .checklist { list-style: none; padding-left: 0; }
+        .checklist li { position: relative; padding-left: 2rem; margin-bottom: var(--space-sm); }
+        .checklist li::before {
+            content: '\2713'; position: absolute; left: 0; width: 1.5rem; height: 1.5rem;
+            background: var(--accent-green-light); color: var(--accent-green);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 0.75rem; font-weight: bold;
+        }
+
+        .objectives-box {
+            background: linear-gradient(135deg, var(--primary-pale) 0%, var(--accent-teal-light) 100%);
+            border-left: 5px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .objectives-box h3 { color: var(--text-black); margin-top: 0; margin-bottom: var(--space-md);
+            display: flex; align-items: center; gap: var(--space-sm); border-left: none; padding-left: 0; }
+        .objectives-box ol { margin-bottom: 0; }
+
+        .tech-box {
+            background: var(--neutral-100); border: 2px solid var(--neutral-500);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .tech-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .tech-box .callout-content { padding-left: 0; }
+
+        .plain-box {
+            background: var(--primary-pale); border: 2px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .plain-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .plain-box .callout-content { padding-left: 0; }
+
+        .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; position: relative; overflow: hidden; }
+        .callout::before { position: absolute; top: var(--space-md); left: var(--space-md); font-size: 1.5rem; }
+        .callout-title { font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 1rem;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
+        .callout-content { }
+        .callout-content p:last-child { margin-bottom: 0; }
+
+        .callout-tip { background: var(--accent-green-light); border-left: 4px solid var(--accent-green); }
+        .callout-warning { background: var(--alert-warning-bg); border-left: 4px solid var(--alert-warning); }
+        .callout-danger { background: var(--alert-danger-bg); border-left: 4px solid var(--alert-danger); }
+        .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
+
+        .key-concept {
+            background: linear-gradient(135deg, var(--accent-purple-light) 0%, var(--white) 100%);
+            border: 2px solid var(--accent-purple); border-radius: var(--radius-lg);
+            padding: var(--space-lg); margin: var(--space-xl) 0 var(--space-lg); position: relative;
+        }
+        .key-concept::before {
+            content: '\1F511 KEY CONCEPT'; position: absolute; top: -12px; left: var(--space-lg);
+            background: var(--accent-purple); color: var(--white); font-family: var(--font-heading), sans-serif;
+            font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-md); border-radius: var(--radius-sm);
+        }
+        .key-concept h4 { color: var(--text-black); margin-top: var(--space-sm); }
+
+        .definition { background: var(--neutral-100); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin: var(--space-md) 0; border-left: 4px solid var(--accent-orange); }
+        .definition-term { font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 1.125rem;
+            color: var(--text-black); margin-bottom: var(--space-xs); }
+        .definition-text { color: var(--text-black); margin-bottom: 0; }
+
+        code { font-family: var(--font-code), Consolas, monospace; font-size: 0.9rem; background: var(--primary-pale);
+            color: var(--text-black); padding: 2px 6px; border-radius: var(--radius-sm); }
+        pre { background: #2E2E2E; color: #f1ece0; padding: var(--space-lg); border-radius: var(--radius-md);
+            overflow-x: auto; margin: var(--space-lg) 0; position: relative; }
+        pre::before {
+            content: 'STEPS'; position: absolute; top: 0; right: 0; background: var(--primary-main); color: var(--text-black);
+            font-family: var(--font-heading), sans-serif; font-size: 0.625rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-sm); border-radius: 0 var(--radius-md) 0 var(--radius-sm);
+        }
+        pre code { background: transparent; color: inherit; padding: 0; font-size: 0.875rem; line-height: 1.6; }
+
+        .table-container { overflow-x: auto; margin: var(--space-lg) 0; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); }
+        table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
+        thead { background: var(--primary-dark); color: var(--white); }
+        th { font-family: var(--font-heading), sans-serif; font-weight: 700; text-align: left; padding: var(--space-md) var(--space-lg); color: var(--white); }
+        td { padding: var(--space-md) var(--space-lg); border-bottom: 1px solid var(--neutral-300); color: var(--text-black); }
+        tbody tr:hover { background: var(--primary-pale); }
+        tbody tr:last-child td { border-bottom: none; }
+
+        .activity-section {
+            background: linear-gradient(135deg, var(--accent-orange-light) 0%, var(--white) 100%);
+            border: 2px dashed var(--accent-orange); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .activity-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg); }
+        .activity-icon { width: 50px; height: 50px; background: var(--accent-orange); border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; }
+        .activity-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700;
+            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
+        .activity-subtitle { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
+
+        .lab-section {
+            background: linear-gradient(135deg, var(--accent-teal-light) 0%, var(--white) 100%);
+            border: 2px solid var(--accent-teal); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .lab-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg);
+            padding-bottom: var(--space-md); border-bottom: 2px solid var(--accent-teal); }
+        .lab-icon { width: 60px; height: 60px; background: var(--accent-teal); border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center; font-size: 1.75rem; flex-shrink: 0; }
+        .lab-title { font-family: var(--font-heading), sans-serif; font-size: 1.375rem; font-weight: 700;
+            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
+        .lab-time { font-size: 0.875rem; color: var(--neutral-500); margin: 0; display: flex; align-items: center; gap: var(--space-xs); }
+        .lab-time::before { content: '\23F1\FE0F'; }
+        .lab-steps { counter-reset: lab-step; list-style: none; padding-left: 0; }
+        .lab-steps li { counter-increment: lab-step; position: relative; padding-left: 3rem; margin-bottom: var(--space-lg); }
+        .lab-steps li::before {
+            content: counter(lab-step); position: absolute; left: 0; width: 2rem; height: 2rem;
+            background: var(--accent-teal); color: var(--white); font-family: var(--font-heading), sans-serif; font-weight: 700;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.875rem;
+        }
+
+        .assessment-section { background: var(--primary-pale); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0; }
+        .assessment-header { text-align: center; margin-bottom: var(--space-xl); }
+        .assessment-header h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .question-block { background: var(--white); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin-bottom: var(--space-lg); box-shadow: var(--shadow-sm); }
+        .question-number { font-family: var(--font-heading), sans-serif; font-size: 0.75rem; font-weight: 700;
+            color: var(--text-black); background: var(--primary-main); display: inline-block;
+            padding: 2px 10px; border-radius: var(--radius-sm);
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); }
+        .question-text { font-weight: 600; color: var(--text-black); margin-bottom: var(--space-md); }
+        details.answer { margin-top: var(--space-sm); }
+        details.answer summary { cursor: pointer; font-weight: 700; color: var(--text-black);
+            font-family: var(--font-heading), sans-serif; font-size: 0.875rem;
+            border-bottom: 2px solid var(--primary-main); display: inline-block; }
+        details.answer .reveal { margin-top: var(--space-sm); padding: var(--space-md);
+            background: var(--accent-green-light); border-radius: var(--radius-sm); color: var(--text-black); }
+
+        .references-section { background: var(--neutral-100); border-radius: var(--radius-lg);
+            padding: var(--space-lg) var(--space-xl); margin: var(--space-xl) 0; border-top: 3px solid var(--primary-main); }
+        .references-section h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .references-section ul { padding-left: var(--space-lg); }
+
+        .summary-box {
+            background: var(--primary-dark); color: var(--white);
+            border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .summary-box h3 { color: var(--white); margin-top: 0; display: flex; align-items: center;
+            gap: var(--space-sm); border-left: none; padding-left: 0; }
+        .summary-box h3::before { content: '\1F4CB'; }
+        .summary-box ul { margin-bottom: 0; }
+        .summary-box li { color: var(--white); }
+        .summary-box li::marker { color: var(--primary-light); }
+
+        .section-divider {
+            border: none; height: 6px; margin: var(--space-2xl) 0;
+            background: linear-gradient(90deg, transparent 0%, var(--primary-main) 15%, var(--primary-light) 50%, var(--primary-main) 85%, transparent 100%);
+            border-radius: var(--radius-sm); box-shadow: var(--shadow-sm);
+        }
+
+        .module-footer { background: var(--primary-dark); padding: var(--space-lg) var(--space-xl);
+            text-align: center; border-top: 4px solid var(--primary-main); }
+        .footer-text { font-size: 0.875rem; color: var(--white); margin: 0; }
+
+        .text-center { text-align: center; }
+        .text-muted { color: var(--neutral-500); }
+        .highlight { background: linear-gradient(180deg, transparent 50%, var(--primary-light) 50%); padding: 0 2px; }
+
+        @media (max-width: 768px) {
+            body { padding: var(--space-sm); }
+            .module-header { padding: var(--space-xl) var(--space-lg); }
+            .module-title { font-size: 1.75rem; }
+            .content-area { padding: var(--space-lg); }
+            h2 { font-size: 1.375rem; }
+            .lab-header, .activity-header { flex-direction: column; align-items: flex-start; }
+        }
+        @media print {
+            body { background: white; padding: 0; }
+            .course-container { box-shadow: none; }
+            .toc { display: none; }
+            details.answer { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="course-container">
+
+        <header class="module-header">
+            <div class="module-label">Unit 5 &middot; Securing Systems and Protecting Data &middot; Section 5.6</div>
+            <h1 class="module-title">Classroom Labs and Take-Home Lab</h1>
+            <p class="module-subtitle">CompTIA A+ Core 2 - Domains 2.0 and 4.0</p>
+        </header>
+
+                <nav class="toc" id="tocNav">
+            <div class="toc-header">Table of Contents</div>
+            <div class="toc-item">5.1 &mdash; Unit Overview and Schedule</div>
+            <div class="toc-item">5.2 &mdash; Unit Pre-Assessment</div>
+            <div class="toc-item">5.3 &mdash; Content Review</div>
+            <div class="toc-item">5.4 &mdash; Reading Assignment</div>
+            <div class="toc-item">5.5 &mdash; Video Assignment</div>
+            <div class="toc-item current" id="tocCurrent">5.6 &mdash; Classroom Labs and Take-Home Lab</div>
+            <div class="toc-item">5.7 &mdash; Practice Question Set</div>
+            <div class="toc-item">5.8 &mdash; Online Labs: NETLAB</div>
+            <div class="toc-item">5.9 &mdash; Reflection Activity</div>
+            <div class="toc-item">5.10 &mdash; Unit Test</div>
+        </nav>
+        <style>
+            /* Collapsible TOC: only the current section shows until clicked */
+            nav.toc#tocNav { gap: 0; }
+            nav.toc#tocNav .toc-item {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav .toc-item.current {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                cursor: pointer;
+            }
+            nav.toc#tocNav .toc-item.current::after {
+                content: ' \25BE Click to View';
+                font-size: 0.75em;
+            }
+            nav.toc#tocNav.toc-expanded .toc-item {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                margin-bottom: var(--space-sm);
+            }
+            nav.toc#tocNav.toc-expanded .toc-item.current::after { content: ' \25B4'; }
+
+            nav.toc#tocNav .toc-header {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                font-family: var(--font-heading), 'Segoe UI', sans-serif;
+                font-weight: 700;
+                font-size: 0.875rem;
+                text-align: left;
+                color: var(--text-black);
+                text-decoration: underline;
+                background: var(--primary-main);
+                border-radius: var(--radius-md);
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav.toc-expanded .toc-header {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                padding-left: var(--space-md);
+                border-width: 2px;
+                border-style: solid;
+                border-color: var(--primary-main);
+                margin-bottom: var(--space-sm);
+            }
+        </style>
+
+        <script>
+            (function () {
+                var toc = document.getElementById('tocNav');
+                var currentItem = document.getElementById('tocCurrent');
+
+                toc.addEventListener('click', function (e) {
+                    if (toc.classList.contains('toc-expanded')) {
+                        toc.classList.remove('toc-expanded');
+                    } else if (e.target === currentItem || currentItem.contains(e.target)) {
+                        toc.classList.add('toc-expanded');
+                    }
+                });
+
+                toc.addEventListener('mouseleave', function () {
+                    toc.classList.remove('toc-expanded');
+                });
+            })();
+        </script>
+
+        <div class="content-area">
+
+            <p class="text-muted">Every class opens with a Ticket of the Day. After that come three optional labs we run in class as time permits, and one take-home lab in two parts. None of these is graded. All of them are where this unit's reading becomes something you have actually configured.</p>
+
+            <div class="callout callout-info">
+                <div class="callout-title">Five of Seven Objectives Are Scenario Objectives</div>
+                <div class="callout-content"><p>More of this unit is "Given a scenario" than any other unit in the course. That makes hands-on practice worth more here than anywhere else &mdash; the exam will describe a situation and ask what you would configure, and the only reliable preparation is having configured it.</p></div>
+            </div>
+
+            <div class="lab-section">
+                <div class="lab-header">
+                    <div class="lab-icon">&#127915;</div>
+                    <div>
+                        <h3 class="lab-title">Ticket of the Day</h3>
+                        <p class="lab-time">Every class &middot; In class &middot; About 15 minutes &middot; Objectives 4.1, 4.7</p>
+                    </div>
+                </div>
+                <p>Your instructor assigns and discusses each ticket in class.</p>
+                <ul class="styled-list">
+                    <li><strong>Ticket of the Day 1</strong></li>
+                    <li><strong>Ticket of the Day 2</strong></li>
+                    <li><strong>Ticket of the Day 3</strong></li>
+                </ul>
+                <div class="callout callout-tip">
+                    <div class="callout-title">Record What You Changed, Not Just What You Fixed</div>
+                    <div class="callout-content"><p>This unit's tickets involve changing settings, and a changed setting that nobody wrote down is the cause of next month's mystery. "Set the share permission to Change and the NTFS permission to Modify for the Accounting group" is a progress note. "Fixed permissions" is not. This is change management at the smallest possible scale, and it is the habit the rest of the discipline is built on.</p></div>
+                </div>
+            </div>
+
+            <div class="lab-section">
+                <div class="lab-header">
+                    <div class="lab-icon">&#129513;</div>
+                    <div>
+                        <h3 class="lab-title">Lab 5.6.1 &mdash; Permissions Puzzle</h3>
+                        <p class="lab-time">Wednesday &middot; In class &middot; 45 minutes &middot; Objective 2.2</p>
+                    </div>
+                </div>
+                <p>Work in pairs, on paper first and a lab PC second. You will be given a series of folders, each with a share permission and an NTFS permission, and a user arriving either over the network or at the keyboard.</p>
+                <ol class="lab-steps">
+                    <li><strong>Predict on paper.</strong> For each case, write down the user's effective access before touching a computer. Commit to an answer &mdash; a guess you wrote down teaches more than one you kept vague.</li>
+                    <li><strong>Watch for the local case.</strong> At least one case has the user signed in at the machine rather than across the network. Decide what share permissions do in that situation.</li>
+                    <li><strong>Test it.</strong> Configure the case on a lab PC and confirm the access from a second machine. Record any answer you got wrong and why.</li>
+                    <li><strong>Break inheritance.</strong> Create a subfolder, disable inheritance, and set different permissions. Then create a file in each folder and predict what the new file receives.</li>
+                    <li><strong>State the rule in your own words</strong> &mdash; in one sentence, without using the word "restrictive." If you can do that, you own it.</li>
+                </ol>
+                <div class="key-concept">
+                    <h4>The Case People Miss</h4>
+                    <p>Share permissions apply <em>only</em> to users arriving over the network. A user sitting at the machine is governed by NTFS alone. This is why a locked-down share can still be wide open to anyone who can sign in locally &mdash; and it is why physical security and logical security are not separate topics.</p>
+                </div>
+            </div>
+
+            <div class="lab-section">
+                <div class="lab-header">
+                    <div class="lab-icon">&#128225;</div>
+                    <div>
+                        <h3 class="lab-title">Lab 5.6.2 &mdash; Harden the Router</h3>
+                        <p class="lab-time">Thursday &middot; In class &middot; 45&ndash;60 minutes &middot; Objective 2.10</p>
+                    </div>
+                </div>
+                <p>Using the lab SOHO router, work through the six-step checklist from Section 5.3 on real hardware, in order.</p>
+                <ol class="lab-steps">
+                    <li><strong>Find the defaults first.</strong> Before changing anything, look up this router's default administrator credentials online. Record how long it took you. That number is the lesson.</li>
+                    <li><strong>Change the administrator password</strong> and record where that setting lives.</li>
+                    <li><strong>Check the firmware version</strong> against the manufacturer's current release, and record whether the device is behind.</li>
+                    <li><strong>Set the SSID</strong> to something that identifies neither the hardware nor the owner, and note what the default revealed.</li>
+                    <li><strong>Set encryption</strong> to WPA3, or WPA2 with AES if any device requires it. Record which options the router offers, including any you would never choose.</li>
+                    <li><strong>Disable UPnP</strong> and record where the setting was and what the router says about it.</li>
+                    <li><strong>Restrict management access</strong> to the internal network, and confirm the administrative interface is not reachable from outside.</li>
+                    <li><strong>Configure guest access</strong> and verify a guest client cannot reach an internal device.</li>
+                </ol>
+                <div class="callout callout-warning">
+                    <div class="callout-title">Restore the Lab Router Before You Leave</div>
+                    <div class="callout-content"><p>Record every setting before you change it, and put the router back the way you found it at the end of the session, or the next group starts with credentials they do not have. This is also the rollback plan from objective 4.2, in miniature &mdash; written before the change, not after.</p></div>
+                </div>
+            </div>
+
+            <div class="lab-section">
+                <div class="lab-header">
+                    <div class="lab-icon">&#128273;</div>
+                    <div>
+                        <h3 class="lab-title">Lab 5.6.3 &mdash; BitLocker To Go</h3>
+                        <p class="lab-time">Thursday &middot; In class &middot; 45 minutes &middot; Objectives 2.2, 2.7</p>
+                    </div>
+                </div>
+                <p>On a Windows Pro lab PC, encrypt a USB drive and then find out what that actually means on a different machine.</p>
+                <ol class="lab-steps">
+                    <li><strong>Start with an empty drive.</strong> Use a lab flash drive, not your own, and confirm it holds nothing you need &mdash; assume anything on it will be lost.</li>
+                    <li><strong>Copy a test file</strong> to the drive and open it, so you know it works before encryption.</li>
+                    <li><strong>Enable BitLocker To Go,</strong> choosing a password. Record where the recovery key is stored and what your options were.</li>
+                    <li><strong>Move the drive to a second machine</strong> and try to open the file. Record exactly what happens and what the prompt says.</li>
+                    <li><strong>Unlock it</strong> with the password, then record what a user would experience if they had forgotten it and had no recovery key.</li>
+                    <li><strong>Decrypt the drive</strong> and return it before the end of class.</li>
+                </ol>
+                <div class="callout callout-danger">
+                    <div class="callout-title">The Recovery Key Is the Whole Lesson</div>
+                    <div class="callout-content"><p>Encryption that works is indistinguishable from data loss when the credential is gone. Every real BitLocker deployment lives or dies on where the recovery keys are kept and who can reach them. A technician who enables encryption without answering that question first has not secured the data &mdash; they have scheduled its destruction.</p></div>
+                </div>
+            </div>
+
+            <div class="lab-section">
+                <div class="lab-header">
+                    <div class="lab-icon">&#127968;</div>
+                    <div>
+                        <h3 class="lab-title">Lab 5.6.4 &mdash; Take-Home, Part A: Secure Your Own Network</h3>
+                        <p class="lab-time">On your own &middot; 45 minutes &middot; Ungraded &middot; Objective 2.10</p>
+                    </div>
+                </div>
+                <p>Most people have never signed in to the router sitting in their home. This unit is when that changes.</p>
+                <div class="callout callout-warning">
+                    <div class="callout-title">Your Network Only, and Audit Before You Change</div>
+                    <div class="callout-content">
+                        <ul class="checklist">
+                            <li>Do this only on a network you own or administer. A dormitory, apartment-complex, or employer network is not yours to configure.</li>
+                            <li>If you cannot sign in to the router, record that as your finding and do the rest from what you can observe. Do not reset the device.</li>
+                            <li>Record every setting before you change anything, and change only what you are confident about.</li>
+                            <li>If a change would interrupt service for other people in the household, ask them first or leave it as a recommendation.</li>
+                        </ul>
+                    </div>
+                </div>
+                <ol class="lab-steps">
+                    <li><strong>Sign in,</strong> and record whether the administrator password is still the default.</li>
+                    <li><strong>Firmware:</strong> record the installed version and whether a newer one is available.</li>
+                    <li><strong>SSID:</strong> record it, and say what it reveals about the hardware or the household.</li>
+                    <li><strong>Encryption:</strong> record the standard in use, and which stronger options the router supports.</li>
+                    <li><strong>UPnP:</strong> record whether it is enabled.</li>
+                    <li><strong>Guest network:</strong> record whether one exists and whether it is separated from internal devices.</li>
+                    <li><strong>Management access:</strong> record whether the administrative interface is reachable from outside the network.</li>
+                    <li><strong>Connected devices:</strong> list what is currently connected. Note anything you cannot identify.</li>
+                </ol>
+                <p><strong>Write it up</strong> as a short memo: what you found, which items you changed, and which you are recommending rather than doing. End with one line: <strong>which single finding would you fix first, and why that one?</strong></p>
+            </div>
+
+            <div class="lab-section">
+                <div class="lab-header">
+                    <div class="lab-icon">&#127760;</div>
+                    <div>
+                        <h3 class="lab-title">Lab 5.6.5 &mdash; Take-Home, Part B: Lock Down Your Browser</h3>
+                        <p class="lab-time">On your own &middot; 45 minutes &middot; Ungraded &middot; Objective 2.11</p>
+                    </div>
+                </div>
+                <p>The browser is the program most exposed to hostile content and the one people configure least. Audit your own.</p>
+                <ol class="lab-steps">
+                    <li><strong>Version and updates.</strong> Record your browser's version and when it last updated. Note whether updates apply automatically.</li>
+                    <li><strong>Inventory your extensions.</strong> List every one, and for each record what it does, where it came from, and what permissions it holds. Flag any you cannot remember installing.</li>
+                    <li><strong>Remove one.</strong> Choose an extension you cannot justify &mdash; by usefulness or by trust &mdash; and remove it. Record which and why. If every extension survives the test, say so and defend one of them.</li>
+                    <li><strong>Check a certificate.</strong> Visit a site you trust, open the certificate details, and record who issued it and when it expires.</li>
+                    <li><strong>Audit the settings</strong> from objective 2.11: pop-up blocker, saved passwords, sync, ad blocker, proxy, and secure DNS. Record the state of each and whether it is what you intended.</li>
+                    <li><strong>Sync, deliberately.</strong> Record what is currently synchronized to your account, and decide whether you would want that on a work computer.</li>
+                    <li><strong>Clear the cache</strong> and note anything that changed &mdash; sites you were signed out of, pages that loaded differently.</li>
+                </ol>
+                <p><strong>Write it up</strong> in a few sentences: what surprised you in your own browser, what you changed, and what you would tell a user who asked whether extensions are safe.</p>
+
+                <div class="callout callout-tip">
+                    <div class="callout-title">Two Parts, One Point</div>
+                    <div class="callout-content"><p>Part A secures the network a household uses. Part B secures the program a person actually spends their day inside. Together they cover the two places where real people are most often compromised &mdash; and neither one requires a lab, a license, or anything you do not already own.</p></div>
+                </div>
+            </div>
+
+            <div class="summary-box">
+                <h3>What These Labs Give You</h3>
+                <ul>
+                    <li>Effective access predicted on paper and confirmed on a real share, including the local-sign-in case</li>
+                    <li>A SOHO router hardened end to end on real hardware, starting with how quickly its defaults can be found online</li>
+                    <li>First-hand knowledge of what encrypted removable media does on a machine that does not have the key</li>
+                    <li>An audit of your own home network, written as a memo with one priority named</li>
+                    <li>An honest inventory of your own browser extensions, and one fewer than you started with</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <footer class="module-footer">
+            <p class="footer-text">CompTIA A+ Core 2 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
+        </footer>
+    </div>
+</body>
+</html>
