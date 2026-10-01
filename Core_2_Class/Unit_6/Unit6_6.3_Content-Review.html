@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Unit 6 &mdash; 6.3 Content Review | CompTIA A+ Core 2</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Sans+Pro:wght@400;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           CPCC COURSE TEMPLATE - GOLD / CHARCOAL / BLACK
+           CTS-ITS7501-80 CompTIA A+ Core 2 Training
+           Type: true black. Accents: gold. Chrome: charcoal.
+           ============================================ */
+
+        :root {
+            --primary-dark: #4A4A4A;       /* Charcoal - structural chrome only */
+            --primary-main: #B8962E;       /* Warm Gold - primary accent */
+            --primary-light: #D4AF56;      /* Light Gold */
+            --primary-pale: #FBF3DF;       /* Pale Gold wash */
+
+            --accent-teal: #8A6F1F;        /* Deep bronze-gold */
+            --accent-teal-light: #F3E9CE;  /* Pale bronze */
+            --accent-orange: #A9642A;      /* Warm rust */
+            --accent-orange-light: #F5E2CE;
+            --accent-purple: #6B5B3A;      /* Muted umber */
+            --accent-purple-light: #EFE6D2;
+            --accent-green: #4E7A51;
+            --accent-green-light: #DCEBDD;
+
+            --alert-warning: #B8862E;
+            --alert-warning-bg: #FBF0D9;
+            --alert-danger: #A13A3A;
+            --alert-danger-bg: #F6DEDE;
+            --alert-success: #3F6E42;
+            --alert-success-bg: #DCEBDD;
+            --alert-info: #6E5B2E;
+            --alert-info-bg: #F1E9D4;
+
+            --text-black: #000000;         /* All reading text */
+            --neutral-900: #000000;
+            --neutral-700: #000000;
+            --neutral-500: #5A5A5A;
+            --neutral-300: #D9D3C4;
+            --neutral-100: #FAF8F3;
+            --white: #ffffff;
+
+            --font-heading: 'Nunito', sans-serif;
+            --font-body: 'Source Sans Pro', sans-serif;
+            --font-code: 'Fira Code', monospace;
+
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+
+            --shadow-sm: 0 1px 2px rgba(74, 74, 74, 0.08);
+            --shadow-md: 0 4px 6px rgba(74, 74, 74, 0.12);
+            --shadow-lg: 0 10px 20px rgba(74, 74, 74, 0.15);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body), 'Segoe UI', Tahoma, Verdana, sans-serif;
+            font-size: 1.0625rem;
+            line-height: 1.7;
+            color: var(--text-black);
+            background: linear-gradient(135deg, var(--neutral-100) 0%, var(--white) 100%);
+            min-height: 100vh;
+            padding: var(--space-lg);
+        }
+
+        .course-container {
+            max-width: 950px; margin: 0 auto; background: var(--white);
+            border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); overflow: hidden;
+        }
+
+        .module-header {
+            background: var(--primary-main); color: var(--text-black);
+            padding: var(--space-lg) var(--space-xl); position: relative; overflow: hidden;
+        }
+        .module-label {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 0.875rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 2px; text-decoration: underline;
+            margin-bottom: var(--space-sm); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-title {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 2.25rem; font-weight: 800;
+            line-height: 1.2; margin-bottom: var(--space-md); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-subtitle { font-size: 1.125rem; max-width: 650px; position: relative; z-index: 1; color: var(--text-black); }
+
+        .toc {
+            display: flex; flex-direction: column; gap: var(--space-sm);
+            padding: var(--space-lg) var(--space-xl);
+            background: var(--primary-pale); border-bottom: 1px solid var(--neutral-300);
+        }
+        .toc-item {
+            width: 100%; text-align: left;
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 0.875rem;
+            color: var(--text-black); background: var(--white);
+            border: 2px solid var(--primary-main);
+            padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md);
+        }
+        .toc-item.current { background: var(--primary-main); }
+
+        .content-area { padding: var(--space-xl); }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif;
+            color: var(--text-black); line-height: 1.3; margin-bottom: var(--space-md);
+        }
+        h1 { font-size: 2rem; font-weight: 800; }
+        h2 { font-size: 1.625rem; font-weight: 700; padding-bottom: var(--space-sm);
+             border-bottom: 3px solid var(--primary-main); margin-top: var(--space-xl); margin-bottom: var(--space-lg); }
+        h3 { font-size: 1.375rem; font-weight: 700; margin-top: var(--space-lg);
+             padding-left: var(--space-sm); border-left: 4px solid var(--primary-main); }
+        h4 { font-size: 1.125rem; font-weight: 600; }
+
+        p { margin-bottom: var(--space-md); }
+        strong { font-weight: 700; color: var(--text-black); }
+        em { font-style: italic; color: var(--text-black); }
+
+        a { color: var(--text-black); text-decoration: none; border-bottom: 2px solid var(--primary-main); transition: all 0.2s ease; }
+        a:hover { background: var(--primary-pale); border-bottom-color: var(--accent-teal); }
+
+        ul, ol { margin-bottom: var(--space-md); padding-left: var(--space-lg); }
+        li { margin-bottom: var(--space-sm); }
+        ul li::marker { color: var(--accent-teal); }
+        ol li::marker { color: var(--accent-teal); font-weight: 700; }
+
+        .styled-list { list-style: none; padding-left: 0; }
+        .styled-list li { position: relative; padding-left: var(--space-lg); margin-bottom: var(--space-sm); }
+        .styled-list li::before { content: '\25B8'; position: absolute; left: 0; color: var(--accent-teal); font-weight: bold; }
+
+        .checklist { list-style: none; padding-left: 0; }
+        .checklist li { position: relative; padding-left: 2rem; margin-bottom: var(--space-sm); }
+        .checklist li::before {
+            content: '\2713'; position: absolute; left: 0; width: 1.5rem; height: 1.5rem;
+            background: var(--accent-green-light); color: var(--accent-green);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 0.75rem; font-weight: bold;
+        }
+
+        .objectives-box {
+            background: linear-gradient(135deg, var(--primary-pale) 0%, var(--accent-teal-light) 100%);
+            border-left: 5px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .objectives-box h3 { color: var(--text-black); margin-top: 0; margin-bottom: var(--space-md);
+            display: flex; align-items: center; gap: var(--space-sm); border-left: none; padding-left: 0; }
+        .objectives-box ol { margin-bottom: 0; }
+
+        .tech-box {
+            background: var(--neutral-100); border: 2px solid var(--neutral-500);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .tech-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .tech-box .callout-content { padding-left: 0; }
+
+        .plain-box {
+            background: var(--primary-pale); border: 2px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .plain-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .plain-box .callout-content { padding-left: 0; }
+
+        .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; position: relative; overflow: hidden; }
+        .callout::before { position: absolute; top: var(--space-md); left: var(--space-md); font-size: 1.5rem; }
+        .callout-title { font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 1rem;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
+        .callout-content { }
+        .callout-content p:last-child { margin-bottom: 0; }
+
+        .callout-tip { background: var(--accent-green-light); border-left: 4px solid var(--accent-green); }
+        .callout-warning { background: var(--alert-warning-bg); border-left: 4px solid var(--alert-warning); }
+        .callout-danger { background: var(--alert-danger-bg); border-left: 4px solid var(--alert-danger); }
+        .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
+
+        .key-concept {
+            background: linear-gradient(135deg, var(--accent-purple-light) 0%, var(--white) 100%);
+            border: 2px solid var(--accent-purple); border-radius: var(--radius-lg);
+            padding: var(--space-lg); margin: var(--space-xl) 0 var(--space-lg); position: relative;
+        }
+        .key-concept::before {
+            content: '\1F511 KEY CONCEPT'; position: absolute; top: -12px; left: var(--space-lg);
+            background: var(--accent-purple); color: var(--white); font-family: var(--font-heading), sans-serif;
+            font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-md); border-radius: var(--radius-sm);
+        }
+        .key-concept h4 { color: var(--text-black); margin-top: var(--space-sm); }
+
+        .definition { background: var(--neutral-100); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin: var(--space-md) 0; border-left: 4px solid var(--accent-orange); }
+        .definition-term { font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 1.125rem;
+            color: var(--text-black); margin-bottom: var(--space-xs); }
+        .definition-text { color: var(--text-black); margin-bottom: 0; }
+
+        code { font-family: var(--font-code), Consolas, monospace; font-size: 0.9rem; background: var(--primary-pale);
+            color: var(--text-black); padding: 2px 6px; border-radius: var(--radius-sm); }
+        pre { background: #2E2E2E; color: #f1ece0; padding: var(--space-lg); border-radius: var(--radius-md);
+            overflow-x: auto; margin: var(--space-lg) 0; position: relative; }
+        pre::before {
+            content: 'STEPS'; position: absolute; top: 0; right: 0; background: var(--primary-main); color: var(--text-black);
+            font-family: var(--font-heading), sans-serif; font-size: 0.625rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-sm); border-radius: 0 var(--radius-md) 0 var(--radius-sm);
+        }
+        pre code { background: transparent; color: inherit; padding: 0; font-size: 0.875rem; line-height: 1.6; }
+
+        .table-container { overflow-x: auto; margin: var(--space-lg) 0; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); }
+        table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
+        thead { background: var(--primary-dark); color: var(--white); }
+        th { font-family: var(--font-heading), sans-serif; font-weight: 700; text-align: left; padding: var(--space-md) var(--space-lg); color: var(--white); }
+        td { padding: var(--space-md) var(--space-lg); border-bottom: 1px solid var(--neutral-300); color: var(--text-black); }
+        tbody tr:hover { background: var(--primary-pale); }
+        tbody tr:last-child td { border-bottom: none; }
+
+        .activity-section {
+            background: linear-gradient(135deg, var(--accent-orange-light) 0%, var(--white) 100%);
+            border: 2px dashed var(--accent-orange); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .activity-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg); }
+        .activity-icon { width: 50px; height: 50px; background: var(--accent-orange); border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; }
+        .activity-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700;
+            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
+        .activity-subtitle { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
+
+        .lab-section {
+            background: linear-gradient(135deg, var(--accent-teal-light) 0%, var(--white) 100%);
+            border: 2px solid var(--accent-teal); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .lab-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg);
+            padding-bottom: var(--space-md); border-bottom: 2px solid var(--accent-teal); }
+        .lab-icon { width: 60px; height: 60px; background: var(--accent-teal); border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center; font-size: 1.75rem; flex-shrink: 0; }
+        .lab-title { font-family: var(--font-heading), sans-serif; font-size: 1.375rem; font-weight: 700;
+            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
+        .lab-time { font-size: 0.875rem; color: var(--neutral-500); margin: 0; display: flex; align-items: center; gap: var(--space-xs); }
+        .lab-time::before { content: '\23F1\FE0F'; }
+        .lab-steps { counter-reset: lab-step; list-style: none; padding-left: 0; }
+        .lab-steps li { counter-increment: lab-step; position: relative; padding-left: 3rem; margin-bottom: var(--space-lg); }
+        .lab-steps li::before {
+            content: counter(lab-step); position: absolute; left: 0; width: 2rem; height: 2rem;
+            background: var(--accent-teal); color: var(--white); font-family: var(--font-heading), sans-serif; font-weight: 700;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.875rem;
+        }
+
+        .assessment-section { background: var(--primary-pale); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0; }
+        .assessment-header { text-align: center; margin-bottom: var(--space-xl); }
+        .assessment-header h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .question-block { background: var(--white); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin-bottom: var(--space-lg); box-shadow: var(--shadow-sm); }
+        .question-number { font-family: var(--font-heading), sans-serif; font-size: 0.75rem; font-weight: 700;
+            color: var(--text-black); background: var(--primary-main); display: inline-block;
+            padding: 2px 10px; border-radius: var(--radius-sm);
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); }
+        .question-text { font-weight: 600; color: var(--text-black); margin-bottom: var(--space-md); }
+        details.answer { margin-top: var(--space-sm); }
+        details.answer summary { cursor: pointer; font-weight: 700; color: var(--text-black);
+            font-family: var(--font-heading), sans-serif; font-size: 0.875rem;
+            border-bottom: 2px solid var(--primary-main); display: inline-block; }
+        details.answer .reveal { margin-top: var(--space-sm); padding: var(--space-md);
+            background: var(--accent-green-light); border-radius: var(--radius-sm); color: var(--text-black); }
+
+        .references-section { background: var(--neutral-100); border-radius: var(--radius-lg);
+            padding: var(--space-lg) var(--space-xl); margin: var(--space-xl) 0; border-top: 3px solid var(--primary-main); }
+        .references-section h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .references-section ul { padding-left: var(--space-lg); }
+
+        .summary-box {
+            background: var(--primary-dark); color: var(--white);
+            border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .summary-box h3 { color: var(--white); margin-top: 0; display: flex; align-items: center;
+            gap: var(--space-sm); border-left: none; padding-left: 0; }
+        .summary-box h3::before { content: '\1F4CB'; }
+        .summary-box ul { margin-bottom: 0; }
+        .summary-box li { color: var(--white); }
+        .summary-box li::marker { color: var(--primary-light); }
+
+        .section-divider {
+            border: none; height: 6px; margin: var(--space-2xl) 0;
+            background: linear-gradient(90deg, transparent 0%, var(--primary-main) 15%, var(--primary-light) 50%, var(--primary-main) 85%, transparent 100%);
+            border-radius: var(--radius-sm); box-shadow: var(--shadow-sm);
+        }
+
+        .module-footer { background: var(--primary-dark); padding: var(--space-lg) var(--space-xl);
+            text-align: center; border-top: 4px solid var(--primary-main); }
+        .footer-text { font-size: 0.875rem; color: var(--white); margin: 0; }
+
+        .text-center { text-align: center; }
+        .text-muted { color: var(--neutral-500); }
+        .highlight { background: linear-gradient(180deg, transparent 50%, var(--primary-light) 50%); padding: 0 2px; }
+
+        @media (max-width: 768px) {
+            body { padding: var(--space-sm); }
+            .module-header { padding: var(--space-xl) var(--space-lg); }
+            .module-title { font-size: 1.75rem; }
+            .content-area { padding: var(--space-lg); }
+            h2 { font-size: 1.375rem; }
+            .lab-header, .activity-header { flex-direction: column; align-items: flex-start; }
+        }
+        @media print {
+            body { background: white; padding: 0; }
+            .course-container { box-shadow: none; }
+            .toc { display: none; }
+            details.answer { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="course-container">
+
+        <header class="module-header">
+            <div class="module-label">Unit 6 &middot; Software Troubleshooting and Exam Readiness &middot; Section 6.3</div>
+            <h1 class="module-title">Content Review</h1>
+            <p class="module-subtitle">CompTIA A+ Core 2 - Domains 2.0, 3.0, and 4.0</p>
+        </header>
+
+                <nav class="toc" id="tocNav">
+            <div class="toc-header">Table of Contents</div>
+            <div class="toc-item">6.1 &mdash; Unit Overview and Schedule</div>
+            <div class="toc-item">6.2 &mdash; Unit Pre-Assessment</div>
+            <div class="toc-item current" id="tocCurrent">6.3 &mdash; Content Review</div>
+            <div class="toc-item">6.4 &mdash; Reading Assignment</div>
+            <div class="toc-item">6.5 &mdash; Video Assignment</div>
+            <div class="toc-item">6.6 &mdash; Classroom Labs</div>
+            <div class="toc-item">6.7 &mdash; Practice Question Set</div>
+            <div class="toc-item">6.8 &mdash; Online Labs: NETLAB</div>
+            <div class="toc-item">6.9 &mdash; Reflection Activity</div>
+            <div class="toc-item">6.10 &mdash; Unit Test</div>
+            <div class="toc-item">6.A.0 &mdash; Exam Readiness</div>
+            <div class="toc-item">6.A.1 &mdash; Final Study Exam</div>
+        </nav>
+        <style>
+            /* Collapsible TOC: only the current section shows until clicked */
+            nav.toc#tocNav { gap: 0; }
+            nav.toc#tocNav .toc-item {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav .toc-item.current {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                cursor: pointer;
+            }
+            nav.toc#tocNav .toc-item.current::after {
+                content: ' \25BE Click to View';
+                font-size: 0.75em;
+            }
+            nav.toc#tocNav.toc-expanded .toc-item {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                margin-bottom: var(--space-sm);
+            }
+            nav.toc#tocNav.toc-expanded .toc-item.current::after { content: ' \25B4'; }
+
+            nav.toc#tocNav .toc-header {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                font-family: var(--font-heading), 'Segoe UI', sans-serif;
+                font-weight: 700;
+                font-size: 0.875rem;
+                text-align: left;
+                color: var(--text-black);
+                text-decoration: underline;
+                background: var(--primary-main);
+                border-radius: var(--radius-md);
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav.toc-expanded .toc-header {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                padding-left: var(--space-md);
+                border-width: 2px;
+                border-style: solid;
+                border-color: var(--primary-main);
+                margin-bottom: var(--space-sm);
+            }
+        </style>
+
+        <script>
+            (function () {
+                var toc = document.getElementById('tocNav');
+                var currentItem = document.getElementById('tocCurrent');
+
+                toc.addEventListener('click', function (e) {
+                    if (toc.classList.contains('toc-expanded')) {
+                        toc.classList.remove('toc-expanded');
+                    } else if (e.target === currentItem || currentItem.contains(e.target)) {
+                        toc.classList.add('toc-expanded');
+                    }
+                });
+
+                toc.addEventListener('mouseleave', function () {
+                    toc.classList.remove('toc-expanded');
+                });
+            })();
+        </script>
+
+        <div class="content-area">
+
+            <p class="text-muted">This is the core reference for Unit 6. Read it before Wednesday's session &mdash; in a three-day unit, reading it early matters more than usual.</p>
+
+            <div class="callout callout-info">
+                <div class="callout-title">How to Use This Page</div>
+                <div class="callout-content"><p>Everything here is a symptom-to-cause map. The exam will not ask you to define a blue screen; it will describe one and ask what you would do. Read each symptom and try to name the likely cause before you read the answer &mdash; that is the skill being tested, and this page is built to let you practice it.</p></div>
+            </div>
+
+            <h2>Part 1 &mdash; Malware Removal, in Order (Objective 2.6)</h2>
+
+            <p>This objective is about a <strong>sequence</strong>. The exam asks what comes next, so the order is the content.</p>
+
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Step</th><th>What You Do</th><th>Why Here</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>1. Investigate and verify malware symptoms</strong></td><td>Confirm malware is actually the cause</td><td>Plenty of "virus" tickets are a failing drive or a bad update</td></tr>
+                        <tr><td><strong>2. Quarantine infected systems</strong></td><td>Disconnect from the network</td><td>Stops it spreading while you work</td></tr>
+                        <tr><td><strong>3. Disable System Restore in Windows</strong></td><td>Turn off restore points</td><td>Malware hides in restore points and reinfects from them</td></tr>
+                        <tr><td><strong>4. Remediate infected systems</strong></td><td>Clean or repair the system</td><td>The removal itself</td></tr>
+                        <tr><td><strong>5. Update anti-malware software</strong></td><td>Get current definitions</td><td>Signature scanning only catches what it knows</td></tr>
+                        <tr><td><strong>6. Use scanning and removal techniques</strong></td><td>Scan in safe mode or the preinstallation environment</td><td>Malware that blocks removal usually cannot run there</td></tr>
+                        <tr><td><strong>7. Reimage if required</strong></td><td>Reinstall from known-good media</td><td>The only certain answer when removal cannot be trusted</td></tr>
+                        <tr><td><strong>8. Schedule scans and run updates</strong></td><td>Set recurring protection</td><td>Prevents the next one</td></tr>
+                        <tr><td><strong>9. Enable System Restore and create a restore point</strong></td><td>Turn it back on, from a clean state</td><td>The new baseline is a clean machine</td></tr>
+                        <tr><td><strong>10. Educate the end user</strong></td><td>Explain what happened and how to avoid it</td><td>Last for a reason &mdash; it is the step that prevents the repeat visit</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="callout callout-info">
+                <div class="callout-title">The Book Groups These Into Seven</div>
+                <div class="callout-content"><p>Your textbook presents the same procedure as seven steps with sub-steps, combining updating anti-malware and the scanning techniques under remediation. Same order, split differently. <strong>Learn CompTIA's ten,</strong> because that is what the exam numbers &mdash; the book's grouping is shown here only so the two do not confuse you.</p></div>
+            </div>
+
+            <div class="key-concept">
+                <h4>Two Steps People Get Wrong</h4>
+                <p><strong>Disable System Restore before remediating, not after.</strong> If you clean the machine and leave infected restore points in place, a single restore reinfects it.</p>
+                <p><strong>Educate the user last, and actually do it.</strong> It feels optional because the machine already works. It is the only step that changes whether you see this machine again next month.</p>
+            </div>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">A Real Example You Will Meet on the Job</div>
+                <div class="callout-content"><p>A user's machine is infected and they have a folder of documents that exist nowhere else. The honest sequence is: get the system running just well enough to recover those files, copy them off and scan them separately, and <em>then</em> wipe the machine and restore from a known-good image. Removal tools are good; they are not a guarantee. When the data matters, the safest machine is the one you rebuilt.</p></div>
+            </div>
+
+            <h2>Part 2 &mdash; Troubleshooting Windows (Objective 3.1)</h2>
+
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Symptom</th><th>Where to Look First</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Blue screen of death (BSOD)</strong></td><td>Recent driver or hardware change; the stop code; Event Viewer's System log. Roll back the driver you installed last.</td></tr>
+                        <tr><td><strong>Sluggish performance</strong></td><td>Task Manager, sorted by CPU and then memory; disk space; startup programs</td></tr>
+                        <tr><td><strong>Boot problems</strong></td><td>Boot order, boot device, and the Windows Recovery Environment. Was something installed or changed?</td></tr>
+                        <tr><td><strong>Frequent shutdowns</strong></td><td>Overheating, power supply, or a driver fault &mdash; Event Viewer narrows which</td></tr>
+                        <tr><td><strong>Services not starting</strong></td><td>The Services snap-in and its dependencies; Event Viewer for the failure reason</td></tr>
+                        <tr><td><strong>Applications crashing</strong></td><td>Event Viewer's Application log; updates; repair or reinstall the application</td></tr>
+                        <tr><td><strong>Low memory warnings</strong></td><td>Task Manager's memory use; the page file; too many applications open</td></tr>
+                        <tr><td><strong>USB controller resource warnings</strong></td><td>Device Manager; too many devices on one controller; a powered hub</td></tr>
+                        <tr><td><strong>System instability</strong></td><td>Drivers, overheating, failing storage, and recent changes &mdash; in that order</td></tr>
+                        <tr><td><strong>No OS found</strong></td><td>Boot order, a disconnected drive, a failed drive, or damaged boot files</td></tr>
+                        <tr><td><strong>Slow profile load</strong></td><td>Roaming profile size, network and domain controller reachability, log-in scripts</td></tr>
+                        <tr><td><strong>Time drift</strong></td><td>Time service and its source; the CMOS battery; domain time sync. More than a nuisance &mdash; authentication fails when clocks disagree.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Common Troubleshooting Steps</h3>
+            <ul class="styled-list">
+                <li><strong>Reboot</strong> &mdash; genuinely fixes a category of problems, and is the correct first step more often than technicians like to admit</li>
+                <li><strong>Restart services</strong> &mdash; the targeted version of a reboot</li>
+                <li><strong>Uninstall, reinstall, or update applications</strong></li>
+                <li><strong>Add resources</strong> &mdash; when the machine is genuinely short of memory or storage</li>
+                <li><strong>Verify requirements</strong> &mdash; the Unit 1 question: can this machine run this software at all?</li>
+                <li><strong>System file check</strong> &mdash; <code>sfc /scannow</code>, from Unit 2</li>
+                <li><strong>Repair Windows</strong>, <strong>restore</strong>, <strong>reimage</strong>, or <strong>roll back updates</strong> &mdash; in increasing order of disruption</li>
+            </ul>
+
+            <div class="key-concept">
+                <h4>Least Disruptive First</h4>
+                <p>The order above is the answer to a whole family of exam questions. When several options would fix the problem, the right answer is almost always the <strong>least disruptive one that could work</strong> &mdash; restart the service before rebooting the server, repair before reimaging, roll back one update before restoring the whole system.</p>
+                <p>Reimaging fixes everything and costs the user their afternoon. It is the last resort, not the fast one.</p>
+            </div>
+
+            <h2>Part 3 &mdash; Mobile Troubleshooting (Objectives 3.2 and 3.3)</h2>
+
+            <h3>Common Mobile Issues (3.2)</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Symptom</th><th>Likely Causes</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Application fails to launch, close, or update</strong></td><td>Storage full, OS version too old, corrupted app data</td></tr>
+                        <tr><td><strong>Slow performance</strong></td><td>Storage nearly full, background apps, an aging battery</td></tr>
+                        <tr><td><strong>Battery life issues</strong> and <strong>swollen battery</strong></td><td>Normal wear versus a safety hazard &mdash; a swollen battery is removed from service immediately and disposed of properly</td></tr>
+                        <tr><td><strong>Random reboots</strong></td><td>Failing hardware, an OS fault, or a badly behaved application</td></tr>
+                        <tr><td><strong>Connectivity issues</strong> &mdash; Bluetooth, Wi-Fi, NFC, AirDrop</td><td>Radio disabled, out of range, pairing lost, or a profile restriction</td></tr>
+                        <tr><td><strong>Screen does not autorotate</strong></td><td>Rotation lock, or a failed sensor</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Mobile Security Issues (3.3)</h3>
+            <p>These are the symptoms that mean something is wrong rather than merely broken:</p>
+            <ul class="styled-list">
+                <li><strong>Unexpected application behavior</strong> &mdash; an app doing something it has no reason to do</li>
+                <li><strong>Leaked personal files or data</strong></li>
+                <li><strong>Data-usage limit notification</strong> &mdash; something is transmitting that should not be</li>
+                <li><strong>High network traffic</strong> &mdash; the same signal, seen from the network</li>
+                <li><strong>Sluggish response time</strong> &mdash; when combined with the above, not just an old phone</li>
+                <li><strong>Fake security warnings</strong> &mdash; a browser page pretending to be the system</li>
+            </ul>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">A Real Example You Will Meet on the Job</div>
+                <div class="callout-content"><p>A user says their phone is "slow and hot" and that they are suddenly hitting their data limit every month. Separately, each is unremarkable &mdash; phones age, plans change. Together they describe something running constantly and transmitting. Check installed applications and their permissions, review data usage per application, and treat it as a security issue rather than a performance one. Symptoms that are boring alone are meaningful in combination.</p></div>
+            </div>
+
+            <h2>Part 4 &mdash; Troubleshooting Security Issues (Objective 3.4)</h2>
+
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Symptom</th><th>What It Usually Means</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Unable to access the network</strong></td><td>Malware blocking connectivity, or a security control doing its job</td></tr>
+                        <tr><td><strong>Desktop alerts</strong> and <strong>false alerts regarding antivirus protection</strong></td><td>A fake warning designed to make the user install or pay for something</td></tr>
+                        <tr><td><strong>Altered system or personal files</strong>, including <strong>missing or renamed files</strong></td><td>A hallmark of ransomware &mdash; check before anything else</td></tr>
+                        <tr><td><strong>Unwanted notifications within the OS</strong></td><td>Browser notification permissions granted to a hostile site, or adware</td></tr>
+                        <tr><td><strong>OS update failures</strong></td><td>Malware preventing updates so it cannot be removed</td></tr>
+                        <tr><td><strong>Random or frequent pop-ups</strong></td><td>Adware, or a browser extension</td></tr>
+                        <tr><td><strong>Certificate warnings</strong></td><td>An expired certificate, a wrong system clock, or traffic being intercepted</td></tr>
+                        <tr><td><strong>Redirection</strong></td><td>A hijacked browser, a changed hosts file, or altered DNS settings</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="key-concept">
+                <h4>Three Symptoms, One Cause</h4>
+                <p>Update failures, no network access, and antivirus that will not update are <em>the same finding</em>: something on the machine is preventing its own removal. Any one of them on its own is a configuration problem. Together they are an infection, and the answer is the step-6 approach &mdash; scan from safe mode or a preinstallation environment where the malware cannot run.</p>
+            </div>
+
+            <h2>Part 5 &mdash; Remote Access Technologies (Objective 4.9)</h2>
+
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Technology</th><th>What It Is</th><th>When It Fits</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>RDP</strong></td><td>Remote Desktop Protocol &mdash; full graphical control of a Windows machine</td><td>Administering a Windows system as though you were sitting at it</td></tr>
+                        <tr><td><strong>VPN</strong></td><td>An encrypted tunnel into a private network</td><td>Reaching internal resources from outside; often the prerequisite for everything else here</td></tr>
+                        <tr><td><strong>VNC</strong></td><td>Cross-platform screen sharing and control</td><td>Mixed environments where RDP is unavailable</td></tr>
+                        <tr><td><strong>SSH</strong></td><td>Encrypted command-line access</td><td>Linux and network devices; low bandwidth and highly scriptable</td></tr>
+                        <tr><td><strong>RMM</strong></td><td>Remote monitoring and management &mdash; agent-based tools that watch and administer many machines</td><td>Managed service providers and internal IT at scale</td></tr>
+                        <tr><td><strong>MSP tools</strong></td><td>The platforms built around RMM for ticketing, patching, and reporting</td><td>Outsourced IT support</td></tr>
+                        <tr><td><strong>File transfer software</strong></td><td>Moving files to and from a remote system</td><td>Delivering a fix or collecting logs</td></tr>
+                        <tr><td><strong>Desktop management software</strong></td><td>Central configuration and software deployment</td><td>Standardizing a fleet of workstations</td></tr>
+                        <tr><td><strong>Video-conferencing software</strong></td><td>Screen sharing with a user, with their consent and participation</td><td>Walking a user through something they must do themselves</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Security Considerations</h3>
+            <p>Every remote access method is a door into a system, which is why the objective pairs them with security considerations. The recurring ones: use <strong>encrypted protocols</strong> rather than unencrypted equivalents; never expose RDP directly to the internet &mdash; put it behind a VPN; require <strong>multifactor authentication</strong> for remote access; apply <strong>least privilege</strong> to remote accounts as you would to local ones; and <strong>log and monitor</strong> remote sessions, since a remote connection nobody can account for is an incident.</p>
+
+            <div class="callout callout-danger">
+                <div class="callout-title">The Attack This Objective Exists to Prevent</div>
+                <div class="callout-content"><p>Exposed RDP with a weak password is one of the most common ways ransomware enters a small organization. The attacker does not need an exploit &mdash; they run a dictionary attack against an open port and sign in. Every control in Unit 5 applies here: account lockout, multifactor authentication, least privilege, and a VPN in front of the whole thing.</p></div>
+            </div>
+
+            <h2>Part 6 &mdash; The Basics of Artificial Intelligence (Objective 4.10)</h2>
+
+            <p>This objective is new to the A+ and is about <strong>using AI responsibly in IT work</strong>, not about building it.</p>
+
+            <h3>What It Is</h3>
+            <p>AI tools generate answers from patterns in training data. They do not look anything up unless they are given a tool to do so, and they do not know whether an answer is correct &mdash; they produce what is <em>probable</em>. That single fact explains nearly every risk below.</p>
+
+            <h3>Risks and Considerations</h3>
+            <ul class="styled-list">
+                <li><strong>Inaccurate or fabricated output</strong> &mdash; an AI will produce a confident, well-formatted answer that is wrong, including invented commands, settings, and citations</li>
+                <li><strong>Data privacy</strong> &mdash; what you paste into a public AI tool may leave your organization. Customer data, credentials, and internal documents do not belong in one.</li>
+                <li><strong>Intellectual property and licensing</strong> &mdash; generated content may carry obligations or restrictions</li>
+                <li><strong>Bias</strong> &mdash; output reflects the data it was trained on</li>
+                <li><strong>Acceptable use</strong> &mdash; organizations increasingly have policies governing which AI tools may be used for what, and a technician is expected to follow them</li>
+            </ul>
+
+            <div class="key-concept">
+                <h4>The Technician's Rule for AI</h4>
+                <p><strong>Use it to draft, never to decide.</strong> An AI is good at producing a first version of a ticket summary, a script, or an explanation for a user. It is not a source of fact, and it is not accountable for the outcome &mdash; you are.</p>
+                <p>Verify anything it tells you against documentation before you act on it, exactly as you would verify advice from a forum post. In this unit's "Check the AI" lab, you will do precisely that with an AI answer to an A+ question, and finding the error yourself is more convincing than being warned about it.</p>
+                <p>One more rule, directly from the testing policies: <strong>no AI assistance during a certification exam</strong>, ever. Using one is cheating, and for an online proctored exam it is grounds for immediate termination.</p>
+            </div>
+
+            <h2>How to Think Like a Troubleshooter</h2>
+
+            <p>Every symptom table on this page is a shortcut. The underlying method is the same one that works when the symptom is not in any table:</p>
+            <ol class="lab-steps">
+                <li><strong>Establish what changed.</strong> Almost every fault follows a change &mdash; an update, an install, a setting, a new device. "It worked yesterday" is the most useful sentence a user can give you.</li>
+                <li><strong>Reproduce it.</strong> A problem you can trigger on demand is a problem you can test a fix against.</li>
+                <li><strong>Narrow by halves.</strong> Is it this machine or the network? This user or every user? This application or everything? Each answer eliminates half the possibilities.</li>
+                <li><strong>Change one thing at a time,</strong> and test after each. Two changes at once means you will never know which worked.</li>
+                <li><strong>Choose the least disruptive fix</strong> that addresses the cause rather than the symptom.</li>
+                <li><strong>Document what you did</strong> &mdash; which brings you back to objective 4.1, and the first thing you learned in Unit 1.</li>
+            </ol>
+
+            <div class="callout callout-tip">
+                <div class="callout-title">Six Units, One Loop</div>
+                <div class="callout-content"><p>You opened this course writing a help-desk ticket, and you are closing it by writing a better one. That is not a coincidence in the design &mdash; it is what the job looks like. Everything in between was the knowledge that lets the ticket say something useful.</p></div>
+            </div>
+
+            <div class="summary-box">
+                <h3>Unit 6 Content Recap</h3>
+                <ul>
+                    <li>Malware removal is a ten-step sequence; disable System Restore before remediating, and educate the user last</li>
+                    <li>When removal cannot be trusted and the data matters: recover the files, then reimage</li>
+                    <li>Windows symptoms map to causes &mdash; and the right fix is the least disruptive one that could work</li>
+                    <li>Time drift breaks authentication, not just clocks</li>
+                    <li>Mobile symptoms that are unremarkable alone can be meaningful in combination</li>
+                    <li>Update failures, blocked network access, and antivirus that will not update are one finding: the malware is defending itself</li>
+                    <li>Remote access methods are doors &mdash; encrypted protocols, multifactor authentication, least privilege, and logging apply to all of them</li>
+                    <li>Never expose RDP directly to the internet</li>
+                    <li>AI is for drafting, not deciding; verify before you act, and never use it during a certification exam</li>
+                    <li>When no table has your symptom: what changed, reproduce, narrow by halves, one change at a time, least disruptive fix, document</li>
+                </ul>
+            </div>
+
+            <div class="references-section">
+                <h3>Go Further</h3>
+                <ul>
+                    <li>Sybex <em>CompTIA A+ Complete Study Guide</em>, Volume 2 &mdash; Chapter 7 in full; Chapter 8, Remote Access and Artificial Intelligence</li>
+                    <li>Professor Messer's free 220-1202 course &mdash; objectives 2.6, 3.1, 3.2, 3.3, 3.4, 4.9, and 4.10 (see Section 6.5 for direct links)</li>
+                    <li>CompTIA official 220-1202 exam objectives (comptia.org) &mdash; objective 3.1's symptom list is long and specific; read it beside this page</li>
+                    <li>Microsoft's Windows troubleshooting documentation (learn.microsoft.com) &mdash; the official detail behind the Windows symptom table</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <footer class="module-footer">
+            <p class="footer-text">CompTIA A+ Core 2 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
+        </footer>
+    </div>
+</body>
+</html>
