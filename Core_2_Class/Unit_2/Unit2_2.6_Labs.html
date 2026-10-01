@@ -485,47 +485,897 @@
                 <div class="lab-header">
                     <div class="lab-icon">&#128269;</div>
                     <div>
-                        <h3 class="lab-title">Lab 2.6.1 &mdash; MMC Scavenger Hunt</h3>
-                        <p class="lab-time">Wednesday &middot; In class &middot; 45 minutes &middot; Objective 1.4</p>
+                        <h3 class="lab-title">Lab 2.6.1 &mdash; The MMC Snap-ins, Hands On</h3>
+                        <p class="lab-time">Wednesday &middot; In class &middot; 90 minutes, finish any remaining snap-ins on your own &middot; Objective 1.4</p>
                     </div>
                 </div>
-                <p>You will work in pairs. Every answer below lives in a different management console, so the real skill being practiced is choosing the right snap-in &mdash; which is exactly how the exam asks about them.</p>
+
+                <div class="callout callout-info">
+                    <div class="callout-title">Purpose</div>
+                    <div class="callout-content"><p>Section 2.3 introduced eight Microsoft Management Console snap-ins. This lab is where you actually use each one. For every snap-in you will learn what its window is made of, when a technician reaches for it, how to open it, how to carry out its main jobs step by step, and how it solves a real ticket. Then you will do a short task on the lab computer to prove it.</p></div>
+                </div>
+
+                <h4>Before You Start</h4>
+                <ul class="checklist">
+                    <li><strong>Use a lab computer running Windows 11 Pro.</strong> Local Users and Groups and the Group Policy Editor are not included in Windows Home, so this lab cannot be completed on a Home edition machine.</li>
+                    <li><strong>You need administrator rights</strong> for Disk Management, Local Users and Groups, the Group Policy Editor, rolling back drivers, and parts of Event Viewer. When Windows asks for permission, that is User Account Control doing its job.</li>
+                    <li><strong>Change nothing unless a step tells you to,</strong> and undo every change before you leave. Each snap-in panel ends with a cleanup step.</li>
+                    <li><strong>Keep a record sheet.</strong> Every snap-in has a Lab Task with something to write down. Your answers are what you check at the end.</li>
+                </ul>
+
+                <h4>Four Ways to Open Any Snap-in</h4>
+                <p>Every snap-in below can be opened all four of these ways. Each panel lists the specific paths for that tool.</p>
+                <div class="table-container">
+                    <table>
+                        <thead><tr><th>Method</th><th>How</th><th>Best When</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Run box</strong></td><td>Press <strong>Windows key + R</strong>, type the file name (for example <code>devmgmt.msc</code>), and press Enter</td><td>You know the file name. This is the fastest method, and it is how the exam names the tools.</td></tr>
+                            <tr><td><strong>Quick Link menu</strong></td><td>Press <strong>Windows key + X</strong>, or right-click Start</td><td>You need Event Viewer, Device Manager, Disk Management, or Computer Management in two clicks</td></tr>
+                            <tr><td><strong>Computer Management</strong></td><td>Run <code>compmgmt.msc</code>. Its left pane groups several snap-ins under <strong>System Tools</strong> and <strong>Storage</strong>.</td><td>You expect to move between several tools on the same machine</td></tr>
+                            <tr><td><strong>Windows Tools</strong></td><td>Start &gt; All apps &gt; <strong>Windows Tools</strong>, or Control Panel &gt; Windows Tools. Windows 10 calls this folder Administrative Tools.</td><td>You prefer to browse rather than type</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4>How to Use This Lab</h4>
                 <ol class="lab-steps">
-                    <li><strong>Find the last unexpected shutdown.</strong> In Event Viewer, open the System log and locate the most recent Critical or Error entry. Record its date, its Event ID, and its source.</li>
-                    <li><strong>Find a device with a problem.</strong> In Device Manager, look for any device showing a warning icon. If the machine is healthy, pick any device and record its driver version and driver date instead.</li>
-                    <li><strong>Map the disk.</strong> In Disk Management, record how many physical disks the machine has, how each is divided, the file system and drive letter of each volume, and whether any unallocated space exists.</li>
-                    <li><strong>Find something that runs by itself.</strong> In Task Scheduler, open the Task Scheduler Library and find one task that is not Microsoft's own. Record its name, its trigger, and what it runs.</li>
-                    <li><strong>Check a service.</strong> In Task Manager's Services tab, find the print spooler. Record whether it is running and its process ID.</li>
-                    <li><strong>Build your own console.</strong> Run <code>mmc</code>, then use File and Add/Remove Snap-in to put Event Viewer, Device Manager, and Disk Management into one window. Save it to the desktop. This is what technicians actually do.</li>
+                    <li><strong>Open the Snap-in Navigator below</strong> by clicking the gold bar. It works like the Table of Contents at the top of every page.</li>
+                    <li><strong>Choose a snap-in.</strong> The list closes and that snap-in's full guide opens beneath it. Choosing another snap-in closes the first.</li>
+                    <li><strong>Work each guide in order:</strong> read the anatomy and use cases, follow the step-by-step procedures on the lab computer, read the practical example, then complete the Lab Task.</li>
+                    <li><strong>Use Next Snap-in</strong> at the bottom of each guide to move straight to the next tool, or <strong>Close This Snap-in</strong> when you are done.</li>
                 </ol>
+
+                <div class="sn-nav" id="snapinNav">
+                    <div class="sn-header">Snap-in Navigator</div>
+                    <div class="sn-current" id="snCurrent">Choose a Snap-in</div>
+                    <div class="sn-item" data-panel="p-eventvwr">1 &mdash; Event Viewer &middot; eventvwr.msc</div>
+                    <div class="sn-item" data-panel="p-diskmgmt">2 &mdash; Disk Management &middot; diskmgmt.msc</div>
+                    <div class="sn-item" data-panel="p-taskschd">3 &mdash; Task Scheduler &middot; taskschd.msc</div>
+                    <div class="sn-item" data-panel="p-devmgmt">4 &mdash; Device Manager &middot; devmgmt.msc</div>
+                    <div class="sn-item" data-panel="p-certmgr">5 &mdash; Certificate Manager &middot; certmgr.msc</div>
+                    <div class="sn-item" data-panel="p-lusrmgr">6 &mdash; Local Users and Groups &middot; lusrmgr.msc</div>
+                    <div class="sn-item" data-panel="p-perfmon">7 &mdash; Performance Monitor &middot; perfmon.msc</div>
+                    <div class="sn-item" data-panel="p-gpedit">8 &mdash; Group Policy Editor &middot; gpedit.msc</div>
+                </div>
+
+                <div class="sn-panel" id="p-eventvwr">
+                    <div class="sn-panel-inner">
+                        <h3>Event Viewer <code>eventvwr.msc</code></h3>
+                        <p>Event Viewer is Windows' record of what happened and when. Services, drivers, applications, and Windows itself write entries to its logs. When a user says something happened "by itself," Event Viewer is where you find out what actually happened.</p>
+
+                        <h4>Anatomy of the Window</h4>
+                        <div class="table-container"><table>
+                        <thead><tr><th>Part</th><th>What You See</th><th>What It Is For</th></tr></thead>
+                        <tbody>
+                        <tr><td><strong>Left pane: Custom Views</strong></td><td>Saved filters. The built-in <strong>Administrative Events</strong> view gathers Critical, Error, and Warning events from across the administrative logs.</td><td>A fast first look at anything that went wrong</td></tr>
+                        <tr><td><strong>Left pane: Windows Logs</strong></td><td><strong>Application</strong>, <strong>Security</strong>, <strong>Setup</strong>, <strong>System</strong>, and <strong>Forwarded Events</strong></td><td>The five main logs. System and Application answer most help-desk questions.</td></tr>
+                        <tr><td><strong>Left pane: Applications and Services Logs</strong></td><td>Detailed logs for individual Windows components and installed programs</td><td>Deeper digging once you know which component is involved</td></tr>
+                        <tr><td><strong>Center: event list</strong></td><td>Columns for <strong>Level</strong>, <strong>Date and Time</strong>, <strong>Source</strong>, <strong>Event ID</strong>, and <strong>Task Category</strong></td><td>Scanning and sorting events. Click a column heading to sort.</td></tr>
+                        <tr><td><strong>Center: preview pane</strong></td><td><strong>General</strong> tab with the plain-language description; <strong>Details</strong> tab with the raw data</td><td>Reading what a single event actually says</td></tr>
+                        <tr><td><strong>Right: Actions pane</strong></td><td><strong>Filter Current Log</strong>, <strong>Find</strong>, <strong>Create Custom View</strong>, <strong>Save All Events As</strong>, <strong>Attach Task To This Event</strong></td><td>Narrowing, saving, and acting on events</td></tr>
+                        </tbody></table></div>
+                        <p><strong>Event levels:</strong> <strong>Information</strong> (something worked), <strong>Warning</strong> (something may become a problem), <strong>Error</strong> (something failed), and <strong>Critical</strong> (a serious failure, such as an unexpected restart). The Security log uses <strong>Audit Success</strong> and <strong>Audit Failure</strong> instead.</p>
+
+                        <h4>When a Technician Uses It</h4>
+                        <ul class="checklist">
+                        <li>A computer restarted, crashed, or shut down without warning</li>
+                        <li>An application keeps closing or will not start</li>
+                        <li>A service, driver, or update failed</li>
+                        <li>Someone needs to know who signed in, and when (the Security log)</li>
+                        <li>Any ticket that needs evidence rather than a guess</li>
+                        </ul>
+
+                        <h4>How to Open It</h4>
+                        <ul class="styled-list">
+                        <li><strong>Run:</strong> Windows key + R, type <code>eventvwr.msc</code>, press Enter</li>
+                        <li><strong>Quick Link menu:</strong> Windows key + X &gt; <strong>Event Viewer</strong></li>
+                        <li><strong>Computer Management:</strong> System Tools &gt; <strong>Event Viewer</strong></li>
+                        <li><strong>Windows Tools:</strong> Start &gt; All apps &gt; Windows Tools &gt; <strong>Event Viewer</strong></li>
+                        </ul>
+                        <p class="text-muted">Most logs open for any user. The Security log requires administrator rights.</p>
+
+                        <h4>Primary Functions, Step by Step</h4>
+                        <p><strong>A. Read a log.</strong></p>
+                        <ol class="lab-steps">
+                        <li>In the left pane, expand <strong>Windows Logs</strong> and select <strong>System</strong>.</li>
+                        <li>Click the <strong>Date and Time</strong> column heading to sort newest first.</li>
+                        <li>Select an event. Read the <strong>General</strong> tab in the preview pane: Log Name, Source, Event ID, Level, Logged, and the description.</li>
+                        </ol>
+                        <p><strong>B. Filter a log to just what matters.</strong></p>
+                        <ol class="lab-steps">
+                        <li>Right-click <strong>System</strong> and choose <strong>Filter Current Log</strong>.</li>
+                        <li>Use <strong>Logged</strong> to limit the time range, for example Last 24 hours.</li>
+                        <li>Check <strong>Critical</strong> and <strong>Error</strong> under Event level, or type specific IDs into the <strong>&lt;All Event IDs&gt;</strong> box, separated by commas.</li>
+                        <li>Click <strong>OK</strong>. When you are done, choose <strong>Clear Filter</strong> in the Actions pane.</li>
+                        </ol>
+                        <p><strong>C. Save a view you will use again.</strong></p>
+                        <ol class="lab-steps">
+                        <li>Right-click <strong>Custom Views</strong> and choose <strong>Create Custom View</strong>.</li>
+                        <li>Choose the levels and logs, give the view a name, and click <strong>OK</strong>. It now appears under Custom Views every time.</li>
+                        </ol>
+                        <p><strong>D. Save evidence for a ticket.</strong> With a filter applied, choose <strong>Save Filtered Log File As</strong> in the Actions pane. The resulting .evtx file can be attached to a ticket or sent to Tier 2.</p>
+
+                        <h4>Practical Example</h4>
+                        <div class="plain-box"><div class="callout-title">The Ticket</div><div class="callout-content"><p>"My computer restarted by itself overnight and I lost an unsaved spreadsheet. Did someone remote in?"</p></div></div>
+                        <ol class="lab-steps">
+                        <li>Open the <strong>System</strong> log and choose <strong>Filter Current Log</strong>.</li>
+                        <li>Enter <code>41,1074,6008</code> in the Event IDs box and click OK.</li>
+                        <li>Read what you find. These three events, documented by Microsoft, tell planned restarts from unexpected ones:
+                        <div class="table-container"><table>
+                        <thead><tr><th>Event ID</th><th>Source</th><th>What It Means</th></tr></thead>
+                        <tbody>
+                        <tr><td><strong>1074</strong></td><td>User32</td><td>A process or person <em>started</em> the restart, and the event names who or what and why &mdash; for example, Windows Update</td></tr>
+                        <tr><td><strong>6008</strong></td><td>EventLog</td><td>The previous shutdown was unexpected</td></tr>
+                        <tr><td><strong>41</strong></td><td>Kernel-Power</td><td>Windows restarted without shutting down cleanly: a crash, a power loss, or the power button held down</td></tr>
+                        </tbody></table></div></li>
+                        <li><strong>Conclude.</strong> A 1074 naming Windows Update means a planned update restart, not an intruder. A 41 and a 6008 with no 1074 means an unexpected restart; the next question is power or a crash.</li>
+                        <li><strong>Answer the user</strong> with what the log shows, and record the event IDs and times in the ticket.</li>
+                        </ol>
+
+                        <div class="callout callout-tip"><div class="callout-title">Lab Task</div><div class="callout-content">
+                        <p>On the lab computer: (1) Filter the System log for <code>41,1074,6008</code>. Record the most recent event of each ID that appears, with its date, and state whether the last restart was planned or unexpected. (2) Clear the filter, filter for <strong>Critical</strong> and <strong>Error</strong> only, and record the most recent entry's Event ID, Source, and the first line of its description.</p>
+                        <p><strong>Cleanup:</strong> Clear Filter. Nothing else was changed.</p>
+                        </div></div>
+                        <div class="sn-buttons">
+                            <button type="button" class="sn-btn" data-next="p-diskmgmt">Next Snap-in: Disk Management &rarr;</button>
+                            <button type="button" class="sn-btn sn-btn-secondary" data-close="1">Close This Snap-in</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sn-panel" id="p-diskmgmt">
+                    <div class="sn-panel-inner">
+                        <h3>Disk Management <code>diskmgmt.msc</code></h3>
+                        <p>Disk Management shows every physical disk in the computer and how each one is divided into volumes. It is where a new drive becomes usable, where drive letters are assigned, and where volumes are resized.</p>
+
+                        <h4>Anatomy of the Window</h4>
+                        <div class="table-container"><table>
+                        <thead><tr><th>Part</th><th>What You See</th><th>What It Is For</th></tr></thead>
+                        <tbody>
+                        <tr><td><strong>Top: volume list</strong></td><td>Columns for <strong>Volume</strong>, <strong>Layout</strong>, <strong>Type</strong>, <strong>File System</strong>, <strong>Status</strong>, <strong>Capacity</strong>, and <strong>Free Space</strong></td><td>A quick table of every volume and how full it is</td></tr>
+                        <tr><td><strong>Bottom: disk map, left block</strong></td><td>One block per physical disk: <strong>Disk 0</strong>, <strong>Disk 1</strong>, and so on, with type (Basic), size, and status (<strong>Online</strong>, <strong>Not Initialized</strong>, or <strong>Offline</strong>)</td><td>Right-click here for disk-level actions such as Initialize Disk</td></tr>
+                        <tr><td><strong>Bottom: disk map, bars</strong></td><td>Each partition as a colored bar with its letter, size, file system, and status. Small partitions such as the <strong>EFI System Partition</strong> and <strong>Recovery Partition</strong> appear too.</td><td>Right-click a bar for volume actions</td></tr>
+                        <tr><td><strong>Black bars</strong></td><td><strong>Unallocated</strong> space</td><td>Space that belongs to no volume and holds no data</td></tr>
+                        <tr><td><strong>Action menu</strong></td><td><strong>Rescan Disks</strong>, <strong>Create VHD</strong>, <strong>Attach VHD</strong></td><td>Finding newly connected disks, and creating practice virtual disks</td></tr>
+                        </tbody></table></div>
+
+                        <h4>When a Technician Uses It</h4>
+                        <ul class="checklist">
+                        <li>A newly installed drive does not appear in File Explorer</li>
+                        <li>A drive needs a different letter, or has lost its letter</li>
+                        <li>A volume needs to be shrunk to make room, or extended into free space</li>
+                        <li>You need to see a disk's layout before reinstalling Windows or replacing a drive</li>
+                        </ul>
+
+                        <h4>How to Open It</h4>
+                        <ul class="styled-list">
+                        <li><strong>Run:</strong> <code>diskmgmt.msc</code></li>
+                        <li><strong>Quick Link menu:</strong> Windows key + X &gt; <strong>Disk Management</strong></li>
+                        <li><strong>Computer Management:</strong> Storage &gt; <strong>Disk Management</strong></li>
+                        </ul>
+                        <p class="text-muted">Requires administrator rights.</p>
+
+                        <h4>Primary Functions, Step by Step</h4>
+                        <p><strong>A. Initialize a new disk.</strong> A brand-new disk must be initialized before Windows can use it. Never initialize a disk that already holds data.</p>
+                        <ol class="lab-steps">
+                        <li>Right-click the disk's left block, which shows <strong>Not Initialized</strong>, and choose <strong>Initialize Disk</strong>.</li>
+                        <li>Confirm the correct disk is checked. Choose <strong>GPT</strong> for modern UEFI computers, or <strong>MBR</strong> for older hardware that does not support UEFI.</li>
+                        <li>Click <strong>OK</strong>. The disk becomes Online, with all of its space Unallocated.</li>
+                        </ol>
+                        <p><strong>B. Create and format a volume.</strong></p>
+                        <ol class="lab-steps">
+                        <li>Right-click the black <strong>Unallocated</strong> bar and choose <strong>New Simple Volume</strong>.</li>
+                        <li>In the wizard, accept or enter the size in MB.</li>
+                        <li>Assign a drive letter. Without one, the volume will not appear in File Explorer.</li>
+                        <li>Choose the file system (NTFS for Windows), the allocation unit size (Default), and a volume label, leave <strong>Perform a quick format</strong> checked, and click <strong>Finish</strong>. The status becomes <strong>Healthy</strong>.</li>
+                        </ol>
+                        <p><strong>C. Change a drive letter.</strong> Right-click the volume, choose <strong>Change Drive Letter and Paths</strong>, then <strong>Change</strong> (or <strong>Add</strong> if it has none), pick a letter, and click OK. Programs that expected the old letter may need to be pointed at the new one.</p>
+                        <p><strong>D. Shrink or extend a volume.</strong> Right-click the volume and choose <strong>Shrink Volume</strong>, then enter the amount to shrink in MB. To grow a volume, choose <strong>Extend Volume</strong>. Extend works only into unallocated space <em>directly to the right</em> of the volume on the same disk &mdash; which is why the option is often grayed out.</p>
+
+                        <div class="callout callout-danger"><div class="callout-title">Destructive Actions</div><div class="callout-content"><p><strong>Delete Volume</strong>, <strong>Format</strong>, and initializing the wrong disk destroy data. Before any of them, read the disk number, size, and label twice. On a customer's computer, confirm a backup exists first.</p></div></div>
+
+                        <h4>Practical Example</h4>
+                        <div class="plain-box"><div class="callout-title">The Ticket</div><div class="callout-content"><p>"Facilities installed a second drive in my workstation for project files, but it's not in File Explorer."</p></div></div>
+                        <ol class="lab-steps">
+                        <li>Open Disk Management. The new drive appears as <strong>Disk 1</strong>, <strong>Not Initialized</strong>, with its full capacity Unallocated.</li>
+                        <li>Initialize it as GPT, since the workstation uses UEFI.</li>
+                        <li>Create a New Simple Volume using all the space: NTFS, label <strong>Projects</strong>, letter <strong>P</strong>.</li>
+                        <li>Confirm drive P: appears in File Explorer and the user can save a test file.</li>
+                        <li>Record in the ticket: the disk number, partition style, file system, letter, and label.</li>
+                        </ol>
+
+                        <div class="callout callout-tip"><div class="callout-title">Lab Task &mdash; Practice on a Virtual Disk</div><div class="callout-content">
+                        <p>A virtual hard disk lets you practice every step above with no risk to a real drive.</p>
+                        <ol class="lab-steps">
+                        <li>Choose <strong>Action &gt; Create VHD</strong>. Location: <code>C:\Lab\practice.vhdx</code> (create the folder first if needed). Size: <strong>1 GB</strong>. Format: <strong>VHDX</strong>. Type: <strong>Dynamically expanding</strong>. Click OK.</li>
+                        <li>A new disk appears as <strong>Not Initialized</strong>. Record its disk number.</li>
+                        <li>Initialize it as <strong>GPT</strong>.</li>
+                        <li>Create a New Simple Volume: NTFS, label <strong>PRACTICE</strong>, any free letter. Record the letter and the capacity shown.</li>
+                        <li>Shrink the volume by <strong>200 MB</strong>. Record what appears to its right.</li>
+                        <li>Extend the volume back into that space. Record whether Extend Volume was available, and why.</li>
+                        </ol>
+                        <p><strong>Cleanup:</strong> right-click the virtual disk's left block and choose <strong>Detach VHD</strong>, then delete <code>C:\Lab\practice.vhdx</code>.</p>
+                        </div></div>
+                        <div class="sn-buttons">
+                            <button type="button" class="sn-btn" data-next="p-taskschd">Next Snap-in: Task Scheduler &rarr;</button>
+                            <button type="button" class="sn-btn sn-btn-secondary" data-close="1">Close This Snap-in</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sn-panel" id="p-taskschd">
+                    <div class="sn-panel-inner">
+                        <h3>Task Scheduler <code>taskschd.msc</code></h3>
+                        <p>Task Scheduler runs programs and scripts automatically &mdash; at a set time, at startup, when someone signs in, or when a particular event appears in a log. Windows itself uses it constantly, and so does almost every program that updates itself.</p>
+
+                        <h4>Anatomy of the Window</h4>
+                        <div class="table-container"><table>
+                        <thead><tr><th>Part</th><th>What You See</th><th>What It Is For</th></tr></thead>
+                        <tbody>
+                        <tr><td><strong>Left pane: Task Scheduler Library</strong></td><td>Folders of tasks. Windows' own tasks live under <strong>Microsoft &gt; Windows</strong>; tasks from installed programs are often at the top level of the Library.</td><td>Browsing every scheduled task on the machine</td></tr>
+                        <tr><td><strong>Center top: task list</strong></td><td>Columns for <strong>Name</strong>, <strong>Status</strong>, <strong>Triggers</strong>, <strong>Next Run Time</strong>, <strong>Last Run Time</strong>, and <strong>Last Run Result</strong></td><td>Seeing what runs, when it last ran, and whether it worked</td></tr>
+                        <tr><td><strong>Center bottom: tabs</strong></td><td><strong>General</strong>, <strong>Triggers</strong>, <strong>Actions</strong>, <strong>Conditions</strong>, <strong>Settings</strong>, and <strong>History</strong></td><td>Everything about the selected task. Triggers say <em>when</em>; Actions say <em>what</em>.</td></tr>
+                        <tr><td><strong>Right: Actions pane</strong></td><td><strong>Create Basic Task</strong>, <strong>Create Task</strong>, <strong>Display All Running Tasks</strong>, <strong>Enable All Tasks History</strong>, and, for a selected task, <strong>Run</strong>, <strong>End</strong>, <strong>Disable</strong>, <strong>Properties</strong>, and <strong>Delete</strong></td><td>Creating and controlling tasks</td></tr>
+                        </tbody></table></div>
+                        <p><strong>Reading Last Run Result:</strong> <code>0x0</code> means the task completed successfully. <code>0x41301</code> means it is running right now. Any other code is worth investigating.</p>
+
+                        <h4>When a Technician Uses It</h4>
+                        <ul class="checklist">
+                        <li>Something happens on a schedule that nobody can explain &mdash; a pop-up, a slowdown, a program opening</li>
+                        <li>A backup or maintenance job needs to run automatically</li>
+                        <li>A scheduled job has stopped running, or is failing</li>
+                        <li>Checking for persistence: malware often schedules itself to come back</li>
+                        </ul>
+
+                        <h4>How to Open It</h4>
+                        <ul class="styled-list">
+                        <li><strong>Run:</strong> <code>taskschd.msc</code></li>
+                        <li><strong>Computer Management:</strong> System Tools &gt; <strong>Task Scheduler</strong></li>
+                        <li><strong>Windows Tools:</strong> Start &gt; All apps &gt; Windows Tools &gt; <strong>Task Scheduler</strong></li>
+                        </ul>
+
+                        <h4>Primary Functions, Step by Step</h4>
+                        <p><strong>A. Find out what runs, and when.</strong></p>
+                        <ol class="lab-steps">
+                        <li>Select <strong>Task Scheduler Library</strong>. Sort by <strong>Next Run Time</strong> or <strong>Triggers</strong>.</li>
+                        <li>Select a task. On the <strong>Triggers</strong> tab, read when it runs. On the <strong>Actions</strong> tab, read exactly which program it starts.</li>
+                        <li>On the <strong>General</strong> tab, note the author and which account it runs as.</li>
+                        </ol>
+                        <p><strong>B. Create a basic task.</strong></p>
+                        <ol class="lab-steps">
+                        <li>Select the folder for the task, then choose <strong>Create Basic Task</strong> in the Actions pane.</li>
+                        <li>Enter a clear <strong>Name</strong> and a <strong>Description</strong> that says who created it and why.</li>
+                        <li>Choose the <strong>Trigger</strong>: Daily, Weekly, Monthly, One time, When the computer starts, When I log on, or When a specific event is logged. Then set its details.</li>
+                        <li>Choose the <strong>Action</strong>: <strong>Start a program</strong>. Browse to the program or script, and add any arguments.</li>
+                        <li>Review the summary and click <strong>Finish</strong>.</li>
+                        </ol>
+                        <p><strong>C. Change or stop a task safely.</strong> To change the schedule, open <strong>Properties</strong> &gt; <strong>Triggers</strong> &gt; <strong>Edit</strong>. To stop a task without losing it, right-click it and choose <strong>Disable</strong> &mdash; easy to undo, unlike Delete.</p>
+                        <p><strong>D. Check a task's history.</strong> Choose <strong>Enable All Tasks History</strong> in the Actions pane, then use the <strong>History</strong> tab to see each time a task started, completed, or failed.</p>
+
+                        <h4>Practical Example</h4>
+                        <div class="plain-box"><div class="callout-title">The Ticket</div><div class="callout-content"><p>"Every morning around nine, a window flashes up and my computer crawls for half an hour. It's been happening since the office manager installed something new last week."</p></div></div>
+                        <ol class="lab-steps">
+                        <li>Open Task Scheduler and select the <strong>Task Scheduler Library</strong>. Sort by <strong>Triggers</strong>.</li>
+                        <li>Find a task triggered daily at 9:00 AM that was not there before. On its <strong>Actions</strong> tab, confirm the program it starts.</li>
+                        <li>Check <strong>Last Run Result</strong>. If it shows <code>0x41301</code> during the slowdown, the task is running at that moment.</li>
+                        <li>Find out who owns the task before touching it. Then, with their agreement, move the trigger to after business hours rather than deleting it.</li>
+                        <li>Record the task's name, old and new trigger, and who approved the change.</li>
+                        </ol>
+
+                        <div class="callout callout-tip"><div class="callout-title">Lab Task</div><div class="callout-content">
+                        <p>(1) In the Task Scheduler Library, find one task that is not under the Microsoft folder. Record its name, trigger, action, and Last Run Result. (2) Create a basic task named <strong>Lab Reminder</strong>: trigger <strong>One time</strong>, three minutes from now; action <strong>Start a program</strong>, <code>notepad.exe</code>. Wait for Notepad to open on its own. Record the Last Run Result afterward.</p>
+                        <p><strong>Cleanup:</strong> right-click <strong>Lab Reminder</strong> and choose <strong>Delete</strong>. Close Notepad.</p>
+                        </div></div>
+                        <div class="sn-buttons">
+                            <button type="button" class="sn-btn" data-next="p-devmgmt">Next Snap-in: Device Manager &rarr;</button>
+                            <button type="button" class="sn-btn sn-btn-secondary" data-close="1">Close This Snap-in</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sn-panel" id="p-devmgmt">
+                    <div class="sn-panel-inner">
+                        <h3>Device Manager <code>devmgmt.msc</code></h3>
+                        <p>Device Manager lists every piece of hardware Windows knows about and the driver that runs it. It is the first stop for any problem that sounds like "this device stopped working."</p>
+
+                        <h4>Anatomy of the Window</h4>
+                        <div class="table-container"><table>
+                        <thead><tr><th>Part</th><th>What You See</th><th>What It Is For</th></tr></thead>
+                        <tbody>
+                        <tr><td><strong>Device tree</strong></td><td>Categories such as Display adapters, Network adapters, Audio inputs and outputs, and Universal Serial Bus controllers. Expand one to see its devices.</td><td>Finding a specific device</td></tr>
+                        <tr><td><strong>Status icons</strong></td><td>A <strong>yellow triangle with an exclamation mark</strong> means a problem, usually the driver. A <strong>down arrow</strong> means the device is disabled. <strong>Other devices</strong> or <strong>Unknown device</strong> means Windows has no driver for it.</td><td>Spotting trouble at a glance</td></tr>
+                        <tr><td><strong>Properties: General tab</strong></td><td><strong>Device status</strong>, including an error code when something is wrong</td><td>Learning exactly what Windows thinks is wrong</td></tr>
+                        <tr><td><strong>Properties: Driver tab</strong></td><td><strong>Driver Provider</strong>, <strong>Driver Date</strong>, <strong>Driver Version</strong>, <strong>Digital Signer</strong>, and the buttons <strong>Update Driver</strong>, <strong>Roll Back Driver</strong>, <strong>Disable Device</strong>, and <strong>Uninstall Device</strong></td><td>Managing the driver</td></tr>
+                        <tr><td><strong>Properties: Details and Events tabs</strong></td><td>Technical properties such as <strong>Hardware Ids</strong>; a history of installs and changes</td><td>Identifying an unknown device; seeing when a driver changed</td></tr>
+                        <tr><td><strong>View and Action menus</strong></td><td><strong>View &gt; Show hidden devices</strong>, <strong>View &gt; Devices by connection</strong>, <strong>Action &gt; Scan for hardware changes</strong></td><td>Revealing disconnected devices; asking Windows to detect hardware again</td></tr>
+                        </tbody></table></div>
+
+                        <h4>When a Technician Uses It</h4>
+                        <ul class="checklist">
+                        <li>A device stopped working, especially right after an update</li>
+                        <li>A new device is not recognized</li>
+                        <li>You need the exact driver version before updating or reporting a problem</li>
+                        <li>A device needs to be turned off without unplugging it</li>
+                        </ul>
+
+                        <h4>How to Open It</h4>
+                        <ul class="styled-list">
+                        <li><strong>Run:</strong> <code>devmgmt.msc</code></li>
+                        <li><strong>Quick Link menu:</strong> Windows key + X &gt; <strong>Device Manager</strong></li>
+                        <li><strong>Computer Management:</strong> System Tools &gt; <strong>Device Manager</strong></li>
+                        </ul>
+                        <p class="text-muted">Viewing works for any user. Changing drivers, including rolling back, requires administrator rights.</p>
+
+                        <h4>Primary Functions, Step by Step</h4>
+                        <p><strong>A. Find a problem device and read its status.</strong></p>
+                        <ol class="lab-steps">
+                        <li>Look for a yellow triangle. Device Manager usually expands the category that contains a problem device when it opens.</li>
+                        <li>Right-click the device, choose <strong>Properties</strong>, and read <strong>Device status</strong> on the General tab. Common codes: <strong>Code 28</strong> means the drivers are not installed; <strong>Code 43</strong> means Windows stopped the device because it reported problems.</li>
+                        </ol>
+                        <p><strong>B. Update a driver.</strong> Right-click the device, choose <strong>Update driver</strong>, then either <strong>Search automatically for drivers</strong> or <strong>Browse my computer for drivers</strong> if you downloaded one from the manufacturer.</p>
+                        <p><strong>C. Roll back a driver.</strong></p>
+                        <ol class="lab-steps">
+                        <li>Right-click the device and choose <strong>Properties</strong>, then the <strong>Driver</strong> tab.</li>
+                        <li>Click <strong>Roll Back Driver</strong>. It is available only if a previous driver is stored. Choose a reason when asked.</li>
+                        <li>Restart if prompted, then test the device.</li>
+                        </ol>
+                        <p><strong>D. Disable, uninstall, and rediscover.</strong> <strong>Disable Device</strong> turns a device off but keeps its driver. <strong>Uninstall Device</strong> removes it; then <strong>Action &gt; Scan for hardware changes</strong> makes Windows detect it and reinstall a driver.</p>
+                        <p><strong>E. Reveal hidden devices.</strong> Choose <strong>View &gt; Show hidden devices</strong>. Grayed-out entries are devices Windows remembers but that are not connected right now.</p>
+
+                        <h4>Practical Example</h4>
+                        <div class="plain-box"><div class="callout-title">The Ticket</div><div class="callout-content"><p>"My webcam worked fine on Friday. Windows installed updates over the weekend, and now Teams says no camera was found."</p></div></div>
+                        <ol class="lab-steps">
+                        <li>Open Device Manager and expand <strong>Cameras</strong>. The webcam shows a yellow triangle.</li>
+                        <li>Open <strong>Properties</strong>. The General tab shows Code 43. The Driver tab shows a driver date from this weekend.</li>
+                        <li>Click <strong>Roll Back Driver</strong>, choose the reason that the previous version worked better, and restart.</li>
+                        <li>Test in Teams: the camera works.</li>
+                        <li>Record the old and new driver versions in the ticket, and report the faulty update so it can be paused on similar machines.</li>
+                        </ol>
+
+                        <div class="callout callout-tip"><div class="callout-title">Lab Task</div><div class="callout-content">
+                        <p>(1) Expand <strong>Network adapters</strong>, open one adapter's Properties, and record its Driver Provider, Driver Date, Driver Version, and whether Roll Back Driver is available. (2) On the <strong>Details</strong> tab, choose <strong>Hardware Ids</strong> from the drop-down and record the first line. (3) Choose <strong>View &gt; Show hidden devices</strong> and record the name of one grayed-out device.</p>
+                        <p><strong>Cleanup:</strong> choose View &gt; Show hidden devices again to turn it off. Do not change any driver.</p>
+                        </div></div>
+                        <div class="sn-buttons">
+                            <button type="button" class="sn-btn" data-next="p-certmgr">Next Snap-in: Certificate Manager &rarr;</button>
+                            <button type="button" class="sn-btn sn-btn-secondary" data-close="1">Close This Snap-in</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sn-panel" id="p-certmgr">
+                    <div class="sn-panel-inner">
+                        <h3>Certificate Manager <code>certmgr.msc</code></h3>
+                        <p>Digital certificates are the credentials that prove a website, a person, or a device is who it claims to be. Certificate Manager shows the certificates stored for the <strong>current user</strong> &mdash; which ones are trusted, who issued them, and when they expire.</p>
+
+                        <h4>Anatomy of the Window</h4>
+                        <div class="table-container"><table>
+                        <thead><tr><th>Part</th><th>What You See</th><th>What It Is For</th></tr></thead>
+                        <tbody>
+                        <tr><td><strong>Left pane: certificate stores</strong></td><td>Folders including <strong>Personal</strong>, <strong>Trusted Root Certification Authorities</strong>, <strong>Intermediate Certification Authorities</strong>, <strong>Trusted Publishers</strong>, and <strong>Untrusted Certificates</strong>. Each holds a <strong>Certificates</strong> folder.</td><td>Each store has a job: Personal holds <em>your</em> certificates; Trusted Root holds the authorities Windows trusts</td></tr>
+                        <tr><td><strong>Center: certificate list</strong></td><td>Columns for <strong>Issued To</strong>, <strong>Issued By</strong>, <strong>Expiration Date</strong>, <strong>Intended Purposes</strong>, and <strong>Friendly Name</strong></td><td>Sorting by expiration finds the problem fast</td></tr>
+                        <tr><td><strong>Certificate window: General tab</strong></td><td>What the certificate is for, who it was issued to and by, and <strong>Valid from &hellip; to</strong></td><td>Reading one certificate</td></tr>
+                        <tr><td><strong>Certificate window: Certification Path tab</strong></td><td>The chain from the certificate up to a trusted root, and a <strong>Certificate status</strong> line</td><td>Proving whether Windows trusts it, and if not, which link is broken</td></tr>
+                        </tbody></table></div>
+
+                        <div class="key-concept"><h4>Current User or Local Computer</h4>
+                        <p><code>certmgr.msc</code> opens the <strong>Current User</strong> stores &mdash; certificates for the signed-in person and the programs they run. <code>certlm.msc</code> opens the <strong>Local Computer</strong> stores, used by Windows services and everyone on the machine, and requires administrator rights. A certificate installed in one is not automatically in the other, which explains many "but I installed it" tickets.</p></div>
+
+                        <h4>When a Technician Uses It</h4>
+                        <ul class="checklist">
+                        <li>An application, VPN, or Wi-Fi connection reports that a certificate is invalid, untrusted, or expired</li>
+                        <li>A user needs a certificate exported for a new computer, or imported from the security team</li>
+                        <li>Checking whether an unexpected root certificate has been added &mdash; one way attackers intercept encrypted traffic</li>
+                        </ul>
+
+                        <h4>How to Open It</h4>
+                        <ul class="styled-list">
+                        <li><strong>Run:</strong> <code>certmgr.msc</code> for the current user; <code>certlm.msc</code> for the local computer</li>
+                        <li><strong>Custom console:</strong> run <code>mmc</code>, then File &gt; Add/Remove Snap-in &gt; <strong>Certificates</strong> &gt; Add, and choose My user account or Computer account</li>
+                        </ul>
+
+                        <h4>Primary Functions, Step by Step</h4>
+                        <p><strong>A. Find and read a certificate.</strong></p>
+                        <ol class="lab-steps">
+                        <li>Expand a store, such as <strong>Personal</strong>, and select <strong>Certificates</strong>.</li>
+                        <li>Click the <strong>Expiration Date</strong> column to sort.</li>
+                        <li>Double-click a certificate. On the <strong>General</strong> tab, read Issued to, Issued by, and the Valid from and to dates.</li>
+                        </ol>
+                        <p><strong>B. Check whether it is trusted.</strong> Open the <strong>Certification Path</strong> tab. Each level should lead up to a trusted root. The <strong>Certificate status</strong> line reads "This certificate is OK" when the chain is valid, or describes what is wrong.</p>
+                        <p><strong>C. Export or import.</strong> Right-click a certificate and choose <strong>All Tasks &gt; Export</strong>, or right-click a store and choose <strong>All Tasks &gt; Import</strong>, then follow the wizard. Import only certificates that come from your organization's security team or a verified source.</p>
+
+                        <div class="callout callout-danger"><div class="callout-title">Never Add or Delete Roots on a Hunch</div><div class="callout-content"><p>A certificate placed in Trusted Root Certification Authorities is trusted for everything it covers. Attackers who can add a root certificate can impersonate websites to that computer. Do not import a root to make an error disappear, and do not delete one without direction &mdash; that can break sign-ins, updates, and secure websites.</p></div></div>
+
+                        <h4>Practical Example</h4>
+                        <div class="plain-box"><div class="callout-title">The Ticket</div><div class="callout-content"><p>"Since Monday, the company VPN says my certificate is not valid. Nothing changed on my end."</p></div></div>
+                        <ol class="lab-steps">
+                        <li>Open <code>certmgr.msc</code> and go to <strong>Personal &gt; Certificates</strong>.</li>
+                        <li>Find the certificate issued by the company's certificate authority, with the VPN purpose listed.</li>
+                        <li>Read its <strong>Expiration Date</strong>: it expired on Sunday. Nothing changed on the user's end &mdash; the calendar did.</li>
+                        <li>Do not try to fix it by importing something. Request renewal through the security team's process, then confirm the new certificate appears and the VPN connects.</li>
+                        <li>Record the expiration date and renewal in the ticket, and suggest an expiration reminder.</li>
+                        </ol>
+
+                        <div class="callout callout-tip"><div class="callout-title">Lab Task</div><div class="callout-content">
+                        <p>(1) In <strong>Trusted Root Certification Authorities &gt; Certificates</strong>, pick any certificate. Record its Issued To, Issued By, and Expiration Date. Explain why Issued To and Issued By match for a root. (2) Open its <strong>Certification Path</strong> tab and record the Certificate status. (3) Sort <strong>Personal &gt; Certificates</strong> by Expiration Date and record whether the store is empty, or the earliest expiration date in it.</p>
+                        <p><strong>Cleanup:</strong> nothing was changed. Do not import, export, or delete any certificate.</p>
+                        </div></div>
+                        <div class="sn-buttons">
+                            <button type="button" class="sn-btn" data-next="p-lusrmgr">Next Snap-in: Local Users and Groups &rarr;</button>
+                            <button type="button" class="sn-btn sn-btn-secondary" data-close="1">Close This Snap-in</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sn-panel" id="p-lusrmgr">
+                    <div class="sn-panel-inner">
+                        <h3>Local Users and Groups <code>lusrmgr.msc</code></h3>
+                        <p>Local Users and Groups manages accounts that exist only on this one computer, and the groups that decide what those accounts may do. It is where least privilege becomes something you configure rather than something you read about.</p>
+
+                        <div class="callout callout-warning"><div class="callout-title">Not in Windows Home</div><div class="callout-content"><p>On a Windows Home edition computer, this snap-in will not load; Windows reports that it may not be used with this edition. On Home, local accounts are managed in <strong>Settings &gt; Accounts</strong>, or with the <code>net user</code> command from Section 2.3.</p></div></div>
+
+                        <h4>Anatomy of the Window</h4>
+                        <div class="table-container"><table>
+                        <thead><tr><th>Part</th><th>What You See</th><th>What It Is For</th></tr></thead>
+                        <tbody>
+                        <tr><td><strong>Users folder</strong></td><td>Every local account, with <strong>Name</strong>, <strong>Full Name</strong>, and <strong>Description</strong>. Built-in accounts such as <strong>Administrator</strong> and <strong>Guest</strong> appear here. A down-arrow on the icon means the account is disabled.</td><td>Creating, disabling, and resetting accounts</td></tr>
+                        <tr><td><strong>Groups folder</strong></td><td>Built-in groups including <strong>Administrators</strong>, <strong>Users</strong>, <strong>Guests</strong>, <strong>Remote Desktop Users</strong>, and <strong>Backup Operators</strong></td><td>Granting rights to many accounts at once</td></tr>
+                        <tr><td><strong>User Properties: General tab</strong></td><td>Checkboxes: <strong>User must change password at next logon</strong>, <strong>User cannot change password</strong>, <strong>Password never expires</strong>, <strong>Account is disabled</strong></td><td>Controlling how an account behaves</td></tr>
+                        <tr><td><strong>User Properties: Member Of tab</strong></td><td>The groups this account belongs to</td><td>Seeing and changing what the account is allowed to do</td></tr>
+                        </tbody></table></div>
+
+                        <h4>When a Technician Uses It</h4>
+                        <ul class="checklist">
+                        <li>Setting up a shared, kiosk, or temporary computer with a standard account</li>
+                        <li>Checking who is in the <strong>Administrators</strong> group &mdash; a least-privilege audit</li>
+                        <li>Disabling an account when someone leaves, without deleting their files</li>
+                        <li>Resetting a forgotten local password</li>
+                        </ul>
+
+                        <h4>How to Open It</h4>
+                        <ul class="styled-list">
+                        <li><strong>Run:</strong> <code>lusrmgr.msc</code></li>
+                        <li><strong>Computer Management:</strong> System Tools &gt; <strong>Local Users and Groups</strong></li>
+                        </ul>
+                        <p class="text-muted">Requires administrator rights.</p>
+
+                        <h4>Primary Functions, Step by Step</h4>
+                        <p><strong>A. Create a local account.</strong></p>
+                        <ol class="lab-steps">
+                        <li>Right-click the <strong>Users</strong> folder and choose <strong>New User</strong>.</li>
+                        <li>Enter the <strong>User name</strong>, <strong>Full name</strong>, and a <strong>Description</strong> that says who it is for and why.</li>
+                        <li>Enter and confirm a temporary password.</li>
+                        <li>Leave <strong>User must change password at next logon</strong> checked, so only the user knows the final password.</li>
+                        <li>Click <strong>Create</strong>, then <strong>Close</strong>. New accounts are members of <strong>Users</strong> &mdash; a standard account &mdash; by default.</li>
+                        </ol>
+                        <p><strong>B. Change group membership.</strong> Right-click the account, choose <strong>Properties</strong>, then the <strong>Member Of</strong> tab. Click <strong>Add</strong>, type the group name, click <strong>Check Names</strong>, then <strong>OK</strong>. To see everyone in a group instead, double-click the group in the Groups folder.</p>
+                        <p><strong>C. Disable an account.</strong> Open the account's <strong>Properties</strong> and check <strong>Account is disabled</strong>. The account and its files remain, but no one can sign in. This is the right first step when someone leaves.</p>
+                        <p><strong>D. Reset a forgotten password.</strong> Right-click the account and choose <strong>Set Password</strong>. Windows warns that resetting can cause irreversible loss of information &mdash; such as encrypted files, stored passwords, and personal certificates. Read the warning to the user, and use this only when the password is truly lost.</p>
+
+                        <h4>Practical Example</h4>
+                        <div class="plain-box"><div class="callout-title">The Ticket</div><div class="callout-content"><p>"A temp is covering the front desk for two weeks. She needs to sign in to the reception computer, but she shouldn't be able to install anything or change settings."</p></div></div>
+                        <ol class="lab-steps">
+                        <li>Open Local Users and Groups and create <strong>TempFrontDesk</strong> with a temporary password, leaving "must change password" checked.</li>
+                        <li>On the <strong>Member Of</strong> tab, confirm the only group is <strong>Users</strong>. Standard rights mean she cannot install software or change system settings.</li>
+                        <li>Double-click <strong>Administrators</strong> and confirm she is not listed.</li>
+                        <li>Give her the temporary password in person, not by email.</li>
+                        <li>Record the account name, groups, and planned end date in the ticket. When the assignment ends, disable the account.</li>
+                        </ol>
+
+                        <div class="callout callout-tip"><div class="callout-title">Lab Task</div><div class="callout-content">
+                        <p>(1) Double-click the <strong>Administrators</strong> group and record every member. Is that more than this computer needs? (2) Create an account named <strong>Lab-Temp1</strong> with "User must change password at next logon" checked. Record the groups shown on its Member Of tab. (3) Disable Lab-Temp1 and record how its icon changed.</p>
+                        <p><strong>Cleanup:</strong> right-click <strong>Lab-Temp1</strong> and choose <strong>Delete</strong>.</p>
+                        </div></div>
+                        <div class="sn-buttons">
+                            <button type="button" class="sn-btn" data-next="p-perfmon">Next Snap-in: Performance Monitor &rarr;</button>
+                            <button type="button" class="sn-btn sn-btn-secondary" data-close="1">Close This Snap-in</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sn-panel" id="p-perfmon">
+                    <div class="sn-panel-inner">
+                        <h3>Performance Monitor <code>perfmon.msc</code></h3>
+                        <p>Task Manager shows what is happening right now. Performance Monitor can show the same kinds of measurements in far more detail and, more importantly, <strong>record them over time</strong> &mdash; which is what you need when a problem happens only in the afternoon, or only on Tuesdays.</p>
+
+                        <h4>Anatomy of the Window</h4>
+                        <div class="table-container"><table>
+                        <thead><tr><th>Part</th><th>What You See</th><th>What It Is For</th></tr></thead>
+                        <tbody>
+                        <tr><td><strong>Monitoring Tools &gt; Performance Monitor</strong></td><td>A live graph with a toolbar: the green <strong>+</strong> (Add Counters), the red <strong>X</strong> (remove), a graph-type button (Line, Histogram bar, or Report), and Freeze Display. A legend below lists each counter.</td><td>Watching selected measurements live</td></tr>
+                        <tr><td><strong>Counters</strong></td><td>Individual measurements grouped by object: <strong>Processor &gt; % Processor Time</strong>, <strong>Memory &gt; Available MBytes</strong>, <strong>PhysicalDisk &gt; Avg. Disk Queue Length</strong>, <strong>Network Interface &gt; Bytes Total/sec</strong></td><td>Measuring exactly the resource you suspect</td></tr>
+                        <tr><td><strong>Data Collector Sets</strong></td><td><strong>User Defined</strong> (sets you create) and <strong>System</strong>, with two built-in sets: <strong>System Diagnostics</strong> and <strong>System Performance</strong></td><td>Recording counters over time, on demand or on a schedule</td></tr>
+                        <tr><td><strong>Reports</strong></td><td><strong>User Defined</strong> and <strong>System</strong> reports produced when a collector set finishes</td><td>Reading the results, including Windows' own analysis</td></tr>
+                        </tbody></table></div>
+
+                        <h4>When a Technician Uses It</h4>
+                        <ul class="checklist">
+                        <li>A computer is slow at certain times, and you need evidence of which resource runs out</li>
+                        <li>You need a before-and-after comparison to prove a fix worked</li>
+                        <li>You need a quick health report from Windows itself</li>
+                        </ul>
+
+                        <h4>How to Open It</h4>
+                        <ul class="styled-list">
+                        <li><strong>Run:</strong> <code>perfmon.msc</code> (typing <code>perfmon</code> opens the same tool)</li>
+                        <li><strong>Computer Management:</strong> System Tools &gt; <strong>Performance</strong></li>
+                        <li><strong>Windows Tools:</strong> Start &gt; All apps &gt; Windows Tools &gt; <strong>Performance Monitor</strong></li>
+                        </ul>
+                        <p class="text-muted">Running the built-in collector sets and the diagnostics report requires administrator rights.</p>
+
+                        <h4>Primary Functions, Step by Step</h4>
+                        <p><strong>A. Watch live counters.</strong></p>
+                        <ol class="lab-steps">
+                        <li>Select <strong>Monitoring Tools &gt; Performance Monitor</strong>.</li>
+                        <li>Click the green <strong>+</strong>. In the Available counters list, expand an object, select a counter and its instance (such as <strong>_Total</strong>), and click <strong>Add &gt;&gt;</strong>.</li>
+                        <li>Add the four counters in the Anatomy table above, then click <strong>OK</strong>.</li>
+                        <li>Use the graph-type button to switch to <strong>Report</strong> view, which shows plain numbers that are easier to record.</li>
+                        </ol>
+                        <p><strong>B. Run a built-in collector set.</strong></p>
+                        <ol class="lab-steps">
+                        <li>Expand <strong>Data Collector Sets &gt; System</strong>.</li>
+                        <li>Right-click <strong>System Performance</strong> and choose <strong>Start</strong>. It collects for about a minute.</li>
+                        <li>When it stops, open <strong>Reports &gt; System &gt; System Performance</strong> and select the newest report.</li>
+                        </ol>
+                        <p><strong>C. Generate a System Diagnostics report.</strong> Open Command Prompt as administrator and run <code>perfmon /report</code>. Windows collects for about a minute, then opens a report with warnings and a resource overview at the top.</p>
+                        <p><strong>D. Record your own counters over time.</strong></p>
+                        <ol class="lab-steps">
+                        <li>Right-click <strong>Data Collector Sets &gt; User Defined</strong> and choose <strong>New &gt; Data Collector Set</strong>.</li>
+                        <li>Name it, choose <strong>Create manually (Advanced)</strong>, then check <strong>Performance counter</strong>.</li>
+                        <li>Click <strong>Add</strong>, choose your counters, and set a sample interval such as 15 seconds.</li>
+                        <li>Finish the wizard. Right-click the set to <strong>Start</strong> it, and again to <strong>Stop</strong> it. A schedule can be set in its Properties.</li>
+                        </ol>
+
+                        <h4>Practical Example</h4>
+                        <div class="plain-box"><div class="callout-title">The Ticket</div><div class="callout-content"><p>"My computer is fine all morning, then from about two o'clock everything is slow. By the time anyone looks at it, it's back to normal."</p></div></div>
+                        <ol class="lab-steps">
+                        <li>Create a user-defined collector set with <strong>% Processor Time</strong>, <strong>Available MBytes</strong>, <strong>Avg. Disk Queue Length</strong>, and <strong>Bytes Total/sec</strong>, sampling every 15 seconds.</li>
+                        <li>Start it at lunchtime and stop it at the end of the day.</li>
+                        <li>Open the log in Performance Monitor. Available MBytes falls close to zero at 2:05 PM and stays there, while disk activity climbs &mdash; the computer is running out of memory and swapping to disk.</li>
+                        <li>Compare that time with what the user does at two o'clock. Here, a large report export opens every afternoon.</li>
+                        <li>Record the evidence and recommend more memory or a change to the workflow &mdash; with a graph to support it rather than a guess.</li>
+                        </ol>
+
+                        <div class="callout callout-tip"><div class="callout-title">Lab Task</div><div class="callout-content">
+                        <p>(1) Add the four counters from the Anatomy table and switch to Report view. Record each value while the computer is idle. Then open three or four programs and record the values again. Which counter changed most? (2) Run the <strong>System Performance</strong> collector set and record the top process listed in its report.</p>
+                        <p><strong>Cleanup:</strong> remove the counters you added. If you created a user-defined set, right-click it and choose Delete.</p>
+                        </div></div>
+                        <div class="sn-buttons">
+                            <button type="button" class="sn-btn" data-next="p-gpedit">Next Snap-in: Group Policy Editor &rarr;</button>
+                            <button type="button" class="sn-btn sn-btn-secondary" data-close="1">Close This Snap-in</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sn-panel" id="p-gpedit">
+                    <div class="sn-panel-inner">
+                        <h3>Group Policy Editor <code>gpedit.msc</code></h3>
+                        <p>The Local Group Policy Editor sets rules for this computer and its users: security settings, restrictions, and configuration that ordinary Settings screens either do not offer or cannot enforce. In a company, the same kinds of policies are set centrally for every computer in the domain.</p>
+
+                        <div class="callout callout-warning"><div class="callout-title">Not in Windows Home</div><div class="callout-content"><p>The Group Policy Editor is not included in Home editions of Windows. On a domain-joined computer, domain policies are applied after local policy and win when they conflict, so a local change may be overridden.</p></div></div>
+
+                        <h4>Anatomy of the Window</h4>
+                        <div class="table-container"><table>
+                        <thead><tr><th>Part</th><th>What You See</th><th>What It Is For</th></tr></thead>
+                        <tbody>
+                        <tr><td><strong>Computer Configuration</strong></td><td>Settings that apply to the computer, no matter who signs in</td><td>Machine-wide rules, such as blocking USB storage or locking idle screens</td></tr>
+                        <tr><td><strong>User Configuration</strong></td><td>Settings that apply to the users who sign in</td><td>Per-user rules, such as hiding parts of Control Panel</td></tr>
+                        <tr><td><strong>Under each: three folders</strong></td><td><strong>Software Settings</strong>, <strong>Windows Settings</strong> (including <strong>Security Settings</strong> under Computer Configuration), and <strong>Administrative Templates</strong></td><td>Administrative Templates holds most settings, organized into folders such as System, Windows Components, and Control Panel</td></tr>
+                        <tr><td><strong>Right pane</strong></td><td>Each setting's name and <strong>State</strong></td><td>Seeing at a glance what has been configured</td></tr>
+                        <tr><td><strong>Setting window</strong></td><td><strong>Not Configured</strong>, <strong>Enabled</strong>, or <strong>Disabled</strong>; an Options box; and a <strong>Help</strong> description</td><td>Changing a setting, and reading exactly what it does before you do</td></tr>
+                        </tbody></table></div>
+                        <p><strong>Not Configured</strong> means "this policy does not decide." Setting something back to Not Configured is how you undo a policy.</p>
+
+                        <h4>When a Technician Uses It</h4>
+                        <ul class="checklist">
+                        <li>Enforcing a security rule on one computer, such as an automatic screen lock</li>
+                        <li>Restricting a kiosk or shared computer, such as blocking USB storage</li>
+                        <li>Investigating why a setting cannot be changed &mdash; a policy is often the reason it is grayed out</li>
+                        </ul>
+
+                        <h4>How to Open It</h4>
+                        <ul class="styled-list">
+                        <li><strong>Run:</strong> <code>gpedit.msc</code></li>
+                        <li><strong>Start search:</strong> type <strong>Edit group policy</strong></li>
+                        <li><strong>Related:</strong> <code>secpol.msc</code> opens Local Security Policy, which shows the same Security Settings branch on its own</li>
+                        </ul>
+                        <p class="text-muted">Requires administrator rights.</p>
+
+                        <h4>Primary Functions, Step by Step</h4>
+                        <p><strong>A. Find a setting.</strong> Expand the path you need in the left pane. If you do not know where a setting lives, select <strong>Administrative Templates &gt; All Settings</strong> and sort by name, or use <strong>Action &gt; Filter Options</strong> to search by keyword.</p>
+                        <p><strong>B. Configure a setting.</strong></p>
+                        <ol class="lab-steps">
+                        <li>Double-click the setting.</li>
+                        <li>Read the <strong>Help</strong> box first. It explains exactly what Enabled and Disabled do.</li>
+                        <li>Choose <strong>Enabled</strong> or <strong>Disabled</strong>, fill in any Options, and click <strong>OK</strong>.</li>
+                        </ol>
+                        <p><strong>C. Apply and confirm.</strong> Policy refreshes on its own schedule. To apply now, run <code>gpupdate /force</code> in Command Prompt. To confirm what applied, run <code>gpresult /r</code>. Some security settings take effect only after the next sign-in or restart.</p>
+                        <p><strong>D. Undo a setting.</strong> Open it again, choose <strong>Not Configured</strong>, click OK, and run <code>gpupdate /force</code>.</p>
+
+                        <h4>Practical Example</h4>
+                        <div class="plain-box"><div class="callout-title">The Ticket</div><div class="callout-content"><p>"The library's public catalog computer keeps getting malware from flash drives people plug in. Can we stop it from using USB drives at all?"</p></div></div>
+                        <ol class="lab-steps">
+                        <li>Open <code>gpedit.msc</code> on the catalog computer.</li>
+                        <li>Go to <strong>Computer Configuration &gt; Administrative Templates &gt; System &gt; Removable Storage Access</strong>.</li>
+                        <li>Double-click <strong>All Removable Storage classes: Deny all access</strong>, read the Help text, choose <strong>Enabled</strong>, and click OK.</li>
+                        <li>Run <code>gpupdate /force</code>, then insert a flash drive: Windows now denies access.</li>
+                        <li>Record the policy path and setting in the ticket, so the next technician knows why USB drives do not work on this computer.</li>
+                        </ol>
+
+                        <div class="callout callout-tip"><div class="callout-title">Lab Task</div><div class="callout-content">
+                        <p>An unattended, unlocked computer is an open door &mdash; a risk you will study in Unit 4. Here you enforce an automatic lock on the lab computer.</p>
+                        <ol class="lab-steps">
+                        <li>Go to <strong>Computer Configuration &gt; Windows Settings &gt; Security Settings &gt; Local Policies &gt; Security Options</strong>.</li>
+                        <li>Double-click <strong>Interactive logon: Machine inactivity limit</strong>. Record its current value. Microsoft documents that 0 or blank means the setting is off, and that the limit can range from 0 to 599,940 seconds.</li>
+                        <li>Set it to <strong>120</strong> seconds and click OK. Run <code>gpupdate /force</code>.</li>
+                        <li>Leave the computer untouched for two minutes and record whether it locked. If it did not, sign out, sign back in, and test again.</li>
+                        </ol>
+                        <p><strong>Cleanup:</strong> set the value back to what you recorded in step 2, then run <code>gpupdate /force</code>.</p>
+                        </div></div>
+                        <div class="sn-buttons">
+                            <button type="button" class="sn-btn" data-finish="1">Finish: Build Your Own Console &darr;</button>
+                            <button type="button" class="sn-btn sn-btn-secondary" data-close="1">Close This Snap-in</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="snFinish">
+                <h4>Finish: Build Your Own Console</h4>
+                <p>Technicians rarely open eight separate tools. They build one console that holds the snap-ins they use most and save it for every call.</p>
+                <ol class="lab-steps">
+                    <li>Press Windows key + R, type <code>mmc</code>, and press Enter. Approve the User Account Control prompt. An empty console opens.</li>
+                    <li>Choose <strong>File &gt; Add/Remove Snap-in</strong>.</li>
+                    <li>Select <strong>Event Viewer</strong>, click <strong>Add</strong>, choose <strong>Local computer</strong>, and click <strong>OK</strong>. Repeat for <strong>Device Manager</strong> and <strong>Disk Management</strong>.</li>
+                    <li>Click <strong>OK</strong>. All three snap-ins now appear in one left pane.</li>
+                    <li>Choose <strong>File &gt; Save As</strong> and save it to the desktop as <strong>My Tech Console.msc</strong>. Double-click it to confirm it reopens with all three.</li>
+                </ol>
+
                 <div class="callout callout-tip">
                     <div class="callout-title">Check Your Work</div>
-                    <div class="callout-content"><p>Trade answer sheets with another pair and name the snap-in each answer came from, without looking at your notes. If you can do that for all five, you are ready for the scenario questions on this objective.</p></div>
+                    <div class="callout-content">
+                        <p>Without looking at your notes, name the snap-in &mdash; and its .msc file name &mdash; that answers each of these. If you can do all eight, you are ready for the exam's questions on objective 1.4.</p>
+                        <ol>
+                            <li>"Did my computer restart because of an update, or did it crash?"</li>
+                            <li>"I installed a new drive and it isn't in File Explorer."</li>
+                            <li>"Something opens on my screen at the same time every morning."</li>
+                            <li>"My printer stopped working right after an update."</li>
+                            <li>"The VPN says my certificate has expired."</li>
+                            <li>"Who has administrator rights on this computer?"</li>
+                            <li>"It's only slow in the afternoons, and it's fine when you look."</li>
+                            <li>"Block flash drives on the public kiosk."</li>
+                        </ol>
+                    </div>
                 </div>
+                </div>
+                <style>
+                    /* Snap-in Navigator: opens and closes using the same method and look as the Table of Contents */
+                    .sn-nav {
+                        display: flex; flex-direction: column;
+                        padding: var(--space-md) var(--space-lg);
+                        background: var(--primary-pale); border: 1px solid var(--neutral-300);
+                        border-radius: var(--radius-md); margin: var(--space-lg) 0 var(--space-md);
+                    }
+                    .sn-header, .sn-current, .sn-item {
+                        width: 100%; text-align: left;
+                        font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 0.875rem;
+                        color: var(--text-black); background: var(--white);
+                        border: 2px solid var(--primary-main); border-radius: var(--radius-md);
+                        padding: var(--space-sm) var(--space-md);
+                    }
+                    .sn-current { background: var(--primary-main); cursor: pointer; }
+                    .sn-current::after { content: ' \25BE Click to View'; font-size: 0.75em; }
+                    .sn-nav.sn-expanded .sn-current::after { content: ' \25B4'; }
+                    .sn-header { background: var(--primary-main); text-decoration: underline; }
+                    .sn-item { cursor: pointer; }
+                    .sn-item:hover { background: var(--primary-pale); }
+                    .sn-item.sn-selected { background: var(--primary-main); }
+                    .sn-header, .sn-item {
+                        display: block; max-height: 0; opacity: 0; overflow: hidden;
+                        padding-top: 0; padding-bottom: 0; margin: 0; border-width: 0;
+                        transition: max-height 0.9s ease, opacity 0.9s ease,
+                                    padding-top 0.9s ease, padding-bottom 0.9s ease,
+                                    border-width 0.9s ease, margin 0.9s ease;
+                    }
+                    .sn-nav.sn-expanded .sn-header, .sn-nav.sn-expanded .sn-item {
+                        max-height: 60px; opacity: 1;
+                        padding-top: var(--space-sm); padding-bottom: var(--space-sm);
+                        border-width: 2px; margin-bottom: var(--space-sm);
+                    }
+                    .sn-nav.sn-expanded .sn-header { order: -1; }
+                    .sn-panel { max-height: 0; opacity: 0; overflow: hidden; transition: max-height 0.9s ease, opacity 0.9s ease; }
+                    .sn-panel.sn-open { opacity: 1; }
+                    .sn-panel-inner {
+                        background: var(--white); border: 2px solid var(--primary-main);
+                        border-radius: var(--radius-lg); padding: var(--space-lg) var(--space-xl);
+                        margin-bottom: var(--space-lg);
+                    }
+                    .sn-buttons { display: flex; flex-wrap: wrap; gap: var(--space-md); margin-top: var(--space-lg); }
+                    .sn-btn {
+                        font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 0.9rem;
+                        color: var(--text-black); background: var(--primary-main);
+                        border: 2px solid var(--primary-main); border-radius: var(--radius-md);
+                        padding: var(--space-sm) var(--space-lg); cursor: pointer;
+                    }
+                    .sn-btn-secondary { background: var(--white); }
+                    @media print {
+                        .sn-nav, .sn-buttons { display: none; }
+                        .sn-panel { max-height: none !important; opacity: 1 !important; }
+                    }
+                </style>
+                <script>
+                    (function () {
+                        var nav = document.getElementById('snapinNav');
+                        var cur = document.getElementById('snCurrent');
+                        var items = Array.prototype.slice.call(nav.querySelectorAll('.sn-item'));
+                        var panels = Array.prototype.slice.call(document.querySelectorAll('.sn-panel'));
+
+                        function closePanel(p) {
+                            if (!p.classList.contains('sn-open')) return;
+                            p.style.maxHeight = p.scrollHeight + 'px';
+                            requestAnimationFrame(function () {
+                                requestAnimationFrame(function () {
+                                    p.style.maxHeight = '0px';
+                                    p.classList.remove('sn-open');
+                                });
+                            });
+                        }
+                        function openPanel(id) {
+                            panels.forEach(function (p) { if (p.id !== id) closePanel(p); });
+                            var p = document.getElementById(id);
+                            p.classList.add('sn-open');
+                            p.style.maxHeight = p.scrollHeight + 'px';
+                            p.addEventListener('transitionend', function done(e) {
+                                if (e.propertyName === 'max-height' && p.classList.contains('sn-open')) { p.style.maxHeight = 'none'; }
+                                p.removeEventListener('transitionend', done);
+                            });
+                            items.forEach(function (i) { i.classList.toggle('sn-selected', i.getAttribute('data-panel') === id); });
+                            var chosen = items.filter(function (i) { return i.getAttribute('data-panel') === id; })[0];
+                            cur.textContent = chosen.textContent;
+                            nav.classList.remove('sn-expanded');
+                            setTimeout(function () { nav.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 50);
+                        }
+                        function reset() {
+                            items.forEach(function (i) { i.classList.remove('sn-selected'); });
+                            cur.textContent = 'Choose a Snap-in';
+                        }
+
+                        cur.addEventListener('click', function () { nav.classList.toggle('sn-expanded'); });
+                        nav.addEventListener('mouseleave', function () { nav.classList.remove('sn-expanded'); });
+                        items.forEach(function (i) { i.addEventListener('click', function () { openPanel(i.getAttribute('data-panel')); }); });
+
+                        Array.prototype.forEach.call(document.querySelectorAll('.sn-btn[data-next]'), function (b) {
+                            b.addEventListener('click', function () { openPanel(b.getAttribute('data-next')); });
+                        });
+                        Array.prototype.forEach.call(document.querySelectorAll('.sn-btn[data-close]'), function (b) {
+                            b.addEventListener('click', function () {
+                                closePanel(b.closest('.sn-panel')); reset();
+                                nav.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            });
+                        });
+                        Array.prototype.forEach.call(document.querySelectorAll('.sn-btn[data-finish]'), function (b) {
+                            b.addEventListener('click', function () {
+                                closePanel(b.closest('.sn-panel')); reset();
+                                setTimeout(function () { document.getElementById('snFinish').scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 950);
+                            });
+                        });
+
+                        [cur].concat(items).forEach(function (el) {
+                            el.setAttribute('tabindex', '0'); el.setAttribute('role', 'button');
+                            el.addEventListener('keydown', function (e) {
+                                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); el.click(); }
+                            });
+                        });
+                    })();
+                </script>
             </div>
 
             <div class="lab-section">
                 <div class="lab-header">
-                    <div class="lab-icon">&#9002;</div>
+                    <div class="lab-icon">&#128187;</div>
                     <div>
-                        <h3 class="lab-title">Lab 2.6.2 &mdash; Command Line Relay</h3>
-                        <p class="lab-time">Thursday &middot; In class &middot; 45 minutes &middot; Objective 1.5</p>
+                        <h3 class="lab-title">Lab 2.6.2 &mdash; Command Line Relays</h3>
+                        <p class="lab-time">Thursday &middot; In class &middot; 60&ndash;90 minutes &middot; Objective 1.5</p>
                     </div>
                 </div>
-                <p>Teams race through a sequence of commands. Speed is the hook; accuracy is the point. Every command here is read-only or works inside a practice folder you create yourself.</p>
+
+                <div class="callout callout-info">
+                    <div class="callout-title">Purpose</div>
+                    <div class="callout-content"><p>Five relays, each built around a job technicians really do at the command line: finding their way around, tracing a network problem, moving files safely, identifying a machine and its user, and checking a disk. Speed is the hook. Accuracy is the point. Relays 1 through 3 are the core; run 4 and 5 as time allows.</p></div>
+                </div>
+
+                <h4>How a Relay Works</h4>
+                <ul class="checklist">
+                    <li><strong>Teams of three or four,</strong> one computer per team.</li>
+                    <li><strong>Each step is one leg.</strong> One person types; the next person takes the keyboard for the next step; everyone records answers on the team sheet.</li>
+                    <li><strong>One point per correct recorded answer.</strong> The instructor sets a time limit for each relay.</li>
+                    <li><strong>Read the Overview Goal first.</strong> It tells you what the whole relay is for, so each command makes sense as part of a job.</li>
+                </ul>
+
+                <div class="callout callout-danger">
+                    <div class="callout-title">Safety Rules for Every Relay</div>
+                    <div class="callout-content">
+                        <ul class="checklist">
+                            <li>Create practice files only inside the folders the steps tell you to make.</li>
+                            <li>Run commands that delete, mirror, or format only exactly as written, and only against the practice folder or the lab USB drive.</li>
+                            <li>Relay 5 changes a disk. It uses an administrator prompt and the lab USB drive only.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h4>Relay 1 &mdash; Find Your Way Around</h4>
+                <div class="key-concept"><h4>Overview Goal</h4><p>Move through the file system, see what is hidden, build and copy a folder, identify the machine, test the network, and look up a command instead of memorizing it. This is the original relay: a tour of the basics you will use on every call.</p></div>
                 <ol class="lab-steps">
-                    <li><strong>Navigate.</strong> From wherever the prompt opens, use <code>cd</code> to reach the root of C:, then into your own user folder. Use <code>dir</code> to prove where you are.</li>
-                    <li><strong>Reveal what is hidden.</strong> Run <code>dir</code> again with the switch that includes hidden files. Record one folder that appeared the second time and not the first.</li>
-                    <li><strong>Build and fill.</strong> Create a folder called Relay with <code>md</code>, put two small text files in it, and list them.</li>
-                    <li><strong>Copy it properly.</strong> Use <code>robocopy</code> with the switch that includes subfolders to copy Relay to a second location. Read the summary table it prints and record how many files it copied.</li>
-                    <li><strong>Identify the machine.</strong> Run <code>hostname</code>, <code>whoami</code>, and <code>winver</code>. Record all three answers.</li>
-                    <li><strong>Test the network.</strong> Run <code>ipconfig</code> and record the IP address, subnet mask, and default gateway. Then <code>ping</code> the default gateway and record whether replies came back.</li>
-                    <li><strong>Look it up rather than memorize it.</strong> Run <code>sfc /?</code> and find the switch that scans and repairs system files. Do not run it &mdash; just find it and record what it does.</li>
-                    <li><strong>Clean up.</strong> Remove both Relay folders with <code>rmdir</code>.</li>
+                    <li><strong>Navigate.</strong> Open Command Prompt. Run <code>cd \</code> to reach the root of C:, then <code>cd Users\%USERNAME%</code> to enter your own user folder. Run <code>dir</code> to prove where you are. <em>Record the folder path shown in the prompt.</em></li>
+                    <li><strong>Reveal what is hidden.</strong> Run <code>dir /a</code>, which includes hidden and system items. <em>Record one folder that appeared this time and not the first time.</em></li>
+                    <li><strong>Build and fill.</strong> Run <code>md Relay</code>, then <code>cd Relay</code>. Create two small files with <code>echo first&gt; one.txt</code> and <code>echo second&gt; two.txt</code>. Run <code>dir</code>. <em>Record the two file names and their sizes.</em></li>
+                    <li><strong>Copy it properly.</strong> Run <code>cd ..</code>, then <code>robocopy Relay Relay-Copy /e</code>. The <code>/e</code> switch includes subfolders, even empty ones. <em>Read the summary table and record how many files were copied.</em></li>
+                    <li><strong>Identify the machine.</strong> Run <code>hostname</code>, then <code>whoami</code>, then <code>winver</code> (which opens a window). <em>Record all three answers.</em></li>
+                    <li><strong>Test the network.</strong> Run <code>ipconfig</code>. <em>Record the IPv4 address, subnet mask, and default gateway.</em> Then run <code>ping</code> followed by the default gateway's address. <em>Record whether replies came back.</em></li>
+                    <li><strong>Look it up rather than memorize it.</strong> Run <code>sfc /?</code>. Find the switch that scans and repairs protected system files. <strong>Do not run it.</strong> <em>Record the switch and what it does.</em></li>
+                    <li><strong>Clean up.</strong> Run <code>rmdir /s /q Relay</code> and <code>rmdir /s /q Relay-Copy</code>. The <code>/s</code> switch removes the folder's contents, and <code>/q</code> skips the confirmation. <em>Run <code>dir</code> and record that both folders are gone.</em></li>
                 </ol>
-                <div class="callout callout-warning">
+                <p><strong>Debrief:</strong> Which answer in this relay would you have had to look up on a real call, and where would you have found it fastest?</p>
+
+                <h4>Relay 2 &mdash; Network Detective</h4>
+                <div class="key-concept"><h4>Overview Goal</h4><p>Work a "the internet is down" call from the inside out, one layer at a time: this computer's own settings, the local network, name resolution, and the path to the outside world. Each command answers one question, and the order matters.</p></div>
+                <ol class="lab-steps">
+                    <li><strong>Read the full configuration.</strong> Run <code>ipconfig /all</code>. <em>Record the Physical Address, whether DHCP is enabled, the DHCP server, and the DNS servers.</em></li>
+                    <li><strong>Test this computer's own network stack.</strong> Run <code>ping 127.0.0.1</code>. <em>Record the result.</em> Replies here mean TCP/IP is working on this machine, before any cable or router is involved.</li>
+                    <li><strong>Test the local network.</strong> Ping the default gateway you recorded in Relay 1, or read it from step 1. <em>Record the average time.</em></li>
+                    <li><strong>Test name resolution.</strong> Run <code>nslookup www.comptia.org</code>. <em>Record the name and address of the server that answered, and one address returned for the site.</em></li>
+                    <li><strong>Trace the path.</strong> Run <code>tracert -d www.comptia.org</code>. The <code>-d</code> switch skips name lookups so it runs faster. <em>Record the number of hops and whether any hop shows <code>*</code> timeouts.</em> Timeouts on a single hop are often a router that does not answer pings, not a failure.</li>
+                    <li><strong>Measure loss along the path.</strong> Run <code>pathping -n -q 10 www.comptia.org</code>. The <code>-q 10</code> switch sends ten queries per hop instead of the default 100, so it finishes sooner. <em>Record the hop with the highest loss percentage, if any.</em></li>
+                    <li><strong>See what is connected right now.</strong> Run <code>netstat -an</code>. <em>Record one connection in the ESTABLISHED state and one port in the LISTENING state.</em></li>
+                    <li><strong>Check mapped drives.</strong> Run <code>net use</code>. <em>Record what it lists, or that there are no entries.</em></li>
+                </ol>
+                <div class="callout callout-tip"><div class="callout-title">When Ping Fails</div><div class="callout-content"><p>Many networks block ping to the outside world. A timeout does not always mean the destination is down &mdash; which is exactly why <code>nslookup</code> and <code>tracert</code> come next. Record what you see either way.</p></div></div>
+                <p><strong>Debrief:</strong> A user can reach websites by IP address but not by name. Which step in this relay finds that problem, and what would it show?</p>
+
+                <h4>Relay 3 &mdash; Safe File Mover</h4>
+                <div class="key-concept"><h4>Overview Goal</h4><p>Build a project folder structure, back it up, update the backup with only what changed, and see why one of robocopy's most useful switches is also one of its most dangerous. Moving a user's files safely is a core help-desk task.</p></div>
+                <ol class="lab-steps">
+                    <li><strong>Start in a safe place.</strong> Run <code>cd /d %USERPROFILE%</code> to go to your own user folder. The <code>/d</code> switch also changes the drive if needed.</li>
+                    <li><strong>Build a structure.</strong> Run <code>md Relay3\Projects\Q1</code>, then <code>md Relay3\Projects\Q2</code>. A single <code>md</code> creates every folder in the path. <em>Record how many folders you created with two commands.</em></li>
+                    <li><strong>Add files.</strong> Run <code>echo plan&gt; Relay3\Projects\Q1\plan.txt</code>, <code>echo budget&gt; Relay3\Projects\Q2\budget.txt</code>, and <code>echo notes&gt; Relay3\notes.txt</code>.</li>
+                    <li><strong>List everything.</strong> Run <code>dir /s Relay3</code>. <em>Record the Total Files Listed at the bottom.</em></li>
+                    <li><strong>Make a backup.</strong> Run <code>robocopy Relay3 Relay3-Backup /e</code>. <em>Record the Copied count for Files.</em></li>
+                    <li><strong>Change one file, then back up again.</strong> Run <code>echo updated&gt;&gt; Relay3\notes.txt</code> (two arrows add to the file). Then run the same robocopy command again. <em>Record how many files were copied this time, and how many were skipped.</em> Robocopy copies only what changed.</li>
+                    <li><strong>See what mirroring does.</strong> Run <code>del Relay3\Projects\Q2\budget.txt</code>. Then run <code>robocopy Relay3 Relay3-Backup /mir</code>. <em>Record the Extras count, and run <code>dir /s Relay3-Backup</code> to record whether budget.txt still exists in the backup.</em></li>
+                    <li><strong>Clean up.</strong> Run <code>cd /d %USERPROFILE%</code>, then <code>rmdir /s /q Relay3</code> and <code>rmdir /s /q Relay3-Backup</code>. <em>Run <code>dir</code> and record that both folders are gone.</em></li>
+                </ol>
+                <div class="callout callout-danger"><div class="callout-title">Why Step 7 Matters</div><div class="callout-content"><p><code>/mir</code> makes the destination match the source exactly, which includes <strong>deleting</strong> anything in the destination that is not in the source. Mirror the wrong way round, or into the wrong folder, and it deletes real data. Read every robocopy command twice before you press Enter.</p></div></div>
+                <p><strong>Debrief:</strong> When would you use <code>/e</code>, and when <code>/mir</code>? What would you check before running either on a user's files?</p>
+
+                <h4>Relay 4 &mdash; Machine and User Identity Card</h4>
+                <div class="key-concept"><h4>Overview Goal</h4><p>Collect everything a ticket needs to identify a computer and the person using it &mdash; name, version, account, groups, local accounts, and applied policy &mdash; then find unfamiliar switches with built-in help instead of guessing.</p></div>
+                <ol class="lab-steps">
+                    <li><strong>Computer name.</strong> Run <code>hostname</code>. <em>Record it.</em></li>
+                    <li><strong>Windows version.</strong> Run <code>winver</code>. <em>Record the version and OS build.</em></li>
+                    <li><strong>Who is signed in, and with what rights.</strong> Run <code>whoami</code>, then <code>whoami /groups</code>. <em>Record the account name, and whether BUILTIN\Administrators appears in the group list.</em></li>
+                    <li><strong>Local accounts.</strong> Run <code>net user</code>. <em>Record how many accounts are listed.</em> Then run <code>net user</code> followed by one of those account names. <em>Record whether the account is active, when its password was last set, and its local group memberships.</em></li>
+                    <li><strong>Applied policy.</strong> Run <code>gpresult /r</code>. <em>Record the domain or workgroup name, and the Group Policy objects listed under the user settings.</em></li>
+                    <li><strong>Look up switches.</strong> Run <code>chkdsk /?</code> and <em>record the switch that fixes errors and the one that locates bad sectors.</em> Run <code>robocopy /?</code> and <em>record the switch that mirrors a folder.</em></li>
+                    <li><strong>Write the identity card.</strong> As a team, write five lines that could go straight into a ticket's device information: computer name, Windows version and build, user account, administrator or standard, and domain or workgroup.</li>
+                </ol>
+                <p><strong>Debrief:</strong> Which of these answers would a user be unable to tell you over the phone, and why does that make the command line faster than asking?</p>
+
+                <h4>Relay 5 &mdash; Disk and System Health</h4>
+                <div class="key-concept"><h4>Overview Goal</h4><p>Check a disk and a system file without changing anything, identify a drive positively before touching it, and only then format it &mdash; the discipline that separates a technician from someone who erases the wrong drive. This relay uses an administrator prompt and the lab USB drive.</p></div>
+                <ol class="lab-steps">
+                    <li><strong>Open an administrator prompt.</strong> Right-click Command Prompt and choose <strong>Run as administrator</strong>. <em>Record the word that now appears in the window's title bar.</em></li>
+                    <li><strong>Scan the disk without changing it.</strong> Run <code>chkdsk C:</code> with no switches. Without <code>/f</code> it only reports. <em>Record the summary line it ends with.</em></li>
+                    <li><strong>Verify one system file.</strong> Run <code>sfc /verifyfile=C:\Windows\System32\kernel32.dll</code>. This checks a single protected file without repairing anything. <em>Record the result.</em></li>
+                    <li><strong>Identify the disks.</strong> Insert the lab USB drive. Run <code>diskpart</code>, then <code>list disk</code>, then <code>list volume</code>. <em>Record the disk number and the volume letter of the USB drive, and the size that proves it.</em> Type <code>exit</code> to leave diskpart.</li>
+                    <li><strong>Confirm before you format.</strong> Have a second teammate read the USB drive's letter and size from step 4 out loud, and match them to File Explorer.</li>
+                    <li><strong>Format the lab USB drive.</strong> Run <code>format X: /fs:exFAT /q /v:RELAY5</code>, replacing X with the confirmed letter. Answer the prompt that follows. <em>Record the file system and label reported when it finishes.</em></li>
+                    <li><strong>Refresh policy.</strong> Run <code>gpupdate /force</code>. <em>Record the two completion messages.</em></li>
+                </ol>
+                <div class="callout callout-warning"><div class="callout-title">On a Real Machine</div><div class="callout-content"><p>Never run <code>chkdsk /f</code> or <code>chkdsk /r</code> on a customer's drive without a backup and a plan &mdash; on the system drive it schedules itself for the next restart, and on a failing drive it can take hours. And never format any drive you have not identified twice, by letter and by size.</p></div></div>
+                <p><strong>Debrief:</strong> Which steps in this relay only read information, and which changed something? How did steps 4 and 5 protect you?</p>
+
+                <div class="callout callout-tip">
                     <div class="callout-title">The Winning Team Is Not the Fastest</div>
-                    <div class="callout-content"><p>Teams are scored on correct recorded answers, not finishing order. A team that finishes last with eight right answers beats a team that finishes first with five. On the exam, the same trade applies.</p></div>
+                    <div class="callout-content"><p>Teams are scored on correct recorded answers, not finishing order. A team that finishes last with every answer right beats a team that finishes first with half of them. On the exam, the same trade applies.</p></div>
                 </div>
             </div>
 
@@ -585,11 +1435,11 @@
             <div class="summary-box">
                 <h3>What These Labs Give You</h3>
                 <ul>
-                    <li>Practice choosing the right management console before you need it on a ticket</li>
-                    <li>A saved custom MMC holding the three snap-ins you will open most often</li>
-                    <li>Command-line fluency built on your own machine's real output, not on memorized syntax</li>
-                    <li>A personal reference sheet of eight commands and what each one told you</li>
-                    <li>A two-column map of where the same setting lives in Control Panel and in the Settings app</li>
+                    <li>Hands-on working knowledge of all eight MMC snap-ins on the exam: what each window shows, when to reach for it, and how to do its main jobs</li>
+                    <li>A custom management console of your own, saved and ready to reuse</li>
+                    <li>Five command line relays covering navigation, network troubleshooting, safe file copying, machine identity, and disk health</li>
+                    <li>The habit of identifying a drive twice before changing it, and reading every destructive command twice before pressing Enter</li>
+                    <li>A documented look at your own machine's tools and settings from the take-home lab</li>
                 </ul>
             </div>
 
