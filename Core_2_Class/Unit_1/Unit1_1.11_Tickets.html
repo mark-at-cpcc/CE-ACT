@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Unit 1 &mdash; 1.11 Unit 1 Tickets | CompTIA A+ Core 2</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Sans+Pro:wght@400;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           CPCC COURSE TEMPLATE - GOLD / CHARCOAL / BLACK
+           CTS-ITS7501-80 CompTIA A+ Core 2 Training
+           Type: true black. Accents: gold. Chrome: charcoal.
+           ============================================ */
+
+        :root {
+            --primary-dark: #4A4A4A;       /* Charcoal - structural chrome only */
+            --primary-main: #B8962E;       /* Warm Gold - primary accent */
+            --primary-light: #D4AF56;      /* Light Gold */
+            --primary-pale: #FBF3DF;       /* Pale Gold wash */
+
+            --accent-teal: #8A6F1F;        /* Deep bronze-gold */
+            --accent-teal-light: #F3E9CE;  /* Pale bronze */
+            --accent-orange: #A9642A;      /* Warm rust */
+            --accent-orange-light: #F5E2CE;
+            --accent-purple: #6B5B3A;      /* Muted umber */
+            --accent-purple-light: #EFE6D2;
+            --accent-green: #4E7A51;
+            --accent-green-light: #DCEBDD;
+
+            --alert-warning: #B8862E;
+            --alert-warning-bg: #FBF0D9;
+            --alert-danger: #A13A3A;
+            --alert-danger-bg: #F6DEDE;
+            --alert-success: #3F6E42;
+            --alert-success-bg: #DCEBDD;
+            --alert-info: #6E5B2E;
+            --alert-info-bg: #F1E9D4;
+
+            --text-black: #000000;         /* All reading text */
+            --neutral-900: #000000;
+            --neutral-700: #000000;
+            --neutral-500: #5A5A5A;
+            --neutral-300: #D9D3C4;
+            --neutral-100: #FAF8F3;
+            --white: #ffffff;
+
+            --font-heading: 'Nunito', sans-serif;
+            --font-body: 'Source Sans Pro', sans-serif;
+            --font-code: 'Fira Code', monospace;
+
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+
+            --shadow-sm: 0 1px 2px rgba(74, 74, 74, 0.08);
+            --shadow-md: 0 4px 6px rgba(74, 74, 74, 0.12);
+            --shadow-lg: 0 10px 20px rgba(74, 74, 74, 0.15);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body), 'Segoe UI', Tahoma, Verdana, sans-serif;
+            font-size: 1.0625rem;
+            line-height: 1.7;
+            color: var(--text-black);
+            background: linear-gradient(135deg, var(--neutral-100) 0%, var(--white) 100%);
+            min-height: 100vh;
+            padding: var(--space-lg);
+        }
+
+        .course-container {
+            max-width: 950px; margin: 0 auto; background: var(--white);
+            border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); overflow: hidden;
+        }
+
+        .module-header {
+            background: var(--primary-main); color: var(--text-black);
+            padding: var(--space-lg) var(--space-xl); position: relative; overflow: hidden;
+        }
+        .module-label {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 0.875rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 2px; text-decoration: underline;
+            margin-bottom: var(--space-sm); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-title {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 2.25rem; font-weight: 800;
+            line-height: 1.2; margin-bottom: var(--space-md); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-subtitle { font-size: 1.125rem; max-width: 650px; position: relative; z-index: 1; color: var(--text-black); }
+
+        .toc {
+            display: flex; flex-direction: column; gap: var(--space-sm);
+            padding: var(--space-lg) var(--space-xl);
+            background: var(--primary-pale); border-bottom: 1px solid var(--neutral-300);
+        }
+        .toc-item {
+            width: 100%; text-align: left;
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 0.875rem;
+            color: var(--text-black); background: var(--white);
+            border: 2px solid var(--primary-main);
+            padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md);
+        }
+        .toc-item.current { background: var(--primary-main); }
+
+        .content-area { padding: var(--space-xl); }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif;
+            color: var(--text-black); line-height: 1.3; margin-bottom: var(--space-md);
+        }
+        h1 { font-size: 2rem; font-weight: 800; }
+        h2 { font-size: 1.625rem; font-weight: 700; padding-bottom: var(--space-sm);
+             border-bottom: 3px solid var(--primary-main); margin-top: var(--space-xl); margin-bottom: var(--space-lg); }
+        h3 { font-size: 1.375rem; font-weight: 700; margin-top: var(--space-lg);
+             padding-left: var(--space-sm); border-left: 4px solid var(--primary-main); }
+        h4 { font-size: 1.125rem; font-weight: 600; }
+
+        p { margin-bottom: var(--space-md); }
+        strong { font-weight: 700; color: var(--text-black); }
+        em { font-style: italic; color: var(--text-black); }
+
+        a { color: var(--text-black); text-decoration: none; border-bottom: 2px solid var(--primary-main); transition: all 0.2s ease; }
+        a:hover { background: var(--primary-pale); border-bottom-color: var(--accent-teal); }
+
+        ul, ol { margin-bottom: var(--space-md); padding-left: var(--space-lg); }
+        li { margin-bottom: var(--space-sm); }
+        ul li::marker { color: var(--accent-teal); }
+        ol li::marker { color: var(--accent-teal); font-weight: 700; }
+
+        .styled-list { list-style: none; padding-left: 0; }
+        .styled-list li { position: relative; padding-left: var(--space-lg); margin-bottom: var(--space-sm); }
+        .styled-list li::before { content: '\25B8'; position: absolute; left: 0; color: var(--accent-teal); font-weight: bold; }
+
+        .checklist { list-style: none; padding-left: 0; }
+        .checklist li { position: relative; padding-left: 2rem; margin-bottom: var(--space-sm); }
+        .checklist li::before {
+            content: '\2713'; position: absolute; left: 0; width: 1.5rem; height: 1.5rem;
+            background: var(--accent-green-light); color: var(--accent-green);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 0.75rem; font-weight: bold;
+        }
+
+        .objectives-box {
+            background: linear-gradient(135deg, var(--primary-pale) 0%, var(--accent-teal-light) 100%);
+            border-left: 5px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .objectives-box h3 { color: var(--text-black); margin-top: 0; margin-bottom: var(--space-md);
+            display: flex; align-items: center; gap: var(--space-sm); border-left: none; padding-left: 0; }
+        .objectives-box ol { margin-bottom: 0; }
+
+        .tech-box {
+            background: var(--neutral-100); border: 2px solid var(--neutral-500);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .tech-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .tech-box .callout-content { padding-left: 0; }
+
+        .plain-box {
+            background: var(--primary-pale); border: 2px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .plain-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .plain-box .callout-content { padding-left: 0; }
+
+        .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; position: relative; overflow: hidden; }
+        .callout::before { position: absolute; top: var(--space-md); left: var(--space-md); font-size: 1.5rem; }
+        .callout-title { font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 1rem;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
+        .callout-content { }
+        .callout-content p:last-child { margin-bottom: 0; }
+
+        .callout-tip { background: var(--accent-green-light); border-left: 4px solid var(--accent-green); }
+        .callout-warning { background: var(--alert-warning-bg); border-left: 4px solid var(--alert-warning); }
+        .callout-danger { background: var(--alert-danger-bg); border-left: 4px solid var(--alert-danger); }
+        .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
+
+        .key-concept {
+            background: linear-gradient(135deg, var(--accent-purple-light) 0%, var(--white) 100%);
+            border: 2px solid var(--accent-purple); border-radius: var(--radius-lg);
+            padding: var(--space-lg); margin: var(--space-xl) 0 var(--space-lg); position: relative;
+        }
+        .key-concept::before {
+            content: '\1F511 KEY CONCEPT'; position: absolute; top: -12px; left: var(--space-lg);
+            background: var(--accent-purple); color: var(--white); font-family: var(--font-heading), sans-serif;
+            font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-md); border-radius: var(--radius-sm);
+        }
+        .key-concept h4 { color: var(--text-black); margin-top: var(--space-sm); }
+
+        .definition { background: var(--neutral-100); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin: var(--space-md) 0; border-left: 4px solid var(--accent-orange); }
+        .definition-term { font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 1.125rem;
+            color: var(--text-black); margin-bottom: var(--space-xs); }
+        .definition-text { color: var(--text-black); margin-bottom: 0; }
+
+        code { font-family: var(--font-code), Consolas, monospace; font-size: 0.9rem; background: var(--primary-pale);
+            color: var(--text-black); padding: 2px 6px; border-radius: var(--radius-sm); }
+        pre { background: #2E2E2E; color: #f1ece0; padding: var(--space-lg); border-radius: var(--radius-md);
+            overflow-x: auto; margin: var(--space-lg) 0; position: relative; }
+        pre::before {
+            content: 'STEPS'; position: absolute; top: 0; right: 0; background: var(--primary-main); color: var(--text-black);
+            font-family: var(--font-heading), sans-serif; font-size: 0.625rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-sm); border-radius: 0 var(--radius-md) 0 var(--radius-sm);
+        }
+        pre code { background: transparent; color: inherit; padding: 0; font-size: 0.875rem; line-height: 1.6; }
+
+        .table-container { overflow-x: auto; margin: var(--space-lg) 0; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); }
+        table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
+        thead { background: var(--primary-dark); color: var(--white); }
+        th { font-family: var(--font-heading), sans-serif; font-weight: 700; text-align: left; padding: var(--space-md) var(--space-lg); color: var(--white); }
+        td { padding: var(--space-md) var(--space-lg); border-bottom: 1px solid var(--neutral-300); color: var(--text-black); }
+        tbody tr:hover { background: var(--primary-pale); }
+        tbody tr:last-child td { border-bottom: none; }
+
+        .activity-section {
+            background: linear-gradient(135deg, var(--accent-orange-light) 0%, var(--white) 100%);
+            border: 2px dashed var(--accent-orange); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .activity-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg); }
+        .activity-icon { width: 50px; height: 50px; background: var(--accent-orange); border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; }
+        .activity-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700;
+            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
+        .activity-subtitle { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
+
+        .assessment-section { background: var(--primary-pale); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0; }
+        .assessment-header { text-align: center; margin-bottom: var(--space-xl); }
+        .assessment-header h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .question-block { background: var(--white); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin-bottom: var(--space-lg); box-shadow: var(--shadow-sm); border: 2px solid transparent; transition: border-color .15s ease; }
+        .question-number { font-family: var(--font-heading), sans-serif; font-size: 0.75rem; font-weight: 700;
+            color: var(--text-black); background: var(--primary-main); display: inline-block;
+            padding: 2px 10px; border-radius: var(--radius-sm);
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); }
+        .question-text { font-weight: 600; color: var(--text-black); margin-bottom: var(--space-md); }
+
+        /* ---- Multiple-choice interactive options ---- */
+        .mc-options { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-sm); }
+        .mc-option {
+            display: flex; align-items: center; gap: var(--space-md); width: 100%; text-align: left;
+            padding: var(--space-sm) var(--space-md); border: 2px solid var(--neutral-300); border-radius: var(--radius-md);
+            background: var(--white); color: var(--text-black); font-family: var(--font-body), sans-serif;
+            font-size: 1rem; cursor: pointer; transition: all 0.15s ease;
+        }
+        .mc-option:hover { border-color: var(--primary-main); background: var(--primary-pale); }
+        .mc-option .mc-letter {
+            flex-shrink: 0; width: 1.75rem; height: 1.75rem; border-radius: 50%;
+            background: var(--neutral-100); border: 2px solid var(--neutral-300);
+            display: flex; align-items: center; justify-content: center;
+            font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 0.85rem; color: var(--text-black);
+        }
+        .mc-option.selected { border-color: var(--primary-main); background: var(--primary-pale); font-weight: 700; }
+        .mc-option.selected .mc-letter { background: var(--primary-main); border-color: var(--primary-main); }
+        .mc-option.graded-correct { border-color: var(--alert-success); background: var(--alert-success-bg); font-weight: 700; }
+        .mc-option.graded-correct .mc-letter { background: var(--alert-success); border-color: var(--alert-success); color: var(--white); }
+        .mc-option.graded-incorrect { border-color: var(--alert-danger); background: var(--alert-danger-bg); }
+        .mc-option.graded-incorrect .mc-letter { background: var(--alert-danger); border-color: var(--alert-danger); color: var(--white); }
+        .mc-option.graded-missed { border-color: var(--alert-success); border-style: dashed; }
+
+        .question-block.unanswered-flag { border-color: var(--alert-warning); }
+        .unanswered-note {
+            display: none; margin-top: var(--space-sm); font-size: 0.875rem; font-weight: 700;
+            color: var(--alert-warning); font-family: var(--font-heading), sans-serif;
+        }
+        .question-block.unanswered-flag .unanswered-note { display: block; }
+
+        .assessment-controls {
+            display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap;
+            margin-top: var(--space-xl); padding-top: var(--space-lg); border-top: 2px solid var(--neutral-300);
+        }
+        .btn-grade, .btn-reset {
+            font-family: var(--font-heading), sans-serif; font-weight: 800; font-size: 1rem;
+            padding: var(--space-md) var(--space-2xl); border-radius: var(--radius-md);
+            cursor: pointer; transition: all 0.15s ease; border: 2px solid var(--primary-dark);
+        }
+        .btn-grade { background: var(--primary-main); color: var(--text-black); border-color: var(--primary-main); box-shadow: var(--shadow-sm); }
+        .btn-grade:hover { background: var(--primary-light); }
+        .btn-reset { background: var(--white); color: var(--text-black); }
+        .btn-reset:hover { background: var(--neutral-100); }
+
+        .results-summary {
+            display: none; margin-top: var(--space-xl); padding: var(--space-xl);
+            border-radius: var(--radius-lg); background: var(--primary-dark); color: var(--white); text-align: center;
+        }
+        .results-summary.show { display: block; }
+        .results-score { font-family: var(--font-heading), sans-serif; font-size: 2.5rem; font-weight: 800; color: var(--white); margin-bottom: var(--space-sm); }
+        .results-summary p { color: var(--white); margin-bottom: var(--space-sm); }
+        .results-summary p:last-child { margin-bottom: 0; }
+
+        .references-section { background: var(--neutral-100); border-radius: var(--radius-lg);
+            padding: var(--space-lg) var(--space-xl); margin: var(--space-xl) 0; border-top: 3px solid var(--primary-main); }
+        .references-section h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .references-section ul { padding-left: var(--space-lg); }
+
+        .module-footer { background: var(--primary-dark); padding: var(--space-lg) var(--space-xl);
+            text-align: center; border-top: 4px solid var(--primary-main); }
+        .footer-text { font-size: 0.875rem; color: var(--white); margin: 0; }
+
+        .text-center { text-align: center; }
+        .text-muted { color: var(--neutral-500); }
+        .highlight { background: linear-gradient(180deg, transparent 50%, var(--primary-light) 50%); padding: 0 2px; }
+
+        @media (max-width: 768px) {
+            body { padding: var(--space-sm); }
+            .module-header { padding: var(--space-xl) var(--space-lg); }
+            .module-title { font-size: 1.75rem; }
+            .content-area { padding: var(--space-lg); }
+            h2 { font-size: 1.375rem; }
+            .activity-header { flex-direction: column; align-items: flex-start; }
+            .assessment-controls { flex-direction: column; }
+            .btn-grade, .btn-reset { width: 100%; }
+        }
+        @media print {
+            body { background: white; padding: 0; }
+            .course-container { box-shadow: none; }
+            .toc { display: none; }
+            .assessment-controls { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="course-container">
+
+        <header class="module-header">
+            <div class="module-label">Unit 1 &middot; The Technician and the Operating System &middot; Section 1.11</div>
+            <h1 class="module-title">Unit 1 Tickets</h1>
+            <p class="module-subtitle">CompTIA A+ Core 2 - Domains 1.0 and 4.0</p>
+        </header>
+
+                <nav class="toc" id="tocNav">
+            <div class="toc-header">Table of Contents</div>
+            <div class="toc-item">1.1 &mdash; Unit Overview and Schedule</div>
+            <div class="toc-item">1.2 &mdash; Unit Pre-Assessment</div>
+            <div class="toc-item">1.3 &mdash; Content Review</div>
+            <div class="toc-item">1.4 &mdash; Reading Assignment</div>
+            <div class="toc-item">1.5 &mdash; Video Assignment</div>
+            <div class="toc-item">1.6 &mdash; Classroom Labs and Take-Home Lab</div>
+            <div class="toc-item">1.7 &mdash; Practice Question Set</div>
+            <div class="toc-item">1.8 &mdash; Online Labs: NETLAB</div>
+            <div class="toc-item">1.9 &mdash; Reflection Activity</div>
+            <div class="toc-item">1.10 &mdash; Unit Test</div>
+            <div class="toc-item current" id="tocCurrent">1.11 &mdash; Unit 1 Tickets</div>
+            <div class="toc-item">1.A &mdash; Acronym Test</div>
+            <div class="toc-item">1.B &mdash; Clearing Your Browser Cache</div>
+        </nav>
+        <style>
+            /* Collapsible TOC: only the current section shows until clicked */
+            nav.toc#tocNav { gap: 0; }
+            nav.toc#tocNav .toc-item {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav .toc-item.current {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                cursor: pointer;
+            }
+            nav.toc#tocNav .toc-item.current::after {
+                content: ' \25BE Click to View';
+                font-size: 0.75em;
+            }
+            nav.toc#tocNav.toc-expanded .toc-item {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                margin-bottom: var(--space-sm);
+            }
+            nav.toc#tocNav.toc-expanded .toc-item.current::after { content: ' \25B4'; }
+
+            nav.toc#tocNav .toc-header {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                font-family: var(--font-heading), 'Segoe UI', sans-serif;
+                font-weight: 700;
+                font-size: 0.875rem;
+                text-align: left;
+                color: var(--text-black);
+                text-decoration: underline;
+                background: var(--primary-main);
+                border-radius: var(--radius-md);
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav.toc-expanded .toc-header {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                padding-left: var(--space-md);
+                border-width: 2px;
+                border-style: solid;
+                border-color: var(--primary-main);
+                margin-bottom: var(--space-sm);
+            }
+        </style>
+
+        <script>
+            (function () {
+                var toc = document.getElementById('tocNav');
+                var currentItem = document.getElementById('tocCurrent');
+
+                toc.addEventListener('click', function (e) {
+                    if (toc.classList.contains('toc-expanded')) {
+                        toc.classList.remove('toc-expanded');
+                    } else if (e.target === currentItem || currentItem.contains(e.target)) {
+                        toc.classList.add('toc-expanded');
+                    }
+                });
+
+                toc.addEventListener('mouseleave', function () {
+                    toc.classList.remove('toc-expanded');
+                });
+            })();
+        </script>
+
+        <div class="content-area">
+
+            <div class="instructions-card">
+                <div class="instructions-band">Instructions &mdash; Read Before You Begin</div>
+
+
+                <h3>What This Is</h3>
+                <p>Three help-desk tickets, one for each class meeting this unit. <strong>Work each one on your own.</strong> Every ticket is a real kind of call, with real evidence, and three questions that ask what a technician would actually do next. Plan on about 20 minutes per ticket.</p>
+
+                <h3>How to Work a Ticket</h3>
+                <ol>
+                    <li><strong>Read the call, then stop.</strong> Before you look at any evidence, write one sentence in your notes: <em>what do you think is wrong, and how sure are you?</em> You will come back to it.</li>
+                    <li><strong>Study the exhibits</strong> as if you had just collected them from the user's computer.</li>
+                    <li><strong>Answer the three questions.</strong> Each one stands on its own. You get one attempt per question.</li>
+                    <li><strong>Write your own progress note,</strong> then compare it with the Ticket Solution.</li>
+                    <li><strong>Look back.</strong> The reflection prompts sit inside the Ticket Solution, below the solution itself. Answer them in your notes. They are about your thinking, not the content, and nobody else will see them.</li>
+                </ol>
+
+                <h3>What You Will See When You Answer</h3>
+                <ul class="checklist">
+                    <li>A flag that says <strong>Correct</strong> or <strong>Incorrect</strong> &mdash; nothing more. You will not be shown which answer was right.</li>
+                    <li>If you miss one, go back to the exhibit and the call and work out why. That search is the lesson.</li>
+                    <li>Answer all three correctly and the <strong>Ticket Solution</strong> opens on its own. Otherwise, click <strong>Ticket Solution</strong> to open it yourself &mdash; after you have written your note. The Look Back prompts are inside it.</li>
+                    <li><strong>Reset These Questions</strong> clears a ticket so you can work it again.</li>
+                </ul>
+
+                <h3>About the Exhibits</h3>
+                <p>Each ticket includes exhibits labeled A, B, and C. <strong>Every exhibit is representative of the output from the computer being troubleshot</strong> &mdash; what you would see on that machine's screen if you opened the tool or settings window, or ran the command shown. Treat them as evidence you collected yourself during the call.</p>
+                <p>They are simplified to show what matters, the same way a performance-based question on the 220-1202 exam presents a tool or a command's output. Read them the way a technician reads a screen: <strong>column headings first, then the values that stand out, then the details that do not fit.</strong></p>
+
+                <h3>The Method Behind Every Ticket</h3>
+                <p>Each question is tagged with the step of CompTIA's troubleshooting method it exercises. You will use this method for the rest of your career; these tickets are where it becomes a habit.</p>
+                <ol>
+                    <li>Identify the problem</li>
+                    <li>Establish a theory of probable cause</li>
+                    <li>Test the theory to determine the cause</li>
+                    <li>Establish a plan of action to resolve the problem and implement the solution</li>
+                    <li>Verify full system functionality and, if applicable, implement preventive measures</li>
+                    <li>Document findings, actions, and outcomes</li>
+                </ol>
+
+                <h3>About the Times and Names</h3>
+                <p>Every person, company, and device in these tickets is fictional. Times shown inside a ticket are part of the scenario, not course deadlines &mdash; course due dates are always in the Course Schedule.</p>
+            </div>
+
+            <section class="ticket-card">
+                <div class="ticket-band">
+                    <span class="ticket-count">Ticket 1 of 3</span>
+                    <span class="ticket-title">Third Time This Month</span>
+                    <span class="ticket-meta">Tuesday &middot; Objectives 4.1 and 4.7 &mdash; Documentation and professionalism &middot; About 20 minutes</span>
+                </div>
+                <div class="ticket-body">
+            <div class="table-container">
+                <table>
+                    <thead><tr><th colspan="2">Ticket HD-1-0907</th></tr></thead>
+                    <tbody><tr><td><strong>Priority</strong></td><td>Medium, as logged &mdash; see Question 2</td></tr><tr><td><strong>Category</strong></td><td>Recurring issue</td></tr><tr><td><strong>Caller</strong></td><td>Angela Brooks, Office Coordinator, Piedmont Family Dental (9 staff)</td></tr><tr><td><strong>Device</strong></td><td>Asset PFD-FD-02 &middot; Front-desk desktop &middot; Windows 11 Pro &middot; shared by two receptionists</td></tr></tbody>
+                </table>
+            </div>
+
+            <div class="plain-box">
+                <div class="callout-title">The Call</div>
+                <div class="callout-content"><p>"This is the third time this month the front-desk computer has frozen while we're checking patients in. Every time, somebody comes out, restarts it, says it's fixed, and leaves. Then it happens again. Nobody ever tells me what's wrong. I have a waiting room full of people, and honestly I'm starting to think nobody actually looked."</p></div>
+            </div>
+
+            <p>You open the device's ticket history before you go out to the front desk. You are the fourth technician to touch this computer this month.</p>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">Stop Here</div>
+                <div class="callout-content"><p>Before you read the exhibits, write down <strong>what you expect the earlier tickets to say</strong> &mdash; and what you would need them to say to save yourself time today.</p></div>
+            </div>
+
+            <h3>Exhibit A &mdash; Ticket history for asset PFD-FD-02</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Ticket</th><th>Opened</th><th>Technician</th><th>Progress notes</th><th>Resolution</th></tr></thead>
+                    <tbody><tr><td>HD-1-0811</td><td>23 days ago</td><td>R. Tan</td><td>Rebooted.</td><td>Fixed.</td></tr><tr><td>HD-1-0849</td><td>15 days ago</td><td>J. Okafor</td><td>Froze again. Rebooted, working now.</td><td>Fixed &mdash; rebooted.</td></tr><tr><td>HD-1-0876</td><td>6 days ago</td><td>R. Tan</td><td>Restarted PC. Told user to call if it happens again.</td><td>Closed.</td></tr></tbody>
+                </table>
+            </div>
+            <h3>Exhibit B &mdash; The new ticket, as the help desk logged it</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Field</th><th>Value</th></tr></thead>
+                    <tbody><tr><td>Category</td><td>Other</td></tr><tr><td>Severity</td><td>Low</td></tr><tr><td>Escalation level</td><td>Tier 1</td></tr><tr><td>Device information</td><td><em>(blank)</em></td></tr><tr><td>Description</td><td>Front desk PC frozen again.</td></tr></tbody>
+                </table>
+            </div>
+            <h3>Exhibit C &mdash; Reliability Monitor on PFD-FD-02, the finding from your visit</h3>
+<pre><code>Application failure   DentalCheckIn.exe
+Faulting module       LabelPrint.dll
+Occurs                Each time &quot;Print patient label&quot; is used
+First seen            24 days ago - one day after a label printer driver update</code></pre>
+
+            <div id="t1q"></div>
+
+            <h3>Close the Ticket</h3>
+            <p>Write your own progress note and resolution first &mdash; the note you wish the first technician had left. Then open the Ticket Solution below to compare.</p>
+            <div class="solution-toggle" id="t1sol">
+                <div class="solution-bar">Ticket Solution</div>
+                <div class="solution-body">
+                    <div class="callout callout-tip">
+                        <div class="callout-content">
+                            <p><strong>Reported:</strong> front-desk PC freezing during patient check-in &mdash; fourth occurrence in a month. Three prior tickets (HD-1-0811, -0849, -0876) closed after restarts, with no cause recorded.</p>
+                            <p><strong>Ticket corrected:</strong> severity raised to reflect business impact; prior tickets linked; device information recorded.</p>
+                            <p><strong>Found:</strong> Reliability Monitor &mdash; DentalCheckIn.exe fails in LabelPrint.dll whenever a patient label is printed; first failure one day after a label printer driver update.</p>
+                            <p><strong>Action:</strong> rolled back the label printer driver to the previous version; printed ten test labels with no failure; confirmed with the caller.</p>
+                            <p><strong>Follow-up:</strong> created a knowledge base article on the symptom and fix and referenced it here. Explained to the caller, in plain terms, what was wrong and what changed, and scheduled a check-in call for next week.</p>
+                        </div>
+                    </div>
+                    <h3>Look Back</h3>
+                    <div class="activity-section">
+                        <ol class="lab-steps">
+                            <li><strong>Return to what you expected the old tickets to say.</strong> How did "Fixed &mdash; rebooted" feel when you were the one inheriting it?</li>
+                            <li><strong>Angela said nobody ever tells her what is wrong.</strong> Write the two sentences you would say to her, with no jargon, that would have changed how this month felt for her.</li>
+                            <li><strong>Restarting worked every time &mdash; for a few days.</strong> Why is "it works now" not the same as "it is fixed"? Where else do you accept "it works now"?</li>
+                            <li><strong>Rewrite HD-1-0811 as it should have been written.</strong> What is the one sentence that would have saved everyone after R. Tan the most time?</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+                </div>
+            </section>
+
+            <section class="ticket-card">
+                <div class="ticket-band">
+                    <span class="ticket-count">Ticket 2 of 3</span>
+                    <span class="ticket-title">Five New Laptops and a 6 GB Video</span>
+                    <span class="ticket-meta">Wednesday &middot; Objectives 1.1, 1.2, and 1.3 &mdash; Operating systems, installation, and editions &middot; About 20 minutes</span>
+                </div>
+                <div class="ticket-body">
+            <div class="table-container">
+                <table>
+                    <thead><tr><th colspan="2">Ticket HD-1-0915</th></tr></thead>
+                    <tbody><tr><td><strong>Priority</strong></td><td>Medium &mdash; business requirements unmet on new equipment</td></tr><tr><td><strong>Category</strong></td><td>Operating system &middot; Configuration</td></tr><tr><td><strong>Caller</strong></td><td>Luis Ortega, Owner, Ortega Landscape Design (6 staff)</td></tr><tr><td><strong>Device</strong></td><td>Assets OLD-LT-01 to OLD-LT-05 &middot; Five new laptops, bought at a retail store last week</td></tr></tbody>
+                </table>
+            </div>
+
+            <div class="plain-box">
+                <div class="callout-title">The Call</div>
+                <div class="callout-content"><p>"We bought five new laptops for the office. Two problems. My accountant says our files have to be encrypted and the laptops have to join the domain your company set up for us &mdash; but there's no option for either one. And I can't copy our client presentation video, about 6 gigabytes, onto the USB drive I take to meetings. It says the file is too large for the destination. The drive is 64 gigabytes and it's empty!"</p></div>
+            </div>
+
+            <p>You learn that the laptops came with the operating system the store preinstalled, and that the USB drive was bought years ago and formatted on an older computer. Luis needs every application already installed on the laptops to stay where it is.</p>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">Stop Here</div>
+                <div class="callout-content"><p>Two problems. Before the exhibits, write down <strong>what you suspect for each one, and whether you think they are related</strong>.</p></div>
+            </div>
+
+            <h3>Exhibit A &mdash; Settings &gt; System &gt; About, on one of the laptops</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Field</th><th>Value</th></tr></thead>
+                    <tbody><tr><td>Edition</td><td>Windows 11 Home</td></tr><tr><td>Version</td><td>23H2</td></tr><tr><td>Installed RAM</td><td>16.0 GB</td></tr><tr><td>System type</td><td>64-bit operating system, x64-based processor</td></tr><tr><td>TPM</td><td>2.0, ready</td></tr><tr><td>Secure Boot</td><td>Supported</td></tr></tbody>
+                </table>
+            </div>
+            <h3>Exhibit B &mdash; Properties of the USB drive</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Field</th><th>Value</th></tr></thead>
+                    <tbody><tr><td>File system</td><td>FAT32</td></tr><tr><td>Capacity</td><td>59.6 GB</td></tr><tr><td>Used space</td><td>0 bytes</td></tr></tbody>
+                </table>
+            </div>
+            <h3>Exhibit C &mdash; Luis's requirements</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Requirement</th><th>Detail</th></tr></thead>
+                    <tbody><tr><td>Join the company domain</td><td>Required by the accountant</td></tr><tr><td>Encrypt the drives</td><td>Required by the accountant</td></tr><tr><td>Keep everything installed</td><td>Accounting software, design software, and client files must stay</td></tr></tbody>
+                </table>
+            </div>
+
+            <div id="t2q"></div>
+
+            <h3>Close the Ticket</h3>
+            <p>Write your own progress note and resolution first &mdash; and say whether the two problems turned out to be related. Then open the Ticket Solution below to compare.</p>
+            <div class="solution-toggle" id="t2sol">
+                <div class="solution-bar">Ticket Solution</div>
+                <div class="solution-body">
+                    <div class="callout callout-tip">
+                        <div class="callout-content">
+                            <p><strong>Reported:</strong> five new laptops cannot join the domain or encrypt drives; a 6 GB video will not copy to an empty 64 GB USB drive.</p>
+                            <p><strong>Found:</strong> laptops run Windows 11 Home, which supports neither domain joining nor BitLocker. USB drive formatted FAT32, which limits single files to 4 GB. The two problems are unrelated.</p>
+                            <p><strong>Action:</strong> confirmed the USB drive was empty, reformatted it as exFAT, and copied the video successfully. Upgraded each laptop in place to Windows 11 Pro with purchased Pro licenses; installed applications and files preserved. Joined all five to the domain and enabled BitLocker; recovery keys stored in the company's key escrow.</p>
+                            <p><strong>Preventive:</strong> recommended that future laptop purchases specify Windows 11 Pro; noted in the client record.</p>
+                        </div>
+                    </div>
+                    <h3>Look Back</h3>
+                    <div class="activity-section">
+                        <ol class="lab-steps">
+                            <li><strong>Did you think the two problems were related?</strong> They were not. Why does checking that matter before you start fixing?</li>
+                            <li><strong>Luis bought the cheaper edition at a store.</strong> How do you explain the extra license cost without making him feel he made a bad decision?</li>
+                            <li><strong>"64 GB and it's empty" made the error sound impossible.</strong> What other "impossible" errors have you met that were really a rule you did not know yet?</li>
+                            <li><strong>BitLocker is only as good as its recovery key.</strong> Where should these keys be kept, and who should be able to reach them?</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+                </div>
+            </section>
+
+            <section class="ticket-card">
+                <div class="ticket-band">
+                    <span class="ticket-count">Ticket 3 of 3</span>
+                    <span class="ticket-title">The New Hire's First Day</span>
+                    <span class="ticket-meta">Thursday &middot; Objectives 1.10, 1.11, and 4.7 &mdash; Applications, cloud tools, and professionalism &middot; About 20 minutes</span>
+                </div>
+                <div class="ticket-body">
+            <div class="table-container">
+                <table>
+                    <thead><tr><th colspan="2">Ticket HD-1-0921</th></tr></thead>
+                    <tbody><tr><td><strong>Priority</strong></td><td>High &mdash; a new employee cannot work</td></tr><tr><td><strong>Category</strong></td><td>Onboarding &middot; Applications &middot; Cloud</td></tr><tr><td><strong>Caller</strong></td><td>Tasha Green, HR Manager, Riverside Architecture (22 staff)</td></tr><tr><td><strong>Device</strong></td><td>Asset RA-LT-31 &middot; Laptop &middot; Windows 11 Pro &middot; 16 GB RAM &middot; integrated graphics &middot; 256 GB SSD</td></tr></tbody>
+                </table>
+            </div>
+
+            <div class="plain-box">
+                <div class="callout-title">The Call</div>
+                <div class="callout-content"><p>"Our new designer, Jordan, started today and he can't do anything. The 3D design program won't install, he can't get into his company email, and his laptop says it's almost out of space &mdash; on his first day! He's sitting in my office right now looking at me. What do I tell him?"</p></div>
+            </div>
+
+            <p>You learn that Jordan's laptop was reassigned from an office assistant who left last month, and that a coworker created Jordan's account last night.</p>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">Stop Here</div>
+                <div class="callout-content"><p>Three problems on one laptop, and a new employee watching. Before the exhibits, write down <strong>your first theory, and which problem you would tackle first and why</strong>.</p></div>
+            </div>
+
+            <h3>Exhibit A &mdash; The design application's requirements compared with RA-LT-31</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Requirement</th><th>Application needs</th><th>RA-LT-31 has</th></tr></thead>
+                    <tbody><tr><td>Operating system</td><td>64-bit Windows 11</td><td>64-bit Windows 11 Pro</td></tr><tr><td>RAM</td><td>16 GB minimum</td><td>16 GB</td></tr><tr><td>Graphics</td><td>Dedicated graphics with 4 GB VRAM</td><td>Integrated graphics</td></tr><tr><td>Free storage</td><td>20 GB</td><td>6 GB</td></tr></tbody>
+                </table>
+            </div>
+            <h3>Exhibit B &mdash; Jordan's account in the cloud administration portal</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Field</th><th>Value</th></tr></thead>
+                    <tbody><tr><td>User</td><td>Jordan Lee</td></tr><tr><td>Sign-in</td><td>Allowed</td></tr><tr><td>Licenses</td><td>None assigned</td></tr><tr><td>Source</td><td>Synchronized from the company directory</td></tr><tr><td>Last synchronization</td><td>2 hours ago</td></tr></tbody>
+                </table>
+            </div>
+            <h3>Exhibit C &mdash; Cloud storage sync settings on RA-LT-31</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Setting</th><th>Value</th></tr></thead>
+                    <tbody><tr><td>Download files only when opened</td><td>Off &mdash; all files kept on this device</td></tr><tr><td>Folders synced</td><td>Entire shared Projects library (184 GB)</td></tr><tr><td>Local disk</td><td>97% used</td></tr></tbody>
+                </table>
+            </div>
+
+            <div id="t3q"></div>
+
+            <h3>Close the Ticket</h3>
+            <p>Write your own progress note and resolution first &mdash; including what you told Tasha, and the problem you could not fix today. Then open the Ticket Solution below to compare.</p>
+            <div class="solution-toggle" id="t3sol">
+                <div class="solution-bar">Ticket Solution</div>
+                <div class="solution-body">
+                    <div class="callout callout-tip">
+                        <div class="callout-content">
+                            <p><strong>Reported:</strong> new employee unable to install the design application, open company email, or keep working because of a nearly full disk, on his first day.</p>
+                            <p><strong>Found:</strong> application requires dedicated graphics with 4 GB VRAM; RA-LT-31 has integrated graphics, so it cannot run the application in a supported way. No license assigned to the new account. Cloud storage syncing the entire 184 GB Projects library locally; disk 97% full.</p>
+                            <p><strong>Action:</strong> with the HR manager's approval, assigned the email license; mail opens. Changed sync so files download only when opened and limited it to his project folders; disk at 31%. Escalated a request for a workstation that meets the application's requirements.</p>
+                            <p><strong>Communication:</strong> told the HR manager and the employee plainly that email and storage were fixed today, and that the design application needs different hardware &mdash; with a realistic date for it.</p>
+                            <p><strong>Preventive:</strong> the laptop was reassigned without being checked against the new role. Recommended adding a requirements check to the onboarding checklist.</p>
+                        </div>
+                    </div>
+                    <h3>Look Back</h3>
+                    <div class="activity-section">
+                        <ol class="lab-steps">
+                            <li><strong>Tasha asked, "What do I tell him?"</strong> Write the two sentences you would give her &mdash; honest about the timeline, with no blame on anyone.</li>
+                            <li><strong>Which problem did you choose to fix first?</strong> Was it the one with the most business impact, or the one you knew how to fix?</li>
+                            <li><strong>This laptop was reassigned without anyone checking it against the new job.</strong> Which document should have caught that, and what line would you add to it?</li>
+                            <li><strong>You had to tell a new employee his laptop cannot run his main tool.</strong> How do you deliver bad news so the person leaves knowing what happens next?</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+                </div>
+            </section>
+
+            <div class="plain-box">
+                <div class="callout-title">What These Tickets Give You</div>
+                <div class="callout-content"><ul class="styled-list">
+                    <li>Reading a ticket history the way the next technician will, and writing notes that do not leave them guessing</li>
+                    <li>Matching a problem to a rule you did not know yet: file system limits, Windows edition features, and application requirements</li>
+                    <li>Setting expectations honestly with a frustrated caller and a new employee</li>
+                    <li>Progress notes another technician could pick up without asking you a single question</li>
+                </ul></div>
+            </div>
+
+        </div>
+
+        <footer class="module-footer">
+            <p class="footer-text">CompTIA A+ Core 2 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
+        </footer>
+    </div>
+
+    <style>
+        /* Instructions block and ticket cards */
+        .instructions-card {
+            background: var(--neutral-100); border: 2px solid var(--primary-dark);
+            border-radius: var(--radius-lg); padding: 0 var(--space-xl) var(--space-lg);
+            margin: 0 0 var(--space-xl); box-shadow: var(--shadow-sm); overflow: hidden;
+        }
+        .instructions-band, .ticket-band {
+            margin: 0 calc(-1 * var(--space-xl)) var(--space-lg);
+            padding: var(--space-md) var(--space-xl);
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 800;
+        }
+        .instructions-band {
+            background: var(--primary-dark); color: var(--white);
+            font-size: 1rem; text-transform: uppercase; letter-spacing: 1px;
+        }
+        .instructions-card h3 { margin-top: var(--space-lg); }
+        .instructions-card ol, .instructions-card ul { margin-bottom: var(--space-md); }
+        .instructions-card li { margin-bottom: var(--space-sm); }
+
+        .ticket-card {
+            background: var(--white); border: 3px solid var(--primary-main);
+            border-radius: var(--radius-lg); padding: 0 var(--space-xl) var(--space-lg);
+            margin: var(--space-xl) 0 calc(var(--space-xl) * 1.5); box-shadow: var(--shadow-lg); overflow: hidden;
+        }
+        .ticket-band {
+            background: var(--primary-main); color: var(--text-black);
+            display: flex; flex-direction: column; gap: 2px;
+        }
+        .ticket-count { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; }
+        .ticket-title { font-size: 1.4rem; line-height: 1.25; }
+        .ticket-meta { font-size: 0.85rem; font-weight: 600; }
+
+        /* Ticket Solution: collapses and expands using the same method as the Table of Contents */
+        .solution-toggle { margin: var(--space-lg) 0; }
+        .solution-bar {
+            width: 100%; text-align: left;
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 0.875rem;
+            color: var(--text-black); background: var(--primary-main);
+            border: 2px solid var(--primary-main);
+            padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md);
+            cursor: pointer;
+        }
+        .solution-bar::after { content: ' \25BE Click to View'; font-size: 0.75em; }
+        .solution-toggle.toc-expanded .solution-bar::after { content: ' \25B4'; }
+        .solution-body {
+            max-height: 0; opacity: 0; overflow: hidden;
+            transition: max-height 0.9s ease, opacity 0.9s ease;
+        }
+        .solution-toggle.toc-expanded .solution-body { max-height: 4000px; opacity: 1; }
+        .solution-body > h3 { margin-top: var(--space-lg); }
+    </style>
+    <script>
+const TICKETS = {
+ "t1q": [
+  {
+   "step": "Step 6 &mdash; Document findings, actions, and outcomes",
+   "exhibit": "Exhibit A",
+   "q": "Exhibit A shows the three earlier tickets. What is the most significant documentation failure across all three?",
+   "opts": [
+    [
+     "The progress notes record no symptoms, findings, or cause &mdash; only that the computer was restarted",
+     true
+    ],
+    [
+     "The tickets were assigned to more than one technician",
+     false
+    ],
+    [
+     "The resolution field says \"Fixed\" instead of \"Resolved\"",
+     false
+    ],
+    [
+     "The tickets were opened on different days",
+     false
+    ],
+    [
+     "The tickets should have been deleted once they were closed",
+     false
+    ],
+    [
+     "The caller's phone number is missing from the resolution field",
+     false
+    ]
+   ]
+  },
+  {
+   "step": "Step 1 &mdash; Identify the problem",
+   "exhibit": "Exhibit B",
+   "q": "This is the fourth occurrence in a month, and it stops patient check-in each time. Which change to the new ticket in Exhibit B is most appropriate before work begins?",
+   "opts": [
+    [
+     "Raise the severity to reflect the business impact, link the three earlier tickets, and record the device information",
+     true
+    ],
+    [
+     "Leave the severity at Low, because only one computer is affected",
+     false
+    ],
+    [
+     "Close it as a duplicate of HD-1-0876",
+     false
+    ],
+    [
+     "Assign it to the same technician as last time, without other changes",
+     false
+    ],
+    [
+     "Change the category to Printing and leave the other fields as they are",
+     false
+    ],
+    [
+     "Delete the earlier tickets so the history is easier to read",
+     false
+    ]
+   ]
+  },
+  {
+   "step": "Step 6 &mdash; Document findings, actions, and outcomes",
+   "exhibit": "Exhibit C",
+   "q": "Exhibit C shows the cause you found. Besides resolving this ticket, what should you do so the next technician does not repeat the last three visits?",
+   "opts": [
+    [
+     "Write a knowledge base article describing the symptom, cause, and fix, and reference it in the ticket",
+     true
+    ],
+    [
+     "Leave a note on the front desk telling staff to restart when it freezes",
+     false
+    ],
+    [
+     "Email the fix to the caller only",
+     false
+    ],
+    [
+     "Record it in an incident report, the document used for security breaches and major outages",
+     false
+    ],
+    [
+     "Update the device's asset tag",
+     false
+    ],
+    [
+     "Nothing further &mdash; the fix is resolved and you will remember it",
+     false
+    ]
+   ]
+  }
+ ],
+ "t2q": [
+  {
+   "step": "Step 2 &mdash; Establish a theory of probable cause",
+   "exhibit": "Exhibit B",
+   "q": "Based on Exhibit B, why does a 6 GB file fail to copy to an empty 64 GB drive?",
+   "opts": [
+    [
+     "FAT32 cannot store a single file larger than 4 GB",
+     true
+    ],
+    [
+     "The drive must be defragmented before large files can be copied",
+     false
+    ],
+    [
+     "USB drives cannot store video files",
+     false
+    ],
+    [
+     "The drive is write-protected by BitLocker",
+     false
+    ],
+    [
+     "The drive uses NTFS, which limits file size on removable media",
+     false
+    ],
+    [
+     "The video's file extension is hidden in File Explorer",
+     false
+    ]
+   ]
+  },
+  {
+   "step": "Step 2 &mdash; Establish a theory of probable cause",
+   "exhibit": "Exhibit A",
+   "q": "Based on Exhibit A, what explains why the laptops offer neither domain joining nor drive encryption?",
+   "opts": [
+    [
+     "Windows 11 Home does not support joining a domain or BitLocker",
+     true
+    ],
+    [
+     "The laptops do not have a TPM 2.0 chip",
+     false
+    ],
+    [
+     "16 GB of RAM is below the requirement for these features",
+     false
+    ],
+    [
+     "A 64-bit operating system cannot join a domain",
+     false
+    ],
+    [
+     "Version 23H2 removed both features",
+     false
+    ],
+    [
+     "Domain joining requires a Microsoft account to be signed in",
+     false
+    ]
+   ]
+  },
+  {
+   "step": "Step 4 &mdash; Establish a plan of action",
+   "exhibit": "Exhibit C",
+   "q": "Luis needs the features in Exhibit C without losing any installed applications or files. Which approach best meets all three requirements?",
+   "opts": [
+    [
+     "Upgrade the edition in place to Windows 11 Pro with a Pro license",
+     true
+    ],
+    [
+     "Perform a clean install of Windows 11 Pro",
+     false
+    ],
+    [
+     "Reformat the drives as exFAT and reinstall Windows",
+     false
+    ],
+    [
+     "Install Windows 11 Pro alongside Home in a multiboot configuration",
+     false
+    ],
+    [
+     "Deploy the current Home image to all five laptops again",
+     false
+    ],
+    [
+     "Install Windows 10 Home instead",
+     false
+    ]
+   ]
+  }
+ ],
+ "t3q": [
+  {
+   "step": "Step 3 &mdash; Test the theory",
+   "exhibit": "Exhibit A",
+   "q": "Even after disk space is freed, which requirement in Exhibit A still prevents a supported installation?",
+   "opts": [
+    [
+     "The dedicated graphics and VRAM requirement",
+     true
+    ],
+    [
+     "The free storage requirement",
+     false
+    ],
+    [
+     "The RAM requirement",
+     false
+    ],
+    [
+     "The 64-bit operating system requirement",
+     false
+    ],
+    [
+     "The Windows edition requirement",
+     false
+    ],
+    [
+     "An external hardware token requirement",
+     false
+    ]
+   ]
+  },
+  {
+   "step": "Step 2 &mdash; Establish a theory of probable cause",
+   "exhibit": "Exhibit B",
+   "q": "Jordan's account exists and sign-in is allowed, but his company email will not open. Based on Exhibit B, what is the most likely cause?",
+   "opts": [
+    [
+     "No license has been assigned to his account",
+     true
+    ],
+    [
+     "Identity synchronization has never run for his account",
+     false
+    ],
+    [
+     "His password has already expired",
+     false
+    ],
+    [
+     "His laptop has not joined a workgroup",
+     false
+    ],
+    [
+     "His mailbox is full",
+     false
+    ],
+    [
+     "The laptop's drive is formatted with the wrong file system",
+     false
+    ]
+   ]
+  },
+  {
+   "step": "Step 4 &mdash; Establish a plan of action",
+   "exhibit": "Exhibit C",
+   "q": "Which change resolves the full disk shown in Exhibit C without removing Jordan's access to the shared projects?",
+   "opts": [
+    [
+     "Change the sync settings so files download only when opened, or sync only the folders he needs",
+     true
+    ],
+    [
+     "Delete the shared Projects library from the cloud",
+     false
+    ],
+    [
+     "Run Disk Cleanup to remove the synced project files",
+     false
+    ],
+    [
+     "Format the drive to free space",
+     false
+    ],
+    [
+     "Assign Jordan a second license",
+     false
+    ],
+    [
+     "Turn off identity synchronization for his account",
+     false
+    ]
+   ]
+  }
+ ]
+};
+
+        function shuffle(a) { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+
+        // Same open/close method as the Table of Contents: click toggles, leaving collapses
+        document.querySelectorAll('.solution-toggle').forEach(function (box) {
+            var bar = box.querySelector('.solution-bar');
+            bar.addEventListener('click', function () {
+                box.classList.toggle('toc-expanded');
+            });
+            box.addEventListener('mouseleave', function () {
+                if (!box.dataset.earned) box.classList.remove('toc-expanded');
+            });
+        });
+
+        function renderTicket(containerId) {
+            const box = document.getElementById(containerId);
+            const sol = document.getElementById(containerId.replace('q', 'sol'));
+            sol.classList.remove('toc-expanded'); delete sol.dataset.earned;
+            box.innerHTML = '<h3>Questions</h3>';
+            box.dataset.correct = '0'; box.dataset.answered = '0';
+            TICKETS[containerId].forEach((item, qi) => {
+                const order = shuffle(item.opts.map((o, i) => i));
+                const block = document.createElement('div');
+                block.className = 'question-block';
+                let html = '<div class="question-number">Question ' + (qi + 1) + ' &middot; ' + item.step + ' &middot; ' + item.exhibit + '</div>';
+                html += '<p class="question-text">' + item.q + '</p><ul class="mc-options">';
+                order.forEach((oi, k) => {
+                    html += '<li><button type="button" class="mc-option" data-oi="' + oi + '"><span class="mc-letter">' + 'ABCDEF'[k] + '</span><span>' + item.opts[oi][0] + '</span></button></li>';
+                });
+                html += '</ul><div class="feedback" style="display:none; margin-top: var(--space-md);"></div>';
+                block.innerHTML = html;
+                block.querySelectorAll('.mc-option').forEach(btn => {
+                    btn.addEventListener('click', () => answer(box, block, item, parseInt(btn.dataset.oi), containerId));
+                });
+                box.appendChild(block);
+            });
+            const reset = document.createElement('button');
+            reset.type = 'button'; reset.className = 'btn-reset'; reset.textContent = 'Reset These Questions';
+            reset.addEventListener('click', () => renderTicket(containerId));
+            box.appendChild(reset);
+        }
+
+        function answer(box, block, item, chosen, containerId) {
+            if (block.dataset.done) return;
+            block.dataset.done = '1';
+            const isRight = item.opts[chosen][1] === true;
+            // Mark only the student's own choice. The correct answer is never revealed.
+            block.querySelectorAll('.mc-option').forEach(btn => {
+                btn.disabled = true;
+                if (parseInt(btn.dataset.oi) === chosen) btn.classList.add(isRight ? 'graded-correct' : 'graded-incorrect');
+            });
+            const fb = block.querySelector('.feedback');
+            fb.innerHTML = isRight
+                ? '<div class="callout callout-tip"><div class="callout-title">Correct</div></div>'
+                : '<div class="callout callout-danger"><div class="callout-title">Incorrect</div></div>';
+            fb.style.display = 'block';
+            box.dataset.answered = String(parseInt(box.dataset.answered) + 1);
+            if (isRight) box.dataset.correct = String(parseInt(box.dataset.correct) + 1);
+            const total = TICKETS[containerId].length;
+            if (box.dataset.correct === String(total)) {
+                const sol = document.getElementById(containerId.replace('q', 'sol'));
+                sol.dataset.earned = '1';
+                sol.classList.add('toc-expanded');
+                setTimeout(() => sol.scrollIntoView({ behavior: 'smooth', block: 'start' }), 400);
+            }
+        }
+
+        ['t1q', 't2q', 't3q'].forEach(renderTicket);
+    </script>
+</body>
+</html>
