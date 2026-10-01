@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Unit 2 &mdash; 2.11 Unit 2 Tickets | CompTIA A+ Core 2</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Sans+Pro:wght@400;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           CPCC COURSE TEMPLATE - GOLD / CHARCOAL / BLACK
+           CTS-ITS7501-80 CompTIA A+ Core 2 Training
+           Type: true black. Accents: gold. Chrome: charcoal.
+           ============================================ */
+
+        :root {
+            --primary-dark: #4A4A4A;       /* Charcoal - structural chrome only */
+            --primary-main: #B8962E;       /* Warm Gold - primary accent */
+            --primary-light: #D4AF56;      /* Light Gold */
+            --primary-pale: #FBF3DF;       /* Pale Gold wash */
+
+            --accent-teal: #8A6F1F;        /* Deep bronze-gold */
+            --accent-teal-light: #F3E9CE;  /* Pale bronze */
+            --accent-orange: #A9642A;      /* Warm rust */
+            --accent-orange-light: #F5E2CE;
+            --accent-purple: #6B5B3A;      /* Muted umber */
+            --accent-purple-light: #EFE6D2;
+            --accent-green: #4E7A51;
+            --accent-green-light: #DCEBDD;
+
+            --alert-warning: #B8862E;
+            --alert-warning-bg: #FBF0D9;
+            --alert-danger: #A13A3A;
+            --alert-danger-bg: #F6DEDE;
+            --alert-success: #3F6E42;
+            --alert-success-bg: #DCEBDD;
+            --alert-info: #6E5B2E;
+            --alert-info-bg: #F1E9D4;
+
+            --text-black: #000000;         /* All reading text */
+            --neutral-900: #000000;
+            --neutral-700: #000000;
+            --neutral-500: #5A5A5A;
+            --neutral-300: #D9D3C4;
+            --neutral-100: #FAF8F3;
+            --white: #ffffff;
+
+            --font-heading: 'Nunito', sans-serif;
+            --font-body: 'Source Sans Pro', sans-serif;
+            --font-code: 'Fira Code', monospace;
+
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+
+            --shadow-sm: 0 1px 2px rgba(74, 74, 74, 0.08);
+            --shadow-md: 0 4px 6px rgba(74, 74, 74, 0.12);
+            --shadow-lg: 0 10px 20px rgba(74, 74, 74, 0.15);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body), 'Segoe UI', Tahoma, Verdana, sans-serif;
+            font-size: 1.0625rem;
+            line-height: 1.7;
+            color: var(--text-black);
+            background: linear-gradient(135deg, var(--neutral-100) 0%, var(--white) 100%);
+            min-height: 100vh;
+            padding: var(--space-lg);
+        }
+
+        .course-container {
+            max-width: 950px; margin: 0 auto; background: var(--white);
+            border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); overflow: hidden;
+        }
+
+        .module-header {
+            background: var(--primary-main); color: var(--text-black);
+            padding: var(--space-lg) var(--space-xl); position: relative; overflow: hidden;
+        }
+        .module-label {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 0.875rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 2px; text-decoration: underline;
+            margin-bottom: var(--space-sm); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-title {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 2.25rem; font-weight: 800;
+            line-height: 1.2; margin-bottom: var(--space-md); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-subtitle { font-size: 1.125rem; max-width: 650px; position: relative; z-index: 1; color: var(--text-black); }
+
+        .toc {
+            display: flex; flex-direction: column; gap: var(--space-sm);
+            padding: var(--space-lg) var(--space-xl);
+            background: var(--primary-pale); border-bottom: 1px solid var(--neutral-300);
+        }
+        .toc-item {
+            width: 100%; text-align: left;
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 0.875rem;
+            color: var(--text-black); background: var(--white);
+            border: 2px solid var(--primary-main);
+            padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md);
+        }
+        .toc-item.current { background: var(--primary-main); }
+
+        .content-area { padding: var(--space-xl); }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif;
+            color: var(--text-black); line-height: 1.3; margin-bottom: var(--space-md);
+        }
+        h1 { font-size: 2rem; font-weight: 800; }
+        h2 { font-size: 1.625rem; font-weight: 700; padding-bottom: var(--space-sm);
+             border-bottom: 3px solid var(--primary-main); margin-top: var(--space-xl); margin-bottom: var(--space-lg); }
+        h3 { font-size: 1.375rem; font-weight: 700; margin-top: var(--space-lg);
+             padding-left: var(--space-sm); border-left: 4px solid var(--primary-main); }
+        h4 { font-size: 1.125rem; font-weight: 600; }
+
+        p { margin-bottom: var(--space-md); }
+        strong { font-weight: 700; color: var(--text-black); }
+        em { font-style: italic; color: var(--text-black); }
+
+        a { color: var(--text-black); text-decoration: none; border-bottom: 2px solid var(--primary-main); transition: all 0.2s ease; }
+        a:hover { background: var(--primary-pale); border-bottom-color: var(--accent-teal); }
+
+        ul, ol { margin-bottom: var(--space-md); padding-left: var(--space-lg); }
+        li { margin-bottom: var(--space-sm); }
+        ul li::marker { color: var(--accent-teal); }
+        ol li::marker { color: var(--accent-teal); font-weight: 700; }
+
+        .styled-list { list-style: none; padding-left: 0; }
+        .styled-list li { position: relative; padding-left: var(--space-lg); margin-bottom: var(--space-sm); }
+        .styled-list li::before { content: '\25B8'; position: absolute; left: 0; color: var(--accent-teal); font-weight: bold; }
+
+        .checklist { list-style: none; padding-left: 0; }
+        .checklist li { position: relative; padding-left: 2rem; margin-bottom: var(--space-sm); }
+        .checklist li::before {
+            content: '\2713'; position: absolute; left: 0; width: 1.5rem; height: 1.5rem;
+            background: var(--accent-green-light); color: var(--accent-green);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 0.75rem; font-weight: bold;
+        }
+
+        .objectives-box {
+            background: linear-gradient(135deg, var(--primary-pale) 0%, var(--accent-teal-light) 100%);
+            border-left: 5px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .objectives-box h3 { color: var(--text-black); margin-top: 0; margin-bottom: var(--space-md);
+            display: flex; align-items: center; gap: var(--space-sm); border-left: none; padding-left: 0; }
+        .objectives-box ol { margin-bottom: 0; }
+
+        .tech-box {
+            background: var(--neutral-100); border: 2px solid var(--neutral-500);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .tech-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .tech-box .callout-content { padding-left: 0; }
+
+        .plain-box {
+            background: var(--primary-pale); border: 2px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .plain-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .plain-box .callout-content { padding-left: 0; }
+
+        .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; position: relative; overflow: hidden; }
+        .callout::before { position: absolute; top: var(--space-md); left: var(--space-md); font-size: 1.5rem; }
+        .callout-title { font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 1rem;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
+        .callout-content { }
+        .callout-content p:last-child { margin-bottom: 0; }
+
+        .callout-tip { background: var(--accent-green-light); border-left: 4px solid var(--accent-green); }
+        .callout-warning { background: var(--alert-warning-bg); border-left: 4px solid var(--alert-warning); }
+        .callout-danger { background: var(--alert-danger-bg); border-left: 4px solid var(--alert-danger); }
+        .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
+
+        .key-concept {
+            background: linear-gradient(135deg, var(--accent-purple-light) 0%, var(--white) 100%);
+            border: 2px solid var(--accent-purple); border-radius: var(--radius-lg);
+            padding: var(--space-lg); margin: var(--space-xl) 0 var(--space-lg); position: relative;
+        }
+        .key-concept::before {
+            content: '\1F511 KEY CONCEPT'; position: absolute; top: -12px; left: var(--space-lg);
+            background: var(--accent-purple); color: var(--white); font-family: var(--font-heading), sans-serif;
+            font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-md); border-radius: var(--radius-sm);
+        }
+        .key-concept h4 { color: var(--text-black); margin-top: var(--space-sm); }
+
+        .definition { background: var(--neutral-100); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin: var(--space-md) 0; border-left: 4px solid var(--accent-orange); }
+        .definition-term { font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 1.125rem;
+            color: var(--text-black); margin-bottom: var(--space-xs); }
+        .definition-text { color: var(--text-black); margin-bottom: 0; }
+
+        code { font-family: var(--font-code), Consolas, monospace; font-size: 0.9rem; background: var(--primary-pale);
+            color: var(--text-black); padding: 2px 6px; border-radius: var(--radius-sm); }
+        pre { background: #2E2E2E; color: #f1ece0; padding: var(--space-lg); border-radius: var(--radius-md);
+            overflow-x: auto; margin: var(--space-lg) 0; position: relative; }
+        pre::before {
+            content: 'STEPS'; position: absolute; top: 0; right: 0; background: var(--primary-main); color: var(--text-black);
+            font-family: var(--font-heading), sans-serif; font-size: 0.625rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-sm); border-radius: 0 var(--radius-md) 0 var(--radius-sm);
+        }
+        pre code { background: transparent; color: inherit; padding: 0; font-size: 0.875rem; line-height: 1.6; }
+
+        .table-container { overflow-x: auto; margin: var(--space-lg) 0; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); }
+        table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
+        thead { background: var(--primary-dark); color: var(--white); }
+        th { font-family: var(--font-heading), sans-serif; font-weight: 700; text-align: left; padding: var(--space-md) var(--space-lg); color: var(--white); }
+        td { padding: var(--space-md) var(--space-lg); border-bottom: 1px solid var(--neutral-300); color: var(--text-black); }
+        tbody tr:hover { background: var(--primary-pale); }
+        tbody tr:last-child td { border-bottom: none; }
+
+        .activity-section {
+            background: linear-gradient(135deg, var(--accent-orange-light) 0%, var(--white) 100%);
+            border: 2px dashed var(--accent-orange); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .activity-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg); }
+        .activity-icon { width: 50px; height: 50px; background: var(--accent-orange); border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; }
+        .activity-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700;
+            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
+        .activity-subtitle { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
+
+        .assessment-section { background: var(--primary-pale); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0; }
+        .assessment-header { text-align: center; margin-bottom: var(--space-xl); }
+        .assessment-header h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .question-block { background: var(--white); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin-bottom: var(--space-lg); box-shadow: var(--shadow-sm); border: 2px solid transparent; transition: border-color .15s ease; }
+        .question-number { font-family: var(--font-heading), sans-serif; font-size: 0.75rem; font-weight: 700;
+            color: var(--text-black); background: var(--primary-main); display: inline-block;
+            padding: 2px 10px; border-radius: var(--radius-sm);
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); }
+        .question-text { font-weight: 600; color: var(--text-black); margin-bottom: var(--space-md); }
+
+        /* ---- Multiple-choice interactive options ---- */
+        .mc-options { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-sm); }
+        .mc-option {
+            display: flex; align-items: center; gap: var(--space-md); width: 100%; text-align: left;
+            padding: var(--space-sm) var(--space-md); border: 2px solid var(--neutral-300); border-radius: var(--radius-md);
+            background: var(--white); color: var(--text-black); font-family: var(--font-body), sans-serif;
+            font-size: 1rem; cursor: pointer; transition: all 0.15s ease;
+        }
+        .mc-option:hover { border-color: var(--primary-main); background: var(--primary-pale); }
+        .mc-option .mc-letter {
+            flex-shrink: 0; width: 1.75rem; height: 1.75rem; border-radius: 50%;
+            background: var(--neutral-100); border: 2px solid var(--neutral-300);
+            display: flex; align-items: center; justify-content: center;
+            font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 0.85rem; color: var(--text-black);
+        }
+        .mc-option.selected { border-color: var(--primary-main); background: var(--primary-pale); font-weight: 700; }
+        .mc-option.selected .mc-letter { background: var(--primary-main); border-color: var(--primary-main); }
+        .mc-option.graded-correct { border-color: var(--alert-success); background: var(--alert-success-bg); font-weight: 700; }
+        .mc-option.graded-correct .mc-letter { background: var(--alert-success); border-color: var(--alert-success); color: var(--white); }
+        .mc-option.graded-incorrect { border-color: var(--alert-danger); background: var(--alert-danger-bg); }
+        .mc-option.graded-incorrect .mc-letter { background: var(--alert-danger); border-color: var(--alert-danger); color: var(--white); }
+        .mc-option.graded-missed { border-color: var(--alert-success); border-style: dashed; }
+
+        .question-block.unanswered-flag { border-color: var(--alert-warning); }
+        .unanswered-note {
+            display: none; margin-top: var(--space-sm); font-size: 0.875rem; font-weight: 700;
+            color: var(--alert-warning); font-family: var(--font-heading), sans-serif;
+        }
+        .question-block.unanswered-flag .unanswered-note { display: block; }
+
+        .assessment-controls {
+            display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap;
+            margin-top: var(--space-xl); padding-top: var(--space-lg); border-top: 2px solid var(--neutral-300);
+        }
+        .btn-grade, .btn-reset {
+            font-family: var(--font-heading), sans-serif; font-weight: 800; font-size: 1rem;
+            padding: var(--space-md) var(--space-2xl); border-radius: var(--radius-md);
+            cursor: pointer; transition: all 0.15s ease; border: 2px solid var(--primary-dark);
+        }
+        .btn-grade { background: var(--primary-main); color: var(--text-black); border-color: var(--primary-main); box-shadow: var(--shadow-sm); }
+        .btn-grade:hover { background: var(--primary-light); }
+        .btn-reset { background: var(--white); color: var(--text-black); }
+        .btn-reset:hover { background: var(--neutral-100); }
+
+        .results-summary {
+            display: none; margin-top: var(--space-xl); padding: var(--space-xl);
+            border-radius: var(--radius-lg); background: var(--primary-dark); color: var(--white); text-align: center;
+        }
+        .results-summary.show { display: block; }
+        .results-score { font-family: var(--font-heading), sans-serif; font-size: 2.5rem; font-weight: 800; color: var(--white); margin-bottom: var(--space-sm); }
+        .results-summary p { color: var(--white); margin-bottom: var(--space-sm); }
+        .results-summary p:last-child { margin-bottom: 0; }
+
+        .references-section { background: var(--neutral-100); border-radius: var(--radius-lg);
+            padding: var(--space-lg) var(--space-xl); margin: var(--space-xl) 0; border-top: 3px solid var(--primary-main); }
+        .references-section h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .references-section ul { padding-left: var(--space-lg); }
+
+        .module-footer { background: var(--primary-dark); padding: var(--space-lg) var(--space-xl);
+            text-align: center; border-top: 4px solid var(--primary-main); }
+        .footer-text { font-size: 0.875rem; color: var(--white); margin: 0; }
+
+        .text-center { text-align: center; }
+        .text-muted { color: var(--neutral-500); }
+        .highlight { background: linear-gradient(180deg, transparent 50%, var(--primary-light) 50%); padding: 0 2px; }
+
+        @media (max-width: 768px) {
+            body { padding: var(--space-sm); }
+            .module-header { padding: var(--space-xl) var(--space-lg); }
+            .module-title { font-size: 1.75rem; }
+            .content-area { padding: var(--space-lg); }
+            h2 { font-size: 1.375rem; }
+            .activity-header { flex-direction: column; align-items: flex-start; }
+            .assessment-controls { flex-direction: column; }
+            .btn-grade, .btn-reset { width: 100%; }
+        }
+        @media print {
+            body { background: white; padding: 0; }
+            .course-container { box-shadow: none; }
+            .toc { display: none; }
+            .assessment-controls { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="course-container">
+
+        <header class="module-header">
+            <div class="module-label">Unit 2 &middot; Inside Windows &mdash; Tools, Settings, and the Command Line &middot; Section 2.11</div>
+            <h1 class="module-title">Unit 2 Tickets</h1>
+            <p class="module-subtitle">CompTIA A+ Core 2 - Domain 1.0</p>
+        </header>
+
+                <nav class="toc" id="tocNav">
+            <div class="toc-header">Table of Contents</div>
+            <div class="toc-item">2.1 &mdash; Unit Overview and Schedule</div>
+            <div class="toc-item">2.2 &mdash; Unit Pre-Assessment</div>
+            <div class="toc-item">2.3 &mdash; Content Review</div>
+            <div class="toc-item">2.4 &mdash; Reading Assignment</div>
+            <div class="toc-item">2.5 &mdash; Video Assignment</div>
+            <div class="toc-item">2.6 &mdash; Classroom Labs and Take-Home Lab</div>
+            <div class="toc-item">2.7 &mdash; Practice Question Set</div>
+            <div class="toc-item">2.8 &mdash; Online Labs: NETLAB</div>
+            <div class="toc-item">2.9 &mdash; Reflection Activity</div>
+            <div class="toc-item">2.10 &mdash; Unit Test</div>
+            <div class="toc-item current" id="tocCurrent">2.11 &mdash; Unit 2 Tickets</div>
+        </nav>
+        <style>
+            /* Collapsible TOC: only the current section shows until clicked */
+            nav.toc#tocNav { gap: 0; }
+            nav.toc#tocNav .toc-item {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav .toc-item.current {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                cursor: pointer;
+            }
+            nav.toc#tocNav .toc-item.current::after {
+                content: ' \25BE Click to View';
+                font-size: 0.75em;
+            }
+            nav.toc#tocNav.toc-expanded .toc-item {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                margin-bottom: var(--space-sm);
+            }
+            nav.toc#tocNav.toc-expanded .toc-item.current::after { content: ' \25B4'; }
+
+            nav.toc#tocNav .toc-header {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                font-family: var(--font-heading), 'Segoe UI', sans-serif;
+                font-weight: 700;
+                font-size: 0.875rem;
+                text-align: left;
+                color: var(--text-black);
+                text-decoration: underline;
+                background: var(--primary-main);
+                border-radius: var(--radius-md);
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav.toc-expanded .toc-header {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                padding-left: var(--space-md);
+                border-width: 2px;
+                border-style: solid;
+                border-color: var(--primary-main);
+                margin-bottom: var(--space-sm);
+            }
+        </style>
+
+        <script>
+            (function () {
+                var toc = document.getElementById('tocNav');
+                var currentItem = document.getElementById('tocCurrent');
+
+                toc.addEventListener('click', function (e) {
+                    if (toc.classList.contains('toc-expanded')) {
+                        toc.classList.remove('toc-expanded');
+                    } else if (e.target === currentItem || currentItem.contains(e.target)) {
+                        toc.classList.add('toc-expanded');
+                    }
+                });
+
+                toc.addEventListener('mouseleave', function () {
+                    toc.classList.remove('toc-expanded');
+                });
+            })();
+        </script>
+
+        <div class="content-area">
+
+            <div class="instructions-card">
+                <div class="instructions-band">Instructions &mdash; Read Before You Begin</div>
+
+
+                <h3>What This Is</h3>
+                <p>Three help-desk tickets, one for each class meeting this unit. <strong>Work each one on your own.</strong> Every ticket is a real kind of call, with real evidence, and three questions that ask what a technician would actually do next. Plan on about 20 minutes per ticket.</p>
+
+                <h3>How to Work a Ticket</h3>
+                <ol>
+                    <li><strong>Read the call, then stop.</strong> Before you look at any evidence, write one sentence in your notes: <em>what do you think is wrong, and how sure are you?</em> You will come back to it.</li>
+                    <li><strong>Study the exhibits</strong> as if you had just collected them from the user's computer.</li>
+                    <li><strong>Answer the three questions.</strong> Each one stands on its own. You get one attempt per question.</li>
+                    <li><strong>Write your own progress note,</strong> then compare it with the Ticket Solution.</li>
+                    <li><strong>Look back.</strong> The reflection prompts sit inside the Ticket Solution, below the solution itself. Answer them in your notes. They are about your thinking, not the content, and nobody else will see them.</li>
+                </ol>
+
+                <h3>What You Will See When You Answer</h3>
+                <ul class="checklist">
+                    <li>A flag that says <strong>Correct</strong> or <strong>Incorrect</strong> &mdash; nothing more. You will not be shown which answer was right.</li>
+                    <li>If you miss one, go back to the exhibit and the call and work out why. That search is the lesson.</li>
+                    <li>Answer all three correctly and the <strong>Ticket Solution</strong> opens on its own. Otherwise, click <strong>Ticket Solution</strong> to open it yourself &mdash; after you have written your note. The Look Back prompts are inside it.</li>
+                    <li><strong>Reset These Questions</strong> clears a ticket so you can work it again.</li>
+                </ul>
+
+                <h3>About the Exhibits</h3>
+                <p>Each ticket includes exhibits labeled A, B, and C. <strong>Every exhibit is representative of the output from the computer being troubleshot</strong> &mdash; what you would see on that machine's screen if you opened the tool or settings window, or ran the command shown. Treat them as evidence you collected yourself during the call.</p>
+                <p>They are simplified to show what matters, the same way a performance-based question on the 220-1202 exam presents a tool or a command's output. Read them the way a technician reads a screen: <strong>column headings first, then the values that stand out, then the details that do not fit.</strong></p>
+
+                <h3>The Method Behind Every Ticket</h3>
+                <p>Each question is tagged with the step of CompTIA's troubleshooting method it exercises. You will use this method for the rest of your career; these tickets are where it becomes a habit.</p>
+                <ol>
+                    <li>Identify the problem</li>
+                    <li>Establish a theory of probable cause</li>
+                    <li>Test the theory to determine the cause</li>
+                    <li>Establish a plan of action to resolve the problem and implement the solution</li>
+                    <li>Verify full system functionality and, if applicable, implement preventive measures</li>
+                    <li>Document findings, actions, and outcomes</li>
+                </ol>
+
+                <h3>About the Times and Names</h3>
+                <p>Every person, company, and device in these tickets is fictional. Times shown inside a ticket are part of the scenario, not course deadlines &mdash; course due dates are always in the Course Schedule.</p>
+            </div>
+
+            <section class="ticket-card">
+                <div class="ticket-band">
+                    <span class="ticket-count">Ticket 1 of 3</span>
+                    <span class="ticket-title">"It's a Virus. It Has to Be."</span>
+                    <span class="ticket-meta">Tuesday &middot; Objective 1.4 &mdash; Windows features and tools &middot; About 20 minutes</span>
+                </div>
+                <div class="ticket-body">
+
+            <div class="table-container">
+                <table>
+                    <thead><tr><th colspan="2">Ticket HD-2-0412</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Priority</strong></td><td>Medium &mdash; one user; a workaround exists</td></tr>
+                        <tr><td><strong>Category</strong></td><td>Workstation performance</td></tr>
+                        <tr><td><strong>Caller</strong></td><td>Denise Alvarez, Accounts Payable Lead, Hollister &amp; Reyes CPA (14 staff)</td></tr>
+                        <tr><td><strong>Device</strong></td><td>Asset CPA-WS-07 &middot; Desktop &middot; Windows 11 Pro &middot; Core i5 &middot; 8 GB RAM &middot; 1 TB 7200 RPM hard disk drive</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="plain-box">
+                <div class="callout-title">The Call</div>
+                <div class="callout-content">
+                    <p>"Every morning since last Monday my computer is useless from about nine until almost ten. The mouse jerks across the screen, QuickBooks says <em>Not Responding</em>, and once a box popped up in the corner that I'd never seen before. It's a virus. It has to be. I restarted it twice yesterday and that made it worse. By ten-thirty it's fine, so I've been coming in at seven to get my work done before it starts &mdash; but month-end close is Thursday and I can't keep losing an hour a day."</p>
+                </div>
+            </div>
+
+            <p>While you ask your questions, you learn three more things. Last week the office manager, Kevin Morales, installed a new cloud backup product called CloudVault, because the firm's insurance carrier now requires a daily offsite backup. Nobody mentioned it to Denise. A full antivirus scan ran overnight and found nothing.</p>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">Stop Here</div>
+                <div class="callout-content"><p>Before you read the exhibits, write one sentence in your notes: <strong>what do you think is causing this, and how confident are you?</strong></p></div>
+            </div>
+
+            <h3>Exhibit A &mdash; Task Manager, Processes, captured at 9:14 AM, sorted by Disk</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Name</th><th>Status</th><th>CPU</th><th>Memory</th><th>Disk</th><th>Network</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>CloudVault Backup Agent</strong></td><td></td><td>18%</td><td>412 MB</td><td><strong>31.6 MB/s</strong></td><td>9.8 Mbps</td></tr>
+                        <tr><td>Microsoft Windows Search Indexer</td><td></td><td>3%</td><td>96 MB</td><td>2.1 MB/s</td><td>0 Mbps</td></tr>
+                        <tr><td>Service Host: SysMain</td><td></td><td>1%</td><td>38 MB</td><td>1.2 MB/s</td><td>0 Mbps</td></tr>
+                        <tr><td>QuickBooks Enterprise</td><td>Not responding</td><td>2%</td><td>1,140 MB</td><td>0.4 MB/s</td><td>0 Mbps</td></tr>
+                        <tr><td>Microsoft Edge (8)</td><td></td><td>4%</td><td>1,380 MB</td><td>0.2 MB/s</td><td>0.1 Mbps</td></tr>
+                        <tr><td><strong>Totals</strong></td><td></td><td><strong>31%</strong></td><td><strong>78%</strong></td><td><strong>100%</strong></td><td><strong>4%</strong></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Exhibit B &mdash; Task Scheduler Library, CloudVault folder</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Field</th><th>Value</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Name</strong></td><td>CloudVault Daily Full</td></tr>
+                        <tr><td><strong>Status</strong></td><td>Running</td></tr>
+                        <tr><td><strong>Triggers</strong></td><td>At 9:00 AM every day</td></tr>
+                        <tr><td><strong>Last Run Result</strong></td><td>The task is currently running. (0x41301)</td></tr>
+                        <tr><td><strong>Author</strong></td><td>HRCPA\kmorales</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Exhibit C &mdash; Event Viewer, Windows Logs &gt; System, filtered to Source: disk</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Level</th><th>When</th><th>Source</th><th>Event ID</th></tr></thead>
+                    <tbody>
+                        <tr><td>Warning</td><td>Today, 9:21 AM</td><td>disk</td><td>153</td></tr>
+                        <tr><td>Warning</td><td>Yesterday, 9:37 AM</td><td>disk</td><td>153</td></tr>
+                        <tr><td>Warning</td><td>Last Wednesday, 2:05 PM</td><td>disk</td><td>153</td></tr>
+                        <tr><td>Warning</td><td>17 days ago, 11:48 AM</td><td>disk</td><td>153</td></tr>
+                        <tr><td>Warning</td><td>23 days ago, 3:12 PM</td><td>disk</td><td>153</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <pre><code>Event 153, disk
+The IO operation at logical block address 0x2b4e1f8 for Disk 0
+(PDO name: \Device\00000033) was retried.</code></pre>
+            <p class="text-muted">Times are shown relative to today for this exercise; Event Viewer prints the full date and time.</p>
+
+            <div id="t1q"></div>
+
+            <h3>Close the Ticket</h3>
+            <p>Write your own progress note and resolution in your notes first &mdash; device, what you were asked to determine, what you found in order, what you did, and what is still open. Then open the Ticket Solution below to compare. If you answered all three questions correctly, it opens on its own.</p>
+            <div class="solution-toggle" id="t1sol">
+                <div class="solution-bar">Ticket Solution</div>
+                <div class="solution-body">
+                    <div class="callout callout-tip">
+                        <div class="callout-content">
+                    <p><strong>Reported:</strong> severe slowdown roughly 9:00&ndash;9:45 daily since Monday; caller suspected a virus. Overnight antivirus scan clean; the unfamiliar pop-up was CloudVault's progress notification.</p>
+                    <p><strong>Found:</strong> Task Manager at 9:14 &mdash; disk 100%, CloudVault Backup Agent 31.6 MB/s, CPU 31%, memory 78%. Resource Monitor confirmed CloudVault reading the QuickBooks company files and user profile. Task Scheduler: "CloudVault Daily Full" triggered at 9:00 AM daily, configured last week by K. Morales.</p>
+                    <p><strong>Action:</strong> with K. Morales's approval, moved the trigger to 7:00 PM daily. Explained the cause to the caller. Will confirm tonight's run completed.</p>
+                    <p><strong>Separate finding &mdash; open:</strong> System log shows recurring disk Event ID 153 (I/O retried) beginning 23 days ago, before CloudVault was installed. Recommended a drive health check and replacement planning; flagged to K. Morales. Priority: confirm the backup completes successfully before the drive is examined.</p>
+                        </div>
+                    </div>
+                    <h3>Look Back</h3>
+                    <div class="activity-section">
+                        <ol class="lab-steps">
+                            <li><strong>Return to the sentence you wrote</strong> before the exhibits. How close was it? If you also suspected a virus, what made it convincing &mdash; the evidence, or Denise's certainty?</li>
+                            <li><strong>Which single exhibit changed your thinking most,</strong> and why that one rather than the others?</li>
+                            <li><strong>Question 3 asked you to notice a date.</strong> Did you? Technicians who stop at the first cause that fits miss the second one. Where, in your own work or study, do you stop at the first explanation that fits?</li>
+                            <li><strong>Denise has been coming in at seven for a week</strong> because of a schedule someone else set. How will you explain the cause so she does not feel foolish for calling it a virus &mdash; and so Kevin does not feel blamed for setting it?</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+                </div>
+            </section>
+
+            <section class="ticket-card">
+                <div class="ticket-band">
+                    <span class="ticket-count">Ticket 2 of 3</span>
+                    <span class="ticket-title">Three Complaints, One Laptop</span>
+                    <span class="ticket-meta">Wednesday &middot; Objective 1.6 &mdash; Windows settings &middot; About 20 minutes</span>
+                </div>
+                <div class="ticket-body">
+
+            <div class="table-container">
+                <table>
+                    <thead><tr><th colspan="2">Ticket HD-2-0418</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Priority</strong></td><td>High &mdash; a security near-miss, plus a mobile user who cannot work reliably</td></tr>
+                        <tr><td><strong>Category</strong></td><td>Workstation configuration &middot; Security</td></tr>
+                        <tr><td><strong>Caller</strong></td><td>Priya Natarajan, Regional Sales Representative, Carolina Medical Supply</td></tr>
+                        <tr><td><strong>Device</strong></td><td>Asset CMS-LT-112 &middot; Laptop &middot; Windows 11 Pro &middot; 16 GB RAM &middot; 512 GB NVMe solid-state drive</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="plain-box">
+                <div class="callout-title">The Call</div>
+                <div class="callout-content">
+                    <p>"I have three problems and I honestly don't know if they're related. The first one scared me. I got an invoice from a supplier we really do use, I double-clicked it, and the antivirus screamed. Security says it was a program, not a PDF &mdash; but it <em>said</em> .pdf. I checked! Second, I close the lid between appointments, and when I open it two hours later the battery's dead and the bag is hot. Third, my presentation clicker stops working if I pause on a slide for a few minutes. I have to unplug that little USB receiver and plug it back in, right in front of the client."</p>
+                </div>
+            </div>
+
+            <p>While you ask your questions, you learn that Priya's laptop was reimaged two weeks ago with the company's new standard image. All three problems started after that. At the office she is usually plugged in; at client sites she runs on battery all day.</p>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">Stop Here</div>
+                <div class="callout-content"><p>Priya asked whether her problems are related. Before you read the exhibits, write your answer in your notes &mdash; <strong>related or not, and why do you think so?</strong></p></div>
+            </div>
+
+            <h3>Exhibit A &mdash; File Explorer, Downloads folder, Details view</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Name</th><th>Date modified</th><th>Type</th><th>Size</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Q3_Invoice_CMS-4471.pdf</strong></td><td>Tuesday, 2:47 PM</td><td><strong>Application</strong></td><td>2,184 KB</td></tr>
+                        <tr><td>Product_Catalog_Fall</td><td>Monday, 10:02 AM</td><td>Microsoft Edge PDF Document</td><td>8,410 KB</td></tr>
+                        <tr><td>Visit_Notes_Belmont</td><td>Monday, 4:30 PM</td><td>Microsoft Word Document</td><td>34 KB</td></tr>
+                        <tr><td>Price_Sheet_Q3</td><td>Last Friday, 9:15 AM</td><td>Microsoft Excel Worksheet</td><td>51 KB</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Exhibit B &mdash; Control Panel &gt; Power Options &gt; System Settings</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>When I&hellip;</th><th>On battery</th><th>Plugged in</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Press the power button</strong></td><td>Sleep</td><td>Shut down</td></tr>
+                        <tr><td><strong>Close the lid</strong></td><td><strong>Do nothing</strong></td><td>Sleep</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <pre><code>Shutdown settings
+  [x] Turn on fast startup (recommended)
+  [x] Sleep
+  [x] Lock</code></pre>
+
+            <h3>Exhibit C &mdash; Power Options &gt; Change advanced power settings (Balanced plan)</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Setting</th><th>On battery</th><th>Plugged in</th></tr></thead>
+                    <tbody>
+                        <tr><td>Display &gt; Turn off display after</td><td>10 minutes</td><td>15 minutes</td></tr>
+                        <tr><td>Sleep &gt; Hibernate after</td><td>Never</td><td>Never</td></tr>
+                        <tr><td><strong>USB settings &gt; USB selective suspend setting</strong></td><td><strong>Enabled</strong></td><td>Disabled</td></tr>
+                        <tr><td>Processor power management &gt; Maximum processor state</td><td>100%</td><td>100%</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="t2q"></div>
+
+            <h3>Close the Ticket</h3>
+            <p>Write your own progress note and resolution first. Pay particular attention to what you would say about the <em>cause</em> of all three problems, not just each fix. Then open the Ticket Solution below to compare.</p>
+            <div class="solution-toggle" id="t2sol">
+                <div class="solution-bar">Ticket Solution</div>
+                <div class="solution-body">
+                    <div class="callout callout-tip">
+                        <div class="callout-content">
+                    <p><strong>Reported:</strong> three issues since the laptop was reimaged two weeks ago &mdash; a near-miss malicious attachment, a battery drained and the laptop hot after closing the lid, and a USB presentation receiver that stops responding when idle on battery.</p>
+                    <p><strong>Found and fixed:</strong> (1) "Hide extensions for known file types" enabled; the attachment was Q3_Invoice_CMS-4471.pdf<strong>.exe</strong>, quarantined by antivirus. Enabled extension display; reported the message to security. (2) Lid action on battery set to Do nothing, so the laptop kept running in the bag. Set to Hibernate on battery. (3) USB selective suspend enabled on battery, suspending the idle receiver. Disabled on battery. Verified all three with the caller.</p>
+                    <p><strong>Root cause and escalation:</strong> all three settings came from the new standard image. Escalated to the imaging team to correct the image, so the remaining laptops built from it are fixed before their users call with the same problems.</p>
+                        </div>
+                    </div>
+                    <h3>Look Back</h3>
+                    <div class="activity-section">
+                        <ol class="lab-steps">
+                            <li><strong>Return to your answer about whether the problems were related.</strong> What is the actual connection between them, and why does it matter more than any single fix?</li>
+                            <li><strong>Question 2 set three requirements that all had to be met.</strong> Did you read every one of them before choosing? On the exam, the deciding constraint is often in the final sentence.</li>
+                            <li><strong>Priya said "I checked!"</strong> &mdash; and she did. The system misled her. How do you tell her it was not her fault, while still teaching her the habit that protects her next time?</li>
+                            <li><strong>Fixing her laptop takes ten minutes; fixing the image protects forty people.</strong> Where else might you be treating one symptom when the real fix is upstream?</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+                </div>
+            </section>
+
+            <section class="ticket-card">
+                <div class="ticket-band">
+                    <span class="ticket-count">Ticket 3 of 3</span>
+                    <span class="ticket-title">Monday Morning After the Server Move</span>
+                    <span class="ticket-meta">Thursday &middot; Objective 1.5 &mdash; Microsoft command-line tools &middot; About 20 minutes</span>
+                </div>
+                <div class="ticket-body">
+
+            <div class="table-container">
+                <table>
+                    <thead><tr><th colspan="2">Ticket HD-2-0426</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Priority</strong></td><td>High &mdash; nine users at one branch cannot reach a shared drive they need today</td></tr>
+                        <tr><td><strong>Category</strong></td><td>File access &middot; Network</td></tr>
+                        <tr><td><strong>Caller</strong></td><td>Marcus Bell, Branch Manager, Greenway Property Management &mdash; Gastonia branch</td></tr>
+                        <tr><td><strong>Device</strong></td><td>Asset GPM-GA-03 &middot; Desktop &middot; Windows 11 Pro &middot; joined to the GREENWAY domain</td></tr>
+                        <tr><td><strong>Your access</strong></td><td>A remote support session with an administrator command prompt. Nobody can be on site before noon.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="plain-box">
+                <div class="callout-title">The Call</div>
+                <div class="callout-content">
+                    <p>"Nobody here can open the S: drive. It's got a red X on it. We have three lease closings today and every file is on that drive. Your team moved the server this weekend &mdash; was that you? Because I need this fixed now, not at noon."</p>
+                </div>
+            </div>
+
+            <p>The change record confirms it. Over the weekend the infrastructure team retired the old file server, <strong>FS01</strong>, and moved its shares to a new server, <strong>FS02</strong>, at 10.20.1.25. They published a new Group Policy object, <strong>Branch Drive Maps v2</strong>, which maps S: to <code>\\FS02\shared</code>, and asked for a DNS alias so the old name would keep working during the transition. Branch computers were powered off all weekend.</p>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">Stop Here</div>
+                <div class="callout-content"><p>Marcus is frustrated, and some of it is aimed at your team. Before the exhibits, write two things in your notes: <strong>your first theory</strong>, and <strong>the first sentence you would say to Marcus</strong>.</p></div>
+            </div>
+
+            <h3>Exhibit A &mdash; Output of <code>net use</code></h3>
+<pre><code>C:\Windows\system32&gt; net use
+New connections will be remembered.
+
+Status       Local     Remote                    Network
+-------------------------------------------------------------------------------
+Unavailable  S:        \\FS01\shared             Microsoft Windows Network
+OK           H:        \\HQ-FS03\home\mbell      Microsoft Windows Network
+The command completed successfully.</code></pre>
+
+            <h3>Exhibit B &mdash; Two <code>ping</code> tests</h3>
+<pre><code>C:\Windows\system32&gt; ping FS01
+Ping request could not find host FS01. Please check the name and try again.
+
+C:\Windows\system32&gt; ping 10.20.1.25
+
+Pinging 10.20.1.25 with 32 bytes of data:
+Reply from 10.20.1.25: bytes=32 time=18ms TTL=127
+Reply from 10.20.1.25: bytes=32 time=17ms TTL=127
+Reply from 10.20.1.25: bytes=32 time=18ms TTL=127
+Reply from 10.20.1.25: bytes=32 time=19ms TTL=127
+
+Ping statistics for 10.20.1.25:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss)</code></pre>
+
+            <h3>Exhibit C &mdash; Output of <code>gpresult /r</code>, user section (abbreviated)</h3>
+<pre><code>USER SETTINGS
+--------------
+    CN=Marcus Bell,OU=Gastonia,OU=Branches,DC=greenway,DC=local
+    Last time Group Policy was applied: Friday at 4:51:12 PM
+    Group Policy was applied from:      GW-DC01.greenway.local
+
+    Applied Group Policy Objects
+    -----------------------------
+        Branch Drive Maps
+        Default Domain Policy</code></pre>
+            <p class="text-muted">Windows prints the full date on the "Last time" line; it is shown here as the day of the week.</p>
+
+            <div id="t3q"></div>
+
+            <h3>Close the Ticket</h3>
+            <p>Write your own progress note and resolution first &mdash; including what happens to the other eight users, and what you recommend so the next migration does not cause the same morning. Then open the Ticket Solution below to compare.</p>
+            <div class="solution-toggle" id="t3sol">
+                <div class="solution-bar">Ticket Solution</div>
+                <div class="solution-body">
+                    <div class="callout callout-tip">
+                        <div class="callout-content">
+                    <p><strong>Reported:</strong> S: unavailable for all nine Gastonia users following the weekend FS01-to-FS02 migration. Lease closings today.</p>
+                    <p><strong>Found:</strong> remote session to GPM-GA-03. <code>net use</code> &mdash; S: mapped to \\FS01\shared, Unavailable; H: on HQ-FS03 OK, so the WAN link and authentication are working. <code>ping FS01</code> &mdash; name not found; <code>ping 10.20.1.25</code> (FS02) &mdash; 0% loss. <code>nslookup FS01</code> &mdash; no record returned by the branch DNS server; the requested alias is not in place. Escalated the missing alias to infrastructure. <code>gpresult /r</code> &mdash; user policy last applied Friday; Branch Drive Maps v2 not applied.</p>
+                    <p><strong>Action:</strong> <code>net use S: /delete</code>, then <code>gpupdate /force</code>; caller signed out and back in. S: now maps to \\FS02\shared and lease files open. Confirmed with the caller.</p>
+                    <p><strong>Remaining and preventive:</strong> sent sign-out/sign-in instructions for the other eight users. Recommended that future migrations verify the DNS alias at each branch and confirm the new policy applies before the old server is retired.</p>
+                        </div>
+                    </div>
+                    <h3>Look Back</h3>
+                    <div class="activity-section">
+                        <ol class="lab-steps">
+                            <li><strong>Marcus opened with "was that you?"</strong> Look at the first sentence you wrote. Did it defend your team, or did it start fixing his morning? Was he right?</li>
+                            <li><strong>Exhibit A held a line most people skip:</strong> the H: drive was OK. What did that single line rule out, and how many minutes would you have spent without noticing it?</li>
+                            <li><strong>Question 1 offered several commands that delete, format, or clean.</strong> On a real call, under pressure, any of them can look like a quick fix. What is your rule, starting today, before running a command like that against anything you cannot see?</li>
+                            <li><strong>You fixed one computer.</strong> Eight more users have the same problem, and the next migration will cause it again. Who needs to hear what from you &mdash; and which of those conversations is the hardest one?</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+                </div>
+            </section>
+
+            <div class="plain-box">
+                <div class="callout-title">What These Tickets Give You</div>
+                <div class="callout-content"><ul class="styled-list">
+                    <li>Practice reading real evidence &mdash; Task Manager, Event Viewer, Task Scheduler, Power Options, File Explorer, and command output &mdash; the way a performance-based question presents it</li>
+                    <li>The habit of committing to a theory before the evidence, then checking honestly whether you were right</li>
+                    <li>The least disruptive fix, chosen deliberately, and the second problem most people miss</li>
+                    <li>The instinct to stop before running a destructive command against something you cannot see</li>
+                    <li>Progress notes another technician could pick up without asking you a single question</li>
+                </ul></div>
+            </div>
+
+        </div>
+
+        <footer class="module-footer">
+            <p class="footer-text">CompTIA A+ Core 2 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
+        </footer>
+    </div>
+
+    <style>
+        /* Instructions block and ticket cards */
+        .instructions-card {
+            background: var(--neutral-100); border: 2px solid var(--primary-dark);
+            border-radius: var(--radius-lg); padding: 0 var(--space-xl) var(--space-lg);
+            margin: 0 0 var(--space-xl); box-shadow: var(--shadow-sm); overflow: hidden;
+        }
+        .instructions-band, .ticket-band {
+            margin: 0 calc(-1 * var(--space-xl)) var(--space-lg);
+            padding: var(--space-md) var(--space-xl);
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 800;
+        }
+        .instructions-band {
+            background: var(--primary-dark); color: var(--white);
+            font-size: 1rem; text-transform: uppercase; letter-spacing: 1px;
+        }
+        .instructions-card h3 { margin-top: var(--space-lg); }
+        .instructions-card ol, .instructions-card ul { margin-bottom: var(--space-md); }
+        .instructions-card li { margin-bottom: var(--space-sm); }
+
+        .ticket-card {
+            background: var(--white); border: 3px solid var(--primary-main);
+            border-radius: var(--radius-lg); padding: 0 var(--space-xl) var(--space-lg);
+            margin: var(--space-xl) 0 calc(var(--space-xl) * 1.5); box-shadow: var(--shadow-lg); overflow: hidden;
+        }
+        .ticket-band {
+            background: var(--primary-main); color: var(--text-black);
+            display: flex; flex-direction: column; gap: 2px;
+        }
+        .ticket-count { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; }
+        .ticket-title { font-size: 1.4rem; line-height: 1.25; }
+        .ticket-meta { font-size: 0.85rem; font-weight: 600; }
+
+        /* Ticket Solution: collapses and expands using the same method as the Table of Contents */
+        .solution-toggle { margin: var(--space-lg) 0; }
+        .solution-bar {
+            width: 100%; text-align: left;
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 0.875rem;
+            color: var(--text-black); background: var(--primary-main);
+            border: 2px solid var(--primary-main);
+            padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md);
+            cursor: pointer;
+        }
+        .solution-bar::after { content: ' \25BE Click to View'; font-size: 0.75em; }
+        .solution-toggle.toc-expanded .solution-bar::after { content: ' \25B4'; }
+        .solution-body {
+            max-height: 0; opacity: 0; overflow: hidden;
+            transition: max-height 0.9s ease, opacity 0.9s ease;
+        }
+        .solution-toggle.toc-expanded .solution-body { max-height: 4000px; opacity: 1; }
+        .solution-body > h3 { margin-top: var(--space-lg); }
+    </style>
+    <script>
+const TICKETS = {
+ "t1q": [
+  {
+   "step": "Step 3 — Test the theory",
+   "exhibit": "Exhibit A",
+   "q": "Exhibit A shows the disk, not the processor, is saturated while the backup agent runs. Before changing anything, the technician wants to see exactly which files CloudVault is reading and how long the disk queue is. Which tool shows this?",
+   "opts": [
+    [
+     "Resource Monitor",
+     true
+    ],
+    [
+     "Performance Monitor",
+     false
+    ],
+    [
+     "System Information",
+     false
+    ],
+    [
+     "Disk Cleanup",
+     false
+    ],
+    [
+     "Device Manager",
+     false
+    ],
+    [
+     "Task Scheduler",
+     false
+    ]
+   ]
+  },
+  {
+   "step": "Step 4 — Establish a plan of action",
+   "exhibit": "Exhibit B",
+   "q": "Exhibit B shows how the backup job is configured. The firm's insurance policy requires a backup every day, and the office manager owns the backup software. What is the most appropriate plan of action?",
+   "opts": [
+    [
+     "Propose moving the trigger to after business hours, and confirm the change with the office manager before making it",
+     true
+    ],
+    [
+     "Delete the scheduled task so the slowdown stops immediately",
+     false
+    ],
+    [
+     "Disable the CloudVault service in the Services console",
+     false
+    ],
+    [
+     "End the CloudVault process in Task Manager each morning",
+     false
+    ],
+    [
+     "Uninstall CloudVault and restore the previous configuration",
+     false
+    ],
+    [
+     "Upgrade the workstation's RAM from 8 GB to 16 GB",
+     false
+    ]
+   ]
+  },
+  {
+   "step": "Step 5 — Verify and implement preventive measures",
+   "exhibit": "Exhibit C",
+   "q": "While in Event Viewer, the technician filters the System log and finds Exhibit C. Note when the first entry appeared. What is the most appropriate response?",
+   "opts": [
+    [
+     "Record the warnings in the ticket as a separate finding, and recommend confirming the new backup works and checking the drive's health",
+     true
+    ],
+    [
+     "Clear the System log so the warnings stop appearing",
+     false
+    ],
+    [
+     "Conclude that CloudVault causes the warnings, and close the ticket once the schedule changes",
+     false
+    ],
+    [
+     "Ignore them, because they are warnings rather than errors",
+     false
+    ],
+    [
+     "Defragment the drive to stop the retries",
+     false
+    ],
+    [
+     "Turn off logging for the disk source to reduce clutter",
+     false
+    ]
+   ]
+  }
+ ],
+ "t2q": [
+  {
+   "step": "Step 2 — Establish a theory of probable cause",
+   "exhibit": "Exhibit A",
+   "q": "Look closely at Exhibit A: how the invoice's name appears compared with the other files, and its Type column. Which setting allowed a program to present itself as a PDF?",
+   "opts": [
+    [
+     "Hide extensions for known file types, in File Explorer Options",
+     true
+    ],
+    [
+     "Show hidden files, folders, and drives",
+     false
+    ],
+    [
+     "Indexing Options",
+     false
+    ],
+    [
+     "Internet Options security zones",
+     false
+    ],
+    [
+     "The default app assigned to .pdf files",
+     false
+    ],
+    [
+     "The User Account Control notification level",
+     false
+    ]
+   ]
+  },
+  {
+   "step": "Step 4 — Establish a plan of action",
+   "exhibit": "Exhibit B",
+   "q": "Priya closes the lid between appointments, sometimes for a full day, and needs to resume exactly where she left off without the battery draining. Based on Exhibit B, which change meets all three requirements?",
+   "opts": [
+    [
+     "Set Close the lid on battery to Hibernate",
+     true
+    ],
+    [
+     "Set Close the lid on battery to Sleep",
+     false
+    ],
+    [
+     "Set Close the lid on battery to Shut down",
+     false
+    ],
+    [
+     "Leave it at Do nothing, and remind her to put the laptop to sleep first",
+     false
+    ],
+    [
+     "Turn off fast startup",
+     false
+    ],
+    [
+     "Switch the power plan to Power saver",
+     false
+    ]
+   ]
+  },
+  {
+   "step": "Step 3 — Test the theory",
+   "exhibit": "Exhibit C",
+   "q": "The clicker's USB receiver stops responding after a few idle minutes, but only when the laptop runs on battery. Based on Exhibit C, which setting is most likely responsible?",
+   "opts": [
+    [
+     "USB selective suspend setting",
+     true
+    ],
+    [
+     "Turn off display after",
+     false
+    ],
+    [
+     "Hibernate after",
+     false
+    ],
+    [
+     "Turn on fast startup",
+     false
+    ],
+    [
+     "Maximum processor state",
+     false
+    ],
+    [
+     "Sound settings for the default playback device",
+     false
+    ]
+   ]
+  }
+ ],
+ "t3q": [
+  {
+   "step": "Step 4 — Establish a plan of action and implement it",
+   "exhibit": "Exhibit A",
+   "q": "Exhibit A shows S: still pointing at the retired server. The stale mapping should be removed so the new one can take its place. Which command removes only that mapping, without touching any data?",
+   "opts": [
+    [
+     "net use S: /delete",
+     true
+    ],
+    [
+     "rmdir S:\\ /s",
+     false
+    ],
+    [
+     "format S: /q",
+     false
+    ],
+    [
+     "net user S: /delete",
+     false
+    ],
+    [
+     "diskpart, then select the S: volume and run clean",
+     false
+    ],
+    [
+     "net use S: /persistent:no",
+     false
+    ]
+   ]
+  },
+  {
+   "step": "Step 3 — Test the theory",
+   "exhibit": "Exhibit B",
+   "q": "In Exhibit B, the name FS01 cannot be found, but FS02's address replies immediately. Which command tests name resolution directly and shows which DNS server answered?",
+   "opts": [
+    [
+     "nslookup FS01",
+     true
+    ],
+    [
+     "tracert 10.20.1.25",
+     false
+    ],
+    [
+     "ipconfig /release",
+     false
+    ],
+    [
+     "netstat -an",
+     false
+    ],
+    [
+     "hostname",
+     false
+    ],
+    [
+     "pathping 10.20.1.25",
+     false
+    ]
+   ]
+  },
+  {
+   "step": "Step 4 — Establish a plan of action and implement it",
+   "exhibit": "Exhibit C",
+   "q": "Exhibit C shows that user policy was last applied on Friday, before the new drive-mapping policy existed. Which command applies the current Group Policy now, rather than waiting for the next refresh?",
+   "opts": [
+    [
+     "gpupdate /force",
+     true
+    ],
+    [
+     "gpresult /r",
+     false
+    ],
+    [
+     "sfc /scannow",
+     false
+    ],
+    [
+     "whoami /groups",
+     false
+    ],
+    [
+     "net use * /delete",
+     false
+    ],
+    [
+     "winver",
+     false
+    ]
+   ]
+  }
+ ]
+};
+
+        function shuffle(a) { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+
+        // Same open/close method as the Table of Contents: click toggles, leaving collapses
+        document.querySelectorAll('.solution-toggle').forEach(function (box) {
+            var bar = box.querySelector('.solution-bar');
+            bar.addEventListener('click', function () {
+                box.classList.toggle('toc-expanded');
+            });
+            box.addEventListener('mouseleave', function () {
+                if (!box.dataset.earned) box.classList.remove('toc-expanded');
+            });
+        });
+
+        function renderTicket(containerId) {
+            const box = document.getElementById(containerId);
+            const sol = document.getElementById(containerId.replace('q', 'sol'));
+            sol.classList.remove('toc-expanded'); delete sol.dataset.earned;
+            box.innerHTML = '<h3>Questions</h3>';
+            box.dataset.correct = '0'; box.dataset.answered = '0';
+            TICKETS[containerId].forEach((item, qi) => {
+                const order = shuffle(item.opts.map((o, i) => i));
+                const block = document.createElement('div');
+                block.className = 'question-block';
+                let html = '<div class="question-number">Question ' + (qi + 1) + ' &middot; ' + item.step + ' &middot; ' + item.exhibit + '</div>';
+                html += '<p class="question-text">' + item.q + '</p><ul class="mc-options">';
+                order.forEach((oi, k) => {
+                    html += '<li><button type="button" class="mc-option" data-oi="' + oi + '"><span class="mc-letter">' + 'ABCDEF'[k] + '</span><span>' + item.opts[oi][0] + '</span></button></li>';
+                });
+                html += '</ul><div class="feedback" style="display:none; margin-top: var(--space-md);"></div>';
+                block.innerHTML = html;
+                block.querySelectorAll('.mc-option').forEach(btn => {
+                    btn.addEventListener('click', () => answer(box, block, item, parseInt(btn.dataset.oi), containerId));
+                });
+                box.appendChild(block);
+            });
+            const reset = document.createElement('button');
+            reset.type = 'button'; reset.className = 'btn-reset'; reset.textContent = 'Reset These Questions';
+            reset.addEventListener('click', () => renderTicket(containerId));
+            box.appendChild(reset);
+        }
+
+        function answer(box, block, item, chosen, containerId) {
+            if (block.dataset.done) return;
+            block.dataset.done = '1';
+            const isRight = item.opts[chosen][1] === true;
+            // Mark only the student's own choice. The correct answer is never revealed.
+            block.querySelectorAll('.mc-option').forEach(btn => {
+                btn.disabled = true;
+                if (parseInt(btn.dataset.oi) === chosen) btn.classList.add(isRight ? 'graded-correct' : 'graded-incorrect');
+            });
+            const fb = block.querySelector('.feedback');
+            fb.innerHTML = isRight
+                ? '<div class="callout callout-tip"><div class="callout-title">Correct</div></div>'
+                : '<div class="callout callout-danger"><div class="callout-title">Incorrect</div></div>';
+            fb.style.display = 'block';
+            box.dataset.answered = String(parseInt(box.dataset.answered) + 1);
+            if (isRight) box.dataset.correct = String(parseInt(box.dataset.correct) + 1);
+            const total = TICKETS[containerId].length;
+            if (box.dataset.correct === String(total)) {
+                const sol = document.getElementById(containerId.replace('q', 'sol'));
+                sol.dataset.earned = '1';
+                sol.classList.add('toc-expanded');
+                setTimeout(() => sol.scrollIntoView({ behavior: 'smooth', block: 'start' }), 400);
+            }
+        }
+
+        ['t1q', 't2q', 't3q'].forEach(renderTicket);
+    </script>
+</body>
+</html>
