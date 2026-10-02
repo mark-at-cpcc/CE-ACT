@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <title>Unit 6 &mdash; 6.5 Video Assignment | CompTIA A+ Core 2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 6 &mdash; 6.8 Online Labs: NETLAB | CompTIA A+ Core 2</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -144,28 +144,6 @@
         ul li::marker { color: var(--accent-teal); }
         ol li::marker { color: var(--accent-teal); font-weight: 700; }
 
-        .styled-list { list-style: none; padding-left: 0; }
-        .styled-list li { position: relative; padding-left: var(--space-lg); margin-bottom: var(--space-sm); }
-        .styled-list li::before { content: '\25B8'; position: absolute; left: 0; color: var(--accent-teal); font-weight: bold; }
-
-        .checklist { list-style: none; padding-left: 0; }
-        .checklist li { position: relative; padding-left: 2rem; margin-bottom: var(--space-sm); }
-        .checklist li::before {
-            content: '\2713'; position: absolute; left: 0; width: 1.5rem; height: 1.5rem;
-            background: var(--accent-green-light); color: var(--accent-green);
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-size: 0.75rem; font-weight: bold;
-        }
-
-        .objectives-box {
-            background: linear-gradient(135deg, var(--primary-pale) 0%, var(--accent-teal-light) 100%);
-            border-left: 5px solid var(--primary-main);
-            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
-        }
-        .objectives-box h3 { color: var(--text-black); margin-top: 0; margin-bottom: var(--space-md);
-            display: flex; align-items: center; gap: var(--space-sm); border-left: none; padding-left: 0; }
-        .objectives-box ol { margin-bottom: 0; }
-
         .tech-box {
             background: var(--neutral-100); border: 2px solid var(--neutral-500);
             border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
@@ -181,7 +159,6 @@
         .plain-box .callout-content { padding-left: 0; }
 
         .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; position: relative; overflow: hidden; }
-        .callout::before { position: absolute; top: var(--space-md); left: var(--space-md); font-size: 1.5rem; }
         .callout-title { font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 1rem;
             text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
         .callout-content { }
@@ -192,21 +169,30 @@
         .callout-danger { background: var(--alert-danger-bg); border-left: 4px solid var(--alert-danger); }
         .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
 
+        .objectives-box {
+            background: var(--primary-pale); border-left: 5px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .objectives-box h3 { margin-top: 0; border-left: none; padding-left: 0; color: var(--text-black); }
+        .objectives-box ol { margin-bottom: 0; }
+
         .key-concept {
             background: linear-gradient(135deg, var(--accent-purple-light) 0%, var(--white) 100%);
             border: 2px solid var(--accent-purple); border-radius: var(--radius-lg);
             padding: var(--space-lg); margin: var(--space-xl) 0 var(--space-lg); position: relative;
         }
         .key-concept::before {
-            content: '\1F511 KEY CONCEPT'; position: absolute; top: -12px; left: var(--space-lg);
+            content: 'KEY CONCEPT'; position: absolute; top: -12px; left: var(--space-lg);
             background: var(--accent-purple); color: var(--white); font-family: var(--font-heading), sans-serif;
             font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
             padding: var(--space-xs) var(--space-md); border-radius: var(--radius-sm);
         }
         .key-concept h4 { color: var(--text-black); margin-top: var(--space-sm); }
 
-        .definition { background: var(--neutral-100); border-radius: var(--radius-md); padding: var(--space-lg);
-            margin: var(--space-md) 0; border-left: 4px solid var(--accent-orange); }
+        .definition {
+            background: var(--neutral-100); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin: var(--space-md) 0; border-left: 4px solid var(--accent-orange);
+        }
         .definition-term { font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 1.125rem;
             color: var(--text-black); margin-bottom: var(--space-xs); }
         .definition-text { color: var(--text-black); margin-bottom: 0; }
@@ -235,25 +221,18 @@
             border: 2px dashed var(--accent-orange); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
         }
         .activity-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg); }
-        .activity-icon { width: 50px; height: 50px; background: var(--accent-orange); border-radius: var(--radius-md);
-            display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; }
         .activity-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700;
             color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
         .activity-subtitle { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
 
         .lab-section {
-            background: linear-gradient(135deg, var(--accent-teal-light) 0%, var(--white) 100%);
-            border: 2px solid var(--accent-teal); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+            background: var(--white); border: 2px solid var(--primary-dark); border-radius: var(--radius-lg);
+            padding: var(--space-xl); margin: var(--space-xl) 0;
         }
-        .lab-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg);
-            padding-bottom: var(--space-md); border-bottom: 2px solid var(--accent-teal); }
-        .lab-icon { width: 60px; height: 60px; background: var(--accent-teal); border-radius: var(--radius-md);
-            display: flex; align-items: center; justify-content: center; font-size: 1.75rem; flex-shrink: 0; }
-        .lab-title { font-family: var(--font-heading), sans-serif; font-size: 1.375rem; font-weight: 700;
-            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
-        .lab-time { font-size: 0.875rem; color: var(--neutral-500); margin: 0; display: flex; align-items: center; gap: var(--space-xs); }
-        .lab-time::before { content: '\23F1\FE0F'; }
-        .lab-steps { counter-reset: lab-step; list-style: none; padding-left: 0; }
+        .lab-header { padding-bottom: var(--space-md); margin-bottom: var(--space-lg); border-bottom: 2px solid var(--primary-dark); }
+        .lab-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700; color: var(--text-black); border-left: none; padding-left: 0; }
+        .lab-time { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
+        .lab-steps { list-style: none; counter-reset: lab-step; padding-left: 0; }
         .lab-steps li { counter-increment: lab-step; position: relative; padding-left: 3rem; margin-bottom: var(--space-lg); }
         .lab-steps li::before {
             content: counter(lab-step); position: absolute; left: 0; width: 2rem; height: 2rem;
@@ -271,6 +250,7 @@
             padding: 2px 10px; border-radius: var(--radius-sm);
             text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); }
         .question-text { font-weight: 600; color: var(--text-black); margin-bottom: var(--space-md); }
+
         details.answer { margin-top: var(--space-sm); }
         details.answer summary { cursor: pointer; font-weight: 700; color: var(--text-black);
             font-family: var(--font-heading), sans-serif; font-size: 0.875rem;
@@ -281,55 +261,41 @@
         .references-section { background: var(--neutral-100); border-radius: var(--radius-lg);
             padding: var(--space-lg) var(--space-xl); margin: var(--space-xl) 0; border-top: 3px solid var(--primary-main); }
         .references-section h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
-        .references-section ul { padding-left: var(--space-lg); }
+
+        .progress-bar { background: var(--neutral-300); border-radius: var(--radius-xl); height: 8px; overflow: hidden; margin: var(--space-lg) 0; }
+        .progress-fill { background: var(--primary-main); height: 100%; border-radius: var(--radius-xl); }
+        .progress-label { display: flex; justify-content: space-between; font-size: 0.875rem; color: var(--neutral-500); margin-bottom: var(--space-xs); }
 
         .summary-box {
             background: var(--primary-dark); color: var(--white);
             border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
         }
-        .summary-box h3 { color: var(--white); margin-top: 0; display: flex; align-items: center;
-            gap: var(--space-sm); border-left: none; padding-left: 0; }
-        .summary-box h3::before { content: '\1F4CB'; }
+        .summary-box h3 { color: var(--white); margin-top: 0; border-left: none; padding-left: 0; }
         .summary-box ul { margin-bottom: 0; }
         .summary-box li { color: var(--white); }
         .summary-box li::marker { color: var(--primary-light); }
 
-        .section-divider {
-            border: none; height: 6px; margin: var(--space-2xl) 0;
-            background: linear-gradient(90deg, transparent 0%, var(--primary-main) 15%, var(--primary-light) 50%, var(--primary-main) 85%, transparent 100%);
-            border-radius: var(--radius-sm); box-shadow: var(--shadow-sm);
-        }
-
-        .module-footer { background: var(--primary-dark); padding: var(--space-lg) var(--space-xl);
-            text-align: center; border-top: 4px solid var(--primary-main); }
-        .footer-text { font-size: 0.875rem; color: var(--white); margin: 0; }
+        .module-footer { background: var(--neutral-100); padding: var(--space-lg) var(--space-xl); text-align: center; border-top: 1px solid var(--neutral-300); }
+        .footer-text { font-size: 0.875rem; color: var(--neutral-500); }
 
         .text-center { text-align: center; }
         .text-muted { color: var(--neutral-500); }
-        .highlight { background: linear-gradient(180deg, transparent 50%, var(--primary-light) 50%); padding: 0 2px; }
+        .mt-sm { margin-top: var(--space-sm); } .mt-md { margin-top: var(--space-md); } .mt-lg { margin-top: var(--space-lg); }
+        .mb-sm { margin-bottom: var(--space-sm); } .mb-md { margin-bottom: var(--space-md); } .mb-lg { margin-bottom: var(--space-lg); }
 
         @media (max-width: 768px) {
-            body { padding: var(--space-sm); }
-            .module-header { padding: var(--space-xl) var(--space-lg); }
             .module-title { font-size: 1.75rem; }
             .content-area { padding: var(--space-lg); }
-            h2 { font-size: 1.375rem; }
-            .lab-header, .activity-header { flex-direction: column; align-items: flex-start; }
-        }
-        @media print {
-            body { background: white; padding: 0; }
-            .course-container { box-shadow: none; }
-            .toc { display: none; }
-            details.answer { display: none; }
         }
     </style>
 </head>
+
 <body>
     <div class="course-container">
 
         <header class="module-header">
-            <div class="module-label">Unit 6 &middot; Software Troubleshooting and Exam Readiness &middot; Section 6.5</div>
-            <h1 class="module-title">Video Assignment</h1>
+            <div class="module-label">Unit 6 &middot; Software Troubleshooting and Exam Readiness &middot; Section 6.8</div>
+            <h1 class="module-title">Online Labs: NETLAB</h1>
             <p class="module-subtitle">CompTIA A+ Core 2 - Domains 2.0, 3.0, and 4.0</p>
         </header>
 
@@ -339,10 +305,10 @@
             <div class="toc-item">6.2 &mdash; Unit Pre-Assessment</div>
             <div class="toc-item">6.3 &mdash; Content Review</div>
             <div class="toc-item">6.4 &mdash; Reading Assignment</div>
-            <div class="toc-item current" id="tocCurrent">6.5 &mdash; Video Assignment</div>
+            <div class="toc-item">6.5 &mdash; Video Assignment</div>
             <div class="toc-item">6.6 &mdash; Classroom Labs</div>
             <div class="toc-item">6.7 &mdash; Practice Question Set</div>
-            <div class="toc-item">6.8 &mdash; Online Labs: NETLAB</div>
+            <div class="toc-item current" id="tocCurrent">6.8 &mdash; Online Labs: NETLAB</div>
             <div class="toc-item">6.9 &mdash; Reflection Activity</div>
             <div class="toc-item">6.10 &mdash; Unit Test</div>
             <div class="toc-item">6.11 &mdash; Unit 6 Tickets</div>
@@ -442,73 +408,69 @@
 
         <div class="content-area">
 
-            <p class="text-muted">Seven videos. Total runtime 1 hour 26 minutes &mdash; the lightest video load of the term, deliberately, so you have room to re-watch.</p>
+            <p class="text-muted">Two labs this unit, roughly 45 minutes to 1.25 hours each. These are required and they are graded &mdash; and in a three-day unit, they are the easiest thing to run out of time for.</p>
 
-            <div class="plain-box">
-                <div class="callout-title">About These Videos</div>
+            <div class="callout callout-danger">
+                <div class="callout-title">Book These First, Before Anything Else</div>
+                <div class="callout-content"><p>Unit 6 is three days long and everything is due Thursday. Reserve both lab windows for <strong>Tuesday or Wednesday</strong>, and do it as soon as this unit opens. A Thursday reservation leaves no room for the one thing that always happens &mdash; a session that runs long, a step that has to be repeated, a pod that was not available when you wanted it.</p></div>
+            </div>
+
+            <h2>Getting In</h2>
+            <ol class="lab-steps">
+                <li><strong>Always launch from Brightspace.</strong> Go to the NETLAB &mdash; Student Labs folder under Coursework and click the link for the specific lab you're starting &mdash; do not navigate to the NETLAB site directly.</li>
+                <li><strong>Make a reservation.</strong> Choose a date and time window. NETLAB allocates a pod to you for exactly that period.</li>
+                <li><strong>Read the worksheet before your window opens.</strong> Worksheets live in the NETLAB &mdash; Lab Worksheets folder under Coursework in Brightspace, and inside NETLAB itself.</li>
+                <li><strong>Complete the lab in one continuous session,</strong> capturing screenshots as you go.</li>
+                <li><strong>Submit your screenshots to the matching lab quiz in Brightspace</strong> &mdash; each lab's screenshots go to that lab's own quiz.</li>
+            </ol>
+
+            <div class="callout callout-danger">
+                <div class="callout-title">One Session, No Save Point</div>
                 <div class="callout-content">
-                    <p>Professor Messer's complete 220-1202 course is free to stream on his website. His full Core 2 course is 74 videos totaling 13 hours 41 minutes. When you finish this unit's seven, you will have watched every one of them.</p>
-                    <p>Every link below opens his site directly. Please watch there rather than seeking downloaded copies. See Unit 0, Section 0.13 for the full ownership and permitted-use statement.</p>
+                    <p>If your reservation expires mid-lab, the environment resets and you begin again from step one. There is no pause, no saved progress, and no partial completion.</p>
+                    <p><strong>Book generously.</strong> If a lab is estimated at 1.25 hours, reserve closer to 2. Finishing early costs you nothing; running out, in this unit, may cost you the attempt entirely.</p>
                 </div>
             </div>
 
-            <h2>This Week's Videos</h2>
+            <h2>This Unit's Labs</h2>
             <div class="table-container">
                 <table>
-                    <thead><tr><th>Obj.</th><th>Video</th><th>Length</th><th>What It Covers</th></tr></thead>
+                    <thead><tr><th>Lab</th><th>Topic</th><th>Connects To</th><th>Estimated Time</th></tr></thead>
                     <tbody>
-                        <tr><td><strong>2.6</strong></td><td><a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/removing-malware-220-1202/" target="_blank" rel="noopener">Removing Malware</a></td><td>11:30</td><td>CompTIA&rsquo;s malware removal procedure, step by step and in order.</td></tr>
-                        <tr><td><strong>3.1</strong></td><td><a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/troubleshooting-windows-220-1202/" target="_blank" rel="noopener">Troubleshooting Windows</a></td><td>17:30</td><td>The Windows symptom list from objective 3.1 and what each one points to.</td></tr>
-                        <tr><td><strong>3.2</strong></td><td><a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/troubleshooting-mobile-devices-220-1202/" target="_blank" rel="noopener">Troubleshooting Mobile Devices</a></td><td>11:30</td><td>Application, performance, battery, and connectivity issues on phones and tablets.</td></tr>
-                        <tr><td><strong>3.3</strong></td><td><a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/troubleshooting-mobile-device-security-220-1202/" target="_blank" rel="noopener">Troubleshooting Mobile Device Security</a></td><td>12:16</td><td>The symptoms that mean a mobile device is compromised rather than just old.</td></tr>
-                        <tr><td><strong>3.4</strong></td><td><a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/troubleshooting-security-issues-220-1202/" target="_blank" rel="noopener">Troubleshooting Security Issues</a></td><td>10:16</td><td>Pop-ups, redirection, certificate warnings, altered files, and update failures.</td></tr>
-                        <tr><td><strong>4.9</strong></td><td><a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/remote-access-220-1202/" target="_blank" rel="noopener">Remote Access</a></td><td>12:49</td><td>RDP, VPN, VNC, SSH, RMM, and the security considerations that apply to all of them.</td></tr>
-                        <tr><td><strong>4.10</strong></td><td><a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/managing-ai-220-1202/" target="_blank" rel="noopener">Managing AI</a></td><td>10:38</td><td>What AI tools do, where they fail, and how to use them responsibly in IT work.</td></tr>
+                        <tr><td><strong>Lab 16</strong></td><td>Troubleshooting Tools in Windows</td><td>Objective 3.1 &mdash; the Windows symptom list, worked with the tools you learned in Unit 2</td><td>0.75 &ndash; 1.25 hrs</td></tr>
+                        <tr><td><strong>Lab 15</strong></td><td>Remote Access</td><td>Objective 4.9 &mdash; RDP and the remote access technologies from Section 6.3</td><td>0.75 &ndash; 1.25 hrs</td></tr>
                     </tbody>
                 </table>
             </div>
 
             <div class="key-concept">
-                <h4>The Second Half of This Assignment Is Yours to Choose</h4>
-                <p>Unit 6's video load is light on purpose. The rest of your video time this unit is <strong>re-watching whatever you are least confident about</strong>, from any unit.</p>
-                <p>Use your "still shaky" list from Section 6.4 to choose. Two or three re-watched videos on topics you genuinely do not trust are worth far more than seven new ones you half-follow. If nothing comes to mind, the longest videos of the term &mdash; Active Directory, the Windows Control Panel, and the Windows command line &mdash; are the ones students most often want a second time.</p>
+                <h4>Lab 16 Is Four Units of Tools, Used for Their Real Purpose</h4>
+                <p>Every tool in this lab is one you already know. Event Viewer, Task Manager, System Configuration, Resource Monitor, and System File Checker all came from Unit 2, where you learned what they show you.</p>
+                <p>Here you use them the way a technician actually does: not to look at a machine, but to answer a question about a machine that is misbehaving. As you work, write down <em>which tool answered which question</em>. That list is a troubleshooting method, and it is yours rather than borrowed from a table.</p>
             </div>
 
             <div class="callout callout-tip">
-                <div class="callout-title">Watch Order</div>
-                <div class="callout-content"><p>Watch Removing Malware and Troubleshooting Windows before Tuesday's class &mdash; Tuesday's session puts both to work immediately. Watch the three remaining troubleshooting videos before Wednesday. Remote Access and Managing AI can wait until Wednesday evening; they are the only two that are not troubleshooting.</p></div>
+                <div class="callout-title">Lab 15 Is Where Objective 4.9 Becomes Concrete</div>
+                <div class="callout-content"><p>Reading about RDP tells you what it does. Connecting to a machine across a network and administering it tells you what it feels like &mdash; including the latency, the screen resolution handling, and what happens to the session at the far end. Note what a user sitting at that machine would have seen while you were connected. That detail matters on a real support call, and it is not in the book.</p></div>
             </div>
 
-            <h2>How to Watch These</h2>
-            <ul class="styled-list">
-                <li><strong>Pause and diagnose.</strong> Every time he describes a symptom, pause and name the cause before he does. This is the exam's actual format, and you now have five units of material to draw on.</li>
-                <li><strong>Write the malware steps down as he goes</strong> &mdash; then again from memory an hour later.</li>
-                <li><strong>One sheet per objective,</strong> as always. Seven sheets, and then you are finished with new material.</li>
-                <li><strong>Write the summary, not the transcript.</strong> One sentence per video is enough at this point in the course.</li>
-            </ul>
-
-            <div class="callout callout-info">
-                <div class="callout-title">What Good Notes Look Like</div>
-                <div class="callout-content"><p>Video notes are <strong>not graded</strong>. For this unit, the most useful notes are symptom-and-cause pairs rather than definitions. Note which videos you chose to re-watch and why &mdash; that list is a map of what to review before the real exam. Everything is due Thursday; see the Course Schedule.</p></div>
-            </div>
-
-            <div class="activity-section">
-                <div class="activity-header">
-                    <div class="activity-icon">&#127919;</div>
-                    <div>
-                        <h3 class="activity-title">Optional: Daily Pop Quiz</h3>
-                        <p class="activity-subtitle">Two minutes a day, free</p>
-                    </div>
+            <div class="callout callout-warning">
+                <div class="callout-title">Screenshots Are How This Gets Graded</div>
+                <div class="callout-content">
+                    <p>Each lab has its own quiz in Brightspace, and each lab's screenshots go into that lab's own quiz &mdash; not attached as separate files, and not combined into one submission. Paste each screenshot directly into its assigned question field.</p>
+                    <p>Every screenshot must show the <strong>full screen</strong>, including the timestamp and your reservation ID. A cropped image that could have come from anywhere is not proof that you did the lab.</p>
                 </div>
-                <p>Professor Messer posts a daily 220-1202 pop quiz. Keep doing it after this course ends, right up to your exam date &mdash; it is two minutes of spaced retrieval across the whole objective list, which is exactly what the gap between finishing a course and sitting an exam needs.</p>
             </div>
 
-            <div class="references-section">
-                <h3>Go Further</h3>
+            <div class="summary-box">
+                <h3>Before You Start</h3>
                 <ul>
-                    <li><a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/220-1202-training-course/" target="_blank" rel="noopener">Professor Messer's complete 220-1202 Core 2 training course index</a> &mdash; all 74 videos, for re-watching</li>
-                    <li>Professor Messer's monthly live A+ Study Group sessions and replays &mdash; free Q&amp;A on the objectives, and worth attending between this course and your exam date</li>
-                    <li>Professor Messer's 220-1202 Course Notes &mdash; a paid 69-page PDF summary. Optional, and more useful now as a final review than it was in Unit 1.</li>
+                    <li>Reserve both windows for Tuesday or Wednesday &mdash; not Thursday</li>
+                    <li>Launch from Brightspace, never from the NETLAB site directly</li>
+                    <li>Read the worksheet before your reservation opens</li>
+                    <li>Allow more time than the estimate &mdash; there is no pause button</li>
+                    <li>Capture full-screen screenshots with the timestamp and reservation ID visible</li>
+                    <li>Submit each lab's screenshots to that lab's own quiz</li>
                 </ul>
             </div>
 

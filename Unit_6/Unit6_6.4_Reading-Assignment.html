@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unit 6 &mdash; 6.4 Reading Assignment | CompTIA A+ Core 1</title>
+    <title>Unit 6 &mdash; 6.4 Reading Assignment | CompTIA A+ Core 2</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,7 +15,7 @@
     <style>
         /* ============================================
            CPCC COURSE TEMPLATE - GOLD / CHARCOAL / BLACK
-           CTS-ITS7501-80 CompTIA A+ Core 1 Training
+           CTS-ITS7501-80 CompTIA A+ Core 2 Training
            Type: true black. Accents: gold. Chrome: charcoal.
            ============================================ */
 
@@ -92,9 +92,6 @@
 
         .module-header {
             background: var(--primary-main); color: var(--text-black);
-            /* Reduced from var(--space-2xl) top/bottom (3rem) to var(--space-lg) (1.5rem) to cut excess
-               empty space in this card's title header. To revert, change padding back to:
-               padding: var(--space-2xl) var(--space-xl); */
             padding: var(--space-lg) var(--space-xl); position: relative; overflow: hidden;
         }
         .module-label {
@@ -147,6 +144,28 @@
         ul li::marker { color: var(--accent-teal); }
         ol li::marker { color: var(--accent-teal); font-weight: 700; }
 
+        .styled-list { list-style: none; padding-left: 0; }
+        .styled-list li { position: relative; padding-left: var(--space-lg); margin-bottom: var(--space-sm); }
+        .styled-list li::before { content: '\25B8'; position: absolute; left: 0; color: var(--accent-teal); font-weight: bold; }
+
+        .checklist { list-style: none; padding-left: 0; }
+        .checklist li { position: relative; padding-left: 2rem; margin-bottom: var(--space-sm); }
+        .checklist li::before {
+            content: '\2713'; position: absolute; left: 0; width: 1.5rem; height: 1.5rem;
+            background: var(--accent-green-light); color: var(--accent-green);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 0.75rem; font-weight: bold;
+        }
+
+        .objectives-box {
+            background: linear-gradient(135deg, var(--primary-pale) 0%, var(--accent-teal-light) 100%);
+            border-left: 5px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .objectives-box h3 { color: var(--text-black); margin-top: 0; margin-bottom: var(--space-md);
+            display: flex; align-items: center; gap: var(--space-sm); border-left: none; padding-left: 0; }
+        .objectives-box ol { margin-bottom: 0; }
+
         .tech-box {
             background: var(--neutral-100); border: 2px solid var(--neutral-500);
             border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
@@ -162,6 +181,7 @@
         .plain-box .callout-content { padding-left: 0; }
 
         .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; position: relative; overflow: hidden; }
+        .callout::before { position: absolute; top: var(--space-md); left: var(--space-md); font-size: 1.5rem; }
         .callout-title { font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 1rem;
             text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
         .callout-content { }
@@ -172,30 +192,21 @@
         .callout-danger { background: var(--alert-danger-bg); border-left: 4px solid var(--alert-danger); }
         .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
 
-        .objectives-box {
-            background: var(--primary-pale); border-left: 5px solid var(--primary-main);
-            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
-        }
-        .objectives-box h3 { margin-top: 0; border-left: none; padding-left: 0; color: var(--text-black); }
-        .objectives-box ol { margin-bottom: 0; }
-
         .key-concept {
             background: linear-gradient(135deg, var(--accent-purple-light) 0%, var(--white) 100%);
             border: 2px solid var(--accent-purple); border-radius: var(--radius-lg);
             padding: var(--space-lg); margin: var(--space-xl) 0 var(--space-lg); position: relative;
         }
         .key-concept::before {
-            content: 'KEY CONCEPT'; position: absolute; top: -12px; left: var(--space-lg);
+            content: '\1F511 KEY CONCEPT'; position: absolute; top: -12px; left: var(--space-lg);
             background: var(--accent-purple); color: var(--white); font-family: var(--font-heading), sans-serif;
             font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
             padding: var(--space-xs) var(--space-md); border-radius: var(--radius-sm);
         }
         .key-concept h4 { color: var(--text-black); margin-top: var(--space-sm); }
 
-        .definition {
-            background: var(--neutral-100); border-radius: var(--radius-md); padding: var(--space-lg);
-            margin: var(--space-md) 0; border-left: 4px solid var(--accent-orange);
-        }
+        .definition { background: var(--neutral-100); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin: var(--space-md) 0; border-left: 4px solid var(--accent-orange); }
         .definition-term { font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 1.125rem;
             color: var(--text-black); margin-bottom: var(--space-xs); }
         .definition-text { color: var(--text-black); margin-bottom: 0; }
@@ -224,18 +235,25 @@
             border: 2px dashed var(--accent-orange); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
         }
         .activity-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg); }
+        .activity-icon { width: 50px; height: 50px; background: var(--accent-orange); border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; }
         .activity-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700;
             color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
         .activity-subtitle { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
 
         .lab-section {
-            background: var(--white); border: 2px solid var(--primary-dark); border-radius: var(--radius-lg);
-            padding: var(--space-xl); margin: var(--space-xl) 0;
+            background: linear-gradient(135deg, var(--accent-teal-light) 0%, var(--white) 100%);
+            border: 2px solid var(--accent-teal); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
         }
-        .lab-header { padding-bottom: var(--space-md); margin-bottom: var(--space-lg); border-bottom: 2px solid var(--primary-dark); }
-        .lab-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700; color: var(--text-black); border-left: none; padding-left: 0; }
-        .lab-time { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
-        .lab-steps { list-style: none; counter-reset: lab-step; padding-left: 0; }
+        .lab-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg);
+            padding-bottom: var(--space-md); border-bottom: 2px solid var(--accent-teal); }
+        .lab-icon { width: 60px; height: 60px; background: var(--accent-teal); border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center; font-size: 1.75rem; flex-shrink: 0; }
+        .lab-title { font-family: var(--font-heading), sans-serif; font-size: 1.375rem; font-weight: 700;
+            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
+        .lab-time { font-size: 0.875rem; color: var(--neutral-500); margin: 0; display: flex; align-items: center; gap: var(--space-xs); }
+        .lab-time::before { content: '\23F1\FE0F'; }
+        .lab-steps { counter-reset: lab-step; list-style: none; padding-left: 0; }
         .lab-steps li { counter-increment: lab-step; position: relative; padding-left: 3rem; margin-bottom: var(--space-lg); }
         .lab-steps li::before {
             content: counter(lab-step); position: absolute; left: 0; width: 2rem; height: 2rem;
@@ -253,7 +271,6 @@
             padding: 2px 10px; border-radius: var(--radius-sm);
             text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); }
         .question-text { font-weight: 600; color: var(--text-black); margin-bottom: var(--space-md); }
-
         details.answer { margin-top: var(--space-sm); }
         details.answer summary { cursor: pointer; font-weight: 700; color: var(--text-black);
             font-family: var(--font-heading), sans-serif; font-size: 0.875rem;
@@ -264,85 +281,74 @@
         .references-section { background: var(--neutral-100); border-radius: var(--radius-lg);
             padding: var(--space-lg) var(--space-xl); margin: var(--space-xl) 0; border-top: 3px solid var(--primary-main); }
         .references-section h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .references-section ul { padding-left: var(--space-lg); }
 
-        .progress-bar { background: var(--neutral-300); border-radius: var(--radius-xl); height: 8px; overflow: hidden; margin: var(--space-lg) 0; }
-        .progress-fill { background: var(--primary-main); height: 100%; border-radius: var(--radius-xl); }
-        .progress-label { display: flex; justify-content: space-between; font-size: 0.875rem; color: var(--neutral-500); margin-bottom: var(--space-xs); }
+        .summary-box {
+            background: var(--primary-dark); color: var(--white);
+            border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .summary-box h3 { color: var(--white); margin-top: 0; display: flex; align-items: center;
+            gap: var(--space-sm); border-left: none; padding-left: 0; }
+        .summary-box h3::before { content: '\1F4CB'; }
+        .summary-box ul { margin-bottom: 0; }
+        .summary-box li { color: var(--white); }
+        .summary-box li::marker { color: var(--primary-light); }
 
-        .module-footer { background: var(--neutral-100); padding: var(--space-lg) var(--space-xl); text-align: center; border-top: 1px solid var(--neutral-300); }
-        .footer-text { font-size: 0.875rem; color: var(--neutral-500); }
+        .section-divider {
+            border: none; height: 6px; margin: var(--space-2xl) 0;
+            background: linear-gradient(90deg, transparent 0%, var(--primary-main) 15%, var(--primary-light) 50%, var(--primary-main) 85%, transparent 100%);
+            border-radius: var(--radius-sm); box-shadow: var(--shadow-sm);
+        }
+
+        .module-footer { background: var(--primary-dark); padding: var(--space-lg) var(--space-xl);
+            text-align: center; border-top: 4px solid var(--primary-main); }
+        .footer-text { font-size: 0.875rem; color: var(--white); margin: 0; }
 
         .text-center { text-align: center; }
         .text-muted { color: var(--neutral-500); }
-        .mt-sm { margin-top: var(--space-sm); } .mt-md { margin-top: var(--space-md); } .mt-lg { margin-top: var(--space-lg); }
-        .mb-sm { margin-bottom: var(--space-sm); } .mb-md { margin-bottom: var(--space-md); } .mb-lg { margin-bottom: var(--space-lg); }
-
-        /* Interactive quiz controls (pre-assessment / practice questions) */
-        .answer-option { display: block; width: 100%; text-align: left; padding: var(--space-sm) var(--space-md);
-            margin-bottom: var(--space-sm); border: 2px solid var(--neutral-300); border-radius: var(--radius-sm);
-            background: var(--white); cursor: pointer; font-family: var(--font-body), sans-serif; font-size: 1rem; color: var(--text-black); }
-        .answer-option:hover { border-color: var(--primary-main); }
-        .answer-option.selected { border-color: var(--primary-dark); background: var(--primary-pale); }
-        .answer-option.correct { border-color: var(--accent-green); background: var(--accent-green-light); }
-        .answer-option.incorrect { border-color: var(--alert-danger); background: var(--alert-danger-bg); }
-        .quiz-btn { font-family: var(--font-heading), sans-serif; font-weight: 700; padding: var(--space-sm) var(--space-xl);
-            border-radius: var(--radius-sm); border: 2px solid var(--primary-dark); background: var(--primary-dark); color: var(--white);
-            cursor: pointer; font-size: 0.95rem; margin-right: var(--space-sm); }
-        .quiz-btn:hover { background: #333333; }
-        .quiz-btn.secondary { background: var(--white); color: var(--primary-dark); }
-        .quiz-btn.secondary:hover { background: var(--neutral-100); }
-        #quizResults { display:none; background: var(--primary-pale); border: 2px solid var(--primary-main); border-radius: var(--radius-md);
-            padding: var(--space-lg); margin-top: var(--space-lg); text-align: center; font-family: var(--font-heading), sans-serif; }
-        #quizResults .score { font-size: 2rem; font-weight: 800; color: var(--text-black); }
+        .highlight { background: linear-gradient(180deg, transparent 50%, var(--primary-light) 50%); padding: 0 2px; }
 
         @media (max-width: 768px) {
+            body { padding: var(--space-sm); }
+            .module-header { padding: var(--space-xl) var(--space-lg); }
             .module-title { font-size: 1.75rem; }
             .content-area { padding: var(--space-lg); }
+            h2 { font-size: 1.375rem; }
+            .lab-header, .activity-header { flex-direction: column; align-items: flex-start; }
         }
-
-        .hv-diagrams { display: flex; gap: var(--space-lg); flex-wrap: wrap; margin: var(--space-lg) 0; }
-        .hv-diagram-col { flex: 1 1 300px; min-width: 280px; }
-        .hv-diagram-col p.hv-caption { text-align: center; font-family: var(--font-body), sans-serif; font-weight: 700; font-size: 0.9375rem; margin-top: var(--space-sm); color: var(--neutral-500); }
-        .hv-svg .hv-hw rect { fill: var(--neutral-100); stroke: var(--neutral-500); }
-        .hv-svg .hv-hw text { fill: var(--text-black); }
-        .hv-svg .hv-os rect { fill: #E3EEFA; stroke: #2F6FA8; }
-        .hv-svg .hv-os text { fill: #1B4A73; }
-        .hv-svg .hv-hv rect { fill: var(--primary-pale); stroke: var(--primary-main); }
-        .hv-svg .hv-hv text { fill: var(--text-black); }
-        .hv-svg .hv-vm rect { fill: #E0F2ED; stroke: #1D9E75; }
-        .hv-svg .hv-vm text { fill: #0F6E56; }
-        .hv-svg .hv-app rect { fill: #FDEFD9; stroke: #BA7517; }
-        .hv-svg .hv-app text { fill: #7A4B0E; }
-        .hv-svg .hv-data polygon { fill: #FBEAE7; stroke: #D85A30; }
-        .hv-svg .hv-data text { fill: #8C3A1D; }
-        .hv-svg rect, .hv-svg polygon { stroke-width: 1; }
-        .hv-svg text { font-family: var(--font-body), sans-serif; font-size: 13px; text-anchor: middle; dominant-baseline: central; }
+        @media print {
+            body { background: white; padding: 0; }
+            .course-container { box-shadow: none; }
+            .toc { display: none; }
+            details.answer { display: none; }
+        }
     </style>
 </head>
-
 <body>
     <div class="course-container">
 
         <header class="module-header">
-            <div class="module-label">Unit 6 &middot; Troubleshooting and Exam Readiness &middot; Section 6.4</div>
+            <div class="module-label">Unit 6 &middot; Software Troubleshooting and Exam Readiness &middot; Section 6.4</div>
             <h1 class="module-title">Reading Assignment</h1>
-            <p class="module-subtitle">CompTIA A+ Core 1 &mdash; All Domains</p>
+            <p class="module-subtitle">CompTIA A+ Core 2 - Domains 2.0, 3.0, and 4.0</p>
         </header>
 
-        <nav class="toc" id="tocNav">
+                <nav class="toc" id="tocNav">
             <div class="toc-header">Table of Contents</div>
-            <div class="toc-item">6.1 &mdash; Unit Overview and Learning Objectives</div>
+            <div class="toc-item">6.1 &mdash; Unit Overview and Schedule</div>
             <div class="toc-item">6.2 &mdash; Unit Pre-Assessment</div>
             <div class="toc-item">6.3 &mdash; Content Review</div>
             <div class="toc-item current" id="tocCurrent">6.4 &mdash; Reading Assignment</div>
             <div class="toc-item">6.5 &mdash; Video Assignment</div>
             <div class="toc-item">6.6 &mdash; Classroom Labs</div>
-            <div class="toc-item">6.7 &mdash; Practice Questions</div>
+            <div class="toc-item">6.7 &mdash; Practice Question Set</div>
             <div class="toc-item">6.8 &mdash; Online Labs: NETLAB</div>
             <div class="toc-item">6.9 &mdash; Reflection Activity</div>
             <div class="toc-item">6.10 &mdash; Unit Test</div>
+            <div class="toc-item">6.11 &mdash; Unit 6 Tickets</div>
+            <div class="toc-item">6.A.0 &mdash; Exam Readiness</div>
+            <div class="toc-item">6.A.1 &mdash; Final Study Exam</div>
         </nav>
-
         <style>
             /* Collapsible TOC: only the current section shows until clicked */
             nav.toc#tocNav { gap: 0; }
@@ -436,116 +442,100 @@
 
         <div class="content-area">
 
-            <p class="text-muted">A second pass over the review material in the four highest-weighted chapters of the text.</p>
+            <p class="text-muted">114 pages of new reading, plus a second pass through four earlier chapters, all ten Performance-Based Questions, and the Assessment Test retake. Budget 12 to 14 hours across three days.</p>
 
-            <div class="tech-box">
-                <div class="callout-title">Technical Overview</div>
-                <div class="callout-content">
-                    <p>This unit assigns the Exam Essentials and Review Questions sections from Chapters 1, 2, 12, and 13 of Volume 1. These four chapters carry the material behind Domain 3.0 (Hardware, 25%) and Domain 5.0 (Hardware and Network Troubleshooting, 28%) &mdash; together more than half of the exam.</p>
-                </div>
+            <div class="callout callout-danger">
+                <div class="callout-title">Three Days. Start Before Tuesday's Class.</div>
+                <div class="callout-content"><p>This is the only unit where the reading plan assumes you begin before the first session. The new material is lighter than Unit 4's, but the second pass and the Performance-Based Questions have to fit into the same three days. Students who start Chapter 7 over the preceding weekend finish this unit comfortably; students who start Tuesday evening do not.</p></div>
             </div>
 
-            <div class="plain-box">
-                <div class="callout-title">In Plain Terms</div>
-                <div class="callout-content">
-                    <p>You have read these chapters once already. This pass has a completely different job. The first read was about understanding; this one is about retrieval. You are not trying to learn anything new here &mdash; you are finding out what actually stuck and what only felt familiar because the words were on the page in front of you. Those are two very different states, and only one of them survives a testing center.</p>
-                </div>
-            </div>
-
-            <h2>Assigned Reading</h2>
-
+            <h2>Part 1 &mdash; New Reading</h2>
             <div class="table-container">
                 <table>
-                    <thead><tr><th>Chapter</th><th>Section</th><th>Focus</th><th>Pages</th></tr></thead>
+                    <thead><tr><th>Chapter</th><th>Sections</th><th>Why It's Assigned</th></tr></thead>
                     <tbody>
-                        <tr>
-                            <td><strong>Chapter 1</strong></td>
-                            <td>Review</td>
-                            <td>Motherboards, processors, memory, and cooling systems</td>
-                            <td>73 &ndash; 77</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Chapter 2</strong></td>
-                            <td>Review</td>
-                            <td>Expansion cards, power supplies, and storage devices</td>
-                            <td>134 &ndash; 138</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Chapter 12</strong></td>
-                            <td>Review</td>
-                            <td>Troubleshooting best practices; motherboard, memory, processor, power, drive, array, and network problems</td>
-                            <td>766 &ndash; 770</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Chapter 13</strong></td>
-                            <td>Review</td>
-                            <td>Video, projector, and display issues; printer issues; common mobile device issues</td>
-                            <td>827 &ndash; 831</td>
-                        </tr>
+                        <tr><td><strong>Volume 2, Chapter 7</strong><br>pgs. 539&ndash;619 (81 pgs.)<br>Troubleshooting Operating Systems and Security</td><td>Troubleshooting Common Microsoft Windows OS Problems &middot; Troubleshooting Security Issues &middot; Best Practices for Malware Removal &middot; Troubleshooting Mobile OS Issues &middot; Troubleshooting Mobile Security Issues<br>Summary &middot; Exam Essentials &middot; Review Questions<br><strong>Performance-Based Question</strong></td><td>All of Domain 3.0 plus objective 2.6. The whole of this unit's core.</td></tr>
+                        <tr><td><strong>Volume 2, Chapter 8</strong><br>pgs. 648&ndash;680 (33 pgs.)<br>Scripting, Remote Access, and Artificial Intelligence</td><td>Remote Access &middot; Artificial Intelligence<br>Summary &middot; Exam Essentials &middot; Review Questions<br><strong>Performance-Based Question</strong></td><td>Objectives 4.9 and 4.10. You read the Scripting section in Unit 3; this completes the chapter.</td></tr>
                     </tbody>
                 </table>
             </div>
 
-            <h2>How to Work a Second Pass</h2>
+            <div class="callout callout-tip">
+                <div class="callout-title">A Note on the Book's Index</div>
+                <div class="callout-content"><p>If you look up <strong>SSH</strong> in the index, you will find it printed as <strong>"SSH (SSD)"</strong> &mdash; a typo in the book. SSH is <strong>Secure Shell</strong>, the encrypted command-line access method in objective 4.9; SSD is a solid-state drive and has nothing to do with it. The page reference itself is correct.</p></div>
+            </div>
 
-            <p>Reading these pages the way you read them the first time will waste the hours. Work them in this order instead.</p>
-
-            <div class="lab-section">
-                <div class="lab-header">
-                    <h3 class="lab-title">The Four-Step Second Pass</h3>
-                    <p class="lab-time">Per chapter: roughly 45 to 60 minutes</p>
-                </div>
-                <ol class="lab-steps">
-                    <li>
-                        <strong>Answer the Review Questions cold, first.</strong><br>
-                        Before you read a single line of the Exam Essentials. Closed book, no notes, no going back to the chapter. This is uncomfortable and it is the entire point &mdash; you are measuring retrieval, and you cannot measure it with the answers in view.
-                    </li>
-                    <li>
-                        <strong>Score yourself and mark every miss by topic.</strong><br>
-                        Do not just count. Write down what each missed item was actually about. Four misses that all trace back to power supplies are one gap, not four, and it closes in twenty minutes.
-                    </li>
-                    <li>
-                        <strong>Read the Exam Essentials, weighted toward your misses.</strong><br>
-                        Read all of it, but slow down on the entries that map to what you got wrong and move quickly through the ones you already proved you know.
-                    </li>
-                    <li>
-                        <strong>Work the chapter&rsquo;s performance-based question without notes.</strong><br>
-                        Each of these chapters ends with at least one. These are the closest thing in the book to what the live exam&rsquo;s scenario items feel like, and they are the format most first-attempt failures have never practiced under pressure.
-                    </li>
-                </ol>
+            <h2>Part 2 &mdash; The Second Pass</h2>
+            <p>Re-read the <strong>Exam Essentials</strong> and redo the <strong>Review Questions</strong> for <strong>Chapters 2, 3, 5, and 6</strong> &mdash; the four chapters carrying the heaviest exam weight you have already covered. You are not re-reading the chapters; you are testing whether what you read three weeks ago is still there.</p>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Chapter</th><th>Covers</th><th>Originally Read</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Chapter 2</strong></td><td>Windows configuration and tools</td><td>Unit 2</td></tr>
+                        <tr><td><strong>Chapter 3</strong></td><td>Windows administration, command line, networking</td><td>Units 1, 2, and 3</td></tr>
+                        <tr><td><strong>Chapter 5</strong></td><td>Security concepts</td><td>Unit 4</td></tr>
+                        <tr><td><strong>Chapter 6</strong></td><td>Securing operating systems</td><td>Unit 5</td></tr>
+                    </tbody>
+                </table>
             </div>
 
             <div class="key-concept">
-                <h4>Why These Four Chapters</h4>
-                <p>Chapters 1 and 2 carry the hardware foundation. Chapters 12 and 13 carry the troubleshooting content that was distributed across the earlier units so you would meet each diagnostic skill the same week you learned the underlying component.</p>
-                <p>That distribution was the right way to learn it. It is the wrong way to review it. Seeing Chapter 12 whole, in one sitting, for the first time is what lets you notice that the same six-step method is running underneath every symptom in it &mdash; a pattern that is invisible when the chapter arrives in five separate pieces across five weeks.</p>
+                <h4>Why a Second Pass Beats More New Reading</h4>
+                <p>Material you met once and have not touched since is the material you will lose first. Spacing and retrieval &mdash; revisiting something after a gap and making yourself recall it rather than reread it &mdash; is the most reliably effective study method there is, and the gap is what makes it work.</p>
+                <p>Do the Review Questions <strong>before</strong> rereading the Exam Essentials. A question you miss tells you exactly which paragraph to go back to; rereading first just makes everything feel familiar.</p>
             </div>
 
-            <div class="callout callout-warning">
-                <div class="callout-title">The Trap in a Second Pass</div>
-                <div class="callout-content">
-                    <p>Rereading produces a powerful and completely false sense of mastery. The text looks familiar, it goes down easily, and you finish feeling prepared. That feeling is recognition, not recall, and the exam does not test recognition. This is exactly why Step 1 above puts the questions before the reading. If you find yourself reading first because it is more comfortable, that is the signal to stop and go answer questions instead.</p>
-                </div>
+            <h2>Part 3 &mdash; All Ten Performance-Based Questions</h2>
+            <p>Each chapter of Volume 2 ends with one. You have worked five across the term &mdash; Chapters 2, 4, 5, 6, and 9. Work the remaining five now, and redo the five you have already done.</p>
+            <div class="callout callout-info">
+                <div class="callout-title">Why All Ten, Again</div>
+                <div class="callout-content"><p>Performance-based questions on the real exam often appear first and consume the most time. They are also where candidates report the most surprise. Working all ten in one sitting shows you the range of formats and builds the one habit that matters most: reading the whole scenario before touching anything.</p></div>
             </div>
 
-            <div class="callout callout-tip">
-                <div class="callout-title">Before You Start</div>
-                <div class="callout-content">
-                    <p>Take the pre-assessment in 6.2 first if you have not already. It will tell you which of these four chapters deserves the most of your time. If troubleshooting came back weakest, Chapter 12 gets your best hours and your sharpest attention &mdash; read it when you are fresh, not last thing at night.</p>
-                </div>
+            <h2>Part 4 &mdash; The Assessment Test, Again</h2>
+            <p>You took the Volume 2 Assessment Test in the front matter during Unit 1, before you knew anything. Take it again now, closed-book, and compare.</p>
+            <p>This is not a graded measure and it is not the Final Study Exam. It is the clearest picture you will get of six weeks of work &mdash; the same questions, the same you, a different set of answers.</p>
+
+            <h2>Pacing Across Three Days</h2>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>By</th><th>Complete</th><th>Approx.</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Before Tuesday's class</strong></td><td>Chapter 7 &mdash; Windows troubleshooting and security troubleshooting sections</td><td>3 hrs</td></tr>
+                        <tr><td><strong>Tuesday evening</strong></td><td>Chapter 7 &mdash; malware removal and the two mobile sections; then its Review Questions and PBQ</td><td>3.5 hrs</td></tr>
+                        <tr><td><strong>Wednesday</strong></td><td>Chapter 8 &mdash; Remote Access and Artificial Intelligence, with its Review Questions and PBQ</td><td>2.5 hrs</td></tr>
+                        <tr><td><strong>Wednesday evening</strong></td><td>Second pass &mdash; Chapters 2 and 3</td><td>1.5 hrs</td></tr>
+                        <tr><td><strong>Thursday morning</strong></td><td>Second pass &mdash; Chapters 5 and 6</td><td>1.5 hrs</td></tr>
+                        <tr><td><strong>Thursday</strong></td><td>Remaining Performance-Based Questions and the Assessment Test retake</td><td>2 hrs</td></tr>
+                    </tbody>
+                </table>
             </div>
+
+            <h2>Note-Taking for a Troubleshooting Unit</h2>
+            <ul class="styled-list">
+                <li><strong>Build one symptom-to-cause sheet.</strong> Symptom on the left, first thing you would check on the right. That sheet is the unit.</li>
+                <li><strong>Write the malware steps from memory,</strong> in order, once a day until you can do it without hesitating. Ten items, three days, and an easy mark on the exam.</li>
+                <li><strong>Mark every Review Question you miss on the second pass</strong> with the unit it came from. Three misses from the same unit is where your remaining study time should go.</li>
+                <li><strong>Keep a "still shaky" list.</strong> One line per topic you do not trust yet. That list, not the textbook, is what you review the night before the real exam.</li>
+            </ul>
 
             <div class="callout callout-info">
-                <div class="callout-title">Submission</div>
-                <div class="callout-content">
-                    <p>Submit your completed Review Question responses for all four chapters through the Brightspace link for this section by the due date. Full credit requires your answers for every chapter plus your topic-level notes on what you missed. Work that falls short is returned for revision and resubmitted for full credit.</p>
-                </div>
+                <div class="callout-title">What Good Notes Look Like</div>
+                <div class="callout-content"><p>Reading notes are <strong>not graded</strong>. For this unit, aim for a symptom-to-cause sheet, the ten malware steps written from memory, your second-pass results marked by unit, and your "still shaky" list. Everything in this unit is due Thursday &mdash; see the Course Schedule.</p></div>
+            </div>
+
+            <div class="references-section">
+                <h3>Go Further</h3>
+                <ul>
+                    <li>Sybex online test bank &mdash; included with your book. This is the week to use the full practice exams in it, not just the chapter tests.</li>
+                    <li>CompTIA official 220-1202 exam objectives (comptia.org) &mdash; read the entire document start to finish once this unit. It takes twenty minutes and shows you what you still cannot explain.</li>
+                </ul>
             </div>
 
         </div>
 
         <footer class="module-footer">
-            <p class="footer-text">CompTIA A+ Core 1 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
+            <p class="footer-text">CompTIA A+ Core 2 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
         </footer>
     </div>
 </body>

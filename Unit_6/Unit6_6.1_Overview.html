@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unit 6 &mdash; 6.1 Unit Overview and Learning Objectives | CompTIA A+ Core 1</title>
+    <title>Unit 6 &mdash; 6.1 Unit Overview and Schedule | CompTIA A+ Core 2</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,7 +15,7 @@
     <style>
         /* ============================================
            CPCC COURSE TEMPLATE - GOLD / CHARCOAL / BLACK
-           CTS-ITS7501-80 CompTIA A+ Core 1 Training
+           CTS-ITS7501-80 CompTIA A+ Core 2 Training
            Type: true black. Accents: gold. Chrome: charcoal.
            ============================================ */
 
@@ -92,9 +92,6 @@
 
         .module-header {
             background: var(--primary-main); color: var(--text-black);
-            /* Reduced from var(--space-2xl) top/bottom (3rem) to var(--space-lg) (1.5rem) to cut excess
-               empty space in this card's title header. To revert, change padding back to:
-               padding: var(--space-2xl) var(--space-xl); */
             padding: var(--space-lg) var(--space-xl); position: relative; overflow: hidden;
         }
         .module-label {
@@ -147,6 +144,28 @@
         ul li::marker { color: var(--accent-teal); }
         ol li::marker { color: var(--accent-teal); font-weight: 700; }
 
+        .styled-list { list-style: none; padding-left: 0; }
+        .styled-list li { position: relative; padding-left: var(--space-lg); margin-bottom: var(--space-sm); }
+        .styled-list li::before { content: '\25B8'; position: absolute; left: 0; color: var(--accent-teal); font-weight: bold; }
+
+        .checklist { list-style: none; padding-left: 0; }
+        .checklist li { position: relative; padding-left: 2rem; margin-bottom: var(--space-sm); }
+        .checklist li::before {
+            content: '\2713'; position: absolute; left: 0; width: 1.5rem; height: 1.5rem;
+            background: var(--accent-green-light); color: var(--accent-green);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 0.75rem; font-weight: bold;
+        }
+
+        .objectives-box {
+            background: linear-gradient(135deg, var(--primary-pale) 0%, var(--accent-teal-light) 100%);
+            border-left: 5px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .objectives-box h3 { color: var(--text-black); margin-top: 0; margin-bottom: var(--space-md);
+            display: flex; align-items: center; gap: var(--space-sm); border-left: none; padding-left: 0; }
+        .objectives-box ol { margin-bottom: 0; }
+
         .tech-box {
             background: var(--neutral-100); border: 2px solid var(--neutral-500);
             border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
@@ -162,6 +181,7 @@
         .plain-box .callout-content { padding-left: 0; }
 
         .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; position: relative; overflow: hidden; }
+        .callout::before { position: absolute; top: var(--space-md); left: var(--space-md); font-size: 1.5rem; }
         .callout-title { font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 1rem;
             text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
         .callout-content { }
@@ -172,30 +192,21 @@
         .callout-danger { background: var(--alert-danger-bg); border-left: 4px solid var(--alert-danger); }
         .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
 
-        .objectives-box {
-            background: var(--primary-pale); border-left: 5px solid var(--primary-main);
-            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
-        }
-        .objectives-box h3 { margin-top: 0; border-left: none; padding-left: 0; color: var(--text-black); }
-        .objectives-box ol { margin-bottom: 0; }
-
         .key-concept {
             background: linear-gradient(135deg, var(--accent-purple-light) 0%, var(--white) 100%);
             border: 2px solid var(--accent-purple); border-radius: var(--radius-lg);
             padding: var(--space-lg); margin: var(--space-xl) 0 var(--space-lg); position: relative;
         }
         .key-concept::before {
-            content: 'KEY CONCEPT'; position: absolute; top: -12px; left: var(--space-lg);
+            content: '\1F511 KEY CONCEPT'; position: absolute; top: -12px; left: var(--space-lg);
             background: var(--accent-purple); color: var(--white); font-family: var(--font-heading), sans-serif;
             font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
             padding: var(--space-xs) var(--space-md); border-radius: var(--radius-sm);
         }
         .key-concept h4 { color: var(--text-black); margin-top: var(--space-sm); }
 
-        .definition {
-            background: var(--neutral-100); border-radius: var(--radius-md); padding: var(--space-lg);
-            margin: var(--space-md) 0; border-left: 4px solid var(--accent-orange);
-        }
+        .definition { background: var(--neutral-100); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin: var(--space-md) 0; border-left: 4px solid var(--accent-orange); }
         .definition-term { font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 1.125rem;
             color: var(--text-black); margin-bottom: var(--space-xs); }
         .definition-text { color: var(--text-black); margin-bottom: 0; }
@@ -224,18 +235,25 @@
             border: 2px dashed var(--accent-orange); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
         }
         .activity-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg); }
+        .activity-icon { width: 50px; height: 50px; background: var(--accent-orange); border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; }
         .activity-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700;
             color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
         .activity-subtitle { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
 
         .lab-section {
-            background: var(--white); border: 2px solid var(--primary-dark); border-radius: var(--radius-lg);
-            padding: var(--space-xl); margin: var(--space-xl) 0;
+            background: linear-gradient(135deg, var(--accent-teal-light) 0%, var(--white) 100%);
+            border: 2px solid var(--accent-teal); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
         }
-        .lab-header { padding-bottom: var(--space-md); margin-bottom: var(--space-lg); border-bottom: 2px solid var(--primary-dark); }
-        .lab-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700; color: var(--text-black); border-left: none; padding-left: 0; }
-        .lab-time { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
-        .lab-steps { list-style: none; counter-reset: lab-step; padding-left: 0; }
+        .lab-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg);
+            padding-bottom: var(--space-md); border-bottom: 2px solid var(--accent-teal); }
+        .lab-icon { width: 60px; height: 60px; background: var(--accent-teal); border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center; font-size: 1.75rem; flex-shrink: 0; }
+        .lab-title { font-family: var(--font-heading), sans-serif; font-size: 1.375rem; font-weight: 700;
+            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
+        .lab-time { font-size: 0.875rem; color: var(--neutral-500); margin: 0; display: flex; align-items: center; gap: var(--space-xs); }
+        .lab-time::before { content: '\23F1\FE0F'; }
+        .lab-steps { counter-reset: lab-step; list-style: none; padding-left: 0; }
         .lab-steps li { counter-increment: lab-step; position: relative; padding-left: 3rem; margin-bottom: var(--space-lg); }
         .lab-steps li::before {
             content: counter(lab-step); position: absolute; left: 0; width: 2rem; height: 2rem;
@@ -253,7 +271,6 @@
             padding: 2px 10px; border-radius: var(--radius-sm);
             text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); }
         .question-text { font-weight: 600; color: var(--text-black); margin-bottom: var(--space-md); }
-
         details.answer { margin-top: var(--space-sm); }
         details.answer summary { cursor: pointer; font-weight: 700; color: var(--text-black);
             font-family: var(--font-heading), sans-serif; font-size: 0.875rem;
@@ -264,85 +281,74 @@
         .references-section { background: var(--neutral-100); border-radius: var(--radius-lg);
             padding: var(--space-lg) var(--space-xl); margin: var(--space-xl) 0; border-top: 3px solid var(--primary-main); }
         .references-section h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .references-section ul { padding-left: var(--space-lg); }
 
-        .progress-bar { background: var(--neutral-300); border-radius: var(--radius-xl); height: 8px; overflow: hidden; margin: var(--space-lg) 0; }
-        .progress-fill { background: var(--primary-main); height: 100%; border-radius: var(--radius-xl); }
-        .progress-label { display: flex; justify-content: space-between; font-size: 0.875rem; color: var(--neutral-500); margin-bottom: var(--space-xs); }
+        .summary-box {
+            background: var(--primary-dark); color: var(--white);
+            border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .summary-box h3 { color: var(--white); margin-top: 0; display: flex; align-items: center;
+            gap: var(--space-sm); border-left: none; padding-left: 0; }
+        .summary-box h3::before { content: '\1F4CB'; }
+        .summary-box ul { margin-bottom: 0; }
+        .summary-box li { color: var(--white); }
+        .summary-box li::marker { color: var(--primary-light); }
 
-        .module-footer { background: var(--neutral-100); padding: var(--space-lg) var(--space-xl); text-align: center; border-top: 1px solid var(--neutral-300); }
-        .footer-text { font-size: 0.875rem; color: var(--neutral-500); }
+        .section-divider {
+            border: none; height: 6px; margin: var(--space-2xl) 0;
+            background: linear-gradient(90deg, transparent 0%, var(--primary-main) 15%, var(--primary-light) 50%, var(--primary-main) 85%, transparent 100%);
+            border-radius: var(--radius-sm); box-shadow: var(--shadow-sm);
+        }
+
+        .module-footer { background: var(--primary-dark); padding: var(--space-lg) var(--space-xl);
+            text-align: center; border-top: 4px solid var(--primary-main); }
+        .footer-text { font-size: 0.875rem; color: var(--white); margin: 0; }
 
         .text-center { text-align: center; }
         .text-muted { color: var(--neutral-500); }
-        .mt-sm { margin-top: var(--space-sm); } .mt-md { margin-top: var(--space-md); } .mt-lg { margin-top: var(--space-lg); }
-        .mb-sm { margin-bottom: var(--space-sm); } .mb-md { margin-bottom: var(--space-md); } .mb-lg { margin-bottom: var(--space-lg); }
-
-        /* Interactive quiz controls (pre-assessment / practice questions) */
-        .answer-option { display: block; width: 100%; text-align: left; padding: var(--space-sm) var(--space-md);
-            margin-bottom: var(--space-sm); border: 2px solid var(--neutral-300); border-radius: var(--radius-sm);
-            background: var(--white); cursor: pointer; font-family: var(--font-body), sans-serif; font-size: 1rem; color: var(--text-black); }
-        .answer-option:hover { border-color: var(--primary-main); }
-        .answer-option.selected { border-color: var(--primary-dark); background: var(--primary-pale); }
-        .answer-option.correct { border-color: var(--accent-green); background: var(--accent-green-light); }
-        .answer-option.incorrect { border-color: var(--alert-danger); background: var(--alert-danger-bg); }
-        .quiz-btn { font-family: var(--font-heading), sans-serif; font-weight: 700; padding: var(--space-sm) var(--space-xl);
-            border-radius: var(--radius-sm); border: 2px solid var(--primary-dark); background: var(--primary-dark); color: var(--white);
-            cursor: pointer; font-size: 0.95rem; margin-right: var(--space-sm); }
-        .quiz-btn:hover { background: #333333; }
-        .quiz-btn.secondary { background: var(--white); color: var(--primary-dark); }
-        .quiz-btn.secondary:hover { background: var(--neutral-100); }
-        #quizResults { display:none; background: var(--primary-pale); border: 2px solid var(--primary-main); border-radius: var(--radius-md);
-            padding: var(--space-lg); margin-top: var(--space-lg); text-align: center; font-family: var(--font-heading), sans-serif; }
-        #quizResults .score { font-size: 2rem; font-weight: 800; color: var(--text-black); }
+        .highlight { background: linear-gradient(180deg, transparent 50%, var(--primary-light) 50%); padding: 0 2px; }
 
         @media (max-width: 768px) {
+            body { padding: var(--space-sm); }
+            .module-header { padding: var(--space-xl) var(--space-lg); }
             .module-title { font-size: 1.75rem; }
             .content-area { padding: var(--space-lg); }
+            h2 { font-size: 1.375rem; }
+            .lab-header, .activity-header { flex-direction: column; align-items: flex-start; }
         }
-
-        .hv-diagrams { display: flex; gap: var(--space-lg); flex-wrap: wrap; margin: var(--space-lg) 0; }
-        .hv-diagram-col { flex: 1 1 300px; min-width: 280px; }
-        .hv-diagram-col p.hv-caption { text-align: center; font-family: var(--font-body), sans-serif; font-weight: 700; font-size: 0.9375rem; margin-top: var(--space-sm); color: var(--neutral-500); }
-        .hv-svg .hv-hw rect { fill: var(--neutral-100); stroke: var(--neutral-500); }
-        .hv-svg .hv-hw text { fill: var(--text-black); }
-        .hv-svg .hv-os rect { fill: #E3EEFA; stroke: #2F6FA8; }
-        .hv-svg .hv-os text { fill: #1B4A73; }
-        .hv-svg .hv-hv rect { fill: var(--primary-pale); stroke: var(--primary-main); }
-        .hv-svg .hv-hv text { fill: var(--text-black); }
-        .hv-svg .hv-vm rect { fill: #E0F2ED; stroke: #1D9E75; }
-        .hv-svg .hv-vm text { fill: #0F6E56; }
-        .hv-svg .hv-app rect { fill: #FDEFD9; stroke: #BA7517; }
-        .hv-svg .hv-app text { fill: #7A4B0E; }
-        .hv-svg .hv-data polygon { fill: #FBEAE7; stroke: #D85A30; }
-        .hv-svg .hv-data text { fill: #8C3A1D; }
-        .hv-svg rect, .hv-svg polygon { stroke-width: 1; }
-        .hv-svg text { font-family: var(--font-body), sans-serif; font-size: 13px; text-anchor: middle; dominant-baseline: central; }
+        @media print {
+            body { background: white; padding: 0; }
+            .course-container { box-shadow: none; }
+            .toc { display: none; }
+            details.answer { display: none; }
+        }
     </style>
 </head>
-
 <body>
     <div class="course-container">
 
         <header class="module-header">
-            <div class="module-label">Unit 6 &middot; Troubleshooting and Exam Readiness &middot; Section 6.1</div>
-            <h1 class="module-title">Unit Overview and Learning Objectives</h1>
-            <p class="module-subtitle">CompTIA A+ Core 1 &mdash; All Domains</p>
+            <div class="module-label">Unit 6 &middot; Software Troubleshooting and Exam Readiness &middot; Section 6.1</div>
+            <h1 class="module-title">Unit Overview and Schedule</h1>
+            <p class="module-subtitle">CompTIA A+ Core 2 - Domains 2.0, 3.0, and 4.0</p>
         </header>
 
-        <nav class="toc" id="tocNav">
+                <nav class="toc" id="tocNav">
             <div class="toc-header">Table of Contents</div>
-            <div class="toc-item current" id="tocCurrent">6.1 &mdash; Unit Overview and Learning Objectives</div>
+            <div class="toc-item current" id="tocCurrent">6.1 &mdash; Unit Overview and Schedule</div>
             <div class="toc-item">6.2 &mdash; Unit Pre-Assessment</div>
             <div class="toc-item">6.3 &mdash; Content Review</div>
             <div class="toc-item">6.4 &mdash; Reading Assignment</div>
             <div class="toc-item">6.5 &mdash; Video Assignment</div>
             <div class="toc-item">6.6 &mdash; Classroom Labs</div>
-            <div class="toc-item">6.7 &mdash; Practice Questions</div>
+            <div class="toc-item">6.7 &mdash; Practice Question Set</div>
             <div class="toc-item">6.8 &mdash; Online Labs: NETLAB</div>
             <div class="toc-item">6.9 &mdash; Reflection Activity</div>
             <div class="toc-item">6.10 &mdash; Unit Test</div>
+            <div class="toc-item">6.11 &mdash; Unit 6 Tickets</div>
+            <div class="toc-item">6.A.0 &mdash; Exam Readiness</div>
+            <div class="toc-item">6.A.1 &mdash; Final Study Exam</div>
         </nav>
-
         <style>
             /* Collapsible TOC: only the current section shows until clicked */
             nav.toc#tocNav { gap: 0; }
@@ -436,118 +442,154 @@
 
         <div class="content-area">
 
-            <p class="text-muted">What this week covers, what you will be able to do by the end of it, and how the three meetings fit together.</p>
+            <p class="text-muted">The final unit. Everything you have learned becomes a diagnosis: a user describes a symptom, and you decide what is wrong and what to do about it.</p>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">Three Days, Not Seven</div>
+                <div class="callout-content"><p>Unit 6 runs Tuesday through Thursday, and <strong>every remaining deadline is Thursday</strong>. There is no weekend at the end of this one. Work Section 6.A, Exam Readiness, alongside the rest of the unit rather than saving it for the end &mdash; it is the part that affects what happens after this course finishes.</p></div>
+            </div>
+
+            <div class="callout callout-info">
+                <div class="callout-title">Start With the Pre-Assessment</div>
+                <div class="callout-content"><p>The Section 6.2 Pre-Assessment is an independent activity you complete on your own, by the end of Tuesday. Do not study for it first. By now you know the drill, and by now you will recognize more of it than you expect &mdash; troubleshooting draws on all five previous units.</p></div>
+            </div>
+
+            <div class="objectives-box">
+                <h3>Learning Objectives</h3>
+                <p>After completing this unit, you will be able to:</p>
+                <ol>
+                    <li><strong>Apply</strong> CompTIA's best-practice procedure for malware removal, in order, to an infected system</li>
+                    <li><strong>Diagnose</strong> common Windows problems from their symptoms and select an appropriate resolution</li>
+                    <li><strong>Troubleshoot</strong> common mobile operating system and application issues</li>
+                    <li><strong>Troubleshoot</strong> mobile operating system and application security issues</li>
+                    <li><strong>Troubleshoot</strong> common security issues on workstations and browsers</li>
+                    <li><strong>Compare</strong> remote access technologies and select one appropriate to a situation</li>
+                    <li><strong>Explain</strong> the basics of artificial intelligence and apply responsible-use principles to AI tools in IT work</li>
+                    <li><strong>Judge</strong> competing diagnoses for a single set of symptoms and justify the one you would pursue first</li>
+                </ol>
+            </div>
 
             <div class="tech-box">
                 <div class="callout-title">Technical Overview</div>
                 <div class="callout-content">
-                    <p>Unit 6 is the integration week. There is no new domain introduced here. Instead, every objective from Domains 1.0 through 5.0 comes back at once, organized around the CompTIA troubleshooting methodology and the performance-based question format. The unit closes out the course with a second pass over the highest-weighted material and a final readiness check against the 220-1201 blueprint.</p>
+                    <p>Unit 6 addresses CompTIA A+ Core 2 (220-1202) Domain 3.0 Software Troubleshooting in full &mdash; objectives 3.1 (troubleshoot common Windows OS problems), 3.2 (troubleshoot common mobile OS and application issues), 3.3 (troubleshoot common mobile OS and application security issues), and 3.4 (troubleshoot common security issues) &mdash; together with Domain 2.0 objective 2.6 (best-practice procedures for malware removal) and Domain 4.0 objectives 4.9 (remote access technologies) and 4.10 (the basics of artificial intelligence).</p>
                 </div>
             </div>
 
             <div class="plain-box">
                 <div class="callout-title">In Plain Terms</div>
                 <div class="callout-content">
-                    <p>For five weeks you learned parts. This week you learn judgment. On the exam and on the job, nobody hands you a symptom already labeled &ldquo;this is a storage problem.&rdquo; You get a person telling you their computer is acting funny, and your job is to figure out which of five domains you are actually standing in before you touch anything. That skill is what separates a technician who fixes the machine from one who replaces parts until something works.</p>
+                    <p>Everything until now has been "here is how it works" and "here is how to set it up." This unit is "here is what the user says, now what?"</p>
+                    <p>That is the actual job. Nobody opens a ticket to tell you their computer is working. They tell you it is slow, or it will not start, or something strange appeared, and you have to turn that sentence into a cause.</p>
                 </div>
             </div>
 
-            <div class="objectives-box">
-                <h3>Learning Objectives</h3>
-                <p>By the end of this unit, you will be able to:</p>
-                <ol>
-                    <li>Apply the six-step troubleshooting methodology to an unfamiliar failure and justify why each step was taken in that order.</li>
-                    <li>Evaluate two competing diagnoses for the same symptom and defend the one the available evidence supports.</li>
-                    <li>Construct a complete repair plan for a multi-domain failure, from the first question you ask the user to the final documented outcome.</li>
-                    <li>Explain a diagnosis and its fix to a non-technical customer in language they can act on.</li>
-                    <li>Assess your own readiness domain by domain and direct your remaining study time to your weakest area.</li>
-                    <li>Work performance-based questions under exam conditions, including scenarios that award partial credit.</li>
-                </ol>
-            </div>
+            <h2>Why This Unit Comes Last</h2>
+            <p>Troubleshooting is placed at the end on purpose. You cannot recognize abnormal until you know normal, and the first five units are what normal looks like.</p>
+            <p>When a Windows machine will not boot, you are using Unit 1's installation and boot knowledge. When a profile takes four minutes to load, you reach for Unit 2's tools. When a laptop connects to Wi-Fi but reaches nothing, that is Unit 3. When a browser is redirecting, Units 4 and 5 tell you what kind of attack that is and which control failed. Nothing in this unit is new knowledge so much as new <em>use</em> of what you already have.</p>
+            <p><strong>Domain 3.0 is 23% of the exam</strong>, and this unit carries all of it.</p>
 
             <h2>Your Week at a Glance</h2>
-
             <div class="table-container">
                 <table>
-                    <thead><tr><th>Day</th><th>Class Period</th><th>Focus</th></tr></thead>
+                    <thead><tr><th>Day</th><th>Time</th><th>Focus</th><th>What You'll Do</th></tr></thead>
                     <tbody>
-                        <tr>
-                            <td><strong>Tuesday</strong></td>
-                            <td>10:00 AM &ndash; 1:00 PM</td>
-                            <td>Cumulative triage. Tickets pulled from all five domains, worked cold. Before diagnosing anything, you decide which domain the symptom actually lives in.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Wednesday</strong></td>
-                            <td>11:00 AM &ndash; 2:00 PM</td>
-                            <td>Methodology under pressure. Competing-diagnosis walkthroughs, evidence and elimination, and the customer explanation drill.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Thursday</strong></td>
-                            <td>10:00 AM &ndash; 1:00 PM</td>
-                            <td>Performance-based question work under exam conditions, final synthesis, and documentation practice.</td>
-                        </tr>
+                        <tr><td><strong>Tuesday</strong></td><td>10:00 AM &ndash; 1:00 PM</td><td>Experience</td><td>Ticket of the Day. Windows and security symptoms on real machines &mdash; diagnose before we name anything. Optional lab, time permitting: Troubleshooting Stations.</td></tr>
+                        <tr><td><strong>Wednesday</strong></td><td>11:00 AM &ndash; 2:00 PM</td><td>Experience &rarr; Concepts</td><td>Ticket of the Day. Then we name it &mdash; malware removal in order, Windows troubleshooting, mobile issues, security symptoms, remote access, and AI. Optional lab, time permitting: Malware Removal Sequencing.</td></tr>
+                        <tr><td><strong>Thursday</strong></td><td>10:00 AM &ndash; 1:00 PM</td><td>Application</td><td>Final class meeting. Ticket of the Day. The <strong>Final Study Exam</strong>. Optional lab, time permitting: Check the AI. Course wrap-up.</td></tr>
                     </tbody>
                 </table>
             </div>
 
-            <div class="callout callout-info">
-                <div class="callout-title">A Shorter Week, On Purpose</div>
+            <h2>Work Outside of Class</h2>
+            <p>Budget <strong>19 to 21 hours</strong> compressed into a short week. The new reading is lighter than usual; the second pass is what fills the time.</p>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Component</th><th>Time</th><th>Section</th></tr></thead>
+                    <tbody>
+                        <tr><td>Sybex Volume 2 new reading (114 pgs.)</td><td>8 &ndash; 9 hrs</td><td>6.4</td></tr>
+                        <tr><td>Second pass &mdash; Exam Essentials and Review Questions, Chapters 2, 3, 5, and 6</td><td>2 &ndash; 3 hrs</td><td>6.4</td></tr>
+                        <tr><td>All ten Volume 2 Performance-Based Questions</td><td>1.5 hrs</td><td>6.4</td></tr>
+                        <tr><td>Assessment Test retake</td><td>45 min</td><td>6.4</td></tr>
+                        <tr><td>Professor Messer videos (1 hr 26 min runtime), plus student-selected re-watching</td><td>2 &ndash; 3 hrs</td><td>6.5</td></tr>
+                        <tr><td>Take-home lab (ungraded)</td><td>1 &ndash; 1.5 hrs</td><td>6.6</td></tr>
+                        <tr><td>NETLAB online labs (2 labs)</td><td>1.5 &ndash; 2.5 hrs</td><td>6.8</td></tr>
+                        <tr><td>Practice questions and unit test</td><td>2.5 hrs</td><td>6.7, 6.10</td></tr>
+                        <tr><td>Reflection journal</td><td>1 hr</td><td>6.9</td></tr>
+                        <tr><td>Section 6.A Exam Readiness, including the Final Study Exam</td><td>2.5 &ndash; 3 hrs</td><td>6.A</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="callout callout-danger">
+                <div class="callout-title">This Is the Week to Front-Load</div>
                 <div class="callout-content">
-                    <p>This unit runs Tuesday through Thursday and carries the lightest new-content load of the course. That is deliberate. The work this week is consolidation, not accumulation. If you find yourself reaching for something you have not seen before, go back to the unit that introduced it rather than trying to learn it fresh here.</p>
+                    <p>A full week of work lands in three days. The students who finish this unit comfortably do the same three things:</p>
+                    <ul class="checklist">
+                        <li>Start the new reading before Tuesday's class, not after it</li>
+                        <li>Book both NETLAB labs for Tuesday or Wednesday</li>
+                        <li>Do the second pass in short sittings across all three days rather than one block on Wednesday night</li>
+                    </ul>
                 </div>
             </div>
 
             <div class="key-concept">
-                <h4>Where This Fits on the Exam</h4>
-                <p>Every prior unit covered a slice of the blueprint. This one covers the whole thing. Here is the full weighting you are preparing against:</p>
-                <div class="table-container">
-                    <table>
-                        <thead><tr><th>Domain</th><th>Weight</th><th>Where You Learned It</th></tr></thead>
-                        <tbody>
-                            <tr><td>1.0 Mobile Devices</td><td>13%</td><td>Unit 5</td></tr>
-                            <tr><td>2.0 Networking</td><td>23%</td><td>Units 3 and 4</td></tr>
-                            <tr><td>3.0 Hardware</td><td>25%</td><td>Units 1 and 2</td></tr>
-                            <tr><td>4.0 Virtualization and Cloud Computing</td><td>11%</td><td>Unit 5</td></tr>
-                            <tr><td>5.0 Hardware and Network Troubleshooting</td><td>28%</td><td>Every unit, and this one</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-                <p>Note the bottom row. Domain 5.0 is the largest single block on the exam, and it is the only domain that has appeared in every week of this course. That was not an accident in the course design, and it is not an accident in the exam blueprint either. Troubleshooting is the job.</p>
+                <h4>Section 6.A: Exam Readiness</h4>
+                <p>This unit carries an extra section that no other unit has. <strong>Section 6.A</strong> covers everything about taking the real 220-1202 exam: test-day rules at a Pearson VUE center and under OnVUE online proctoring, how the exam is structured, strategy for performance-based questions, test-taking skills, what candidates who passed consistently report, the <strong>Final Study Exam</strong>, and a final-week checklist that includes booking your exam and deciding when you are ready.</p>
+                <p>Everything in this course has been preparation for that decision. Section 6.A is where we make it.</p>
             </div>
 
-            <h2>How This Unit Is Built</h2>
+            <div class="callout callout-info">
+                <div class="callout-title">Where to Find Due Dates</div>
+                <div class="callout-content"><p>Every date and deadline for this course lives in one place: the <strong>Course Schedule</strong> in the Start Here module. Everything in this unit is due on Thursday.</p></div>
+            </div>
 
+            <h2>Exam Objectives Covered</h2>
             <div class="table-container">
                 <table>
-                    <thead><tr><th>Section</th><th>What It Does</th></tr></thead>
+                    <thead><tr><th>Objective</th><th>Title</th><th>Exam Weight of Parent Domain</th></tr></thead>
                     <tbody>
-                        <tr><td><strong>6.2 Pre-Assessment</strong></td><td>A cumulative check across all five domains. Its job is to tell you where to spend this week.</td></tr>
-                        <tr><td><strong>6.3 Content Review</strong></td><td>The methodology, then symptom-to-domain reading, then consolidated troubleshooting for hardware, output devices, mobile, and networking.</td></tr>
-                        <tr><td><strong>6.4 Reading Assignment</strong></td><td>A second pass over the review material in the highest-weighted chapters.</td></tr>
-                        <tr><td><strong>6.5 Video Assignment</strong></td><td>Study Group session recordings, selected against your own weak domains.</td></tr>
-                        <tr><td><strong>6.6 &ndash; 6.10</strong></td><td>Classroom work, practice, online labs, reflection, and the unit test.</td></tr>
+                        <tr><td><strong>2.6</strong></td><td>Best-practice procedures for malware removal</td><td>Domain 2.0 Security &mdash; 28%</td></tr>
+                        <tr><td><strong>3.1</strong></td><td>Troubleshoot common Microsoft Windows OS problems</td><td rowspan="4">Domain 3.0 Software Troubleshooting &mdash; 23%</td></tr>
+                        <tr><td><strong>3.2</strong></td><td>Troubleshoot common mobile OS and application issues</td></tr>
+                        <tr><td><strong>3.3</strong></td><td>Troubleshoot common mobile OS and application security issues</td></tr>
+                        <tr><td><strong>3.4</strong></td><td>Troubleshoot common security issues</td></tr>
+                        <tr><td><strong>4.9</strong></td><td>Remote access technologies</td><td rowspan="2">Domain 4.0 Operational Procedures &mdash; 21%</td></tr>
+                        <tr><td><strong>4.10</strong></td><td>The basics of artificial intelligence</td></tr>
                     </tbody>
                 </table>
             </div>
 
-            <div class="callout callout-tip">
-                <div class="callout-title">Getting Started</div>
-                <div class="callout-content">
-                    <p>Take the pre-assessment in 6.2 first, before reading anything else in this unit. Take it cold, with no notes and no looking anything up. A score you had to help yourself get tells you nothing useful, and the entire value of that section is the honest picture it gives you of which domain still needs work. Then read 6.3, then work the reading in 6.4 with your weakest domain in mind.</p>
-                </div>
+            <h2>How This Unit Is Graded</h2>
+            <p>Three things are graded: the <strong>NETLAB labs (6.8)</strong>, the <strong>reflection (6.9)</strong>, and the <strong>unit test (6.10)</strong>. Each is worth <strong>100 points</strong>, awarded in full when it meets the completion standard on that item's page. Work that falls short is returned for revision and resubmitted for full credit.</p>
+            <p>Everything else is ungraded, including the Final Study Exam. That exam is the most important ungraded thing you will do in this course &mdash; it is the number that tells you whether you are ready.</p>
+
+            <div class="key-concept">
+                <h4>Core 2 Passes at 700, Not 675</h4>
+                <p>One last time, because this is the week it stops being hypothetical. Core 1 passed at 675 out of 900. <strong>Core 2 passes at 700</strong>, which is about <strong>75% of raw points</strong>.</p>
+                <p>Compare your Final Study Exam scaled score against that number, and against your Unit 5 practice exam. The trend between the two tells you more than either one alone.</p>
             </div>
 
-            <div class="callout callout-warning">
-                <div class="callout-title">One Thing That Trips People Up</div>
-                <div class="callout-content">
-                    <p>Students who have done well all term often relax in the final week, because nothing here is new. The exam does not test whether you have seen the material. It tests whether you can retrieve it under time pressure, in an unfamiliar order, described in a stranger's words. That is a different skill, and this is the only week you get to practice it.</p>
-                </div>
+            <div class="summary-box">
+                <h3>Unit 6 Checklist</h3>
+                <ul>
+                    <li>Complete the Section 6.2 Pre-Assessment on your own by the end of Tuesday</li>
+                    <li>Read the new material and complete the second pass listed in Section 6.4</li>
+                    <li>Work all ten Volume 2 Performance-Based Questions and retake the Assessment Test</li>
+                    <li>Watch the seven Professor Messer videos in Section 6.5, plus anything you want to re-watch</li>
+                    <li>Complete the take-home lab in Section 6.6</li>
+                    <li>Work the Section 6.7 practice set until you score 10 out of 10</li>
+                    <li>Complete NDG A+ v5 Labs 16 and 15 in NETLAB &mdash; book them early in this short week</li>
+                    <li>Submit your Section 6.9 reflection</li>
+                    <li>Take the Section 6.10 Unit Test</li>
+                    <li>Work through Section 6.A, including the Final Study Exam</li>
+                </ul>
             </div>
 
         </div>
 
         <footer class="module-footer">
-            <p class="footer-text">CompTIA A+ Core 1 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
+            <p class="footer-text">CompTIA A+ Core 2 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
         </footer>
     </div>
 </body>

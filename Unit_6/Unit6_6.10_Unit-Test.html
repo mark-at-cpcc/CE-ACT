@@ -6,7 +6,7 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unit 6 &mdash; 6.10 Unit Test | CompTIA A+ Core 1</title>
+    <title>Unit 6 &mdash; 6.10 Unit Test | CompTIA A+ Core 2</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,7 +15,7 @@
     <style>
         /* ============================================
            CPCC COURSE TEMPLATE - GOLD / CHARCOAL / BLACK
-           CTS-ITS7501-80 CompTIA A+ Core 1 Training
+           CTS-ITS7501-80 CompTIA A+ Core 2 Training
            Type: true black. Accents: gold. Chrome: charcoal.
            ============================================ */
 
@@ -77,12 +77,9 @@
 
         body {
             font-family: var(--font-body), 'Segoe UI', Tahoma, Verdana, sans-serif;
-            font-size: 1.0625rem;
-            line-height: 1.7;
-            color: var(--text-black);
+            font-size: 1.0625rem; line-height: 1.7; color: var(--text-black);
             background: linear-gradient(135deg, var(--neutral-100) 0%, var(--white) 100%);
-            min-height: 100vh;
-            padding: var(--space-lg);
+            min-height: 100vh; padding: var(--space-lg);
         }
 
         .course-container {
@@ -92,9 +89,6 @@
 
         .module-header {
             background: var(--primary-main); color: var(--text-black);
-            /* Reduced from var(--space-2xl) top/bottom (3rem) to var(--space-lg) (1.5rem) to cut excess
-               empty space in this card's title header. To revert, change padding back to:
-               padding: var(--space-2xl) var(--space-xl); */
             padding: var(--space-lg) var(--space-xl); position: relative; overflow: hidden;
         }
         .module-label {
@@ -142,11 +136,6 @@
         a { color: var(--text-black); text-decoration: none; border-bottom: 2px solid var(--primary-main); transition: all 0.2s ease; }
         a:hover { background: var(--primary-pale); border-bottom-color: var(--accent-teal); }
 
-        ul, ol { margin-bottom: var(--space-md); padding-left: var(--space-lg); }
-        li { margin-bottom: var(--space-sm); }
-        ul li::marker { color: var(--accent-teal); }
-        ol li::marker { color: var(--accent-teal); font-weight: 700; }
-
         .tech-box {
             background: var(--neutral-100); border: 2px solid var(--neutral-500);
             border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
@@ -166,86 +155,17 @@
             text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
         .callout-content { }
         .callout-content p:last-child { margin-bottom: 0; }
-
         .callout-tip { background: var(--accent-green-light); border-left: 4px solid var(--accent-green); }
         .callout-warning { background: var(--alert-warning-bg); border-left: 4px solid var(--alert-warning); }
         .callout-danger { background: var(--alert-danger-bg); border-left: 4px solid var(--alert-danger); }
         .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
 
-        .objectives-box {
-            background: var(--primary-pale); border-left: 5px solid var(--primary-main);
-            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
-        }
-        .objectives-box h3 { margin-top: 0; border-left: none; padding-left: 0; color: var(--text-black); }
-        .objectives-box ol { margin-bottom: 0; }
+        .text-center { text-align: center; }
+        .text-muted { color: var(--neutral-500); }
+        .mt-sm { margin-top: var(--space-sm); } .mt-md { margin-top: var(--space-md); } .mt-lg { margin-top: var(--space-lg); }
+        .mb-sm { margin-bottom: var(--space-sm); } .mb-md { margin-bottom: var(--space-md); } .mb-lg { margin-bottom: var(--space-lg); }
 
-        .key-concept {
-            background: linear-gradient(135deg, var(--accent-purple-light) 0%, var(--white) 100%);
-            border: 2px solid var(--accent-purple); border-radius: var(--radius-lg);
-            padding: var(--space-lg); margin: var(--space-xl) 0 var(--space-lg); position: relative;
-        }
-        .key-concept::before {
-            content: 'KEY CONCEPT'; position: absolute; top: -12px; left: var(--space-lg);
-            background: var(--accent-purple); color: var(--white); font-family: var(--font-heading), sans-serif;
-            font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
-            padding: var(--space-xs) var(--space-md); border-radius: var(--radius-sm);
-        }
-        .key-concept h4 { color: var(--text-black); margin-top: var(--space-sm); }
-
-        .definition {
-            background: var(--neutral-100); border-radius: var(--radius-md); padding: var(--space-lg);
-            margin: var(--space-md) 0; border-left: 4px solid var(--accent-orange);
-        }
-        .definition-term { font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 1.125rem;
-            color: var(--text-black); margin-bottom: var(--space-xs); }
-        .definition-text { color: var(--text-black); margin-bottom: 0; }
-
-        code { font-family: var(--font-code), Consolas, monospace; font-size: 0.9rem; background: var(--primary-pale);
-            color: var(--text-black); padding: 2px 6px; border-radius: var(--radius-sm); }
-        pre { background: #2E2E2E; color: #f1ece0; padding: var(--space-lg); border-radius: var(--radius-md);
-            overflow-x: auto; margin: var(--space-lg) 0; position: relative; }
-        pre::before {
-            content: 'STEPS'; position: absolute; top: 0; right: 0; background: var(--primary-main); color: var(--text-black);
-            font-family: var(--font-heading), sans-serif; font-size: 0.625rem; font-weight: 700; letter-spacing: 1px;
-            padding: var(--space-xs) var(--space-sm); border-radius: 0 var(--radius-md) 0 var(--radius-sm);
-        }
-        pre code { background: transparent; color: inherit; padding: 0; font-size: 0.875rem; line-height: 1.6; }
-
-        .table-container { overflow-x: auto; margin: var(--space-lg) 0; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); }
-        table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
-        thead { background: var(--primary-dark); color: var(--white); }
-        th { font-family: var(--font-heading), sans-serif; font-weight: 700; text-align: left; padding: var(--space-md) var(--space-lg); color: var(--white); }
-        td { padding: var(--space-md) var(--space-lg); border-bottom: 1px solid var(--neutral-300); color: var(--text-black); }
-        tbody tr:hover { background: var(--primary-pale); }
-        tbody tr:last-child td { border-bottom: none; }
-
-        .activity-section {
-            background: linear-gradient(135deg, var(--accent-orange-light) 0%, var(--white) 100%);
-            border: 2px dashed var(--accent-orange); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
-        }
-        .activity-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg); }
-        .activity-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700;
-            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
-        .activity-subtitle { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
-
-        .lab-section {
-            background: var(--white); border: 2px solid var(--primary-dark); border-radius: var(--radius-lg);
-            padding: var(--space-xl); margin: var(--space-xl) 0;
-        }
-        .lab-header { padding-bottom: var(--space-md); margin-bottom: var(--space-lg); border-bottom: 2px solid var(--primary-dark); }
-        .lab-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700; color: var(--text-black); border-left: none; padding-left: 0; }
-        .lab-time { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
-        .lab-steps { list-style: none; counter-reset: lab-step; padding-left: 0; }
-        .lab-steps li { counter-increment: lab-step; position: relative; padding-left: 3rem; margin-bottom: var(--space-lg); }
-        .lab-steps li::before {
-            content: counter(lab-step); position: absolute; left: 0; width: 2rem; height: 2rem;
-            background: var(--accent-teal); color: var(--white); font-family: var(--font-heading), sans-serif; font-weight: 700;
-            border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.875rem;
-        }
-
-        .assessment-section { background: var(--primary-pale); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0; }
-        .assessment-header { text-align: center; margin-bottom: var(--space-xl); }
-        .assessment-header h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        /* Interactive quiz controls */
         .question-block { background: var(--white); border-radius: var(--radius-md); padding: var(--space-lg);
             margin-bottom: var(--space-lg); box-shadow: var(--shadow-sm); }
         .question-number { font-family: var(--font-heading), sans-serif; font-size: 0.75rem; font-weight: 700;
@@ -254,30 +174,6 @@
             text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); }
         .question-text { font-weight: 600; color: var(--text-black); margin-bottom: var(--space-md); }
 
-        details.answer { margin-top: var(--space-sm); }
-        details.answer summary { cursor: pointer; font-weight: 700; color: var(--text-black);
-            font-family: var(--font-heading), sans-serif; font-size: 0.875rem;
-            border-bottom: 2px solid var(--primary-main); display: inline-block; }
-        details.answer .reveal { margin-top: var(--space-sm); padding: var(--space-md);
-            background: var(--accent-green-light); border-radius: var(--radius-sm); color: var(--text-black); }
-
-        .references-section { background: var(--neutral-100); border-radius: var(--radius-lg);
-            padding: var(--space-lg) var(--space-xl); margin: var(--space-xl) 0; border-top: 3px solid var(--primary-main); }
-        .references-section h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
-
-        .progress-bar { background: var(--neutral-300); border-radius: var(--radius-xl); height: 8px; overflow: hidden; margin: var(--space-lg) 0; }
-        .progress-fill { background: var(--primary-main); height: 100%; border-radius: var(--radius-xl); }
-        .progress-label { display: flex; justify-content: space-between; font-size: 0.875rem; color: var(--neutral-500); margin-bottom: var(--space-xs); }
-
-        .module-footer { background: var(--neutral-100); padding: var(--space-lg) var(--space-xl); text-align: center; border-top: 1px solid var(--neutral-300); }
-        .footer-text { font-size: 0.875rem; color: var(--neutral-500); }
-
-        .text-center { text-align: center; }
-        .text-muted { color: var(--neutral-500); }
-        .mt-sm { margin-top: var(--space-sm); } .mt-md { margin-top: var(--space-md); } .mt-lg { margin-top: var(--space-lg); }
-        .mb-sm { margin-bottom: var(--space-sm); } .mb-md { margin-bottom: var(--space-md); } .mb-lg { margin-bottom: var(--space-lg); }
-
-        /* Interactive quiz controls (pre-assessment / practice questions) */
         .answer-option { display: block; width: 100%; text-align: left; padding: var(--space-sm) var(--space-md);
             margin-bottom: var(--space-sm); border: 2px solid var(--neutral-300); border-radius: var(--radius-sm);
             background: var(--white); cursor: pointer; font-family: var(--font-body), sans-serif; font-size: 1rem; color: var(--text-black); }
@@ -295,28 +191,13 @@
             padding: var(--space-lg); margin-top: var(--space-lg); text-align: center; font-family: var(--font-heading), sans-serif; }
         #quizResults .score { font-size: 2rem; font-weight: 800; color: var(--text-black); }
 
+        .module-footer { background: var(--neutral-100); padding: var(--space-lg) var(--space-xl); text-align: center; border-top: 1px solid var(--neutral-300); }
+        .footer-text { font-size: 0.875rem; color: var(--neutral-500); }
+
         @media (max-width: 768px) {
             .module-title { font-size: 1.75rem; }
             .content-area { padding: var(--space-lg); }
         }
-
-        .hv-diagrams { display: flex; gap: var(--space-lg); flex-wrap: wrap; margin: var(--space-lg) 0; }
-        .hv-diagram-col { flex: 1 1 300px; min-width: 280px; }
-        .hv-diagram-col p.hv-caption { text-align: center; font-family: var(--font-body), sans-serif; font-weight: 700; font-size: 0.9375rem; margin-top: var(--space-sm); color: var(--neutral-500); }
-        .hv-svg .hv-hw rect { fill: var(--neutral-100); stroke: var(--neutral-500); }
-        .hv-svg .hv-hw text { fill: var(--text-black); }
-        .hv-svg .hv-os rect { fill: #E3EEFA; stroke: #2F6FA8; }
-        .hv-svg .hv-os text { fill: #1B4A73; }
-        .hv-svg .hv-hv rect { fill: var(--primary-pale); stroke: var(--primary-main); }
-        .hv-svg .hv-hv text { fill: var(--text-black); }
-        .hv-svg .hv-vm rect { fill: #E0F2ED; stroke: #1D9E75; }
-        .hv-svg .hv-vm text { fill: #0F6E56; }
-        .hv-svg .hv-app rect { fill: #FDEFD9; stroke: #BA7517; }
-        .hv-svg .hv-app text { fill: #7A4B0E; }
-        .hv-svg .hv-data polygon { fill: #FBEAE7; stroke: #D85A30; }
-        .hv-svg .hv-data text { fill: #8C3A1D; }
-        .hv-svg rect, .hv-svg polygon { stroke-width: 1; }
-        .hv-svg text { font-family: var(--font-body), sans-serif; font-size: 13px; text-anchor: middle; dominant-baseline: central; }
     </style>
 </head>
 
@@ -324,25 +205,27 @@
     <div class="course-container">
 
         <header class="module-header">
-            <div class="module-label">Unit 6 &middot; Troubleshooting and Exam Readiness &middot; Section 6.10</div>
+            <div class="module-label">Unit 6 &middot; Software Troubleshooting and Exam Readiness &middot; Section 6.10</div>
             <h1 class="module-title">Unit Test</h1>
-            <p class="module-subtitle">CompTIA A+ Core 1 &mdash; All Domains</p>
+            <p class="module-subtitle">CompTIA A+ Core 2 - Domains 2.0, 3.0, and 4.0</p>
         </header>
 
-        <nav class="toc" id="tocNav">
+                <nav class="toc" id="tocNav">
             <div class="toc-header">Table of Contents</div>
-            <div class="toc-item">6.1 &mdash; Unit Overview and Learning Objectives</div>
+            <div class="toc-item">6.1 &mdash; Unit Overview and Schedule</div>
             <div class="toc-item">6.2 &mdash; Unit Pre-Assessment</div>
             <div class="toc-item">6.3 &mdash; Content Review</div>
             <div class="toc-item">6.4 &mdash; Reading Assignment</div>
             <div class="toc-item">6.5 &mdash; Video Assignment</div>
             <div class="toc-item">6.6 &mdash; Classroom Labs</div>
-            <div class="toc-item">6.7 &mdash; Practice Questions</div>
+            <div class="toc-item">6.7 &mdash; Practice Question Set</div>
             <div class="toc-item">6.8 &mdash; Online Labs: NETLAB</div>
             <div class="toc-item">6.9 &mdash; Reflection Activity</div>
             <div class="toc-item current" id="tocCurrent">6.10 &mdash; Unit Test</div>
+            <div class="toc-item">6.11 &mdash; Unit 6 Tickets</div>
+            <div class="toc-item">6.A.0 &mdash; Exam Readiness</div>
+            <div class="toc-item">6.A.1 &mdash; Final Study Exam</div>
         </nav>
-
         <style>
             /* Collapsible TOC: only the current section shows until clicked */
             nav.toc#tocNav { gap: 0; }
@@ -439,7 +322,7 @@
             <div class="tech-box">
                 <div class="callout-title">Test Format</div>
                 <div class="callout-content">
-                    <p>Each attempt draws 20 items covering every domain on the 220-1201 exam &mdash; mobile devices, networking, hardware, virtualization and cloud, and hardware and network troubleshooting &mdash; weighted to mirror how they are represented on the actual exam. Click an answer to select it, then click <strong>Grade My Answers</strong> to see your results.</p>
+                    <p>Each attempt draws 20 items from a 100-item pool covering this unit's objectives &mdash; malware removal, Windows troubleshooting, mobile OS and security troubleshooting, security issue troubleshooting, remote access, and artificial intelligence &mdash; weighted to mirror how they're represented on the actual 220-1202 exam. Answer choices are reshuffled every attempt. Click an answer to select it, then click <strong>Grade My Answers</strong> to see your results.</p>
                 </div>
             </div>
 
@@ -454,104 +337,83 @@
             <div class="callout callout-warning">
                 <div class="callout-title">Submit Your Proof of Completion</div>
                 <div class="callout-content">
-                    <p>Once you&rsquo;ve completed this activity, take a screenshot showing your final score and upload it to the appropriate submission link in Brightspace by the due date.</p>
+                    <p>Once you've completed this activity, take a screenshot showing your final score and upload it to the appropriate submission link in Brightspace by the due date. A screenshot is your only proof of completion &mdash; nothing here is automatically recorded, so don't close this page before you've captured and uploaded it.</p>
                 </div>
             </div>
 
-            <div class="assessment-section">
-                <div class="assessment-header">
-                    <h3>Unit 6 Cumulative Unit Test</h3>
-                    <p>Answer all 20 items, then grade your attempt.</p>
-                </div>
-                <div id="quizBody"></div>
-                <div class="text-center mt-lg">
-                    <button class="quiz-btn" onclick="gradeQuiz()">Grade My Answers</button>
-                    <button class="quiz-btn secondary" onclick="resetQuiz()">Reset &amp; Draw New Set</button>
-                </div>
-                <div id="quizResults">
-                    <div class="score" id="scoreDisplay"></div>
-                    <p id="scoreNote"></p>
-                </div>
+            <div id="quizArea"></div>
+
+            <div class="mt-lg">
+                <button class="quiz-btn" onclick="gradeQuiz()">Grade My Answers</button>
+                <button class="quiz-btn secondary" onclick="resetQuiz()">Reset</button>
+            </div>
+
+            <div id="quizResults">
+                <div>Your Score</div>
+                <div class="score" id="scoreDisplay">0 / 20</div>
+                <div id="scoreNote"></div>
+                <p class="text-muted mt-sm">Screenshot this score before leaving the page, and upload it to the submission link in Brightspace.</p>
             </div>
 
             <script>
-                const POOL = [{"dom": "1.0", "q": "Which display technology places a backlight behind a liquid crystal layer?", "opts": ["A plasma panel", "An IPS LCD panel", "An OLED panel", "An E-ink panel"], "correct": 1}, {"dom": "1.0", "q": "Which connector type attaches a laptop keyboard to the system board?", "opts": ["A Molex connector", "A SATA connector", "A barrel connector", "A ribbon cable"], "correct": 3}, {"dom": "1.0", "q": "Which laptop port carries charging, display output, and data on one connector?", "opts": ["HDMI", "RJ45", "USB-C", "USB-A"], "correct": 2}, {"dom": "1.0", "q": "A user wants to send a tablet screen to a conference display without cables. Which feature does this?", "opts": ["Device tethering", "Port forwarding", "Volume licensing", "Screen mirroring"], "correct": 3}, {"dom": "1.0", "q": "Which component converts touch gestures into input signals on a tablet?", "opts": ["The digitizer", "The inverter", "The backlight", "The bezel"], "correct": 0}, {"dom": "1.0", "q": "A phone shows no available networks and cannot place calls. Which setting is likely enabled?", "opts": ["Hotspot mode", "Data saver", "Airplane mode", "Wi-Fi calling"], "correct": 2}, {"dom": "1.0", "q": "Which laptop feature prevents cursor movement while the user is typing?", "opts": ["Pointer acceleration", "Palm rejection", "Gesture scrolling", "Tap to click"], "correct": 1}, {"dom": "1.0", "q": "A company requires that a lost phone can be erased without physical access. Which capability provides this?", "opts": ["Safe mode", "Remote wipe", "Local backup", "Screen pinning"], "correct": 1}, {"dom": "1.0", "q": "Which wireless technology pairs a headset to a phone over a short range?", "opts": ["Bluetooth", "Cellular data", "Satellite link", "Infrared beam"], "correct": 0}, {"dom": "1.0", "q": "A laptop panel stays dark while an attached external monitor works correctly. Which part is least likely at fault?", "opts": ["The display cable", "The panel backlight", "The graphics processor", "The display panel"], "correct": 2}, {"dom": "1.0", "q": "Which synchronization method stores mobile data with a provider rather than on a local machine?", "opts": ["Cloud synchronization", "Cable synchronization", "Local disk imaging", "Direct dock transfer"], "correct": 0}, {"dom": "1.0", "q": "A technician is about to open a laptop to replace memory. What must be done first?", "opts": ["Run a full disk integrity check", "Install the latest chipset drivers", "Disconnect power and battery", "Update the system firmware version"], "correct": 2}, {"dom": "1.0", "q": "Which storage standard is commonly used for an internal laptop drive that seats on the board?", "opts": ["PATA ribbon", "M.2 NVMe", "3.5-inch SATA", "5.25-inch bay"], "correct": 1}, {"dom": "2.0", "q": "Which port carries unencrypted web traffic by default?", "opts": ["80", "443", "8080", "21"], "correct": 0}, {"dom": "2.0", "q": "Which port is used for sending outbound mail between servers?", "opts": ["143", "993", "25", "110"], "correct": 2}, {"dom": "2.0", "q": "Which record type maps a host name to an IPv4 address?", "opts": ["An MX record", "A TXT record", "A CNAME record", "An A record"], "correct": 3}, {"dom": "2.0", "q": "Which record type identifies the mail servers responsible for a domain?", "opts": ["An MX record", "An A record", "A PTR record", "An SRV record"], "correct": 0}, {"dom": "2.0", "q": "How many bits make up an IPv6 address?", "opts": ["512", "128", "64", "256"], "correct": 1}, {"dom": "2.0", "q": "Which address range is reserved for private internal use?", "opts": ["10.0.0.0/8", "11.0.0.0/8", "9.0.0.0/8", "12.0.0.0/8"], "correct": 0}, {"dom": "2.0", "q": "Which device forwards frames based on hardware addresses within a single network?", "opts": ["A modem", "A switch", "A router", "A firewall"], "correct": 1}, {"dom": "2.0", "q": "Which twisted pair category is rated to carry 10 gigabit over short runs?", "opts": ["Cat 4", "Cat 6a", "Cat 3", "Cat 5"], "correct": 1}, {"dom": "2.0", "q": "Which connector terminates a twisted pair network cable?", "opts": ["RJ11", "BNC", "LC", "RJ45"], "correct": 3}, {"dom": "2.0", "q": "Which connector is used on fiber optic patch cables?", "opts": ["LC", "RJ45", "RJ11", "DB9"], "correct": 0}, {"dom": "2.0", "q": "Which wireless band offers longer range at lower throughput?", "opts": ["60 GHz", "2.4 GHz", "5.0 GHz", "6.0 GHz"], "correct": 1}, {"dom": "2.0", "q": "Which wireless security standard should be selected for a newly deployed network?", "opts": ["TKIP", "WPA3", "WEP", "WPA"], "correct": 1}, {"dom": "2.0", "q": "Which service translates many internal addresses to one public address at the network edge?", "opts": ["DHCP", "NTP", "NAT", "DNS"], "correct": 2}, {"dom": "2.0", "q": "Which protocol synchronizes clocks across network devices?", "opts": ["SMTP", "LDAP", "NTP", "SNMP"], "correct": 2}, {"dom": "2.0", "q": "Which protocol is used to monitor and manage network devices remotely?", "opts": ["NTP", "IMAP", "SNMP", "SMTP"], "correct": 2}, {"dom": "2.0", "q": "Which port is used by a directory services protocol in its unencrypted form?", "opts": ["143", "389", "443", "636"], "correct": 1}, {"dom": "2.0", "q": "Which utility verifies that a remote host responds on the network?", "opts": ["ipconfig", "netstat", "nslookup", "ping"], "correct": 3}, {"dom": "2.0", "q": "Which utility displays each hop along the path to a destination?", "opts": ["tracert", "ping", "arp", "netstat"], "correct": 0}, {"dom": "2.0", "q": "Which utility queries name resolution records directly from a resolver?", "opts": ["ipconfig", "nslookup", "netstat", "pathping"], "correct": 1}, {"dom": "2.0", "q": "Which internet connection type delivers service over existing telephone wiring?", "opts": ["Fiber", "Cellular", "DSL", "Cable"], "correct": 2}, {"dom": "2.0", "q": "Which internet connection type carries the highest latency of the common options?", "opts": ["DSL circuit", "Satellite", "Fiber optic", "Cable modem"], "correct": 1}, {"dom": "2.0", "q": "Which device gives wireless clients access to a wired network?", "opts": ["A signal repeater", "A media converter", "A patch panel", "An access point"], "correct": 3}, {"dom": "2.0", "q": "Which switch feature supplies electrical power to a connected device over the data cable?", "opts": ["Port mirroring sessions", "Spanning tree protocol", "Power over Ethernet", "Link aggregation groups"], "correct": 2}, {"dom": "3.0", "q": "Which memory technology transfers data twice per clock cycle?", "opts": ["EDO", "FPM", "DDR", "SDR"], "correct": 2}, {"dom": "3.0", "q": "Which memory feature detects and corrects single-bit errors?", "opts": ["ECC", "Dual channel", "Parity checking", "Registered buffering"], "correct": 0}, {"dom": "3.0", "q": "Which processor socket style places the pins on the socket rather than the chip?", "opts": ["LGA", "PGA", "BGA", "ZIF"], "correct": 0}, {"dom": "3.0", "q": "Which specification states how much heat a cooling solution must dissipate?", "opts": ["Operating core voltage", "Thermal design power", "Base clock multiplier", "External bus width"], "correct": 1}, {"dom": "3.0", "q": "Which interface provides the highest throughput for a solid state drive?", "opts": ["SATA III", "SATA II", "PATA", "NVMe"], "correct": 3}, {"dom": "3.0", "q": "Which array configuration uses striping with distributed parity?", "opts": ["RAID 0", "RAID 1", "RAID 10", "RAID 5"], "correct": 3}, {"dom": "3.0", "q": "Which array configuration combines mirroring with striping?", "opts": ["RAID 0", "RAID 10", "RAID 5", "RAID 6"], "correct": 1}, {"dom": "3.0", "q": "Which connector supplies main power to a modern desktop motherboard?", "opts": ["8-pin EPS", "6-pin PCIe", "4-pin Molex", "24-pin ATX"], "correct": 3}, {"dom": "3.0", "q": "Which connector typically supplies supplemental power to a graphics card?", "opts": ["15-pin SATA", "8-pin PCIe", "24-pin ATX", "4-pin fan"], "correct": 1}, {"dom": "3.0", "q": "Which firmware interface replaced the traditional startup firmware on modern boards?", "opts": ["UEFI", "CMOS", "POST", "ACPI"], "correct": 0}, {"dom": "3.0", "q": "Which component stores keys used for full disk encryption?", "opts": ["A firmware ROM", "A TPM module", "A CMOS battery", "A chipset bridge"], "correct": 1}, {"dom": "3.0", "q": "What does removing the CMOS battery accomplish?", "opts": ["It updates the firmware version", "It resets the network adapter", "It clears stored firmware settings", "It erases the system drive"], "correct": 2}, {"dom": "3.0", "q": "Which printer type uses a print head that strikes an inked ribbon?", "opts": ["Inkjet", "Thermal", "Impact", "Laser"], "correct": 2}, {"dom": "3.0", "q": "Which laser printing step removes residual toner from the drum surface?", "opts": ["Developing", "Cleaning", "Charging", "Fusing"], "correct": 1}, {"dom": "3.0", "q": "Which laser printer component applies heat and pressure to bond toner to paper?", "opts": ["The fuser", "The drum", "The transfer roller", "The pickup roller"], "correct": 0}, {"dom": "3.0", "q": "Which consumable is replaced most often on an inkjet printer?", "opts": ["The fuser unit", "The imaging drum", "The transfer belt", "The ink cartridge"], "correct": 3}, {"dom": "3.0", "q": "Which display connection carries analog video only?", "opts": ["HDMI", "DisplayPort", "USB-C", "VGA"], "correct": 3}, {"dom": "3.0", "q": "Which display specification states the number of pixels shown on screen?", "opts": ["Refresh rate", "Response time", "Aspect ratio", "Resolution"], "correct": 3}, {"dom": "3.0", "q": "Which expansion slot standard is used by current add-in cards?", "opts": ["ISA", "AGP", "PCIe", "PCI-X"], "correct": 2}, {"dom": "3.0", "q": "Which drive type uses flash storage with no moving parts?", "opts": ["An optical disc drive", "A magnetic tape drive", "A solid state drive", "A hard disk drive"], "correct": 2}, {"dom": "3.0", "q": "Which tool measures voltage on a power supply rail?", "opts": ["A cable crimper", "A multimeter", "A tone probe", "A punchdown tool"], "correct": 1}, {"dom": "3.0", "q": "Which practice protects components from electrostatic discharge during service?", "opts": ["A cotton work glove", "A grounded wrist strap", "A rubber floor mat", "A plastic parts tray"], "correct": 1}, {"dom": "3.0", "q": "Which motherboard form factor is the standard full-size desktop board?", "opts": ["Nano ITX", "ATX", "Mini ITX", "Micro ATX"], "correct": 1}, {"dom": "3.0", "q": "Which component provides temporary working storage that clears at power off?", "opts": ["System memory", "The hard drive", "The firmware chip", "The optical drive"], "correct": 0}, {"dom": "3.0", "q": "Which material sits between the processor and the heat sink to improve heat transfer?", "opts": ["Thermal paste", "A fan shroud", "A dust filter", "A drive caddy"], "correct": 0}, {"dom": "4.0", "q": "Which hypervisor type runs as an application on top of an existing operating system?", "opts": ["Type 1", "Type 0", "Type 3", "Type 2"], "correct": 3}, {"dom": "4.0", "q": "Which cloud deployment model dedicates infrastructure to a single organization?", "opts": ["Community", "Private", "Public", "Hybrid"], "correct": 1}, {"dom": "4.0", "q": "Which cloud deployment model shares infrastructure among organizations with common needs?", "opts": ["Private", "Public", "Distributed", "Community"], "correct": 3}, {"dom": "4.0", "q": "Which cloud characteristic lets users provision resources without contacting the provider?", "opts": ["Measured billing service", "Shared resource pooling", "Broad network access", "On-demand self-service"], "correct": 3}, {"dom": "4.0", "q": "Which component allocates physical resources to virtual machines?", "opts": ["The file system", "The hypervisor", "The guest agent", "The boot loader"], "correct": 1}, {"dom": "4.0", "q": "Which file represents a virtual machine's storage on the host?", "opts": ["A system page file", "A swap partition", "A master boot record", "A virtual disk file"], "correct": 3}, {"dom": "4.0", "q": "What does a virtual machine snapshot provide?", "opts": ["A revert point for changes", "A permanent archival backup", "A faster processor clock", "A larger memory allocation"], "correct": 0}, {"dom": "4.0", "q": "Which virtual network mode gives a guest an address on the physical network?", "opts": ["Internal", "Isolated", "Bridged", "Host-only"], "correct": 2}, {"dom": "4.0", "q": "Which virtual network mode allows a guest to communicate with the host only?", "opts": ["Bridged mode", "Routed mode", "External mode", "Host-only"], "correct": 3}, {"dom": "4.0", "q": "Which processor feature must be enabled in firmware to run virtual machines efficiently?", "opts": ["Automatic frequency boosting", "Secure boot enforcement", "Hardware virtualization support", "Simultaneous multithreading support"], "correct": 2}, {"dom": "4.0", "q": "Which model delivers a full desktop operating system to a user from a remote server?", "opts": ["SaaS", "PaaS", "IaaS", "DaaS"], "correct": 3}, {"dom": "5.0", "q": "Which step of the troubleshooting methodology comes first?", "opts": ["Test the theory", "Document findings", "Identify the problem", "Establish a theory"], "correct": 2}, {"dom": "5.0", "q": "Which activity belongs to the identify the problem step?", "opts": ["Replacing the power supply", "Writing the ticket summary", "Verifying the completed repair", "Asking the user what changed"], "correct": 3}, {"dom": "5.0", "q": "A technician tests a theory and it is confirmed. Which step comes next?", "opts": ["Document the outcome", "Verify full functionality", "Establish a plan of action", "Establish a new theory"], "correct": 2}, {"dom": "5.0", "q": "During which step are preventive measures put in place?", "opts": ["Test the probable cause theory", "Document findings and outcomes", "Verify full system functionality", "Identify the reported problem"], "correct": 2}, {"dom": "5.0", "q": "A workstation shows a blank screen while the power light blinks amber. What does this indicate?", "opts": ["A disconnected network cable", "An incorrect display input", "A power or hardware fault", "A failed operating system update"], "correct": 2}, {"dom": "5.0", "q": "A system completes its self-test but reports no bootable device. What should be checked first?", "opts": ["The configured keyboard layout", "Boot order and drive detection", "The installed antivirus product", "The attached monitor cable"], "correct": 1}, {"dom": "5.0", "q": "A computer emits a burning odor and shuts off. What is the correct first action?", "opts": ["Disconnect power immediately", "Restart it in safe mode", "Run a full memory test", "Update the system firmware"], "correct": 0}, {"dom": "5.0", "q": "Memory tests fail intermittently on a desktop. What should the technician try?", "opts": ["Reseat the system processor", "Replace the power supply", "Reset the firmware settings", "Test each module individually"], "correct": 3}, {"dom": "5.0", "q": "A laptop fan runs at full speed continuously. Which cause is most likely?", "opts": ["Blocked vents or dust buildup", "An unseated memory module", "A failing storage drive", "An incorrect display scaling"], "correct": 0}, {"dom": "5.0", "q": "A drive begins reporting self-monitoring errors. What should the technician do?", "opts": ["Increase the page file size", "Back up data and plan replacement", "Defragment the affected volume", "Reinstall the chipset driver"], "correct": 1}, {"dom": "5.0", "q": "One member drive fails in a mirrored array. What happens to the data?", "opts": ["It remains available on the mirror", "It is lost until restored", "It becomes permanently read-only", "It must be rebuilt from backup"], "correct": 0}, {"dom": "5.0", "q": "A monitor reports no signal while the computer is clearly running. What should be checked first?", "opts": ["The graphics driver version", "The power saving timeout", "The cable and selected input", "The display resolution setting"], "correct": 2}, {"dom": "5.0", "q": "A projected image looks washed out in a brightly lit room. Which factor is responsible?", "opts": ["A clogged intake air filter", "Insufficient projector brightness", "An incorrect aspect ratio", "A failed internal color wheel"], "correct": 1}, {"dom": "5.0", "q": "A laser printer produces completely blank pages. Which cause is most likely?", "opts": ["An incorrect paper size setting", "A worn paper pickup roller", "A failed fuser assembly", "An unseated toner cartridge"], "correct": 3}, {"dom": "5.0", "q": "Paper jams occur repeatedly at the same point inside a printer. What should be inspected?", "opts": ["The rollers and paper path", "The installed printer driver", "The network cable and port", "The configured print quality"], "correct": 0}, {"dom": "5.0", "q": "A printer produces garbled characters on every page from every host. What is the likely cause?", "opts": ["An incorrect or corrupt driver", "A low toner cartridge level", "A misaligned input paper tray", "A conflicting duplex setting"], "correct": 0}, {"dom": "5.0", "q": "A wireless client associates successfully but cannot reach any resource. What should be checked?", "opts": ["The wireless security type", "The configured channel width", "The adapter driver version", "Addressing and gateway settings"], "correct": 3}, {"dom": "5.0", "q": "Several users report slow file access in the afternoon but not in the morning. What does the pattern suggest?", "opts": ["An expired address lease", "A misconfigured default gateway", "Congestion during peak hours", "A failing switch uplink port"], "correct": 2}, {"dom": "5.0", "q": "One workstation cannot reach any network resource while its neighbors are unaffected. What is checked first?", "opts": ["The service provider circuit", "The wireless channel plan", "Its cable and link status", "The building distribution switch"], "correct": 2}, {"dom": "5.0", "q": "Connectivity drops intermittently for devices near a microwave oven. What is the cause?", "opts": ["A failed name resolution service", "An expired address lease", "An incorrect subnet mask", "Interference on the 2.4 GHz band"], "correct": 3}, {"dom": "5.0", "q": "A technician replaces a part and the symptom persists. What should happen next?", "opts": ["Document and close the ticket", "Verify full system functionality", "Replace the adjacent components", "Return to establishing a theory"], "correct": 3}, {"dom": "5.0", "q": "Why is documentation the final step of the methodology?", "opts": ["It builds a record for future issues", "It satisfies the ticket close requirement", "It confirms the repair was effective", "It notifies the user of completion"], "correct": 0}, {"dom": "5.0", "q": "A laptop runs hot and its case has bulged near the trackpad. What is the correct action?", "opts": ["Remove it from service immediately", "Continue charging it to full", "Apply pressure to reseat the panel", "Run a battery calibration cycle"], "correct": 0}, {"dom": "5.0", "q": "What does asking whether a problem follows the device or the location accomplish?", "opts": ["It determines the remaining warranty status", "It identifies the correct driver package", "It narrows the fault to hardware or infrastructure", "It satisfies the ticket documentation template"], "correct": 2}, {"dom": "5.0", "q": "A desktop powers on only after several attempts, then runs normally for hours. Which component is suspect?", "opts": ["The power supply", "The system memory", "The storage drive", "The cooling fan"], "correct": 0}, {"dom": "5.0", "q": "Which action confirms that a repair did not break something unrelated?", "opts": ["Rebooting the system one time", "Asking the user to report back later", "Recording the parts that were used", "Testing other functions before closing"], "correct": 3}, {"dom": "5.0", "q": "A newly installed graphics card produces no output and the system beeps at power-on. What should be checked?", "opts": ["That the card is seated and powered", "That the driver is the latest version", "That the refresh rate is supported", "That the operating system is current"], "correct": 0}, {"dom": "5.0", "q": "A user's files are inaccessible and firmware does not detect the drive at all. What does this indicate?", "opts": ["A physical or connection failure", "A corrupted partition table", "An unassigned drive letter", "A missing storage driver"], "correct": 0}];
-                /* Items drawn per domain, weighted to the published exam blueprint. */
-                const PLAN = { "1.0": 3, "2.0": 5, "3.0": 5, "4.0": 2, "5.0": 5 };
-
+                const POOL = [{"q": "Which log in Event Viewer is the first place to look after an unexpected restart?", "opts": ["The Setup log", "The Security log", "The Application log", "The System log"], "correct": 3}, {"q": "An application on a managed device begins requesting permissions unrelated to its function. How should this be treated?", "opts": ["As unexpected application behavior warranting investigation and possible removal", "As a routine update, requiring no action", "As a storage problem", "As a battery calibration issue"], "correct": 0}, {"q": "Why should remote sessions be logged and monitored?", "opts": ["Logs are required for the software license", "A remote connection nobody can account for is a security incident", "Logging improves connection speed", "Logs replace the need for encryption"], "correct": 1}, {"q": "A workstation is slow and its disk shows almost no free space. Which tool addresses this directly?", "opts": ["Device Manager", "Disk Cleanup", "Task Scheduler", "Certificate Manager"], "correct": 1}, {"q": "Which technology would a technician use to collect log files from a remote server for analysis?", "opts": ["File transfer software", "Video-conferencing software", "Desktop management software", "Content filtering"], "correct": 0}, {"q": "A phone's battery has visibly swollen. What is the correct response?", "opts": ["Store it in a sealed plastic bag in a drawer", "Continue using it until the battery fully fails", "Charge it fully to reset the battery calibration", "Remove the device from service immediately and dispose of the battery properly"], "correct": 3}, {"q": "What is the final step of any troubleshooting process, regardless of the fault?", "opts": ["Document what was found and what was done", "Reboot the machine", "Create a restore point", "Notify the vendor"], "correct": 0}, {"q": "A phone will not pair with a car's audio system. Which checks apply?", "opts": ["Whether the subnet mask is correct", "Whether NTFS permissions allow access", "Whether Bluetooth is enabled, in range, and the previous pairing is still stored", "Whether System Restore is enabled"], "correct": 2}, {"q": "Which statement about VNC is accurate?", "opts": ["It is a Windows-only protocol", "It provides cross-platform screen sharing and control", "It provides command-line access only", "It replaces the need for a VPN"], "correct": 1}, {"q": "Why do mobile security symptoms often go unreported by users?", "opts": ["Users cannot see data usage statistics", "Mobile devices do not display notifications", "Each one looks like ordinary aging or a billing quirk when seen alone", "Security symptoms only appear on desktops"], "correct": 2}, {"q": "A user reports low memory warnings. Which tool and setting should a technician examine?", "opts": ["Event Viewer's Security log only", "Disk Management and the partition style", "Task Manager's memory use and the page file configuration", "The router's UPnP setting"], "correct": 2}, {"q": "A technician finds the hosts file has been modified on a workstation experiencing redirection. What does this indicate?", "opts": ["Name resolution has been altered locally to redirect traffic", "The DNS server is offline", "The certificate store is corrupted", "The network adapter has failed"], "correct": 0}, {"q": "Why does intellectual property matter when AI-generated content is used at work?", "opts": ["Generated content is always public domain", "Generated content may carry licensing obligations or restrictions", "AI tools transfer copyright automatically", "Generated content cannot be stored on company systems"], "correct": 1}, {"q": "A corporate phone's files appear on a public file-sharing service. Which objective covers this and what is the first response?", "opts": ["Objective 3.3, and the incident should be escalated following the organization's procedure", "Objective 3.2, and the device should be reimaged quietly", "Objective 4.2, and a change request should be submitted", "Objective 2.9, and the device should be degaussed"], "correct": 0}, {"q": "What should a technician never do with an AI tool?", "opts": ["Use it to draft a ticket summary", "Use it for assistance during a certification exam", "Use it to explain an error message in plain language", "Use it to outline a script for later review"], "correct": 1}, {"q": "Which Windows environment allows a technician to run repair tools when Windows itself will not start?", "opts": ["Resource Monitor", "Task Manager", "The Windows Recovery Environment", "Indexing Options"], "correct": 2}, {"q": "Which consequence follows from using AI assistance during an online proctored certification exam?", "opts": ["A warning is issued and the exam continues", "The exam can be terminated and the result invalidated", "The score is reduced by a fixed percentage", "Nothing, provided the tool is not visible on camera"], "correct": 1}, {"q": "A technician must decide between restarting a service and rebooting a server during business hours. Which is preferred and why?", "opts": ["Reimaging, because it guarantees a fix", "Rebooting, because it clears more state", "Restarting the service, because it is the least disruptive action that could work", "Neither, because changes cannot be made during business hours"], "correct": 2}, {"q": "What is the final step of the malware removal procedure?", "opts": ["Reimage the system", "Enable System Restore and create a restore point", "Schedule scans and run updates", "Educate the end user"], "correct": 3}, {"q": "A managed phone cannot use AirDrop or NFC even though both are supported. What should a technician check?", "opts": ["Whether a configuration profile or policy restricts the feature", "Whether the screen lock is set to swipe", "Whether the device encryption key expired", "Whether the phone's clock has drifted"], "correct": 0}, {"q": "Which check distinguishes a genuine antivirus alert from a fake one?", "opts": ["Opening the security software directly rather than clicking the alert", "Clicking the alert to see what it says", "Rebooting and waiting for it to reappear", "Disabling the firewall temporarily"], "correct": 0}, {"q": "A user reports that a flashlight application requests access to contacts and location. What is this an example of?", "opts": ["A fake security warning", "Unexpected application behavior", "High network traffic", "A swollen battery"], "correct": 1}, {"q": "A tablet's screen stays in portrait regardless of orientation. What should be checked before suspecting hardware?", "opts": ["Whether the battery is swollen", "Whether rotation lock is enabled", "Whether storage is full", "Whether Bluetooth is paired"], "correct": 1}, {"q": "When is reimaging the appropriate response to an infection?", "opts": ["Only when the user requests it", "Whenever any malware is detected", "When removal cannot be trusted to be complete", "Only after three failed scans"], "correct": 2}, {"q": "Which investigation step is most useful when mobile security symptoms are suspected?", "opts": ["Checking the device's warranty status", "Replacing the screen protector", "Reviewing installed applications and the permissions each one holds", "Changing the wallpaper"], "correct": 2}, {"q": "A workstation produces a blue screen shortly after a new device was installed. What should a technician check first?", "opts": ["The amount of free disk space", "The driver for the recently installed device", "The browser's extensions", "The share permissions on the user's folder"], "correct": 1}, {"q": "Which technology provides encrypted command-line access to Linux systems and network devices?", "opts": ["Video conferencing", "RDP", "VNC", "SSH"], "correct": 3}, {"q": "Which question eliminates the largest number of possibilities at the start of a network-related Windows fault?", "opts": ["Does it affect one machine or all machines", "What is the machine's serial number", "How old is the operating system", "Which browser is installed"], "correct": 0}, {"q": "Which combination best protects remote administrative access to a server?", "opts": ["A VPN, multifactor authentication, and a least-privilege account", "An open port with a long password", "UPnP and port forwarding", "A shared administrator account"], "correct": 0}, {"q": "What makes altered or missing personal files a higher-priority symptom than pop-ups?", "opts": ["Pop-ups cannot be caused by malware", "It suggests data has already been affected, not just the user's experience", "Missing files always indicate hardware failure", "Pop-ups require immediate reimaging"], "correct": 1}, {"q": "A workstation reports that it is low on memory with only a few applications open. What should be checked in addition to Task Manager?", "opts": ["The page file configuration", "The SSID", "The NTFS inheritance setting", "The toner level"], "correct": 0}, {"q": "A workstation displays a stop code on a blue screen. What should the technician record?", "opts": ["The share permissions", "Only the time of day", "The user's password", "The stop code itself, for research and correlation with recent changes"], "correct": 3}, {"q": "Which scanning approach is recommended when malware prevents normal removal?", "opts": ["Scanning after disabling the firewall", "Scanning from a normal Windows session with the network connected", "Scanning from safe mode or a preinstallation environment", "Scanning only the user profile folder"], "correct": 2}, {"q": "Persistent notifications appear in the operating system advertising products. Which causes are most likely?", "opts": ["An incorrect subnet mask", "A failed CMOS battery", "Browser notification permissions granted to a hostile site, or adware", "Share permissions set too narrowly"], "correct": 2}, {"q": "Which symptom set is best explained by a device running out of storage?", "opts": ["Shutdowns under load with hot exhaust", "Certificate warnings and browser redirection", "Slow performance, failed updates, and applications that will not launch", "Authentication failures across the domain"], "correct": 2}, {"q": "A technician removes malware and returns the machine without speaking to the user. Which step was skipped, and what is the consequence?", "opts": ["End-user education, which makes a repeat infection likely", "Quarantine, which allows the infection to spread", "Remediation, which leaves the malware active", "Scheduling scans, which disables the antivirus"], "correct": 0}, {"q": "A system becomes unstable after a storage upgrade. Which causes should be considered first?", "opts": ["Share permissions", "Browser extensions", "Drivers, connections, and the health of the new storage", "Printer configuration"], "correct": 2}, {"q": "What is the second step, immediately after symptoms are verified?", "opts": ["Educate the end user", "Disable System Restore", "Remediate infected systems", "Quarantine infected systems"], "correct": 3}, {"q": "Why are scheduled scans and updates part of the removal procedure rather than optional afterwards?", "opts": ["They are required to re-enable System Restore", "They reduce the chance of the same machine being reinfected", "They remove the quarantine automatically", "They restore deleted user files"], "correct": 1}, {"q": "Which mobile hardening control would most have reduced the impact of a leaked-data incident?", "opts": ["A pop-up blocker", "Rotation lock", "Device encryption combined with managed profiles", "Disabling automatic updates"], "correct": 2}, {"q": "What distinguishes a device performance issue from a device security issue in the objectives?", "opts": ["Performance issues always include pop-ups", "Security issues only occur on corporate devices", "Performance issues only occur on older devices", "Security issues involve indicators such as unexpected behavior, data leakage, or unexplained traffic"], "correct": 3}, {"q": "Several USB devices stop working and Windows reports a controller resource warning. What is the most likely remedy?", "opts": ["Change the subnet mask", "Reinstall the operating system", "Disable System Restore", "Redistribute devices across controllers or use a powered hub"], "correct": 3}, {"q": "Which practice most directly reduces the risk of ransomware entering through remote access?", "opts": ["Broadcasting the SSID", "Enabling UPnP on the firewall", "Placing RDP behind a VPN and requiring multifactor authentication", "Disabling account lockout"], "correct": 2}, {"q": "What should a technician do with an AI-generated script before running it in production?", "opts": ["Run it immediately to save time", "Read it line by line and test it somewhere it cannot cause harm", "Share it with users to run themselves", "Schedule it as a recurring task"], "correct": 1}, {"q": "A phone no longer transfers files using NFC after being enrolled in corporate management. What should be checked?", "opts": ["Whether a configuration profile disables the feature", "Whether the SIM card is seated", "Whether the screen protector blocks the antenna", "Whether the device clock has drifted"], "correct": 0}, {"q": "A user reports sluggish performance on a Windows workstation. Which sequence of checks is most appropriate?", "opts": ["Clear the browser cache, then reinstall Windows", "Reimage, then investigate the cause", "Replace the memory, then check Task Manager", "Task Manager sorted by CPU and memory, then free disk space, then startup programs"], "correct": 3}, {"q": "Which practice reflects an organization's acceptable use policy for AI?", "opts": ["Allowing AI use during certification exams", "Prohibiting all documentation", "Requiring AI output to be used without review", "Defining which tools may be used for which tasks and data"], "correct": 3}, {"q": "Which symptom combination most strongly indicates ransomware rather than a disk fault?", "opts": ["A noisy fan", "A single corrupted document", "Slow boot times", "Mass file renaming plus a ransom note"], "correct": 3}, {"q": "Which practice best describes responsible AI use by a technician?", "opts": ["Use its output directly whenever it sounds confident", "Use it to draft, then verify against documentation before acting", "Use it only for tasks involving customer data", "Avoid it entirely under all circumstances"], "correct": 1}, {"q": "A service that an application depends on is not starting. Which two places should a technician check?", "opts": ["Device Manager and the printer queue", "Disk Cleanup and the Recycle Bin", "The browser's extension list and cache", "The Services snap-in for dependencies, and Event Viewer for the failure reason"], "correct": 3}, {"q": "Which single symptom is weakest on its own as evidence that a mobile device is compromised?", "opts": ["Leaked personal files", "Sluggish response time", "Unexpected application behavior", "Unexplained high network traffic"], "correct": 1}, {"q": "Which statement best describes the limitation of AI output for technical work?", "opts": ["It refuses to answer uncertain questions", "It is always accurate for IT topics", "It can only answer questions about hardware", "It is probable rather than verified, so it must be checked before being acted on"], "correct": 3}, {"q": "A user reports that an app will not close and the device is unresponsive to the back gesture. Which first action is appropriate?", "opts": ["Perform a remote wipe", "Factory reset the device", "Force the application closed, then restart the device if needed", "Replace the battery"], "correct": 2}, {"q": "A full-screen warning claiming the phone is infected appears while browsing. What is this most likely to be?", "opts": ["A genuine operating system alert", "A fake security warning delivered by a web page", "A carrier network notification", "A system update prompt"], "correct": 1}, {"q": "A workstation displays frequent pop-ups only inside one browser. Where should a technician look first?", "opts": ["The router's guest network", "The motherboard firmware", "The share permissions on the file server", "That browser's extensions and site notification permissions"], "correct": 3}, {"q": "Which symptom most directly suggests that data is being transmitted from a mobile device without the user's knowledge?", "opts": ["Rotation lock enabled", "A swollen battery", "High network traffic or an unexpected data-usage limit notification", "A failed application update"], "correct": 2}, {"q": "A pop-up claims the system is infected and offers a download to fix it. What is this?", "opts": ["A genuine Windows Defender notification", "A false alert designed to make the user install or pay for something", "A Microsoft Update prompt", "A certificate renewal notice"], "correct": 1}, {"q": "An application closes immediately on launch after an OS upgrade. Which cause is most likely?", "opts": ["The application is not compatible with the new OS version", "The screen lock timeout is too short", "The device is in airplane mode", "The SIM has been removed"], "correct": 0}, {"q": "A browser page on a phone displays a system-style warning demanding immediate action. What should the user be told?", "opts": ["It is a fake security warning; close the page and do not follow its instructions", "Follow its instructions to clean the device", "Factory reset the phone immediately", "Install the application it recommends"], "correct": 0}, {"q": "Which statement about safe mode in the removal procedure is correct?", "opts": ["Safe mode is only used before quarantine", "Safe mode disables anti-malware scanning", "Safe mode automatically removes all malware", "Much malware cannot run there, so scanning and removal succeed more often"], "correct": 3}, {"q": "A technician must update anti-malware definitions on a quarantined machine with no network access. What is a practical approach?", "opts": ["Download the offline definition files on another system and transfer them", "Reconnect the machine to the network temporarily", "Skip the update and scan with existing definitions", "Disable the anti-malware software"], "correct": 0}, {"q": "A single workstation shows certificate warnings on every site, and its clock is three years behind. What is the most likely cause?", "opts": ["The browser requires reinstallation", "Every certificate on the internet expired", "The incorrect system date is invalidating certificate checks", "The firewall is blocking certificate traffic"], "correct": 2}, {"q": "Which Event Viewer log records an application's crash details?", "opts": ["The Security log", "The System log", "The Application log", "The Forwarded Events log"], "correct": 2}, {"q": "A user's screen no longer rotates when the device is turned. What is the most likely cause?", "opts": ["Rotation lock is enabled, or the sensor has failed", "The battery is swollen", "The device needs a remote wipe", "Content filtering is blocking the display"], "correct": 0}, {"q": "A workstation shuts down unexpectedly and repeatedly. Which causes are most likely?", "opts": ["Overheating, a failing power supply, or a driver fault", "An expired certificate", "An incorrect default printer", "A full browser cache"], "correct": 0}, {"q": "What does reproducing a fault give a technician?", "opts": ["Permission to reimage the machine", "A reliable way to test whether a fix actually worked", "A reason to escalate immediately", "An automatic root cause"], "correct": 1}, {"q": "A technician must walk a user through a process the user has to perform themselves. Which technology fits best?", "opts": ["Video-conferencing software with screen sharing", "RDP", "SSH", "RMM"], "correct": 0}, {"q": "A workstation's clock drifts by several minutes each week and users are now failing to authenticate. Which causes apply?", "opts": ["The share permission on the home folder", "The default gateway setting", "The time service or its source, the CMOS battery, or domain time sync", "The browser's secure DNS setting"], "correct": 2}, {"q": "Which risk describes AI output reflecting patterns in the data it was trained on?", "opts": ["Bias", "Latency", "Packet loss", "Fragmentation"], "correct": 0}, {"q": "A machine takes far longer to reach the sign-in screen after a hardware change. Where should a technician look?", "opts": ["The browser cache", "Boot order and boot device settings", "The share permissions", "The printer queue"], "correct": 1}, {"q": "Which first step is appropriate when a machine is suspected of an active infection on a corporate network?", "opts": ["Clear the browser cache", "Run Windows Update", "Reimage it without notifying anyone", "Quarantine it by disconnecting from the network and notify as the organization requires"], "correct": 3}, {"q": "A workstation's files are intact but a text file demanding payment has appeared. Which action should come first?", "opts": ["Disconnect the machine from the network", "Pay the ransom to recover access", "Run Disk Cleanup", "Reset the browser's homepage"], "correct": 0}, {"q": "Which single question most often shortens a Windows troubleshooting call?", "opts": ["How much did this computer cost", "How old is this machine", "Which browser do you use", "What changed recently on this machine"], "correct": 3}, {"q": "A tablet reboots at random intervals. Which causes are plausible?", "opts": ["A full browser cache on a desktop", "An expired wireless certificate", "A disabled rotation lock", "Failing hardware, an OS fault, or a misbehaving application"], "correct": 3}, {"q": "Why is a system clock problem a plausible cause of a certificate warning?", "opts": ["Certificates are stored in the CMOS", "Certificate validity is checked against the system's current date and time", "The clock controls the browser's cache expiry", "Time sync disables secure DNS"], "correct": 1}, {"q": "Which pair of symptoms points to an application compatibility problem rather than a hardware fault?", "opts": ["An app that worked before an OS upgrade and now closes on launch", "Random reboots and a hot chassis", "A swollen battery and slow charging", "Bluetooth dropouts at range"], "correct": 0}, {"q": "Why should a technician verify whether a symptom affects one application, one user, or the whole machine?", "opts": ["It sets the change freeze window", "It is required by the licensing agreement", "It determines the warranty status", "It determines whether the cause is in the application, the profile, or the system"], "correct": 3}, {"q": "An application requests permissions that have nothing to do with its stated function. What is the appropriate action?", "opts": ["Factory reset the device", "Grant the permissions so the app works correctly", "Ignore it, since the app store vets all applications", "Investigate and, if unjustified, remove the application"], "correct": 3}, {"q": "Which security measures apply across all remote access technologies?", "opts": ["Degaussing and shredding", "Disabling System Restore and reimaging", "Encrypted protocols, multifactor authentication, least privilege, and session logging", "Rotation locks and locator applications"], "correct": 2}, {"q": "What is the most accurate description of what an AI chat tool does when asked a technical question?", "opts": ["It retrieves a verified answer from a certified database", "It searches official documentation and quotes it", "It calculates the answer from first principles", "It produces the most probable answer, which may or may not be correct"], "correct": 3}, {"q": "Which combination indicates overheating rather than a software fault?", "opts": ["Shutdowns under load, loud fans, and hot exhaust", "Pop-ups and browser redirection", "Certificate warnings", "Slow profile load on a domain"], "correct": 0}, {"q": "A heavily infected machine holds documents that exist nowhere else. What is the best sequence?", "opts": ["Restore the machine from its own restore points", "Wipe immediately to stop the infection spreading", "Leave the machine running and copy files over the network", "Recover and separately scan the documents, then wipe and restore from a known-good image"], "correct": 3}, {"q": "Which technology is used to deploy standardized software and configuration across a fleet of workstations?", "opts": ["VNC", "Desktop management software", "SSH", "Video conferencing"], "correct": 1}, {"q": "Which objective covers a mobile application that simply fails to launch, with no security indicators?", "opts": ["Objective 3.3, mobile security issues", "Objective 3.2, common mobile OS and application issues", "Objective 2.6, malware removal", "Objective 4.9, remote access"], "correct": 1}, {"q": "Why is least privilege applied to remote access accounts specifically?", "opts": ["Remote protocols cannot be encrypted", "Remote accounts cannot use passwords", "Least privilege is only relevant to local accounts", "A compromised remote account inherits whatever access it was granted"], "correct": 3}, {"q": "An application updates on one managed tablet but not another. Which difference is most likely?", "opts": ["The user's email signature", "The color of the device case", "The device's serial number", "Available storage or OS version on the failing device"], "correct": 3}, {"q": "Which approach best describes narrowing a fault efficiently?", "opts": ["Determine whether it affects this machine or all machines, this user or all users", "Change several settings at once to save time", "Reimage first and investigate later", "Replace hardware components in sequence"], "correct": 0}, {"q": "What is the first step in CompTIA's best-practice procedure for malware removal?", "opts": ["Disable System Restore", "Quarantine infected systems", "Investigate and verify malware symptoms", "Update anti-malware software"], "correct": 2}, {"q": "Which remote access technology provides full graphical control of a Windows system?", "opts": ["SSH", "RDP", "SFTP", "SNMP"], "correct": 1}, {"q": "A workstation will not start, and the technician needs repair tools before Windows loads. Which environment provides them?", "opts": ["Task Scheduler", "The Windows Recovery Environment", "Resource Monitor", "Disk Cleanup"], "correct": 1}, {"q": "Why are OS update failures treated as a potential security symptom?", "opts": ["Update failures indicate a failing drive", "Updates always fail on infected hardware", "Malware commonly blocks updates to prevent its own removal", "Updates require System Restore to be disabled"], "correct": 2}, {"q": "An application crashes on launch after a recent update. Which action is the least disruptive first step?", "opts": ["Reinstall Windows", "Reimage the workstation", "Repair or reinstall the application, or roll back its update", "Replace the hard drive"], "correct": 2}, {"q": "Which technology would an IT provider use to patch and monitor hundreds of client machines?", "opts": ["VNC", "RMM and MSP tooling", "Video conferencing", "File transfer software"], "correct": 1}, {"q": "What is the primary data privacy concern when using a public AI tool at work?", "opts": ["The tool requires administrative rights to run", "The tool consumes excessive network bandwidth", "Information pasted into the tool may leave the organization", "The tool disables the local firewall"], "correct": 2}, {"q": "A user reports that personal files from their phone have appeared elsewhere. Which objective does this fall under?", "opts": ["Mobile OS and application security issues", "Mobile OS and application performance issues", "Change management", "Backup and recovery"], "correct": 0}, {"q": "A workstation shows a desktop alert claiming its license has expired and demanding payment by gift card. What is this?", "opts": ["A Pearson VUE appointment reminder", "A genuine Microsoft licensing notice", "A social engineering attempt delivered as a desktop alert", "A certificate renewal prompt"], "correct": 2}, {"q": "A technician suspects a non-Microsoft service is causing instability at startup. Which tool isolates it?", "opts": ["System Configuration", "Disk Management", "Resource Monitor", "Event Viewer"], "correct": 0}, {"q": "A quarantined machine's anti-malware software will not update. What is the most likely explanation?", "opts": ["The system clock is set incorrectly", "The definitions are already current", "The malware is blocking updates to prevent its own removal", "The system requires a reboot before updating"], "correct": 2}, {"q": "A user cannot open a document and reports an application error. Which least-disruptive sequence is appropriate?", "opts": ["Reimage the workstation immediately", "Restart the application, then repair it, then reinstall it", "Replace the hard drive", "Reinstall Windows"], "correct": 1}, {"q": "Why is System Restore disabled before remediation rather than after?", "opts": ["Restore points consume the disk space needed for scanning", "Restore points prevent anti-malware definitions from updating", "System Restore blocks safe mode from loading", "Malware can hide in restore points and reinfect the system from them"], "correct": 3}];
                 let QUESTIONS = [];
-                let answers = {};
-                let graded = false;
-
-                function shuffle(arr) {
-                    const a = arr.slice();
-                    for (let i = a.length - 1; i > 0; i--) {
-                        const j = Math.floor(Math.random() * (i + 1));
-                        [a[i], a[j]] = [a[j], a[i]];
-                    }
-                    return a;
-                }
+                let answers = [];
 
                 function drawSet() {
-                    let picked = [];
-                    Object.keys(PLAN).forEach(function (dom) {
-                        const bucket = shuffle(POOL.filter(function (x) { return x.dom === dom; }));
-                        picked = picked.concat(bucket.slice(0, PLAN[dom]));
+                    const shuffled = POOL.slice().sort(() => Math.random() - 0.5);
+                    QUESTIONS = shuffled.slice(0, 20).map(item => {
+                        const order = item.opts.map((o, i) => i).sort(() => Math.random() - 0.5);
+                        return {q: item.q, opts: order.map(i => item.opts[i]), correct: order.indexOf(item.correct)};
                     });
-                    QUESTIONS = shuffle(picked);
-                    answers = {};
-                    graded = false;
+                    answers = new Array(QUESTIONS.length).fill(null);
                 }
 
                 function renderQuiz() {
-                    let html = '';
-                    QUESTIONS.forEach(function (item, qi) {
-                        html += '<div class="question-block">';
-                        html += '<div class="question-number">Question ' + (qi + 1) + '</div>';
-                        html += '<p class="question-text">' + item.q + '</p>';
-                        item.opts.forEach(function (opt, oi) {
-                            html += '<button class="answer-option" data-qi="' + qi + '" data-oi="' + oi + '" '
-                                 + 'onclick="selectAnswer(' + qi + ',' + oi + ')">'
-                                 + String.fromCharCode(65 + oi) + '. ' + opt + '</button>';
-                        });
-                        html += '</div>';
-                    });
-                    document.getElementById('quizBody').innerHTML = html;
+                    const area = document.getElementById('quizArea');
+                    area.innerHTML = QUESTIONS.map((item, qi) => {
+                        const opts = item.opts.map((opt, oi) =>
+                            `<button type="button" class="answer-option" data-qi="${qi}" data-oi="${oi}" onclick="selectAnswer(${qi}, ${oi})">${opt}</button>`
+                        ).join('');
+                        return `<div class="question-block">
+                            <div class="question-number">Question ${qi + 1} of ${QUESTIONS.length}</div>
+                            <p class="question-text">${item.q}</p>
+                            ${opts}
+                        </div>`;
+                    }).join('');
                 }
 
                 function selectAnswer(qi, oi) {
-                    if (graded) { return; }
                     answers[qi] = oi;
-                    document.querySelectorAll('[data-qi="' + qi + '"]').forEach(function (btn) {
+                    document.querySelectorAll(`[data-qi="${qi}"]`).forEach(btn => {
                         btn.classList.remove('selected');
+                        if (parseInt(btn.dataset.oi) === oi) btn.classList.add('selected');
                     });
-                    document.querySelector('[data-qi="' + qi + '"][data-oi="' + oi + '"]').classList.add('selected');
                 }
 
                 function gradeQuiz() {
-                    if (Object.keys(answers).length < QUESTIONS.length) {
-                        alert('Please answer all ' + QUESTIONS.length + ' questions before grading.');
+                    if (answers.includes(null)) {
+                        alert('Answer all 20 questions before grading.');
                         return;
                     }
-                    graded = true;
                     let score = 0;
-                    QUESTIONS.forEach(function (item, qi) {
+                    QUESTIONS.forEach((item, qi) => {
                         const correct = item.correct;
-                        document.querySelectorAll('[data-qi="' + qi + '"]').forEach(function (btn) {
+                        document.querySelectorAll(`[data-qi="${qi}"]`).forEach(btn => {
                             const oi = parseInt(btn.dataset.oi);
                             btn.classList.remove('selected');
-                            if (oi === correct) { btn.classList.add('correct'); }
-                            else if (oi === answers[qi]) { btn.classList.add('incorrect'); }
+                            if (oi === correct) btn.classList.add('correct');
+                            else if (oi === answers[qi]) btn.classList.add('incorrect');
                         });
-                        if (answers[qi] === correct) { score++; }
+                        if (answers[qi] === correct) score++;
                     });
                     document.getElementById('scoreDisplay').textContent = score + ' / ' + QUESTIONS.length;
                     const note = document.getElementById('scoreNote');
-                    if (score >= 16) { note.textContent = 'Strong result. Review any missed items, then you are done.'; }
-                    else if (score >= 12) { note.textContent = 'A passing-range result. Review your missed questions closely before moving on.'; }
-                    else { note.textContent = 'Not there yet \u2014 review the reading and videos for the objectives you missed, then try again.'; }
+                    if (score >= 16) note.textContent = 'Strong result. Review any missed items, then you are done.';
+                    else if (score >= 12) note.textContent = 'A passing-range result. Review your missed questions closely before moving on.';
+                    else note.textContent = 'Below where you want to be for exam day. Revisit 1.3 and 1.4 for the topics you missed, then try again.';
                     document.getElementById('quizResults').style.display = 'block';
-                    document.getElementById('quizResults').scrollIntoView({ behavior: 'smooth' });
+                    document.getElementById('quizResults').scrollIntoView({behavior: 'smooth'});
                 }
 
                 function resetQuiz() {
@@ -567,7 +429,7 @@
         </div>
 
         <footer class="module-footer">
-            <p class="footer-text">CompTIA A+ Core 1 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
+            <p class="footer-text">CompTIA A+ Core 2 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
         </footer>
     </div>
 </body>

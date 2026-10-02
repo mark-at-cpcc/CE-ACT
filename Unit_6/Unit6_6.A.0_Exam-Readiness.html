@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Unit 6 &mdash; 6.A.0 Exam Readiness | CompTIA A+ Core 2</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Sans+Pro:wght@400;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           CPCC COURSE TEMPLATE - GOLD / CHARCOAL / BLACK
+           CTS-ITS7501-80 CompTIA A+ Core 2 Training
+           Type: true black. Accents: gold. Chrome: charcoal.
+           ============================================ */
+
+        :root {
+            --primary-dark: #4A4A4A;       /* Charcoal - structural chrome only */
+            --primary-main: #B8962E;       /* Warm Gold - primary accent */
+            --primary-light: #D4AF56;      /* Light Gold */
+            --primary-pale: #FBF3DF;       /* Pale Gold wash */
+
+            --accent-teal: #8A6F1F;        /* Deep bronze-gold */
+            --accent-teal-light: #F3E9CE;  /* Pale bronze */
+            --accent-orange: #A9642A;      /* Warm rust */
+            --accent-orange-light: #F5E2CE;
+            --accent-purple: #6B5B3A;      /* Muted umber */
+            --accent-purple-light: #EFE6D2;
+            --accent-green: #4E7A51;
+            --accent-green-light: #DCEBDD;
+
+            --alert-warning: #B8862E;
+            --alert-warning-bg: #FBF0D9;
+            --alert-danger: #A13A3A;
+            --alert-danger-bg: #F6DEDE;
+            --alert-success: #3F6E42;
+            --alert-success-bg: #DCEBDD;
+            --alert-info: #6E5B2E;
+            --alert-info-bg: #F1E9D4;
+
+            --text-black: #000000;         /* All reading text */
+            --neutral-900: #000000;
+            --neutral-700: #000000;
+            --neutral-500: #5A5A5A;
+            --neutral-300: #D9D3C4;
+            --neutral-100: #FAF8F3;
+            --white: #ffffff;
+
+            --font-heading: 'Nunito', sans-serif;
+            --font-body: 'Source Sans Pro', sans-serif;
+            --font-code: 'Fira Code', monospace;
+
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+
+            --shadow-sm: 0 1px 2px rgba(74, 74, 74, 0.08);
+            --shadow-md: 0 4px 6px rgba(74, 74, 74, 0.12);
+            --shadow-lg: 0 10px 20px rgba(74, 74, 74, 0.15);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body), 'Segoe UI', Tahoma, Verdana, sans-serif;
+            font-size: 1.0625rem;
+            line-height: 1.7;
+            color: var(--text-black);
+            background: linear-gradient(135deg, var(--neutral-100) 0%, var(--white) 100%);
+            min-height: 100vh;
+            padding: var(--space-lg);
+        }
+
+        .course-container {
+            max-width: 950px; margin: 0 auto; background: var(--white);
+            border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); overflow: hidden;
+        }
+
+        .module-header {
+            background: var(--primary-main); color: var(--text-black);
+            padding: var(--space-lg) var(--space-xl); position: relative; overflow: hidden;
+        }
+        .module-label {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 0.875rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 2px; text-decoration: underline;
+            margin-bottom: var(--space-sm); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-title {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 2.25rem; font-weight: 800;
+            line-height: 1.2; margin-bottom: var(--space-md); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-subtitle { font-size: 1.125rem; max-width: 650px; position: relative; z-index: 1; color: var(--text-black); }
+
+        .toc {
+            display: flex; flex-direction: column; gap: var(--space-sm);
+            padding: var(--space-lg) var(--space-xl);
+            background: var(--primary-pale); border-bottom: 1px solid var(--neutral-300);
+        }
+        .toc-item {
+            width: 100%; text-align: left;
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 0.875rem;
+            color: var(--text-black); background: var(--white);
+            border: 2px solid var(--primary-main);
+            padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md);
+        }
+        .toc-item.current { background: var(--primary-main); }
+
+        .content-area { padding: var(--space-xl); }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif;
+            color: var(--text-black); line-height: 1.3; margin-bottom: var(--space-md);
+        }
+        h1 { font-size: 2rem; font-weight: 800; }
+        h2 { font-size: 1.625rem; font-weight: 700; padding-bottom: var(--space-sm);
+             border-bottom: 3px solid var(--primary-main); margin-top: var(--space-xl); margin-bottom: var(--space-lg); }
+        h3 { font-size: 1.375rem; font-weight: 700; margin-top: var(--space-lg);
+             padding-left: var(--space-sm); border-left: 4px solid var(--primary-main); }
+        h4 { font-size: 1.125rem; font-weight: 600; }
+
+        p { margin-bottom: var(--space-md); }
+        strong { font-weight: 700; color: var(--text-black); }
+        em { font-style: italic; color: var(--text-black); }
+
+        a { color: var(--text-black); text-decoration: none; border-bottom: 2px solid var(--primary-main); transition: all 0.2s ease; }
+        a:hover { background: var(--primary-pale); border-bottom-color: var(--accent-teal); }
+
+        ul, ol { margin-bottom: var(--space-md); padding-left: var(--space-lg); }
+        li { margin-bottom: var(--space-sm); }
+        ul li::marker { color: var(--accent-teal); }
+        ol li::marker { color: var(--accent-teal); font-weight: 700; }
+
+        .styled-list { list-style: none; padding-left: 0; }
+        .styled-list li { position: relative; padding-left: var(--space-lg); margin-bottom: var(--space-sm); }
+        .styled-list li::before { content: '\25B8'; position: absolute; left: 0; color: var(--accent-teal); font-weight: bold; }
+
+        .checklist { list-style: none; padding-left: 0; }
+        .checklist li { position: relative; padding-left: 2rem; margin-bottom: var(--space-sm); }
+        .checklist li::before {
+            content: '\2713'; position: absolute; left: 0; width: 1.5rem; height: 1.5rem;
+            background: var(--accent-green-light); color: var(--accent-green);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 0.75rem; font-weight: bold;
+        }
+
+        .objectives-box {
+            background: linear-gradient(135deg, var(--primary-pale) 0%, var(--accent-teal-light) 100%);
+            border-left: 5px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .objectives-box h3 { color: var(--text-black); margin-top: 0; margin-bottom: var(--space-md);
+            display: flex; align-items: center; gap: var(--space-sm); border-left: none; padding-left: 0; }
+        .objectives-box ol { margin-bottom: 0; }
+
+        .tech-box {
+            background: var(--neutral-100); border: 2px solid var(--neutral-500);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .tech-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .tech-box .callout-content { padding-left: 0; }
+
+        .plain-box {
+            background: var(--primary-pale); border: 2px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .plain-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .plain-box .callout-content { padding-left: 0; }
+
+        .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; position: relative; overflow: hidden; }
+        .callout::before { position: absolute; top: var(--space-md); left: var(--space-md); font-size: 1.5rem; }
+        .callout-title { font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 1rem;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
+        .callout-content { }
+        .callout-content p:last-child { margin-bottom: 0; }
+
+        .callout-tip { background: var(--accent-green-light); border-left: 4px solid var(--accent-green); }
+        .callout-warning { background: var(--alert-warning-bg); border-left: 4px solid var(--alert-warning); }
+        .callout-danger { background: var(--alert-danger-bg); border-left: 4px solid var(--alert-danger); }
+        .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
+
+        .key-concept {
+            background: linear-gradient(135deg, var(--accent-purple-light) 0%, var(--white) 100%);
+            border: 2px solid var(--accent-purple); border-radius: var(--radius-lg);
+            padding: var(--space-lg); margin: var(--space-xl) 0 var(--space-lg); position: relative;
+        }
+        .key-concept::before {
+            content: '\1F511 KEY CONCEPT'; position: absolute; top: -12px; left: var(--space-lg);
+            background: var(--accent-purple); color: var(--white); font-family: var(--font-heading), sans-serif;
+            font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-md); border-radius: var(--radius-sm);
+        }
+        .key-concept h4 { color: var(--text-black); margin-top: var(--space-sm); }
+
+        .definition { background: var(--neutral-100); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin: var(--space-md) 0; border-left: 4px solid var(--accent-orange); }
+        .definition-term { font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 1.125rem;
+            color: var(--text-black); margin-bottom: var(--space-xs); }
+        .definition-text { color: var(--text-black); margin-bottom: 0; }
+
+        code { font-family: var(--font-code), Consolas, monospace; font-size: 0.9rem; background: var(--primary-pale);
+            color: var(--text-black); padding: 2px 6px; border-radius: var(--radius-sm); }
+        pre { background: #2E2E2E; color: #f1ece0; padding: var(--space-lg); border-radius: var(--radius-md);
+            overflow-x: auto; margin: var(--space-lg) 0; position: relative; }
+        pre::before {
+            content: 'STEPS'; position: absolute; top: 0; right: 0; background: var(--primary-main); color: var(--text-black);
+            font-family: var(--font-heading), sans-serif; font-size: 0.625rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-sm); border-radius: 0 var(--radius-md) 0 var(--radius-sm);
+        }
+        pre code { background: transparent; color: inherit; padding: 0; font-size: 0.875rem; line-height: 1.6; }
+
+        .table-container { overflow-x: auto; margin: var(--space-lg) 0; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); }
+        table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
+        thead { background: var(--primary-dark); color: var(--white); }
+        th { font-family: var(--font-heading), sans-serif; font-weight: 700; text-align: left; padding: var(--space-md) var(--space-lg); color: var(--white); }
+        td { padding: var(--space-md) var(--space-lg); border-bottom: 1px solid var(--neutral-300); color: var(--text-black); }
+        tbody tr:hover { background: var(--primary-pale); }
+        tbody tr:last-child td { border-bottom: none; }
+
+        .activity-section {
+            background: linear-gradient(135deg, var(--accent-orange-light) 0%, var(--white) 100%);
+            border: 2px dashed var(--accent-orange); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .activity-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg); }
+        .activity-icon { width: 50px; height: 50px; background: var(--accent-orange); border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; }
+        .activity-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700;
+            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
+        .activity-subtitle { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
+
+        .lab-section {
+            background: linear-gradient(135deg, var(--accent-teal-light) 0%, var(--white) 100%);
+            border: 2px solid var(--accent-teal); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .lab-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg);
+            padding-bottom: var(--space-md); border-bottom: 2px solid var(--accent-teal); }
+        .lab-icon { width: 60px; height: 60px; background: var(--accent-teal); border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center; font-size: 1.75rem; flex-shrink: 0; }
+        .lab-title { font-family: var(--font-heading), sans-serif; font-size: 1.375rem; font-weight: 700;
+            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
+        .lab-time { font-size: 0.875rem; color: var(--neutral-500); margin: 0; display: flex; align-items: center; gap: var(--space-xs); }
+        .lab-time::before { content: '\23F1\FE0F'; }
+        .lab-steps { counter-reset: lab-step; list-style: none; padding-left: 0; }
+        .lab-steps li { counter-increment: lab-step; position: relative; padding-left: 3rem; margin-bottom: var(--space-lg); }
+        .lab-steps li::before {
+            content: counter(lab-step); position: absolute; left: 0; width: 2rem; height: 2rem;
+            background: var(--accent-teal); color: var(--white); font-family: var(--font-heading), sans-serif; font-weight: 700;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.875rem;
+        }
+
+        .assessment-section { background: var(--primary-pale); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0; }
+        .assessment-header { text-align: center; margin-bottom: var(--space-xl); }
+        .assessment-header h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .question-block { background: var(--white); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin-bottom: var(--space-lg); box-shadow: var(--shadow-sm); }
+        .question-number { font-family: var(--font-heading), sans-serif; font-size: 0.75rem; font-weight: 700;
+            color: var(--text-black); background: var(--primary-main); display: inline-block;
+            padding: 2px 10px; border-radius: var(--radius-sm);
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); }
+        .question-text { font-weight: 600; color: var(--text-black); margin-bottom: var(--space-md); }
+        details.answer { margin-top: var(--space-sm); }
+        details.answer summary { cursor: pointer; font-weight: 700; color: var(--text-black);
+            font-family: var(--font-heading), sans-serif; font-size: 0.875rem;
+            border-bottom: 2px solid var(--primary-main); display: inline-block; }
+        details.answer .reveal { margin-top: var(--space-sm); padding: var(--space-md);
+            background: var(--accent-green-light); border-radius: var(--radius-sm); color: var(--text-black); }
+
+        .references-section { background: var(--neutral-100); border-radius: var(--radius-lg);
+            padding: var(--space-lg) var(--space-xl); margin: var(--space-xl) 0; border-top: 3px solid var(--primary-main); }
+        .references-section h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .references-section ul { padding-left: var(--space-lg); }
+
+        .summary-box {
+            background: var(--primary-dark); color: var(--white);
+            border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .summary-box h3 { color: var(--white); margin-top: 0; display: flex; align-items: center;
+            gap: var(--space-sm); border-left: none; padding-left: 0; }
+        .summary-box h3::before { content: '\1F4CB'; }
+        .summary-box ul { margin-bottom: 0; }
+        .summary-box li { color: var(--white); }
+        .summary-box li::marker { color: var(--primary-light); }
+
+        .section-divider {
+            border: none; height: 6px; margin: var(--space-2xl) 0;
+            background: linear-gradient(90deg, transparent 0%, var(--primary-main) 15%, var(--primary-light) 50%, var(--primary-main) 85%, transparent 100%);
+            border-radius: var(--radius-sm); box-shadow: var(--shadow-sm);
+        }
+
+        .module-footer { background: var(--primary-dark); padding: var(--space-lg) var(--space-xl);
+            text-align: center; border-top: 4px solid var(--primary-main); }
+        .footer-text { font-size: 0.875rem; color: var(--white); margin: 0; }
+
+        .text-center { text-align: center; }
+        .text-muted { color: var(--neutral-500); }
+        .highlight { background: linear-gradient(180deg, transparent 50%, var(--primary-light) 50%); padding: 0 2px; }
+
+        @media (max-width: 768px) {
+            body { padding: var(--space-sm); }
+            .module-header { padding: var(--space-xl) var(--space-lg); }
+            .module-title { font-size: 1.75rem; }
+            .content-area { padding: var(--space-lg); }
+            h2 { font-size: 1.375rem; }
+            .lab-header, .activity-header { flex-direction: column; align-items: flex-start; }
+        }
+        @media print {
+            body { background: white; padding: 0; }
+            .course-container { box-shadow: none; }
+            .toc { display: none; }
+            details.answer { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="course-container">
+
+        <header class="module-header">
+            <div class="module-label">Unit 6 &middot; Software Troubleshooting and Exam Readiness &middot; Section 6.A.0</div>
+            <h1 class="module-title">Exam Readiness</h1>
+            <p class="module-subtitle">CompTIA A+ Core 2 - Preparing for Exam 220-1202</p>
+        </header>
+
+                <nav class="toc" id="tocNav">
+            <div class="toc-header">Table of Contents</div>
+            <div class="toc-item">6.1 &mdash; Unit Overview and Schedule</div>
+            <div class="toc-item">6.2 &mdash; Unit Pre-Assessment</div>
+            <div class="toc-item">6.3 &mdash; Content Review</div>
+            <div class="toc-item">6.4 &mdash; Reading Assignment</div>
+            <div class="toc-item">6.5 &mdash; Video Assignment</div>
+            <div class="toc-item">6.6 &mdash; Classroom Labs</div>
+            <div class="toc-item">6.7 &mdash; Practice Question Set</div>
+            <div class="toc-item">6.8 &mdash; Online Labs: NETLAB</div>
+            <div class="toc-item">6.9 &mdash; Reflection Activity</div>
+            <div class="toc-item">6.10 &mdash; Unit Test</div>
+            <div class="toc-item">6.11 &mdash; Unit 6 Tickets</div>
+            <div class="toc-item current" id="tocCurrent">6.A.0 &mdash; Exam Readiness</div>
+            <div class="toc-item">6.A.1 &mdash; Final Study Exam</div>
+        </nav>
+        <style>
+            /* Collapsible TOC: only the current section shows until clicked */
+            nav.toc#tocNav { gap: 0; }
+            nav.toc#tocNav .toc-item {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav .toc-item.current {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                cursor: pointer;
+            }
+            nav.toc#tocNav .toc-item.current::after {
+                content: ' \25BE Click to View';
+                font-size: 0.75em;
+            }
+            nav.toc#tocNav.toc-expanded .toc-item {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                margin-bottom: var(--space-sm);
+            }
+            nav.toc#tocNav.toc-expanded .toc-item.current::after { content: ' \25B4'; }
+
+            nav.toc#tocNav .toc-header {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                font-family: var(--font-heading), 'Segoe UI', sans-serif;
+                font-weight: 700;
+                font-size: 0.875rem;
+                text-align: left;
+                color: var(--text-black);
+                text-decoration: underline;
+                background: var(--primary-main);
+                border-radius: var(--radius-md);
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav.toc-expanded .toc-header {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                padding-left: var(--space-md);
+                border-width: 2px;
+                border-style: solid;
+                border-color: var(--primary-main);
+                margin-bottom: var(--space-sm);
+            }
+        </style>
+
+        <script>
+            (function () {
+                var toc = document.getElementById('tocNav');
+                var currentItem = document.getElementById('tocCurrent');
+
+                toc.addEventListener('click', function (e) {
+                    if (toc.classList.contains('toc-expanded')) {
+                        toc.classList.remove('toc-expanded');
+                    } else if (e.target === currentItem || currentItem.contains(e.target)) {
+                        toc.classList.add('toc-expanded');
+                    }
+                });
+
+                toc.addEventListener('mouseleave', function () {
+                    toc.classList.remove('toc-expanded');
+                });
+            })();
+        </script>
+
+        <div class="content-area">
+
+            <p class="text-muted">Everything about taking the real 220-1202 exam: what to study between now and then, the rules on exam day, how the exam works, how to approach it, what passing candidates report, and the checklist for your final week.</p>
+
+            <div class="callout callout-danger">
+                <div class="callout-title">Read the Brain Dump Section Before Anything Else</div>
+                <div class="callout-content"><p>The single fastest way to destroy a career in IT before it starts is to study from stolen exam content. Section A below explains what that means, how to recognize it, and what happens to people who use it. Read it even if you are certain it does not apply to you &mdash; most people who get caught did not know what they were looking at.</p></div>
+            </div>
+
+            <h2>Section A &mdash; Brain Dumps: Never, Under Any Circumstances</h2>
+
+            <div class="definition">
+                <div class="definition-term">Brain dump</div>
+                <p class="definition-text">Actual exam questions and answers, reproduced from memory by people who sat the exam, or obtained by other unauthorized means, and then shared or sold. Any material that reproduces live certification exam content is a brain dump, whatever it calls itself.</p>
+            </div>
+
+            <p>CompTIA's Candidate Agreement &mdash; which <strong>you will be required to accept before your exam begins</strong> &mdash; prohibits this absolutely. Not discouraged. Not frowned upon. Prohibited, with consequences that follow you.</p>
+
+            <div class="callout callout-danger">
+                <div class="callout-title">What Happens to People Who Use Them</div>
+                <div class="callout-content">
+                    <ul class="checklist">
+                        <li><strong>Your score is invalidated.</strong> Not reduced &mdash; cancelled, including an exam you passed legitimately years earlier.</li>
+                        <li><strong>Every CompTIA certification you hold can be revoked.</strong> A+, Network+, Security+ &mdash; all of them, not just the one in question.</li>
+                        <li><strong>You can be banned from testing,</strong> for a period of years or permanently.</li>
+                        <li><strong>Your employer can be notified.</strong> If a job offer or a promotion depended on the certification, it depends on a certification that no longer exists.</li>
+                        <li><strong>Legal action is possible.</strong> Exam content is copyrighted. Distributing it is infringement, and CompTIA has pursued it.</li>
+                        <li><strong>It is permanent and public.</strong> A revoked certification cannot be quietly re-earned; verification systems show the status.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Why This Matters More Than the Rule</h3>
+            <p>Set the penalties aside for a moment. The practical problem with a brain dump is that <strong>it does not work, and it is not supposed to work for you</strong>.</p>
+            <ul class="styled-list">
+                <li><strong>CompTIA changes exam items continuously</strong> and uses statistical analysis to detect candidates whose answer patterns match known leaked content. Memorizing a stolen set is an excellent way to be flagged.</li>
+                <li><strong>Much of what is sold is wrong.</strong> Dump sites are not quality-controlled. People fail exams having memorized confidently incorrect answers.</li>
+                <li><strong>Performance-based questions cannot be memorized.</strong> They ask you to do something. If you cannot, no memorized answer key helps.</li>
+                <li><strong>The certification is a claim about you.</strong> A+ tells an employer you can fix things. If you got it by memorizing an answer key, your first week on the job is where that becomes everyone's problem &mdash; including yours.</li>
+            </ul>
+
+            <div class="key-concept">
+                <h4>Who Actually Gets Caught</h4>
+                <p>Almost nobody sets out to cheat. People get caught because someone in a study group shares a file, or a search for practice questions lands on a site that looks like a legitimate question bank and is not. They study it, sit the exam, recognize the questions, and never report it.</p>
+                <p><strong>That is the moment that matters.</strong> If you recognize exam questions verbatim during your exam, you are looking at leaked content, and continuing is the violation. The right action is to stop and report it to the proctor &mdash; which sounds impossible and is the only answer that protects you.</p>
+            </div>
+
+            <h3>How to Recognize a Brain Dump Site</h3>
+            <p>They do not advertise what they are. They look like practice-question sites. These are the signals:</p>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Signal</th><th>Why It Gives Them Away</th></tr></thead>
+                    <tbody>
+                        <tr><td>"Real exam questions," "actual questions," "verified by recent test takers"</td><td>Legitimate material is written to the objectives, not copied from the exam. There is no legal way to have real questions.</td></tr>
+                        <tr><td>"Guaranteed pass" or "pass in one day"</td><td>No legitimate provider promises a result, because none can</td></tr>
+                        <tr><td>Exam-code-named PDF files circulating privately or sold cheaply</td><td>The standard distribution format for stolen content</td></tr>
+                        <tr><td>Questions with no explanations, just answers</td><td>Study material explains why. Dumps only tell you which letter.</td></tr>
+                        <tr><td>Numbered "Q1 &ndash; Q650" collections with discussion threads arguing over answers</td><td>People arguing over the key is what happens when nobody has a source</td></tr>
+                        <tr><td>Sites named for the exam code itself</td><td>Built to capture searches for exactly this</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">If Someone Offers You One</div>
+                <div class="callout-content">
+                    <p>It will usually be a classmate or a coworker, it will be meant kindly, and declining will feel awkward. Decline anyway. "No thanks, I'd rather not risk the cert" is a complete sentence and no explanation is owed.</p>
+                    <p>If you have already downloaded something and now suspect what it is: <strong>delete it, do not share it, and do not study from it.</strong> Nothing has happened yet. Using it is what causes the harm.</p>
+                </div>
+            </div>
+
+            <h3>What Is Legitimate</h3>
+            <p>There is no shortage of good material, and none of it requires taking a risk:</p>
+            <ul class="checklist">
+                <li>The <strong>official CompTIA exam objectives</strong> &mdash; free, authoritative, and the actual source document</li>
+                <li>Your <strong>Sybex textbook</strong>, its online test bank, and its flashcards</li>
+                <li><strong>Professor Messer's</strong> free course, practice questions, pop quizzes, and study groups</li>
+                <li><strong>CompTIA CertMaster</strong> and other official practice products</li>
+                <li><strong>This course</strong> &mdash; every practice question, unit test, and the Final Study Exam in Section 6.A.1 was written for these materials from the published objectives</li>
+                <li><strong>Hands-on practice</strong> &mdash; NETLAB, your own machine, and a virtual machine you can break</li>
+            </ul>
+
+            <div class="callout callout-danger">
+                <div class="callout-title">The Rule, Stated Plainly</div>
+                <div class="callout-content"><p><strong>Do not seek, accept, buy, download, share, discuss, or study from real exam questions &mdash; ever, under any condition, for any exam, from any source.</strong> Not to "check your readiness." Not because a friend passed using them. Not because the exam fee is expensive and you only get one attempt. There is no version of this that ends well, and there is no shortage of legitimate material that does.</p></div>
+            </div>
+
+            <div class="callout callout-info">
+                <div class="callout-title">And One More Thing You Will Be Asked</div>
+                <div class="callout-content"><p>After your exam you will be asked not to disclose its content. That obligation runs both ways &mdash; you must not take questions out any more than you may bring them in. Posting "here's what was on mine" in a forum is the same violation seen from the other side, and it is how dumps get created in the first place.</p></div>
+            </div>
+
+            <h2>Section B &mdash; Your Six-Week Audit</h2>
+
+            <p>Before any of the test-day material matters, you need to know what you actually know. This is the first thing to do in Section 6.A, and it takes about an hour.</p>
+
+            <div class="activity-section">
+                <div class="activity-header">
+                    <div class="activity-icon">&#128203;</div>
+                    <div>
+                        <h3 class="activity-title">The Six-Week Audit</h3>
+                        <p class="activity-subtitle">About 60 minutes &middot; Ungraded &middot; Do this before the Final Study Exam</p>
+                    </div>
+                </div>
+
+                <ol class="lab-steps">
+                    <li><strong>Open the official objectives.</strong> Download the CompTIA 220-1202 exam objectives from comptia.org. Every bullet under every objective is a thing the exam may ask you about.</li>
+                    <li><strong>Mark every bullet.</strong> Go through the whole document and mark each one <strong>confident</strong>, <strong>shaky</strong>, or <strong>unknown</strong>. Be honest &mdash; "I have heard of it" is shaky, not confident.</li>
+                    <li><strong>Count by domain.</strong> Tally your shaky and unknown items for each of the four domains. One domain will be worse than the others; that is the one your study time belongs to.</li>
+                    <li><strong>Map each gap to its source.</strong> For every shaky or unknown bullet, write where you would go to fix it &mdash; a unit's content review, a chapter section, a Messer video, or a NETLAB lab.</li>
+                    <li><strong>Build the plan.</strong> Put dates against them. Work backwards from the exam date you intend to book, and put your worst domain first rather than last.</li>
+                    <li><strong>Keep the list.</strong> This becomes the "still shaky" list that Section 6.4 refers to, and it is what you review the night before the real exam &mdash; not the textbook.</li>
+                </ol>
+
+                <div class="callout callout-tip">
+                    <div class="callout-title">Why Do This First</div>
+                    <div class="callout-content"><p>You can study everything, or you can study what you do not know. Six weeks of material is far too much to review again in full, and rereading what you already know feels productive while changing nothing. An hour spent finding your gaps will save you ten spent revisiting your strengths.</p></div>
+                </div>
+            </div>
+
+            <h2>Section C &mdash; Test-Day Rules</h2>
+
+            <p>You can sit the 220-1202 at a <strong>Pearson VUE test center</strong> or at home under <strong>OnVUE online proctoring</strong>. The exam is identical; the rules around it are not, and the online rules are stricter.</p>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">Verify Before You Book</div>
+                <div class="callout-content"><p>Testing policies change. Everything below was verified against CompTIA's and Pearson VUE's published policies when this course was built, and you should still read the CompTIA Testing Policies, the Candidate ID Policy, and the confirmation email Pearson VUE sends you before your exam date. If anything here and an official policy disagree, the official policy is correct.</p></div>
+            </div>
+
+            <h3>Identification</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th></th><th>Test Center</th><th>OnVUE (Online)</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>How many IDs</strong></td><td>Two</td><td>One</td></tr>
+                        <tr><td><strong>Primary ID</strong></td><td>Government-issued, with your name, a recent photo, and a signature</td><td>Government-issued, unexpired, with a recognizable photo</td></tr>
+                        <tr><td><strong>Secondary ID</strong></td><td>Any ID with at least your name and signature, or name and photo &mdash; a school or employee ID qualifies</td><td>Not required</td></tr>
+                        <tr><td><strong>Must be</strong></td><td colspan="2">Originals, unexpired, and issued in the country where you are testing. Photocopies and digital IDs are not accepted.</td></tr>
+                        <tr><td><strong>Name match</strong></td><td colspan="2">Your first and last name must match your exam registration <strong>exactly</strong></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="callout callout-danger">
+                <div class="callout-title">The Name Match Is the Most Common Avoidable Failure</div>
+                <div class="callout-content"><p>If you registered as "Mike" and your license says "Michael," you may be turned away and lose the fee. Check your Pearson VUE profile against your ID <strong>today</strong>, not the night before, because correcting it takes time. The same applies to a recently married name, a hyphenated surname, or a middle initial that appears on one and not the other.</p></div>
+            </div>
+
+            <h3>At a Pearson VUE Test Center</h3>
+            <ul class="styled-list">
+                <li><strong>Arrive early</strong> &mdash; allow at least 15 minutes beyond your appointment time for check-in</li>
+                <li><strong>You will be photographed and asked for a signature.</strong> Candidates who decline the photograph are not permitted to test.</li>
+                <li><strong>Everything goes in a locker</strong> &mdash; phone, watch, bag, notes, food, hat. You bring your ID to the desk and nothing else.</li>
+                <li><strong>A noteboard and marker are provided.</strong> You may not bring your own paper or pen.</li>
+                <li><strong>A proctor escorts you to an assigned workstation</strong> and starts your session</li>
+                <li><strong>You are monitored</strong> in person and by camera for the whole exam</li>
+            </ul>
+
+            <h3>Under OnVUE Online Proctoring</h3>
+            <p>The environment rules are stricter at home than at a test center, because at a center the environment is the staff's responsibility and at home it is entirely yours.</p>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Requirement</th><th>Detail</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Check-in opens 30 minutes early</strong></td><td>System checks, a photo of you, a photo of your ID, and a 360-degree room scan. If a requirement is not met, you cannot test and the fee is forfeited.</td></tr>
+                        <tr><td><strong>A private, walled room with a closed door</strong></td><td>Bathrooms and public spaces such as offices, libraries, and coffee shops are prohibited</td></tr>
+                        <tr><td><strong>You must be alone</strong></td><td>If anyone enters the room during your exam, it is terminated</td></tr>
+                        <tr><td><strong>A completely clear desk</strong></td><td>Only your exam computer. Remove papers, books, and whiteboards from the room, not just from the desk.</td></tr>
+                        <tr><td><strong>No physical writing materials</strong></td><td>No paper, pen, or erasable whiteboard. A <strong>digital whiteboard</strong> is provided within the exam.</td></tr>
+                        <tr><td><strong>Phone used for check-in, then out of reach</strong></td><td>You photograph the room with it, then place it where the proctor directs</td></tr>
+                        <tr><td><strong>No headphones, headsets, watch, sunglasses, or coat</strong></td><td>You must remain fully clothed and visible throughout</td></tr>
+                        <tr><td><strong>Stay in the webcam view</strong></td><td>Leaving the view ends the exam. No speaking or reading aloud.</td></tr>
+                        <tr><td><strong>Extra monitors unplugged and turned away</strong></td><td>A single screen only</td></tr>
+                        <tr><td><strong>No assistance of any kind</strong></td><td>No other person, no notes, and <strong>no AI tool</strong>. The proctor cannot answer content questions.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="callout callout-tip">
+                <div class="callout-title">Three Things That Prevent Most OnVUE Failures</div>
+                <div class="callout-content">
+                    <ul class="checklist">
+                        <li><strong>Run the official system test on the exact machine, room, and network you will use</strong> &mdash; not a different laptop, not a different room</li>
+                        <li><strong>Clear the room the night before,</strong> and do a dress-rehearsal webcam sweep so you see what the proctor will see</li>
+                        <li><strong>Shut pets out of the room entirely.</strong> A cat crossing the desk has ended real appointments.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="callout callout-danger">
+                <div class="callout-title">There Are No Scheduled Breaks</div>
+                <div class="callout-content"><p>CompTIA exams, at a test center or online, are structured as a <strong>single session with no scheduled breaks</strong>. Plan for that: eat beforehand, use the restroom before check-in, and be ready to sit continuously for the full duration. If you need an accommodation, contact Pearson VUE <strong>before</strong> booking, not on the day.</p></div>
+            </div>
+
+            <h3>The Candidate Agreement</h3>
+            <p>Before the exam begins you must read and accept the <strong>CompTIA Candidate Agreement</strong>. This is the document that prohibits brain dumps, assistance, and disclosure of exam content &mdash; and accepting it is mandatory, so there is no sitting the exam without agreeing to it. Most CompTIA appointments allow a two-hour window: roughly 15 minutes for the agreement and policies, the exam itself, and about 15 minutes afterward for a survey.</p>
+
+            <h2>Section D &mdash; How the Exam Works</h2>
+
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Element</th><th>Detail</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Exam code</strong></td><td>220-1202 (Core 2)</td></tr>
+                        <tr><td><strong>Questions</strong></td><td>Maximum of 90</td></tr>
+                        <tr><td><strong>Time</strong></td><td>90 minutes &mdash; about one minute per item</td></tr>
+                        <tr><td><strong>Passing score</strong></td><td><strong>700</strong> on a scale of 100 to 900</td></tr>
+                        <tr><td><strong>Question types</strong></td><td>Multiple choice, drag-and-drop, and performance-based</td></tr>
+                        <tr><td><strong>Penalty for guessing</strong></td><td>None. An unanswered question and a wrong answer score the same.</td></tr>
+                        <tr><td><strong>Result</strong></td><td>Delivered immediately after the exam</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="key-concept">
+                <h4>700 Is Not 78%</h4>
+                <p>The scale runs from 100 to 900, not 0 to 900, so 700 is not seven-ninths of the available points. Because the floor is 100, <strong>700 works out to roughly 75% of raw points</strong> &mdash; and CompTIA does not publish its exact scaling, which is why every scaled figure in this course is a model rather than a replica.</p>
+                <p>Practical consequence: aim well above the line. A student targeting "just over 700" is targeting the margin of error.</p>
+            </div>
+
+            <h3>Navigation and Flagging</h3>
+            <p>You can <strong>flag a question and return to it</strong>, and you can move backward and forward freely within the exam. Use this. An answer that will not come often arrives while you are reading a later question that touches the same topic.</p>
+
+            <h2>Section E &mdash; Strategy for Performance-Based Questions</h2>
+
+            <p>Performance-based questions ask you to <em>do</em> something rather than recognize a correct sentence: put steps in order, match tools to tasks, configure settings in a simulated interface, or drag items into categories.</p>
+
+            <div class="callout callout-danger">
+                <div class="callout-title">They Often Come First, and That Is the Trap</div>
+                <div class="callout-content"><p>Performance-based questions frequently appear at the beginning of the exam. They take the longest, and candidates who try to perfect them burn twenty-five minutes before reaching a single multiple-choice item &mdash; then rush the remaining eighty questions.</p></div>
+            </div>
+
+            <ul class="styled-list">
+                <li><strong>Flag and return.</strong> Give each performance-based question one honest attempt, then flag it and move on. Answer the multiple-choice items, which are faster per point, and come back with whatever time remains.</li>
+                <li><strong>Partial credit exists.</strong> Getting four steps of a procedure right scores better than leaving it blank. Never abandon one entirely.</li>
+                <li><strong>Read the whole scenario first.</strong> The final sentence often changes what the earlier ones mean.</li>
+                <li><strong>Do what is asked, not what you would do.</strong> If it asks for three settings, change three.</li>
+                <li><strong>Use the digital whiteboard</strong> to sketch an order or a mapping before you commit to it.</li>
+            </ul>
+
+            <div class="callout callout-tip">
+                <div class="callout-title">You Have Already Practiced These</div>
+                <div class="callout-content"><p>The ten Performance-Based Questions in your textbook, assigned across the term and worked again in Section 6.4, are the closest practice available. If you have not done all ten, that is the highest-value two hours left before your exam.</p></div>
+            </div>
+
+            <h2>Section F &mdash; Test-Taking Skills</h2>
+
+            <h3>The Read-Twice Method</h3>
+            <p>Carried from Core 1, and it still works: read the question and every answer. Choose the best answer. Then read the question and every answer <em>again</em>. If you still agree, move on. If not, work through the choices and eliminate the ones you can dismiss.</p>
+            <p>This costs about ten seconds per question and catches the single most common error on this exam &mdash; answering the question you expected rather than the one that was asked.</p>
+
+            <h3>Eliminating Distractors</h3>
+            <ul class="styled-list">
+                <li><strong>Two options are usually clearly wrong.</strong> Removing them turns a one-in-four guess into a coin flip, and a coin flip with no penalty is always worth taking.</li>
+                <li><strong>Watch the qualifiers.</strong> "Always," "never," and "only" are often wrong in technical answers, because technology rarely behaves absolutely.</li>
+                <li><strong>Watch for the least disruptive answer.</strong> When several options would work, the exam usually wants the one that affects the fewest people &mdash; the same principle from Section 6.3.</li>
+                <li><strong>Scenario first, question last.</strong> Some questions describe a long situation and then ask something narrow. Find the actual question before you process the detail.</li>
+            </ul>
+
+            <h3>Time Checkpoints</h3>
+            <p>Ninety items in ninety minutes is one per minute, and performance-based questions consume several each. Set two checkpoints:</p>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>At</th><th>You Should Be Around</th><th>If You Are Behind</th></tr></thead>
+                    <tbody>
+                        <tr><td>30 minutes</td><td>Question 30</td><td>Stop perfecting. Flag anything that takes more than 90 seconds.</td></tr>
+                        <tr><td>60 minutes</td><td>Question 60</td><td>Answer everything quickly, even by elimination, then return to flags</td></tr>
+                        <tr><td>80 minutes</td><td>All questions answered</td><td>Use the last 10 minutes on flagged items only</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">Answer Every Single Question</div>
+                <div class="callout-content"><p>There is no penalty for a wrong answer. A blank question is a guaranteed zero; a guess is not. With two minutes left, fill in anything still empty before you do anything else.</p></div>
+            </div>
+
+            <h3>Managing Test Anxiety</h3>
+            <p>Nerves on exam day are normal and are not a sign that you are unprepared. A few things genuinely help:</p>
+            <ul class="styled-list">
+                <li><strong>Over-prepare the logistics.</strong> Most exam-day panic is about the room, the ID, or the clock &mdash; not the content. Removing those variables removes most of the anxiety.</li>
+                <li><strong>Expect the first question to be hard.</strong> It often is, or it is simply unfamiliar. Flag it and move on; the exam is not ordered by difficulty.</li>
+                <li><strong>Expect to feel uncertain throughout.</strong> Nearly everyone who passes reports leaving unsure. Feeling unsure and scoring badly are not the same thing.</li>
+                <li><strong>Breathe deliberately if you freeze.</strong> Thirty seconds spent slowing down costs you half a question and buys back the ability to read properly.</li>
+                <li><strong>Review your "still shaky" list the night before, not the textbook</strong> &mdash; and then stop. Sleep is worth more than another hour of cramming.</li>
+            </ul>
+
+            <h2>Section G &mdash; What Passing Candidates Report</h2>
+
+            <div class="callout callout-info">
+                <div class="callout-title">About This Section</div>
+                <div class="callout-content"><p>The advice here is drawn from what candidates consistently report after passing, in community discussions such as r/CompTIA. It is <strong>community experience, not official guidance</strong>, and it is included only where it agrees with CompTIA's published policies. Anything describing unauthorized materials has been excluded &mdash; see Section A.</p></div>
+            </div>
+
+            <h3>The Study Stack That Recurs</h3>
+            <p>Across hundreds of pass posts, the same combination appears again and again: <strong>a full video course, a textbook, a practice-question bank, and hands-on time.</strong> That is precisely the stack this course gave you &mdash; Messer, Sybex, the question sets, and NETLAB. People who used one source alone report more difficulty than people who used several.</p>
+
+            <h3>The Final Week People Describe</h3>
+            <ul class="styled-list">
+                <li>Full-length timed practice exams, repeated until the score is consistently above the line rather than once</li>
+                <li>Reviewing <em>misses</em> rather than rereading chapters</li>
+                <li>Working performance-based questions specifically, because they are what people report being surprised by</li>
+                <li>Drilling acronyms in short daily sessions</li>
+                <li>Stopping the day before rather than cramming</li>
+            </ul>
+
+            <h3>What Surprises People</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Reported Surprise</th><th>What to Take From It</th></tr></thead>
+                    <tbody>
+                        <tr><td>"The performance-based questions came first and ate my time"</td><td>Flag and return. This is the most frequently repeated piece of advice there is.</td></tr>
+                        <tr><td>"The wording was more scenario-based than my practice questions"</td><td>Expect to apply knowledge, not recall definitions. Practice with scenario-framed items.</td></tr>
+                        <tr><td>"I left feeling like I failed, and passed"</td><td>Uncertainty is normal. Do not judge your result from how it felt.</td></tr>
+                        <tr><td>"Two answers looked right and I had to choose the best one"</td><td>Look for the qualifier &mdash; least disruptive, first step, most likely. That word is usually the deciding factor.</td></tr>
+                        <tr><td>"Check-in took longer than I expected"</td><td>Arrive or start check-in early. This is free to fix and expensive to ignore.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Section H &mdash; Booking Your Exam and Deciding You Are Ready</h2>
+
+            <div class="key-concept">
+                <h4>The Readiness Decision</h4>
+                <p>This course's target: <strong>780 or better on two consecutive full-length, timed, closed-book attempts</strong>, with no single domain dragging well below your overall score.</p>
+                <p>Why two? One good score can be a familiar question set or a lucky day. Two consecutive scores above the line is a pattern, and patterns predict. Why 780 rather than 700? Because 700 is the line, and nobody wants to discover on exam day that their margin was zero.</p>
+                <p>This is a recommendation built for this course, not a CompTIA requirement. You may book whenever you choose. If you book below this standard, do it knowing that is what you are doing.</p>
+            </div>
+
+            <h3>Booking</h3>
+            <ol class="lab-steps">
+                <li><strong>Check your name first.</strong> Your Pearson VUE profile must match your ID exactly. Fix any mismatch before booking, not after.</li>
+                <li><strong>Obtain your exam voucher</strong> through the route available to you, and check its expiration date.</li>
+                <li><strong>Choose your format.</strong> Test center if you want the environment handled for you; OnVUE if you want convenience and can genuinely meet the room requirements in Section C.</li>
+                <li><strong>Book a date that leaves study time but not drift.</strong> People who book two to three weeks out tend to follow through; people who leave it open tend to keep postponing.</li>
+                <li><strong>If testing online, run the system test immediately</strong> &mdash; on the actual machine, room, and network. Finding a problem now is free; finding it at check-in costs the fee.</li>
+                <li><strong>Read the confirmation email in full.</strong> It carries the current rules for your specific appointment, and they take precedence over anything on this page.</li>
+            </ol>
+
+            <h2>Section I &mdash; Final Week Checklist</h2>
+
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>When</th><th>Do</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Two weeks out</strong></td><td>Full-length timed practice exam. Score by domain. Update your "still shaky" list and schedule the gaps.</td></tr>
+                        <tr><td><strong>One week out</strong></td><td>Work your worst domain. Redo all ten Performance-Based Questions. Verify your name matches your ID.</td></tr>
+                        <tr><td><strong>Five days out</strong></td><td>Second full-length timed attempt. Compare it to the first. This is the readiness decision.</td></tr>
+                        <tr><td><strong>Three days out</strong></td><td>Acronym drill. Review misses only. If testing online, run the system test again and prepare the room.</td></tr>
+                        <tr><td><strong>Two days out</strong></td><td>Re-read Section C for your format. Confirm the appointment time, and the address if testing at a center.</td></tr>
+                        <tr><td><strong>The day before</strong></td><td>Review the "still shaky" list once &mdash; nothing else. Lay out both IDs. Clear the room if testing online. Stop studying by evening.</td></tr>
+                        <tr><td><strong>Exam day</strong></td><td>Eat. Use the restroom before check-in &mdash; there are no scheduled breaks. Arrive or start check-in 30 minutes early. Bring your ID and nothing else.</td></tr>
+                        <tr><td><strong>During the exam</strong></td><td>Flag and return on performance-based questions. Time checkpoints at 30 and 60 minutes. Answer every question.</td></tr>
+                        <tr><td><strong>Afterward</strong></td><td>Complete the survey. Collect your score report. Do not discuss or post the exam content &mdash; that obligation is permanent.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="callout callout-tip">
+                <div class="callout-title">If You Do Not Pass</div>
+                <div class="callout-content"><p>It is not unusual and it is not the end of anything. Your score report shows performance by domain &mdash; that report is the most precise study guide you will ever get for this exam. Check CompTIA's current retake policy for the required waiting period, work the weakest domain, and book again. Plenty of working technicians passed on a second attempt, and no employer ever asks.</p></div>
+            </div>
+
+            <div class="summary-box">
+                <h3>Section 6.A in One Page</h3>
+                <ul>
+                    <li>Never seek, accept, buy, share, or study from real exam questions &mdash; it invalidates scores, revokes certifications, and can end a career before it starts</li>
+                    <li>Audit the objectives honestly first; study your gaps, not your strengths</li>
+                    <li>Two IDs at a test center, one online, and your name must match your registration exactly</li>
+                    <li>OnVUE is stricter than a test center: private walled room, clear desk, alone, no phone in reach, no physical writing materials, 30-minute check-in</li>
+                    <li>No scheduled breaks on any CompTIA exam</li>
+                    <li>90 items, 90 minutes, 700 of 900 to pass, no penalty for guessing</li>
+                    <li>Flag performance-based questions and return &mdash; partial credit is real, and so is the clock</li>
+                    <li>Read twice, eliminate distractors, check the time at 30 and 60 minutes, and answer everything</li>
+                    <li>Book when you have two consecutive timed attempts at 780 or better with no weak domain</li>
+                    <li>Leaving uncertain is normal; it is not a prediction</li>
+                </ul>
+            </div>
+
+            <div class="references-section">
+                <h3>Go Further</h3>
+                <ul>
+                    <li><strong>CompTIA Testing Policies, the Candidate Agreement, and the Candidate ID Policy</strong> (comptia.org) &mdash; the authoritative source for everything in Section C, and worth reading in full before you book</li>
+                    <li><strong>Pearson VUE OnVUE testing requirements and the online testing guide</strong> (pearsonvue.com) &mdash; the current room, equipment, and conduct rules, plus the system test</li>
+                    <li><strong>CompTIA 220-1202 exam objectives</strong> (comptia.org) &mdash; the source document for your Six-Week Audit</li>
+                    <li><strong>Section 6.A.1 Final Study Exam</strong> &mdash; your full-length timed attempt, in this course</li>
+                    <li><strong>Professor Messer's A+ Study Group</strong> &mdash; free monthly live sessions and replays, useful in the gap between this course and your exam date</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <footer class="module-footer">
+            <p class="footer-text">CompTIA A+ Core 2 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
+        </footer>
+    </div>
+</body>
+</html>

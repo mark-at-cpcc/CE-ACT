@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unit 6 &mdash; 6.3 Content Review | CompTIA A+ Core 1</title>
+    <title>Unit 6 &mdash; 6.3 Content Review | CompTIA A+ Core 2</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,7 +15,7 @@
     <style>
         /* ============================================
            CPCC COURSE TEMPLATE - GOLD / CHARCOAL / BLACK
-           CTS-ITS7501-80 CompTIA A+ Core 1 Training
+           CTS-ITS7501-80 CompTIA A+ Core 2 Training
            Type: true black. Accents: gold. Chrome: charcoal.
            ============================================ */
 
@@ -92,9 +92,6 @@
 
         .module-header {
             background: var(--primary-main); color: var(--text-black);
-            /* Reduced from var(--space-2xl) top/bottom (3rem) to var(--space-lg) (1.5rem) to cut excess
-               empty space in this card's title header. To revert, change padding back to:
-               padding: var(--space-2xl) var(--space-xl); */
             padding: var(--space-lg) var(--space-xl); position: relative; overflow: hidden;
         }
         .module-label {
@@ -147,6 +144,28 @@
         ul li::marker { color: var(--accent-teal); }
         ol li::marker { color: var(--accent-teal); font-weight: 700; }
 
+        .styled-list { list-style: none; padding-left: 0; }
+        .styled-list li { position: relative; padding-left: var(--space-lg); margin-bottom: var(--space-sm); }
+        .styled-list li::before { content: '\25B8'; position: absolute; left: 0; color: var(--accent-teal); font-weight: bold; }
+
+        .checklist { list-style: none; padding-left: 0; }
+        .checklist li { position: relative; padding-left: 2rem; margin-bottom: var(--space-sm); }
+        .checklist li::before {
+            content: '\2713'; position: absolute; left: 0; width: 1.5rem; height: 1.5rem;
+            background: var(--accent-green-light); color: var(--accent-green);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 0.75rem; font-weight: bold;
+        }
+
+        .objectives-box {
+            background: linear-gradient(135deg, var(--primary-pale) 0%, var(--accent-teal-light) 100%);
+            border-left: 5px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .objectives-box h3 { color: var(--text-black); margin-top: 0; margin-bottom: var(--space-md);
+            display: flex; align-items: center; gap: var(--space-sm); border-left: none; padding-left: 0; }
+        .objectives-box ol { margin-bottom: 0; }
+
         .tech-box {
             background: var(--neutral-100); border: 2px solid var(--neutral-500);
             border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
@@ -162,6 +181,7 @@
         .plain-box .callout-content { padding-left: 0; }
 
         .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; position: relative; overflow: hidden; }
+        .callout::before { position: absolute; top: var(--space-md); left: var(--space-md); font-size: 1.5rem; }
         .callout-title { font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 1rem;
             text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
         .callout-content { }
@@ -172,30 +192,21 @@
         .callout-danger { background: var(--alert-danger-bg); border-left: 4px solid var(--alert-danger); }
         .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
 
-        .objectives-box {
-            background: var(--primary-pale); border-left: 5px solid var(--primary-main);
-            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
-        }
-        .objectives-box h3 { margin-top: 0; border-left: none; padding-left: 0; color: var(--text-black); }
-        .objectives-box ol { margin-bottom: 0; }
-
         .key-concept {
             background: linear-gradient(135deg, var(--accent-purple-light) 0%, var(--white) 100%);
             border: 2px solid var(--accent-purple); border-radius: var(--radius-lg);
             padding: var(--space-lg); margin: var(--space-xl) 0 var(--space-lg); position: relative;
         }
         .key-concept::before {
-            content: 'KEY CONCEPT'; position: absolute; top: -12px; left: var(--space-lg);
+            content: '\1F511 KEY CONCEPT'; position: absolute; top: -12px; left: var(--space-lg);
             background: var(--accent-purple); color: var(--white); font-family: var(--font-heading), sans-serif;
             font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
             padding: var(--space-xs) var(--space-md); border-radius: var(--radius-sm);
         }
         .key-concept h4 { color: var(--text-black); margin-top: var(--space-sm); }
 
-        .definition {
-            background: var(--neutral-100); border-radius: var(--radius-md); padding: var(--space-lg);
-            margin: var(--space-md) 0; border-left: 4px solid var(--accent-orange);
-        }
+        .definition { background: var(--neutral-100); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin: var(--space-md) 0; border-left: 4px solid var(--accent-orange); }
         .definition-term { font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 1.125rem;
             color: var(--text-black); margin-bottom: var(--space-xs); }
         .definition-text { color: var(--text-black); margin-bottom: 0; }
@@ -224,18 +235,25 @@
             border: 2px dashed var(--accent-orange); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
         }
         .activity-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg); }
+        .activity-icon { width: 50px; height: 50px; background: var(--accent-orange); border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; }
         .activity-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700;
             color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
         .activity-subtitle { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
 
         .lab-section {
-            background: var(--white); border: 2px solid var(--primary-dark); border-radius: var(--radius-lg);
-            padding: var(--space-xl); margin: var(--space-xl) 0;
+            background: linear-gradient(135deg, var(--accent-teal-light) 0%, var(--white) 100%);
+            border: 2px solid var(--accent-teal); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
         }
-        .lab-header { padding-bottom: var(--space-md); margin-bottom: var(--space-lg); border-bottom: 2px solid var(--primary-dark); }
-        .lab-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700; color: var(--text-black); border-left: none; padding-left: 0; }
-        .lab-time { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
-        .lab-steps { list-style: none; counter-reset: lab-step; padding-left: 0; }
+        .lab-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg);
+            padding-bottom: var(--space-md); border-bottom: 2px solid var(--accent-teal); }
+        .lab-icon { width: 60px; height: 60px; background: var(--accent-teal); border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center; font-size: 1.75rem; flex-shrink: 0; }
+        .lab-title { font-family: var(--font-heading), sans-serif; font-size: 1.375rem; font-weight: 700;
+            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
+        .lab-time { font-size: 0.875rem; color: var(--neutral-500); margin: 0; display: flex; align-items: center; gap: var(--space-xs); }
+        .lab-time::before { content: '\23F1\FE0F'; }
+        .lab-steps { counter-reset: lab-step; list-style: none; padding-left: 0; }
         .lab-steps li { counter-increment: lab-step; position: relative; padding-left: 3rem; margin-bottom: var(--space-lg); }
         .lab-steps li::before {
             content: counter(lab-step); position: absolute; left: 0; width: 2rem; height: 2rem;
@@ -253,7 +271,6 @@
             padding: 2px 10px; border-radius: var(--radius-sm);
             text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); }
         .question-text { font-weight: 600; color: var(--text-black); margin-bottom: var(--space-md); }
-
         details.answer { margin-top: var(--space-sm); }
         details.answer summary { cursor: pointer; font-weight: 700; color: var(--text-black);
             font-family: var(--font-heading), sans-serif; font-size: 0.875rem;
@@ -264,85 +281,74 @@
         .references-section { background: var(--neutral-100); border-radius: var(--radius-lg);
             padding: var(--space-lg) var(--space-xl); margin: var(--space-xl) 0; border-top: 3px solid var(--primary-main); }
         .references-section h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .references-section ul { padding-left: var(--space-lg); }
 
-        .progress-bar { background: var(--neutral-300); border-radius: var(--radius-xl); height: 8px; overflow: hidden; margin: var(--space-lg) 0; }
-        .progress-fill { background: var(--primary-main); height: 100%; border-radius: var(--radius-xl); }
-        .progress-label { display: flex; justify-content: space-between; font-size: 0.875rem; color: var(--neutral-500); margin-bottom: var(--space-xs); }
+        .summary-box {
+            background: var(--primary-dark); color: var(--white);
+            border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .summary-box h3 { color: var(--white); margin-top: 0; display: flex; align-items: center;
+            gap: var(--space-sm); border-left: none; padding-left: 0; }
+        .summary-box h3::before { content: '\1F4CB'; }
+        .summary-box ul { margin-bottom: 0; }
+        .summary-box li { color: var(--white); }
+        .summary-box li::marker { color: var(--primary-light); }
 
-        .module-footer { background: var(--neutral-100); padding: var(--space-lg) var(--space-xl); text-align: center; border-top: 1px solid var(--neutral-300); }
-        .footer-text { font-size: 0.875rem; color: var(--neutral-500); }
+        .section-divider {
+            border: none; height: 6px; margin: var(--space-2xl) 0;
+            background: linear-gradient(90deg, transparent 0%, var(--primary-main) 15%, var(--primary-light) 50%, var(--primary-main) 85%, transparent 100%);
+            border-radius: var(--radius-sm); box-shadow: var(--shadow-sm);
+        }
+
+        .module-footer { background: var(--primary-dark); padding: var(--space-lg) var(--space-xl);
+            text-align: center; border-top: 4px solid var(--primary-main); }
+        .footer-text { font-size: 0.875rem; color: var(--white); margin: 0; }
 
         .text-center { text-align: center; }
         .text-muted { color: var(--neutral-500); }
-        .mt-sm { margin-top: var(--space-sm); } .mt-md { margin-top: var(--space-md); } .mt-lg { margin-top: var(--space-lg); }
-        .mb-sm { margin-bottom: var(--space-sm); } .mb-md { margin-bottom: var(--space-md); } .mb-lg { margin-bottom: var(--space-lg); }
-
-        /* Interactive quiz controls (pre-assessment / practice questions) */
-        .answer-option { display: block; width: 100%; text-align: left; padding: var(--space-sm) var(--space-md);
-            margin-bottom: var(--space-sm); border: 2px solid var(--neutral-300); border-radius: var(--radius-sm);
-            background: var(--white); cursor: pointer; font-family: var(--font-body), sans-serif; font-size: 1rem; color: var(--text-black); }
-        .answer-option:hover { border-color: var(--primary-main); }
-        .answer-option.selected { border-color: var(--primary-dark); background: var(--primary-pale); }
-        .answer-option.correct { border-color: var(--accent-green); background: var(--accent-green-light); }
-        .answer-option.incorrect { border-color: var(--alert-danger); background: var(--alert-danger-bg); }
-        .quiz-btn { font-family: var(--font-heading), sans-serif; font-weight: 700; padding: var(--space-sm) var(--space-xl);
-            border-radius: var(--radius-sm); border: 2px solid var(--primary-dark); background: var(--primary-dark); color: var(--white);
-            cursor: pointer; font-size: 0.95rem; margin-right: var(--space-sm); }
-        .quiz-btn:hover { background: #333333; }
-        .quiz-btn.secondary { background: var(--white); color: var(--primary-dark); }
-        .quiz-btn.secondary:hover { background: var(--neutral-100); }
-        #quizResults { display:none; background: var(--primary-pale); border: 2px solid var(--primary-main); border-radius: var(--radius-md);
-            padding: var(--space-lg); margin-top: var(--space-lg); text-align: center; font-family: var(--font-heading), sans-serif; }
-        #quizResults .score { font-size: 2rem; font-weight: 800; color: var(--text-black); }
+        .highlight { background: linear-gradient(180deg, transparent 50%, var(--primary-light) 50%); padding: 0 2px; }
 
         @media (max-width: 768px) {
+            body { padding: var(--space-sm); }
+            .module-header { padding: var(--space-xl) var(--space-lg); }
             .module-title { font-size: 1.75rem; }
             .content-area { padding: var(--space-lg); }
+            h2 { font-size: 1.375rem; }
+            .lab-header, .activity-header { flex-direction: column; align-items: flex-start; }
         }
-
-        .hv-diagrams { display: flex; gap: var(--space-lg); flex-wrap: wrap; margin: var(--space-lg) 0; }
-        .hv-diagram-col { flex: 1 1 300px; min-width: 280px; }
-        .hv-diagram-col p.hv-caption { text-align: center; font-family: var(--font-body), sans-serif; font-weight: 700; font-size: 0.9375rem; margin-top: var(--space-sm); color: var(--neutral-500); }
-        .hv-svg .hv-hw rect { fill: var(--neutral-100); stroke: var(--neutral-500); }
-        .hv-svg .hv-hw text { fill: var(--text-black); }
-        .hv-svg .hv-os rect { fill: #E3EEFA; stroke: #2F6FA8; }
-        .hv-svg .hv-os text { fill: #1B4A73; }
-        .hv-svg .hv-hv rect { fill: var(--primary-pale); stroke: var(--primary-main); }
-        .hv-svg .hv-hv text { fill: var(--text-black); }
-        .hv-svg .hv-vm rect { fill: #E0F2ED; stroke: #1D9E75; }
-        .hv-svg .hv-vm text { fill: #0F6E56; }
-        .hv-svg .hv-app rect { fill: #FDEFD9; stroke: #BA7517; }
-        .hv-svg .hv-app text { fill: #7A4B0E; }
-        .hv-svg .hv-data polygon { fill: #FBEAE7; stroke: #D85A30; }
-        .hv-svg .hv-data text { fill: #8C3A1D; }
-        .hv-svg rect, .hv-svg polygon { stroke-width: 1; }
-        .hv-svg text { font-family: var(--font-body), sans-serif; font-size: 13px; text-anchor: middle; dominant-baseline: central; }
+        @media print {
+            body { background: white; padding: 0; }
+            .course-container { box-shadow: none; }
+            .toc { display: none; }
+            details.answer { display: none; }
+        }
     </style>
 </head>
-
 <body>
     <div class="course-container">
 
         <header class="module-header">
-            <div class="module-label">Unit 6 &middot; Troubleshooting and Exam Readiness &middot; Section 6.3</div>
+            <div class="module-label">Unit 6 &middot; Software Troubleshooting and Exam Readiness &middot; Section 6.3</div>
             <h1 class="module-title">Content Review</h1>
-            <p class="module-subtitle">CompTIA A+ Core 1 &mdash; All Domains</p>
+            <p class="module-subtitle">CompTIA A+ Core 2 - Domains 2.0, 3.0, and 4.0</p>
         </header>
 
-        <nav class="toc" id="tocNav">
+                <nav class="toc" id="tocNav">
             <div class="toc-header">Table of Contents</div>
-            <div class="toc-item">6.1 &mdash; Unit Overview and Learning Objectives</div>
+            <div class="toc-item">6.1 &mdash; Unit Overview and Schedule</div>
             <div class="toc-item">6.2 &mdash; Unit Pre-Assessment</div>
             <div class="toc-item current" id="tocCurrent">6.3 &mdash; Content Review</div>
             <div class="toc-item">6.4 &mdash; Reading Assignment</div>
             <div class="toc-item">6.5 &mdash; Video Assignment</div>
             <div class="toc-item">6.6 &mdash; Classroom Labs</div>
-            <div class="toc-item">6.7 &mdash; Practice Questions</div>
+            <div class="toc-item">6.7 &mdash; Practice Question Set</div>
             <div class="toc-item">6.8 &mdash; Online Labs: NETLAB</div>
             <div class="toc-item">6.9 &mdash; Reflection Activity</div>
             <div class="toc-item">6.10 &mdash; Unit Test</div>
+            <div class="toc-item">6.11 &mdash; Unit 6 Tickets</div>
+            <div class="toc-item">6.A.0 &mdash; Exam Readiness</div>
+            <div class="toc-item">6.A.1 &mdash; Final Study Exam</div>
         </nav>
-
         <style>
             /* Collapsible TOC: only the current section shows until clicked */
             nav.toc#tocNav { gap: 0; }
@@ -436,325 +442,243 @@
 
         <div class="content-area">
 
-            <p class="text-muted">Five weeks of components, pulled back together into a single method for diagnosing anything.</p>
+            <p class="text-muted">This is the core reference for Unit 6. Read it before Wednesday's session &mdash; in a three-day unit, reading it early matters more than usual.</p>
 
-            <div class="tech-box">
-                <div class="callout-title">Technical Overview</div>
-                <div class="callout-content">
-                    <p>This section consolidates the troubleshooting content distributed across Units 1 through 5 and organizes it around the CompTIA methodology. It covers the six-step process, reading a symptom across domain boundaries, and consolidated diagnostics for hardware, output devices, mobile devices, and networking &mdash; ending with how to choose between two competing diagnoses on the evidence available.</p>
-                </div>
+            <div class="callout callout-info">
+                <div class="callout-title">How to Use This Page</div>
+                <div class="callout-content"><p>Everything here is a symptom-to-cause map. The exam will not ask you to define a blue screen; it will describe one and ask what you would do. Read each symptom and try to name the likely cause before you read the answer &mdash; that is the skill being tested, and this page is built to let you practice it.</p></div>
             </div>
 
-            <div class="plain-box">
-                <div class="callout-title">In Plain Terms</div>
-                <div class="callout-content">
-                    <p>Up to now, every symptom you saw came with a label attached, because you saw it in the week you were studying that component. A drive problem showed up in drive week. That is a fine way to learn, and it is nothing like the exam or the job. Out there, a person says &ldquo;it&rsquo;s slow&rdquo; and that one word could mean a failing drive, a saturated network link, a thermal-throttling processor, or an overloaded virtual machine. This section is about getting from &ldquo;it&rsquo;s slow&rdquo; to the right domain before you start replacing things.</p>
-                </div>
-            </div>
+            <h2>Part 1 &mdash; Malware Removal, in Order (Objective 2.6)</h2>
 
-            <h2>The Troubleshooting Methodology</h2>
-
-            <p>Everything in this unit hangs on this process. Learn the order, not just the list &mdash; on the exam you will be given a technician who is partway through the method and asked what comes next, and the wrong answers are always real steps placed out of sequence.</p>
+            <p>This objective is about a <strong>sequence</strong>. The exam asks what comes next, so the order is the content.</p>
 
             <div class="table-container">
                 <table>
-                    <thead><tr><th>Step</th><th>What You Do</th><th>What It Looks Like on the Job</th></tr></thead>
+                    <thead><tr><th>Step</th><th>What You Do</th><th>Why Here</th></tr></thead>
                     <tbody>
-                        <tr>
-                            <td><strong>1. Identify the problem</strong></td>
-                            <td>Gather information from the user, identify user changes, and perform backups before making changes. Inquire regarding environmental or infrastructure changes.</td>
-                            <td>You ask what changed. Almost nothing breaks on its own; something moved, updated, got unplugged, or got rained on. You also back up data <em>before</em> you start, not after you break something.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>2. Establish a theory of probable cause</strong></td>
-                            <td>Question the obvious. Consider multiple approaches, including conducting external or internal research based on symptoms.</td>
-                            <td>You form a best guess. Start with the cheap, common, obvious causes before the exotic ones. A loose cable is more likely than a failed memory controller.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>3. Test the theory to determine the cause</strong></td>
-                            <td>Confirm the theory and determine the next steps to resolve the problem. If the theory is not confirmed, establish a new theory or escalate.</td>
-                            <td>You prove it or you drop it. A theory you never tested is still a guess, and guesses are how you end up replacing three good parts.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>4. Establish a plan of action and implement the solution</strong></td>
-                            <td>Refer to vendor documentation for guidance, then carry out the repair.</td>
-                            <td>You decide what you are going to do and then do it. Plan first so that the fix is one deliberate change rather than five hopeful ones you can no longer untangle.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>5. Verify full system functionality</strong></td>
-                            <td>Confirm the system works, and where applicable implement preventive measures.</td>
-                            <td>You check that the original complaint is gone <em>and</em> that you did not break something else on the way. Then you stop it from happening again if you can.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>6. Document findings, actions, and outcomes</strong></td>
-                            <td>Record the symptom, the cause, what you did, and the result.</td>
-                            <td>You write it down. The next person to see this symptom might be you in eight months, and you will not remember.</td>
-                        </tr>
+                        <tr><td><strong>1. Investigate and verify malware symptoms</strong></td><td>Confirm malware is actually the cause</td><td>Plenty of "virus" tickets are a failing drive or a bad update</td></tr>
+                        <tr><td><strong>2. Quarantine infected systems</strong></td><td>Disconnect from the network</td><td>Stops it spreading while you work</td></tr>
+                        <tr><td><strong>3. Disable System Restore in Windows</strong></td><td>Turn off restore points</td><td>Malware hides in restore points and reinfects from them</td></tr>
+                        <tr><td><strong>4. Remediate infected systems</strong></td><td>Clean or repair the system</td><td>The removal itself</td></tr>
+                        <tr><td><strong>5. Update anti-malware software</strong></td><td>Get current definitions</td><td>Signature scanning only catches what it knows</td></tr>
+                        <tr><td><strong>6. Use scanning and removal techniques</strong></td><td>Scan in safe mode or the preinstallation environment</td><td>Malware that blocks removal usually cannot run there</td></tr>
+                        <tr><td><strong>7. Reimage if required</strong></td><td>Reinstall from known-good media</td><td>The only certain answer when removal cannot be trusted</td></tr>
+                        <tr><td><strong>8. Schedule scans and run updates</strong></td><td>Set recurring protection</td><td>Prevents the next one</td></tr>
+                        <tr><td><strong>9. Enable System Restore and create a restore point</strong></td><td>Turn it back on, from a clean state</td><td>The new baseline is a clean machine</td></tr>
+                        <tr><td><strong>10. Educate the end user</strong></td><td>Explain what happened and how to avoid it</td><td>Last for a reason &mdash; it is the step that prevents the repeat visit</td></tr>
                     </tbody>
                 </table>
-            </div>
-
-            <div class="key-concept">
-                <h4>What Skipping a Step Actually Costs</h4>
-                <p>The methodology looks like paperwork until you watch someone skip a step. Here is what each omission looks like in practice:</p>
-                <ul>
-                    <li><strong>Skip Step 1</strong> and you fix a problem the user did not have, because you never asked what they were actually seeing.</li>
-                    <li><strong>Skip Step 3</strong> and you replace a part on a hunch. When the symptom persists, you now have two unknowns instead of one.</li>
-                    <li><strong>Skip Step 5</strong> and the user calls back in an hour, because the fix solved the complaint and broke printing.</li>
-                    <li><strong>Skip Step 6</strong> and the organization learns nothing. The same failure costs the same hours every time it recurs.</li>
-                </ul>
-                <p>The exam tests Step 5 and Step 6 more heavily than most candidates expect, precisely because they are the two people skip in the field.</p>
-            </div>
-
-            <div class="callout callout-warning">
-                <div class="callout-title">Back Up First</div>
-                <div class="callout-content">
-                    <p>Backing up data before making changes sits inside Step 1 for a reason. Once you have started swapping parts or reconfiguring a system, the opportunity to preserve the user&rsquo;s data may already be gone. When a question describes a technician about to work on a machine holding the only copy of something, the correct answer almost always involves protecting that data before anything else happens.</p>
-                </div>
-            </div>
-
-            <h2>Reading a Symptom Across Domains</h2>
-
-            <p>A single reported symptom rarely points at a single domain. The skill is knowing what evidence would separate the possibilities, then gathering exactly that evidence instead of guessing.</p>
-
-            <div class="table-container">
-                <table>
-                    <thead><tr><th>What the User Says</th><th>Could Be</th><th>The Evidence That Decides</th></tr></thead>
-                    <tbody>
-                        <tr>
-                            <td>&ldquo;It&rsquo;s really slow.&rdquo;</td>
-                            <td>Failing drive (3.0) &middot; Saturated link (2.0) &middot; Thermal throttling (3.0) &middot; Overcommitted virtual machine (4.0)</td>
-                            <td>Is it slow on everything, or only on things that touch the network? Does it start fast and degrade as it warms? Does drive activity stay pinned with nothing running?</td>
-                        </tr>
-                        <tr>
-                            <td>&ldquo;It keeps shutting off.&rdquo;</td>
-                            <td>Overheating (3.0) &middot; Failing power supply (3.0) &middot; Swollen battery (1.0)</td>
-                            <td>Does it happen under load or at idle? Is it a sudden cut or an orderly shutdown? On a portable, does it run indefinitely on external power?</td>
-                        </tr>
-                        <tr>
-                            <td>&ldquo;I can&rsquo;t get to the internet.&rdquo;</td>
-                            <td>No address (2.0) &middot; Name resolution failure (2.0) &middot; Wireless signal (2.0) &middot; Physical link (3.0)</td>
-                            <td>Can the host reach a numeric address but not a name? Does it have a valid address at all? Does a wired connection behave differently from wireless?</td>
-                        </tr>
-                        <tr>
-                            <td>&ldquo;The screen looks wrong.&rdquo;</td>
-                            <td>Display panel or backlight (3.0) &middot; Cable or connector (3.0) &middot; Resolution setting (3.0) &middot; Digitizer (1.0)</td>
-                            <td>Is the image absent, distorted, or just badly sized? Does an external display behave the same way? Does touch input land where the finger actually is?</td>
-                        </tr>
-                        <tr>
-                            <td>&ldquo;Printing is messed up.&rdquo;</td>
-                            <td>Consumable or imaging component (3.0) &middot; Feed mechanism (3.0) &middot; Queue or driver (2.0) &middot; Connectivity (2.0)</td>
-                            <td>Does the defect repeat at a fixed interval down the page? Do jobs from every computer fail, or only one? Does a test page printed from the device itself look correct?</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="key-concept">
-                <h4>The Question That Does the Most Work</h4>
-                <p>If you only get to ask one diagnostic question, make it this one: <strong>does the problem follow the device, the user, or the location?</strong></p>
-                <p>A fault that follows the laptop into another room is in the laptop. One that stays in the room while the laptop works fine elsewhere is in the infrastructure. One that follows the person to a different machine is in their account or their configuration. That single question routes you into the right domain faster than any tool you can run.</p>
-            </div>
-
-            <h2>Hardware Troubleshooting, Consolidated</h2>
-
-            <p>This is the Unit 1 and Unit 2 material, returned to as diagnostic patterns rather than component descriptions.</p>
-
-            <div class="table-container">
-                <table>
-                    <thead><tr><th>Symptom</th><th>Most Likely Causes</th><th>First Moves</th></tr></thead>
-                    <tbody>
-                        <tr>
-                            <td>No power at all &mdash; no fans, no lights</td>
-                            <td>Dead outlet or cable, failed power supply, front panel power switch, incorrect voltage selector</td>
-                            <td>Confirm the outlet with a known-good device. Confirm the supply with a tester before condemning the board.</td>
-                        </tr>
-                        <tr>
-                            <td>Power, but no display and no POST</td>
-                            <td>Unseated or failed memory, unseated graphics card, failed processor, failed board</td>
-                            <td>Reseat memory one module at a time. Try onboard video if present. Listen for POST codes or watch for board diagnostic indicators.</td>
-                        </tr>
-                        <tr>
-                            <td>Random restarts or shutdowns under load</td>
-                            <td>Thermal event, inadequate or failing power supply, unstable memory</td>
-                            <td>Check fan operation and heatsink seating. Verify thermal paste and airflow. Confirm supply wattage against installed components.</td>
-                        </tr>
-                        <tr>
-                            <td>Grinding or clicking, then missing files</td>
-                            <td>Mechanical drive failure in progress</td>
-                            <td>Stop using the drive immediately and image it if the data matters. Continued operation destroys recoverable data.</td>
-                        </tr>
-                        <tr>
-                            <td>Array reports degraded but system still runs</td>
-                            <td>One member drive has failed in a redundant array</td>
-                            <td>Identify and replace the failed member, then allow the rebuild to complete before making further changes. A second failure during rebuild is the common way arrays are lost.</td>
-                        </tr>
-                        <tr>
-                            <td>System will not boot from the expected drive</td>
-                            <td>Boot order changed, loose data or power cable, failed drive, firmware setting</td>
-                            <td>Check whether firmware sees the drive at all. If it does not, the problem is physical or firmware, not operating system.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="definition">
-                <div class="definition-term">POST</div>
-                <p class="definition-text"><strong>Simple terms:</strong> A self-check the system firmware runs before any operating system loads, verifying that the essential hardware needed to boot is present and responding. <strong>Real-world example:</strong> A machine that gives beep codes or diagnostic lights and never reaches a logo screen has failed this check &mdash; which tells you the fault is in core hardware, and saves you from wasting an hour on operating system repair.</p>
-            </div>
-
-            <div class="definition">
-                <div class="definition-term">Thermal Throttling</div>
-                <p class="definition-text"><strong>Simple terms:</strong> A processor deliberately slowing itself down to shed heat when cooling cannot keep up, trading performance for survival. <strong>Real-world example:</strong> A laptop that benchmarks normally for ninety seconds and then runs at half speed is not failing &mdash; it is protecting itself, and the actual fix is dust in the heatsink or dried thermal paste, not a replacement processor.</p>
-            </div>
-
-            <h2>Display, Printer, and Mobile Issues, Consolidated</h2>
-
-            <div class="table-container">
-                <table>
-                    <thead><tr><th>Symptom</th><th>Most Likely Causes</th><th>First Moves</th></tr></thead>
-                    <tbody>
-                        <tr>
-                            <td>Very dim image, visible under bright light</td>
-                            <td>Backlight or inverter failure</td>
-                            <td>Shine a light at the panel. If the image is there but unlit, the panel is fine and the backlight path is not.</td>
-                        </tr>
-                        <tr>
-                            <td>Image is fuzzy or stretched</td>
-                            <td>Running outside the display&rsquo;s native resolution, or incorrect aspect ratio</td>
-                            <td>Set the display to its native resolution before investigating anything else.</td>
-                        </tr>
-                        <tr>
-                            <td>Flickering, color shifts, or missing color channel</td>
-                            <td>Loose or damaged video cable, failing connector, cable run too long</td>
-                            <td>Swap the cable first. It is the cheapest variable and the most common cause.</td>
-                        </tr>
-                        <tr>
-                            <td>Defect repeats at a fixed interval down every page</td>
-                            <td>Damaged imaging drum or roller &mdash; the interval equals the circumference of the failed part</td>
-                            <td>Measure the spacing and match it to a component. That measurement identifies the part without disassembly.</td>
-                        </tr>
-                        <tr>
-                            <td>Toner rubs off the finished page</td>
-                            <td>Fuser not reaching temperature, or wrong media type selected</td>
-                            <td>Verify the media setting matches what is loaded, then evaluate the fuser.</td>
-                        </tr>
-                        <tr>
-                            <td>Jobs from one computer fail, others print fine</td>
-                            <td>Driver, queue, or permission issue on that host</td>
-                            <td>Print a test page from the device itself. If it prints, the printer is not the problem.</td>
-                        </tr>
-                        <tr>
-                            <td>Touch input lands away from where the finger is</td>
-                            <td>Digitizer fault or calibration loss, screen protector interference</td>
-                            <td>Confirm the display renders correctly. A perfect image with wrong touch position isolates the digitizer from the panel.</td>
-                        </tr>
-                        <tr>
-                            <td>Battery drains quickly or the case bulges</td>
-                            <td>Aged cell, runaway background process, swollen battery</td>
-                            <td>A bulging battery is removed from service immediately. Never attempt to keep using or puncture it.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="callout callout-danger">
-                <div class="callout-title">Swollen Batteries</div>
-                <div class="callout-content">
-                    <p>A lithium-ion battery that has visibly expanded, is separating a case seam, or is lifting a trackpad is a safety hazard, not an inconvenience. Power the device down, stop charging it, do not press on or puncture the cell, and follow your organization&rsquo;s disposal procedure. This appears on the exam and it matters far more in the shop.</p>
-                </div>
-            </div>
-
-            <h2>Network Troubleshooting, Consolidated</h2>
-
-            <p>This is Unit 3 and Unit 4 material, worked from the symptom backward. The most useful habit here is to move deliberately up from the physical layer rather than starting with the most complicated explanation.</p>
-
-            <div class="table-container">
-                <table>
-                    <thead><tr><th>Symptom</th><th>What It Points At</th><th>First Moves</th></tr></thead>
-                    <tbody>
-                        <tr>
-                            <td>No link light on the adapter or switch port</td>
-                            <td>Physical layer &mdash; cable, port, or termination</td>
-                            <td>Swap to a known-good cable and a known-good port. Test the run if the problem follows the jack.</td>
-                        </tr>
-                        <tr>
-                            <td>Address in the 169.254 range</td>
-                            <td>The host never received an address from a server</td>
-                            <td>Confirm physical connectivity first, then check whether the address server is reachable and has available leases.</td>
-                        </tr>
-                        <tr>
-                            <td>Numeric addresses work, names do not</td>
-                            <td>Name resolution</td>
-                            <td>Verify the configured resolver and test resolution directly against it.</td>
-                        </tr>
-                        <tr>
-                            <td>Local resources reachable, remote ones are not</td>
-                            <td>Default gateway or routing</td>
-                            <td>Confirm the gateway address is correct and reachable, then trace the path outward to find where it stops.</td>
-                        </tr>
-                        <tr>
-                            <td>Intermittent wireless, worse at distance</td>
-                            <td>Signal strength, interference, or channel overlap</td>
-                            <td>Check signal at the failing location, then look for competing networks and non-network interference sources on the same band.</td>
-                        </tr>
-                        <tr>
-                            <td>One department affected, others fine</td>
-                            <td>Segment-level device or configuration</td>
-                            <td>Find what that group shares and nobody else does &mdash; a switch, an access point, a segment, a set of policies.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="definition">
-                <div class="definition-term">Scope of Impact</div>
-                <p class="definition-text"><strong>Simple terms:</strong> How many users or systems a problem touches, used as a diagnostic shortcut to locate where the fault must be. <strong>Real-world example:</strong> One user offline points at that workstation; a whole floor offline points at the switch or uplink serving that floor; the entire site offline points at the edge device or the provider &mdash; and knowing this lets you skip straight to the right equipment instead of starting at somebody&rsquo;s desk.</p>
-            </div>
-
-            <h2>Evidence and Elimination</h2>
-
-            <p>Performance-based questions rarely ask you to recall a fact. They give you a scenario where two explanations both fit, and they score whether you chose the one the evidence supports. That is the skill this section is built around.</p>
-
-            <div class="key-concept">
-                <h4>Worked Example: Two Diagnoses, One Symptom</h4>
-                <p>A user reports that file transfers to the department server have become extremely slow this week. Nothing was changed on their workstation. Two theories fit:</p>
-                <div class="table-container">
-                    <table>
-                        <thead><tr><th>Theory</th><th>What Would Be True If This Were It</th></tr></thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>A. The workstation&rsquo;s drive is failing</strong></td>
-                                <td>Local file operations would also be slow. Drive activity would stay high with nothing running. Other users would be unaffected.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>B. The network path to the server is congested or degraded</strong></td>
-                                <td>Local operations would be normal. Other users on the same segment would report the same problem. The slowdown would track time of day or load.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <p>You do not need both answers. You need one test that produces different results depending on which theory is true &mdash; here, copying a large file from one local folder to another. Fast local copy eliminates Theory A outright. That is the whole method: <strong>find the test that splits the theories, then run that test.</strong></p>
-            </div>
-
-            <div class="callout callout-tip">
-                <div class="callout-title">Explaining It to the Customer</div>
-                <div class="callout-content">
-                    <p>Every diagnosis you reach has to survive one more step: telling the person what happened in words they can use. Skip the component names and give them the shape of it. &ldquo;The part that stores your files is wearing out. I moved your data to a healthy drive before it got worse, and everything is back where you left it.&rdquo; That is a complete, honest, useful explanation with no jargon in it, and delivering it well is as much a part of this job as the repair was.</p>
-                </div>
             </div>
 
             <div class="callout callout-info">
-                <div class="callout-title">Where to Go Next</div>
-                <div class="callout-content">
-                    <p>Work this section against the domain your pre-assessment flagged. If troubleshooting hardware came back weakest, spend your time in the consolidated hardware table and the Chapter 12 review material. If networking came back weakest, start with scope of impact and the Chapter 12 networking review. Reading all of this evenly is the least efficient use of your last week.</p>
-                </div>
+                <div class="callout-title">The Book Groups These Into Seven</div>
+                <div class="callout-content"><p>Your textbook presents the same procedure as seven steps with sub-steps, combining updating anti-malware and the scanning techniques under remediation. Same order, split differently. <strong>Learn CompTIA's ten,</strong> because that is what the exam numbers &mdash; the book's grouping is shown here only so the two do not confuse you.</p></div>
+            </div>
+
+            <div class="key-concept">
+                <h4>Two Steps People Get Wrong</h4>
+                <p><strong>Disable System Restore before remediating, not after.</strong> If you clean the machine and leave infected restore points in place, a single restore reinfects it.</p>
+                <p><strong>Educate the user last, and actually do it.</strong> It feels optional because the machine already works. It is the only step that changes whether you see this machine again next month.</p>
+            </div>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">A Real Example You Will Meet on the Job</div>
+                <div class="callout-content"><p>A user's machine is infected and they have a folder of documents that exist nowhere else. The honest sequence is: get the system running just well enough to recover those files, copy them off and scan them separately, and <em>then</em> wipe the machine and restore from a known-good image. Removal tools are good; they are not a guarantee. When the data matters, the safest machine is the one you rebuilt.</p></div>
+            </div>
+
+            <h2>Part 2 &mdash; Troubleshooting Windows (Objective 3.1)</h2>
+
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Symptom</th><th>Where to Look First</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Blue screen of death (BSOD)</strong></td><td>Recent driver or hardware change; the stop code; Event Viewer's System log. Roll back the driver you installed last.</td></tr>
+                        <tr><td><strong>Sluggish performance</strong></td><td>Task Manager, sorted by CPU and then memory; disk space; startup programs</td></tr>
+                        <tr><td><strong>Boot problems</strong></td><td>Boot order, boot device, and the Windows Recovery Environment. Was something installed or changed?</td></tr>
+                        <tr><td><strong>Frequent shutdowns</strong></td><td>Overheating, power supply, or a driver fault &mdash; Event Viewer narrows which</td></tr>
+                        <tr><td><strong>Services not starting</strong></td><td>The Services snap-in and its dependencies; Event Viewer for the failure reason</td></tr>
+                        <tr><td><strong>Applications crashing</strong></td><td>Event Viewer's Application log; updates; repair or reinstall the application</td></tr>
+                        <tr><td><strong>Low memory warnings</strong></td><td>Task Manager's memory use; the page file; too many applications open</td></tr>
+                        <tr><td><strong>USB controller resource warnings</strong></td><td>Device Manager; too many devices on one controller; a powered hub</td></tr>
+                        <tr><td><strong>System instability</strong></td><td>Drivers, overheating, failing storage, and recent changes &mdash; in that order</td></tr>
+                        <tr><td><strong>No OS found</strong></td><td>Boot order, a disconnected drive, a failed drive, or damaged boot files</td></tr>
+                        <tr><td><strong>Slow profile load</strong></td><td>Roaming profile size, network and domain controller reachability, log-in scripts</td></tr>
+                        <tr><td><strong>Time drift</strong></td><td>Time service and its source; the CMOS battery; domain time sync. More than a nuisance &mdash; authentication fails when clocks disagree.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Common Troubleshooting Steps</h3>
+            <ul class="styled-list">
+                <li><strong>Reboot</strong> &mdash; genuinely fixes a category of problems, and is the correct first step more often than technicians like to admit</li>
+                <li><strong>Restart services</strong> &mdash; the targeted version of a reboot</li>
+                <li><strong>Uninstall, reinstall, or update applications</strong></li>
+                <li><strong>Add resources</strong> &mdash; when the machine is genuinely short of memory or storage</li>
+                <li><strong>Verify requirements</strong> &mdash; the Unit 1 question: can this machine run this software at all?</li>
+                <li><strong>System file check</strong> &mdash; <code>sfc /scannow</code>, from Unit 2</li>
+                <li><strong>Repair Windows</strong>, <strong>restore</strong>, <strong>reimage</strong>, or <strong>roll back updates</strong> &mdash; in increasing order of disruption</li>
+            </ul>
+
+            <div class="key-concept">
+                <h4>Least Disruptive First</h4>
+                <p>The order above is the answer to a whole family of exam questions. When several options would fix the problem, the right answer is almost always the <strong>least disruptive one that could work</strong> &mdash; restart the service before rebooting the server, repair before reimaging, roll back one update before restoring the whole system.</p>
+                <p>Reimaging fixes everything and costs the user their afternoon. It is the last resort, not the fast one.</p>
+            </div>
+
+            <h2>Part 3 &mdash; Mobile Troubleshooting (Objectives 3.2 and 3.3)</h2>
+
+            <h3>Common Mobile Issues (3.2)</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Symptom</th><th>Likely Causes</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Application fails to launch, close, or update</strong></td><td>Storage full, OS version too old, corrupted app data</td></tr>
+                        <tr><td><strong>Slow performance</strong></td><td>Storage nearly full, background apps, an aging battery</td></tr>
+                        <tr><td><strong>Battery life issues</strong> and <strong>swollen battery</strong></td><td>Normal wear versus a safety hazard &mdash; a swollen battery is removed from service immediately and disposed of properly</td></tr>
+                        <tr><td><strong>Random reboots</strong></td><td>Failing hardware, an OS fault, or a badly behaved application</td></tr>
+                        <tr><td><strong>Connectivity issues</strong> &mdash; Bluetooth, Wi-Fi, NFC, AirDrop</td><td>Radio disabled, out of range, pairing lost, or a profile restriction</td></tr>
+                        <tr><td><strong>Screen does not autorotate</strong></td><td>Rotation lock, or a failed sensor</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Mobile Security Issues (3.3)</h3>
+            <p>These are the symptoms that mean something is wrong rather than merely broken:</p>
+            <ul class="styled-list">
+                <li><strong>Unexpected application behavior</strong> &mdash; an app doing something it has no reason to do</li>
+                <li><strong>Leaked personal files or data</strong></li>
+                <li><strong>Data-usage limit notification</strong> &mdash; something is transmitting that should not be</li>
+                <li><strong>High network traffic</strong> &mdash; the same signal, seen from the network</li>
+                <li><strong>Sluggish response time</strong> &mdash; when combined with the above, not just an old phone</li>
+                <li><strong>Fake security warnings</strong> &mdash; a browser page pretending to be the system</li>
+            </ul>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">A Real Example You Will Meet on the Job</div>
+                <div class="callout-content"><p>A user says their phone is "slow and hot" and that they are suddenly hitting their data limit every month. Separately, each is unremarkable &mdash; phones age, plans change. Together they describe something running constantly and transmitting. Check installed applications and their permissions, review data usage per application, and treat it as a security issue rather than a performance one. Symptoms that are boring alone are meaningful in combination.</p></div>
+            </div>
+
+            <h2>Part 4 &mdash; Troubleshooting Security Issues (Objective 3.4)</h2>
+
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Symptom</th><th>What It Usually Means</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Unable to access the network</strong></td><td>Malware blocking connectivity, or a security control doing its job</td></tr>
+                        <tr><td><strong>Desktop alerts</strong> and <strong>false alerts regarding antivirus protection</strong></td><td>A fake warning designed to make the user install or pay for something</td></tr>
+                        <tr><td><strong>Altered system or personal files</strong>, including <strong>missing or renamed files</strong></td><td>A hallmark of ransomware &mdash; check before anything else</td></tr>
+                        <tr><td><strong>Unwanted notifications within the OS</strong></td><td>Browser notification permissions granted to a hostile site, or adware</td></tr>
+                        <tr><td><strong>OS update failures</strong></td><td>Malware preventing updates so it cannot be removed</td></tr>
+                        <tr><td><strong>Random or frequent pop-ups</strong></td><td>Adware, or a browser extension</td></tr>
+                        <tr><td><strong>Certificate warnings</strong></td><td>An expired certificate, a wrong system clock, or traffic being intercepted</td></tr>
+                        <tr><td><strong>Redirection</strong></td><td>A hijacked browser, a changed hosts file, or altered DNS settings</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="key-concept">
+                <h4>Three Symptoms, One Cause</h4>
+                <p>Update failures, no network access, and antivirus that will not update are <em>the same finding</em>: something on the machine is preventing its own removal. Any one of them on its own is a configuration problem. Together they are an infection, and the answer is the step-6 approach &mdash; scan from safe mode or a preinstallation environment where the malware cannot run.</p>
+            </div>
+
+            <h2>Part 5 &mdash; Remote Access Technologies (Objective 4.9)</h2>
+
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Technology</th><th>What It Is</th><th>When It Fits</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>RDP</strong></td><td>Remote Desktop Protocol &mdash; full graphical control of a Windows machine</td><td>Administering a Windows system as though you were sitting at it</td></tr>
+                        <tr><td><strong>VPN</strong></td><td>An encrypted tunnel into a private network</td><td>Reaching internal resources from outside; often the prerequisite for everything else here</td></tr>
+                        <tr><td><strong>VNC</strong></td><td>Cross-platform screen sharing and control</td><td>Mixed environments where RDP is unavailable</td></tr>
+                        <tr><td><strong>SSH</strong></td><td>Encrypted command-line access</td><td>Linux and network devices; low bandwidth and highly scriptable</td></tr>
+                        <tr><td><strong>RMM</strong></td><td>Remote monitoring and management &mdash; agent-based tools that watch and administer many machines</td><td>Managed service providers and internal IT at scale</td></tr>
+                        <tr><td><strong>MSP tools</strong></td><td>The platforms built around RMM for ticketing, patching, and reporting</td><td>Outsourced IT support</td></tr>
+                        <tr><td><strong>File transfer software</strong></td><td>Moving files to and from a remote system</td><td>Delivering a fix or collecting logs</td></tr>
+                        <tr><td><strong>Desktop management software</strong></td><td>Central configuration and software deployment</td><td>Standardizing a fleet of workstations</td></tr>
+                        <tr><td><strong>Video-conferencing software</strong></td><td>Screen sharing with a user, with their consent and participation</td><td>Walking a user through something they must do themselves</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Security Considerations</h3>
+            <p>Every remote access method is a door into a system, which is why the objective pairs them with security considerations. The recurring ones: use <strong>encrypted protocols</strong> rather than unencrypted equivalents; never expose RDP directly to the internet &mdash; put it behind a VPN; require <strong>multifactor authentication</strong> for remote access; apply <strong>least privilege</strong> to remote accounts as you would to local ones; and <strong>log and monitor</strong> remote sessions, since a remote connection nobody can account for is an incident.</p>
+
+            <div class="callout callout-danger">
+                <div class="callout-title">The Attack This Objective Exists to Prevent</div>
+                <div class="callout-content"><p>Exposed RDP with a weak password is one of the most common ways ransomware enters a small organization. The attacker does not need an exploit &mdash; they run a dictionary attack against an open port and sign in. Every control in Unit 5 applies here: account lockout, multifactor authentication, least privilege, and a VPN in front of the whole thing.</p></div>
+            </div>
+
+            <h2>Part 6 &mdash; The Basics of Artificial Intelligence (Objective 4.10)</h2>
+
+            <p>This objective is new to the A+ and is about <strong>using AI responsibly in IT work</strong>, not about building it.</p>
+
+            <h3>What It Is</h3>
+            <p>AI tools generate answers from patterns in training data. They do not look anything up unless they are given a tool to do so, and they do not know whether an answer is correct &mdash; they produce what is <em>probable</em>. That single fact explains nearly every risk below.</p>
+
+            <h3>Risks and Considerations</h3>
+            <ul class="styled-list">
+                <li><strong>Inaccurate or fabricated output</strong> &mdash; an AI will produce a confident, well-formatted answer that is wrong, including invented commands, settings, and citations</li>
+                <li><strong>Data privacy</strong> &mdash; what you paste into a public AI tool may leave your organization. Customer data, credentials, and internal documents do not belong in one.</li>
+                <li><strong>Intellectual property and licensing</strong> &mdash; generated content may carry obligations or restrictions</li>
+                <li><strong>Bias</strong> &mdash; output reflects the data it was trained on</li>
+                <li><strong>Acceptable use</strong> &mdash; organizations increasingly have policies governing which AI tools may be used for what, and a technician is expected to follow them</li>
+            </ul>
+
+            <div class="key-concept">
+                <h4>The Technician's Rule for AI</h4>
+                <p><strong>Use it to draft, never to decide.</strong> An AI is good at producing a first version of a ticket summary, a script, or an explanation for a user. It is not a source of fact, and it is not accountable for the outcome &mdash; you are.</p>
+                <p>Verify anything it tells you against documentation before you act on it, exactly as you would verify advice from a forum post. In this unit's "Check the AI" lab, you will do precisely that with an AI answer to an A+ question, and finding the error yourself is more convincing than being warned about it.</p>
+                <p>One more rule, directly from the testing policies: <strong>no AI assistance during a certification exam</strong>, ever. Using one is cheating, and for an online proctored exam it is grounds for immediate termination.</p>
+            </div>
+
+            <h2>How to Think Like a Troubleshooter</h2>
+
+            <p>Every symptom table on this page is a shortcut. The underlying method is the same one that works when the symptom is not in any table:</p>
+            <ol class="lab-steps">
+                <li><strong>Establish what changed.</strong> Almost every fault follows a change &mdash; an update, an install, a setting, a new device. "It worked yesterday" is the most useful sentence a user can give you.</li>
+                <li><strong>Reproduce it.</strong> A problem you can trigger on demand is a problem you can test a fix against.</li>
+                <li><strong>Narrow by halves.</strong> Is it this machine or the network? This user or every user? This application or everything? Each answer eliminates half the possibilities.</li>
+                <li><strong>Change one thing at a time,</strong> and test after each. Two changes at once means you will never know which worked.</li>
+                <li><strong>Choose the least disruptive fix</strong> that addresses the cause rather than the symptom.</li>
+                <li><strong>Document what you did</strong> &mdash; which brings you back to objective 4.1, and the first thing you learned in Unit 1.</li>
+            </ol>
+
+            <div class="callout callout-tip">
+                <div class="callout-title">Six Units, One Loop</div>
+                <div class="callout-content"><p>You opened this course writing a help-desk ticket, and you are closing it by writing a better one. That is not a coincidence in the design &mdash; it is what the job looks like. Everything in between was the knowledge that lets the ticket say something useful.</p></div>
+            </div>
+
+            <div class="summary-box">
+                <h3>Unit 6 Content Recap</h3>
+                <ul>
+                    <li>Malware removal is a ten-step sequence; disable System Restore before remediating, and educate the user last</li>
+                    <li>When removal cannot be trusted and the data matters: recover the files, then reimage</li>
+                    <li>Windows symptoms map to causes &mdash; and the right fix is the least disruptive one that could work</li>
+                    <li>Time drift breaks authentication, not just clocks</li>
+                    <li>Mobile symptoms that are unremarkable alone can be meaningful in combination</li>
+                    <li>Update failures, blocked network access, and antivirus that will not update are one finding: the malware is defending itself</li>
+                    <li>Remote access methods are doors &mdash; encrypted protocols, multifactor authentication, least privilege, and logging apply to all of them</li>
+                    <li>Never expose RDP directly to the internet</li>
+                    <li>AI is for drafting, not deciding; verify before you act, and never use it during a certification exam</li>
+                    <li>When no table has your symptom: what changed, reproduce, narrow by halves, one change at a time, least disruptive fix, document</li>
+                </ul>
+            </div>
+
+            <div class="references-section">
+                <h3>Go Further</h3>
+                <ul>
+                    <li>Sybex <em>CompTIA A+ Complete Study Guide</em>, Volume 2 &mdash; Chapter 7 in full; Chapter 8, Remote Access and Artificial Intelligence</li>
+                    <li>Professor Messer's free 220-1202 course &mdash; objectives 2.6, 3.1, 3.2, 3.3, 3.4, 4.9, and 4.10 (see Section 6.5 for direct links)</li>
+                    <li>CompTIA official 220-1202 exam objectives (comptia.org) &mdash; objective 3.1's symptom list is long and specific; read it beside this page</li>
+                    <li>Microsoft's Windows troubleshooting documentation (learn.microsoft.com) &mdash; the official detail behind the Windows symptom table</li>
+                </ul>
             </div>
 
         </div>
 
         <footer class="module-footer">
-            <p class="footer-text">CompTIA A+ Core 1 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
+            <p class="footer-text">CompTIA A+ Core 2 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
         </footer>
     </div>
 </body>
