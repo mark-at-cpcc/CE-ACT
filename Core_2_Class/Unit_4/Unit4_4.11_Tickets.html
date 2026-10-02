@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Unit 4 &mdash; 4.11 Unit 4 Tickets | CompTIA A+ Core 2</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Sans+Pro:wght@400;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           CPCC COURSE TEMPLATE - GOLD / CHARCOAL / BLACK
+           CTS-ITS7501-80 CompTIA A+ Core 2 Training
+           Type: true black. Accents: gold. Chrome: charcoal.
+           ============================================ */
+
+        :root {
+            --primary-dark: #4A4A4A;       /* Charcoal - structural chrome only */
+            --primary-main: #B8962E;       /* Warm Gold - primary accent */
+            --primary-light: #D4AF56;      /* Light Gold */
+            --primary-pale: #FBF3DF;       /* Pale Gold wash */
+
+            --accent-teal: #8A6F1F;        /* Deep bronze-gold */
+            --accent-teal-light: #F3E9CE;  /* Pale bronze */
+            --accent-orange: #A9642A;      /* Warm rust */
+            --accent-orange-light: #F5E2CE;
+            --accent-purple: #6B5B3A;      /* Muted umber */
+            --accent-purple-light: #EFE6D2;
+            --accent-green: #4E7A51;
+            --accent-green-light: #DCEBDD;
+
+            --alert-warning: #B8862E;
+            --alert-warning-bg: #FBF0D9;
+            --alert-danger: #A13A3A;
+            --alert-danger-bg: #F6DEDE;
+            --alert-success: #3F6E42;
+            --alert-success-bg: #DCEBDD;
+            --alert-info: #6E5B2E;
+            --alert-info-bg: #F1E9D4;
+
+            --text-black: #000000;         /* All reading text */
+            --neutral-900: #000000;
+            --neutral-700: #000000;
+            --neutral-500: #5A5A5A;
+            --neutral-300: #D9D3C4;
+            --neutral-100: #FAF8F3;
+            --white: #ffffff;
+
+            --font-heading: 'Nunito', sans-serif;
+            --font-body: 'Source Sans Pro', sans-serif;
+            --font-code: 'Fira Code', monospace;
+
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+
+            --shadow-sm: 0 1px 2px rgba(74, 74, 74, 0.08);
+            --shadow-md: 0 4px 6px rgba(74, 74, 74, 0.12);
+            --shadow-lg: 0 10px 20px rgba(74, 74, 74, 0.15);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body), 'Segoe UI', Tahoma, Verdana, sans-serif;
+            font-size: 1.0625rem;
+            line-height: 1.7;
+            color: var(--text-black);
+            background: linear-gradient(135deg, var(--neutral-100) 0%, var(--white) 100%);
+            min-height: 100vh;
+            padding: var(--space-lg);
+        }
+
+        .course-container {
+            max-width: 950px; margin: 0 auto; background: var(--white);
+            border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); overflow: hidden;
+        }
+
+        .module-header {
+            background: var(--primary-main); color: var(--text-black);
+            padding: var(--space-lg) var(--space-xl); position: relative; overflow: hidden;
+        }
+        .module-label {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 0.875rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 2px; text-decoration: underline;
+            margin-bottom: var(--space-sm); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-title {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 2.25rem; font-weight: 800;
+            line-height: 1.2; margin-bottom: var(--space-md); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-subtitle { font-size: 1.125rem; max-width: 650px; position: relative; z-index: 1; color: var(--text-black); }
+
+        .toc {
+            display: flex; flex-direction: column; gap: var(--space-sm);
+            padding: var(--space-lg) var(--space-xl);
+            background: var(--primary-pale); border-bottom: 1px solid var(--neutral-300);
+        }
+        .toc-item {
+            width: 100%; text-align: left;
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 0.875rem;
+            color: var(--text-black); background: var(--white);
+            border: 2px solid var(--primary-main);
+            padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md);
+        }
+        .toc-item.current { background: var(--primary-main); }
+
+        .content-area { padding: var(--space-xl); }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif;
+            color: var(--text-black); line-height: 1.3; margin-bottom: var(--space-md);
+        }
+        h1 { font-size: 2rem; font-weight: 800; }
+        h2 { font-size: 1.625rem; font-weight: 700; padding-bottom: var(--space-sm);
+             border-bottom: 3px solid var(--primary-main); margin-top: var(--space-xl); margin-bottom: var(--space-lg); }
+        h3 { font-size: 1.375rem; font-weight: 700; margin-top: var(--space-lg);
+             padding-left: var(--space-sm); border-left: 4px solid var(--primary-main); }
+        h4 { font-size: 1.125rem; font-weight: 600; }
+
+        p { margin-bottom: var(--space-md); }
+        strong { font-weight: 700; color: var(--text-black); }
+        em { font-style: italic; color: var(--text-black); }
+
+        a { color: var(--text-black); text-decoration: none; border-bottom: 2px solid var(--primary-main); transition: all 0.2s ease; }
+        a:hover { background: var(--primary-pale); border-bottom-color: var(--accent-teal); }
+
+        ul, ol { margin-bottom: var(--space-md); padding-left: var(--space-lg); }
+        li { margin-bottom: var(--space-sm); }
+        ul li::marker { color: var(--accent-teal); }
+        ol li::marker { color: var(--accent-teal); font-weight: 700; }
+
+        .styled-list { list-style: none; padding-left: 0; }
+        .styled-list li { position: relative; padding-left: var(--space-lg); margin-bottom: var(--space-sm); }
+        .styled-list li::before { content: '\25B8'; position: absolute; left: 0; color: var(--accent-teal); font-weight: bold; }
+
+        .checklist { list-style: none; padding-left: 0; }
+        .checklist li { position: relative; padding-left: 2rem; margin-bottom: var(--space-sm); }
+        .checklist li::before {
+            content: '\2713'; position: absolute; left: 0; width: 1.5rem; height: 1.5rem;
+            background: var(--accent-green-light); color: var(--accent-green);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 0.75rem; font-weight: bold;
+        }
+
+        .objectives-box {
+            background: linear-gradient(135deg, var(--primary-pale) 0%, var(--accent-teal-light) 100%);
+            border-left: 5px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .objectives-box h3 { color: var(--text-black); margin-top: 0; margin-bottom: var(--space-md);
+            display: flex; align-items: center; gap: var(--space-sm); border-left: none; padding-left: 0; }
+        .objectives-box ol { margin-bottom: 0; }
+
+        .tech-box {
+            background: var(--neutral-100); border: 2px solid var(--neutral-500);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .tech-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .tech-box .callout-content { padding-left: 0; }
+
+        .plain-box {
+            background: var(--primary-pale); border: 2px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .plain-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .plain-box .callout-content { padding-left: 0; }
+
+        .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; position: relative; overflow: hidden; }
+        .callout::before { position: absolute; top: var(--space-md); left: var(--space-md); font-size: 1.5rem; }
+        .callout-title { font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 1rem;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
+        .callout-content { }
+        .callout-content p:last-child { margin-bottom: 0; }
+
+        .callout-tip { background: var(--accent-green-light); border-left: 4px solid var(--accent-green); }
+        .callout-warning { background: var(--alert-warning-bg); border-left: 4px solid var(--alert-warning); }
+        .callout-danger { background: var(--alert-danger-bg); border-left: 4px solid var(--alert-danger); }
+        .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
+
+        .key-concept {
+            background: linear-gradient(135deg, var(--accent-purple-light) 0%, var(--white) 100%);
+            border: 2px solid var(--accent-purple); border-radius: var(--radius-lg);
+            padding: var(--space-lg); margin: var(--space-xl) 0 var(--space-lg); position: relative;
+        }
+        .key-concept::before {
+            content: '\1F511 KEY CONCEPT'; position: absolute; top: -12px; left: var(--space-lg);
+            background: var(--accent-purple); color: var(--white); font-family: var(--font-heading), sans-serif;
+            font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-md); border-radius: var(--radius-sm);
+        }
+        .key-concept h4 { color: var(--text-black); margin-top: var(--space-sm); }
+
+        .definition { background: var(--neutral-100); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin: var(--space-md) 0; border-left: 4px solid var(--accent-orange); }
+        .definition-term { font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 1.125rem;
+            color: var(--text-black); margin-bottom: var(--space-xs); }
+        .definition-text { color: var(--text-black); margin-bottom: 0; }
+
+        code { font-family: var(--font-code), Consolas, monospace; font-size: 0.9rem; background: var(--primary-pale);
+            color: var(--text-black); padding: 2px 6px; border-radius: var(--radius-sm); }
+        pre { background: #2E2E2E; color: #f1ece0; padding: var(--space-lg); border-radius: var(--radius-md);
+            overflow-x: auto; margin: var(--space-lg) 0; position: relative; }
+        pre::before {
+            content: 'STEPS'; position: absolute; top: 0; right: 0; background: var(--primary-main); color: var(--text-black);
+            font-family: var(--font-heading), sans-serif; font-size: 0.625rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-sm); border-radius: 0 var(--radius-md) 0 var(--radius-sm);
+        }
+        pre code { background: transparent; color: inherit; padding: 0; font-size: 0.875rem; line-height: 1.6; }
+
+        .table-container { overflow-x: auto; margin: var(--space-lg) 0; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); }
+        table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
+        thead { background: var(--primary-dark); color: var(--white); }
+        th { font-family: var(--font-heading), sans-serif; font-weight: 700; text-align: left; padding: var(--space-md) var(--space-lg); color: var(--white); }
+        td { padding: var(--space-md) var(--space-lg); border-bottom: 1px solid var(--neutral-300); color: var(--text-black); }
+        tbody tr:hover { background: var(--primary-pale); }
+        tbody tr:last-child td { border-bottom: none; }
+
+        .activity-section {
+            background: linear-gradient(135deg, var(--accent-orange-light) 0%, var(--white) 100%);
+            border: 2px dashed var(--accent-orange); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .activity-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg); }
+        .activity-icon { width: 50px; height: 50px; background: var(--accent-orange); border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; }
+        .activity-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700;
+            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
+        .activity-subtitle { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
+
+        .assessment-section { background: var(--primary-pale); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0; }
+        .assessment-header { text-align: center; margin-bottom: var(--space-xl); }
+        .assessment-header h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .question-block { background: var(--white); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin-bottom: var(--space-lg); box-shadow: var(--shadow-sm); border: 2px solid transparent; transition: border-color .15s ease; }
+        .question-number { font-family: var(--font-heading), sans-serif; font-size: 0.75rem; font-weight: 700;
+            color: var(--text-black); background: var(--primary-main); display: inline-block;
+            padding: 2px 10px; border-radius: var(--radius-sm);
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); }
+        .question-text { font-weight: 600; color: var(--text-black); margin-bottom: var(--space-md); }
+
+        /* ---- Multiple-choice interactive options ---- */
+        .mc-options { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-sm); }
+        .mc-option {
+            display: flex; align-items: center; gap: var(--space-md); width: 100%; text-align: left;
+            padding: var(--space-sm) var(--space-md); border: 2px solid var(--neutral-300); border-radius: var(--radius-md);
+            background: var(--white); color: var(--text-black); font-family: var(--font-body), sans-serif;
+            font-size: 1rem; cursor: pointer; transition: all 0.15s ease;
+        }
+        .mc-option:hover { border-color: var(--primary-main); background: var(--primary-pale); }
+        .mc-option .mc-letter {
+            flex-shrink: 0; width: 1.75rem; height: 1.75rem; border-radius: 50%;
+            background: var(--neutral-100); border: 2px solid var(--neutral-300);
+            display: flex; align-items: center; justify-content: center;
+            font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 0.85rem; color: var(--text-black);
+        }
+        .mc-option.selected { border-color: var(--primary-main); background: var(--primary-pale); font-weight: 700; }
+        .mc-option.selected .mc-letter { background: var(--primary-main); border-color: var(--primary-main); }
+        .mc-option.graded-correct { border-color: var(--alert-success); background: var(--alert-success-bg); font-weight: 700; }
+        .mc-option.graded-correct .mc-letter { background: var(--alert-success); border-color: var(--alert-success); color: var(--white); }
+        .mc-option.graded-incorrect { border-color: var(--alert-danger); background: var(--alert-danger-bg); }
+        .mc-option.graded-incorrect .mc-letter { background: var(--alert-danger); border-color: var(--alert-danger); color: var(--white); }
+        .mc-option.graded-missed { border-color: var(--alert-success); border-style: dashed; }
+
+        .question-block.unanswered-flag { border-color: var(--alert-warning); }
+        .unanswered-note {
+            display: none; margin-top: var(--space-sm); font-size: 0.875rem; font-weight: 700;
+            color: var(--alert-warning); font-family: var(--font-heading), sans-serif;
+        }
+        .question-block.unanswered-flag .unanswered-note { display: block; }
+
+        .assessment-controls {
+            display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap;
+            margin-top: var(--space-xl); padding-top: var(--space-lg); border-top: 2px solid var(--neutral-300);
+        }
+        .btn-grade, .btn-reset {
+            font-family: var(--font-heading), sans-serif; font-weight: 800; font-size: 1rem;
+            padding: var(--space-md) var(--space-2xl); border-radius: var(--radius-md);
+            cursor: pointer; transition: all 0.15s ease; border: 2px solid var(--primary-dark);
+        }
+        .btn-grade { background: var(--primary-main); color: var(--text-black); border-color: var(--primary-main); box-shadow: var(--shadow-sm); }
+        .btn-grade:hover { background: var(--primary-light); }
+        .btn-reset { background: var(--white); color: var(--text-black); }
+        .btn-reset:hover { background: var(--neutral-100); }
+
+        .results-summary {
+            display: none; margin-top: var(--space-xl); padding: var(--space-xl);
+            border-radius: var(--radius-lg); background: var(--primary-dark); color: var(--white); text-align: center;
+        }
+        .results-summary.show { display: block; }
+        .results-score { font-family: var(--font-heading), sans-serif; font-size: 2.5rem; font-weight: 800; color: var(--white); margin-bottom: var(--space-sm); }
+        .results-summary p { color: var(--white); margin-bottom: var(--space-sm); }
+        .results-summary p:last-child { margin-bottom: 0; }
+
+        .references-section { background: var(--neutral-100); border-radius: var(--radius-lg);
+            padding: var(--space-lg) var(--space-xl); margin: var(--space-xl) 0; border-top: 3px solid var(--primary-main); }
+        .references-section h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .references-section ul { padding-left: var(--space-lg); }
+
+        .module-footer { background: var(--primary-dark); padding: var(--space-lg) var(--space-xl);
+            text-align: center; border-top: 4px solid var(--primary-main); }
+        .footer-text { font-size: 0.875rem; color: var(--white); margin: 0; }
+
+        .text-center { text-align: center; }
+        .text-muted { color: var(--neutral-500); }
+        .highlight { background: linear-gradient(180deg, transparent 50%, var(--primary-light) 50%); padding: 0 2px; }
+
+        @media (max-width: 768px) {
+            body { padding: var(--space-sm); }
+            .module-header { padding: var(--space-xl) var(--space-lg); }
+            .module-title { font-size: 1.75rem; }
+            .content-area { padding: var(--space-lg); }
+            h2 { font-size: 1.375rem; }
+            .activity-header { flex-direction: column; align-items: flex-start; }
+            .assessment-controls { flex-direction: column; }
+            .btn-grade, .btn-reset { width: 100%; }
+        }
+        @media print {
+            body { background: white; padding: 0; }
+            .course-container { box-shadow: none; }
+            .toc { display: none; }
+            .assessment-controls { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="course-container">
+
+        <header class="module-header">
+            <div class="module-label">Unit 4 &middot; Security Concepts and Threats &middot; Section 4.11</div>
+            <h1 class="module-title">Unit 4 Tickets</h1>
+            <p class="module-subtitle">CompTIA A+ Core 2 - Domains 2.0 and 4.0</p>
+        </header>
+
+                <nav class="toc" id="tocNav">
+            <div class="toc-header">Table of Contents</div>
+            <div class="toc-item">4.1 &mdash; Unit Overview and Schedule</div>
+            <div class="toc-item">4.2 &mdash; Unit Pre-Assessment</div>
+            <div class="toc-item">4.3 &mdash; Content Review</div>
+            <div class="toc-item">4.4 &mdash; Reading Assignment</div>
+            <div class="toc-item">4.5 &mdash; Video Assignment</div>
+            <div class="toc-item">4.6 &mdash; Classroom Labs and Take-Home Lab</div>
+            <div class="toc-item">4.7 &mdash; Practice Question Set</div>
+            <div class="toc-item">4.8 &mdash; Online Labs: NETLAB</div>
+            <div class="toc-item">4.9 &mdash; Reflection Activity</div>
+            <div class="toc-item">4.10 &mdash; Unit Test</div>
+            <div class="toc-item current" id="tocCurrent">4.11 &mdash; Unit 4 Tickets</div>
+        </nav>
+        <style>
+            /* Collapsible TOC: only the current section shows until clicked */
+            nav.toc#tocNav { gap: 0; }
+            nav.toc#tocNav .toc-item {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav .toc-item.current {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                cursor: pointer;
+            }
+            nav.toc#tocNav .toc-item.current::after {
+                content: ' \25BE Click to View';
+                font-size: 0.75em;
+            }
+            nav.toc#tocNav.toc-expanded .toc-item {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                margin-bottom: var(--space-sm);
+            }
+            nav.toc#tocNav.toc-expanded .toc-item.current::after { content: ' \25B4'; }
+
+            nav.toc#tocNav .toc-header {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                font-family: var(--font-heading), 'Segoe UI', sans-serif;
+                font-weight: 700;
+                font-size: 0.875rem;
+                text-align: left;
+                color: var(--text-black);
+                text-decoration: underline;
+                background: var(--primary-main);
+                border-radius: var(--radius-md);
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav.toc-expanded .toc-header {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                padding-left: var(--space-md);
+                border-width: 2px;
+                border-style: solid;
+                border-color: var(--primary-main);
+                margin-bottom: var(--space-sm);
+            }
+        </style>
+
+        <script>
+            (function () {
+                var toc = document.getElementById('tocNav');
+                var currentItem = document.getElementById('tocCurrent');
+
+                toc.addEventListener('click', function (e) {
+                    if (toc.classList.contains('toc-expanded')) {
+                        toc.classList.remove('toc-expanded');
+                    } else if (e.target === currentItem || currentItem.contains(e.target)) {
+                        toc.classList.add('toc-expanded');
+                    }
+                });
+
+                toc.addEventListener('mouseleave', function () {
+                    toc.classList.remove('toc-expanded');
+                });
+            })();
+        </script>
+
+        <div class="content-area">
+
+            <div class="instructions-card">
+                <div class="instructions-band">Instructions &mdash; Read Before You Begin</div>
+
+
+                <h3>What This Is</h3>
+                <p>Three help-desk tickets, one for each class meeting this unit. <strong>Work each one on your own.</strong> Every ticket is a real kind of call, with real evidence, and three questions that ask what a technician would actually do next. Plan on about 20 minutes per ticket.</p>
+
+                <h3>How to Work a Ticket</h3>
+                <ol>
+                    <li><strong>Read the call, then stop.</strong> Before you look at any evidence, write one sentence in your notes: <em>what do you think is wrong, and how sure are you?</em> You will come back to it.</li>
+                    <li><strong>Study the exhibits</strong> as if you had just collected them from the user's computer.</li>
+                    <li><strong>Answer the three questions.</strong> Each one stands on its own. You get one attempt per question.</li>
+                    <li><strong>Write your own progress note,</strong> then compare it with the Ticket Solution.</li>
+                    <li><strong>Look back.</strong> The reflection prompts sit inside the Ticket Solution, below the solution itself. Answer them in your notes. They are about your thinking, not the content, and nobody else will see them.</li>
+                </ol>
+
+                <h3>What You Will See When You Answer</h3>
+                <ul class="checklist">
+                    <li>A flag that says <strong>Correct</strong> or <strong>Incorrect</strong> &mdash; nothing more. You will not be shown which answer was right.</li>
+                    <li>If you miss one, go back to the exhibit and the call and work out why. That search is the lesson.</li>
+                    <li>Answer all three correctly and the <strong>Ticket Solution</strong> opens on its own. Otherwise, click <strong>Ticket Solution</strong> to open it yourself &mdash; after you have written your note. The Look Back prompts are inside it.</li>
+                    <li><strong>Reset These Questions</strong> clears a ticket so you can work it again.</li>
+                </ul>
+
+                <h3>About the Exhibits</h3>
+                <p>Each ticket includes exhibits labeled A, B, and C. <strong>Every exhibit is representative of the output from the computer being troubleshot</strong> &mdash; what you would see on that machine's screen if you opened the tool or settings window, or ran the command shown. Treat them as evidence you collected yourself during the call.</p>
+                <p>They are simplified to show what matters, the same way a performance-based question on the 220-1202 exam presents a tool or a command's output. Read them the way a technician reads a screen: <strong>column headings first, then the values that stand out, then the details that do not fit.</strong></p>
+
+                <h3>The Method Behind Every Ticket</h3>
+                <p>Each question is tagged with the step of CompTIA's troubleshooting method it exercises. You will use this method for the rest of your career; these tickets are where it becomes a habit.</p>
+                <ol>
+                    <li>Identify the problem</li>
+                    <li>Establish a theory of probable cause</li>
+                    <li>Test the theory to determine the cause</li>
+                    <li>Establish a plan of action to resolve the problem and implement the solution</li>
+                    <li>Verify full system functionality and, if applicable, implement preventive measures</li>
+                    <li>Document findings, actions, and outcomes</li>
+                </ol>
+
+                <h3>About the Times and Names</h3>
+                <p>Every person, company, and device in these tickets is fictional. Times shown inside a ticket are part of the scenario, not course deadlines &mdash; course due dates are always in the Course Schedule.</p>
+            </div>
+
+            <section class="ticket-card">
+                <div class="ticket-band">
+                    <span class="ticket-count">Ticket 1 of 3</span>
+                    <span class="ticket-title">The Invoice Nobody Sent</span>
+                    <span class="ticket-meta">Tuesday &middot; Objectives 2.4 and 2.5 &mdash; Malware and social engineering &middot; About 20 minutes</span>
+                </div>
+                <div class="ticket-body">
+            <div class="table-container">
+                <table>
+                    <thead><tr><th colspan="2">Ticket HD-4-1020</th></tr></thead>
+                    <tbody><tr><td><strong>Priority</strong></td><td>Critical &mdash; attempted fraud plus a possibly infected finance workstation</td></tr><tr><td><strong>Category</strong></td><td>Security incident</td></tr><tr><td><strong>Caller</strong></td><td>Gloria Hutchins, Controller, Summit Ridge Builders</td></tr><tr><td><strong>Device</strong></td><td>Asset SRB-FIN-02 &middot; Finance desktop &middot; Windows 11 Pro</td></tr></tbody>
+                </table>
+            </div>
+
+            <div class="plain-box">
+                <div class="callout-title">The Call</div>
+                <div class="callout-content"><p>"I almost wired forty-eight thousand dollars this morning. An email came from our CEO, Mark Delaney, saying a vendor changed banks and the payment had to go out today, and to keep it quiet. It looked exactly like him. I only stopped because the vendor happened to call about something else. And separately &mdash; my computer's been really slow since I opened an attachment from 'the bank' last week."</p></div>
+            </div>
+
+            <p>The company's real email domain is <code>summitridgebuilders.com</code>. No money was sent.</p>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">Stop Here</div>
+                <div class="callout-content"><p>Before the exhibits, write down <strong>whether you think the email and the slow computer are connected</strong>, and how sure you are.</p></div>
+            </div>
+
+            <h3>Exhibit A &mdash; Header of the payment email</h3>
+<pre><code>From:      &quot;Mark Delaney&quot; &lt;mdelaney@summitridge-builders.co&gt;
+Reply-To:  mdelaney.office@mailbox-secure.example
+To:        ghutchins@summitridgebuilders.com
+Subject:   Urgent - vendor banking update - keep confidential</code></pre>
+            <h3>Exhibit B &mdash; Task Manager on SRB-FIN-02, Processes sorted by CPU</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Name</th><th>CPU</th><th>Memory</th><th>Network</th></tr></thead>
+                    <tbody><tr><td>svchost32.exe</td><td>92%</td><td>610 MB</td><td>0.4 Mbps</td></tr><tr><td>Microsoft Edge (6)</td><td>3%</td><td>910 MB</td><td>0.1 Mbps</td></tr><tr><td>Accounting Suite</td><td>1%</td><td>420 MB</td><td>0 Mbps</td></tr></tbody>
+                </table>
+            </div>
+            <p class="text-muted">No files are renamed or locked, no pop-ups appear, and the fan runs constantly. The genuine Windows process is named svchost.exe, not svchost32.exe.</p>
+            <h3>Exhibit C &mdash; The company's current accounts payable procedure</h3>
+<pre><code>Vendor banking changes: update the vendor record in the accounting
+system when an authorized manager requests it by email.</code></pre>
+
+            <div id="t1q"></div>
+
+            <h3>Close the Ticket</h3>
+            <p>Write your own progress note first &mdash; this is a security incident, so record what you observed and when, without guessing at who did it. Then open the Ticket Solution below to compare.</p>
+            <div class="solution-toggle" id="t1sol">
+                <div class="solution-bar">Ticket Solution</div>
+                <div class="solution-body">
+                    <div class="callout callout-tip">
+                        <div class="callout-content">
+                            <p><strong>Reported:</strong> controller nearly sent a $48,000 wire after an email impersonating the CEO; separately, her workstation has been slow since she opened an attachment last week. No money sent.</p>
+                            <p><strong>Found:</strong> the email came from a look-alike domain (summitridge-builders.co) with replies going to an outside mailbox &mdash; business email compromise. On the workstation, a process named svchost32.exe imitating a Windows process uses 92% of the CPU, with no files encrypted and no pop-ups &mdash; consistent with a cryptominer.</p>
+                            <p><strong>Action:</strong> disconnected SRB-FIN-02 from the network and reported both findings to management and the security contact under the incident procedure. Preserved the email and its full headers. Machine held for malware removal; no changes made to it that would destroy evidence.</p>
+                            <p><strong>Preventive:</strong> recommended that banking changes require phone confirmation using a number already on file, and that the look-alike domain be blocked.</p>
+                        </div>
+                    </div>
+                    <h3>Look Back</h3>
+                    <div class="activity-section">
+                        <ol class="lab-steps">
+                            <li><strong>Gloria stopped the wire because of a lucky phone call.</strong> What would have stopped it by design rather than by luck?</li>
+                            <li><strong>You were asked whether the email and the slow computer were connected.</strong> The honest answer today is "not proven." How do you write that in a ticket without guessing?</li>
+                            <li><strong>She is shaken and embarrassed.</strong> What do you say first to someone who almost lost $48,000?</li>
+                            <li><strong>Who needed to hear about this, and in what order?</strong> Did you think of anyone beyond your own manager?</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+                </div>
+            </section>
+
+            <section class="ticket-card">
+                <div class="ticket-band">
+                    <span class="ticket-count">Ticket 2 of 3</span>
+                    <span class="ticket-title">The Clinic Walk-Through</span>
+                    <span class="ticket-meta">Wednesday &middot; Objectives 2.1 and 2.7 &mdash; Security measures and workstation hardening &middot; About 20 minutes</span>
+                </div>
+                <div class="ticket-body">
+            <div class="table-container">
+                <table>
+                    <thead><tr><th colspan="2">Ticket HD-4-1027</th></tr></thead>
+                    <tbody><tr><td><strong>Priority</strong></td><td>Medium &mdash; findings before an insurance audit</td></tr><tr><td><strong>Category</strong></td><td>Security review</td></tr><tr><td><strong>Caller</strong></td><td>Dr. Naomi Ford, Practice Owner, Ford Pediatrics</td></tr><tr><td><strong>Device</strong></td><td>Front desk and exam-room workstations &middot; Windows 11 Pro</td></tr></tbody>
+                </table>
+            </div>
+
+            <div class="plain-box">
+                <div class="callout-title">The Call</div>
+                <div class="callout-content"><p>"Our insurance auditor comes next month and I want to fix the obvious things first. Can you walk through the office and tell me what's wrong? Please be honest &mdash; I'd much rather hear it from you than from them."</p></div>
+            </div>
+
+            <p>You walk through the clinic as an observer. You note what you see; you do not test doors or try passwords.</p>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">Stop Here</div>
+                <div class="callout-content"><p>Before the exhibits, write down <strong>the three things you expect to find in a small medical office</strong>.</p></div>
+            </div>
+
+            <h3>Exhibit A &mdash; Your walk-through notes</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Location</th><th>Observation</th></tr></thead>
+                    <tbody><tr><td>Main entrance</td><td>Badge reader on the door. Staff hold it open for whoever is behind them, including people they do not know.</td></tr><tr><td>Reception</td><td>Monitor faces the waiting room.</td></tr><tr><td>Exam room 2</td><td>PC unlocked and signed in, unattended for 15 minutes or more. A password on a sticky note under the keyboard.</td></tr><tr><td>Server closet</td><td>Door propped open with a box.</td></tr></tbody>
+                </table>
+            </div>
+            <h3>Exhibit B &mdash; Output of net user on the exam-room PC</h3>
+<pre><code>User accounts for \\FP-EXAM-02
+-------------------------------------------------------------------------------
+Administrator            frontdesk               Guest
+The command completed successfully.
+
+C:\&gt; net user Guest
+Account active               Yes</code></pre>
+            <h3>Exhibit C &mdash; Local Security Policy &gt; Account Lockout Policy</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Policy</th><th>Setting</th></tr></thead>
+                    <tbody><tr><td>Account lockout threshold</td><td>0 invalid logon attempts</td></tr><tr><td>Account lockout duration</td><td>Not applicable</td></tr><tr><td>Reset account lockout counter after</td><td>Not applicable</td></tr></tbody>
+                </table>
+            </div>
+
+            <div id="t2q"></div>
+
+            <h3>Close the Ticket</h3>
+            <p>Write your findings first, as a short list you would hand to Dr. Ford &mdash; most serious first. Then open the Ticket Solution below to compare.</p>
+            <div class="solution-toggle" id="t2sol">
+                <div class="solution-bar">Ticket Solution</div>
+                <div class="solution-body">
+                    <div class="callout callout-tip">
+                        <div class="callout-content">
+                            <p><strong>Findings, most serious first:</strong> (1) Shared "frontdesk" account &mdash; nobody's actions can be traced to a person. (2) No account lockout &mdash; unlimited password guessing. (3) Guest account active. (4) Unattended unlocked PC and a password on a sticky note. (5) Tailgating at the badge door. (6) Server closet left open. (7) Reception monitor visible from the waiting room.</p>
+                            <p><strong>Fixed today, with her approval:</strong> disabled Guest; set the lockout threshold to 5 attempts; set screen lock after 5 minutes; removed the sticky note and had the password changed; closed and locked the server closet.</p>
+                            <p><strong>Recommended:</strong> individual accounts for every staff member; a privacy screen at reception; a no-holding-the-door rule now, and an access control vestibule if budget allows.</p>
+                            <p><strong>Documented:</strong> a findings memo for the audit file, noting each item, what was done, and what remains.</p>
+                        </div>
+                    </div>
+                    <h3>Look Back</h3>
+                    <div class="activity-section">
+                        <ol class="lab-steps">
+                            <li><strong>Dr. Ford asked you to be honest.</strong> How do you deliver seven findings to someone without overwhelming or embarrassing her?</li>
+                            <li><strong>Which finding was cheapest to fix and most valuable?</strong> Why does that kind of fix matter so much in a small office?</li>
+                            <li><strong>The shared "frontdesk" account weakens almost every other control.</strong> Explain why in one sentence.</li>
+                            <li><strong>You observed the door but did not test it.</strong> Why is that boundary important, even when you are trying to help?</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+                </div>
+            </section>
+
+            <section class="ticket-card">
+                <div class="ticket-band">
+                    <span class="ticket-count">Ticket 3 of 3</span>
+                    <span class="ticket-title">Clearing Out the Storage Room</span>
+                    <span class="ticket-meta">Thursday &middot; Objectives 2.9, 4.5, and 4.6 &mdash; Disposal, environment, and policy &middot; About 20 minutes</span>
+                </div>
+                <div class="ticket-body">
+            <div class="table-container">
+                <table>
+                    <thead><tr><th colspan="2">Ticket HD-4-1103</th></tr></thead>
+                    <tbody><tr><td><strong>Priority</strong></td><td>High &mdash; regulated data, a safety hazard, and a possible incident</td></tr><tr><td><strong>Category</strong></td><td>Asset disposal &middot; Safety &middot; Incident</td></tr><tr><td><strong>Caller</strong></td><td>Victor Huang, Office Manager, Lakeside Physical Therapy</td></tr><tr><td><strong>Device</strong></td><td>Retired equipment: 8 laptops, 1 file server, 1 UPS</td></tr></tbody>
+                </table>
+            </div>
+
+            <div class="plain-box">
+                <div class="callout-title">The Call</div>
+                <div class="callout-content"><p>"We're cleaning out the storage room. There are eight old laptops, an old server, and a UPS in the corner that looks kind of puffy. A recycling company offered to haul all of it away for free tomorrow &mdash; can we just let them? Oh, and while I was boxing things up, one laptop was still signed in, and there were some files on it I really don't think should be on a work computer. I copied them to a flash drive so I could show you."</p></div>
+            </div>
+
+            <p>The old file server held patient records. The laptops belonged to former staff.</p>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">Stop Here</div>
+                <div class="callout-content"><p>Three separate problems in one call. Before the exhibits, write down <strong>which one you would deal with first, and why</strong>.</p></div>
+            </div>
+
+            <h3>Exhibit A &mdash; Equipment inventory</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Item</th><th>Storage</th><th>Data it held</th><th>Condition</th></tr></thead>
+                    <tbody><tr><td>8 laptops</td><td>256 GB solid-state drives</td><td>Staff documents and email</td><td>Working</td></tr><tr><td>File server</td><td>4 hard disk drives</td><td>Patient records</td><td>Working</td></tr><tr><td>UPS</td><td>&mdash;</td><td>&mdash;</td><td>Battery case visibly swollen</td></tr></tbody>
+                </table>
+            </div>
+            <h3>Exhibit B &mdash; The recycling company's offer</h3>
+<pre><code>Free pickup of all IT equipment. We wipe or destroy drives.
+Certificates of destruction are not provided.</code></pre>
+            <h3>Exhibit C &mdash; What Victor did</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Step</th><th>Action</th></tr></thead>
+                    <tbody><tr><td>1</td><td>Found laptop LPT-LT-06 still signed in to a former employee's account</td></tr><tr><td>2</td><td>Opened a folder and saw files he believes may be illegal</td></tr><tr><td>3</td><td>Copied the files to a personal USB flash drive "to show you"</td></tr><tr><td>4</td><td>Closed the laptop lid</td></tr></tbody>
+                </table>
+            </div>
+
+            <div id="t3q"></div>
+
+            <h3>Close the Ticket</h3>
+            <p>Write your own progress note first &mdash; and note anything about the flash drive that matters for what happens next. Then open the Ticket Solution below to compare.</p>
+            <div class="solution-toggle" id="t3sol">
+                <div class="solution-bar">Ticket Solution</div>
+                <div class="solution-body">
+                    <div class="callout callout-tip">
+                        <div class="callout-content">
+                            <p><strong>First, the incident:</strong> told Victor to stop and not open, copy, or delete anything further. Secured laptop LPT-LT-06 and Victor's flash drive, labeled them, and began a chain-of-custody record noting Victor's copy. Escalated to management under the incident response procedure, which decides whether law enforcement is notified. The laptop was removed from the disposal group.</p>
+                            <p><strong>Disposal held:</strong> declined the free pickup. The server's drives, which held patient records, go to a vendor that provides a certificate of destruction. The laptop SSDs are sanitized with a secure erase, or destroyed, with documentation; degaussing does not work on solid-state drives.</p>
+                            <p><strong>Safety:</strong> moved the swollen UPS out of service to a ventilated area away from anything flammable, and arranged disposal according to the battery's safety data sheet and local regulations.</p>
+                        </div>
+                    </div>
+                    <h3>Look Back</h3>
+                    <div class="activity-section">
+                        <ol class="lab-steps">
+                            <li><strong>"Free pickup tomorrow" sounded like a gift.</strong> What made it tempting, and what would it have cost?</li>
+                            <li><strong>Victor copied the files "to show you."</strong> How do you explain that this made things harder, without making him defensive?</li>
+                            <li><strong>Which of the three items carried the most risk &mdash; data, safety, or legal?</strong> Did you handle it first?</li>
+                            <li><strong>Finding something like this is uncomfortable.</strong> What will you do in the moment to stay calm and follow the procedure?</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+                </div>
+            </section>
+
+            <div class="plain-box">
+                <div class="callout-title">What These Tickets Give You</div>
+                <div class="callout-content"><ul class="styled-list">
+                    <li>Recognizing business email compromise and a cryptominer from the evidence they leave behind</li>
+                    <li>Delivering honest security findings to an owner, most serious first, without testing anything you were not authorized to test</li>
+                    <li>Handling regulated data, a safety hazard, and a possible incident in the same call, in the right order</li>
+                    <li>Progress notes another technician could pick up without asking you a single question</li>
+                </ul></div>
+            </div>
+
+        </div>
+
+        <footer class="module-footer">
+            <p class="footer-text">CompTIA A+ Core 2 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
+        </footer>
+    </div>
+
+    <style>
+        /* Instructions block and ticket cards */
+        .instructions-card {
+            background: var(--neutral-100); border: 2px solid var(--primary-dark);
+            border-radius: var(--radius-lg); padding: 0 var(--space-xl) var(--space-lg);
+            margin: 0 0 var(--space-xl); box-shadow: var(--shadow-sm); overflow: hidden;
+        }
+        .instructions-band, .ticket-band {
+            margin: 0 calc(-1 * var(--space-xl)) var(--space-lg);
+            padding: var(--space-md) var(--space-xl);
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 800;
+        }
+        .instructions-band {
+            background: var(--primary-dark); color: var(--white);
+            font-size: 1rem; text-transform: uppercase; letter-spacing: 1px;
+        }
+        .instructions-card h3 { margin-top: var(--space-lg); }
+        .instructions-card ol, .instructions-card ul { margin-bottom: var(--space-md); }
+        .instructions-card li { margin-bottom: var(--space-sm); }
+
+        .ticket-card {
+            background: var(--white); border: 3px solid var(--primary-main);
+            border-radius: var(--radius-lg); padding: 0 var(--space-xl) var(--space-lg);
+            margin: var(--space-xl) 0 calc(var(--space-xl) * 1.5); box-shadow: var(--shadow-lg); overflow: hidden;
+        }
+        .ticket-band {
+            background: var(--primary-main); color: var(--text-black);
+            display: flex; flex-direction: column; gap: 2px;
+        }
+        .ticket-count { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; }
+        .ticket-title { font-size: 1.4rem; line-height: 1.25; }
+        .ticket-meta { font-size: 0.85rem; font-weight: 600; }
+
+        /* Ticket Solution: collapses and expands using the same method as the Table of Contents */
+        .solution-toggle { margin: var(--space-lg) 0; }
+        .solution-bar {
+            width: 100%; text-align: left;
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 0.875rem;
+            color: var(--text-black); background: var(--primary-main);
+            border: 2px solid var(--primary-main);
+            padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md);
+            cursor: pointer;
+        }
+        .solution-bar::after { content: ' \25BE Click to View'; font-size: 0.75em; }
+        .solution-toggle.toc-expanded .solution-bar::after { content: ' \25B4'; }
+        .solution-body {
+            max-height: 0; opacity: 0; overflow: hidden;
+            transition: max-height 0.9s ease, opacity 0.9s ease;
+        }
+        .solution-toggle.toc-expanded .solution-body { max-height: 4000px; opacity: 1; }
+        .solution-body > h3 { margin-top: var(--space-lg); }
+    </style>
+    <script>
+const TICKETS = {
+ "t1q": [
+  {
+   "step": "Step 2 &mdash; Establish a theory of probable cause",
+   "exhibit": "Exhibit A",
+   "q": "Which attack does Exhibit A show?",
+   "opts": [
+    [
+     "Business email compromise",
+     true
+    ],
+    [
+     "Vishing",
+     false
+    ],
+    [
+     "Smishing",
+     false
+    ],
+    [
+     "Evil twin",
+     false
+    ],
+    [
+     "Tailgating",
+     false
+    ],
+    [
+     "Distributed denial of service",
+     false
+    ]
+   ]
+  },
+  {
+   "step": "Step 2 &mdash; Establish a theory of probable cause",
+   "exhibit": "Exhibit B",
+   "q": "Based on Exhibit B and its note, which type of malware is most consistent with the symptoms?",
+   "opts": [
+    [
+     "Cryptominer",
+     true
+    ],
+    [
+     "Ransomware",
+     false
+    ],
+    [
+     "Keylogger",
+     false
+    ],
+    [
+     "Adware",
+     false
+    ],
+    [
+     "Boot sector virus",
+     false
+    ],
+    [
+     "Stalkerware",
+     false
+    ]
+   ]
+  },
+  {
+   "step": "Step 5 &mdash; Implement preventive measures",
+   "exhibit": "Exhibit C",
+   "q": "Which change to the procedure in Exhibit C would most reliably stop this attack, even if the next email is perfect?",
+   "opts": [
+    [
+     "Require every banking change to be confirmed by phone, using a number already on file",
+     true
+    ],
+    [
+     "Train staff to look for spelling errors in payment requests",
+     false
+    ],
+    [
+     "Block all email from outside the company",
+     false
+    ],
+    [
+     "Require longer passwords for finance staff",
+     false
+    ],
+    [
+     "Encrypt the finance workstation's drive",
+     false
+    ],
+    [
+     "Disable AutoRun on all workstations",
+     false
+    ]
+   ]
+  }
+ ],
+ "t2q": [
+  {
+   "step": "Step 4 &mdash; Establish a plan of action",
+   "exhibit": "Exhibit A",
+   "q": "Staff routinely hold the badge-controlled door for whoever follows them. Which physical control most directly prevents this?",
+   "opts": [
+    [
+     "An access control vestibule",
+     true
+    ],
+    [
+     "Video surveillance",
+     false
+    ],
+    [
+     "Bollards",
+     false
+    ],
+    [
+     "Motion sensors",
+     false
+    ],
+    [
+     "A perimeter fence",
+     false
+    ],
+    [
+     "Magnetometers",
+     false
+    ]
+   ]
+  },
+  {
+   "step": "Step 4 &mdash; Establish a plan of action",
+   "exhibit": "Exhibit B",
+   "q": "Exhibit B shows that the Guest account is active. What is the appropriate action?",
+   "opts": [
+    [
+     "Disable the Guest account",
+     true
+    ],
+    [
+     "Set a password on the Guest account and leave it active",
+     false
+    ],
+    [
+     "Add the Guest account to the Administrators group",
+     false
+    ],
+    [
+     "Rename the Guest account and leave it active",
+     false
+    ],
+    [
+     "Leave it, because a guest account has no access to anything",
+     false
+    ],
+    [
+     "Delete the frontdesk account instead",
+     false
+    ]
+   ]
+  },
+  {
+   "step": "Step 2 &mdash; Establish a theory of probable cause",
+   "exhibit": "Exhibit C",
+   "q": "What does the setting in Exhibit C allow, and which change addresses it?",
+   "opts": [
+    [
+     "It allows unlimited password guesses; set a failed-attempt lockout threshold",
+     true
+    ],
+    [
+     "It disables passwords entirely; turn on multifactor authentication",
+     false
+    ],
+    [
+     "It locks accounts after a single failure; raise the threshold",
+     false
+    ],
+    [
+     "It stops screen locks from activating; set a timeout",
+     false
+    ],
+    [
+     "It stops passwords from expiring; set an expiration period",
+     false
+    ],
+    [
+     "It disables the Guest account; enable it again",
+     false
+    ]
+   ]
+  }
+ ],
+ "t3q": [
+  {
+   "step": "Step 4 &mdash; Establish a plan of action",
+   "exhibit": "Exhibits A and B",
+   "q": "The file server's drives held patient records. What should the organization require before those drives leave its control?",
+   "opts": [
+    [
+     "Destruction by a vendor that provides a certificate of destruction",
+     true
+    ],
+    [
+     "A standard format before the recycler picks them up",
+     false
+    ],
+    [
+     "Acceptance of the free pickup, since the recycler says it wipes drives",
+     false
+    ],
+    [
+     "Deleting the patient folders and emptying the Recycle Bin",
+     false
+    ],
+    [
+     "Degaussing the laptops' solid-state drives along with the server's drives",
+     false
+    ],
+    [
+     "Removing the drive labels so they cannot be identified",
+     false
+    ]
+   ]
+  },
+  {
+   "step": "Step 4 &mdash; Establish a plan of action",
+   "exhibit": "Exhibit A",
+   "q": "How should the UPS with the swollen battery be handled?",
+   "opts": [
+    [
+     "Remove it from service and dispose of the battery according to its safety data sheet and local regulations",
+     true
+    ],
+    [
+     "Keep it charging to see whether the battery recovers",
+     false
+    ],
+    [
+     "Puncture the case to release the pressure safely",
+     false
+    ],
+    [
+     "Put it in the regular trash with the other packaging",
+     false
+    ],
+    [
+     "Store it in a closed cabinet until someone has time to deal with it",
+     false
+    ],
+    [
+     "Send it with the recycler's free pickup alongside the laptops",
+     false
+    ]
+   ]
+  },
+  {
+   "step": "Step 1 &mdash; Identify the problem",
+   "exhibit": "Exhibit C",
+   "q": "What is the correct response to what Victor found?",
+   "opts": [
+    [
+     "Stop, preserve the laptop and the flash drive as they are, and escalate through the incident response procedure",
+     true
+    ],
+    [
+     "Delete the files to protect the organization",
+     false
+    ],
+    [
+     "Open the files yourself to confirm before reporting anything",
+     false
+    ],
+    [
+     "Wipe the laptop along with the others",
+     false
+    ],
+    [
+     "Ask Victor to email you copies so you can review them",
+     false
+    ],
+    [
+     "Warn the staff in the group chat so it does not happen again",
+     false
+    ]
+   ]
+  }
+ ]
+};
+
+        function shuffle(a) { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+
+        // Same open/close method as the Table of Contents: click toggles, leaving collapses
+        document.querySelectorAll('.solution-toggle').forEach(function (box) {
+            var bar = box.querySelector('.solution-bar');
+            bar.addEventListener('click', function () {
+                box.classList.toggle('toc-expanded');
+            });
+            box.addEventListener('mouseleave', function () {
+                if (!box.dataset.earned) box.classList.remove('toc-expanded');
+            });
+        });
+
+        function renderTicket(containerId) {
+            const box = document.getElementById(containerId);
+            const sol = document.getElementById(containerId.replace('q', 'sol'));
+            sol.classList.remove('toc-expanded'); delete sol.dataset.earned;
+            box.innerHTML = '<h3>Questions</h3>';
+            box.dataset.correct = '0'; box.dataset.answered = '0';
+            TICKETS[containerId].forEach((item, qi) => {
+                const order = shuffle(item.opts.map((o, i) => i));
+                const block = document.createElement('div');
+                block.className = 'question-block';
+                let html = '<div class="question-number">Question ' + (qi + 1) + ' &middot; ' + item.step + ' &middot; ' + item.exhibit + '</div>';
+                html += '<p class="question-text">' + item.q + '</p><ul class="mc-options">';
+                order.forEach((oi, k) => {
+                    html += '<li><button type="button" class="mc-option" data-oi="' + oi + '"><span class="mc-letter">' + 'ABCDEF'[k] + '</span><span>' + item.opts[oi][0] + '</span></button></li>';
+                });
+                html += '</ul><div class="feedback" style="display:none; margin-top: var(--space-md);"></div>';
+                block.innerHTML = html;
+                block.querySelectorAll('.mc-option').forEach(btn => {
+                    btn.addEventListener('click', () => answer(box, block, item, parseInt(btn.dataset.oi), containerId));
+                });
+                box.appendChild(block);
+            });
+            const reset = document.createElement('button');
+            reset.type = 'button'; reset.className = 'btn-reset'; reset.textContent = 'Reset These Questions';
+            reset.addEventListener('click', () => renderTicket(containerId));
+            box.appendChild(reset);
+        }
+
+        function answer(box, block, item, chosen, containerId) {
+            if (block.dataset.done) return;
+            block.dataset.done = '1';
+            const isRight = item.opts[chosen][1] === true;
+            // Mark only the student's own choice. The correct answer is never revealed.
+            block.querySelectorAll('.mc-option').forEach(btn => {
+                btn.disabled = true;
+                if (parseInt(btn.dataset.oi) === chosen) btn.classList.add(isRight ? 'graded-correct' : 'graded-incorrect');
+            });
+            const fb = block.querySelector('.feedback');
+            fb.innerHTML = isRight
+                ? '<div class="callout callout-tip"><div class="callout-title">Correct</div></div>'
+                : '<div class="callout callout-danger"><div class="callout-title">Incorrect</div></div>';
+            fb.style.display = 'block';
+            box.dataset.answered = String(parseInt(box.dataset.answered) + 1);
+            if (isRight) box.dataset.correct = String(parseInt(box.dataset.correct) + 1);
+            const total = TICKETS[containerId].length;
+            if (box.dataset.correct === String(total)) {
+                const sol = document.getElementById(containerId.replace('q', 'sol'));
+                sol.dataset.earned = '1';
+                sol.classList.add('toc-expanded');
+                setTimeout(() => sol.scrollIntoView({ behavior: 'smooth', block: 'start' }), 400);
+            }
+        }
+
+        ['t1q', 't2q', 't3q'].forEach(renderTicket);
+    </script>
+</body>
+</html>
