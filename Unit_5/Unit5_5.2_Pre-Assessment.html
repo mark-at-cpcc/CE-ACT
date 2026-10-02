@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unit 5 &mdash; 5.2 Unit Pre-Assessment | CompTIA A+ Core 1</title>
+    <title>Unit 5 &mdash; 5.2 Unit Pre-Assessment | CompTIA A+ Core 2</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,7 +15,7 @@
     <style>
         /* ============================================
            CPCC COURSE TEMPLATE - GOLD / CHARCOAL / BLACK
-           CTS-ITS7501-80 CompTIA A+ Core 1 Training
+           CTS-ITS7501-80 CompTIA A+ Core 2 Training
            Type: true black. Accents: gold. Chrome: charcoal.
            ============================================ */
 
@@ -92,9 +92,6 @@
 
         .module-header {
             background: var(--primary-main); color: var(--text-black);
-            /* Reduced from var(--space-2xl) top/bottom (3rem) to var(--space-lg) (1.5rem) to cut excess
-               empty space in this card's title header. To revert, change padding back to:
-               padding: var(--space-2xl) var(--space-xl); */
             padding: var(--space-lg) var(--space-xl); position: relative; overflow: hidden;
         }
         .module-label {
@@ -147,6 +144,28 @@
         ul li::marker { color: var(--accent-teal); }
         ol li::marker { color: var(--accent-teal); font-weight: 700; }
 
+        .styled-list { list-style: none; padding-left: 0; }
+        .styled-list li { position: relative; padding-left: var(--space-lg); margin-bottom: var(--space-sm); }
+        .styled-list li::before { content: '\25B8'; position: absolute; left: 0; color: var(--accent-teal); font-weight: bold; }
+
+        .checklist { list-style: none; padding-left: 0; }
+        .checklist li { position: relative; padding-left: 2rem; margin-bottom: var(--space-sm); }
+        .checklist li::before {
+            content: '\2713'; position: absolute; left: 0; width: 1.5rem; height: 1.5rem;
+            background: var(--accent-green-light); color: var(--accent-green);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 0.75rem; font-weight: bold;
+        }
+
+        .objectives-box {
+            background: linear-gradient(135deg, var(--primary-pale) 0%, var(--accent-teal-light) 100%);
+            border-left: 5px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .objectives-box h3 { color: var(--text-black); margin-top: 0; margin-bottom: var(--space-md);
+            display: flex; align-items: center; gap: var(--space-sm); border-left: none; padding-left: 0; }
+        .objectives-box ol { margin-bottom: 0; }
+
         .tech-box {
             background: var(--neutral-100); border: 2px solid var(--neutral-500);
             border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
@@ -162,6 +181,7 @@
         .plain-box .callout-content { padding-left: 0; }
 
         .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; position: relative; overflow: hidden; }
+        .callout::before { position: absolute; top: var(--space-md); left: var(--space-md); font-size: 1.5rem; }
         .callout-title { font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 1rem;
             text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
         .callout-content { }
@@ -172,30 +192,21 @@
         .callout-danger { background: var(--alert-danger-bg); border-left: 4px solid var(--alert-danger); }
         .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
 
-        .objectives-box {
-            background: var(--primary-pale); border-left: 5px solid var(--primary-main);
-            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
-        }
-        .objectives-box h3 { margin-top: 0; border-left: none; padding-left: 0; color: var(--text-black); }
-        .objectives-box ol { margin-bottom: 0; }
-
         .key-concept {
             background: linear-gradient(135deg, var(--accent-purple-light) 0%, var(--white) 100%);
             border: 2px solid var(--accent-purple); border-radius: var(--radius-lg);
             padding: var(--space-lg); margin: var(--space-xl) 0 var(--space-lg); position: relative;
         }
         .key-concept::before {
-            content: 'KEY CONCEPT'; position: absolute; top: -12px; left: var(--space-lg);
+            content: '\1F511 KEY CONCEPT'; position: absolute; top: -12px; left: var(--space-lg);
             background: var(--accent-purple); color: var(--white); font-family: var(--font-heading), sans-serif;
             font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
             padding: var(--space-xs) var(--space-md); border-radius: var(--radius-sm);
         }
         .key-concept h4 { color: var(--text-black); margin-top: var(--space-sm); }
 
-        .definition {
-            background: var(--neutral-100); border-radius: var(--radius-md); padding: var(--space-lg);
-            margin: var(--space-md) 0; border-left: 4px solid var(--accent-orange);
-        }
+        .definition { background: var(--neutral-100); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin: var(--space-md) 0; border-left: 4px solid var(--accent-orange); }
         .definition-term { font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 1.125rem;
             color: var(--text-black); margin-bottom: var(--space-xs); }
         .definition-text { color: var(--text-black); margin-bottom: 0; }
@@ -224,108 +235,130 @@
             border: 2px dashed var(--accent-orange); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
         }
         .activity-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg); }
+        .activity-icon { width: 50px; height: 50px; background: var(--accent-orange); border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; }
         .activity-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700;
             color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
         .activity-subtitle { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
-
-        .lab-section {
-            background: var(--white); border: 2px solid var(--primary-dark); border-radius: var(--radius-lg);
-            padding: var(--space-xl); margin: var(--space-xl) 0;
-        }
-        .lab-header { padding-bottom: var(--space-md); margin-bottom: var(--space-lg); border-bottom: 2px solid var(--primary-dark); }
-        .lab-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700; color: var(--text-black); border-left: none; padding-left: 0; }
-        .lab-time { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
-        .lab-steps { list-style: none; counter-reset: lab-step; padding-left: 0; }
-        .lab-steps li { counter-increment: lab-step; position: relative; padding-left: 3rem; margin-bottom: var(--space-lg); }
-        .lab-steps li::before {
-            content: counter(lab-step); position: absolute; left: 0; width: 2rem; height: 2rem;
-            background: var(--accent-teal); color: var(--white); font-family: var(--font-heading), sans-serif; font-weight: 700;
-            border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.875rem;
-        }
 
         .assessment-section { background: var(--primary-pale); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0; }
         .assessment-header { text-align: center; margin-bottom: var(--space-xl); }
         .assessment-header h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
         .question-block { background: var(--white); border-radius: var(--radius-md); padding: var(--space-lg);
-            margin-bottom: var(--space-lg); box-shadow: var(--shadow-sm); }
+            margin-bottom: var(--space-lg); box-shadow: var(--shadow-sm); border: 2px solid transparent; transition: border-color .15s ease; }
         .question-number { font-family: var(--font-heading), sans-serif; font-size: 0.75rem; font-weight: 700;
             color: var(--text-black); background: var(--primary-main); display: inline-block;
             padding: 2px 10px; border-radius: var(--radius-sm);
             text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); }
         .question-text { font-weight: 600; color: var(--text-black); margin-bottom: var(--space-md); }
 
-        details.answer { margin-top: var(--space-sm); }
-        details.answer summary { cursor: pointer; font-weight: 700; color: var(--text-black);
-            font-family: var(--font-heading), sans-serif; font-size: 0.875rem;
-            border-bottom: 2px solid var(--primary-main); display: inline-block; }
-        details.answer .reveal { margin-top: var(--space-sm); padding: var(--space-md);
-            background: var(--accent-green-light); border-radius: var(--radius-sm); color: var(--text-black); }
+        /* ---- Multiple-choice interactive options ---- */
+        .mc-options { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-sm); }
+        .mc-option {
+            display: flex; align-items: center; gap: var(--space-md); width: 100%; text-align: left;
+            padding: var(--space-sm) var(--space-md); border: 2px solid var(--neutral-300); border-radius: var(--radius-md);
+            background: var(--white); color: var(--text-black); font-family: var(--font-body), sans-serif;
+            font-size: 1rem; cursor: pointer; transition: all 0.15s ease;
+        }
+        .mc-option:hover { border-color: var(--primary-main); background: var(--primary-pale); }
+        .mc-option .mc-letter {
+            flex-shrink: 0; width: 1.75rem; height: 1.75rem; border-radius: 50%;
+            background: var(--neutral-100); border: 2px solid var(--neutral-300);
+            display: flex; align-items: center; justify-content: center;
+            font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 0.85rem; color: var(--text-black);
+        }
+        .mc-option.selected { border-color: var(--primary-main); background: var(--primary-pale); font-weight: 700; }
+        .mc-option.selected .mc-letter { background: var(--primary-main); border-color: var(--primary-main); }
+        .mc-option.graded-correct { border-color: var(--alert-success); background: var(--alert-success-bg); font-weight: 700; }
+        .mc-option.graded-correct .mc-letter { background: var(--alert-success); border-color: var(--alert-success); color: var(--white); }
+        .mc-option.graded-incorrect { border-color: var(--alert-danger); background: var(--alert-danger-bg); }
+        .mc-option.graded-incorrect .mc-letter { background: var(--alert-danger); border-color: var(--alert-danger); color: var(--white); }
+        .mc-option.graded-missed { border-color: var(--alert-success); border-style: dashed; }
+
+        .question-block.unanswered-flag { border-color: var(--alert-warning); }
+        .unanswered-note {
+            display: none; margin-top: var(--space-sm); font-size: 0.875rem; font-weight: 700;
+            color: var(--alert-warning); font-family: var(--font-heading), sans-serif;
+        }
+        .question-block.unanswered-flag .unanswered-note { display: block; }
+
+        .assessment-controls {
+            display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap;
+            margin-top: var(--space-xl); padding-top: var(--space-lg); border-top: 2px solid var(--neutral-300);
+        }
+        .btn-grade, .btn-reset {
+            font-family: var(--font-heading), sans-serif; font-weight: 800; font-size: 1rem;
+            padding: var(--space-md) var(--space-2xl); border-radius: var(--radius-md);
+            cursor: pointer; transition: all 0.15s ease; border: 2px solid var(--primary-dark);
+        }
+        .btn-grade { background: var(--primary-main); color: var(--text-black); border-color: var(--primary-main); box-shadow: var(--shadow-sm); }
+        .btn-grade:hover { background: var(--primary-light); }
+        .btn-reset { background: var(--white); color: var(--text-black); }
+        .btn-reset:hover { background: var(--neutral-100); }
+
+        .results-summary {
+            display: none; margin-top: var(--space-xl); padding: var(--space-xl);
+            border-radius: var(--radius-lg); background: var(--primary-dark); color: var(--white); text-align: center;
+        }
+        .results-summary.show { display: block; }
+        .results-score { font-family: var(--font-heading), sans-serif; font-size: 2.5rem; font-weight: 800; color: var(--white); margin-bottom: var(--space-sm); }
+        .results-summary p { color: var(--white); margin-bottom: var(--space-sm); }
+        .results-summary p:last-child { margin-bottom: 0; }
 
         .references-section { background: var(--neutral-100); border-radius: var(--radius-lg);
             padding: var(--space-lg) var(--space-xl); margin: var(--space-xl) 0; border-top: 3px solid var(--primary-main); }
         .references-section h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .references-section ul { padding-left: var(--space-lg); }
 
-        .progress-bar { background: var(--neutral-300); border-radius: var(--radius-xl); height: 8px; overflow: hidden; margin: var(--space-lg) 0; }
-        .progress-fill { background: var(--primary-main); height: 100%; border-radius: var(--radius-xl); }
-        .progress-label { display: flex; justify-content: space-between; font-size: 0.875rem; color: var(--neutral-500); margin-bottom: var(--space-xs); }
-
-        .module-footer { background: var(--neutral-100); padding: var(--space-lg) var(--space-xl); text-align: center; border-top: 1px solid var(--neutral-300); }
-        .footer-text { font-size: 0.875rem; color: var(--neutral-500); }
+        .module-footer { background: var(--primary-dark); padding: var(--space-lg) var(--space-xl);
+            text-align: center; border-top: 4px solid var(--primary-main); }
+        .footer-text { font-size: 0.875rem; color: var(--white); margin: 0; }
 
         .text-center { text-align: center; }
         .text-muted { color: var(--neutral-500); }
-        .mt-sm { margin-top: var(--space-sm); } .mt-md { margin-top: var(--space-md); } .mt-lg { margin-top: var(--space-lg); }
-        .mb-sm { margin-bottom: var(--space-sm); } .mb-md { margin-bottom: var(--space-md); } .mb-lg { margin-bottom: var(--space-lg); }
-
-        /* Interactive quiz controls (pre-assessment / practice questions) */
-        .answer-option { display: block; width: 100%; text-align: left; padding: var(--space-sm) var(--space-md);
-            margin-bottom: var(--space-sm); border: 2px solid var(--neutral-300); border-radius: var(--radius-sm);
-            background: var(--white); cursor: pointer; font-family: var(--font-body), sans-serif; font-size: 1rem; color: var(--text-black); }
-        .answer-option:hover { border-color: var(--primary-main); }
-        .answer-option.selected { border-color: var(--primary-dark); background: var(--primary-pale); }
-        .answer-option.correct { border-color: var(--accent-green); background: var(--accent-green-light); }
-        .answer-option.incorrect { border-color: var(--alert-danger); background: var(--alert-danger-bg); }
-        .quiz-btn { font-family: var(--font-heading), sans-serif; font-weight: 700; padding: var(--space-sm) var(--space-xl);
-            border-radius: var(--radius-sm); border: 2px solid var(--primary-dark); background: var(--primary-dark); color: var(--white);
-            cursor: pointer; font-size: 0.95rem; margin-right: var(--space-sm); }
-        .quiz-btn:hover { background: #333333; }
-        .quiz-btn.secondary { background: var(--white); color: var(--primary-dark); }
-        .quiz-btn.secondary:hover { background: var(--neutral-100); }
-        #quizResults { display:none; background: var(--primary-pale); border: 2px solid var(--primary-main); border-radius: var(--radius-md);
-            padding: var(--space-lg); margin-top: var(--space-lg); text-align: center; font-family: var(--font-heading), sans-serif; }
-        #quizResults .score { font-size: 2rem; font-weight: 800; color: var(--text-black); }
+        .highlight { background: linear-gradient(180deg, transparent 50%, var(--primary-light) 50%); padding: 0 2px; }
 
         @media (max-width: 768px) {
+            body { padding: var(--space-sm); }
+            .module-header { padding: var(--space-xl) var(--space-lg); }
             .module-title { font-size: 1.75rem; }
             .content-area { padding: var(--space-lg); }
+            h2 { font-size: 1.375rem; }
+            .activity-header { flex-direction: column; align-items: flex-start; }
+            .assessment-controls { flex-direction: column; }
+            .btn-grade, .btn-reset { width: 100%; }
+        }
+        @media print {
+            body { background: white; padding: 0; }
+            .course-container { box-shadow: none; }
+            .toc { display: none; }
+            .assessment-controls { display: none; }
         }
     </style>
 </head>
-
-
 <body>
     <div class="course-container">
 
         <header class="module-header">
-            <div class="module-label">Unit 5 &middot; Mobile, Virtualization, and Cloud &middot; Section 5.2</div>
+            <div class="module-label">Unit 5 &middot; Securing Systems and Protecting Data &middot; Section 5.2</div>
             <h1 class="module-title">Unit Pre-Assessment</h1>
-            <p class="module-subtitle">CompTIA A+ Core 1 &mdash; Domains 1.0, 4.0, and 5.0</p>
+            <p class="module-subtitle">CompTIA A+ Core 2 - Domains 2.0 and 4.0</p>
         </header>
 
-        <nav class="toc" id="tocNav">
+                <nav class="toc" id="tocNav">
             <div class="toc-header">Table of Contents</div>
-            <div class="toc-item">5.1 &mdash; Unit Overview and Learning Objectives</div>
+            <div class="toc-item">5.1 &mdash; Unit Overview and Schedule</div>
             <div class="toc-item current" id="tocCurrent">5.2 &mdash; Unit Pre-Assessment</div>
             <div class="toc-item">5.3 &mdash; Content Review</div>
             <div class="toc-item">5.4 &mdash; Reading Assignment</div>
             <div class="toc-item">5.5 &mdash; Video Assignment</div>
-            <div class="toc-item">5.6 &mdash; Classroom Labs</div>
-            <div class="toc-item">5.7 &mdash; Practice Questions</div>
+            <div class="toc-item">5.6 &mdash; Classroom Labs and Take-Home Lab</div>
+            <div class="toc-item">5.7 &mdash; Practice Question Set</div>
             <div class="toc-item">5.8 &mdash; Online Labs: NETLAB</div>
             <div class="toc-item">5.9 &mdash; Reflection Activity</div>
             <div class="toc-item">5.10 &mdash; Unit Test</div>
+            <div class="toc-item">5.11 &mdash; Unit 5 Tickets</div>
         </nav>
-
         <style>
             /* Collapsible TOC: only the current section shows until clicked */
             nav.toc#tocNav { gap: 0; }
@@ -419,107 +452,473 @@
 
         <div class="content-area">
 
-            <p class="text-muted">A quick, ungraded diagnostic to see where you're starting from before this week's reading and video assignments.</p>
+            <p class="text-muted">This is a diagnostic, not a test, and it is ungraded. You complete it on your own by the end of Tuesday, the first day of the unit.</p>
 
-            <div class="tech-box">
-                <div class="callout-title">Technical Overview</div>
-                <div class="callout-content">
-                    <p>This is a diagnostic, not a graded assessment. It samples the laptop and mobile device hardware, mobile connectivity, virtualization, cloud computing, and mobile troubleshooting concepts covered in Unit 5 so you can see where your reading and video time will pay off most.</p>
-                </div>
+            <div class="callout callout-info">
+                <div class="callout-title">No Preparation Needed</div>
+                <div class="callout-content"><p>Take this before you begin the Unit 5 reading and videos, and do not study for it first. Unit 4 gave you the threats; this unit gives you the defenses, so several of these will look familiar from the other side. This page stays available all unit, and you can retake it as often as you like.</p></div>
             </div>
 
             <div class="plain-box">
-                <div class="callout-title">In Plain Terms</div>
+                <div class="callout-title">Read This First</div>
                 <div class="callout-content">
-                    <p>Answer honestly, even if you're guessing. Nobody sees your score but you, and it's not part of your grade &mdash; completion is what counts. Its only job is to point you at the parts of this week's reading that matter most for you.</p>
+                    <p>You are expected to get questions wrong. You have not been taught this material yet. The purpose is to prime your brain: research on the testing effect shows that attempting to retrieve an answer you do not have makes the correct answer stick better when you meet it later. Guessing today is doing real work.</p>
+                    <p>Select an answer for each question, then click <strong>Grade My Answers</strong> at the bottom to see your results. Nothing here is locked in until you click that button, and you can click <strong>Reset</strong> afterward to clear everything and try again. The answer choices appear in a new order each time.</p>
                 </div>
             </div>
 
-            <div class="callout callout-info">
-                <div class="callout-title">How This Counts</div>
-                <div class="callout-content">
-                    <p>Completion credit only, per the syllabus grading table (Unit Pre-Assessments, 5%). Click Grade My Answers once you've answered all ten, then take a screenshot or note your weak areas before moving to 5.3.</p>
+            <div class="assessment-section">
+                <div class="assessment-header">
+                    <h3>&#128221; Unit 5 Pre-Assessment</h3>
+                    <p>Twenty-six questions, covering seven objectives. Pick your best guess for each one, then grade the set.</p>
+                </div>
+
+                <form id="preAssessmentForm">
+
+                    <div class="question-block" data-qid="1">
+                        <div class="question-number">Question 1</div>
+                        <p class="question-text">A user can open files on a network share but cannot save changes, even though the share permissions grant Full Control. What should a technician check?</p>
+                        <ul class="mc-options">
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">A</span><span>The user's password expiration</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="true"><span class="mc-letter">B</span><span>The NTFS permissions, because the more restrictive of the two applies</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">C</span><span>The share's SSID</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">D</span><span>The folder's inheritance from the Recycle Bin</span></button></li>
+                        </ul>
+                        <p class="unanswered-note">Not yet answered.</p>
+                    </div>
+
+                    <div class="question-block" data-qid="2">
+                        <div class="question-number">Question 2</div>
+                        <p class="question-text">Which permission set applies whether a user reaches a file over the network or sits at the machine?</p>
+                        <ul class="mc-options">
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">A</span><span>Group Policy permissions</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">B</span><span>Share permissions</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="true"><span class="mc-letter">C</span><span>NTFS permissions</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">D</span><span>Firewall rules</span></button></li>
+                        </ul>
+                        <p class="unanswered-note">Not yet answered.</p>
+                    </div>
+
+                    <div class="question-block" data-qid="3">
+                        <div class="question-number">Question 3</div>
+                        <p class="question-text">Which Windows feature prompts before an action that requires administrative rights?</p>
+                        <ul class="mc-options">
+                            <li><button type="button" class="mc-option" data-correct="true"><span class="mc-letter">A</span><span>User Account Control</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">B</span><span>Windows Hello</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">C</span><span>Encrypting File System</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">D</span><span>BitLocker</span></button></li>
+                        </ul>
+                        <p class="unanswered-note">Not yet answered.</p>
+                    </div>
+
+                    <div class="question-block" data-qid="4">
+                        <div class="question-number">Question 4</div>
+                        <p class="question-text">Which Windows feature encrypts a removable USB drive?</p>
+                        <ul class="mc-options">
+                            <li><button type="button" class="mc-option" data-correct="true"><span class="mc-letter">A</span><span>BitLocker To Go</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">B</span><span>BitLocker</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">C</span><span>Encrypting File System</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">D</span><span>Defender Antivirus</span></button></li>
+                        </ul>
+                        <p class="unanswered-note">Not yet answered.</p>
+                    </div>
+
+                    <div class="question-block" data-qid="5">
+                        <div class="question-number">Question 5</div>
+                        <p class="question-text">Which Windows feature encrypts individual files and folders rather than an entire volume?</p>
+                        <ul class="mc-options">
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">A</span><span>BitLocker</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">B</span><span>BitLocker To Go</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="true"><span class="mc-letter">C</span><span>Encrypting File System</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">D</span><span>Windows Hello</span></button></li>
+                        </ul>
+                        <p class="unanswered-note">Not yet answered.</p>
+                    </div>
+
+                    <div class="question-block" data-qid="6">
+                        <div class="question-number">Question 6</div>
+                        <p class="question-text">Which account type should a user have for everyday work in order to limit the damage from malware?</p>
+                        <ul class="mc-options">
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">A</span><span>Administrator</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="true"><span class="mc-letter">B</span><span>Standard account</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">C</span><span>Guest user</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">D</span><span>Power user</span></button></li>
+                        </ul>
+                        <p class="unanswered-note">Not yet answered.</p>
+                    </div>
+
+                    <div class="question-block" data-qid="7">
+                        <div class="question-number">Question 7</div>
+                        <p class="question-text">Which wireless security protocol is the current standard and should be selected when all devices support it?</p>
+                        <ul class="mc-options">
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">A</span><span>WEP</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">B</span><span>WPA2</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">C</span><span>TKIP</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="true"><span class="mc-letter">D</span><span>WPA3</span></button></li>
+                        </ul>
+                        <p class="unanswered-note">Not yet answered.</p>
+                    </div>
+
+                    <div class="question-block" data-qid="8">
+                        <div class="question-number">Question 8</div>
+                        <p class="question-text">Which encryption standard is used by both WPA2 and WPA3?</p>
+                        <ul class="mc-options">
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">A</span><span>TKIP</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">B</span><span>RADIUS</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="true"><span class="mc-letter">C</span><span>AES</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">D</span><span>Kerberos</span></button></li>
+                        </ul>
+                        <p class="unanswered-note">Not yet answered.</p>
+                    </div>
+
+                    <div class="question-block" data-qid="9">
+                        <div class="question-number">Question 9</div>
+                        <p class="question-text">Which authentication service allows wireless users to sign in with their own credentials instead of a shared key?</p>
+                        <ul class="mc-options">
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">A</span><span>TKIP</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="true"><span class="mc-letter">B</span><span>RADIUS</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">C</span><span>UPnP</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">D</span><span>WPA2</span></button></li>
+                        </ul>
+                        <p class="unanswered-note">Not yet answered.</p>
+                    </div>
+
+                    <div class="question-block" data-qid="10">
+                        <div class="question-number">Question 10</div>
+                        <p class="question-text">Which ticket-based authentication protocol underlies Active Directory sign-in?</p>
+                        <ul class="mc-options">
+                            <li><button type="button" class="mc-option" data-correct="true"><span class="mc-letter">A</span><span>Kerberos</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">B</span><span>RADIUS</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">C</span><span>TACACS+</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">D</span><span>SAML</span></button></li>
+                        </ul>
+                        <p class="unanswered-note">Not yet answered.</p>
+                    </div>
+
+                    <div class="question-block" data-qid="11">
+                        <div class="question-number">Question 11</div>
+                        <p class="question-text">A company phone is lost and will not be recovered. Which action protects the data on it?</p>
+                        <ul class="mc-options">
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">A</span><span>A configuration profile</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">B</span><span>Content filtering</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="true"><span class="mc-letter">C</span><span>A remote wipe</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">D</span><span>A locator application</span></button></li>
+                        </ul>
+                        <p class="unanswered-note">Not yet answered.</p>
+                    </div>
+
+                    <div class="question-block" data-qid="12">
+                        <div class="question-number">Question 12</div>
+                        <p class="question-text">Which mobile control makes the data unreadable to someone who removes the device's storage?</p>
+                        <ul class="mc-options">
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">A</span><span>Failed log-in attempt restrictions</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">B</span><span>A swipe screen lock</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">C</span><span>A locator application</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="true"><span class="mc-letter">D</span><span>Device encryption</span></button></li>
+                        </ul>
+                        <p class="unanswered-note">Not yet answered.</p>
+                    </div>
+
+                    <div class="question-block" data-qid="13">
+                        <div class="question-number">Question 13</div>
+                        <p class="question-text">Which is the first action a technician should take when configuring a new SOHO router?</p>
+                        <ul class="mc-options">
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">A</span><span>Enable UPnP</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">B</span><span>Disable SSID broadcast</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="true"><span class="mc-letter">C</span><span>Change the default administrator password</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">D</span><span>Configure port forwarding</span></button></li>
+                        </ul>
+                        <p class="unanswered-note">Not yet answered.</p>
+                    </div>
+
+                    <div class="question-block" data-qid="14">
+                        <div class="question-number">Question 14</div>
+                        <p class="question-text">Which router feature allows applications to open ports automatically and is commonly disabled on business networks?</p>
+                        <ul class="mc-options">
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">A</span><span>Content filtering</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">B</span><span>IP filtering</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="true"><span class="mc-letter">C</span><span>Universal Plug and Play</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">D</span><span>Screened subnet</span></button></li>
+                        </ul>
+                        <p class="unanswered-note">Not yet answered.</p>
+                    </div>
+
+                    <div class="question-block" data-qid="15">
+                        <div class="question-number">Question 15</div>
+                        <p class="question-text">Why should the default SSID of a wireless router be changed?</p>
+                        <ul class="mc-options">
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">A</span><span>It prevents the router from obtaining an IP address</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="true"><span class="mc-letter">B</span><span>It can reveal the make and model of the hardware to an attacker</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">C</span><span>It disables WPA3 encryption</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">D</span><span>It blocks guest access</span></button></li>
+                        </ul>
+                        <p class="unanswered-note">Not yet answered.</p>
+                    </div>
+
+                    <div class="question-block" data-qid="16">
+                        <div class="question-number">Question 16</div>
+                        <p class="question-text">What does a browser certificate warning indicate?</p>
+                        <ul class="mc-options">
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">A</span><span>The site is temporarily offline</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">B</span><span>The browser needs its cache cleared</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">C</span><span>An ad blocker is interfering with the page</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="true"><span class="mc-letter">D</span><span>The site's identity or the encryption of the connection could not be verified</span></button></li>
+                        </ul>
+                        <p class="unanswered-note">Not yet answered.</p>
+                    </div>
+
+                    <div class="question-block" data-qid="17">
+                        <div class="question-number">Question 17</div>
+                        <p class="question-text">Which browser feature prevents local history from being kept for a session but does not make the user anonymous?</p>
+                        <ul class="mc-options">
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">A</span><span>Secure DNS</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="true"><span class="mc-letter">B</span><span>Private-browsing mode</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">C</span><span>A pop-up blocker</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">D</span><span>An ad blocker</span></button></li>
+                        </ul>
+                        <p class="unanswered-note">Not yet answered.</p>
+                    </div>
+
+                    <div class="question-block" data-qid="18">
+                        <div class="question-number">Question 18</div>
+                        <p class="question-text">Which browser setting encrypts name lookups so they cannot be read or altered in transit?</p>
+                        <ul class="mc-options">
+                            <li><button type="button" class="mc-option" data-correct="true"><span class="mc-letter">A</span><span>Secure DNS</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">B</span><span>Private-browsing mode</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">C</span><span>Pop-up blocker</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">D</span><span>Password manager</span></button></li>
+                        </ul>
+                        <p class="unanswered-note">Not yet answered.</p>
+                    </div>
+
+                    <div class="question-block" data-qid="19">
+                        <div class="question-number">Question 19</div>
+                        <p class="question-text">Why should browser extensions be installed only from trusted sources?</p>
+                        <ul class="mc-options">
+                            <li><button type="button" class="mc-option" data-correct="true"><span class="mc-letter">A</span><span>An extension can read the content of every page the user visits</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">B</span><span>Extensions replace the browser's firewall</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">C</span><span>Extensions disable operating system updates</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">D</span><span>Extensions prevent certificates from being validated</span></button></li>
+                        </ul>
+                        <p class="unanswered-note">Not yet answered.</p>
+                    </div>
+
+                    <div class="question-block" data-qid="20">
+                        <div class="question-number">Question 20</div>
+                        <p class="question-text">Which change type is made quickly in response to a critical issue and documented immediately afterward?</p>
+                        <ul class="mc-options">
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">A</span><span>Standard change</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="true"><span class="mc-letter">B</span><span>Emergency change</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">C</span><span>Normal change</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">D</span><span>Peer-reviewed change</span></button></li>
+                        </ul>
+                        <p class="unanswered-note">Not yet answered.</p>
+                    </div>
+
+                    <div class="question-block" data-qid="21">
+                        <div class="question-number">Question 21</div>
+                        <p class="question-text">Which element of a change plan describes how the change will be undone if it fails?</p>
+                        <ul class="mc-options">
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">A</span><span>Risk analysis</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">B</span><span>Scope of the change</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">C</span><span>End-user acceptance</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="true"><span class="mc-letter">D</span><span>Rollback plan</span></button></li>
+                        </ul>
+                        <p class="unanswered-note">Not yet answered.</p>
+                    </div>
+
+                    <div class="question-block" data-qid="22">
+                        <div class="question-number">Question 22</div>
+                        <p class="question-text">During which period are changes deliberately not permitted?</p>
+                        <ul class="mc-options">
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">A</span><span>A maintenance window</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">B</span><span>A peer review</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">C</span><span>A sandbox test</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="true"><span class="mc-letter">D</span><span>A change freeze</span></button></li>
+                        </ul>
+                        <p class="unanswered-note">Not yet answered.</p>
+                    </div>
+
+                    <div class="question-block" data-qid="23">
+                        <div class="question-number">Question 23</div>
+                        <p class="question-text">Which backup type copies everything that has changed since the last backup of any kind?</p>
+                        <ul class="mc-options">
+                            <li><button type="button" class="mc-option" data-correct="true"><span class="mc-letter">A</span><span>Incremental</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">B</span><span>Full</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">C</span><span>Differential</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">D</span><span>Synthetic full</span></button></li>
+                        </ul>
+                        <p class="unanswered-note">Not yet answered.</p>
+                    </div>
+
+                    <div class="question-block" data-qid="24">
+                        <div class="question-number">Question 24</div>
+                        <p class="question-text">Which backup type copies everything changed since the last full backup, and restores from just two pieces?</p>
+                        <ul class="mc-options">
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">A</span><span>Synthetic full</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">B</span><span>Incremental</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">C</span><span>Full</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="true"><span class="mc-letter">D</span><span>Differential</span></button></li>
+                        </ul>
+                        <p class="unanswered-note">Not yet answered.</p>
+                    </div>
+
+                    <div class="question-block" data-qid="25">
+                        <div class="question-number">Question 25</div>
+                        <p class="question-text">What does the 3-2-1 backup rule require?</p>
+                        <ul class="mc-options">
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">A</span><span>Three backups per day, two retained, one tested</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="true"><span class="mc-letter">B</span><span>Three copies of the data, on two types of media, with one offsite</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">C</span><span>Three full backups, two differentials, one incremental</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">D</span><span>Three servers, two sites, one administrator</span></button></li>
+                        </ul>
+                        <p class="unanswered-note">Not yet answered.</p>
+                    </div>
+
+                    <div class="question-block" data-qid="26">
+                        <div class="question-number">Question 26</div>
+                        <p class="question-text">Which backup practice is most often skipped and most important to verify?</p>
+                        <ul class="mc-options">
+                            <li><button type="button" class="mc-option" data-correct="true"><span class="mc-letter">A</span><span>Testing a restore</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">B</span><span>Labeling the media</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">C</span><span>Scheduling the job overnight</span></button></li>
+                            <li><button type="button" class="mc-option" data-correct="false"><span class="mc-letter">D</span><span>Compressing the archive</span></button></li>
+                        </ul>
+                        <p class="unanswered-note">Not yet answered.</p>
+                    </div>
+
+                </form>
+
+                <div class="assessment-controls">
+                    <button type="button" id="gradeBtn" class="btn-grade">Grade My Answers</button>
+                    <button type="button" id="resetBtn" class="btn-reset">Reset</button>
+                </div>
+
+                <div class="results-summary" id="resultsSummary">
+                    <div class="results-score" id="resultsScore">0 / 26</div>
+                    <p id="resultsMessage"></p>
+                    <p style="font-size:0.9rem; opacity:0.85;">Green highlights the correct answer. Red marks an answer you picked that wasn't it. Nothing here is graded.</p>
                 </div>
             </div>
 
-            <div id="quizArea"></div>
-
-            <div class="mt-lg">
-                <button class="quiz-btn" onclick="gradeQuiz()">Grade My Answers</button>
-                <button class="quiz-btn secondary" onclick="resetQuiz()">Reset</button>
+            <div class="references-section">
+                <h3>Go Further</h3>
+                <ul>
+                    <li>Section 5.3 Content Review &mdash; every setting and term on this pre-assessment is explained there, with a real example for each</li>
+                    <li>CompTIA official 220-1202 exam objectives (comptia.org) &mdash; read the lists under objectives 2.2, 2.3, 2.8, 2.10, 2.11, 4.2, and 4.3</li>
+                </ul>
             </div>
-
-            <div id="quizResults">
-                <div>Your Score</div>
-                <div class="score" id="scoreDisplay">0 / 10</div>
-                <div id="scoreNote"></div>
-            </div>
-
-            <script>
-                const QUESTIONS = [{"q": "Which of the following is typically a field-replaceable unit on a laptop?", "opts": ["CPU", "Battery", "System board", "Digitizer bonded to the display"], "correct": 1}, {"q": "Which technology allows a phone to share its cellular data connection with a laptop over Wi-Fi?", "opts": ["Tethering", "NFC", "A mobile hotspot", "SIM cloning"], "correct": 2}, {"q": "A small chip that identifies a mobile device on a cellular network is called a:", "opts": ["SD card", "SIM card", "TPM", "eMMC module"], "correct": 1}, {"q": "Which short-range wireless technology is commonly used for contactless payments?", "opts": ["Bluetooth", "NFC", "802.11", "GPS"], "correct": 1}, {"q": "A hypervisor that runs directly on host hardware, with no underlying operating system, is called a:", "opts": ["Type 1 hypervisor", "Type 2 hypervisor", "Container engine", "Sandbox"], "correct": 0}, {"q": "Which cloud service model provides customers with virtualized computing infrastructure such as servers and storage?", "opts": ["SaaS", "PaaS", "IaaS", "DaaS"], "correct": 2}, {"q": "A cloud deployment used exclusively by a single organization is best described as a:", "opts": ["Public cloud", "Private cloud", "Community cloud", "Hybrid cloud"], "correct": 1}, {"q": "A mobile device that will not hold a charge and shuts down unexpectedly most likely has an issue with the:", "opts": ["Digitizer", "Battery", "SIM card", "Wi-Fi antenna"], "correct": 1}, {"q": "A cracked touchscreen that no longer registers taps accurately is most likely a problem with the:", "opts": ["Battery", "Digitizer", "SIM card", "Speaker"], "correct": 1}, {"q": "Which of these is a common cause of overheating on a mobile device?", "opts": ["Blocked ventilation or prolonged demanding use", "Using a manufacturer-approved charger", "Keeping the device updated", "Low screen brightness"], "correct": 0}];
-                let answers = new Array(QUESTIONS.length).fill(null);
-
-                function renderQuiz() {
-                    const area = document.getElementById('quizArea');
-                    area.innerHTML = QUESTIONS.map((item, qi) => {
-                        const opts = item.opts.map((opt, oi) =>
-                            `<button type="button" class="answer-option" data-qi="${qi}" data-oi="${oi}" onclick="selectAnswer(${qi}, ${oi})">${opt}</button>`
-                        ).join('');
-                        return `<div class="question-block">
-                            <div class="question-number">Question ${qi + 1} of ${QUESTIONS.length}</div>
-                            <p class="question-text">${item.q}</p>
-                            ${opts}
-                        </div>`;
-                    }).join('');
-                }
-
-                function selectAnswer(qi, oi) {
-                    answers[qi] = oi;
-                    document.querySelectorAll(`[data-qi="${qi}"]`).forEach(btn => {
-                        btn.classList.remove('selected');
-                        if (parseInt(btn.dataset.oi) === oi) btn.classList.add('selected');
-                    });
-                }
-
-                function gradeQuiz() {
-                    if (answers.includes(null)) {
-                        alert('Answer all 10 questions before grading. This will not affect your grade, but you need every item answered to see accurate results.');
-                        return;
-                    }
-                    let score = 0;
-                    QUESTIONS.forEach((item, qi) => {
-                        const correct = item.correct;
-                        document.querySelectorAll(`[data-qi="${qi}"]`).forEach(btn => {
-                            const oi = parseInt(btn.dataset.oi);
-                            btn.classList.remove('selected');
-                            if (oi === correct) btn.classList.add('correct');
-                            else if (oi === answers[qi]) btn.classList.add('incorrect');
-                        });
-                        if (answers[qi] === correct) score++;
-                    });
-                    document.getElementById('scoreDisplay').textContent = score + ' / ' + QUESTIONS.length;
-                    const note = document.getElementById('scoreNote');
-                    if (score >= 8) note.textContent = 'Strong start. Skim the reading for the items you missed.';
-                    else if (score >= 4) note.textContent = 'A solid mix of known and new. Read all of 5.4 closely this week.';
-                    else note.textContent = 'That is exactly what this week is for. Nobody starts Unit 5 knowing this material \u2014 read closely and it will click.';
-                    document.getElementById('quizResults').style.display = 'block';
-                    document.getElementById('quizResults').scrollIntoView({behavior: 'smooth'});
-                }
-
-                function resetQuiz() {
-                    answers = new Array(QUESTIONS.length).fill(null);
-                    document.getElementById('quizResults').style.display = 'none';
-                    renderQuiz();
-                }
-
-                renderQuiz();
-            </script>
 
         </div>
 
         <footer class="module-footer">
-            <p class="footer-text">CompTIA A+ Core 1 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
+            <p class="footer-text">CompTIA A+ Core 2 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
         </footer>
     </div>
+
+    <script>
+        (function () {
+            var questionBlocks = Array.prototype.slice.call(document.querySelectorAll('.question-block'));
+
+            // Selecting an answer within a question
+            questionBlocks.forEach(function (block) {
+                var options = Array.prototype.slice.call(block.querySelectorAll('.mc-option'));
+                options.forEach(function (btn) {
+                    btn.addEventListener('click', function () {
+                        options.forEach(function (b) {
+                            b.classList.remove('selected', 'graded-correct', 'graded-incorrect', 'graded-missed');
+                        });
+                        btn.classList.add('selected');
+                        block.classList.remove('unanswered-flag');
+                    });
+                });
+            });
+
+            function gradeAssessment() {
+                var total = questionBlocks.length;
+                var correctCount = 0;
+                var unansweredCount = 0;
+
+                questionBlocks.forEach(function (block) {
+                    var options = Array.prototype.slice.call(block.querySelectorAll('.mc-option'));
+                    var selected = options.filter(function (b) { return b.classList.contains('selected'); })[0];
+                    var correctBtn = options.filter(function (b) { return b.dataset.correct === 'true'; })[0];
+
+                    options.forEach(function (b) {
+                        b.classList.remove('graded-correct', 'graded-incorrect', 'graded-missed');
+                    });
+
+                    if (!selected) {
+                        unansweredCount++;
+                        block.classList.add('unanswered-flag');
+                        if (correctBtn) correctBtn.classList.add('graded-missed');
+                        return;
+                    }
+
+                    block.classList.remove('unanswered-flag');
+
+                    if (selected.dataset.correct === 'true') {
+                        selected.classList.add('graded-correct');
+                        correctCount++;
+                    } else {
+                        selected.classList.add('graded-incorrect');
+                        if (correctBtn) correctBtn.classList.add('graded-correct');
+                    }
+                });
+
+                var scoreEl = document.getElementById('resultsScore');
+                var msgEl = document.getElementById('resultsMessage');
+                var summaryEl = document.getElementById('resultsSummary');
+
+                scoreEl.textContent = correctCount + ' / ' + total;
+
+                var msg = '';
+                if (unansweredCount > 0) {
+                    msg += unansweredCount + ' question' + (unansweredCount === 1 ? ' was' : 's were') + ' left blank &mdash; go back and pick your best guess on those before you finish. ';
+                }
+                if (correctCount <= 3) {
+                    msg += 'Getting most of these wrong on day one is completely normal &mdash; that is exactly what this diagnostic is for.';
+                } else if (correctCount <= 7) {
+                    msg += 'A solid mix of known and unknown &mdash; a good honest starting point for the term.';
+                } else {
+                    msg += 'You already know more of this than most students do on day one &mdash; nice.';
+                }
+                msgEl.innerHTML = msg;
+                summaryEl.classList.add('show');
+                summaryEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+
+            function resetAssessment() {
+                questionBlocks.forEach(function (block) {
+                    block.classList.remove('unanswered-flag');
+                    var options = Array.prototype.slice.call(block.querySelectorAll('.mc-option'));
+                    options.forEach(function (b) {
+                        b.classList.remove('selected', 'graded-correct', 'graded-incorrect', 'graded-missed');
+                    });
+                });
+                document.getElementById('resultsSummary').classList.remove('show');
+        shuffleOptions();
+                document.getElementById('preAssessmentForm').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+
+                function shuffleOptions() {
+        questionBlocks.forEach(function (block) {
+            var list = block.querySelector('.mc-options');
+            var items = Array.prototype.slice.call(list.children);
+            for (var i = items.length - 1; i > 0; i--) {
+                var j = Math.floor(Math.random() * (i + 1));
+                var t = items[i]; items[i] = items[j]; items[j] = t;
+            }
+            items.forEach(function (li, k) {
+                li.querySelector('.mc-letter').textContent = 'ABCD'.charAt(k);
+                list.appendChild(li);
+            });
+        });
+    }
+    shuffleOptions();
+    document.getElementById('gradeBtn').addEventListener('click', gradeAssessment);
+            document.getElementById('resetBtn').addEventListener('click', resetAssessment);
+        })();
+    </script>
 </body>
 </html>

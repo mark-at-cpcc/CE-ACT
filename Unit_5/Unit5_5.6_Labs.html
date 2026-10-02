@@ -6,7 +6,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <title>Unit 5 &mdash; 5.1 Unit Overview and Schedule | CompTIA A+ Core 2</title>
+    <title>Unit 5 &mdash; 5.6 Classroom Labs and Take-Home Lab | CompTIA A+ Core 2</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -328,19 +328,19 @@
     <div class="course-container">
 
         <header class="module-header">
-            <div class="module-label">Unit 5 &middot; Securing Systems and Protecting Data &middot; Section 5.1</div>
-            <h1 class="module-title">Unit Overview and Schedule</h1>
+            <div class="module-label">Unit 5 &middot; Securing Systems and Protecting Data &middot; Section 5.6</div>
+            <h1 class="module-title">Classroom Labs and Take-Home Lab</h1>
             <p class="module-subtitle">CompTIA A+ Core 2 - Domains 2.0 and 4.0</p>
         </header>
 
                 <nav class="toc" id="tocNav">
             <div class="toc-header">Table of Contents</div>
-            <div class="toc-item current" id="tocCurrent">5.1 &mdash; Unit Overview and Schedule</div>
+            <div class="toc-item">5.1 &mdash; Unit Overview and Schedule</div>
             <div class="toc-item">5.2 &mdash; Unit Pre-Assessment</div>
             <div class="toc-item">5.3 &mdash; Content Review</div>
             <div class="toc-item">5.4 &mdash; Reading Assignment</div>
             <div class="toc-item">5.5 &mdash; Video Assignment</div>
-            <div class="toc-item">5.6 &mdash; Classroom Labs and Take-Home Lab</div>
+            <div class="toc-item current" id="tocCurrent">5.6 &mdash; Classroom Labs and Take-Home Lab</div>
             <div class="toc-item">5.7 &mdash; Practice Question Set</div>
             <div class="toc-item">5.8 &mdash; Online Labs: NETLAB</div>
             <div class="toc-item">5.9 &mdash; Reflection Activity</div>
@@ -440,133 +440,170 @@
 
         <div class="content-area">
 
-            <p class="text-muted">Unit 4 taught you to recognize the threat. This unit is the answer to every one of them &mdash; the settings, protocols, and procedures that actually stop what you just learned to name.</p>
+            <p class="text-muted">Every class opens with a Ticket of the Day. After that come three optional labs we run in class as time permits, and one take-home lab in two parts. None of these is graded. All of them are where this unit's reading becomes something you have actually configured.</p>
 
             <div class="callout callout-info">
-                <div class="callout-title">Start With the Pre-Assessment</div>
-                <div class="callout-content"><p>The Section 5.2 Pre-Assessment is an independent activity you complete on your own. Finish it by the end of Tuesday, the first day of the unit, before you begin the reading and videos, and do not study for it first. Several questions will look familiar from Unit 4, seen from the other side.</p></div>
+                <div class="callout-title">Five of Seven Objectives Are Scenario Objectives</div>
+                <div class="callout-content"><p>More of this unit is "Given a scenario" than any other unit in the course. That makes hands-on practice worth more here than anywhere else &mdash; the exam will describe a situation and ask what you would configure, and the only reliable preparation is having configured it.</p></div>
             </div>
 
-            <div class="objectives-box">
-                <h3>Learning Objectives</h3>
-                <p>After completing this unit, you will be able to:</p>
-                <ol>
-                    <li><strong>Configure</strong> Windows security settings, including Defender Antivirus, the firewall, accounts and groups, sign-in options, and User Account Control</li>
-                    <li><strong>Predict</strong> a user's effective access to a shared folder from its NTFS and share permissions, and explain how inheritance affects new files</li>
-                    <li><strong>Select</strong> the appropriate encryption for a situation &mdash; BitLocker, BitLocker To Go, or the Encrypting File System</li>
-                    <li><strong>Compare</strong> wireless security protocols and authentication methods, and recommend one for a given environment</li>
-                    <li><strong>Apply</strong> hardening techniques to mobile devices, including encryption, screen locks, remote wipe, and managed profiles</li>
-                    <li><strong>Secure</strong> a SOHO wireless and wired network by configuring router, wireless, and firewall settings</li>
-                    <li><strong>Configure</strong> relevant security settings in a browser and judge the risk of extensions, certificates, and synchronization</li>
-                    <li><strong>Apply</strong> change management procedures, distinguishing standard, normal, and emergency changes</li>
-                    <li><strong>Justify</strong> a workstation backup and recovery plan, including backup type, rotation scheme, and how the restore is tested</li>
+            <div class="lab-section">
+                <div class="lab-header">
+                    <div class="lab-icon">&#127915;</div>
+                    <div>
+                        <h3 class="lab-title">Ticket of the Day</h3>
+                        <p class="lab-time">One per class meeting &middot; On your own &middot; About 20 minutes each &middot; Section 5.11</p>
+                    </div>
+                </div>
+                <p>Each class meeting has one help-desk ticket to work <strong>on your own</strong>. All three are in <strong>Section 5.11, Unit 5 Tickets</strong>, with instructions at the top of that page.</p>
+                <ul class="styled-list">
+                    <li><strong>Ticket 1</strong> &mdash; Tuesday: Full Control, Still Denied</li>
+                    <li><strong>Ticket 2</strong> &mdash; Wednesday: The Clinic's Wi-Fi</li>
+                    <li><strong>Ticket 3</strong> &mdash; Thursday: Friday at 4:30</li>
+                </ul>
+                <div class="callout callout-tip">
+                    <div class="callout-title">Record What You Changed, Not Just What You Fixed</div>
+                    <div class="callout-content"><p>This unit's tickets involve changing settings, and a changed setting that nobody wrote down is the cause of next month's mystery. "Set the share permission to Change and the NTFS permission to Modify for the Accounting group" is a progress note. "Fixed permissions" is not. This is change management at the smallest possible scale, and it is the habit the rest of the discipline is built on.</p></div>
+                </div>
+            </div>
+
+            <div class="lab-section">
+                <div class="lab-header">
+                    <div class="lab-icon">&#129513;</div>
+                    <div>
+                        <h3 class="lab-title">Lab 5.6.1 &mdash; Permissions Puzzle</h3>
+                        <p class="lab-time">Wednesday &middot; In class &middot; 45 minutes &middot; Objective 2.2</p>
+                    </div>
+                </div>
+                <p>Work in pairs, on paper first and a lab PC second. You will be given a series of folders, each with a share permission and an NTFS permission, and a user arriving either over the network or at the keyboard.</p>
+                <ol class="lab-steps">
+                    <li><strong>Predict on paper.</strong> For each case, write down the user's effective access before touching a computer. Commit to an answer &mdash; a guess you wrote down teaches more than one you kept vague.</li>
+                    <li><strong>Watch for the local case.</strong> At least one case has the user signed in at the machine rather than across the network. Decide what share permissions do in that situation.</li>
+                    <li><strong>Test it.</strong> Configure the case on a lab PC and confirm the access from a second machine. Record any answer you got wrong and why.</li>
+                    <li><strong>Break inheritance.</strong> Create a subfolder, disable inheritance, and set different permissions. Then create a file in each folder and predict what the new file receives.</li>
+                    <li><strong>State the rule in your own words</strong> &mdash; in one sentence, without using the word "restrictive." If you can do that, you own it.</li>
                 </ol>
-            </div>
-
-            <div class="tech-box">
-                <div class="callout-title">Technical Overview</div>
-                <div class="callout-content">
-                    <p>Unit 5 addresses CompTIA A+ Core 2 (220-1202) Domain 2.0 Security &mdash; objectives 2.2 (configure and apply basic Microsoft Windows OS security settings), 2.3 (wireless security protocols and authentication methods), 2.8 (common methods for securing mobile devices), 2.10 (security settings on SOHO wireless and wired networks), and 2.11 (relevant security settings in a browser) &mdash; and Domain 4.0 Operational Procedures, objectives 4.2 (change management procedures) and 4.3 (workstation backup and recovery methods).</p>
+                <div class="key-concept">
+                    <h4>The Case People Miss</h4>
+                    <p>Share permissions apply <em>only</em> to users arriving over the network. A user sitting at the machine is governed by NTFS alone. This is why a locked-down share can still be wide open to anyone who can sign in locally &mdash; and it is why physical security and logical security are not separate topics.</p>
                 </div>
             </div>
 
-            <div class="plain-box">
-                <div class="callout-title">In Plain Terms</div>
-                <div class="callout-content">
-                    <p>Last unit you learned what can go wrong. This unit you learn what to click, type, and configure so it does not.</p>
-                    <p>It covers four places a technician applies security &mdash; the Windows workstation, the wireless network, the mobile device, and the browser &mdash; plus the two procedures that protect an organization from itself: managing changes so nobody breaks production on a Friday, and keeping backups that actually restore.</p>
+            <div class="lab-section">
+                <div class="lab-header">
+                    <div class="lab-icon">&#128225;</div>
+                    <div>
+                        <h3 class="lab-title">Lab 5.6.2 &mdash; Harden the Router</h3>
+                        <p class="lab-time">Thursday &middot; In class &middot; 45&ndash;60 minutes &middot; Objective 2.10</p>
+                    </div>
+                </div>
+                <p>Using the lab SOHO router, work through the six-step checklist from Section 5.3 on real hardware, in order.</p>
+                <ol class="lab-steps">
+                    <li><strong>Find the defaults first.</strong> Before changing anything, look up this router's default administrator credentials online. Record how long it took you. That number is the lesson.</li>
+                    <li><strong>Change the administrator password</strong> and record where that setting lives.</li>
+                    <li><strong>Check the firmware version</strong> against the manufacturer's current release, and record whether the device is behind.</li>
+                    <li><strong>Set the SSID</strong> to something that identifies neither the hardware nor the owner, and note what the default revealed.</li>
+                    <li><strong>Set encryption</strong> to WPA3, or WPA2 with AES if any device requires it. Record which options the router offers, including any you would never choose.</li>
+                    <li><strong>Disable UPnP</strong> and record where the setting was and what the router says about it.</li>
+                    <li><strong>Restrict management access</strong> to the internal network, and confirm the administrative interface is not reachable from outside.</li>
+                    <li><strong>Configure guest access</strong> and verify a guest client cannot reach an internal device.</li>
+                </ol>
+                <div class="callout callout-warning">
+                    <div class="callout-title">Restore the Lab Router Before You Leave</div>
+                    <div class="callout-content"><p>Record every setting before you change it, and put the router back the way you found it at the end of the session, or the next group starts with credentials they do not have. This is also the rollback plan from objective 4.2, in miniature &mdash; written before the change, not after.</p></div>
                 </div>
             </div>
 
-            <h2>Why This Unit Comes Next</h2>
-            <p>Unit 4 was deliberately the <strong>recognize the threat</strong> unit. This is the <strong>configure the defense</strong> unit, and the order matters: a control you do not understand the reason for is a control you will eventually turn off for convenience.</p>
-            <p>As you read this unit, name the Unit 4 attack that each control defeats. Failed-attempt lockout answers dictionary attacks. RADIUS answers the shared wireless key that never gets changed. Backups answer ransomware. That pairing is what scenario questions are built on, and it turns two units of vocabulary into one connected picture.</p>
-            <p>Domain 2.0 Security is <strong>28% of the exam</strong>. Units 4 and 5 together carry all of it.</p>
-
-            <h2>Your Week at a Glance</h2>
-            <div class="table-container">
-                <table>
-                    <thead><tr><th>Day</th><th>Time</th><th>Focus</th><th>What You'll Do</th></tr></thead>
-                    <tbody>
-                        <tr><td><strong>Tuesday</strong></td><td>10:00 AM &ndash; 1:00 PM</td><td>Experience</td><td>Ticket of the Day. Harden a Windows workstation and see what each setting prevents.</td></tr>
-                        <tr><td><strong>Wednesday</strong></td><td>11:00 AM &ndash; 2:00 PM</td><td>Experience &rarr; Concepts</td><td>Ticket of the Day. Then we name it &mdash; Windows security settings, browser security, SOHO network security, mobile device security, change management, and backups. Optional lab, time permitting: Permissions Puzzle.</td></tr>
-                        <tr><td><strong>Thursday</strong></td><td>10:00 AM &ndash; 1:00 PM</td><td>Application</td><td>Ticket of the Day. Optional labs, time permitting: Harden the Router and BitLocker To Go. Unit exit check.</td></tr>
-                    </tbody>
-                </table>
+            <div class="lab-section">
+                <div class="lab-header">
+                    <div class="lab-icon">&#128273;</div>
+                    <div>
+                        <h3 class="lab-title">Lab 5.6.3 &mdash; BitLocker To Go</h3>
+                        <p class="lab-time">Thursday &middot; In class &middot; 45 minutes &middot; Objectives 2.2, 2.7</p>
+                    </div>
+                </div>
+                <p>On a Windows Pro lab PC, encrypt a USB drive and then find out what that actually means on a different machine.</p>
+                <ol class="lab-steps">
+                    <li><strong>Start with an empty drive.</strong> Use a lab flash drive, not your own, and confirm it holds nothing you need &mdash; assume anything on it will be lost.</li>
+                    <li><strong>Copy a test file</strong> to the drive and open it, so you know it works before encryption.</li>
+                    <li><strong>Enable BitLocker To Go,</strong> choosing a password. Record where the recovery key is stored and what your options were.</li>
+                    <li><strong>Move the drive to a second machine</strong> and try to open the file. Record exactly what happens and what the prompt says.</li>
+                    <li><strong>Unlock it</strong> with the password, then record what a user would experience if they had forgotten it and had no recovery key.</li>
+                    <li><strong>Decrypt the drive</strong> and return it before the end of class.</li>
+                </ol>
+                <div class="callout callout-danger">
+                    <div class="callout-title">The Recovery Key Is the Whole Lesson</div>
+                    <div class="callout-content"><p>Encryption that works is indistinguishable from data loss when the credential is gone. Every real BitLocker deployment lives or dies on where the recovery keys are kept and who can reach them. A technician who enables encryption without answering that question first has not secured the data &mdash; they have scheduled its destruction.</p></div>
+                </div>
             </div>
 
-            <h2>Work Outside of Class</h2>
-            <p>Budget <strong>19 to 21 hours</strong> this week outside our meetings. The reading is the lightest of the term, and that is deliberate &mdash; this unit carries three NETLAB labs and your first full-length practice exam.</p>
-            <div class="table-container">
-                <table>
-                    <thead><tr><th>Component</th><th>Time</th><th>Section</th></tr></thead>
-                    <tbody>
-                        <tr><td>Sybex Volume 2 reading (102 pgs.)</td><td>7.5 &ndash; 8.5 hrs</td><td>5.4</td></tr>
-                        <tr><td>Professor Messer videos (2 hr 27 min runtime)</td><td>3 &ndash; 3.5 hrs</td><td>5.5</td></tr>
-                        <tr><td>Take-home lab, two parts (ungraded)</td><td>1.5 hrs</td><td>5.6</td></tr>
-                        <tr><td>NETLAB online labs (3 labs)</td><td>2.25 &ndash; 3.75 hrs</td><td>5.8</td></tr>
-                        <tr><td>Practice questions and unit test</td><td>2.5 hrs</td><td>5.7, 5.10</td></tr>
-                        <tr><td>Reflection journal</td><td>1 hr</td><td>5.9</td></tr>
-                        <tr><td><strong>First full-length practice exam</strong> &mdash; 90 items, 90 minutes, timed</td><td>1.5 &ndash; 2 hrs</td><td>See the Course Schedule</td></tr>
-                    </tbody>
-                </table>
+            <div class="lab-section">
+                <div class="lab-header">
+                    <div class="lab-icon">&#127968;</div>
+                    <div>
+                        <h3 class="lab-title">Lab 5.6.4 &mdash; Take-Home, Part A: Secure Your Own Network</h3>
+                        <p class="lab-time">On your own &middot; 45 minutes &middot; Ungraded &middot; Objective 2.10</p>
+                    </div>
+                </div>
+                <p>Most people have never signed in to the router sitting in their home. This unit is when that changes.</p>
+                <div class="callout callout-warning">
+                    <div class="callout-title">Your Network Only, and Audit Before You Change</div>
+                    <div class="callout-content">
+                        <ul class="checklist">
+                            <li>Do this only on a network you own or administer. A dormitory, apartment-complex, or employer network is not yours to configure.</li>
+                            <li>If you cannot sign in to the router, record that as your finding and do the rest from what you can observe. Do not reset the device.</li>
+                            <li>Record every setting before you change anything, and change only what you are confident about.</li>
+                            <li>If a change would interrupt service for other people in the household, ask them first or leave it as a recommendation.</li>
+                        </ul>
+                    </div>
+                </div>
+                <ol class="lab-steps">
+                    <li><strong>Sign in,</strong> and record whether the administrator password is still the default.</li>
+                    <li><strong>Firmware:</strong> record the installed version and whether a newer one is available.</li>
+                    <li><strong>SSID:</strong> record it, and say what it reveals about the hardware or the household.</li>
+                    <li><strong>Encryption:</strong> record the standard in use, and which stronger options the router supports.</li>
+                    <li><strong>UPnP:</strong> record whether it is enabled.</li>
+                    <li><strong>Guest network:</strong> record whether one exists and whether it is separated from internal devices.</li>
+                    <li><strong>Management access:</strong> record whether the administrative interface is reachable from outside the network.</li>
+                    <li><strong>Connected devices:</strong> list what is currently connected. Note anything you cannot identify.</li>
+                </ol>
+                <p><strong>Write it up</strong> as a short memo: what you found, which items you changed, and which you are recommending rather than doing. End with one line: <strong>which single finding would you fix first, and why that one?</strong></p>
             </div>
 
-            <div class="key-concept">
-                <h4>Your First Full-Length Practice Exam</h4>
-                <p>This unit brings your first timed, closed-book run at a complete 90-item exam. Take it in one uninterrupted sitting, with no notes and no pauses &mdash; a practice exam taken comfortably tells you nothing useful.</p>
-                <p>The number that matters is your <strong>scaled score out of 900</strong>, not a raw percentage. Core 2 passes at <strong>700</strong>. Aim for <strong>780 or better on two consecutive attempts</strong> &mdash; that margin is what turns a score into confidence, and we will track it from here to the end of the course.</p>
-                <p>A first attempt below 700 at this stage is normal and is information, not a verdict. You still have Unit 6, a second pass through the material, and the Final Study Exam ahead of you.</p>
-            </div>
+            <div class="lab-section">
+                <div class="lab-header">
+                    <div class="lab-icon">&#127760;</div>
+                    <div>
+                        <h3 class="lab-title">Lab 5.6.5 &mdash; Take-Home, Part B: Lock Down Your Browser</h3>
+                        <p class="lab-time">On your own &middot; 45 minutes &middot; Ungraded &middot; Objective 2.11</p>
+                    </div>
+                </div>
+                <p>The browser is the program most exposed to hostile content and the one people configure least. Audit your own.</p>
+                <ol class="lab-steps">
+                    <li><strong>Version and updates.</strong> Record your browser's version and when it last updated. Note whether updates apply automatically.</li>
+                    <li><strong>Inventory your extensions.</strong> List every one, and for each record what it does, where it came from, and what permissions it holds. Flag any you cannot remember installing.</li>
+                    <li><strong>Remove one.</strong> Choose an extension you cannot justify &mdash; by usefulness or by trust &mdash; and remove it. Record which and why. If every extension survives the test, say so and defend one of them.</li>
+                    <li><strong>Check a certificate.</strong> Visit a site you trust, open the certificate details, and record who issued it and when it expires.</li>
+                    <li><strong>Audit the settings</strong> from objective 2.11: pop-up blocker, saved passwords, sync, ad blocker, proxy, and secure DNS. Record the state of each and whether it is what you intended.</li>
+                    <li><strong>Sync, deliberately.</strong> Record what is currently synchronized to your account, and decide whether you would want that on a work computer.</li>
+                    <li><strong>Clear the cache</strong> and note anything that changed &mdash; sites you were signed out of, pages that loaded differently.</li>
+                </ol>
+                <p><strong>Write it up</strong> in a few sentences: what surprised you in your own browser, what you changed, and what you would tell a user who asked whether extensions are safe.</p>
 
-            <div class="callout callout-warning">
-                <div class="callout-title">The Busiest Assessment Week</div>
-                <div class="callout-content"><p>Three NETLAB labs, a unit test, and a full-length practice exam land in the same seven days. The reading is lighter to make room for exactly that. Book the labs at the start of the unit and give the practice exam a block of its own &mdash; it is worth far more taken properly on Sunday than squeezed in on Monday night.</p></div>
-            </div>
-
-            <div class="callout callout-info">
-                <div class="callout-title">Where to Find Due Dates</div>
-                <div class="callout-content"><p>Every date and deadline for this course lives in one place: the <strong>Course Schedule</strong> in the Start Here module. Unit pages tell you what to do; the Course Schedule tells you when it is due.</p></div>
-            </div>
-
-            <h2>Exam Objectives Covered</h2>
-            <div class="table-container">
-                <table>
-                    <thead><tr><th>Objective</th><th>Title</th><th>Exam Weight of Parent Domain</th></tr></thead>
-                    <tbody>
-                        <tr><td><strong>2.2</strong></td><td>Configure and apply basic Microsoft Windows OS security settings</td><td rowspan="5">Domain 2.0 Security &mdash; 28%</td></tr>
-                        <tr><td><strong>2.3</strong></td><td>Wireless security protocols and authentication methods</td></tr>
-                        <tr><td><strong>2.8</strong></td><td>Common methods for securing mobile devices</td></tr>
-                        <tr><td><strong>2.10</strong></td><td>Security settings on SOHO wireless and wired networks</td></tr>
-                        <tr><td><strong>2.11</strong></td><td>Relevant security settings in a browser</td></tr>
-                        <tr><td><strong>4.2</strong></td><td>Change management procedures</td><td rowspan="2">Domain 4.0 Operational Procedures &mdash; 21%</td></tr>
-                        <tr><td><strong>4.3</strong></td><td>Workstation backup and recovery methods</td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <h2>How This Unit Is Graded</h2>
-            <p>Three things are graded: the <strong>NETLAB labs (5.8)</strong>, the <strong>reflection (5.9)</strong>, and the <strong>unit test (5.10)</strong>. Each is worth <strong>100 points</strong>, awarded in full when it meets the completion standard on that item's page. Work that falls short is returned for revision and resubmitted for full credit &mdash; it is not partially scored.</p>
-            <p>Everything else in this unit is ungraded: the pre-assessment, your reading and video notes, the practice questions, the labs, and the practice exam. They are still expected, and they are where the learning actually happens &mdash; the graded items only measure it.</p>
-
-            <div class="key-concept">
-                <h4>Core 2 Passes at 700, Not 675</h4>
-                <p>Core 1 passed at 675 out of 900. <strong>Core 2 passes at 700.</strong> Because the scale starts at 100 rather than zero, 700 works out to about <strong>75% of raw points</strong> &mdash; not the roughly 72% you needed in Core 1.</p>
-                <p>This is the unit where that number stops being abstract. Your first practice exam gives you a scaled score to compare it against.</p>
+                <div class="callout callout-tip">
+                    <div class="callout-title">Two Parts, One Point</div>
+                    <div class="callout-content"><p>Part A secures the network a household uses. Part B secures the program a person actually spends their day inside. Together they cover the two places where real people are most often compromised &mdash; and neither one requires a lab, a license, or anything you do not already own.</p></div>
+                </div>
             </div>
 
             <div class="summary-box">
-                <h3>Unit 5 Checklist</h3>
+                <h3>What These Labs Give You</h3>
                 <ul>
-                    <li>Complete the Section 5.2 Pre-Assessment on your own by the end of Tuesday, before the reading</li>
-                    <li>Read the assigned Sybex Volume 2 sections listed in Section 5.4</li>
-                    <li>Watch the eleven Professor Messer videos in Section 5.5 &mdash; give Active Directory its own sitting</li>
-                    <li>Complete both parts of the take-home lab in Section 5.6</li>
-                    <li>Work the Section 5.7 practice set with confidence marking until you score 10 out of 10</li>
-                    <li>Complete NDG A+ v5 Labs 10, 19, and 14 in NETLAB &mdash; reserve all three early</li>
-                    <li>Submit your Section 5.9 reflection</li>
-                    <li>Take the Section 5.10 Unit Test</li>
-                    <li>Take your first full-length practice exam, timed and closed-book, in one sitting</li>
+                    <li>Effective access predicted on paper and confirmed on a real share, including the local-sign-in case</li>
+                    <li>A SOHO router hardened end to end on real hardware, starting with how quickly its defaults can be found online</li>
+                    <li>First-hand knowledge of what encrypted removable media does on a machine that does not have the key</li>
+                    <li>An audit of your own home network, written as a memo with one priority named</li>
+                    <li>An honest inventory of your own browser extensions, and one fewer than you started with</li>
                 </ul>
             </div>
 

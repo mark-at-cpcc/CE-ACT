@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unit 5 &mdash; 5.5 Video Assignment | CompTIA A+ Core 1</title>
+    <title>Unit 5 &mdash; 5.5 Video Assignment | CompTIA A+ Core 2</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,7 +15,7 @@
     <style>
         /* ============================================
            CPCC COURSE TEMPLATE - GOLD / CHARCOAL / BLACK
-           CTS-ITS7501-80 CompTIA A+ Core 1 Training
+           CTS-ITS7501-80 CompTIA A+ Core 2 Training
            Type: true black. Accents: gold. Chrome: charcoal.
            ============================================ */
 
@@ -92,9 +92,6 @@
 
         .module-header {
             background: var(--primary-main); color: var(--text-black);
-            /* Reduced from var(--space-2xl) top/bottom (3rem) to var(--space-lg) (1.5rem) to cut excess
-               empty space in this card's title header. To revert, change padding back to:
-               padding: var(--space-2xl) var(--space-xl); */
             padding: var(--space-lg) var(--space-xl); position: relative; overflow: hidden;
         }
         .module-label {
@@ -147,6 +144,28 @@
         ul li::marker { color: var(--accent-teal); }
         ol li::marker { color: var(--accent-teal); font-weight: 700; }
 
+        .styled-list { list-style: none; padding-left: 0; }
+        .styled-list li { position: relative; padding-left: var(--space-lg); margin-bottom: var(--space-sm); }
+        .styled-list li::before { content: '\25B8'; position: absolute; left: 0; color: var(--accent-teal); font-weight: bold; }
+
+        .checklist { list-style: none; padding-left: 0; }
+        .checklist li { position: relative; padding-left: 2rem; margin-bottom: var(--space-sm); }
+        .checklist li::before {
+            content: '\2713'; position: absolute; left: 0; width: 1.5rem; height: 1.5rem;
+            background: var(--accent-green-light); color: var(--accent-green);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 0.75rem; font-weight: bold;
+        }
+
+        .objectives-box {
+            background: linear-gradient(135deg, var(--primary-pale) 0%, var(--accent-teal-light) 100%);
+            border-left: 5px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .objectives-box h3 { color: var(--text-black); margin-top: 0; margin-bottom: var(--space-md);
+            display: flex; align-items: center; gap: var(--space-sm); border-left: none; padding-left: 0; }
+        .objectives-box ol { margin-bottom: 0; }
+
         .tech-box {
             background: var(--neutral-100); border: 2px solid var(--neutral-500);
             border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
@@ -162,6 +181,7 @@
         .plain-box .callout-content { padding-left: 0; }
 
         .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; position: relative; overflow: hidden; }
+        .callout::before { position: absolute; top: var(--space-md); left: var(--space-md); font-size: 1.5rem; }
         .callout-title { font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 1rem;
             text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
         .callout-content { }
@@ -172,30 +192,21 @@
         .callout-danger { background: var(--alert-danger-bg); border-left: 4px solid var(--alert-danger); }
         .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
 
-        .objectives-box {
-            background: var(--primary-pale); border-left: 5px solid var(--primary-main);
-            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
-        }
-        .objectives-box h3 { margin-top: 0; border-left: none; padding-left: 0; color: var(--text-black); }
-        .objectives-box ol { margin-bottom: 0; }
-
         .key-concept {
             background: linear-gradient(135deg, var(--accent-purple-light) 0%, var(--white) 100%);
             border: 2px solid var(--accent-purple); border-radius: var(--radius-lg);
             padding: var(--space-lg); margin: var(--space-xl) 0 var(--space-lg); position: relative;
         }
         .key-concept::before {
-            content: 'KEY CONCEPT'; position: absolute; top: -12px; left: var(--space-lg);
+            content: '\1F511 KEY CONCEPT'; position: absolute; top: -12px; left: var(--space-lg);
             background: var(--accent-purple); color: var(--white); font-family: var(--font-heading), sans-serif;
             font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
             padding: var(--space-xs) var(--space-md); border-radius: var(--radius-sm);
         }
         .key-concept h4 { color: var(--text-black); margin-top: var(--space-sm); }
 
-        .definition {
-            background: var(--neutral-100); border-radius: var(--radius-md); padding: var(--space-lg);
-            margin: var(--space-md) 0; border-left: 4px solid var(--accent-orange);
-        }
+        .definition { background: var(--neutral-100); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin: var(--space-md) 0; border-left: 4px solid var(--accent-orange); }
         .definition-term { font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 1.125rem;
             color: var(--text-black); margin-bottom: var(--space-xs); }
         .definition-text { color: var(--text-black); margin-bottom: 0; }
@@ -224,18 +235,25 @@
             border: 2px dashed var(--accent-orange); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
         }
         .activity-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg); }
+        .activity-icon { width: 50px; height: 50px; background: var(--accent-orange); border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; }
         .activity-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700;
             color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
         .activity-subtitle { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
 
         .lab-section {
-            background: var(--white); border: 2px solid var(--primary-dark); border-radius: var(--radius-lg);
-            padding: var(--space-xl); margin: var(--space-xl) 0;
+            background: linear-gradient(135deg, var(--accent-teal-light) 0%, var(--white) 100%);
+            border: 2px solid var(--accent-teal); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
         }
-        .lab-header { padding-bottom: var(--space-md); margin-bottom: var(--space-lg); border-bottom: 2px solid var(--primary-dark); }
-        .lab-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700; color: var(--text-black); border-left: none; padding-left: 0; }
-        .lab-time { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
-        .lab-steps { list-style: none; counter-reset: lab-step; padding-left: 0; }
+        .lab-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg);
+            padding-bottom: var(--space-md); border-bottom: 2px solid var(--accent-teal); }
+        .lab-icon { width: 60px; height: 60px; background: var(--accent-teal); border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center; font-size: 1.75rem; flex-shrink: 0; }
+        .lab-title { font-family: var(--font-heading), sans-serif; font-size: 1.375rem; font-weight: 700;
+            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
+        .lab-time { font-size: 0.875rem; color: var(--neutral-500); margin: 0; display: flex; align-items: center; gap: var(--space-xs); }
+        .lab-time::before { content: '\23F1\FE0F'; }
+        .lab-steps { counter-reset: lab-step; list-style: none; padding-left: 0; }
         .lab-steps li { counter-increment: lab-step; position: relative; padding-left: 3rem; margin-bottom: var(--space-lg); }
         .lab-steps li::before {
             content: counter(lab-step); position: absolute; left: 0; width: 2rem; height: 2rem;
@@ -253,7 +271,6 @@
             padding: 2px 10px; border-radius: var(--radius-sm);
             text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); }
         .question-text { font-weight: 600; color: var(--text-black); margin-bottom: var(--space-md); }
-
         details.answer { margin-top: var(--space-sm); }
         details.answer summary { cursor: pointer; font-weight: 700; color: var(--text-black);
             font-family: var(--font-heading), sans-serif; font-size: 0.875rem;
@@ -264,68 +281,72 @@
         .references-section { background: var(--neutral-100); border-radius: var(--radius-lg);
             padding: var(--space-lg) var(--space-xl); margin: var(--space-xl) 0; border-top: 3px solid var(--primary-main); }
         .references-section h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .references-section ul { padding-left: var(--space-lg); }
 
-        .progress-bar { background: var(--neutral-300); border-radius: var(--radius-xl); height: 8px; overflow: hidden; margin: var(--space-lg) 0; }
-        .progress-fill { background: var(--primary-main); height: 100%; border-radius: var(--radius-xl); }
-        .progress-label { display: flex; justify-content: space-between; font-size: 0.875rem; color: var(--neutral-500); margin-bottom: var(--space-xs); }
+        .summary-box {
+            background: var(--primary-dark); color: var(--white);
+            border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .summary-box h3 { color: var(--white); margin-top: 0; display: flex; align-items: center;
+            gap: var(--space-sm); border-left: none; padding-left: 0; }
+        .summary-box h3::before { content: '\1F4CB'; }
+        .summary-box ul { margin-bottom: 0; }
+        .summary-box li { color: var(--white); }
+        .summary-box li::marker { color: var(--primary-light); }
 
-        .module-footer { background: var(--neutral-100); padding: var(--space-lg) var(--space-xl); text-align: center; border-top: 1px solid var(--neutral-300); }
-        .footer-text { font-size: 0.875rem; color: var(--neutral-500); }
+        .section-divider {
+            border: none; height: 6px; margin: var(--space-2xl) 0;
+            background: linear-gradient(90deg, transparent 0%, var(--primary-main) 15%, var(--primary-light) 50%, var(--primary-main) 85%, transparent 100%);
+            border-radius: var(--radius-sm); box-shadow: var(--shadow-sm);
+        }
+
+        .module-footer { background: var(--primary-dark); padding: var(--space-lg) var(--space-xl);
+            text-align: center; border-top: 4px solid var(--primary-main); }
+        .footer-text { font-size: 0.875rem; color: var(--white); margin: 0; }
 
         .text-center { text-align: center; }
         .text-muted { color: var(--neutral-500); }
-        .mt-sm { margin-top: var(--space-sm); } .mt-md { margin-top: var(--space-md); } .mt-lg { margin-top: var(--space-lg); }
-        .mb-sm { margin-bottom: var(--space-sm); } .mb-md { margin-bottom: var(--space-md); } .mb-lg { margin-bottom: var(--space-lg); }
-
-        /* Interactive quiz controls (pre-assessment / practice questions) */
-        .answer-option { display: block; width: 100%; text-align: left; padding: var(--space-sm) var(--space-md);
-            margin-bottom: var(--space-sm); border: 2px solid var(--neutral-300); border-radius: var(--radius-sm);
-            background: var(--white); cursor: pointer; font-family: var(--font-body), sans-serif; font-size: 1rem; color: var(--text-black); }
-        .answer-option:hover { border-color: var(--primary-main); }
-        .answer-option.selected { border-color: var(--primary-dark); background: var(--primary-pale); }
-        .answer-option.correct { border-color: var(--accent-green); background: var(--accent-green-light); }
-        .answer-option.incorrect { border-color: var(--alert-danger); background: var(--alert-danger-bg); }
-        .quiz-btn { font-family: var(--font-heading), sans-serif; font-weight: 700; padding: var(--space-sm) var(--space-xl);
-            border-radius: var(--radius-sm); border: 2px solid var(--primary-dark); background: var(--primary-dark); color: var(--white);
-            cursor: pointer; font-size: 0.95rem; margin-right: var(--space-sm); }
-        .quiz-btn:hover { background: #333333; }
-        .quiz-btn.secondary { background: var(--white); color: var(--primary-dark); }
-        .quiz-btn.secondary:hover { background: var(--neutral-100); }
-        #quizResults { display:none; background: var(--primary-pale); border: 2px solid var(--primary-main); border-radius: var(--radius-md);
-            padding: var(--space-lg); margin-top: var(--space-lg); text-align: center; font-family: var(--font-heading), sans-serif; }
-        #quizResults .score { font-size: 2rem; font-weight: 800; color: var(--text-black); }
+        .highlight { background: linear-gradient(180deg, transparent 50%, var(--primary-light) 50%); padding: 0 2px; }
 
         @media (max-width: 768px) {
+            body { padding: var(--space-sm); }
+            .module-header { padding: var(--space-xl) var(--space-lg); }
             .module-title { font-size: 1.75rem; }
             .content-area { padding: var(--space-lg); }
+            h2 { font-size: 1.375rem; }
+            .lab-header, .activity-header { flex-direction: column; align-items: flex-start; }
+        }
+        @media print {
+            body { background: white; padding: 0; }
+            .course-container { box-shadow: none; }
+            .toc { display: none; }
+            details.answer { display: none; }
         }
     </style>
 </head>
-
-
 <body>
     <div class="course-container">
 
         <header class="module-header">
-            <div class="module-label">Unit 5 &middot; Mobile, Virtualization, and Cloud &middot; Section 5.5</div>
+            <div class="module-label">Unit 5 &middot; Securing Systems and Protecting Data &middot; Section 5.5</div>
             <h1 class="module-title">Video Assignment</h1>
-            <p class="module-subtitle">CompTIA A+ Core 1 &mdash; Domains 1.0, 4.0, and 5.0</p>
+            <p class="module-subtitle">CompTIA A+ Core 2 - Domains 2.0 and 4.0</p>
         </header>
 
-        <nav class="toc" id="tocNav">
+                <nav class="toc" id="tocNav">
             <div class="toc-header">Table of Contents</div>
-            <div class="toc-item">5.1 &mdash; Unit Overview and Learning Objectives</div>
+            <div class="toc-item">5.1 &mdash; Unit Overview and Schedule</div>
             <div class="toc-item">5.2 &mdash; Unit Pre-Assessment</div>
             <div class="toc-item">5.3 &mdash; Content Review</div>
             <div class="toc-item">5.4 &mdash; Reading Assignment</div>
             <div class="toc-item current" id="tocCurrent">5.5 &mdash; Video Assignment</div>
-            <div class="toc-item">5.6 &mdash; Classroom Labs</div>
-            <div class="toc-item">5.7 &mdash; Practice Questions</div>
+            <div class="toc-item">5.6 &mdash; Classroom Labs and Take-Home Lab</div>
+            <div class="toc-item">5.7 &mdash; Practice Question Set</div>
             <div class="toc-item">5.8 &mdash; Online Labs: NETLAB</div>
             <div class="toc-item">5.9 &mdash; Reflection Activity</div>
             <div class="toc-item">5.10 &mdash; Unit Test</div>
+            <div class="toc-item">5.11 &mdash; Unit 5 Tickets</div>
         </nav>
-
         <style>
             /* Collapsible TOC: only the current section shows until clicked */
             nav.toc#tocNav { gap: 0; }
@@ -419,20 +440,13 @@
 
         <div class="content-area">
 
-            <p class="text-muted">Ten videos across six objectives. Total runtime approximately 1 hour 40 minutes &mdash; budget 2 to 2.5 hours with pausing and notes.</p>
+            <p class="text-muted">Eleven videos. Total runtime 2 hours 27 minutes &mdash; budget 3 to 3.5 hours with pausing and notes.</p>
 
             <div class="plain-box">
                 <div class="callout-title">About These Videos</div>
                 <div class="callout-content">
-                    <p>Professor Messer's complete 220-1201 course is free to stream on his website. There is no account, no paywall, and no catch &mdash; he funds the free course through optional study materials.</p>
-                    <p>Every link below opens his site directly. Please watch there rather than seeking downloaded copies &mdash; the free course exists because people use it as intended.</p>
-                </div>
-            </div>
-
-            <div class="callout callout-warning">
-                <div class="callout-title">Links Verified Against the Live Course Index</div>
-                <div class="callout-content">
-                    <p>Every title, objective number, and link below was checked directly against Professor Messer's published 220-1201 course index as of this unit's build date. If Professor Messer reorganizes his site or updates the course after that date, individual links may need rechecking &mdash; report a broken link to me immediately rather than guessing at a replacement.</p>
+                    <p>Professor Messer's complete 220-1202 course is free to stream on his website. His full Core 2 course is 74 videos totaling 13 hours 41 minutes, and we watch all of it across the six weeks.</p>
+                    <p>Every link below opens his site directly. Please watch there rather than seeking downloaded copies. See Unit 0, Section 0.13 for the full ownership and permitted-use statement.</p>
                 </div>
             </div>
 
@@ -441,33 +455,73 @@
                 <table>
                     <thead><tr><th>Obj.</th><th>Video</th><th>Length</th><th>What It Covers</th></tr></thead>
                     <tbody>
-                        <tr><td><strong>1.1</strong></td><td><a href="https://www.professormesser.com/free-a-plus-training/220-1201/220-1201-video/laptop-hardware-220-1201/" target="_blank" rel="noopener">Laptop Hardware</a></td><td>16:42</td><td>Battery technologies, keyboard and key cap replacement, updating laptop hard drives to SSD, near-field communication, and laptop cameras and microphones.</td></tr>
-                        <tr><td><strong>1.2</strong></td><td><a href="https://www.professormesser.com/free-a-plus-training/220-1201/220-1201-video/connecting-mobile-devices-220-1201/" target="_blank" rel="noopener">Connecting Mobile Devices</a></td><td>6:08</td><td>Connecting mobile devices using USB, Lightning, NFC, Bluetooth, hotspots, and tethering.</td></tr>
-                        <tr><td><strong>1.2</strong></td><td><a href="https://www.professormesser.com/free-a-plus-training/220-1201/220-1201-video/mobile-device-accessories-220-1201/" target="_blank" rel="noopener">Mobile Device Accessories</a></td><td>7:18</td><td>Stylus, headsets, speakers, webcams, docking stations, port replicators, trackpads, and drawing pads.</td></tr>
-                        <tr><td><strong>1.3</strong></td><td><a href="https://www.professormesser.com/free-a-plus-training/220-1201/220-1201-video/mobile-device-networks-220-1201/" target="_blank" rel="noopener">Mobile Device Networks</a></td><td>10:14</td><td>Cellular network technologies (3G, 4G, and 5G), Wi-Fi networking, hotspot connectivity, SIMs, Bluetooth, and GPS satellites.</td></tr>
-                        <tr><td><strong>1.3</strong></td><td><a href="https://www.professormesser.com/free-a-plus-training/220-1201/220-1201-video/mobile-device-management-220-1201/" target="_blank" rel="noopener">Mobile Device Management</a></td><td>8:31</td><td>Mobile device management (MDM), device ownership options using BYOD and COPE, data synchronization challenges, and managing business applications.</td></tr>
-                        <tr><td><strong>4.1</strong></td><td><a href="https://www.professormesser.com/free-a-plus-training/220-1201/220-1201-video/virtualization-concepts-220-1201/" target="_blank" rel="noopener">Virtualization Concepts</a></td><td>5:45</td><td>Virtualization, sandboxing, developing software, legacy software use, and cross-platform virtualization.</td></tr>
-                        <tr><td><strong>4.1</strong></td><td><a href="https://www.professormesser.com/free-a-plus-training/220-1201/220-1201-video/virtualization-services-220-1201/" target="_blank" rel="noopener">Virtualization Services</a></td><td>11:23</td><td>Hypervisors, type 1 and type 2 virtualization, CPU support, network requirements, VDI, and containerization.</td></tr>
-                        <tr><td><strong>4.2</strong></td><td><a href="https://www.professormesser.com/free-a-plus-training/220-1201/220-1201-video/cloud-models-220-1201/" target="_blank" rel="noopener">Cloud Models</a></td><td>9:48</td><td>Public vs. private cloud deployments, infrastructure as a service (IaaS), software as a service (SaaS), and platform as a service (PaaS).</td></tr>
-                        <tr><td><strong>4.2</strong></td><td><a href="https://www.professormesser.com/free-a-plus-training/220-1201/220-1201-video/cloud-characteristics-220-1201/" target="_blank" rel="noopener">Cloud Characteristics</a></td><td>6:50</td><td>Internal vs. external clouds, metered cloud usage, elasticity, availability, file synchronization, and multitenancy.</td></tr>
-                        <tr><td><strong>5.4</strong></td><td><a href="https://www.professormesser.com/free-a-plus-training/220-1201/220-1201-video/troubleshooting-mobile-devices-220-1201/" target="_blank" rel="noopener">Troubleshooting Mobile Devices</a></td><td>17:52</td><td>Troubleshooting battery issues, broken screens, improper charging, liquid damage, overheating, digitizer issues, cursor drift, and more.</td></tr>
+                        <tr><td><strong>2.2</strong></td><td><a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/defender-antivirus-220-1202/" target="_blank" rel="noopener">Defender Antivirus</a></td><td>5:01</td><td>Turning it on and off, and keeping definitions current.</td></tr>
+                        <tr><td><strong>2.2</strong></td><td><a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/windows-firewall-220-1202/" target="_blank" rel="noopener">Windows Firewall</a></td><td>5:20</td><td>Activation, port security, and application exceptions.</td></tr>
+                        <tr><td><strong>2.2</strong></td><td><a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/windows-security-settings-220-1202/" target="_blank" rel="noopener">Windows Security Settings</a></td><td>13:44</td><td>Accounts, sign-in options, NTFS and share permissions, UAC, and BitLocker.</td></tr>
+                        <tr><td><strong>2.2</strong></td><td><a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/active-directory-220-1202/" target="_blank" rel="noopener">Active Directory</a></td><td>27:40</td><td>Domains, organizational units, security groups, Group Policy, and log-in scripts. The longest video of the term &mdash; give it its own sitting.</td></tr>
+                        <tr><td><strong>2.3</strong></td><td><a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/wireless-encryption-220-1202/" target="_blank" rel="noopener">Wireless Encryption</a></td><td>6:19</td><td>WPA2, WPA3, TKIP, and AES.</td></tr>
+                        <tr><td><strong>2.3</strong></td><td><a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/authentication-methods-220-1202/" target="_blank" rel="noopener">Authentication Methods</a></td><td>7:58</td><td>RADIUS, TACACS+, Kerberos, and multifactor authentication.</td></tr>
+                        <tr><td><strong>2.8</strong></td><td><a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/mobile-device-security-220-1202/" target="_blank" rel="noopener">Mobile Device Security</a></td><td>10:28</td><td>Screen locks, encryption, remote wipe, locator apps, MDM, and BYOD.</td></tr>
+                        <tr><td><strong>2.10</strong></td><td><a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/securing-a-soho-network-220-1202/" target="_blank" rel="noopener">Securing a SOHO Network</a></td><td>15:03</td><td>Router settings, wireless settings, and firewall settings, end to end.</td></tr>
+                        <tr><td><strong>2.11</strong></td><td><a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/browser-security-220-1202/" target="_blank" rel="noopener">Browser Security</a></td><td>18:56</td><td>Trusted sources, extensions, certificates, and every browser setting on the exam.</td></tr>
+                        <tr><td><strong>4.2</strong></td><td><a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/change-management-220-1202/" target="_blank" rel="noopener">Change Management</a></td><td>21:42</td><td>Change types, approvals, rollback plans, maintenance windows, and peer review.</td></tr>
+                        <tr><td><strong>4.3</strong></td><td><a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/managing-backups-220-1202/" target="_blank" rel="noopener">Managing Backups</a></td><td>15:01</td><td>Full, incremental, differential, and synthetic full; rotation schemes and the 3-2-1 rule.</td></tr>
                     </tbody>
                 </table>
             </div>
 
-            <h2>How to Watch These</h2>
-            <p>Passive watching produces the same warm familiarity as passive reading, and just as little retention. Three habits change that:</p>
+            <div class="callout callout-warning">
+                <div class="callout-title">Active Directory Is 27 Minutes &mdash; Give It Its Own Sitting</div>
+                <div class="callout-content"><p>This is the longest single video in the entire Core 2 course, and it is dense. Watch it when you are fresh, not at the end of an evening, and keep the Part 1 section of Section 5.3 open beside it. Domains, organizational units, and security groups are the machinery behind everything you learned about least privilege in Unit 4.</p></div>
+            </div>
 
-            <ul>
-                <li><strong>Pause and predict.</strong> When Messer poses a question or introduces a comparison, pause and answer before he does. Getting it wrong is more useful than hearing it right.</li>
-                <li><strong>One sheet per objective.</strong> Not per video &mdash; per objective number. Both 1.2 videos and both 1.3 videos land on one page each, so you can compare related concepts side by side.</li>
-                <li><strong>Watch Virtualization Services and Cloud Models twice.</strong> Both domains are brand new this week and dense with vocabulary. A second pass after you've read 5.3 and 5.4 will land differently than the first.</li>
+            <div class="callout callout-tip">
+                <div class="callout-title">Watch Order</div>
+                <div class="callout-content"><p>The table is in the order I recommend, which follows our class sessions. Watch the four 2.2 videos after Tuesday's class, while the workstation hardening is fresh &mdash; splitting Active Directory into its own evening. Watch the 2.3, 2.8, 2.10, and 2.11 videos before Wednesday. Watch Change Management and Managing Backups before Thursday.</p></div>
+            </div>
+
+            <h2>How to Watch These</h2>
+            <ul class="styled-list">
+                <li><strong>Name the Unit 4 threat.</strong> Nearly every control in this unit answers an attack you met last unit. When he introduces a setting, pause and say what it stops. That pairing is what scenario questions are built on.</li>
+                <li><strong>Pause and do &mdash; where you can.</strong> The 2.2 and 2.11 videos cover settings on your own Windows machine and your own browser. Open them and follow along. The router and Active Directory material is watch-only until NETLAB.</li>
+                <li><strong>One sheet per objective.</strong> Seven sheets this unit. This mirrors how the exam is organized.</li>
+                <li><strong>Write the summary, not the transcript.</strong> After each video, close your notes and write two sentences on what it was about.</li>
             </ul>
+
+            <div class="key-concept">
+                <h4>Video and Book Are Not Redundant</h4>
+                <p>This unit splits cleanly. The videos are the better way to see a setting configured &mdash; where it lives, what the screen looks like, which box to tick. The book is the better way to understand the trade-off behind it, which is what a scenario question tests. Messer will show you where to turn on a pop-up blocker; the chapter explains why private browsing does not make a user anonymous.</p>
+            </div>
+
+            <div class="callout callout-info">
+                <div class="callout-title">What Good Notes Look Like</div>
+                <div class="callout-content"><p>Video notes are <strong>not graded</strong>. Organize them by objective number, one sheet per objective, in your own words. For 2.2, 2.10, and 2.11, every entry should say where the setting lives and what it prevents. See the Course Schedule for the target date.</p></div>
+            </div>
+
+            <div class="activity-section">
+                <div class="activity-header">
+                    <div class="activity-icon">&#127919;</div>
+                    <div>
+                        <h3 class="activity-title">Optional: Daily Pop Quiz</h3>
+                        <p class="activity-subtitle">Two minutes a day, free</p>
+                    </div>
+                </div>
+                <p>Professor Messer posts a daily 220-1202 pop quiz. Five units in, two minutes of daily retrieval across everything you have covered is worth more than another half hour on this unit alone.</p>
+            </div>
+
+            <div class="references-section">
+                <h3>Go Further</h3>
+                <ul>
+                    <li><a href="https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/220-1202-training-course/" target="_blank" rel="noopener">Professor Messer's complete 220-1202 Core 2 training course index</a> &mdash; all 74 videos</li>
+                    <li>Professor Messer's monthly live A+ Study Group sessions and replays &mdash; free Q&amp;A on the objectives</li>
+                    <li>Professor Messer's 220-1202 Course Notes &mdash; a paid 69-page PDF summary. Optional and not required for this course.</li>
+                </ul>
+            </div>
 
         </div>
 
         <footer class="module-footer">
-            <p class="footer-text">CompTIA A+ Core 1 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
+            <p class="footer-text">CompTIA A+ Core 2 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
         </footer>
     </div>
 </body>

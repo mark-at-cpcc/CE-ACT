@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unit 5 &mdash; 5.3 Content Review | CompTIA A+ Core 1</title>
+    <title>Unit 5 &mdash; 5.3 Content Review | CompTIA A+ Core 2</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,7 +15,7 @@
     <style>
         /* ============================================
            CPCC COURSE TEMPLATE - GOLD / CHARCOAL / BLACK
-           CTS-ITS7501-80 CompTIA A+ Core 1 Training
+           CTS-ITS7501-80 CompTIA A+ Core 2 Training
            Type: true black. Accents: gold. Chrome: charcoal.
            ============================================ */
 
@@ -92,9 +92,6 @@
 
         .module-header {
             background: var(--primary-main); color: var(--text-black);
-            /* Reduced from var(--space-2xl) top/bottom (3rem) to var(--space-lg) (1.5rem) to cut excess
-               empty space in this card's title header. To revert, change padding back to:
-               padding: var(--space-2xl) var(--space-xl); */
             padding: var(--space-lg) var(--space-xl); position: relative; overflow: hidden;
         }
         .module-label {
@@ -147,6 +144,28 @@
         ul li::marker { color: var(--accent-teal); }
         ol li::marker { color: var(--accent-teal); font-weight: 700; }
 
+        .styled-list { list-style: none; padding-left: 0; }
+        .styled-list li { position: relative; padding-left: var(--space-lg); margin-bottom: var(--space-sm); }
+        .styled-list li::before { content: '\25B8'; position: absolute; left: 0; color: var(--accent-teal); font-weight: bold; }
+
+        .checklist { list-style: none; padding-left: 0; }
+        .checklist li { position: relative; padding-left: 2rem; margin-bottom: var(--space-sm); }
+        .checklist li::before {
+            content: '\2713'; position: absolute; left: 0; width: 1.5rem; height: 1.5rem;
+            background: var(--accent-green-light); color: var(--accent-green);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 0.75rem; font-weight: bold;
+        }
+
+        .objectives-box {
+            background: linear-gradient(135deg, var(--primary-pale) 0%, var(--accent-teal-light) 100%);
+            border-left: 5px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .objectives-box h3 { color: var(--text-black); margin-top: 0; margin-bottom: var(--space-md);
+            display: flex; align-items: center; gap: var(--space-sm); border-left: none; padding-left: 0; }
+        .objectives-box ol { margin-bottom: 0; }
+
         .tech-box {
             background: var(--neutral-100); border: 2px solid var(--neutral-500);
             border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
@@ -162,6 +181,7 @@
         .plain-box .callout-content { padding-left: 0; }
 
         .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; position: relative; overflow: hidden; }
+        .callout::before { position: absolute; top: var(--space-md); left: var(--space-md); font-size: 1.5rem; }
         .callout-title { font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 1rem;
             text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
         .callout-content { }
@@ -172,30 +192,21 @@
         .callout-danger { background: var(--alert-danger-bg); border-left: 4px solid var(--alert-danger); }
         .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
 
-        .objectives-box {
-            background: var(--primary-pale); border-left: 5px solid var(--primary-main);
-            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
-        }
-        .objectives-box h3 { margin-top: 0; border-left: none; padding-left: 0; color: var(--text-black); }
-        .objectives-box ol { margin-bottom: 0; }
-
         .key-concept {
             background: linear-gradient(135deg, var(--accent-purple-light) 0%, var(--white) 100%);
             border: 2px solid var(--accent-purple); border-radius: var(--radius-lg);
             padding: var(--space-lg); margin: var(--space-xl) 0 var(--space-lg); position: relative;
         }
         .key-concept::before {
-            content: 'KEY CONCEPT'; position: absolute; top: -12px; left: var(--space-lg);
+            content: '\1F511 KEY CONCEPT'; position: absolute; top: -12px; left: var(--space-lg);
             background: var(--accent-purple); color: var(--white); font-family: var(--font-heading), sans-serif;
             font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
             padding: var(--space-xs) var(--space-md); border-radius: var(--radius-sm);
         }
         .key-concept h4 { color: var(--text-black); margin-top: var(--space-sm); }
 
-        .definition {
-            background: var(--neutral-100); border-radius: var(--radius-md); padding: var(--space-lg);
-            margin: var(--space-md) 0; border-left: 4px solid var(--accent-orange);
-        }
+        .definition { background: var(--neutral-100); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin: var(--space-md) 0; border-left: 4px solid var(--accent-orange); }
         .definition-term { font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 1.125rem;
             color: var(--text-black); margin-bottom: var(--space-xs); }
         .definition-text { color: var(--text-black); margin-bottom: 0; }
@@ -224,18 +235,25 @@
             border: 2px dashed var(--accent-orange); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
         }
         .activity-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg); }
+        .activity-icon { width: 50px; height: 50px; background: var(--accent-orange); border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; }
         .activity-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700;
             color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
         .activity-subtitle { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
 
         .lab-section {
-            background: var(--white); border: 2px solid var(--primary-dark); border-radius: var(--radius-lg);
-            padding: var(--space-xl); margin: var(--space-xl) 0;
+            background: linear-gradient(135deg, var(--accent-teal-light) 0%, var(--white) 100%);
+            border: 2px solid var(--accent-teal); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
         }
-        .lab-header { padding-bottom: var(--space-md); margin-bottom: var(--space-lg); border-bottom: 2px solid var(--primary-dark); }
-        .lab-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700; color: var(--text-black); border-left: none; padding-left: 0; }
-        .lab-time { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
-        .lab-steps { list-style: none; counter-reset: lab-step; padding-left: 0; }
+        .lab-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg);
+            padding-bottom: var(--space-md); border-bottom: 2px solid var(--accent-teal); }
+        .lab-icon { width: 60px; height: 60px; background: var(--accent-teal); border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center; font-size: 1.75rem; flex-shrink: 0; }
+        .lab-title { font-family: var(--font-heading), sans-serif; font-size: 1.375rem; font-weight: 700;
+            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
+        .lab-time { font-size: 0.875rem; color: var(--neutral-500); margin: 0; display: flex; align-items: center; gap: var(--space-xs); }
+        .lab-time::before { content: '\23F1\FE0F'; }
+        .lab-steps { counter-reset: lab-step; list-style: none; padding-left: 0; }
         .lab-steps li { counter-increment: lab-step; position: relative; padding-left: 3rem; margin-bottom: var(--space-lg); }
         .lab-steps li::before {
             content: counter(lab-step); position: absolute; left: 0; width: 2rem; height: 2rem;
@@ -253,7 +271,6 @@
             padding: 2px 10px; border-radius: var(--radius-sm);
             text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); }
         .question-text { font-weight: 600; color: var(--text-black); margin-bottom: var(--space-md); }
-
         details.answer { margin-top: var(--space-sm); }
         details.answer summary { cursor: pointer; font-weight: 700; color: var(--text-black);
             font-family: var(--font-heading), sans-serif; font-size: 0.875rem;
@@ -264,86 +281,72 @@
         .references-section { background: var(--neutral-100); border-radius: var(--radius-lg);
             padding: var(--space-lg) var(--space-xl); margin: var(--space-xl) 0; border-top: 3px solid var(--primary-main); }
         .references-section h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .references-section ul { padding-left: var(--space-lg); }
 
-        .progress-bar { background: var(--neutral-300); border-radius: var(--radius-xl); height: 8px; overflow: hidden; margin: var(--space-lg) 0; }
-        .progress-fill { background: var(--primary-main); height: 100%; border-radius: var(--radius-xl); }
-        .progress-label { display: flex; justify-content: space-between; font-size: 0.875rem; color: var(--neutral-500); margin-bottom: var(--space-xs); }
+        .summary-box {
+            background: var(--primary-dark); color: var(--white);
+            border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .summary-box h3 { color: var(--white); margin-top: 0; display: flex; align-items: center;
+            gap: var(--space-sm); border-left: none; padding-left: 0; }
+        .summary-box h3::before { content: '\1F4CB'; }
+        .summary-box ul { margin-bottom: 0; }
+        .summary-box li { color: var(--white); }
+        .summary-box li::marker { color: var(--primary-light); }
 
-        .module-footer { background: var(--neutral-100); padding: var(--space-lg) var(--space-xl); text-align: center; border-top: 1px solid var(--neutral-300); }
-        .footer-text { font-size: 0.875rem; color: var(--neutral-500); }
+        .section-divider {
+            border: none; height: 6px; margin: var(--space-2xl) 0;
+            background: linear-gradient(90deg, transparent 0%, var(--primary-main) 15%, var(--primary-light) 50%, var(--primary-main) 85%, transparent 100%);
+            border-radius: var(--radius-sm); box-shadow: var(--shadow-sm);
+        }
+
+        .module-footer { background: var(--primary-dark); padding: var(--space-lg) var(--space-xl);
+            text-align: center; border-top: 4px solid var(--primary-main); }
+        .footer-text { font-size: 0.875rem; color: var(--white); margin: 0; }
 
         .text-center { text-align: center; }
         .text-muted { color: var(--neutral-500); }
-        .mt-sm { margin-top: var(--space-sm); } .mt-md { margin-top: var(--space-md); } .mt-lg { margin-top: var(--space-lg); }
-        .mb-sm { margin-bottom: var(--space-sm); } .mb-md { margin-bottom: var(--space-md); } .mb-lg { margin-bottom: var(--space-lg); }
-
-        /* Interactive quiz controls (pre-assessment / practice questions) */
-        .answer-option { display: block; width: 100%; text-align: left; padding: var(--space-sm) var(--space-md);
-            margin-bottom: var(--space-sm); border: 2px solid var(--neutral-300); border-radius: var(--radius-sm);
-            background: var(--white); cursor: pointer; font-family: var(--font-body), sans-serif; font-size: 1rem; color: var(--text-black); }
-        .answer-option:hover { border-color: var(--primary-main); }
-        .answer-option.selected { border-color: var(--primary-dark); background: var(--primary-pale); }
-        .answer-option.correct { border-color: var(--accent-green); background: var(--accent-green-light); }
-        .answer-option.incorrect { border-color: var(--alert-danger); background: var(--alert-danger-bg); }
-        .quiz-btn { font-family: var(--font-heading), sans-serif; font-weight: 700; padding: var(--space-sm) var(--space-xl);
-            border-radius: var(--radius-sm); border: 2px solid var(--primary-dark); background: var(--primary-dark); color: var(--white);
-            cursor: pointer; font-size: 0.95rem; margin-right: var(--space-sm); }
-        .quiz-btn:hover { background: #333333; }
-        .quiz-btn.secondary { background: var(--white); color: var(--primary-dark); }
-        .quiz-btn.secondary:hover { background: var(--neutral-100); }
-        #quizResults { display:none; background: var(--primary-pale); border: 2px solid var(--primary-main); border-radius: var(--radius-md);
-            padding: var(--space-lg); margin-top: var(--space-lg); text-align: center; font-family: var(--font-heading), sans-serif; }
-        #quizResults .score { font-size: 2rem; font-weight: 800; color: var(--text-black); }
+        .highlight { background: linear-gradient(180deg, transparent 50%, var(--primary-light) 50%); padding: 0 2px; }
 
         @media (max-width: 768px) {
+            body { padding: var(--space-sm); }
+            .module-header { padding: var(--space-xl) var(--space-lg); }
             .module-title { font-size: 1.75rem; }
             .content-area { padding: var(--space-lg); }
+            h2 { font-size: 1.375rem; }
+            .lab-header, .activity-header { flex-direction: column; align-items: flex-start; }
         }
-
-        .hv-diagrams { display: flex; gap: var(--space-lg); flex-wrap: wrap; margin: var(--space-lg) 0; }
-        .hv-diagram-col { flex: 1 1 300px; min-width: 280px; }
-        .hv-diagram-col p.hv-caption { text-align: center; font-family: var(--font-body), sans-serif; font-weight: 700; font-size: 0.9375rem; margin-top: var(--space-sm); color: var(--neutral-500); }
-        .hv-svg .hv-hw rect { fill: var(--neutral-100); stroke: var(--neutral-500); }
-        .hv-svg .hv-hw text { fill: var(--text-black); }
-        .hv-svg .hv-os rect { fill: #E3EEFA; stroke: #2F6FA8; }
-        .hv-svg .hv-os text { fill: #1B4A73; }
-        .hv-svg .hv-hv rect { fill: var(--primary-pale); stroke: var(--primary-main); }
-        .hv-svg .hv-hv text { fill: var(--text-black); }
-        .hv-svg .hv-vm rect { fill: #E0F2ED; stroke: #1D9E75; }
-        .hv-svg .hv-vm text { fill: #0F6E56; }
-        .hv-svg .hv-app rect { fill: #FDEFD9; stroke: #BA7517; }
-        .hv-svg .hv-app text { fill: #7A4B0E; }
-        .hv-svg .hv-data polygon { fill: #FBEAE7; stroke: #D85A30; }
-        .hv-svg .hv-data text { fill: #8C3A1D; }
-        .hv-svg rect, .hv-svg polygon { stroke-width: 1; }
-        .hv-svg text { font-family: var(--font-body), sans-serif; font-size: 13px; text-anchor: middle; dominant-baseline: central; }
+        @media print {
+            body { background: white; padding: 0; }
+            .course-container { box-shadow: none; }
+            .toc { display: none; }
+            details.answer { display: none; }
+        }
     </style>
 </head>
-
-
 <body>
     <div class="course-container">
 
         <header class="module-header">
-            <div class="module-label">Unit 5 &middot; Mobile, Virtualization, and Cloud &middot; Section 5.3</div>
+            <div class="module-label">Unit 5 &middot; Securing Systems and Protecting Data &middot; Section 5.3</div>
             <h1 class="module-title">Content Review</h1>
-            <p class="module-subtitle">CompTIA A+ Core 1 &mdash; Domains 1.0, 4.0, and 5.0</p>
+            <p class="module-subtitle">CompTIA A+ Core 2 - Domains 2.0 and 4.0</p>
         </header>
 
-        <nav class="toc" id="tocNav">
+                <nav class="toc" id="tocNav">
             <div class="toc-header">Table of Contents</div>
-            <div class="toc-item">5.1 &mdash; Unit Overview and Learning Objectives</div>
+            <div class="toc-item">5.1 &mdash; Unit Overview and Schedule</div>
             <div class="toc-item">5.2 &mdash; Unit Pre-Assessment</div>
             <div class="toc-item current" id="tocCurrent">5.3 &mdash; Content Review</div>
             <div class="toc-item">5.4 &mdash; Reading Assignment</div>
             <div class="toc-item">5.5 &mdash; Video Assignment</div>
-            <div class="toc-item">5.6 &mdash; Classroom Labs</div>
-            <div class="toc-item">5.7 &mdash; Practice Questions</div>
+            <div class="toc-item">5.6 &mdash; Classroom Labs and Take-Home Lab</div>
+            <div class="toc-item">5.7 &mdash; Practice Question Set</div>
             <div class="toc-item">5.8 &mdash; Online Labs: NETLAB</div>
             <div class="toc-item">5.9 &mdash; Reflection Activity</div>
             <div class="toc-item">5.10 &mdash; Unit Test</div>
+            <div class="toc-item">5.11 &mdash; Unit 5 Tickets</div>
         </nav>
-
         <style>
             /* Collapsible TOC: only the current section shows until clicked */
             nav.toc#tocNav { gap: 0; }
@@ -437,305 +440,288 @@
 
         <div class="content-area">
 
-            <p class="text-muted">The core concepts for this week, in plain terms, before you go deep in the full chapter reading.</p>
+            <p class="text-muted">This is the core reference for Unit 5. Read it before Wednesday's session, and come back to it when the textbook feels dense.</p>
 
-            <div class="tech-box">
-                <div class="callout-title">Technical Overview</div>
-                <div class="callout-content">
-                    <p>This section walks through the core concepts for Unit 5 before you hit the full chapter reading in 5.4: laptop and mobile device hardware, mobile connectivity and app support, virtualization, cloud computing, and common mobile device issues.</p>
-                </div>
+            <div class="callout callout-info">
+                <div class="callout-title">How to Use This Page</div>
+                <div class="callout-content"><p>Unit 4 taught you to recognize threats. This unit is the answer to every one of them. As you read each control, name the Unit 4 attack it defeats &mdash; that pairing is what scenario questions are built on, and it turns two units of vocabulary into one connected picture.</p></div>
             </div>
 
-            <div class="plain-box">
-                <div class="callout-title">In Plain Terms</div>
-                <div class="callout-content">
-                    <p>Every topic in this unit shares one thread: doing more with less physical hardware in front of you. A phone packs a full computer into a pocket-sized case, a hypervisor lets one server pretend to be a dozen, and a cloud provider lets a business rent someone else's data center instead of building its own. Keep that thread in mind as you read &mdash; it's why mobile hardware, virtualization, and cloud computing show up together in the same unit instead of scattered across the course.</p>
-                </div>
-            </div>
+            <h2>Part 1 &mdash; Windows Security Settings (Objective 2.2)</h2>
 
-            <h2>Mobile Device Hardware</h2>
+            <h3>Defender Antivirus and the Firewall</h3>
+            <p><strong>Defender Antivirus</strong> can be activated or deactivated, and its <strong>definitions</strong> must be kept updated &mdash; signature-based detection only recognizes what it already knows. The <strong>firewall</strong> is likewise activated or deactivated, and configured for <strong>port security</strong> and <strong>application security</strong>, which is the application exception you met in Unit 3.</p>
 
+            <h3>Users and Groups</h3>
             <div class="table-container">
                 <table>
-                    <thead><tr><th>Device Type</th><th>Typical Use</th></tr></thead>
+                    <thead><tr><th>Account or Concept</th><th>What It Means</th></tr></thead>
                     <tbody>
-                        <tr><td>Smartphone</td><td>Pocket-sized, cellular-connected, touchscreen-driven personal computing and communication</td></tr>
-                        <tr><td>Tablet</td><td>Larger touchscreen device for browsing, media, and light productivity; Wi-Fi or cellular</td></tr>
-                        <tr><td>Laptop</td><td>Full-featured, battery-powered computer with a built-in keyboard, display, and trackpad</td></tr>
-                        <tr><td>2-in-1 / Convertible</td><td>Laptop and tablet in one device, with a detachable or foldable keyboard</td></tr>
-                        <tr><td>Wearable</td><td>Smartwatch or fitness tracker paired to a phone for notifications and health tracking</td></tr>
+                        <tr><td><strong>Local vs. Microsoft account</strong></td><td>An account that exists only on this machine, versus one tied to a Microsoft identity that syncs settings across devices</td></tr>
+                        <tr><td><strong>Standard account</strong></td><td>Ordinary use. Cannot make system-wide changes without elevation.</td></tr>
+                        <tr><td><strong>Administrator</strong></td><td>Full control of the machine. The account malware most wants to be running as.</td></tr>
+                        <tr><td><strong>Guest user</strong></td><td>Limited temporary access. Disabled in nearly every real environment.</td></tr>
+                        <tr><td><strong>Power user</strong></td><td>A legacy group retained for backward compatibility; it no longer carries the elevated rights it once did</td></tr>
                     </tbody>
                 </table>
             </div>
 
-            <div class="key-concept">
-                <h4>Laptop Hardware</h4>
-                <p>A laptop packs the same fundamental components as a desktop into a smaller, battery-powered case &mdash; but the way you service it is completely different. Some parts are designed to be opened and swapped in the field. Others are soldered, glued, or bonded, and replacing them means replacing a much larger assembly.</p>
-            </div>
+            <h3>Sign-In Options</h3>
+            <p><strong>Username and password</strong>, <strong>PIN</strong>, <strong>fingerprint</strong>, <strong>facial recognition</strong>, <strong>SSO</strong>, and <strong>passwordless sign-in with Windows Hello</strong>. A PIN looks weaker than a password and is usually stronger in practice: it is tied to one device and backed by the hardware, so a stolen PIN is useless anywhere else.</p>
 
+            <h3>NTFS and Share Permissions</h3>
             <div class="definition">
-                <div class="definition-term">Field-Replaceable Unit (FRU)</div>
-                <p class="definition-text">A component designed to be removed and replaced without sending the device to a specialized repair center &mdash; battery, keyboard, RAM (on some models), and storage drive are common examples. Non-FRU components, like a soldered CPU or a display bonded to a digitizer, require disassembly far beyond routine service.</p>
+                <div class="definition-term">NTFS permissions</div>
+                <p class="definition-text">Permissions stored on the filesystem itself. They apply whether the user reaches the file across the network or sits at the machine.</p>
             </div>
-
-            <div class="key-concept">
-                <h4>Know Before You Open It</h4>
-                <p>Battery type (removable vs. internal), keyboard and keycap replacement, and converting a mechanical hard drive to an SSD are common laptop hardware tasks. Mobile devices add near-field communication (NFC) hardware and integrated cameras and microphones to the mix &mdash; components that don't exist on a typical desktop at all.</p>
-            </div>
-
-            <h3>Mobile Device Accessories</h3>
-
-            <p>Mobile devices are frequently extended with accessories rather than internal upgrades: a stylus for precision input, headsets and external speakers for audio, webcams for video calls, and docking stations or port replicators that turn a laptop into a full desktop setup in one connection. Trackpads and drawing pads round out the input side for specialized work.</p>
-
-            <div class="key-concept">
-                <h4>Typical Business Mobile Devices</h4>
-                <p>A single corporate employee's equipment assignment is a working example of nearly every concept in this unit at once. Consider a typical setup: an employer-provided laptop, a wireless mouse for portable use, a desk-based docking station connected to dual monitors with a wired keyboard and mouse, a company cell phone and tablet with MDM (Mobile Device Management) software installed, and a company email and file storage account running entirely in the cloud.</p>
-                <p><strong>How it's managed and used:</strong> The laptop is the employee's primary FRU (Field-Replaceable Unit)-serviceable device &mdash; IT can swap the battery, keyboard, or storage drive without replacing the whole machine. At the desk, the docking station turns that same laptop into a full desktop workstation the moment it's connected, without the employee owning separate desktop hardware; the wired keyboard, mouse, and dual monitors stay at the desk, while the wireless mouse travels with the laptop for use away from the dock. The phone and tablet extend the same identity out into the field &mdash; connected over cellular and Wi-Fi, paired to accessories like a headset for calls, and kept in sync with the same company accounts as the laptop. None of the actual email or files live on any of this hardware: they live in the company's SaaS email platform and cloud storage, which is why losing the laptop or phone is an inconvenience to replace but not a data-loss event on its own.</p>
-                <p><strong>Organizational governance:</strong> Every mobile device in this assignment is enrolled in MDM, which is what makes the arrangement manageable at scale &mdash; policy enforcement, remote wipe, and update pushes all happen centrally rather than device by device. Because the laptop, phone, and tablet are company-owned and IT-managed even though the employee uses them personally day to day, this is a COPE (Corporate-Owned, Personally Enabled) arrangement, not BYOD (Bring Your Own Device); the organization retains full control regardless of how the devices are used. The cloud email and storage typically sit on a private or community deployment model rather than a fully open public one, since the company controls who can access it and what compliance requirements it has to meet &mdash; a distinction covered later in this unit's cloud deployment models.</p>
-                <p>Keep this scenario in mind as you work through the rest of the unit: nearly every term introduced here &mdash; FRU, MDM, COPE, SaaS, and deployment models &mdash; describes one piece of this same everyday setup.</p>
-            </div>
-
-            <h2>Mobile Connectivity and Application Support</h2>
-
-            <p>A mobile device is only as useful as its connections. Phones and tablets connect using a mix of wired and wireless standards, and each one serves a different purpose.</p>
-
             <div class="definition">
-                <div class="definition-term">Tethering vs. Hotspot</div>
-                <p class="definition-text">Tethering connects a single device to a phone's cellular data, usually over USB or Bluetooth. A mobile hotspot broadcasts that same connection over Wi-Fi so multiple devices can share it at once. Both rely on the phone's cellular plan and data allowance.</p>
-            </div>
-
-            <div class="table-container">
-                <table>
-                    <thead><tr><th>Technology</th><th>Primary Use</th></tr></thead>
-                    <tbody>
-                        <tr><td>USB / USB-C</td><td>Wired charging and high-speed data transfer</td></tr>
-                        <tr><td>Lightning</td><td>Apple proprietary charging and data connector</td></tr>
-                        <tr><td>Bluetooth</td><td>Short-range wireless pairing &mdash; headsets, keyboards, tethering</td></tr>
-                        <tr><td>NFC</td><td>Very short-range wireless &mdash; contactless payment, quick pairing</td></tr>
-                        <tr><td>Cellular (3G/4G/5G)</td><td>Wide-area mobile data connectivity</td></tr>
-                        <tr><td>GPS</td><td>Satellite-based location services</td></tr>
-                    </tbody>
-                </table>
+                <div class="definition-term">Share permissions</div>
+                <p class="definition-text">Permissions on the network share. They apply only to users arriving over the network, and not at all to someone signed in locally.</p>
             </div>
 
             <div class="key-concept">
-                <h4>Managing a Fleet of Devices</h4>
-                <p>Organizations that issue or support many mobile devices rely on Mobile Device Management (MDM) platforms to enforce policy, push updates, and remotely wipe lost or stolen hardware. Ownership models shape how much control an organization has: BYOD (Bring Your Own Device) is employee-owned with limited organizational control, while COPE (Corporate-Owned, Personally Enabled) is company-owned with full management rights, even when used personally.</p>
-                <p>Ownership of the device is what determines ownership and rights over the data on it &mdash; regardless of whether that data was created for personal or for work purposes. The device's owner is the data's owner, and that single fact drives very different privacy expectations under each model.</p>
-                <p><strong>BYOD and Expectation of Privacy:</strong> Because the employee owns the device, they retain a reasonable expectation of privacy over their personal data &mdash; photos, personal messages, personal apps &mdash; even though company email or files may also live on that same phone. MDM on a BYOD device typically works through containerization: policy, remote wipe, and inspection apply only to the walled-off company profile, not to the rest of the device. The employee should expect the company can see and remove its own container at any time, but not the personal data sitting alongside it.</p>
-                <p><strong>COPE and Expectation of Privacy:</strong> Because the company owns the device, the company owns essentially everything on it, personal use or not. Employees are typically permitted to use a COPE device personally, but they should expect little to no privacy on it &mdash; the organization can generally monitor, inspect, or wipe the entire device, including anything personal the employee has stored there, since it's company property from top to bottom. Most organizations spell this out in an acceptable-use policy the employee agrees to when the device is issued, precisely because the ownership-equals-rights principle is easy to overlook until it matters.</p>
+                <h4>The Most Restrictive Wins</h4>
+                <p>When a user reaches a folder across the network, Windows evaluates both sets and applies <strong>the more restrictive of the two</strong>. Share permissions say Full Control and NTFS says Read? The user gets Read.</p>
+                <p>This is why "I gave them Full Control and they still cannot save the file" is such a common ticket. The technician changed one set of permissions and never looked at the other. Check both, every time.</p>
+                <p><strong>File and folder attributes</strong> and <strong>inheritance</strong> complete the picture: by default a new file inherits the permissions of the folder it is created in, which is what makes permissions manageable at all &mdash; and what surprises people when a file moves.</p>
             </div>
 
-            <h2>Virtualization</h2>
+            <h3>Elevation and Encryption</h3>
+            <ul class="styled-list">
+                <li><strong>Run as administrator vs. standard user</strong> &mdash; elevate for the one task that needs it, then go back</li>
+                <li><strong>User Account Control (UAC)</strong> &mdash; the prompt that appears before an elevated action. It exists so that elevation is a decision rather than a default.</li>
+                <li><strong>BitLocker</strong> &mdash; full-volume encryption for a fixed drive</li>
+                <li><strong>BitLocker To Go</strong> &mdash; the same protection for removable media</li>
+                <li><strong>Encrypting File System (EFS)</strong> &mdash; encryption of individual files and folders rather than the whole volume</li>
+            </ul>
 
-            <p>Virtualization lets one physical system run multiple independent operating systems at the same time, each unaware of the others. It's how a single server can host a dozen isolated environments, and how a technician can safely test software without risking the host machine.</p>
+            <h3>Active Directory</h3>
+            <p>The domain you met in Unit 3, from the administrator's side. The objective names <strong>joining a domain</strong>, <strong>assigning a log-in script</strong>, <strong>moving objects within organizational units</strong>, <strong>assigning home folders</strong>, <strong>applying Group Policy</strong>, <strong>selecting security groups</strong>, and <strong>configuring folder redirection</strong>.</p>
 
-            <div class="definition">
-                <div class="definition-term">Hypervisor</div>
-                <p class="definition-text">The software layer that creates and manages virtual machines. A <strong>Type 1 hypervisor</strong> runs directly on the physical hardware with no underlying OS &mdash; common in data centers, where performance and isolation matter most. A <strong>Type 2 hypervisor</strong> runs as an application on top of an existing operating system &mdash; common on a technician's own laptop for testing and sandboxing.</p>
+            <div class="callout callout-tip">
+                <div class="callout-title">Connect It to Unit 3</div>
+                <div class="callout-content"><p>In Unit 3 a domain was something a workstation joins. Here it is the machinery that makes least privilege practical at scale: you do not set permissions for four hundred people, you put them in security groups and set permissions once. The log-in script that maps everyone's S: drive is the same scripting use case you met in Section 3.3.</p></div>
             </div>
+
+            <h2>Part 2 &mdash; Wireless Security (Objective 2.3)</h2>
 
             <div class="table-container">
                 <table>
-                    <thead><tr><th>&nbsp;</th><th>Type 1 (Bare-Metal)</th><th>Type 2 (Hosted)</th></tr></thead>
+                    <thead><tr><th>Protocol or Method</th><th>What to Know</th></tr></thead>
                     <tbody>
-                        <tr><td>Runs on</td><td>Physical hardware directly</td><td>An existing host operating system</td></tr>
-                        <tr><td>Performance</td><td>Higher &mdash; no host OS overhead</td><td>Lower &mdash; shares resources with the host OS</td></tr>
-                        <tr><td>Typical setting</td><td>Data centers and enterprise servers</td><td>A technician's own laptop or desktop</td></tr>
-                        <tr><td>Common use case</td><td>Hosting many production VMs at scale</td><td>Sandboxing, testing, and cross-platform trials</td></tr>
-                        <tr><td>Examples</td><td>VMware ESXi, Microsoft Hyper-V (server role)</td><td>VMware Workstation, Oracle VirtualBox</td></tr>
+                        <tr><td><strong>WPA2</strong></td><td>The long-standing standard, using AES encryption. Still widespread.</td></tr>
+                        <tr><td><strong>WPA3</strong></td><td>The current standard. Choose it when every device supports it.</td></tr>
+                        <tr><td><strong>TKIP</strong></td><td>The older encryption method paired with the original WPA. Deprecated; its presence is a finding, not a recommendation.</td></tr>
+                        <tr><td><strong>AES</strong></td><td>The strong encryption standard used by WPA2 and WPA3</td></tr>
+                        <tr><td><strong>RADIUS</strong></td><td>Centralized authentication, so users sign in with their own credentials rather than a shared wireless key</td></tr>
+                        <tr><td><strong>TACACS+</strong></td><td>A similar centralized approach, commonly used for administrative access to network devices</td></tr>
+                        <tr><td><strong>Kerberos</strong></td><td>Ticket-based authentication, the mechanism behind Active Directory sign-in</td></tr>
+                        <tr><td><strong>Multifactor</strong></td><td>More than one kind of proof, applied to wireless access as it is elsewhere</td></tr>
                     </tbody>
                 </table>
-            </div>
-
-            <div class="key-concept">
-                <h4>Hypervisor Models</h4>
-                <div class="hv-diagrams">
-                    <div class="hv-diagram-col">
-                        <svg class="hv-svg" width="100%" viewBox="0 0 680 550" role="img">
-                            <title>Type 1 hypervisor stack</title>
-                            <desc>Hardware at the base, hypervisor directly on top, then three VM squares running Windows 11, Windows 10, and Linux, each with a data marker on top of the OS between two applications, and a data layer above each application.</desc>
-                            <g class="hv-hw"><rect x="40" y="460" width="600" height="50" rx="6"/><text x="340" y="485">Hardware</text></g>
-                            <g class="hv-hv"><rect x="40" y="400" width="600" height="50" rx="6"/><text x="340" y="425">Hypervisor (Type 1)</text></g>
-                            <g class="hv-vm"><rect x="70" y="250" width="160" height="140" rx="8"/><text x="150" y="320">VM 1</text></g>
-                            <g class="hv-vm"><rect x="260" y="250" width="160" height="140" rx="8"/><text x="340" y="320">VM 2</text></g>
-                            <g class="hv-vm"><rect x="450" y="250" width="160" height="140" rx="8"/><text x="530" y="320">VM 3</text></g>
-                            <g class="hv-os"><rect x="70" y="196" width="160" height="44" rx="6"/><text x="150" y="218">Win11</text></g>
-                            <g class="hv-os"><rect x="260" y="196" width="160" height="44" rx="6"/><text x="340" y="218">Win10</text></g>
-                            <g class="hv-os"><rect x="450" y="196" width="160" height="44" rx="6"/><text x="530" y="218">Linux</text></g>
-                            <g class="hv-data"><polygon points="150,126 170,196 130,196"/><text x="150" y="184">Data</text></g>
-                            <g class="hv-data"><polygon points="340,126 360,196 320,196"/><text x="340" y="184">Data</text></g>
-                            <g class="hv-data"><polygon points="530,126 550,196 510,196"/><text x="530" y="184">Data</text></g>
-                            <g class="hv-app"><rect x="80" y="120" width="50" height="70" rx="6"/><text x="105" y="155">App</text></g>
-                            <g class="hv-app"><rect x="170" y="120" width="50" height="70" rx="6"/><text x="195" y="155">App</text></g>
-                            <g class="hv-app"><rect x="270" y="120" width="50" height="70" rx="6"/><text x="295" y="155">App</text></g>
-                            <g class="hv-app"><rect x="360" y="120" width="50" height="70" rx="6"/><text x="385" y="155">App</text></g>
-                            <g class="hv-app"><rect x="460" y="120" width="50" height="70" rx="6"/><text x="485" y="155">App</text></g>
-                            <g class="hv-app"><rect x="550" y="120" width="50" height="70" rx="6"/><text x="575" y="155">App</text></g>
-                            <g class="hv-data"><polygon points="105,40 125,110 85,110"/><text x="105" y="98">Data</text></g>
-                            <g class="hv-data"><polygon points="195,40 215,110 175,110"/><text x="195" y="98">Data</text></g>
-                            <g class="hv-data"><polygon points="295,40 315,110 275,110"/><text x="295" y="98">Data</text></g>
-                            <g class="hv-data"><polygon points="385,40 405,110 365,110"/><text x="385" y="98">Data</text></g>
-                            <g class="hv-data"><polygon points="485,40 505,110 465,110"/><text x="485" y="98">Data</text></g>
-                            <g class="hv-data"><polygon points="575,40 595,110 555,110"/><text x="575" y="98">Data</text></g>
-                        </svg>
-                        <p class="hv-caption">Hypervisor &mdash; Host Installation on Bare-Metal</p>
-                    </div>
-                    <div class="hv-diagram-col">
-                        <svg class="hv-svg" width="100%" viewBox="0 0 680 610" role="img">
-                            <title>Type 2 hypervisor stack</title>
-                            <desc>Hardware at the base, a host operating system on top of that, then the hypervisor, then three VM squares running Windows 11, Windows 10, and Linux, each with a data marker on top of the OS between two applications, and a data layer above each application.</desc>
-                            <g class="hv-hw"><rect x="40" y="520" width="600" height="50" rx="6"/><text x="340" y="545">Hardware</text></g>
-                            <g class="hv-os"><rect x="40" y="460" width="600" height="50" rx="6"/><text x="340" y="485">Host OS</text></g>
-                            <g class="hv-hv"><rect x="40" y="400" width="600" height="50" rx="6"/><text x="340" y="425">Hypervisor (Type 2)</text></g>
-                            <g class="hv-vm"><rect x="70" y="250" width="160" height="140" rx="8"/><text x="150" y="320">VM 1</text></g>
-                            <g class="hv-vm"><rect x="260" y="250" width="160" height="140" rx="8"/><text x="340" y="320">VM 2</text></g>
-                            <g class="hv-vm"><rect x="450" y="250" width="160" height="140" rx="8"/><text x="530" y="320">VM 3</text></g>
-                            <g class="hv-os"><rect x="70" y="196" width="160" height="44" rx="6"/><text x="150" y="218">Win11</text></g>
-                            <g class="hv-os"><rect x="260" y="196" width="160" height="44" rx="6"/><text x="340" y="218">Win10</text></g>
-                            <g class="hv-os"><rect x="450" y="196" width="160" height="44" rx="6"/><text x="530" y="218">Linux</text></g>
-                            <g class="hv-data"><polygon points="150,126 170,196 130,196"/><text x="150" y="184">Data</text></g>
-                            <g class="hv-data"><polygon points="340,126 360,196 320,196"/><text x="340" y="184">Data</text></g>
-                            <g class="hv-data"><polygon points="530,126 550,196 510,196"/><text x="530" y="184">Data</text></g>
-                            <g class="hv-app"><rect x="80" y="120" width="50" height="70" rx="6"/><text x="105" y="155">App</text></g>
-                            <g class="hv-app"><rect x="170" y="120" width="50" height="70" rx="6"/><text x="195" y="155">App</text></g>
-                            <g class="hv-app"><rect x="270" y="120" width="50" height="70" rx="6"/><text x="295" y="155">App</text></g>
-                            <g class="hv-app"><rect x="360" y="120" width="50" height="70" rx="6"/><text x="385" y="155">App</text></g>
-                            <g class="hv-app"><rect x="460" y="120" width="50" height="70" rx="6"/><text x="485" y="155">App</text></g>
-                            <g class="hv-app"><rect x="550" y="120" width="50" height="70" rx="6"/><text x="575" y="155">App</text></g>
-                            <g class="hv-data"><polygon points="105,40 125,110 85,110"/><text x="105" y="98">Data</text></g>
-                            <g class="hv-data"><polygon points="195,40 215,110 175,110"/><text x="195" y="98">Data</text></g>
-                            <g class="hv-data"><polygon points="295,40 315,110 275,110"/><text x="295" y="98">Data</text></g>
-                            <g class="hv-data"><polygon points="385,40 405,110 365,110"/><text x="385" y="98">Data</text></g>
-                            <g class="hv-data"><polygon points="485,40 505,110 465,110"/><text x="485" y="98">Data</text></g>
-                            <g class="hv-data"><polygon points="575,40 595,110 555,110"/><text x="575" y="98">Data</text></g>
-                        </svg>
-                        <p class="hv-caption">Hypervisor &mdash; Guest Application on Installed OS</p>
-                    </div>
-                </div>
-            </div>
-
-            <h3>Real-World Hypervisor Applications</h3>
-            <div class="table-container">
-                <table>
-                    <thead><tr><th>Type 1 (Bare-Metal)</th><th>Application</th><th>Type 2 (Hosted)</th><th>Application</th></tr></thead>
-                    <tbody>
-                        <tr><td>VMware ESXi</td><td>Datacenter</td><td>VMware Workstation</td><td>Windows</td></tr>
-                        <tr><td>Microsoft Hyper-V (Server)</td><td>Datacenter</td><td>VMware Fusion</td><td>MacOS</td></tr>
-                        <tr><td>Citrix Hypervisor (XenServer)</td><td>Datacenter</td><td>Oracle VirtualBox</td><td>Windows</td></tr>
-                        <tr><td>KVM (Kernel-based Virtual Machine)</td><td>Linux</td><td>Parallels Desktop</td><td>MacOS</td></tr>
-                        <tr><td>Proxmox VE</td><td>Datacenter</td><td>VMware Player</td><td>Windows</td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="key-concept">
-                <h4>Why Virtualize?</h4>
-                <p>Common reasons include sandboxing (testing something risky in an isolated space), running legacy software that needs an older operating system, cross-platform testing, and Virtual Desktop Infrastructure (VDI), where a user's entire desktop runs on a remote server instead of local hardware. Containerization is a lighter-weight cousin of virtualization &mdash; it packages an application with just what it needs to run, without a full separate operating system underneath.</p>
-            </div>
-
-            <h2>Cloud Computing</h2>
-
-            <p>Cloud computing shifts computing resources off local hardware and onto infrastructure managed elsewhere, delivered over a network connection. The two questions that matter most are: who deploys it, and what layer of the stack are you buying?</p>
-
-            <h3>Service Models: IaaS, PaaS, SaaS</h3>
-            <div class="table-container">
-                <table>
-                    <thead><tr><th>Type</th><th>Characteristics</th><th>Real-World Application</th></tr></thead>
-                    <tbody>
-                        <tr><td>IaaS</td><td>Raw virtualized hardware &mdash; servers, storage, networking. The customer manages the OS, runtime, and application; the provider manages only the physical infrastructure.</td><td>Microsoft Azure VM, AWS EC2 VM, GCS Compute VM</td></tr>
-                        <tr><td>PaaS</td><td>Adds the operating system and runtime environment on top of the infrastructure, so the customer focuses only on writing and deploying their application.</td><td>Microsoft Azure App Service, Google App Engine, Salesforce Platform, Heroku</td></tr>
-                        <tr><td>SaaS</td><td>A finished, ready-to-use application. The provider manages everything underneath &mdash; infrastructure, runtime, and the application itself.</td><td>Microsoft 365, Google Workspace, Salesforce</td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <h3>Deployment Models</h3>
-            <div class="table-container">
-                <table>
-                    <thead><tr><th>Model Type</th><th>Characteristics</th></tr></thead>
-                    <tbody>
-                        <tr>
-                            <td>Public</td>
-                            <td><strong>Cost:</strong> Lowest upfront cost; pay-as-you-go, metered usage with no hardware investment.<br>
-                                <strong>Location:</strong> Off-premise &mdash; hosted entirely on the provider's infrastructure.<br>
-                                <strong>Primary Purpose:</strong> General-purpose, highly scalable workloads shared across many customers; best fit for variable or unpredictable demand.<br>
-                                <strong>Migration Direction:</strong> Organizations typically migrate <em>to</em> public cloud from on-premise or private infrastructure to cut capital costs and gain elasticity, trading upfront hardware spend for ongoing metered usage fees.</td>
-                        </tr>
-                        <tr>
-                            <td>Private</td>
-                            <td><strong>Cost:</strong> Higher upfront capital investment (hardware, licensing, staff), but predictable long-term costs with no shared-tenant discount.<br>
-                                <strong>Location:</strong> Only on-premise.<br>
-                                <strong>Primary Purpose:</strong> Maximum control, security, and compliance for sensitive data or regulated workloads.<br>
-                                <strong>Migration Direction:</strong> Organizations typically migrate <em>to</em> private cloud from public cloud when compliance, security, or performance-isolation requirements increase, accepting a higher upfront capital cost in exchange for full control.</td>
-                        </tr>
-                        <tr>
-                            <td>Hybrid</td>
-                            <td><strong>Cost:</strong> Mixed &mdash; capital cost for the private portion plus variable, metered cost for public burst capacity.<br>
-                                <strong>Location:</strong> Both on-premise (private) and off-premise (public) at the same time.<br>
-                                <strong>Primary Purpose:</strong> Balances control and compliance with scalability &mdash; sensitive workloads stay private while demand spikes burst into public capacity.<br>
-                                <strong>Migration Direction:</strong> Workloads consistently move <em>between</em> private and public as needed &mdash; bursting <em>to</em> public during peak demand, adding metered public-cloud cost only for that period, then moving back <em>to</em> private as demand subsides.</td>
-                        </tr>
-                        <tr>
-                            <td>Community</td>
-                            <td><strong>Cost:</strong> Shared among member organizations &mdash; lower than a dedicated private cloud, but higher than public due to restricted membership.<br>
-                                <strong>Location:</strong> On-premise or off-premise, hosted by one member or a third party, shared across the group.<br>
-                                <strong>Primary Purpose:</strong> Shared infrastructure for organizations with common regulatory, compliance, or business requirements (e.g., government agencies, healthcare consortiums).<br>
-                                <strong>Migration Direction:</strong> Organizations typically migrate <em>to</em> community cloud from an isolated private setup when joining a consortium, sharing the cost across members, or back <em>to</em> private &mdash; at a higher dedicated cost &mdash; if they outgrow the shared arrangement.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="key-concept">
-                <h4>What Makes Cloud, Cloud</h4>
-                <p>Beyond the models above, cloud services typically share a few defining traits: metered usage (pay for what you use), rapid elasticity (scale up or down on demand), high availability, and file synchronization across devices. Multitenancy &mdash; multiple customers sharing the same underlying infrastructure, kept logically separate &mdash; is what makes public cloud pricing possible in the first place.</p>
-            </div>
-
-            <h2>Common Mobile Device Issues</h2>
-
-            <p>Mobile devices fail in ways that are physically different from desktops &mdash; smaller components, tighter tolerances, and constant handling all take a toll.</p>
-
-            <div class="key-concept">
-                <h4>Mobile Device Troubleshooting - What to Check First</h4>
-                <p>Battery issues (won't hold a charge, swelling, rapid drain), broken or unresponsive screens, improper charging behavior, liquid damage, overheating, digitizer problems (touch input not registering correctly), and cursor drift are the issues you'll see most often. Many of these trace back to physical stress &mdash; drops, heat, or moisture &mdash; rather than a software fault, which is why a physical inspection comes before a software fix.</p>
             </div>
 
             <div class="callout callout-warning">
-                <div class="callout-title">A Habit Worth Building Now</div>
+                <div class="callout-title">A Real Example You Will Meet on the Job</div>
+                <div class="callout-content"><p>A small office uses one wireless password that everyone knows, and an employee leaves. Changing the key means reconfiguring every phone, laptop, printer, and thermostat in the building, so nobody changes it &mdash; and the former employee can still reach the network from the parking lot. RADIUS solves this: each person authenticates as themselves, and disabling one account ends that person's access without touching anyone else's device.</p></div>
+            </div>
+
+            <h2>Part 3 &mdash; Mobile Device Security (Objective 2.8)</h2>
+
+            <ul class="styled-list">
+                <li><strong>Hardening techniques</strong> &mdash; <strong>device encryption</strong>; <strong>screen locks</strong> using facial recognition, PIN codes, fingerprint, pattern, or swipe; and <strong>configuration profiles</strong> that apply a managed set of settings</li>
+                <li><strong>Patch management</strong> &mdash; <strong>OS updates</strong> and <strong>application updates</strong></li>
+                <li><strong>Endpoint security software</strong> &mdash; <strong>antivirus</strong>, <strong>anti-malware</strong>, and <strong>content filtering</strong></li>
+                <li><strong>Locator applications</strong> &mdash; finding a lost device</li>
+                <li><strong>Remote wipes</strong> &mdash; erasing a device that is not coming back</li>
+                <li><strong>Remote backup applications</strong> &mdash; which is what makes a remote wipe survivable</li>
+                <li><strong>Failed log-in attempt restrictions</strong> &mdash; the mobile equivalent of account lockout</li>
+                <li><strong>Policies and procedures</strong> &mdash; <strong>MDM</strong>, <strong>BYOD versus corporate-owned devices</strong>, and <strong>profile security requirements</strong></li>
+            </ul>
+
+            <div class="key-concept">
+                <h4>The Screen Lock Is Not the Security &mdash; Encryption Is</h4>
+                <p>A screen lock stops someone picking up the phone and using it. It does nothing against someone who takes the storage apart. <strong>Device encryption</strong> is what makes the data unreadable, and on modern phones the screen lock credential is what unlocks the encryption key. The two work together, which is why a device with no lock set is often not encrypted in any meaningful way either.</p>
+                <p>For the exam: if the scenario is a <em>lost or stolen</em> device, the answer usually involves encryption, a locator application, or a remote wipe. If it is <em>shoulder-level</em> access, the answer is the screen lock.</p>
+            </div>
+
+            <h2>Part 4 &mdash; Securing a SOHO Network (Objective 2.10)</h2>
+
+            <h3>Router Settings</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Setting</th><th>Why It Matters</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Change default passwords</strong></td><td>Default credentials for every consumer router are published online. This is the first step, every time.</td></tr>
+                        <tr><td><strong>IP filtering</strong></td><td>Permits or blocks traffic by address</td></tr>
+                        <tr><td><strong>Firmware updates</strong></td><td>Routers are computers, and unpatched routers are a standing vulnerability</td></tr>
+                        <tr><td><strong>Content filtering</strong></td><td>Blocks categories of sites, often required in schools and public spaces</td></tr>
+                        <tr><td><strong>Physical placement and secure locations</strong></td><td>A router in an open lobby can be reset to factory defaults by anyone holding a paperclip</td></tr>
+                        <tr><td><strong>Universal Plug and Play (UPnP)</strong></td><td>Lets applications open ports by themselves. Convenient, and a common finding &mdash; usually disabled on a business network.</td></tr>
+                        <tr><td><strong>Screened subnet</strong></td><td>A separate segment for systems that must be reachable from outside, kept away from the internal network</td></tr>
+                        <tr><td><strong>Configure secure management access</strong></td><td>Administer the router over an encrypted connection, from inside the network only</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Wireless-Specific Settings</h3>
+            <ul class="styled-list">
+                <li><strong>Changing the SSID</strong> &mdash; a default network name tells an attacker the make and model of the router</li>
+                <li><strong>Disabling SSID broadcast</strong> &mdash; hides the name from casual scanning. Know it for the exam, and know that it is weak protection: the network is still visible to anyone with the right tool.</li>
+                <li><strong>Encryption settings</strong> &mdash; WPA3 where supported, WPA2 with AES otherwise</li>
+                <li><strong>Configuring guest access</strong> &mdash; visitors get internet without reaching the internal network</li>
+            </ul>
+
+            <h3>Firewall Settings</h3>
+            <p><strong>Disabling unused ports</strong> closes doors nobody is using. <strong>Port forwarding and mapping</strong> deliberately opens one, directing outside traffic to a specific internal device &mdash; necessary sometimes, and a risk to be justified each time.</p>
+
+            <div class="callout callout-danger">
+                <div class="callout-title">The First Five Minutes With Any New Router</div>
                 <div class="callout-content">
-                    <p>Before assuming a software problem, rule out the physical one: Is the port clean? Is the cable good? Is there visible damage or heat? Mobile hardware fails in physical ways more often than desktop hardware does, simply from being carried, dropped, and handled all day.</p>
-                    <p>CompTIA's troubleshooting methodology calls this <strong>"start at the wall"</strong> &mdash; work outward from the most basic physical layer before touching anything higher up the stack. Power is checked first: is the device plugged in, is the outlet live, is the battery actually charging? Only after power is confirmed do you move to physical connectivity &mdash; cables, ports, and wireless signal &mdash; and only after that do you start troubleshooting software, accounts, or configuration. Skipping straight to a software fix on a device that simply isn't getting power wastes time and can mask the real problem.</p>
-                    <p>This principle gets harder to apply the moment virtualization and cloud computing enter the picture. When a "server" is a VM running on a hypervisor, or an application is running as SaaS in someone else's datacenter, there's no wall outlet or cable for you to walk over and check &mdash; the physical layer belongs to the cloud provider, not to you. "Starting at the wall" for a cloud-hosted resource means checking the provider's status/health dashboard, confirming your own network connection to the provider, and verifying the VM or service is actually powered on and running in the console, before you go looking for a software-level cause. The physical layer hasn't disappeared &mdash; it's just moved out of your building and out of your direct control, so the first troubleshooting step becomes "can I confirm the provider's infrastructure is up" instead of "can I see the blinking lights."</p>
+                    <ul class="checklist">
+                        <li>Change the administrator password before the device is connected to the internet</li>
+                        <li>Update the firmware</li>
+                        <li>Set the SSID to something that does not identify the hardware or the owner</li>
+                        <li>Set encryption to WPA3, or WPA2 with AES</li>
+                        <li>Disable UPnP unless something genuinely requires it</li>
+                        <li>Restrict management access to the internal network</li>
+                    </ul>
+                    <p>Six steps, five minutes, and it eliminates most of the ways a small network gets compromised.</p>
                 </div>
             </div>
 
-            <h2>Cloud Characteristics and Terms</h2>
+            <h2>Part 5 &mdash; Browser Security (Objective 2.11)</h2>
 
-            <div class="definition">
-                <div class="definition-term">VDI (Virtual Desktop Infrastructure)</div>
-                <p class="definition-text"><strong>Simple terms:</strong> Your entire desktop &mdash; OS, apps, files, and settings &mdash; runs on a server somewhere else, and your laptop or thin client just shows you a live picture of it and sends your keystrokes and clicks back. <strong>Real-world example:</strong> A hospital gives nurses thin-client terminals at every nursing station. No matter which terminal a nurse logs into, their exact same desktop, open charts, and saved work appear instantly &mdash; because the desktop was never actually on that terminal to begin with.</p>
+            <h3>Getting the Browser Safely</h3>
+            <p>Download from <strong>trusted sources</strong>, and where a publisher provides one, verify the download with <strong>hashing</strong> &mdash; comparing a computed value against the one the publisher published. <strong>Untrusted sources</strong> are how browsers arrive pre-loaded with things nobody asked for. <strong>Browser patching</strong> matters as much as operating system patching, because the browser is the program most exposed to hostile content.</p>
+
+            <h3>Extensions, Plug-Ins, and Passwords</h3>
+            <p><strong>Extensions and plug-ins</strong> should come from <strong>trusted sources</strong> only. An extension can read every page you visit, which is precisely why a compromised one is so damaging. <strong>Browser feature management</strong> means being able to <strong>enable and disable</strong> plug-ins, extensions, and features deliberately. <strong>Password managers</strong> reappear here, and for the same reason as in Unit 4: they are the only practical route to unique passwords.</p>
+
+            <h3>Connections and Certificates</h3>
+            <p><strong>Secure connections and sites with valid certificates</strong> are the browser's way of telling a user that a site is who it claims to be and that the traffic is encrypted. A certificate warning is not a formality to click through &mdash; it is the browser reporting that one of those two guarantees has failed.</p>
+
+            <h3>Settings</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Setting</th><th>What It Does</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Pop-up blocker</strong></td><td>Suppresses windows that open without the user asking</td></tr>
+                        <tr><td><strong>Clearing browsing data</strong> and <strong>clearing cache</strong></td><td>Removes history and stored page content &mdash; the fix for a surprising number of "this site is broken" tickets</td></tr>
+                        <tr><td><strong>Private-browsing mode</strong></td><td>Keeps no local history for the session. It does not make the user anonymous to the network or the site.</td></tr>
+                        <tr><td><strong>Sign-in and browser data synchronization</strong></td><td>Shares bookmarks, history, and saved passwords across devices &mdash; convenient, and worth a deliberate decision on a shared or corporate machine</td></tr>
+                        <tr><td><strong>Ad blockers</strong></td><td>Block advertising, which also blocks a common malware delivery route</td></tr>
+                        <tr><td><strong>Proxy</strong></td><td>Routes requests through an intermediary, as in Unit 3</td></tr>
+                        <tr><td><strong>Secure DNS</strong></td><td>Encrypts name lookups so they cannot be read or altered in transit</td></tr>
+                    </tbody>
+                </table>
             </div>
 
-            <div class="definition">
-                <div class="definition-term">Availability</div>
-                <p class="definition-text"><strong>Simple terms:</strong> How reliably a service is actually up and reachable when someone tries to use it. <strong>Real-world example:</strong> A retailer's online store advertises "99.99% uptime" to its cloud provider &mdash; that's an availability guarantee, and it's why the checkout page rarely goes down even during a huge Black Friday traffic spike.</p>
+            <div class="callout callout-tip">
+                <div class="callout-title">Connect It to Unit 1</div>
+                <div class="callout-content"><p>Section 1.B taught you to clear a browser cache so course pages would load correctly. Here you learn why that setting exists and what else it touches &mdash; a small housekeeping step in Unit 1 turns out to be part of an exam objective five units later. That is how this course is built.</p></div>
             </div>
 
-            <div class="definition">
-                <div class="definition-term">Elasticity</div>
-                <p class="definition-text"><strong>Simple terms:</strong> The ability of a cloud service to automatically add or remove capacity as demand changes, instead of a business having to buy fixed hardware sized for its busiest possible day. <strong>Real-world example:</strong> A tax-prep company's website automatically spins up dozens of extra servers every year in the two weeks before the filing deadline, then scales back down to almost nothing in May &mdash; paying only for the capacity it actually used.</p>
+            <h2>Part 6 &mdash; Change Management (Objective 4.2)</h2>
+
+            <div class="plain-box">
+                <div class="callout-title">In Plain Terms</div>
+                <div class="callout-content"><p>Change management is the paperwork that stands between a good idea and an outage. It exists because most serious incidents are not attacks &mdash; they are changes that someone made on a Friday afternoon without telling anyone.</p></div>
             </div>
 
-            <div class="definition">
-                <div class="definition-term">Multi-Tenancy</div>
-                <p class="definition-text"><strong>Simple terms:</strong> Many different customers share the same underlying physical infrastructure, while the provider keeps each customer's data and resources logically separated so no one can see or touch anyone else's. <strong>Real-world example:</strong> Two competing small businesses can both run their email through the same cloud email provider, on the very same physical servers, without either one ever being able to access the other's inbox &mdash; that separation is what multi-tenancy guarantees.</p>
+            <h3>Documented Business Processes</h3>
+            <ul class="styled-list">
+                <li><strong>Rollback plan</strong> &mdash; how the change is undone if it fails. Written before the change, not during the outage.</li>
+                <li><strong>Backup plan</strong> &mdash; what is captured beforehand so that rollback is possible</li>
+                <li><strong>Sandbox testing</strong> &mdash; trying the change somewhere it cannot hurt anyone</li>
+                <li><strong>Responsible staff members</strong> &mdash; who does the work, and who answers for it</li>
+            </ul>
+
+            <h3>The Change Process</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Element</th><th>What It Captures</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Request forms</strong></td><td>The formal record that a change was proposed</td></tr>
+                        <tr><td><strong>Purpose of the change</strong></td><td>Why it is being made</td></tr>
+                        <tr><td><strong>Scope of the change</strong></td><td>What it touches, and what it does not</td></tr>
+                        <tr><td><strong>Change type</strong></td><td><strong>Standard</strong> &mdash; routine and pre-approved. <strong>Normal</strong> &mdash; requires review and approval. <strong>Emergency</strong> &mdash; made quickly under pressure, documented immediately afterward.</td></tr>
+                        <tr><td><strong>Date and time of change</strong></td><td>Including <strong>change freezes</strong>, when no changes are permitted, and <strong>maintenance windows</strong>, when they are</td></tr>
+                        <tr><td><strong>Affected systems and impact</strong></td><td>Who and what will notice</td></tr>
+                        <tr><td><strong>Risk analysis</strong> and <strong>risk level</strong></td><td>What could go wrong and how badly</td></tr>
+                        <tr><td><strong>Change board approvals</strong></td><td>The group that authorizes the change</td></tr>
+                        <tr><td><strong>Implementation</strong></td><td>Carrying it out as approved</td></tr>
+                        <tr><td><strong>Peer review</strong></td><td>Another technician checking the plan or the work</td></tr>
+                        <tr><td><strong>End-user acceptance</strong></td><td>Confirmation from the people who use the system that it actually works</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="key-concept">
+                <h4>Emergency Change Is Not "Skip the Paperwork"</h4>
+                <p>An emergency change &mdash; patching a flaw being actively exploited, for instance &mdash; is made quickly because waiting is the greater risk. The documentation still happens; it happens afterward.</p>
+                <p>On the exam and on the job, the distinction is timing, not existence. A technician who says "it was an emergency, so I did not document it" has described a process failure, not an emergency.</p>
+            </div>
+
+            <h2>Part 7 &mdash; Backup and Recovery (Objective 4.3)</h2>
+
+            <h3>Backup Types</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Type</th><th>What It Copies</th><th>Trade-Off</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Full</strong></td><td>Everything, every time</td><td>Slowest to take, simplest and fastest to restore</td></tr>
+                        <tr><td><strong>Incremental</strong></td><td>Everything changed since the <em>last backup of any kind</em></td><td>Fastest to take, slowest to restore &mdash; you need the full plus every increment since</td></tr>
+                        <tr><td><strong>Differential</strong></td><td>Everything changed since the <em>last full backup</em></td><td>Grows each day, but restores from just two pieces: the full plus the latest differential</td></tr>
+                        <tr><td><strong>Synthetic full</strong></td><td>A full backup assembled from an existing full plus its increments, without re-reading the source</td><td>Gives you the restore simplicity of a full without the time cost of taking one</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Recovery, Testing, and Rotation</h3>
+            <p><strong>Recovery</strong> is either <strong>in-place or overwrite</strong>, restoring over the original, or to an <strong>alternative location</strong>, which is how you recover a single file without disturbing anything else.</p>
+            <p><strong>Backup testing</strong> and its <strong>frequency</strong> is the objective people skip. A backup that has never been restored is an assumption.</p>
+            <ul class="styled-list">
+                <li><strong>Onsite vs. offsite</strong> &mdash; onsite restores fast; offsite survives the fire</li>
+                <li><strong>Grandfather-father-son (GFS)</strong> &mdash; a rotation keeping daily, weekly, and monthly copies, so you can go back a day or a quarter</li>
+                <li><strong>3-2-1 backup rule</strong> &mdash; three copies of the data, on two different kinds of media, with one offsite</li>
+            </ul>
+
+            <div class="callout callout-danger">
+                <div class="callout-title">Backups Are the Answer to Unit 4's Worst Scenario</div>
+                <div class="callout-content"><p>Ransomware is the reason 3-2-1 exists. An organization with current, tested, offline backups has an unpleasant day. An organization without them has a decision about whether to pay criminals. The difference is not skill or budget &mdash; it is whether someone tested a restore before they needed one.</p></div>
+            </div>
+
+            <div class="summary-box">
+                <h3>Unit 5 Content Recap</h3>
+                <ul>
+                    <li>NTFS permissions apply everywhere; share permissions apply over the network &mdash; and the most restrictive of the two wins</li>
+                    <li>UAC exists so that elevation is a decision; BitLocker, BitLocker To Go, and EFS encrypt a volume, removable media, and individual files</li>
+                    <li>Active Directory is what makes least privilege workable at scale: groups, policy, and log-in scripts</li>
+                    <li>WPA3 where supported, WPA2 with AES otherwise; RADIUS replaces a shared key with individual accounts</li>
+                    <li>On mobile devices, the screen lock stops a person and encryption stops a thief</li>
+                    <li>Six settings secure almost any SOHO router, starting with the default password</li>
+                    <li>A certificate warning is the browser reporting a failed guarantee, not a formality</li>
+                    <li>Change management is the process that prevents self-inflicted outages; emergency changes are documented afterward, not skipped</li>
+                    <li>Incremental is fast to take and slow to restore; differential is the reverse</li>
+                    <li>3-2-1: three copies, two media types, one offsite &mdash; and a restore you have actually tested</li>
+                </ul>
+            </div>
+
+            <div class="references-section">
+                <h3>Go Further</h3>
+                <ul>
+                    <li>Sybex <em>CompTIA A+ Complete Study Guide</em>, Volume 2 &mdash; Chapter 6 in full; Chapter 10, Change Management Best Practices and Backup and Recovery</li>
+                    <li>Professor Messer's free 220-1202 course &mdash; objectives 2.2, 2.3, 2.8, 2.10, 2.11, 4.2, and 4.3 (see Section 5.5 for direct links)</li>
+                    <li>CompTIA official 220-1202 exam objectives (comptia.org) &mdash; objective 2.11's settings list is long and specific; read it beside this page</li>
+                    <li>The Wi-Fi Alliance's public material on WPA3 &mdash; the standards body's own description of what changed and why</li>
+                </ul>
             </div>
 
         </div>
 
         <footer class="module-footer">
-            <p class="footer-text">CompTIA A+ Core 1 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
+            <p class="footer-text">CompTIA A+ Core 2 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
         </footer>
     </div>
 </body>
