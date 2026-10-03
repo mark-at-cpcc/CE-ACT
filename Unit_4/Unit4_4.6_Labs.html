@@ -6,7 +6,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <title>Unit 4 &mdash; 4.1 Unit Overview and Schedule | CompTIA A+ Core 2</title>
+    <title>Unit 4 &mdash; 4.6 Classroom/Home Labs | CompTIA A+ Core 2</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -328,19 +328,19 @@
     <div class="course-container">
 
         <header class="module-header">
-            <div class="module-label">Unit 4 &middot; Security Concepts and Threats &middot; Section 4.1</div>
-            <h1 class="module-title">Unit Overview and Schedule</h1>
+            <div class="module-label">Unit 4 &middot; Security Concepts and Threats &middot; Section 4.6</div>
+            <h1 class="module-title">Classroom/Home Labs</h1>
             <p class="module-subtitle">CompTIA A+ Core 2 - Domains 2.0 and 4.0</p>
         </header>
 
                 <nav class="toc" id="tocNav">
             <div class="toc-header">Table of Contents</div>
-            <div class="toc-item current" id="tocCurrent">4.1 &mdash; Unit Overview and Schedule</div>
+            <div class="toc-item">4.1 &mdash; Unit Overview and Schedule</div>
             <div class="toc-item">4.2 &mdash; Unit Pre-Assessment</div>
             <div class="toc-item">4.3 &mdash; Content Review</div>
             <div class="toc-item">4.4 &mdash; Reading Assignment</div>
             <div class="toc-item">4.5 &mdash; Video Assignment</div>
-            <div class="toc-item">4.6 &mdash; Classroom/Home Labs</div>
+            <div class="toc-item current" id="tocCurrent">4.6 &mdash; Classroom/Home Labs</div>
             <div class="toc-item">4.7 &mdash; Practice Questions</div>
             <div class="toc-item">4.8 &mdash; Online Labs: NETLAB</div>
             <div class="toc-item">4.9 &mdash; Reflection Activity</div>
@@ -440,141 +440,167 @@
 
         <div class="content-area">
 
-            <p class="text-muted">The first three units taught you to make computers work. This unit is about the people trying to make them stop &mdash; and about the technician's job of keeping data, equipment, and people safe.</p>
-
-            <div class="callout callout-warning">
-                <div class="callout-title">The Heaviest Unit of the Term</div>
-                <div class="callout-content"><p>Unit 4 carries two full chapters, 157 pages, and 24 videos &mdash; more reading and more video than any other unit. Start the videos on Tuesday evening rather than the weekend, and reserve both NETLAB labs early. Nothing here is harder than what you have already done; there is simply more of it.</p></div>
-            </div>
+            <p class="text-muted">Two optional labs we run in class as time permits, and one take-home lab in two parts. None of these is graded. All of them are where this unit's reading turns into judgment you can actually use. Every class also opens with a Ticket of the Day &mdash; that section is at the end of this page.</p>
 
             <div class="callout callout-info">
-                <div class="callout-title">Start With the Pre-Assessment</div>
-                <div class="callout-content"><p>The Section 4.2 Pre-Assessment is an independent activity you complete on your own. Finish it by the end of Tuesday, the first day of the unit, before you begin the reading and videos, and do not study for it first.</p></div>
+                <div class="callout-title">This Unit's Labs Need No Equipment</div>
+                <div class="callout-content"><p>Security is the one unit where the most valuable practice is looking carefully rather than configuring something. Both classroom labs and the first take-home part use your eyes and your own machine; the second take-home part uses your judgment. That is not a shortcut &mdash; recognizing a threat and choosing a control is exactly what Domain 2.0 tests.</p></div>
             </div>
 
-            <div class="objectives-box">
-                <h3>Learning Objectives</h3>
-                <p>After completing this unit, you will be able to:</p>
-                <ol>
-                    <li><strong>Summarize</strong> physical, physical-access, and logical security measures and explain what each one protects against</li>
-                    <li><strong>Classify</strong> the types of malware on the exam and select appropriate tools and methods for detection, removal, and prevention</li>
-                    <li><strong>Distinguish</strong> social engineering attacks, network and application threats, and system vulnerabilities from one another, given a description or a symptom</li>
-                    <li><strong>Apply</strong> workstation security options and hardening techniques, including password, account-management, and end-user practices</li>
-                    <li><strong>Compare</strong> data destruction and disposal methods and choose one appropriate to the situation</li>
-                    <li><strong>Use</strong> common safety procedures for equipment and for yourself, including electrostatic discharge controls</li>
-                    <li><strong>Summarize</strong> environmental impacts and local environment controls, including proper disposal and power protection</li>
-                    <li><strong>Explain</strong> incident response, licensing, regulated data, and policy concepts, and why each matters to a technician</li>
+            <div class="lab-section">
+                <div class="lab-header">
+                    <div class="lab-icon">&#128231;</div>
+                    <div>
+                        <h3 class="lab-title">Lab 4.6.1 &mdash; Spot the Phish</h3>
+                        <p class="lab-time">Tuesday &middot; In class &middot; 45 minutes &middot; Objective 2.5</p>
+                    </div>
+                </div>
+                <p>You will work in pairs with a printed packet of messages &mdash; emails, text messages, and QR codes. Some are legitimate. Some are not. Nothing in the packet is live, so nothing can be clicked by accident.</p>
+                <ol class="lab-steps">
+                    <li><strong>Sort first, explain second.</strong> Go through the packet and split it into legitimate and suspicious. Do not discuss your reasoning yet &mdash; sort on instinct and note how confident you were about each one.</li>
+                    <li><strong>Name the variant.</strong> For each message you flagged, identify which attack it is: phishing, vishing, smishing, QR code phishing, spear phishing, or whaling.</li>
+                    <li><strong>Find the tell.</strong> For each one, write down the specific detail that gave it away &mdash; the sender address, the urgency, the mismatch between the display name and the address, the request itself.</li>
+                    <li><strong>Check your misses.</strong> Trade packets with another pair and compare sorts. The messages people disagree about are the most useful ones in the room.</li>
+                    <li><strong>The hard one.</strong> At least one message in the packet is legitimate but looks suspicious, and at least one is malicious with nothing obviously wrong. Find them, and say what a technician should do when the tells run out.</li>
+                </ol>
+                <div class="key-concept">
+                    <h4>The Answer to Step 5 Is a Procedure, Not a Sharper Eye</h4>
+                    <p>A well-made business email compromise message has no spelling errors, comes from a real address, and refers to a real project. No amount of staring will catch it.</p>
+                    <p>What catches it is a rule that does not depend on judgment: payment and bank-detail changes are verified by phone, using a number already on file, every time. Teach that rule to your users, and the sophistication of the message stops mattering.</p>
+                </div>
+            </div>
+
+            <div class="lab-section">
+                <div class="lab-header">
+                    <div class="lab-icon">&#128065;</div>
+                    <div>
+                        <h3 class="lab-title">Lab 4.6.2 &mdash; Physical Security Walk</h3>
+                        <p class="lab-time">Wednesday &middot; In class &middot; 45 minutes &middot; Objective 2.1</p>
+                    </div>
+                </div>
+                <p>An <strong>observe-only</strong> audit of the floor we are on. You will walk the public areas of the building as a group, looking at what is there and writing it down.</p>
+                <div class="callout callout-danger">
+                    <div class="callout-title">Observe Only &mdash; Read This Before You Leave the Room</div>
+                    <div class="callout-content">
+                        <ul class="checklist">
+                            <li>Do not open any door that is closed, locked, or badge-controlled</li>
+                            <li>Do not test whether a control works &mdash; noting that a door exists is the assignment; trying the handle is not</li>
+                            <li>Do not photograph anything</li>
+                            <li>Do not enter any space you would not normally enter as a student</li>
+                            <li>Do not interact with staff or equipment; if someone asks what you are doing, say you are on a class exercise and refer them to your instructor</li>
+                        </ul>
+                        <p>Probing a control without written authorization is how a security exercise becomes a security incident. That boundary is itself part of the lesson.</p>
+                    </div>
+                </div>
+                <ol class="lab-steps">
+                    <li><strong>Inventory what you can see.</strong> Walk the floor and list every physical control you observe &mdash; door locks, badge readers, cameras, lighting, equipment locks, fences or barriers outside, signage.</li>
+                    <li><strong>Classify each one.</strong> Is it physical security, physical access security, or neither? Use the categories from Section 4.3.</li>
+                    <li><strong>Name what each one protects against.</strong> One line per control. A camera deters and records; a cable lock stops opportunistic theft; a vestibule prevents tailgating.</li>
+                    <li><strong>Find the gap &mdash; on paper.</strong> Where would a control help that you do not see one? Describe it as a recommendation, the way you would to a manager.</li>
+                    <li><strong>Report out.</strong> Compare lists as a class. Different pairs notice different things, and that is the point &mdash; a real security review is done by more than one person.</li>
                 </ol>
             </div>
 
-            <div class="tech-box">
-                <div class="callout-title">Technical Overview</div>
-                <div class="callout-content">
-                    <p>Unit 4 addresses CompTIA A+ Core 2 (220-1202) Domain 2.0 Security &mdash; objectives 2.1 (security measures and their purposes), 2.4 (types of malware and tools and methods for detection, removal, and prevention), 2.5 (social engineering attacks, threats, and vulnerabilities), 2.7 (workstation security options and hardening techniques), and 2.9 (data destruction and disposal methods) &mdash; and Domain 4.0 Operational Procedures, objectives 4.4 (common safety procedures), 4.5 (environmental impacts and local environment controls), and 4.6 (prohibited content and activity, privacy, licensing, and policy concepts).</p>
+            <div class="lab-section">
+                <div class="lab-header">
+                    <div class="lab-icon">&#128274;</div>
+                    <div>
+                        <h3 class="lab-title">Lab 4.6.3 &mdash; Take-Home, Part A: Harden Your Own Machine</h3>
+                        <p class="lab-time">On your own &middot; 45&ndash;60 minutes &middot; Ungraded &middot; Objective 2.7</p>
+                    </div>
+                </div>
+                <p>Unit 2 asked what your machine was doing. Unit 3 asked where its traffic went. This unit asks how hard it would be to get into.</p>
+                <p><strong>This is an audit, not a rebuild.</strong> You are recording what you find. Change something only if you want to, and only where the step says so.</p>
+
+                <h4>Step 1 &mdash; Who Are You When You Sign In?</h4>
+                <ol class="lab-steps">
+                    <li><strong>Check your account type.</strong> Is your everyday account a standard user or an administrator? Record which, and run <code>whoami /groups</code> to confirm.</li>
+                    <li><strong>Check the other accounts.</strong> Run <code>net user</code> and record every account on the machine. Is the guest account present, and is it enabled?</li>
+                    <li><strong>Check your sign-in method.</strong> Password, PIN, fingerprint, or facial recognition? Record which, and whether more than one is available.</li>
+                </ol>
+
+                <h4>Step 2 &mdash; The Audit</h4>
+                <p>Record the current state of each item. For each one, write one line on what an attacker gains if it is weak.</p>
+                <ol class="lab-steps">
+                    <li><strong>Screen lock timeout</strong> &mdash; how long before the machine locks itself, and does it require a credential to return?</li>
+                    <li><strong>Password practice</strong> &mdash; without writing the password down, answer honestly: is it used anywhere else, and roughly how long is it?</li>
+                    <li><strong>Data-at-rest encryption</strong> &mdash; is the drive encrypted? Record how you determined this.</li>
+                    <li><strong>AutoRun</strong> &mdash; what happens when you insert removable media?</li>
+                    <li><strong>Firewall and antivirus</strong> &mdash; are both on, and are the definitions current?</li>
+                    <li><strong>Updates</strong> &mdash; when were operating system updates last installed?</li>
+                    <li><strong>Firmware password</strong> &mdash; is a BIOS or UEFI password set? Do not set one for this lab; a forgotten firmware password can make a machine unusable.</li>
+                </ol>
+
+                <h4>Step 3 &mdash; The Write-Up</h4>
+                <p>One page, in the objective 4.1 ticket format. Your resolution answers one question: <strong>if this machine were stolen from a car tonight, what would the thief be able to reach, and which single change would most reduce that?</strong></p>
+                <p><em>Optional:</em> make that one change, and record what you changed and why.</p>
+
+                <div class="callout callout-tip">
+                    <div class="callout-title">Honest Findings Are the Useful Ones</div>
+                    <div class="callout-content"><p>Nobody reads this but you, and a clean audit teaches nothing. If your password is reused, write that down &mdash; understanding why uniqueness matters is worth more than a tidy sheet. This is the same honesty a real security assessment requires, which is why organizations pay outsiders to do it.</p></div>
                 </div>
             </div>
 
-            <div class="plain-box">
-                <div class="callout-title">In Plain Terms</div>
-                <div class="callout-content">
-                    <p>Security is not one thing. It is a fence, a badge reader, a password policy, an antivirus program, a suspicious email, a shredded hard drive, and a technician who knows not to plug in a drive somebody found in the parking lot. This unit covers all of it.</p>
-                    <p>The safety and environmental material sits here for the same reason: both are about preventing damage before it happens. One protects data from people; the other protects people and equipment from electricity, chemicals, heat, and lifting a server the wrong way.</p>
+            <div class="lab-section">
+                <div class="lab-header">
+                    <div class="lab-icon">&#128465;</div>
+                    <div>
+                        <h3 class="lab-title">Lab 4.6.4 &mdash; Take-Home, Part B: Disposal Decision Memo</h3>
+                        <p class="lab-time">On your own &middot; 30&ndash;45 minutes &middot; Ungraded &middot; Objectives 2.9, 4.5</p>
+                    </div>
+                </div>
+                <p>Five things need to leave an organization. For each one, decide what happens to it and defend the decision in two or three sentences. There is a defensible answer for each; there is also a wrong one.</p>
+
+                <div class="table-container">
+                    <table>
+                        <thead><tr><th>#</th><th>The Situation</th><th>Decide</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>1</strong></td><td>Twelve working laptops, four years old, being donated to a local nonprofit. They held ordinary office documents.</td><td>Which disposal or sanitization method, and why does the organization's choice differ from simply formatting?</td></tr>
+                            <tr><td><strong>2</strong></td><td>A failed hard drive from a medical office. It will not spin up. It held patient records.</td><td>Which method, and what documentation should the organization receive afterward?</td></tr>
+                            <tr><td><strong>3</strong></td><td>A company smartphone returned by a departing employee, to be reissued to a new hire.</td><td>What must happen before reissue, and which objective 2.8 control makes this straightforward?</td></tr>
+                            <tr><td><strong>4</strong></td><td>A leased multifunction copier going back to the vendor at the end of its term.</td><td>What is the risk most people miss here, and what should be done about it?</td></tr>
+                            <tr><td><strong>5</strong></td><td>A failed UPS with a swollen battery, plus a box of used printer toner cartridges.</td><td>Which document governs disposal, and what does it tell you?</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4>Write It Up</h4>
+                <p>One page, as a short memo to a manager rather than a ticket: a heading for each item, your decision, and your reasoning. Where cost and security pull in opposite directions, say so &mdash; that tension is real, and naming it is what makes a recommendation credible.</p>
+
+                <div class="callout callout-info">
+                    <div class="callout-title">Why Item 4 Is There</div>
+                    <div class="callout-content"><p>Every one of these is a real disposal scenario. Item 4 is the one most people get wrong, and the reason is worth finding for yourself in Chapter 5 rather than being told here. When you find it, you will not forget it &mdash; and you will check for it on every leased device you ever handle.</p></div>
                 </div>
             </div>
 
-            <h2>Why This Unit Comes Next</h2>
-            <p>You now know how computers work, how to operate them, and how to put them on a network. That is exactly the point at which a technician becomes useful to an attacker &mdash; and responsible for preventing one.</p>
-            <p>Unit 4 is deliberately the <strong>recognize the threat</strong> unit; Unit 5 is the <strong>configure the defense</strong> unit. You will meet attacks here and harden systems against them next. That order is not accidental: a control you do not understand the reason for is a control you will eventually turn off for convenience.</p>
-            <p>Domain 2.0 Security is <strong>28% of the exam</strong>, tied with Operating Systems for the largest share. Units 4 and 5 together carry all of it.</p>
-
-            <div class="callout callout-warning">
-                <div class="callout-title">A Word About the Attack Material</div>
-                <div class="callout-content"><p>This unit describes how attacks work, because you cannot defend against something you cannot recognize. Everything here is defensive knowledge, presented as CompTIA presents it. Nothing in this course teaches you to carry an attack out, and using any of it against systems you are not authorized to test is a crime as well as a violation of the college's acceptable use policy.</p></div>
-            </div>
-
-            <h2>Your Week at a Glance</h2>
-            <div class="table-container">
-                <table>
-                    <thead><tr><th>Day</th><th>Time</th><th>Focus</th><th>What You'll Do</th></tr></thead>
-                    <tbody>
-                        <tr><td><strong>Tuesday</strong></td><td>10:00 AM &ndash; 1:00 PM</td><td>Experience</td><td>Ticket of the Day. Real attacks and real consequences &mdash; before we name any of them. Optional lab, time permitting: Spot the Phish.</td></tr>
-                        <tr><td><strong>Wednesday</strong></td><td>11:00 AM &ndash; 2:00 PM</td><td>Experience &rarr; Concepts</td><td>Ticket of the Day. Then we name it &mdash; physical and logical security, malware, social engineering, safety, environmental controls, and policies. Optional lab, time permitting: Physical Security Walk.</td></tr>
-                        <tr><td><strong>Thursday</strong></td><td>10:00 AM &ndash; 1:00 PM</td><td>Application</td><td>Ticket of the Day. Classify an attack from its symptoms and choose the control that stops it. Unit exit check.</td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <h2>Work Outside of Class</h2>
-            <p>Budget <strong>21 to 23 hours</strong> this week outside our meetings &mdash; the most of any unit. Plan accordingly, and start early.</p>
-            <div class="table-container">
-                <table>
-                    <thead><tr><th>Component</th><th>Time</th><th>Section</th></tr></thead>
-                    <tbody>
-                        <tr><td>Sybex Volume 2 reading (157 pgs., two full chapters)</td><td>11 &ndash; 12 hrs</td><td>4.4</td></tr>
-                        <tr><td>Professor Messer videos (3 hr 25 min runtime, 24 videos)</td><td>4 &ndash; 4.5 hrs</td><td>4.5</td></tr>
-                        <tr><td>Take-home lab, two parts (ungraded)</td><td>1.5 hrs</td><td>4.6</td></tr>
-                        <tr><td>NETLAB online labs (2 labs)</td><td>1.5 &ndash; 2.5 hrs</td><td>4.8</td></tr>
-                        <tr><td>Practice questions and unit test</td><td>2.5 hrs</td><td>4.7, 4.10</td></tr>
-                        <tr><td>Reflection journal</td><td>1 hr</td><td>4.9</td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="callout callout-tip">
-                <div class="callout-title">How to Survive the Heaviest Unit</div>
-                <div class="callout-content">
-                    <ul class="checklist">
-                        <li>Split the videos across four evenings rather than one weekend block &mdash; 24 videos in one sitting is retention wasted</li>
-                        <li>Read Chapter 5 and Chapter 9 on different days; they are different kinds of material</li>
-                        <li>Book both NETLAB labs before Wednesday</li>
-                        <li>If something has to slip, let it be a second pass through the practice set, not the reading</li>
-                    </ul>
+            <div class="lab-section">
+                <div class="lab-header">
+                    <div class="lab-icon">&#127915;</div>
+                    <div>
+                        <h3 class="lab-title">Ticket of the Day</h3>
+                        <p class="lab-time">One per class meeting &middot; On your own &middot; About 20 minutes each &middot; Section 4.11</p>
+                    </div>
                 </div>
-            </div>
-
-            <div class="callout callout-info">
-                <div class="callout-title">Where to Find Due Dates</div>
-                <div class="callout-content"><p>Every date and deadline for this course lives in one place: the <strong>Course Schedule</strong> in the Start Here module. Unit pages tell you what to do; the Course Schedule tells you when it is due.</p></div>
-            </div>
-
-            <h2>Exam Objectives Covered</h2>
-            <div class="table-container">
-                <table>
-                    <thead><tr><th>Objective</th><th>Title</th><th>Exam Weight of Parent Domain</th></tr></thead>
-                    <tbody>
-                        <tr><td><strong>2.1</strong></td><td>Security measures and their purposes</td><td rowspan="5">Domain 2.0 Security &mdash; 28%</td></tr>
-                        <tr><td><strong>2.4</strong></td><td>Types of malware and tools and methods for detection, removal, and prevention</td></tr>
-                        <tr><td><strong>2.5</strong></td><td>Social engineering attacks, threats, and vulnerabilities</td></tr>
-                        <tr><td><strong>2.7</strong></td><td>Workstation security options and hardening techniques</td></tr>
-                        <tr><td><strong>2.9</strong></td><td>Data destruction and disposal methods</td></tr>
-                        <tr><td><strong>4.4</strong></td><td>Common safety procedures</td><td rowspan="3">Domain 4.0 Operational Procedures &mdash; 21%</td></tr>
-                        <tr><td><strong>4.5</strong></td><td>Environmental impacts and local environment controls</td></tr>
-                        <tr><td><strong>4.6</strong></td><td>Prohibited content and activity, privacy, licensing, and policy concepts</td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <h2>How This Unit Is Graded</h2>
-            <p>Three things are graded: the <strong>NETLAB labs (4.8)</strong>, the <strong>reflection (4.9)</strong>, and the <strong>unit test (4.10)</strong>. Each is worth <strong>100 points</strong>, awarded in full when it meets the completion standard on that item's page. Work that falls short is returned for revision and resubmitted for full credit &mdash; it is not partially scored.</p>
-            <p>Everything else in this unit is ungraded: the pre-assessment, your reading and video notes, the practice questions, and the labs. They are still expected, and they are where the learning actually happens &mdash; the graded items only measure it.</p>
-
-            <div class="key-concept">
-                <h4>Core 2 Passes at 700, Not 675</h4>
-                <p>Core 1 passed at 675 out of 900. <strong>Core 2 passes at 700.</strong> Because the scale starts at 100 rather than zero, 700 works out to about <strong>75% of raw points</strong> &mdash; not the roughly 72% you needed in Core 1.</p>
-                <p>That difference matters. A student who passed Core 1 comfortably at 73% would fail Core 2 with the same performance. Aim higher from day one.</p>
+                <p>Each class meeting has one help-desk ticket to work <strong>on your own</strong>. All three are in <strong>Section 4.11, Unit 4 Tickets</strong>, with instructions at the top of that page.</p>
+                <ul class="styled-list">
+                    <li><strong>Ticket 1</strong> &mdash; Tuesday: The Invoice Nobody Sent</li>
+                    <li><strong>Ticket 2</strong> &mdash; Wednesday: The Clinic Walk-Through</li>
+                    <li><strong>Ticket 3</strong> &mdash; Thursday: Clearing Out the Storage Room</li>
+                </ul>
+                <div class="callout callout-warning">
+                    <div class="callout-title">Security Tickets Are Written Differently</div>
+                    <div class="callout-content"><p>When a ticket involves a possible security incident, your notes may become evidence. Record what you observed and when, in the order you observed it, and avoid speculation about who did it or why. "Found an unrecognized process running as the local administrator account at 10:42" belongs in a ticket. "Looks like the night shift installed something" does not.</p></div>
+                </div>
             </div>
 
             <div class="summary-box">
-                <h3>Unit 4 Checklist</h3>
+                <h3>What These Labs Give You</h3>
                 <ul>
-                    <li>Complete the Section 4.2 Pre-Assessment on your own by the end of Tuesday, before the reading</li>
-                    <li>Read the assigned Sybex Volume 2 chapters listed in Section 4.4 &mdash; two full chapters, so start early</li>
-                    <li>Watch the twenty-four Professor Messer videos in Section 4.5, split across several evenings</li>
-                    <li>Complete both parts of the take-home lab in Section 4.6, Classroom/Home Labs</li>
-                    <li>Work the Section 4.7 practice set with confidence marking until you score 10 out of 10</li>
-                    <li>Complete NDG A+ v5 Labs 17 and 08 in NETLAB &mdash; reserve early</li>
-                    <li>Submit your Section 4.9 reflection</li>
-                    <li>Take the Section 4.10 Unit Test</li>
+                    <li>Practice naming a social engineering variant from the message itself, and knowing when no amount of looking is enough</li>
+                    <li>A classified inventory of the physical controls in a building you use every week</li>
+                    <li>An honest hardening audit of your own machine, and one change worth making</li>
+                    <li>Five defended disposal decisions, including the leased-device risk most technicians miss</li>
+                    <li>The professional boundary between observing a control and testing one</li>
                 </ul>
             </div>
 

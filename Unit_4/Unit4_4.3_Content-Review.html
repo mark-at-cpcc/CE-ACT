@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unit 4 &mdash; 4.3 Content Review | CompTIA A+ Core 1</title>
+    <title>Unit 4 &mdash; 4.3 Content Review | CompTIA A+ Core 2</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,7 +15,7 @@
     <style>
         /* ============================================
            CPCC COURSE TEMPLATE - GOLD / CHARCOAL / BLACK
-           CTS-ITS7501-80 CompTIA A+ Core 1 Training
+           CTS-ITS7501-80 CompTIA A+ Core 2 Training
            Type: true black. Accents: gold. Chrome: charcoal.
            ============================================ */
 
@@ -144,6 +144,28 @@
         ul li::marker { color: var(--accent-teal); }
         ol li::marker { color: var(--accent-teal); font-weight: 700; }
 
+        .styled-list { list-style: none; padding-left: 0; }
+        .styled-list li { position: relative; padding-left: var(--space-lg); margin-bottom: var(--space-sm); }
+        .styled-list li::before { content: '\25B8'; position: absolute; left: 0; color: var(--accent-teal); font-weight: bold; }
+
+        .checklist { list-style: none; padding-left: 0; }
+        .checklist li { position: relative; padding-left: 2rem; margin-bottom: var(--space-sm); }
+        .checklist li::before {
+            content: '\2713'; position: absolute; left: 0; width: 1.5rem; height: 1.5rem;
+            background: var(--accent-green-light); color: var(--accent-green);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 0.75rem; font-weight: bold;
+        }
+
+        .objectives-box {
+            background: linear-gradient(135deg, var(--primary-pale) 0%, var(--accent-teal-light) 100%);
+            border-left: 5px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .objectives-box h3 { color: var(--text-black); margin-top: 0; margin-bottom: var(--space-md);
+            display: flex; align-items: center; gap: var(--space-sm); border-left: none; padding-left: 0; }
+        .objectives-box ol { margin-bottom: 0; }
+
         .tech-box {
             background: var(--neutral-100); border: 2px solid var(--neutral-500);
             border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
@@ -159,6 +181,7 @@
         .plain-box .callout-content { padding-left: 0; }
 
         .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; position: relative; overflow: hidden; }
+        .callout::before { position: absolute; top: var(--space-md); left: var(--space-md); font-size: 1.5rem; }
         .callout-title { font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 1rem;
             text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
         .callout-content { }
@@ -169,30 +192,21 @@
         .callout-danger { background: var(--alert-danger-bg); border-left: 4px solid var(--alert-danger); }
         .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
 
-        .objectives-box {
-            background: var(--primary-pale); border-left: 5px solid var(--primary-main);
-            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
-        }
-        .objectives-box h3 { margin-top: 0; border-left: none; padding-left: 0; color: var(--text-black); }
-        .objectives-box ol { margin-bottom: 0; }
-
         .key-concept {
             background: linear-gradient(135deg, var(--accent-purple-light) 0%, var(--white) 100%);
             border: 2px solid var(--accent-purple); border-radius: var(--radius-lg);
             padding: var(--space-lg); margin: var(--space-xl) 0 var(--space-lg); position: relative;
         }
         .key-concept::before {
-            content: 'KEY CONCEPT'; position: absolute; top: -12px; left: var(--space-lg);
+            content: '\1F511 KEY CONCEPT'; position: absolute; top: -12px; left: var(--space-lg);
             background: var(--accent-purple); color: var(--white); font-family: var(--font-heading), sans-serif;
             font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
             padding: var(--space-xs) var(--space-md); border-radius: var(--radius-sm);
         }
         .key-concept h4 { color: var(--text-black); margin-top: var(--space-sm); }
 
-        .definition {
-            background: var(--neutral-100); border-radius: var(--radius-md); padding: var(--space-lg);
-            margin: var(--space-md) 0; border-left: 4px solid var(--accent-orange);
-        }
+        .definition { background: var(--neutral-100); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin: var(--space-md) 0; border-left: 4px solid var(--accent-orange); }
         .definition-term { font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 1.125rem;
             color: var(--text-black); margin-bottom: var(--space-xs); }
         .definition-text { color: var(--text-black); margin-bottom: 0; }
@@ -221,18 +235,25 @@
             border: 2px dashed var(--accent-orange); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
         }
         .activity-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg); }
+        .activity-icon { width: 50px; height: 50px; background: var(--accent-orange); border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; }
         .activity-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700;
             color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
         .activity-subtitle { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
 
         .lab-section {
-            background: var(--white); border: 2px solid var(--primary-dark); border-radius: var(--radius-lg);
-            padding: var(--space-xl); margin: var(--space-xl) 0;
+            background: linear-gradient(135deg, var(--accent-teal-light) 0%, var(--white) 100%);
+            border: 2px solid var(--accent-teal); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
         }
-        .lab-header { padding-bottom: var(--space-md); margin-bottom: var(--space-lg); border-bottom: 2px solid var(--primary-dark); }
-        .lab-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700; color: var(--text-black); border-left: none; padding-left: 0; }
-        .lab-time { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
-        .lab-steps { list-style: none; counter-reset: lab-step; padding-left: 0; }
+        .lab-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg);
+            padding-bottom: var(--space-md); border-bottom: 2px solid var(--accent-teal); }
+        .lab-icon { width: 60px; height: 60px; background: var(--accent-teal); border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center; font-size: 1.75rem; flex-shrink: 0; }
+        .lab-title { font-family: var(--font-heading), sans-serif; font-size: 1.375rem; font-weight: 700;
+            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
+        .lab-time { font-size: 0.875rem; color: var(--neutral-500); margin: 0; display: flex; align-items: center; gap: var(--space-xs); }
+        .lab-time::before { content: '\23F1\FE0F'; }
+        .lab-steps { counter-reset: lab-step; list-style: none; padding-left: 0; }
         .lab-steps li { counter-increment: lab-step; position: relative; padding-left: 3rem; margin-bottom: var(--space-lg); }
         .lab-steps li::before {
             content: counter(lab-step); position: absolute; left: 0; width: 2rem; height: 2rem;
@@ -250,7 +271,6 @@
             padding: 2px 10px; border-radius: var(--radius-sm);
             text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); }
         .question-text { font-weight: 600; color: var(--text-black); margin-bottom: var(--space-md); }
-
         details.answer { margin-top: var(--space-sm); }
         details.answer summary { cursor: pointer; font-weight: 700; color: var(--text-black);
             font-family: var(--font-heading), sans-serif; font-size: 0.875rem;
@@ -261,40 +281,46 @@
         .references-section { background: var(--neutral-100); border-radius: var(--radius-lg);
             padding: var(--space-lg) var(--space-xl); margin: var(--space-xl) 0; border-top: 3px solid var(--primary-main); }
         .references-section h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .references-section ul { padding-left: var(--space-lg); }
 
-        .progress-bar { background: var(--neutral-300); border-radius: var(--radius-xl); height: 8px; overflow: hidden; margin: var(--space-lg) 0; }
-        .progress-fill { background: var(--primary-main); height: 100%; border-radius: var(--radius-xl); }
-        .progress-label { display: flex; justify-content: space-between; font-size: 0.875rem; color: var(--neutral-500); margin-bottom: var(--space-xs); }
+        .summary-box {
+            background: var(--primary-dark); color: var(--white);
+            border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .summary-box h3 { color: var(--white); margin-top: 0; display: flex; align-items: center;
+            gap: var(--space-sm); border-left: none; padding-left: 0; }
+        .summary-box h3::before { content: '\1F4CB'; }
+        .summary-box ul { margin-bottom: 0; }
+        .summary-box li { color: var(--white); }
+        .summary-box li::marker { color: var(--primary-light); }
 
-        .module-footer { background: var(--neutral-100); padding: var(--space-lg) var(--space-xl); text-align: center; border-top: 1px solid var(--neutral-300); }
-        .footer-text { font-size: 0.875rem; color: var(--neutral-500); }
+        .section-divider {
+            border: none; height: 6px; margin: var(--space-2xl) 0;
+            background: linear-gradient(90deg, transparent 0%, var(--primary-main) 15%, var(--primary-light) 50%, var(--primary-main) 85%, transparent 100%);
+            border-radius: var(--radius-sm); box-shadow: var(--shadow-sm);
+        }
+
+        .module-footer { background: var(--primary-dark); padding: var(--space-lg) var(--space-xl);
+            text-align: center; border-top: 4px solid var(--primary-main); }
+        .footer-text { font-size: 0.875rem; color: var(--white); margin: 0; }
 
         .text-center { text-align: center; }
         .text-muted { color: var(--neutral-500); }
-        .mt-sm { margin-top: var(--space-sm); } .mt-md { margin-top: var(--space-md); } .mt-lg { margin-top: var(--space-lg); }
-        .mb-sm { margin-bottom: var(--space-sm); } .mb-md { margin-bottom: var(--space-md); } .mb-lg { margin-bottom: var(--space-lg); }
-
-        /* Interactive quiz controls (pre-assessment / practice questions) */
-        .answer-option { display: block; width: 100%; text-align: left; padding: var(--space-sm) var(--space-md);
-            margin-bottom: var(--space-sm); border: 2px solid var(--neutral-300); border-radius: var(--radius-sm);
-            background: var(--white); cursor: pointer; font-family: var(--font-body), sans-serif; font-size: 1rem; color: var(--text-black); }
-        .answer-option:hover { border-color: var(--primary-main); }
-        .answer-option.selected { border-color: var(--primary-dark); background: var(--primary-pale); }
-        .answer-option.correct { border-color: var(--accent-green); background: var(--accent-green-light); }
-        .answer-option.incorrect { border-color: var(--alert-danger); background: var(--alert-danger-bg); }
-        .quiz-btn { font-family: var(--font-heading), sans-serif; font-weight: 700; padding: var(--space-sm) var(--space-xl);
-            border-radius: var(--radius-sm); border: 2px solid var(--primary-dark); background: var(--primary-dark); color: var(--white);
-            cursor: pointer; font-size: 0.95rem; margin-right: var(--space-sm); }
-        .quiz-btn:hover { background: #333333; }
-        .quiz-btn.secondary { background: var(--white); color: var(--primary-dark); }
-        .quiz-btn.secondary:hover { background: var(--neutral-100); }
-        #quizResults { display:none; background: var(--primary-pale); border: 2px solid var(--primary-main); border-radius: var(--radius-md);
-            padding: var(--space-lg); margin-top: var(--space-lg); text-align: center; font-family: var(--font-heading), sans-serif; }
-        #quizResults .score { font-size: 2rem; font-weight: 800; color: var(--text-black); }
+        .highlight { background: linear-gradient(180deg, transparent 50%, var(--primary-light) 50%); padding: 0 2px; }
 
         @media (max-width: 768px) {
+            body { padding: var(--space-sm); }
+            .module-header { padding: var(--space-xl) var(--space-lg); }
             .module-title { font-size: 1.75rem; }
             .content-area { padding: var(--space-lg); }
+            h2 { font-size: 1.375rem; }
+            .lab-header, .activity-header { flex-direction: column; align-items: flex-start; }
+        }
+        @media print {
+            body { background: white; padding: 0; }
+            .course-container { box-shadow: none; }
+            .toc { display: none; }
+            details.answer { display: none; }
         }
     </style>
 </head>
@@ -302,25 +328,25 @@
     <div class="course-container">
 
         <header class="module-header">
-            <div class="module-label">Unit 4 &middot; Network Services and Configuration &middot; Section 4.3</div>
+            <div class="module-label">Unit 4 &middot; Security Concepts and Threats &middot; Section 4.3</div>
             <h1 class="module-title">Content Review</h1>
-            <p class="module-subtitle">CompTIA A+ Core 1 &mdash; Domains 2.0 and 5.0</p>
+            <p class="module-subtitle">CompTIA A+ Core 2 - Domains 2.0 and 4.0</p>
         </header>
 
-        <nav class="toc" id="tocNav">
+                <nav class="toc" id="tocNav">
             <div class="toc-header">Table of Contents</div>
-            <div class="toc-item">4.1 &mdash; Unit Overview and Learning Objectives</div>
+            <div class="toc-item">4.1 &mdash; Unit Overview and Schedule</div>
             <div class="toc-item">4.2 &mdash; Unit Pre-Assessment</div>
             <div class="toc-item current" id="tocCurrent">4.3 &mdash; Content Review</div>
             <div class="toc-item">4.4 &mdash; Reading Assignment</div>
             <div class="toc-item">4.5 &mdash; Video Assignment</div>
-            <div class="toc-item">4.6 &mdash; Classroom Labs</div>
+            <div class="toc-item">4.6 &mdash; Classroom/Home Labs</div>
             <div class="toc-item">4.7 &mdash; Practice Questions</div>
             <div class="toc-item">4.8 &mdash; Online Labs: NETLAB</div>
             <div class="toc-item">4.9 &mdash; Reflection Activity</div>
             <div class="toc-item">4.10 &mdash; Unit Test</div>
+            <div class="toc-item">4.11 &mdash; Unit 4 Tickets</div>
         </nav>
-
         <style>
             /* Collapsible TOC: only the current section shows until clicked */
             nav.toc#tocNav { gap: 0; }
@@ -414,254 +440,288 @@
 
         <div class="content-area">
 
-            <p class="text-muted">The core concepts for this week, in plain terms, before you go deep in the full chapter reading.</p>
+            <p class="text-muted">This is the core reference for Unit 4. Read it before Wednesday's session, and come back to it when the textbook feels dense.</p>
 
-            <div class="tech-box">
-                <div class="callout-title">Technical Overview</div>
-                <div class="callout-content">
-                    <p>This section walks through the core concepts for Unit 4 before you hit the full chapter reading in 4.4, in the order they're covered here: wireless media, network services, SOHO network installation and configuration, network troubleshooting, and virtual networking (VLANs and VPNs).</p>
-                </div>
+            <div class="callout callout-info">
+                <div class="callout-title">How to Use This Page</div>
+                <div class="callout-content"><p>This is the longest content review of the term, because Unit 4 is the largest unit. Do not read it in one sitting. Take Parts 1 through 3 on one day and Parts 4 through 6 on another. Each part matches one or two exam objectives, so you can stop at a heading and pick up cleanly later.</p></div>
             </div>
+
+            <h2>Part 1 &mdash; Security Measures (Objective 2.1)</h2>
 
             <div class="plain-box">
                 <div class="callout-title">In Plain Terms</div>
-                <div class="callout-content">
-                    <p>Think of this section as the trailer, not the movie. It gives you the shape of the week so the full reading in 4.4 has something to attach to, instead of hitting you cold.</p>
-                </div>
+                <div class="callout-content"><p>Security comes in three layers. <strong>Physical security</strong> keeps people away from the equipment. <strong>Physical access security</strong> controls which people are allowed past a barrier. <strong>Logical security</strong> controls what a person may do once they are at a keyboard. An attacker only needs one layer to fail.</p></div>
             </div>
 
-            <h2>Wireless Media</h2>
-
-            <p>Unit 3 focused on wired media &mdash; the physical cabling that carries a signal from one point to another. This unit shifts to wireless media and to logical networking (how traffic is organized, addressed, and routed) rather than physical networking (the actual cables and connectors carrying it).</p>
-
-            <p>Wireless media carries signals as radio waves through the air instead of over a cable. This unit covers the wireless standards and technologies &mdash; from short-range to satellite &mdash; a technician needs to identify and configure.</p>
-
-            <h3>Wireless Media</h3>
-
+            <h3>Physical Security</h3>
             <div class="table-container">
                 <table>
-                    <thead><tr><th>Technology</th><th>Typical Range</th><th>Common Use</th><th>Real-World Examples</th></tr></thead>
+                    <thead><tr><th>Control</th><th>What It Does</th></tr></thead>
                     <tbody>
-                        <tr><td>802.11 (Wi-Fi)</td><td>Tens of meters indoors</td><td>General wireless networking for computers, phones, and other devices</td><td>A home Wi-Fi router; an iPhone or MacBook connecting to home Wi-Fi</td></tr>
-                        <tr><td>Bluetooth</td><td>A few meters to about 10 meters</td><td>Pairing peripherals &mdash; headsets, keyboards, mice, speakers</td><td>AirPods pairing to an iPhone; an Apple Watch pairing to an iPhone</td></tr>
-                        <tr><td>NFC (Near Field Communication)</td><td>A few centimeters</td><td>Contactless payment, quick device pairing</td><td>Apple Pay or Samsung Pay at a checkout terminal</td></tr>
-                        <tr><td>RFID (Radio Frequency Identification)</td><td>Centimeters to several meters, depending on tag type</td><td>Inventory tracking, access badges</td><td>A store's inventory security tags; a tap-to-enter employee badge</td></tr>
-                        <tr><td>Cellular (3G/4G/5G)</td><td>Kilometers, dependent on tower proximity</td><td>Mobile phone data and voice, tethering, mobile hotspots</td><td>An iPhone's Personal Hotspot; streaming video over 5G on a phone</td></tr>
-                        <tr><td>Satellite</td><td>Thousands of kilometers (device to orbiting satellite)</td><td>Internet access and communication in remote or rural areas without other infrastructure</td><td>An iPhone's Emergency SOS via satellite; a home satellite internet dish</td></tr>
+                        <tr><td><strong>Bollards</strong></td><td>Posts that stop a vehicle from reaching a building or entrance</td></tr>
+                        <tr><td><strong>Access control vestibule</strong></td><td>A two-door entry where only one door opens at a time, so one badge admits one person</td></tr>
+                        <tr><td><strong>Badge reader</strong></td><td>Grants entry to a credential rather than to a key</td></tr>
+                        <tr><td><strong>Video surveillance</strong></td><td>Records activity; deters, and provides evidence afterward</td></tr>
+                        <tr><td><strong>Alarm systems</strong></td><td>Signal an intrusion or an environmental problem</td></tr>
+                        <tr><td><strong>Motion sensors</strong></td><td>Detect movement in an area that should be empty</td></tr>
+                        <tr><td><strong>Door locks</strong> and <strong>equipment locks</strong></td><td>Secure rooms, and secure devices such as laptops to a desk</td></tr>
+                        <tr><td><strong>Security guards</strong></td><td>Apply judgment where a device cannot</td></tr>
+                        <tr><td><strong>Fences</strong></td><td>Define the perimeter and slow an intruder down</td></tr>
                     </tbody>
                 </table>
             </div>
 
-            <div class="definition">
-                <div class="definition-term">802.11 Frequencies and Channels</div>
-                <p class="definition-text">Wi-Fi operates primarily in the 2.4 GHz and 5 GHz bands, with newer standards adding 6 GHz. Lower frequencies (2.4 GHz) travel farther and penetrate walls better but are more crowded and slower; higher frequencies (5 GHz and 6 GHz) offer more bandwidth and less interference at the cost of shorter range. Each band is divided into channels, and choosing a channel with less overlap from neighboring networks reduces interference.</p>
-            </div>
+            <h3>Physical Access Security</h3>
+            <p>These are the credentials a person carries or is: <strong>key fobs</strong>, <strong>smart cards</strong>, a <strong>mobile digital key</strong>, ordinary <strong>keys</strong>, and <strong>biometrics</strong> &mdash; retina scanner, fingerprint scanner, palm print scanner, facial recognition technology, and voice recognition technology. <strong>Lighting</strong> supports all of them by making people and cameras able to see, and <strong>magnetometers</strong> detect metal a person is carrying.</p>
 
-            <h3>802.11 Protocol</h3>
-
+            <h3>Logical Security</h3>
             <div class="table-container">
                 <table>
-                    <thead><tr><th>Type</th><th>2.4 GHz</th><th>5 GHz</th><th>6 GHz</th><th>Distance</th><th>Speed</th></tr></thead>
+                    <thead><tr><th>Concept</th><th>What It Means</th></tr></thead>
                     <tbody>
-                        <tr><td>802.11b (Wi-Fi 1)</td><td>&#10003;</td><td>&mdash;</td><td>&mdash;</td><td>Long</td><td>Low</td></tr>
-                        <tr><td>802.11a (Wi-Fi 2)</td><td>&mdash;</td><td>&#10003;</td><td>&mdash;</td><td>Short</td><td>Intermediate</td></tr>
-                        <tr><td>802.11g (Wi-Fi 3)</td><td>&#10003;</td><td>&mdash;</td><td>&mdash;</td><td>Long</td><td>Intermediate</td></tr>
-                        <tr><td>802.11n (Wi-Fi 4)</td><td>&#10003;</td><td>&#10003;</td><td>&mdash;</td><td>Long</td><td>Fast</td></tr>
-                        <tr><td>802.11ac (Wi-Fi 5)</td><td>&mdash;</td><td>&#10003;</td><td>&mdash;</td><td>Short</td><td>Fast</td></tr>
-                        <tr><td>802.11ax (Wi-Fi 6)</td><td>&#10003;</td><td>&#10003;</td><td>&mdash;</td><td>Long</td><td>Fast</td></tr>
-                        <tr><td>802.11ax (Wi-Fi 6E)</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td><td>Long</td><td>Fast</td></tr>
-                        <tr><td>802.11be (Wi-Fi 7)</td><td>&#10003;</td><td>&#10003;</td><td>&#10003;</td><td>Long</td><td>Fast</td></tr>
+                        <tr><td><strong>Principle of least privilege</strong></td><td>Give each account the minimum access its job requires, and nothing more</td></tr>
+                        <tr><td><strong>Zero Trust model</strong></td><td>Trust nothing by default; verify every request regardless of where it comes from</td></tr>
+                        <tr><td><strong>Access control lists (ACLs)</strong></td><td>Explicit lists of who may do what to a resource</td></tr>
+                        <tr><td><strong>Multifactor authentication (MFA)</strong></td><td>Two or more different kinds of proof &mdash; email, hardware token, authenticator application, SMS, voice call, TOTP, or OTP</td></tr>
+                        <tr><td><strong>SAML</strong> and <strong>single sign-on (SSO)</strong></td><td>One authentication that grants access to many systems</td></tr>
+                        <tr><td><strong>Just-in-time access</strong> and <strong>PAM</strong></td><td>Elevated rights granted only for the moment they are needed, then withdrawn</td></tr>
+                        <tr><td><strong>MDM</strong></td><td>Central management of mobile devices and what they may do</td></tr>
+                        <tr><td><strong>DLP</strong></td><td>Watches for sensitive data leaving the organization and blocks it</td></tr>
+                        <tr><td><strong>IAM</strong> and <strong>directory services</strong></td><td>The systems that hold identities and decide what each one may access</td></tr>
                     </tbody>
                 </table>
-            </div>
-
-            <h2>Network Services</h2>
-
-            <p>A network is only as useful as the services running on top of it. This section covers the services a technician is expected to recognize, configure at a basic level, and troubleshoot.</p>
-
-            <div class="definition">
-                <div class="definition-term">DNS (Domain Name System)</div>
-                <p class="definition-text">DNS translates human-readable domain names (like a website address) into the IP addresses computers actually use to communicate. Without DNS, every device on the internet would need to be reached by memorized IP address instead of a name.</p>
-                <p class="definition-text">DNS is like the phone book for the internet. Just as a phone book lets you look up a person's name to find their phone number instead of memorizing every number in town, DNS lets you type a name (like a website address) and get back the numeric IP address behind it &mdash; so people never have to memorize strings of numbers to reach the sites and services they use every day.</p>
-            </div>
-
-            <div class="table-container">
-                <table>
-                    <thead><tr><th>DNS Record</th><th>Purpose</th><th>Simplified</th></tr></thead>
-                    <tbody>
-                        <tr><td>A</td><td>Maps a name to an IPv4 address</td><td>The listing itself &mdash; the name and its number</td></tr>
-                        <tr><td>AAAA</td><td>Maps a name to an IPv6 address</td><td>The same listing, just a newer, longer phone number format</td></tr>
-                        <tr><td>CNAME</td><td>Maps an alias name to another name (a canonical name)</td><td>A "see also" entry pointing to another listing</td></tr>
-                        <tr><td>MX</td><td>Identifies the mail server responsible for a domain</td><td>The listing for where a domain's mail gets delivered</td></tr>
-                        <tr><td>TXT</td><td>Holds arbitrary text, commonly used for domain verification</td><td>A sticky note attached to the listing, proving who it belongs to</td></tr>
-                        <tr><td>DKIM / SPF / DMARC</td><td>Email authentication records that help prevent spoofed or spam email claiming to be from your domain</td><td>Caller ID checks that stop someone from faking the listing's number</td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="definition">
-                <div class="definition-term">DHCP (Dynamic Host Configuration Protocol)</div>
-                <p class="definition-text">DHCP automatically assigns IP addresses, subnet masks, default gateways, and DNS server addresses to devices as they join the network, drawing from a defined pool of available addresses and leasing them out for a set period of time. A DHCP reservation ties a specific device (by MAC address) to the same IP address every time, combining the convenience of automatic assignment with the predictability of a static address.</p>
             </div>
 
             <div class="key-concept">
-                <h4>The DHCP Process: DORA</h4>
-                <p>Every time a device joins a network and needs an address, it goes through a four-step exchange with the DHCP server known by the acronym <strong>DORA</strong>:</p>
-                <ul>
-                    <li><strong>Discover</strong> &mdash; the joining device broadcasts a request to the entire local network, asking "Is there a DHCP server out there?" It doesn't know the server's address yet, so this message goes to everyone.</li>
-                    <li><strong>Offer</strong> &mdash; a DHCP server that hears the request responds directly to the device with an offer: a specific IP address, along with the subnet mask, default gateway, and DNS server it would provide.</li>
-                    <li><strong>Request</strong> &mdash; the device replies, formally requesting that specific offered address. (On a network with more than one DHCP server, this step also tells every other server that its offer was not accepted.)</li>
-                    <li><strong>Acknowledge</strong> &mdash; the server confirms the assignment, and the device configures itself with the address and begins using the network.</li>
-                </ul>
-                <p>The Leasing Process: an assigned address is not permanent &mdash; it is <strong>leased</strong> for a set period of time. A common default lease length is <strong>24 hours</strong>, but that duration is configurable and is often shortened in highly transient environments where devices come and go constantly &mdash; a busy mall's guest Wi-Fi, for example, might use a lease as short as <strong>30 minutes</strong> so addresses free up quickly for the next wave of visitors. As a lease approaches its expiration, the device attempts to renew it directly with the server that issued it, well before time runs out. If the device is renewed successfully, the same address continues uninterrupted; if the original server can't be reached, the device eventually restarts the full DORA process to obtain a new lease.</p>
+                <h4>Least Privilege Is the One You Will Actually Apply</h4>
+                <p>Most of this list is designed by someone else. Least privilege is a decision technicians make constantly &mdash; whether to give a user local administrator rights so a program will install, whether a shared folder needs write access or read access.</p>
+                <p>The honest tension: least privilege creates help-desk tickets. It is still right. Most ransomware that encrypts a whole file server does so because the account that opened the attachment had more access than the job needed.</p>
             </div>
 
-            <div class="definition">
-                <div class="definition-term">DHCP Exclusions</div>
-                <p class="definition-text">A DHCP <strong>exclusion</strong> is a range of addresses inside a scope that the DHCP server is told never to hand out. The addresses still belong to the subnet, but the server skips over them when assigning leases, leaving them free for devices that are configured manually.</p>
-                <p class="definition-text">This exists because some devices need a fixed, predictable address that never changes &mdash; routers, switches, servers, and network printers are the usual examples. If those addresses stayed in the assignable pool, the DHCP server could hand one out to a random laptop and create an address conflict with the device already using it. Excluding the range prevents that collision entirely. A common setup is a scope covering an entire subnet with the first block of addresses excluded and reserved for infrastructure, and everything above that left available for DHCP clients.</p>
-                <p class="definition-text">Note the difference between an exclusion and a reservation: an <strong>exclusion</strong> tells the server not to assign those addresses at all, leaving them for manual configuration, while a <strong>reservation</strong> has the server assign one specific address to one specific device every time based on its MAC address.</p>
+            <h2>Part 2 &mdash; Malware (Objective 2.4)</h2>
+
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Type</th><th>What Makes It Distinct</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Virus</strong></td><td>Attaches to a file or program and spreads when that file runs</td></tr>
+                        <tr><td><strong>Trojan</strong></td><td>Disguised as something desirable so the user installs it willingly</td></tr>
+                        <tr><td><strong>Rootkit</strong></td><td>Hides itself deep in the operating system to avoid detection</td></tr>
+                        <tr><td><strong>Spyware</strong></td><td>Collects information about the user and sends it elsewhere</td></tr>
+                        <tr><td><strong>Ransomware</strong></td><td>Encrypts files and demands payment for the key</td></tr>
+                        <tr><td><strong>Keylogger</strong></td><td>Records keystrokes to capture passwords and other typed data</td></tr>
+                        <tr><td><strong>Boot sector virus</strong></td><td>Infects the startup code so it loads before the operating system</td></tr>
+                        <tr><td><strong>Cryptominer</strong></td><td>Uses the machine's processor to mine cryptocurrency for someone else</td></tr>
+                        <tr><td><strong>Stalkerware</strong></td><td>Monitors a specific person's device activity and location, usually installed by someone who knows them</td></tr>
+                        <tr><td><strong>Fileless</strong></td><td>Runs in memory using built-in tools, leaving little on disk for a scanner to find</td></tr>
+                        <tr><td><strong>Adware</strong> and <strong>PUP</strong></td><td>Displays unwanted advertising, or installs alongside wanted software without clear consent</td></tr>
+                    </tbody>
+                </table>
             </div>
+
+            <h3>Tools and Methods</h3>
+            <ul class="styled-list">
+                <li><strong>Antivirus</strong> and <strong>anti-malware</strong> &mdash; detection and removal on the endpoint</li>
+                <li><strong>EDR, MDR, and XDR</strong> &mdash; endpoint, managed, and extended detection and response: monitoring that watches behavior rather than matching known signatures</li>
+                <li><strong>Email security gateway</strong> &mdash; filters malicious mail before it reaches the user</li>
+                <li><strong>Software firewalls</strong> &mdash; control what a compromised machine can talk to</li>
+                <li><strong>Recovery console</strong> &mdash; a repair environment for a machine that will not start cleanly</li>
+                <li><strong>OS reinstallation</strong> &mdash; the certain answer when removal cannot be trusted</li>
+                <li><strong>User education regarding common threats,</strong> including <strong>antiphishing training</strong> &mdash; the control with the best return of anything on this list</li>
+            </ul>
 
             <div class="callout callout-warning">
-                <div class="callout-title">Important Point</div>
-                <div class="callout-content">
-                    <p>Remember APIPA from the previous unit? This is exactly where it comes back in. If a device is set to obtain its address dynamically and no DHCP server answers its Discover broadcast, the DORA process never completes &mdash; and Windows doesn't just leave the device with no address at all. Instead, it automatically self-assigns an <strong>APIPA</strong> address in the 169.254.0.0/16 range so the device can still communicate with other APIPA-assigned devices on the same local segment, even though it has no real network or internet access. Seeing a 169.254.x.x address on a Windows device is one of the clearest signs a technician will encounter that DHCP failed somewhere along the way.</p>
-                </div>
-            </div>
-
-            <div class="definition">
-                <div class="definition-term">NTP (Network Time Protocol)</div>
-                <p class="definition-text">NTP synchronizes the clocks of devices across a network to a common, accurate time source. A device configured to use NTP periodically checks in with a time server and adjusts its own clock to match, keeping every machine on the network within milliseconds of the same time.</p>
-                <p class="definition-text">This matters more than it first appears. When a technician reviews logs from several devices to trace a problem, those logs are only useful if the timestamps line up &mdash; otherwise there's no way to tell what happened first. Accurate time is also required for authentication systems, certificate validation, scheduled tasks, and backups, all of which can fail outright when a device's clock drifts too far from the rest of the network.</p>
-            </div>
-
-            <div class="definition">
-                <div class="definition-term">Database Server</div>
-                <p class="definition-text">In its most basic form, a database server is a computer whose job is to store organized collections of data and hand out or update that data when other systems ask for it. Rather than each application keeping its own separate copy of information, the database server holds one authoritative set that many clients can query at the same time.</p>
-                <p class="definition-text">Think of a store's inventory: the point-of-sale register, the online storefront, and the back-office reporting tool all need to know the same stock numbers. Each one sends a request to the database server, which looks up or updates the record and returns the result &mdash; so a sale rung up at the register is immediately reflected everywhere else. The database server also handles who is allowed to read or change which records, and works to keep the data accurate when many requests arrive at once.</p>
-            </div>
-
-            <div class="key-concept">
-                <h4>Other Core Services You Should Recognize</h4>
-                <ul>
-                    <li><strong>File and print servers</strong> &mdash; centralize storage and shared printer access for a network of users.</li>
-                    <li><strong>Mail servers</strong> &mdash; send, receive, and store email for an organization.</li>
-                    <li><strong>Web servers</strong> &mdash; host and serve websites and web applications.</li>
-                    <li><strong>Proxy servers</strong> &mdash; sit between clients and the internet, filtering, caching, or logging traffic.</li>
-                    <li><strong>Load balancers</strong> &mdash; spread incoming traffic across multiple servers so no single server is overwhelmed.</li>
-                    <li><strong>Syslog Servers</strong> &mdash; a centralized system that receives and stores log messages sent from routers, switches, firewalls, and other network devices, giving a technician one place to review activity and troubleshoot issues instead of checking each device individually.</li>
-                    <li><strong>SCADA / legacy / embedded / IoT devices</strong> &mdash; specialized and often older systems that still need to be identified and secured on a modern network.</li>
-                </ul>
-            </div>
-
-            <h2>Installing and Configuring a SOHO Network</h2>
-
-            <p>A SOHO (Small Office/Home Office) network is typically built around a single all-in-one device that combines a router, switch, access point, and basic firewall. Installing and configuring one correctly is a core, hands-on A+ skill.</p>
-
-            <div class="key-concept">
-                <h4>SOHO Wireless Security Basics</h4>
-                <ul>
-                    <li><strong>Change the default administrator password</strong> immediately &mdash; default credentials are one of the most common causes of unauthorized access.</li>
-                    <li><strong>Use WPA3</strong> (or WPA2 if WPA3 isn't available) for wireless encryption. Avoid WEP and open networks for anything beyond a public guest network.</li>
-                    <li><strong>Change the default SSID</strong> if it reveals the router make/model, and consider disabling SSID broadcast only if that fits the environment's needs.</li>
-                    <li><strong>Enable the built-in firewall</strong> and disable remote administration unless it's specifically required.</li>
-                    <li><strong>Keep firmware updated</strong> to patch known vulnerabilities.</li>
-                </ul>
-            </div>
-
-            <div class="callout callout-warning">
-                <div class="callout-title">Common Exam Trap</div>
-                <div class="callout-content">
-                    <p>WPS (Wi-Fi Protected Setup) is convenient &mdash; a button press or PIN to join a network &mdash; but its PIN method has known vulnerabilities. Many security-conscious SOHO configurations disable WPS entirely rather than relying on it.</p>
-                </div>
-            </div>
-
-            <h2>Troubleshooting Network Problems</h2>
-
-            <p>Domain 5.0 is 28% of the exam, and this week is where network troubleshooting gets its own dedicated attention, building on the Ticket of the Day habit you've been practicing since Unit 1.</p>
-
-            <div class="table-container">
-                <table>
-                    <thead><tr><th>Symptom</th><th>What It Often Means</th><th>Possible Solutions</th></tr></thead>
-                    <tbody>
-                        <tr><td>Lack of connectivity</td><td>Cable, port, driver, or configuration failure somewhere along the path</td><td><ul class="styled-list"><li>Check that the cable is fully seated at both ends</li><li>Try a known-good cable</li><li>Confirm the link light on the NIC and switch port</li><li>Verify the adapter is enabled in Device Manager</li></ul></td></tr>
-                        <tr><td>Intermittent wireless connection</td><td>Interference, weak signal, or an overloaded access point</td><td><ul class="styled-list"><li>Move closer to the access point</li><li>Switch to a less congested channel or band</li><li>Check for nearby devices (microwaves, cordless phones) that could be causing interference</li></ul></td></tr>
-                        <tr><td>High latency</td><td>Congestion, routing inefficiency, or distance to the destination</td><td><ul class="styled-list"><li>Run a ping test to compare local versus remote response times</li><li>Check for heavy traffic or downloads competing for bandwidth</li><li>Try a wired connection if currently on Wi-Fi</li></ul></td></tr>
-                        <tr><td>High jitter</td><td>Inconsistent delay between packets &mdash; noticeable as choppy audio or video in real-time applications</td><td><ul class="styled-list"><li>Move real-time traffic (calls, video) to a wired connection where possible</li><li>Close bandwidth-heavy background applications</li><li>Check for a congested or overloaded network segment</li></ul></td></tr>
-                        <tr><td>Port flapping</td><td>A switch port repeatedly going up and down, often from a bad cable or failing NIC</td><td><ul class="styled-list"><li>Swap the cable first</li><li>Test the device on a different switch port to isolate whether the cable, the port, or the device's NIC is at fault</li></ul></td></tr>
-                        <tr><td>Poor VoIP quality</td><td>Usually a jitter or bandwidth problem rather than a simple connectivity failure</td><td><ul class="styled-list"><li>Check for jitter and available bandwidth first rather than assuming a basic connectivity issue</li><li>Move the call to a wired connection if it's currently wireless</li></ul></td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="key-concept">
-                <h4>Latency vs. Jitter</h4>
-                <p><strong>Latency</strong> is how long it takes a packet to travel from source to destination &mdash; a single delay measurement. <strong>Jitter</strong> is the variation in that delay from one packet to the next. A connection can have high latency but low jitter (consistently slow, but predictable), or low latency but high jitter (usually fast, but unpredictable) &mdash; and it's jitter, not raw latency, that tends to make voice and video calls sound choppy.</p>
-            </div>
-
-            <h2>Virtual Networking</h2>
-
-            <p>Not every network boundary is a physical cable. Modern networks are frequently divided and protected using <strong>virtual</strong> constructs that live in software and hardware configuration rather than in a separate set of wires.</p>
-
-            <p>On a typical LAN with no VLANs configured, every host is part of one single network. Every device can communicate with every other device, and every device sees the broadcast traffic every other device sends &mdash; there's no separation at all. Layer 3 network switches ship from the factory with every port assigned to <strong>VLAN 1</strong>, the default VLAN, which is exactly this flat, everyone-sees-everyone arrangement. A technician can reconfigure individual ports to belong to a different VLAN instead &mdash; for example, moving a set of ports onto <strong>VLAN 10</strong> &mdash; and from that point on, only other ports also assigned to VLAN 10 can communicate with them directly. A device on VLAN 10 and a device still on VLAN 1 can no longer see each other's traffic or talk to each other without a router or Layer 3 device routing between the two VLANs.</p>
-
-            <div class="definition">
-                <div class="definition-term">VLAN (Virtual Local Area Network)</div>
-                <p class="definition-text">A VLAN divides a single physical switch into multiple logical broadcast domains. Devices on different VLANs cannot communicate directly, even if they're plugged into the same physical switch, unless a router or Layer 3 device explicitly routes traffic between them. This is how an organization keeps, say, guest traffic and accounting traffic on the same hardware but fully separated from each other.</p>
-            </div>
-
-            <div class="key-concept">
-                <h4>Why Segment with VLANs?</h4>
-                <p>VLANs reduce broadcast traffic (smaller broadcast domains mean less noise for every device to process), improve security (a compromised device on one VLAN can't directly reach devices on another), and organize traffic by function or department rather than by physical location. A single managed switch can host dozens of VLANs, each behaving as if it were its own separate physical switch. These smaller broadcast domains are known as <strong>subnets</strong> &mdash; each VLAN typically corresponds to its own subnet, with its own range of IP addresses.</p>
-                <p>For example, a single office LAN might be divided into four job-specific VLANs:</p>
-                <ul>
-                    <li><strong>VLAN 10 &mdash; Accounting:</strong> keeps financial systems and records isolated from the rest of the office.</li>
-                    <li><strong>VLAN 20 &mdash; Sales and Marketing:</strong> separates day-to-day staff traffic from more sensitive departments.</li>
-                    <li><strong>VLAN 30 &mdash; Servers/IT:</strong> isolates backend infrastructure so only authorized traffic reaches it.</li>
-                    <li><strong>VLAN 40 &mdash; Guest Wi-Fi:</strong> gives visitors internet access with no path at all into any internal resource.</li>
-                </ul>
-            </div>
-
-            <h2>Remote Access Technologies</h2>
-
-            <div class="definition">
-                <div class="definition-term">VPN (Virtual Private Network)</div>
-                <p class="definition-text">A VPN creates an encrypted tunnel across an untrusted network &mdash; almost always the public internet &mdash; so that traffic inside the tunnel is protected from anyone intercepting it along the way.</p>
-            </div>
-
-            <div class="table-container">
-                <table>
-                    <thead><tr><th>VPN Type</th><th>What It Connects</th><th>Typical Use</th></tr></thead>
-                    <tbody>
-                        <tr><td>Client-to-site</td><td>A single remote user's device to an organization's internal network</td><td>An employee working from home reaching office resources</td></tr>
-                        <tr><td>Site-to-site</td><td>Two entire networks to each other</td><td>Connecting a branch office network to the main office network permanently</td></tr>
-                    </tbody>
-                </table>
+                <div class="callout-title">A Real Example You Will Meet on the Job</div>
+                <div class="callout-content"><p>A user's machine is slow, the fan runs constantly, and Task Manager shows a process at 95% CPU that the user does not recognize. Nothing is encrypted and nothing is being stolen &mdash; the machine is mining cryptocurrency for someone else. Cryptominers are common precisely because they do not announce themselves; the only symptom is a computer that is inexplicably busy. Your Unit 2 skills found it.</p></div>
             </div>
 
             <div class="callout callout-info">
-                <div class="callout-title">VLANs vs. VPNs, in One Line</div>
-                <div class="callout-content">
-                    <p>A VLAN separates traffic that's already inside a LAN &mdash; VLAN traffic cannot be routed onto the internet. A VPN protects traffic coming from the WAN onto the LAN. So one protects individualized traffic on a LAN, and the other protects remote traffic tunneled in from the WAN onto the LAN.</p>
-                </div>
+                <div class="callout-title">Removal Comes in Unit 6</div>
+                <div class="callout-content"><p>This unit is about recognizing malware. CompTIA's ten-step malware removal procedure is objective 2.6, and it is taught in Unit 6 with the rest of troubleshooting. For now, learn what each type does and which tool addresses it.</p></div>
             </div>
 
-            <div class="definition">
-                <div class="definition-term">SSH (Secure Shell)</div>
-                <p class="definition-text">SSH is an encrypted protocol that gives a technician a remote command-line session with a device, over TCP port 22 by default. Once connected, the technician types commands directly into that remote device exactly as if they were sitting in front of it, without ever leaving their own desk.</p>
+            <h2>Part 3 &mdash; Social Engineering, Threats, and Vulnerabilities (Objective 2.5)</h2>
+
+            <h3>Social Engineering &mdash; Attacking the Person</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Attack</th><th>How It Works</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Phishing</strong></td><td>A fraudulent message that appears legitimate, aiming to collect credentials or deliver malware</td></tr>
+                        <tr><td><strong>Vishing</strong></td><td>Phishing by voice call</td></tr>
+                        <tr><td><strong>Smishing</strong></td><td>Phishing by text message</td></tr>
+                        <tr><td><strong>QR code phishing</strong></td><td>A malicious link hidden in a QR code, which a person cannot inspect before scanning</td></tr>
+                        <tr><td><strong>Spear phishing</strong></td><td>Phishing tailored to a specific person using details about them</td></tr>
+                        <tr><td><strong>Whaling</strong></td><td>Spear phishing aimed at an executive</td></tr>
+                        <tr><td><strong>Shoulder surfing</strong></td><td>Reading a screen or keyboard over someone's shoulder</td></tr>
+                        <tr><td><strong>Tailgating</strong></td><td>Following an authorized person through a controlled door</td></tr>
+                        <tr><td><strong>Impersonation</strong></td><td>Pretending to be someone with a right to access &mdash; often "IT support"</td></tr>
+                        <tr><td><strong>Dumpster diving</strong></td><td>Recovering useful information from discarded paper and equipment</td></tr>
+                    </tbody>
+                </table>
             </div>
 
             <div class="key-concept">
-                <h4>Why SSH Matters for Core Infrastructure</h4>
-                <p>Servers, routers, switches, and other critical hosts are frequently kept in a locked server room or a remote data center, sometimes hundreds of miles from the technician managing them. SSH is the standard way a technician reaches those devices to configure, update, or troubleshoot them, because everything sent over the connection &mdash; including the username and password used to log in &mdash; is encrypted. That protects both the administrator's credentials and the commands being run from anyone intercepting the traffic along the way.</p>
-                <p>SSH replaced an older protocol called Telnet, which sent everything, including passwords, as plain, unencrypted text. Telnet is no longer considered acceptable for managing a production device, and SSH is the expected standard in its place.</p>
+                <h4>Impersonation Is About You</h4>
+                <p>The most effective impersonation script in the world is "Hi, this is IT &mdash; I need your password to fix your account." It works because technicians really do call users, and users want to be helpful.</p>
+                <p>Two habits protect your users: never ask for a password, ever, so that anyone who does is immediately suspect; and tell users plainly, on the first call you make to them, that you will never ask. That one sentence does more for an organization's security than most software.</p>
+            </div>
+
+            <h3>Threats</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Threat</th><th>What It Is</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>DoS</strong> and <strong>DDoS</strong></td><td>Overwhelming a service so it cannot serve legitimate users &mdash; from one source, or from many at once</td></tr>
+                        <tr><td><strong>Evil twin</strong></td><td>A rogue wireless access point impersonating a legitimate one</td></tr>
+                        <tr><td><strong>Zero-day attack</strong></td><td>Exploits a flaw before a patch exists</td></tr>
+                        <tr><td><strong>Spoofing</strong></td><td>Falsifying an identity &mdash; an address, a sender, a caller ID</td></tr>
+                        <tr><td><strong>On-path attack</strong></td><td>Sitting between two parties and relaying, and possibly altering, their traffic</td></tr>
+                        <tr><td><strong>Brute-force attack</strong></td><td>Trying every possible password combination</td></tr>
+                        <tr><td><strong>Dictionary attack</strong></td><td>Trying likely passwords from a list &mdash; far faster than brute force, and usually enough</td></tr>
+                        <tr><td><strong>Insider threat</strong></td><td>Harm from someone who already has legitimate access</td></tr>
+                        <tr><td><strong>SQL injection</strong></td><td>Sending database commands through an input field an application failed to sanitize</td></tr>
+                        <tr><td><strong>Cross-site scripting (XSS)</strong></td><td>Injecting script into a web page so it runs in another user's browser</td></tr>
+                        <tr><td><strong>Business email compromise (BEC)</strong></td><td>Using a real or convincingly faked internal account to authorize a fraudulent payment</td></tr>
+                        <tr><td><strong>Supply chain or pipeline attack</strong></td><td>Compromising a trusted vendor or update so the victim installs the attack themselves</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Vulnerabilities</h3>
+            <p>A threat is what someone might do; a vulnerability is the opening that lets them. CompTIA names five: <strong>non-compliant systems</strong>, <strong>unpatched systems</strong>, <strong>unprotected systems</strong> (missing antivirus or firewall), <strong>end-of-life</strong> software no longer receiving fixes, and <strong>bring your own device</strong>, where personal equipment the organization does not control holds its data.</p>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">A Real Example You Will Meet on the Job</div>
+                <div class="callout-content"><p>An accounts-payable clerk receives an email from the company's real domain, from a real colleague's address, referring to a real project, asking for a vendor's bank details to be updated before Friday's run. Nothing is misspelled and no attachment is involved &mdash; the colleague's mailbox was compromised weeks ago. This is business email compromise, and it is why "check the sender address" is not enough advice. The control that stops it is a procedure: bank detail changes are verified by phone, using a number already on file.</p></div>
+            </div>
+
+            <h2>Part 4 &mdash; Hardening the Workstation (Objective 2.7)</h2>
+
+            <p>Everything so far has been recognition. This objective is the first set of defenses you apply yourself, and Unit 5 continues it.</p>
+
+            <h3>Passwords and Encryption</h3>
+            <p><strong>Data-at-rest encryption</strong> protects information on a drive that is powered off &mdash; the control that makes a stolen laptop a lost asset rather than a data breach.</p>
+            <p>CompTIA names five password considerations: <strong>length</strong>, <strong>character types</strong>, <strong>uniqueness</strong>, <strong>complexity</strong>, and <strong>expiration</strong>. Length does the most work; a long passphrase resists brute force better than a short password with symbols substituted for letters. <strong>BIOS/UEFI passwords</strong> protect the firmware itself, so an attacker cannot simply change the boot order and start from their own media.</p>
+
+            <h3>Account Management</h3>
+            <ul class="styled-list">
+                <li><strong>Restrict user permissions</strong> &mdash; least privilege, applied to accounts</li>
+                <li><strong>Restrict log-in times</strong> &mdash; a warehouse account that only works during shift hours cannot be used at 3 a.m.</li>
+                <li><strong>Disable the guest account</strong> &mdash; an unmonitored way in</li>
+                <li><strong>Use failed attempts lockout</strong> &mdash; the control that defeats brute-force and dictionary attacks</li>
+                <li><strong>Use timeout and screen lock</strong> &mdash; protects an unattended desk</li>
+                <li><strong>Apply account expiration dates</strong> &mdash; contractor accounts that close themselves</li>
+            </ul>
+
+            <h3>System Hardening</h3>
+            <p><strong>Change the default administrator account and password</strong> &mdash; default credentials remain one of the most reliable ways into a network. <strong>Disable AutoRun</strong> so inserted media cannot execute on its own. <strong>Disable unused services</strong> so that software nobody uses cannot be attacked.</p>
+
+            <h3>End-User Best Practices</h3>
+            <p>These are what you teach users: <strong>use screensaver locks</strong>, <strong>log off when not in use</strong>, <strong>secure and protect critical hardware</strong> such as laptops, <strong>secure personally identifiable information and passwords</strong>, and <strong>use password managers</strong>.</p>
+
+            <div class="key-concept">
+                <h4>Why Password Managers Are on a Certification Exam</h4>
+                <p>Uniqueness is the password rule people break, because nobody can remember forty different passwords. So they reuse one, and a breach at any site becomes a breach everywhere.</p>
+                <p>A password manager is the only practical way an ordinary person achieves uniqueness across every account. Recommending one is real security advice, not a product pitch &mdash; and it is why CompTIA lists it as an end-user best practice.</p>
+            </div>
+
+            <h2>Part 5 &mdash; Data Destruction and Disposal (Objective 2.9)</h2>
+
+            <p>A drive that leaves your control still holding data is a breach that has not been discovered yet. There are two paths: destroy the drive, or clear it for reuse.</p>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Method</th><th>What It Does</th><th>When to Use It</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Drilling</strong></td><td>Physically punctures the platters</td><td>Quick on-site destruction of a small number of drives</td></tr>
+                        <tr><td><strong>Shredding</strong></td><td>Reduces the drive to fragments</td><td>Bulk destruction, usually by a vendor</td></tr>
+                        <tr><td><strong>Degaussing</strong></td><td>Destroys the magnetic data with a strong field</td><td>Magnetic hard drives. It does not work on solid-state drives.</td></tr>
+                        <tr><td><strong>Incineration</strong></td><td>Burns the media</td><td>High-security environments, by a certified vendor</td></tr>
+                        <tr><td><strong>Erasing or wiping</strong></td><td>Overwrites the data so the drive can be reused</td><td>Redeploying a machine inside the organization, or donating it</td></tr>
+                        <tr><td><strong>Low-level formatting</strong></td><td>Resets the drive's structures at the factory level</td><td>Rare in practice on modern drives</td></tr>
+                        <tr><td><strong>Standard formatting</strong></td><td>Prepares a filesystem &mdash; it does <em>not</em> reliably destroy data</td><td>Preparing a drive for use, never for secure disposal</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>When a vendor does the work, <strong>outsourcing concepts</strong> apply: a <strong>third-party vendor</strong> performs the destruction and provides a <strong>certification of destruction or recycling</strong> &mdash; your proof that the data is gone. <strong>Regulatory and environmental requirements</strong> govern both the data and the electronic waste.</p>
+
+            <div class="callout callout-danger">
+                <div class="callout-title">Formatting Is Not Destruction</div>
+                <div class="callout-content"><p>A standard format removes the filesystem's index, not the data. Freely available tools recover from formatted drives routinely. If the question involves a drive leaving the organization and the data is sensitive, the answer is destruction or a verified wipe &mdash; never "format it."</p></div>
+            </div>
+
+            <h2>Part 6 &mdash; Safety, Environment, and Policy (Objectives 4.4, 4.5, 4.6)</h2>
+
+            <h3>Safety Procedures (4.4)</h3>
+            <p>You met electrostatic discharge in Core 1; it returns here because it belongs to the technician's professional practice, not just to hardware. <strong>ESD straps</strong>, <strong>ESD mats</strong>, and <strong>antistatic bags</strong> control static. <strong>Electrical safety</strong> includes <strong>equipment grounding</strong>. <strong>Proper component handling and storage</strong> and <strong>cable management</strong> prevent damage and trip hazards, and technicians work in <strong>compliance with government regulations</strong>.</p>
+            <p><strong>Personal safety</strong> is the half people skip: <strong>disconnect power before repairing a PC</strong>, use proper <strong>lifting techniques</strong>, observe <strong>fire safety</strong>, and wear <strong>safety goggles</strong> and an <strong>air filter mask</strong> when the work calls for them.</p>
+
+            <div class="callout callout-tip">
+                <div class="callout-title">Connect It to Core 1</div>
+                <div class="callout-content"><p>In Core 1 ESD was about protecting the component. Here it is about the procedure you follow every time, whether or not you think this particular job is risky. The difference between a technician and someone who is good with computers is that the technician does it the same way on the boring jobs too.</p></div>
+            </div>
+
+            <h3>Environmental Controls (4.5)</h3>
+            <ul class="styled-list">
+                <li><strong>MSDS documentation</strong> &mdash; the material safety data sheet tells you how to handle and dispose of a substance, including <strong>proper battery disposal</strong>, <strong>proper toner disposal</strong>, and proper disposal of other devices and assets</li>
+                <li><strong>Temperature, humidity awareness, and proper ventilation</strong> &mdash; including <strong>location and equipment placement</strong>, <strong>dust cleanup</strong>, and the use of <strong>compressed air and vacuums</strong></li>
+                <li><strong>Power surges, brownouts, and blackouts</strong> &mdash; a <strong>surge suppressor</strong> absorbs a spike; an <strong>uninterruptible power supply</strong> carries equipment through a sag or a short outage so it can shut down in an orderly way</li>
+            </ul>
+
+            <div class="key-concept">
+                <h4>Surge Suppressor or UPS?</h4>
+                <p>A scenario question will describe one of two situations. If the concern is a <strong>spike</strong> &mdash; lightning, a large motor switching on &mdash; the answer is a surge suppressor. If the concern is <strong>power going away</strong>, even briefly, and equipment needing to stay up or shut down cleanly, the answer is a UPS. A UPS also suppresses surges; a surge suppressor does nothing when the power stops.</p>
+            </div>
+
+            <h3>Policy, Licensing, and Privacy (4.6)</h3>
+            <p><strong>Incident response</strong> is what a technician does when they find something that should not be there:</p>
+            <ul class="styled-list">
+                <li><strong>Chain of custody</strong> &mdash; documenting everyone who handled the evidence and when</li>
+                <li><strong>Informing management or law enforcement as necessary</strong> &mdash; escalate; do not investigate alone</li>
+                <li><strong>Copy of drive</strong> &mdash; work from an image to preserve data integrity</li>
+                <li><strong>Incident documentation</strong> &mdash; what was found, when, by whom</li>
+                <li><strong>Order of volatility</strong> &mdash; collect the evidence that disappears first, such as memory contents, before the evidence that persists</li>
+            </ul>
+            <p><strong>Licensing</strong> covers <strong>DRM</strong> and the <strong>EULA</strong>, <strong>valid licenses</strong>, <strong>perpetual license agreements</strong>, the difference between a <strong>personal-use and a corporate-use license</strong>, and <strong>open-source licenses</strong>. An <strong>NDA</strong> or <strong>MNDA</strong> governs confidential information.</p>
+            <p><strong>Regulated data</strong> gets special handling: <strong>credit card payment information</strong>, <strong>personal government-issued information</strong>, <strong>PII</strong>, <strong>healthcare data</strong>, and <strong>data retention requirements</strong>. An <strong>acceptable use policy</strong> defines what users may do with company systems, and <strong>regulatory and business compliance requirements</strong> &mdash; including <strong>splash screens</strong> that state terms before access &mdash; round out the objective.</p>
+
+            <div class="callout callout-danger">
+                <div class="callout-title">The Hardest Part of This Job Is in This Objective</div>
+                <div class="callout-content"><p>Sooner or later a technician working on a machine finds something they wish they had not. The rule is the same every time: <strong>stop, preserve, and escalate.</strong> Do not open more files to be certain. Do not delete anything. Do not tell a colleague. Follow your organization's incident response procedure, document what you did, and hand it to the people whose job it is. Knowing this before it happens is the entire reason the objective exists.</p></div>
+            </div>
+
+            <div class="summary-box">
+                <h3>Unit 4 Content Recap</h3>
+                <ul>
+                    <li>Security has three layers: physical, physical access, and logical &mdash; an attacker needs only one to fail</li>
+                    <li>Least privilege is the logical control technicians apply most often, and the one that limits the damage of everything else</li>
+                    <li>Malware types differ by what they do: encrypt, record, hide, spy, mine, or advertise</li>
+                    <li>Detection ranges from signature-based antivirus to behavior-based EDR, MDR, and XDR &mdash; and user education outperforms most of it</li>
+                    <li>Social engineering attacks the person: phishing and its variants, shoulder surfing, tailgating, impersonation, and dumpster diving</li>
+                    <li>A threat is what someone might do; a vulnerability is the opening that lets them</li>
+                    <li>Hardening is passwords, account management, disabling what is unused, and teaching users</li>
+                    <li>Standard formatting does not destroy data; wiping, drilling, shredding, degaussing, and incineration do</li>
+                    <li>Personal safety matters as much as equipment safety &mdash; disconnect power, lift properly, wear protection</li>
+                    <li>A surge suppressor handles spikes; a UPS handles power going away</li>
+                    <li>When you find something that should not be there: stop, preserve, escalate, document</li>
+                </ul>
+            </div>
+
+            <div class="references-section">
+                <h3>Go Further</h3>
+                <ul>
+                    <li>Sybex <em>CompTIA A+ Complete Study Guide</em>, Volume 2 &mdash; Chapter 5 and Chapter 9, both in full</li>
+                    <li>Professor Messer's free 220-1202 course &mdash; objectives 2.1, 2.4, 2.5, 2.7, 2.9, 4.4, 4.5, and 4.6 (see Section 4.5 for direct links)</li>
+                    <li>CompTIA official 220-1202 exam objectives (comptia.org) &mdash; objective 2.5's threat list is long and precise; read it beside this page</li>
+                    <li>The CISA and FBI public advisories on business email compromise &mdash; current, official, and written for people who have to stop it</li>
+                </ul>
             </div>
 
         </div>
 
         <footer class="module-footer">
-            <p class="footer-text">CompTIA A+ Core 1 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
+            <p class="footer-text">CompTIA A+ Core 2 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
         </footer>
     </div>
 </body>
