@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 5 &mdash; 5.10 Unit Test | CompTIA A+ Core 2</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Sans+Pro:wght@400;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           CPCC COURSE TEMPLATE - GOLD / CHARCOAL / BLACK
+           CTS-ITS7501-80 CompTIA A+ Core 2 Training
+           Type: true black. Accents: gold. Chrome: charcoal.
+           ============================================ */
+
+        :root {
+            --primary-dark: #4A4A4A;       /* Charcoal - structural chrome only */
+            --primary-main: #B8962E;       /* Warm Gold - primary accent */
+            --primary-light: #D4AF56;      /* Light Gold */
+            --primary-pale: #FBF3DF;       /* Pale Gold wash */
+
+            --accent-teal: #8A6F1F;        /* Deep bronze-gold */
+            --accent-teal-light: #F3E9CE;  /* Pale bronze */
+            --accent-orange: #A9642A;      /* Warm rust */
+            --accent-orange-light: #F5E2CE;
+            --accent-purple: #6B5B3A;      /* Muted umber */
+            --accent-purple-light: #EFE6D2;
+            --accent-green: #4E7A51;
+            --accent-green-light: #DCEBDD;
+
+            --alert-warning: #B8862E;
+            --alert-warning-bg: #FBF0D9;
+            --alert-danger: #A13A3A;
+            --alert-danger-bg: #F6DEDE;
+            --alert-success: #3F6E42;
+            --alert-success-bg: #DCEBDD;
+            --alert-info: #6E5B2E;
+            --alert-info-bg: #F1E9D4;
+
+            --text-black: #000000;         /* All reading text */
+            --neutral-900: #000000;
+            --neutral-700: #000000;
+            --neutral-500: #5A5A5A;
+            --neutral-300: #D9D3C4;
+            --neutral-100: #FAF8F3;
+            --white: #ffffff;
+
+            --font-heading: 'Nunito', sans-serif;
+            --font-body: 'Source Sans Pro', sans-serif;
+            --font-code: 'Fira Code', monospace;
+
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+
+            --shadow-sm: 0 1px 2px rgba(74, 74, 74, 0.08);
+            --shadow-md: 0 4px 6px rgba(74, 74, 74, 0.12);
+            --shadow-lg: 0 10px 20px rgba(74, 74, 74, 0.15);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body), 'Segoe UI', Tahoma, Verdana, sans-serif;
+            font-size: 1.0625rem; line-height: 1.7; color: var(--text-black);
+            background: linear-gradient(135deg, var(--neutral-100) 0%, var(--white) 100%);
+            min-height: 100vh; padding: var(--space-lg);
+        }
+
+        .course-container {
+            max-width: 950px; margin: 0 auto; background: var(--white);
+            border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); overflow: hidden;
+        }
+
+        .module-header {
+            background: var(--primary-main); color: var(--text-black);
+            padding: var(--space-lg) var(--space-xl); position: relative; overflow: hidden;
+        }
+        .module-label {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 0.875rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 2px; text-decoration: underline;
+            margin-bottom: var(--space-sm); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-title {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 2.25rem; font-weight: 800;
+            line-height: 1.2; margin-bottom: var(--space-md); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-subtitle { font-size: 1.125rem; max-width: 650px; position: relative; z-index: 1; color: var(--text-black); }
+
+        .toc {
+            display: flex; flex-direction: column; gap: var(--space-sm);
+            padding: var(--space-lg) var(--space-xl);
+            background: var(--primary-pale); border-bottom: 1px solid var(--neutral-300);
+        }
+        .toc-item {
+            width: 100%; text-align: left;
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 0.875rem;
+            color: var(--text-black); background: var(--white);
+            border: 2px solid var(--primary-main);
+            padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md);
+        }
+        .toc-item.current { background: var(--primary-main); }
+
+        .content-area { padding: var(--space-xl); }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif;
+            color: var(--text-black); line-height: 1.3; margin-bottom: var(--space-md);
+        }
+        h1 { font-size: 2rem; font-weight: 800; }
+        h2 { font-size: 1.625rem; font-weight: 700; padding-bottom: var(--space-sm);
+             border-bottom: 3px solid var(--primary-main); margin-top: var(--space-xl); margin-bottom: var(--space-lg); }
+        h3 { font-size: 1.375rem; font-weight: 700; margin-top: var(--space-lg);
+             padding-left: var(--space-sm); border-left: 4px solid var(--primary-main); }
+        h4 { font-size: 1.125rem; font-weight: 600; }
+
+        p { margin-bottom: var(--space-md); }
+        strong { font-weight: 700; color: var(--text-black); }
+        em { font-style: italic; color: var(--text-black); }
+
+        a { color: var(--text-black); text-decoration: none; border-bottom: 2px solid var(--primary-main); transition: all 0.2s ease; }
+        a:hover { background: var(--primary-pale); border-bottom-color: var(--accent-teal); }
+
+        .tech-box {
+            background: var(--neutral-100); border: 2px solid var(--neutral-500);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .tech-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .tech-box .callout-content { padding-left: 0; }
+
+        .plain-box {
+            background: var(--primary-pale); border: 2px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .plain-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .plain-box .callout-content { padding-left: 0; }
+
+        .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; position: relative; overflow: hidden; }
+        .callout-title { font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 1rem;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
+        .callout-content { }
+        .callout-content p:last-child { margin-bottom: 0; }
+        .callout-tip { background: var(--accent-green-light); border-left: 4px solid var(--accent-green); }
+        .callout-warning { background: var(--alert-warning-bg); border-left: 4px solid var(--alert-warning); }
+        .callout-danger { background: var(--alert-danger-bg); border-left: 4px solid var(--alert-danger); }
+        .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
+
+        .text-center { text-align: center; }
+        .text-muted { color: var(--neutral-500); }
+        .mt-sm { margin-top: var(--space-sm); } .mt-md { margin-top: var(--space-md); } .mt-lg { margin-top: var(--space-lg); }
+        .mb-sm { margin-bottom: var(--space-sm); } .mb-md { margin-bottom: var(--space-md); } .mb-lg { margin-bottom: var(--space-lg); }
+
+        /* Interactive quiz controls */
+        .question-block { background: var(--white); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin-bottom: var(--space-lg); box-shadow: var(--shadow-sm); }
+        .question-number { font-family: var(--font-heading), sans-serif; font-size: 0.75rem; font-weight: 700;
+            color: var(--text-black); background: var(--primary-main); display: inline-block;
+            padding: 2px 10px; border-radius: var(--radius-sm);
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); }
+        .question-text { font-weight: 600; color: var(--text-black); margin-bottom: var(--space-md); }
+
+        .answer-option { display: block; width: 100%; text-align: left; padding: var(--space-sm) var(--space-md);
+            margin-bottom: var(--space-sm); border: 2px solid var(--neutral-300); border-radius: var(--radius-sm);
+            background: var(--white); cursor: pointer; font-family: var(--font-body), sans-serif; font-size: 1rem; color: var(--text-black); }
+        .answer-option:hover { border-color: var(--primary-main); }
+        .answer-option.selected { border-color: var(--primary-dark); background: var(--primary-pale); }
+        .answer-option.correct { border-color: var(--accent-green); background: var(--accent-green-light); }
+        .answer-option.incorrect { border-color: var(--alert-danger); background: var(--alert-danger-bg); }
+        .quiz-btn { font-family: var(--font-heading), sans-serif; font-weight: 700; padding: var(--space-sm) var(--space-xl);
+            border-radius: var(--radius-sm); border: 2px solid var(--primary-dark); background: var(--primary-dark); color: var(--white);
+            cursor: pointer; font-size: 0.95rem; margin-right: var(--space-sm); }
+        .quiz-btn:hover { background: #333333; }
+        .quiz-btn.secondary { background: var(--white); color: var(--primary-dark); }
+        .quiz-btn.secondary:hover { background: var(--neutral-100); }
+        #quizResults { display:none; background: var(--primary-pale); border: 2px solid var(--primary-main); border-radius: var(--radius-md);
+            padding: var(--space-lg); margin-top: var(--space-lg); text-align: center; font-family: var(--font-heading), sans-serif; }
+        #quizResults .score { font-size: 2rem; font-weight: 800; color: var(--text-black); }
+
+        .module-footer { background: var(--neutral-100); padding: var(--space-lg) var(--space-xl); text-align: center; border-top: 1px solid var(--neutral-300); }
+        .footer-text { font-size: 0.875rem; color: var(--neutral-500); }
+
+        @media (max-width: 768px) {
+            .module-title { font-size: 1.75rem; }
+            .content-area { padding: var(--space-lg); }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="course-container">
+
+        <header class="module-header">
+            <div class="module-label">Unit 5 &middot; Securing Systems and Protecting Data &middot; Section 5.10</div>
+            <h1 class="module-title">Unit Test</h1>
+            <p class="module-subtitle">CompTIA A+ Core 2 - Domains 2.0 and 4.0</p>
+        </header>
+
+                <nav class="toc" id="tocNav">
+            <div class="toc-header">Table of Contents</div>
+            <div class="toc-item">5.1 &mdash; Unit Overview and Schedule</div>
+            <div class="toc-item">5.2 &mdash; Unit Pre-Assessment</div>
+            <div class="toc-item">5.3 &mdash; Content Review</div>
+            <div class="toc-item">5.4 &mdash; Reading Assignment</div>
+            <div class="toc-item">5.5 &mdash; Video Assignment</div>
+            <div class="toc-item">5.6 &mdash; Classroom Labs and Take-Home Lab</div>
+            <div class="toc-item">5.7 &mdash; Practice Question Set</div>
+            <div class="toc-item">5.8 &mdash; Online Labs: NETLAB</div>
+            <div class="toc-item">5.9 &mdash; Reflection Activity</div>
+            <div class="toc-item current" id="tocCurrent">5.10 &mdash; Unit Test</div>
+            <div class="toc-item">5.11 &mdash; Unit 5 Tickets</div>
+        </nav>
+        <style>
+            /* Collapsible TOC: only the current section shows until clicked */
+            nav.toc#tocNav { gap: 0; }
+            nav.toc#tocNav .toc-item {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav .toc-item.current {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                cursor: pointer;
+            }
+            nav.toc#tocNav .toc-item.current::after {
+                content: ' \25BE Click to View';
+                font-size: 0.75em;
+            }
+            nav.toc#tocNav.toc-expanded .toc-item {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                margin-bottom: var(--space-sm);
+            }
+            nav.toc#tocNav.toc-expanded .toc-item.current::after { content: ' \25B4'; }
+
+            nav.toc#tocNav .toc-header {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                font-family: var(--font-heading), 'Segoe UI', sans-serif;
+                font-weight: 700;
+                font-size: 0.875rem;
+                text-align: left;
+                color: var(--text-black);
+                text-decoration: underline;
+                background: var(--primary-main);
+                border-radius: var(--radius-md);
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav.toc-expanded .toc-header {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                padding-left: var(--space-md);
+                border-width: 2px;
+                border-style: solid;
+                border-color: var(--primary-main);
+                margin-bottom: var(--space-sm);
+            }
+        </style>
+
+        <script>
+            (function () {
+                var toc = document.getElementById('tocNav');
+                var currentItem = document.getElementById('tocCurrent');
+
+                toc.addEventListener('click', function (e) {
+                    if (toc.classList.contains('toc-expanded')) {
+                        toc.classList.remove('toc-expanded');
+                    } else if (e.target === currentItem || currentItem.contains(e.target)) {
+                        toc.classList.add('toc-expanded');
+                    }
+                });
+
+                toc.addEventListener('mouseleave', function () {
+                    toc.classList.remove('toc-expanded');
+                });
+            })();
+        </script>
+
+        <div class="content-area">
+
+            <div class="tech-box">
+                <div class="callout-title">Test Format</div>
+                <div class="callout-content">
+                    <p>Each attempt draws 20 items from a 100-item pool covering this unit's objectives &mdash; Windows security settings, wireless security, mobile device security, SOHO network security, browser security, change management, and backup and recovery &mdash; weighted to mirror how they're represented on the actual 220-1202 exam. Answer choices are reshuffled every attempt. Click an answer to select it, then click <strong>Grade My Answers</strong> to see your results.</p>
+                </div>
+            </div>
+
+            <div class="callout callout-info">
+                <div class="callout-title">Test Taking Skills</div>
+                <div class="callout-content">
+                    <p>In order to successfully pass the CompTIA exam you should read each question and each answer. Select the best answer that you think is correct. Then read the question again, and each answer. If you agree with the original answer move on; otherwise, "work through" the answers and see which ones are easily dismissable.</p>
+                    <p>Full understanding requires completion of all 20 items and a review of any missed questions before moving on &mdash; not a specific score. Take the time to understand why an answer was wrong before you close this page.</p>
+                </div>
+            </div>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">Submit Your Proof of Completion</div>
+                <div class="callout-content">
+                    <p>Once you've completed this activity, take a screenshot showing your final score and upload it to the appropriate submission link in Brightspace by the due date. A screenshot is your only proof of completion &mdash; nothing here is automatically recorded, so don't close this page before you've captured and uploaded it.</p>
+                </div>
+            </div>
+
+            <div id="quizArea"></div>
+
+            <div class="mt-lg">
+                <button class="quiz-btn" onclick="gradeQuiz()">Grade My Answers</button>
+                <button class="quiz-btn secondary" onclick="resetQuiz()">Reset</button>
+            </div>
+
+            <div id="quizResults">
+                <div>Your Score</div>
+                <div class="score" id="scoreDisplay">0 / 20</div>
+                <div id="scoreNote"></div>
+                <p class="text-muted mt-sm">Screenshot this score before leaving the page, and upload it to the submission link in Brightspace.</p>
+            </div>
+
+            <script>
+                const POOL = [{"q": "Which mobile setting applies a managed group of settings to a device at once?", "opts": ["A screen lock", "A configuration profile", "A locator application", "An endpoint scan"], "correct": 1}, {"q": "A company phone is lost and will not be recovered. Which action protects the data on it?", "opts": ["A remote wipe", "A configuration profile", "An application update", "Content filtering"], "correct": 0}, {"q": "Which Windows Active Directory container is used to organize objects so policy can be applied to them as a group?", "opts": ["Organizational unit", "Security group", "Home folder", "Log-in script"], "correct": 0}, {"q": "A single accidentally deleted file must be recovered without affecting anything else on the server. Which recovery method fits?", "opts": ["Restore to an alternative location", "In-place overwrite of the volume", "A full bare-metal restore", "A synthetic full rebuild"], "correct": 0}, {"q": "What is the central difference between BYOD and corporate-owned devices?", "opts": ["BYOD devices cannot be encrypted", "The organization does not own or fully control a BYOD device that holds its data", "Corporate-owned devices cannot use MDM", "BYOD devices are exempt from patch management"], "correct": 1}, {"q": "Which element of a change record states what the change will touch and what it will not?", "opts": ["Implementation", "Purpose of the change", "Risk level", "Scope of the change"], "correct": 3}, {"q": "Which Active Directory task points a user's documents to a network location instead of the local drive?", "opts": ["Assigning a log-in script", "Configuring folder redirection", "Joining a domain", "Applying Group Policy"], "correct": 1}, {"q": "What happens to NTFS permissions when a user signs in to the computer locally rather than over the network?", "opts": ["They are ignored", "They still apply", "They are replaced by share permissions", "They grant Full Control by default"], "correct": 1}, {"q": "Which step has another technician check the plan or the completed work?", "opts": ["Change board approval", "Peer review", "Sandbox testing", "End-user acceptance"], "correct": 1}, {"q": "Which backup approach minimizes the time the nightly backup takes to run?", "opts": ["Differential", "Full", "Incremental", "Synthetic full"], "correct": 2}, {"q": "Which feature encrypts selected files and folders rather than a whole volume?", "opts": ["Encrypting File System", "BitLocker", "BitLocker To Go", "Defender Firewall"], "correct": 0}, {"q": "Which recovery method retrieves a single file without disturbing the original data?", "opts": ["Differential recovery", "In-place recovery", "Overwrite recovery", "Alternative location recovery"], "correct": 3}, {"q": "Which Windows sign-in approach removes the password from the sign-in process entirely?", "opts": ["Passwordless sign-in with Windows Hello", "Single sign-on", "A PIN code", "A local account"], "correct": 0}, {"q": "A technician performs an unapproved configuration change on a Friday afternoon and an outage follows. Which process was bypassed?", "opts": ["Change management", "Incident response", "Data retention", "Asset management"], "correct": 0}, {"q": "Which backup type is assembled from an existing full backup plus its increments, without re-reading the source?", "opts": ["Incremental", "Differential", "Synthetic full", "In-place recovery"], "correct": 2}, {"q": "What does permission inheritance mean for a newly created file?", "opts": ["It receives the permissions of the folder it is created in", "It receives no permissions until they are assigned", "It receives the permissions of the user's home folder", "It receives Full Control for all users by default"], "correct": 0}, {"q": "Which feature encrypts removable media such as a USB flash drive?", "opts": ["Windows Hello", "BitLocker", "Encrypting File System", "BitLocker To Go"], "correct": 3}, {"q": "Which router feature allows applications to open ports on their own and is commonly disabled on business networks?", "opts": ["IP filtering", "Content filtering", "Universal Plug and Play", "Port forwarding"], "correct": 2}, {"q": "Which Active Directory feature makes permissions manageable for hundreds of users?", "opts": ["Security groups", "Home folders", "Log-in scripts", "Folder redirection"], "correct": 0}, {"q": "Which ticket-based authentication protocol is used by Active Directory?", "opts": ["TKIP", "RADIUS", "TACACS+", "Kerberos"], "correct": 3}, {"q": "What does verifying a download's hash confirm?", "opts": ["The file matches what the publisher released", "The file is free of all malware", "The publisher is a trusted company", "The download used a secure DNS lookup"], "correct": 0}, {"q": "What should a technician do first when configuring a new SOHO router?", "opts": ["Configure a screened subnet", "Enable port forwarding", "Disable SSID broadcast", "Change the default administrator password"], "correct": 3}, {"q": "Which combination represents the strongest wireless configuration among those on the exam?", "opts": ["WPA3 with centralized authentication", "WPA2 with TKIP", "WPA with a pre-shared key", "Open with a hidden SSID"], "correct": 0}, {"q": "Which practice best reflects least privilege for a technician performing one administrative task?", "opts": ["Disable User Account Control for the session", "Sign in permanently as the local administrator", "Run as administrator for that task from a standard account", "Add the user account to the Power Users group"], "correct": 2}, {"q": "Which router feature permits or blocks traffic based on addresses?", "opts": ["UPnP", "Content filtering", "IP filtering", "Port forwarding"], "correct": 2}, {"q": "Which browser setting encrypts name lookups so they cannot be read or altered in transit?", "opts": ["Password manager", "Private-browsing mode", "Pop-up blocker", "Secure DNS"], "correct": 3}, {"q": "Which router setting should a technician review if an internal service became reachable from the internet without anyone configuring it?", "opts": ["Content filtering", "Universal Plug and Play", "SSID broadcast", "Secure DNS"], "correct": 1}, {"q": "Besides removing advertising, what security benefit does an ad blocker provide?", "opts": ["It forces all traffic through a proxy", "It encrypts the browser's stored passwords", "It validates site certificates", "It blocks a common malware delivery route"], "correct": 3}, {"q": "Which Windows feature prompts a user before an action requiring administrative rights proceeds?", "opts": ["Defender Antivirus", "Windows Hello", "User Account Control", "Encrypting File System"], "correct": 2}, {"q": "Why is an untested backup described as an assumption rather than a protection?", "opts": ["Nothing confirms the data can actually be restored until a restore is performed", "Backups expire if not restored monthly", "Untested backups are stored unencrypted", "Backup software cannot verify its own media"], "correct": 0}, {"q": "What does private-browsing mode actually do?", "opts": ["It hides the user's traffic from the network and the site", "It keeps no local history for the session, but does not make the user anonymous", "It encrypts the hard drive during the session", "It blocks all extensions automatically"], "correct": 1}, {"q": "Which element identifies who performs the work and who answers for it?", "opts": ["Responsible staff members", "Change board approvals", "End-user acceptance", "Peer review"], "correct": 0}, {"q": "What is the correct handling of documentation for an emergency change?", "opts": ["It is completed immediately afterward, not skipped", "It is not required for emergency changes", "It is completed before the change, regardless of delay", "It is replaced by a verbal report"], "correct": 0}, {"q": "A user has Full Control through the share and Read through NTFS. What can the user do over the network?", "opts": ["Full control", "Read and write", "Read only", "Nothing"], "correct": 2}, {"q": "Which change type is carried out quickly because waiting is the greater risk?", "opts": ["Scheduled change", "Standard change", "Normal change", "Emergency change"], "correct": 3}, {"q": "Which permission set applies to a file whether the user connects over the network or signs in locally?", "opts": ["Group Policy settings", "Share permissions", "NTFS permissions", "Firewall rules"], "correct": 2}, {"q": "Which feature encrypts an entire fixed volume on a Windows workstation?", "opts": ["BitLocker", "BitLocker To Go", "Encrypting File System", "Defender Antivirus"], "correct": 0}, {"q": "Why are default router credentials a significant risk?", "opts": ["They cannot be changed on most routers", "They are published online for nearly every model", "They prevent firmware updates from installing", "They disable the router's firewall"], "correct": 1}, {"q": "Which element captures what is preserved beforehand so a rollback is possible?", "opts": ["End-user acceptance", "Request form", "Change board approval", "Backup plan"], "correct": 3}, {"q": "Which mobile control makes stored data unreadable to someone who removes the device's storage chips?", "opts": ["Content filtering", "A swipe screen lock", "A locator application", "Device encryption"], "correct": 3}, {"q": "Which authentication service lets each wireless user sign in with individual credentials rather than a shared key?", "opts": ["UPnP", "TKIP", "RADIUS", "WPA2 personal"], "correct": 2}, {"q": "What is the honest limitation of disabling SSID broadcast?", "opts": ["It blocks the router's firmware updates", "It prevents legitimate devices from ever reconnecting", "It disables encryption on the network", "The network is still discoverable with the right tools, so it is weak protection"], "correct": 3}, {"q": "Which backup practice is most often neglected and most important to confirm?", "opts": ["Testing a restore on a defined frequency", "Labeling the tapes", "Compressing the archive", "Scheduling the job at night"], "correct": 0}, {"q": "An employee leaves a small office where everyone shares one wireless password. Which change best removes that person's access without reconfiguring every device?", "opts": ["Changing the router's administrative password", "Disabling SSID broadcast", "Moving to RADIUS authentication so each person signs in individually", "Enabling UPnP"], "correct": 2}, {"q": "Why should extensions be installed only from trusted sources?", "opts": ["Extensions replace the browser's certificate store", "An extension can read the content of every page the user visits", "Extensions disable operating system updates", "Extensions prevent the cache from clearing"], "correct": 1}, {"q": "Which network design places externally reachable systems on a segment separate from the internal network?", "opts": ["A change freeze", "A guest wireless network", "A metered connection", "A screened subnet"], "correct": 3}, {"q": "Which endpoint security capability blocks categories of content on a managed mobile device?", "opts": ["A configuration profile", "Device encryption", "Remote backup", "Content filtering"], "correct": 3}, {"q": "Which practice tests a change in an environment where it cannot affect users?", "opts": ["End-user acceptance", "Peer review", "Sandbox testing", "Implementation"], "correct": 2}, {"q": "Why is a rollback plan written before a change rather than during an outage?", "opts": ["Decisions made under pressure during an outage are slower and less reliable", "Regulations prohibit writing it afterward", "It is required to obtain a maintenance window", "It replaces the backup plan"], "correct": 0}, {"q": "A network must support older devices that cannot use the newest wireless standard. Which configuration is the best available choice?", "opts": ["WPA3 only", "WPA with TKIP", "Open with MAC filtering", "WPA2 with AES"], "correct": 3}, {"q": "Which wireless security protocol is the current standard and preferred when all devices support it?", "opts": ["WPA2", "WPA3", "TKIP", "WEP"], "correct": 1}, {"q": "Which browser action often resolves a page that renders incorrectly after a site update?", "opts": ["Clearing the cache", "Enabling private browsing", "Disabling secure DNS", "Turning off the pop-up blocker"], "correct": 0}, {"q": "What should a user verify before installing a browser downloaded from a publisher's site?", "opts": ["That the file is larger than the previous version", "That the download comes from a trusted source, and its hash where one is published", "That an ad blocker is already installed", "That private browsing is enabled"], "correct": 1}, {"q": "A SOHO network must allow visitors online without exposing shared folders. Which configuration is appropriate?", "opts": ["Disabling the firewall for the visitor's device", "Port forwarding to the file server", "A separate guest wireless network", "Adding visitors to the internal security group"], "correct": 2}, {"q": "Which screen lock method is generally considered the weakest of those named in the objectives?", "opts": ["PIN code", "Swipe", "Fingerprint", "Facial recognition"], "correct": 1}, {"q": "Why should the default SSID be changed on a wireless network?", "opts": ["It blocks guest access by default", "It prevents the router from issuing DHCP addresses", "It is required before WPA3 can be enabled", "It can identify the hardware make and model to an attacker"], "correct": 3}, {"q": "Which Windows feature is turned off by users for convenience and should be left enabled because it makes elevation a deliberate choice?", "opts": ["BitLocker", "Defender Antivirus", "User Account Control", "Windows Hello"], "correct": 2}, {"q": "What does configuring secure management access mean on a router?", "opts": ["Enabling UPnP for management traffic", "Administering it over an encrypted connection and only from inside the network", "Publishing the administrative interface to the internet", "Disabling the firewall during configuration"], "correct": 1}, {"q": "Which router practice addresses vulnerabilities discovered after the device was purchased?", "opts": ["Changing the SSID", "Applying firmware updates", "Enabling guest access", "Disabling SSID broadcast"], "correct": 1}, {"q": "A technician takes a full backup on Sunday and incrementals each weekday. A failure occurs Thursday afternoon. What is needed to restore?", "opts": ["Wednesday's incremental only", "Sunday's full backup only", "Sunday's full backup plus Wednesday's incremental", "Sunday's full backup plus Monday, Tuesday, and Wednesday's incrementals"], "correct": 3}, {"q": "Why does browser patching matter as much as operating system patching?", "opts": ["Browsers cannot be protected by antivirus", "The browser is the program most exposed to hostile content", "Browser updates also patch the operating system", "Browsers store the encryption keys for the disk"], "correct": 1}, {"q": "What must be maintained for signature-based antivirus to remain effective?", "opts": ["Disabled inheritance", "A static IP address", "Current definition updates", "An offline backup"], "correct": 2}, {"q": "Which encryption standard is used by both WPA2 and WPA3?", "opts": ["RADIUS", "TKIP", "AES", "Kerberos"], "correct": 2}, {"q": "Which practice determines how often a restore should actually be attempted?", "opts": ["Rotation scheme", "Retention policy", "Backup testing frequency", "Recovery location"], "correct": 2}, {"q": "Which account type is intended for ordinary daily use and cannot make system-wide changes without elevation?", "opts": ["Power user", "Administrator", "Standard account", "Guest user"], "correct": 2}, {"q": "What is the practical consequence of using one shared wireless key in an office?", "opts": ["Encryption is automatically upgraded to WPA3", "Each device receives a unique certificate", "Users can be disabled individually", "Any change to the key requires reconfiguring every device"], "correct": 3}, {"q": "Which combination of backup decisions best supports recovery after a ransomware event?", "opts": ["Offline or offsite copies, tested restores, and adequate retention", "Nightly incrementals kept on the same server", "A single full backup retained indefinitely onsite", "Synthetic fulls with no retention policy"], "correct": 0}, {"q": "Restoring from which backup type requires the full backup plus every backup taken since?", "opts": ["Synthetic full", "Differential", "Incremental", "Full"], "correct": 2}, {"q": "An organization keeps all backups on a server in the same room as the production system. Which risk is unaddressed?", "opts": ["Incremental backups cannot be used", "Restores will take longer than from tape", "The backups cannot be encrypted", "A single event in that room destroys both copies"], "correct": 3}, {"q": "A scenario describes a phone stolen from a table in a restaurant. Which combination of controls is most relevant?", "opts": ["Content filtering and a pop-up blocker", "Device encryption, a locator application, and a remote wipe", "A configuration profile and an application update", "Patch management and a password manager"], "correct": 1}, {"q": "A user insists that private browsing hides their activity from the company network. How should a technician respond?", "opts": ["Explain that it only prevents local history, and the network and sites still see the traffic", "Confirm that it fully anonymizes the connection", "Recommend enabling sync instead", "Recommend clearing the cache to achieve anonymity"], "correct": 0}, {"q": "Which group formally authorizes a normal change?", "opts": ["The change board", "The help desk", "The end users", "The vendor"], "correct": 0}, {"q": "Which mobile control is the equivalent of account lockout on a workstation?", "opts": ["Patch management", "Device encryption", "Remote wipe", "Failed log-in attempt restrictions"], "correct": 3}, {"q": "Which change type requires review and approval before implementation?", "opts": ["Emergency change", "Standard change", "Normal change", "Sandbox change"], "correct": 2}, {"q": "Which system centrally enforces security requirements across an organization's mobile devices?", "opts": ["Endpoint detection and response", "Data loss prevention", "Identity access management", "Mobile device management"], "correct": 3}, {"q": "Which router maintenance task addresses vulnerabilities in the router's own software?", "opts": ["Content filtering", "Firmware updates", "IP filtering", "Port forwarding"], "correct": 1}, {"q": "What does a certificate warning in a browser indicate?", "opts": ["The browser cache needs to be cleared", "The site has exceeded its bandwidth allowance", "The site's identity or the connection's encryption could not be verified", "An extension is out of date"], "correct": 2}, {"q": "When NTFS and share permissions differ for a user connecting over the network, which applies?", "opts": ["The NTFS permission always", "The more permissive of the two", "The share permission always", "The more restrictive of the two"], "correct": 3}, {"q": "Why is a PIN often more secure in practice than a password of the same length?", "opts": ["It is encrypted while a password is not", "It is tied to one device and backed by hardware, so it is useless elsewhere", "It cannot be typed incorrectly", "It is stored on a central server rather than the device"], "correct": 1}, {"q": "Which centralized authentication protocol is commonly used for administrative access to network devices?", "opts": ["SAML", "RADIUS", "Kerberos", "TACACS+"], "correct": 3}, {"q": "Which document records that a change was formally proposed?", "opts": ["A request form", "An incident report", "A service-level agreement", "An acceptable use policy"], "correct": 0}, {"q": "Which six actions form a practical first-configuration checklist for a SOHO router?", "opts": ["Enable UPnP, forward ports, hide the SSID, disable the firewall, add a guest network, reboot", "Change the password, update firmware, set the SSID, set encryption, disable UPnP, restrict management access", "Install antivirus, set a screen lock, enable sync, clear the cache, add an extension, restart", "Configure RADIUS, set a change freeze, run a sandbox test, take a backup, peer review, accept"], "correct": 1}, {"q": "Which router feature blocks categories of websites and is often required in schools?", "opts": ["Content filtering", "IP filtering", "Screened subnet", "Secure management access"], "correct": 0}, {"q": "Which account should be disabled in nearly every production environment?", "opts": ["Guest user", "Standard account", "Administrator", "Local service account"], "correct": 0}, {"q": "An employee's personal phone holds company email under a BYOD policy. Which requirement is the organization most likely to enforce?", "opts": ["Physical ownership of the device", "Profile security requirements applied through MDM", "Disabling the device's camera permanently", "Replacing the device's operating system"], "correct": 1}, {"q": "Which pair of mobile controls work together, since the lock credential often unlocks the encryption key?", "opts": ["Content filtering and a locator application", "Screen lock and device encryption", "Remote wipe and patch management", "MDM and antivirus definitions"], "correct": 1}, {"q": "A technician must give twenty users identical access to a project folder with minimal ongoing effort. What is the best approach?", "opts": ["Give everyone Full Control and rely on the share", "Assign permissions to each user account individually", "Assign permissions to a security group and add the users to it", "Disable inheritance on the folder"], "correct": 2}, {"q": "Why does the physical placement of a SOHO router matter?", "opts": ["Placement sets the default administrative password", "Placement determines the encryption standard available", "Routers must be placed near a window for signal strength", "A router in an open area can be reset to factory defaults by anyone with physical access"], "correct": 3}, {"q": "A technician can administer a router from the internet using its web interface. What should be changed?", "opts": ["Disable the guest network", "Enable UPnP to secure the session", "Restrict management access to the internal network and use an encrypted connection", "Change the SSID"], "correct": 2}, {"q": "Which rotation scheme keeps daily, weekly, and monthly copies?", "opts": ["3-2-1", "Grandfather-father-son", "In-place and alternative", "Synthetic rotation"], "correct": 1}, {"q": "Which step confirms with the people who use a system that the change actually works?", "opts": ["Peer review", "End-user acceptance", "Risk analysis", "Implementation"], "correct": 1}, {"q": "Why does change management exist?", "opts": ["It is a substitute for documentation", "Regulations require a signature for every login", "It replaces the need for backups", "Most serious outages are caused by unmanaged changes rather than attacks"], "correct": 3}, {"q": "Which Windows group is retained mainly for backward compatibility and no longer carries the elevated rights it once did?", "opts": ["Guests", "Administrators", "Power users", "Domain users"], "correct": 2}, {"q": "Which browser maintenance step is appropriate when a site displays stale content after an update?", "opts": ["Disabling secure DNS", "Clearing the cache", "Removing the certificate", "Enabling UPnP"], "correct": 1}, {"q": "Which combination best protects a workstation's data from theft of the physical machine?", "opts": ["A pop-up blocker plus an ad blocker", "Full-volume encryption plus a strong sign-in credential", "Share permissions plus inheritance", "UPnP plus port forwarding"], "correct": 1}, {"q": "Which backup type is slowest to create but simplest to restore from?", "opts": ["Full", "Incremental", "Differential", "Synthetic full"], "correct": 0}, {"q": "A managed tablet must receive the same settings as fifty others. Which mechanism applies them?", "opts": ["A configuration profile", "A remote wipe", "A locator application", "A failed log-in restriction"], "correct": 0}, {"q": "Which protocol is most closely associated with signing in to a Windows domain?", "opts": ["TKIP", "TACACS+", "Kerberos", "WPA3"], "correct": 2}, {"q": "What does the 3-2-1 backup rule specify?", "opts": ["Three servers, two administrators, one site", "Three full backups weekly, two differentials, one incremental", "Three copies of the data, on two types of media, with one kept offsite", "Three retention periods, two vendors, one contract"], "correct": 2}, {"q": "A user reports frequent pop-up windows and a browser homepage they did not set. Which two areas should a technician examine first?", "opts": ["Backup rotation and retention", "The router's firmware and SSID", "NTFS permissions and inheritance", "Installed extensions and the browser's settings"], "correct": 3}];
+                let QUESTIONS = [];
+                let answers = [];
+
+                function drawSet() {
+                    const shuffled = POOL.slice().sort(() => Math.random() - 0.5);
+                    QUESTIONS = shuffled.slice(0, 20).map(item => {
+                        const order = item.opts.map((o, i) => i).sort(() => Math.random() - 0.5);
+                        return {q: item.q, opts: order.map(i => item.opts[i]), correct: order.indexOf(item.correct)};
+                    });
+                    answers = new Array(QUESTIONS.length).fill(null);
+                }
+
+                function renderQuiz() {
+                    const area = document.getElementById('quizArea');
+                    area.innerHTML = QUESTIONS.map((item, qi) => {
+                        const opts = item.opts.map((opt, oi) =>
+                            `<button type="button" class="answer-option" data-qi="${qi}" data-oi="${oi}" onclick="selectAnswer(${qi}, ${oi})">${opt}</button>`
+                        ).join('');
+                        return `<div class="question-block">
+                            <div class="question-number">Question ${qi + 1} of ${QUESTIONS.length}</div>
+                            <p class="question-text">${item.q}</p>
+                            ${opts}
+                        </div>`;
+                    }).join('');
+                }
+
+                function selectAnswer(qi, oi) {
+                    answers[qi] = oi;
+                    document.querySelectorAll(`[data-qi="${qi}"]`).forEach(btn => {
+                        btn.classList.remove('selected');
+                        if (parseInt(btn.dataset.oi) === oi) btn.classList.add('selected');
+                    });
+                }
+
+                function gradeQuiz() {
+                    if (answers.includes(null)) {
+                        alert('Answer all 20 questions before grading.');
+                        return;
+                    }
+                    let score = 0;
+                    QUESTIONS.forEach((item, qi) => {
+                        const correct = item.correct;
+                        document.querySelectorAll(`[data-qi="${qi}"]`).forEach(btn => {
+                            const oi = parseInt(btn.dataset.oi);
+                            btn.classList.remove('selected');
+                            if (oi === correct) btn.classList.add('correct');
+                            else if (oi === answers[qi]) btn.classList.add('incorrect');
+                        });
+                        if (answers[qi] === correct) score++;
+                    });
+                    document.getElementById('scoreDisplay').textContent = score + ' / ' + QUESTIONS.length;
+                    const note = document.getElementById('scoreNote');
+                    if (score >= 16) note.textContent = 'Strong result. Review any missed items, then you are done.';
+                    else if (score >= 12) note.textContent = 'A passing-range result. Review your missed questions closely before moving on.';
+                    else note.textContent = 'Below where you want to be for exam day. Revisit 1.3 and 1.4 for the topics you missed, then try again.';
+                    document.getElementById('quizResults').style.display = 'block';
+                    document.getElementById('quizResults').scrollIntoView({behavior: 'smooth'});
+                }
+
+                function resetQuiz() {
+                    document.getElementById('quizResults').style.display = 'none';
+                    drawSet();
+                    renderQuiz();
+                }
+
+                drawSet();
+                renderQuiz();
+            </script>
+
+        </div>
+
+        <footer class="module-footer">
+            <p class="footer-text">CompTIA A+ Core 2 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
+        </footer>
+    </div>
+</body>
+</html>

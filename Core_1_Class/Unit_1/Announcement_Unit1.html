@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Unit 1 Announcement | CompTIA A+ Core 2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Sans+Pro:wght@400;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================
+           CPCC COURSE TEMPLATE - GOLD / CHARCOAL / BLACK
+           CTS-ITS7501-80 CompTIA A+ Core 2 Training
+           Type: true black. Accents: gold. Chrome: charcoal.
+           ============================================ */
+
+        :root {
+            --primary-dark: #4A4A4A;       /* Charcoal - structural chrome only */
+            --primary-main: #B8962E;       /* Warm Gold - primary accent */
+            --primary-light: #D4AF56;      /* Light Gold */
+            --primary-pale: #FBF3DF;       /* Pale Gold wash */
+
+            --accent-teal: #8A6F1F;        /* Deep bronze-gold */
+            --accent-teal-light: #F3E9CE;  /* Pale bronze */
+            --accent-orange: #A9642A;      /* Warm rust */
+            --accent-orange-light: #F5E2CE;
+            --accent-purple: #6B5B3A;      /* Muted umber */
+            --accent-purple-light: #EFE6D2;
+            --accent-green: #4E7A51;
+            --accent-green-light: #DCEBDD;
+
+            --alert-warning: #B8862E;
+            --alert-warning-bg: #FBF0D9;
+            --alert-danger: #A13A3A;
+            --alert-danger-bg: #F6DEDE;
+            --alert-success: #3F6E42;
+            --alert-success-bg: #DCEBDD;
+            --alert-info: #6E5B2E;
+            --alert-info-bg: #F1E9D4;
+
+            --text-black: #000000;         /* All reading text */
+            --neutral-900: #000000;
+            --neutral-700: #000000;
+            --neutral-500: #5A5A5A;
+            --neutral-300: #D9D3C4;
+            --neutral-100: #FAF8F3;
+            --white: #ffffff;
+
+            --font-heading: 'Nunito', sans-serif;
+            --font-body: 'Source Sans Pro', sans-serif;
+            --font-code: 'Fira Code', monospace;
+
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+
+            --shadow-sm: 0 1px 2px rgba(74, 74, 74, 0.08);
+            --shadow-md: 0 4px 6px rgba(74, 74, 74, 0.12);
+            --shadow-lg: 0 10px 20px rgba(74, 74, 74, 0.15);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body), 'Segoe UI', Tahoma, Verdana, sans-serif;
+            font-size: 1.0625rem;
+            line-height: 1.7;
+            color: var(--text-black);
+            background: linear-gradient(135deg, var(--neutral-100) 0%, var(--white) 100%);
+            min-height: 100vh;
+            padding: var(--space-lg);
+        }
+
+        .course-container {
+            max-width: 950px; margin: 0 auto; background: var(--white);
+            border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); overflow: hidden;
+        }
+
+        .module-header {
+            background: var(--primary-main); color: var(--text-black);
+            padding: var(--space-lg) var(--space-xl); position: relative; overflow: hidden;
+        }
+        .module-label {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 0.875rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 2px; text-decoration: underline;
+            margin-bottom: var(--space-sm); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-title {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 2.25rem; font-weight: 800;
+            line-height: 1.2; margin-bottom: var(--space-md); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-subtitle { font-size: 1.125rem; max-width: 650px; position: relative; z-index: 1; color: var(--text-black); }
+
+        .toc {
+            display: flex; flex-direction: column; gap: var(--space-sm);
+            padding: var(--space-lg) var(--space-xl);
+            background: var(--primary-pale); border-bottom: 1px solid var(--neutral-300);
+        }
+        .toc-item {
+            width: 100%; text-align: left;
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 0.875rem;
+            color: var(--text-black); background: var(--white);
+            border: 2px solid var(--primary-main);
+            padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md);
+        }
+        .toc-item.current { background: var(--primary-main); }
+
+        .content-area { padding: var(--space-xl); }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif;
+            color: var(--text-black); line-height: 1.3; margin-bottom: var(--space-md);
+        }
+        h1 { font-size: 2rem; font-weight: 800; }
+        h2 { font-size: 1.625rem; font-weight: 700; padding-bottom: var(--space-sm);
+             border-bottom: 3px solid var(--primary-main); margin-top: var(--space-xl); margin-bottom: var(--space-lg); }
+        h3 { font-size: 1.375rem; font-weight: 700; margin-top: var(--space-lg);
+             padding-left: var(--space-sm); border-left: 4px solid var(--primary-main); }
+        h4 { font-size: 1.125rem; font-weight: 600; }
+
+        p { margin-bottom: var(--space-md); }
+        strong { font-weight: 700; color: var(--text-black); }
+        em { font-style: italic; color: var(--text-black); }
+
+        a { color: var(--text-black); text-decoration: none; border-bottom: 2px solid var(--primary-main); transition: all 0.2s ease; }
+        a:hover { background: var(--primary-pale); border-bottom-color: var(--accent-teal); }
+
+        ul, ol { margin-bottom: var(--space-md); padding-left: var(--space-lg); }
+        li { margin-bottom: var(--space-sm); }
+        ul li::marker { color: var(--accent-teal); }
+        ol li::marker { color: var(--accent-teal); font-weight: 700; }
+
+        .styled-list { list-style: none; padding-left: 0; }
+        .styled-list li { position: relative; padding-left: var(--space-lg); margin-bottom: var(--space-sm); }
+        .styled-list li::before { content: '\25B8'; position: absolute; left: 0; color: var(--accent-teal); font-weight: bold; }
+
+        .checklist { list-style: none; padding-left: 0; }
+        .checklist li { position: relative; padding-left: 2rem; margin-bottom: var(--space-sm); }
+        .checklist li::before {
+            content: '\2713'; position: absolute; left: 0; width: 1.5rem; height: 1.5rem;
+            background: var(--accent-green-light); color: var(--accent-green);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 0.75rem; font-weight: bold;
+        }
+
+        .objectives-box {
+            background: linear-gradient(135deg, var(--primary-pale) 0%, var(--accent-teal-light) 100%);
+            border-left: 5px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .objectives-box h3 { color: var(--text-black); margin-top: 0; margin-bottom: var(--space-md);
+            display: flex; align-items: center; gap: var(--space-sm); border-left: none; padding-left: 0; }
+        .objectives-box ol { margin-bottom: 0; }
+
+        .tech-box {
+            background: var(--neutral-100); border: 2px solid var(--neutral-500);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .tech-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .tech-box .callout-content { padding-left: 0; }
+
+        .plain-box {
+            background: var(--primary-pale); border: 2px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .plain-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .plain-box .callout-content { padding-left: 0; }
+
+        .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; position: relative; overflow: hidden; }
+        .callout::before { position: absolute; top: var(--space-md); left: var(--space-md); font-size: 1.5rem; }
+        .callout-title { font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 1rem;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
+        .callout-content { }
+        .callout-content p:last-child { margin-bottom: 0; }
+
+        .callout-tip { background: var(--accent-green-light); border-left: 4px solid var(--accent-green); }
+        .callout-warning { background: var(--alert-warning-bg); border-left: 4px solid var(--alert-warning); }
+        .callout-danger { background: var(--alert-danger-bg); border-left: 4px solid var(--alert-danger); }
+        .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
+
+        .key-concept {
+            background: linear-gradient(135deg, var(--accent-purple-light) 0%, var(--white) 100%);
+            border: 2px solid var(--accent-purple); border-radius: var(--radius-lg);
+            padding: var(--space-lg); margin: var(--space-xl) 0 var(--space-lg); position: relative;
+        }
+        .key-concept::before {
+            content: '\1F511 KEY CONCEPT'; position: absolute; top: -12px; left: var(--space-lg);
+            background: var(--accent-purple); color: var(--white); font-family: var(--font-heading), sans-serif;
+            font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-md); border-radius: var(--radius-sm);
+        }
+        .key-concept h4 { color: var(--text-black); margin-top: var(--space-sm); }
+
+        .definition { background: var(--neutral-100); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin: var(--space-md) 0; border-left: 4px solid var(--accent-orange); }
+        .definition-term { font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 1.125rem;
+            color: var(--text-black); margin-bottom: var(--space-xs); }
+        .definition-text { color: var(--text-black); margin-bottom: 0; }
+
+        code { font-family: var(--font-code), Consolas, monospace; font-size: 0.9rem; background: var(--primary-pale);
+            color: var(--text-black); padding: 2px 6px; border-radius: var(--radius-sm); }
+        pre { background: #2E2E2E; color: #f1ece0; padding: var(--space-lg); border-radius: var(--radius-md);
+            overflow-x: auto; margin: var(--space-lg) 0; position: relative; }
+        pre::before {
+            content: 'STEPS'; position: absolute; top: 0; right: 0; background: var(--primary-main); color: var(--text-black);
+            font-family: var(--font-heading), sans-serif; font-size: 0.625rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-sm); border-radius: 0 var(--radius-md) 0 var(--radius-sm);
+        }
+        pre code { background: transparent; color: inherit; padding: 0; font-size: 0.875rem; line-height: 1.6; }
+
+        .table-container { overflow-x: auto; margin: var(--space-lg) 0; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); }
+        table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
+        thead { background: var(--primary-dark); color: var(--white); }
+        th { font-family: var(--font-heading), sans-serif; font-weight: 700; text-align: left; padding: var(--space-md) var(--space-lg); color: var(--white); }
+        td { padding: var(--space-md) var(--space-lg); border-bottom: 1px solid var(--neutral-300); color: var(--text-black); }
+        tbody tr:hover { background: var(--primary-pale); }
+        tbody tr:last-child td { border-bottom: none; }
+
+        .activity-section {
+            background: linear-gradient(135deg, var(--accent-orange-light) 0%, var(--white) 100%);
+            border: 2px dashed var(--accent-orange); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .activity-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg); }
+        .activity-icon { width: 50px; height: 50px; background: var(--accent-orange); border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; }
+        .activity-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700;
+            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
+        .activity-subtitle { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
+
+        .lab-section {
+            background: linear-gradient(135deg, var(--accent-teal-light) 0%, var(--white) 100%);
+            border: 2px solid var(--accent-teal); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .lab-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg);
+            padding-bottom: var(--space-md); border-bottom: 2px solid var(--accent-teal); }
+        .lab-icon { width: 60px; height: 60px; background: var(--accent-teal); border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center; font-size: 1.75rem; flex-shrink: 0; }
+        .lab-title { font-family: var(--font-heading), sans-serif; font-size: 1.375rem; font-weight: 700;
+            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
+        .lab-time { font-size: 0.875rem; color: var(--neutral-500); margin: 0; display: flex; align-items: center; gap: var(--space-xs); }
+        .lab-time::before { content: '\23F1\FE0F'; }
+        .lab-steps { counter-reset: lab-step; list-style: none; padding-left: 0; }
+        .lab-steps li { counter-increment: lab-step; position: relative; padding-left: 3rem; margin-bottom: var(--space-lg); }
+        .lab-steps li::before {
+            content: counter(lab-step); position: absolute; left: 0; width: 2rem; height: 2rem;
+            background: var(--accent-teal); color: var(--white); font-family: var(--font-heading), sans-serif; font-weight: 700;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.875rem;
+        }
+
+        .assessment-section { background: var(--primary-pale); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0; }
+        .assessment-header { text-align: center; margin-bottom: var(--space-xl); }
+        .assessment-header h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .question-block { background: var(--white); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin-bottom: var(--space-lg); box-shadow: var(--shadow-sm); }
+        .question-number { font-family: var(--font-heading), sans-serif; font-size: 0.75rem; font-weight: 700;
+            color: var(--text-black); background: var(--primary-main); display: inline-block;
+            padding: 2px 10px; border-radius: var(--radius-sm);
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); }
+        .question-text { font-weight: 600; color: var(--text-black); margin-bottom: var(--space-md); }
+        details.answer { margin-top: var(--space-sm); }
+        details.answer summary { cursor: pointer; font-weight: 700; color: var(--text-black);
+            font-family: var(--font-heading), sans-serif; font-size: 0.875rem;
+            border-bottom: 2px solid var(--primary-main); display: inline-block; }
+        details.answer .reveal { margin-top: var(--space-sm); padding: var(--space-md);
+            background: var(--accent-green-light); border-radius: var(--radius-sm); color: var(--text-black); }
+
+        .references-section { background: var(--neutral-100); border-radius: var(--radius-lg);
+            padding: var(--space-lg) var(--space-xl); margin: var(--space-xl) 0; border-top: 3px solid var(--primary-main); }
+        .references-section h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .references-section ul { padding-left: var(--space-lg); }
+
+        .summary-box {
+            background: var(--primary-dark); color: var(--white);
+            border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .summary-box h3 { color: var(--white); margin-top: 0; display: flex; align-items: center;
+            gap: var(--space-sm); border-left: none; padding-left: 0; }
+        .summary-box h3::before { content: '\1F4CB'; }
+        .summary-box ul { margin-bottom: 0; }
+        .summary-box li { color: var(--white); }
+        .summary-box li::marker { color: var(--primary-light); }
+
+        .section-divider {
+            border: none; height: 6px; margin: var(--space-2xl) 0;
+            background: linear-gradient(90deg, transparent 0%, var(--primary-main) 15%, var(--primary-light) 50%, var(--primary-main) 85%, transparent 100%);
+            border-radius: var(--radius-sm); box-shadow: var(--shadow-sm);
+        }
+
+        .module-footer { background: var(--primary-dark); padding: var(--space-lg) var(--space-xl);
+            text-align: center; border-top: 4px solid var(--primary-main); }
+        .footer-text { font-size: 0.875rem; color: var(--white); margin: 0; }
+
+        .text-center { text-align: center; }
+        .text-muted { color: var(--neutral-500); }
+        .highlight { background: linear-gradient(180deg, transparent 50%, var(--primary-light) 50%); padding: 0 2px; }
+
+        @media (max-width: 768px) {
+            body { padding: var(--space-sm); }
+            .module-header { padding: var(--space-xl) var(--space-lg); }
+            .module-title { font-size: 1.75rem; }
+            .content-area { padding: var(--space-lg); }
+            h2 { font-size: 1.375rem; }
+            .lab-header, .activity-header { flex-direction: column; align-items: flex-start; }
+        }
+        @media print {
+            body { background: white; padding: 0; }
+            .course-container { box-shadow: none; }
+            .toc { display: none; }
+            details.answer { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="course-container">
+        <header class="module-header">
+            <div class="module-label">Unit 1 Announcement</div>
+            <h1 class="module-title">Unit 1 &mdash; The Technician and the Operating System</h1>
+            <p class="module-subtitle">The software half of A+ starts now: what an operating system is, how Windows gets onto a machine, and how a professional technician documents the work.</p>
+        </header>
+        <div class="content-area">
+
+            <h2>Where We Are</h2>
+            <p>Welcome to Unit 1 of Core 2. In Core 1 you learned what is inside the computer. In this unit you meet the software that brings that hardware to life &mdash; and the professional habits that make customers trust a technician.</p>
+            <p>Unit 1 covers two exam domains at once, on purpose. <strong>Domain 1.0 Operating Systems</strong> (objectives 1.1, 1.2, 1.3, 1.10, and 1.11) is the foundation for every Core 2 topic that follows. <strong>Domain 4.0 Operational Procedures</strong> (objectives 4.1 and 4.7) is tickets, documentation, and communication &mdash; 21% of the exam, and the clearest picture of the job you are training for.</p>
+
+            <div class="plain-box">
+                <div class="callout-title">In Plain Terms</div>
+                <div class="callout-content"><p>An operating system is the manager that sits between you and the hardware. It decides which program gets the processor, where files are stored, and what you see on the screen. In this unit you learn the main operating systems, how Windows is installed and upgraded, how to tell whether a program will run on a computer, and how to write down your work so the next technician can pick up where you stopped.</p></div>
+            </div>
+
+            <h2>What You'll Be Able to Do by the End of This Unit</h2>
+            <div class="objectives-box">
+                <h3>By the end of Unit 1, you will be able to:</h3>
+                <ol>
+                    <li>Identify the common workstation and mobile operating systems and state what each is used for</li>
+                    <li>Compare the file systems on the exam &mdash; NTFS, ReFS, FAT32, exFAT, ext4, XFS, and APFS &mdash; and choose the right one for a given drive</li>
+                    <li>Compare the features and hardware requirements of the Windows 10 and Windows 11 editions</li>
+                    <li>Describe Windows boot methods, installation types, partitioning schemes, and upgrade considerations</li>
+                    <li>Evaluate an application's system requirements and distribution method before installing it</li>
+                    <li>Describe how cloud-based productivity tools, file sync, and licenses are set up for users</li>
+                    <li>Write a help-desk ticket that clearly documents a problem, the work done, and the resolution</li>
+                    <li>Apply professional communication techniques when working with a customer</li>
+                </ol>
+            </div>
+
+            <h2>This Unit at a Glance</h2>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Date</th><th>Time</th><th>What Happens</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Tuesday, September 22</strong></td><td>10:00 AM &ndash; 1:00 PM</td><td>Welcome back and Unit 0 orientation. The Sybex Assessment Test, completed in class. Professor Messer's course introduction, watched together. Our first Ticket of the Day.</td></tr>
+                        <tr><td><strong>Wednesday, September 23</strong></td><td>11:00 AM &ndash; 2:00 PM</td><td>Ticket of the Day. Operating system types, file systems, Windows editions, and installing and upgrading Windows. Optional lab, time permitting: File System Face-Off.</td></tr>
+                        <tr><td><strong>Thursday, September 24</strong></td><td>10:00 AM &ndash; 1:00 PM</td><td>Ticket of the Day. Application requirements, cloud productivity tools, ticketing and documentation, and professional communication. Optional labs, time permitting: Will It Run? and Ticket Triage. Unit exit check.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>Everything else for Unit 1 is due <strong>Monday, September 28, at 11:59 PM</strong>. Nothing is due before our first class &mdash; the Assessment Test is done together on Tuesday.</p>
+
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Work</th><th>Section</th><th>Graded?</th></tr></thead>
+                    <tbody>
+                        <tr><td>Section 1.2 Pre-Assessment &mdash; on your own, at the start of the unit, before the reading</td><td>1.2</td><td>Ungraded &mdash; expected</td></tr>
+                        <tr><td>Reading: Sybex Volume 2 &mdash; Assessment Test; Chapter 1 (full); Chapter 3 (Installing and Upgrading Windows); Chapter 10 (Documentation and Support; Demonstrating Professionalism)</td><td>1.4</td><td>Ungraded &mdash; expected</td></tr>
+                        <tr><td>Thirteen Professor Messer videos (2 hr 02 min)</td><td>1.5</td><td>Ungraded &mdash; expected</td></tr>
+                        <tr><td>Take-home lab: Document Your Own Machine</td><td>1.6</td><td>Ungraded &mdash; expected</td></tr>
+                        <tr><td>Practice Question Set</td><td>1.7</td><td>Ungraded &mdash; expected</td></tr>
+                        <tr><td>NETLAB Labs 12 (Installing Software), 13 (Managing Storage), and 03 (Windows Customizations)</td><td>1.8</td><td><strong>Graded</strong> &mdash; 100 points each</td></tr>
+                        <tr><td>Reflection &mdash; four reflection prompts</td><td>1.9</td><td><strong>Graded</strong> &mdash; 100 points</td></tr>
+                        <tr><td>Unit 1 Test &mdash; 20 items per attempt; screenshot your score and upload it</td><td>1.10</td><td><strong>Graded</strong> &mdash; 100 points</td></tr>
+                        <tr><td>Acronym Test and the 100-question Acronym Quiz &mdash; ongoing, no due date</td><td>1.A</td><td>Ungraded &mdash; expected</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>Budget <strong>20 to 21 hours</strong> outside class for this unit. It is one of the fuller units in the course because it carries three NETLAB labs, so reserve your NETLAB time early rather than on Sunday night. Graded work that falls short of its completion standard comes back to you for revision &mdash; it is never partially scored.</p>
+
+            <h2>One Thing That Trips People Up</h2>
+            <div class="key-concept">
+                <h4>Windows Home Is Not a Smaller Windows Pro</h4>
+                <p>Most people assume the Windows editions are the same product with a few extras added at the top. For a technician, the differences are the whole point.</p>
+                <p><strong>Here's how it plays out on the job:</strong> a small dental office buys five laptops on sale. They arrive with Windows 11 Home. On setup day the technician finds that Home cannot join the office's domain, does not include BitLocker, and cannot accept incoming Remote Desktop connections. The office can't manage those laptops centrally, can't encrypt patient records the way its policy requires, and its IT support can't connect in remotely. The fix is an edition upgrade on every machine &mdash; time and money nobody planned to spend.</p>
+                <p><strong>On the exam:</strong> when a question mentions a business network, a domain, BitLocker, or connecting to a machine with Remote Desktop, check the Windows edition first. The edition is often the answer.</p>
+            </div>
+
+            <h2>This Unit Checklist</h2>
+            <ul class="checklist">
+                <li>Take the Sybex Assessment Test in class on Tuesday</li>
+                <li>Complete the Section 1.2 Pre-Assessment on your own before you start the reading</li>
+                <li>Read the assigned Sybex Volume 2 sections listed in Section 1.4</li>
+                <li>Watch the thirteen Professor Messer videos in Section 1.5</li>
+                <li>Complete the take-home lab in Section 1.6 &mdash; the best way to make this unit's reading concrete</li>
+                <li>Work the Section 1.7 practice set with confidence marking until you score 10 out of 10</li>
+                <li>Complete NDG A+ v5 Labs 12, 13, and 03 in NETLAB &mdash; reserve your time early</li>
+                <li>Submit your Section 1.9 reflection</li>
+                <li>Take the Section 1.10 Unit Test and upload a screenshot of your score</li>
+                <li>Drill the Section 1.A Acronym Test whenever you have ten spare minutes</li>
+            </ul>
+
+            <div class="summary-box">
+                <h3>Ready for Unit 1</h3>
+                <ul>
+                    <li>Bring Volume 2 and your device to every class</li>
+                    <li>Unit 1 work is due Monday, September 28, at 11:59 PM &mdash; every date also lives in the Course Schedule</li>
+                    <li>Remember the Core 2 number: 700 to pass, about 75% of raw points &mdash; aim higher from day one</li>
+                    <li>Questions any time: <strong>mark.turner@cpcc.edu</strong></li>
+                </ul>
+            </div>
+
+            <p style="margin-top: var(--space-xl);">New material always feels heavy for the first few days. The hard part is normal, and you have handled it before. Let's get started.</p>
+            <p><strong>&mdash; Mark</strong></p>
+
+        </div>
+    </div>
+</body>
+</html>

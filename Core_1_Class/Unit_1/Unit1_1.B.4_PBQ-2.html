@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 1 &mdash; 1.B.4 PBQ 2 | CompTIA A+ Core 1</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Sans+Pro:wght@400;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           CPCC COURSE TEMPLATE - GOLD / CHARCOAL / BLACK
+           CTS-ITS7501-80 CompTIA A+ Core 1 Training
+           ============================================ */
+
+        :root {
+            --primary-dark: #4A4A4A;
+            --primary-main: #B8962E;
+            --primary-light: #D4AF56;
+            --primary-pale: #FBF3DF;
+
+            --accent-teal: #8A6F1F;
+            --accent-teal-light: #F3E9CE;
+            --accent-orange: #A9642A;
+            --accent-orange-light: #F5E2CE;
+            --accent-purple: #6B5B3A;
+            --accent-purple-light: #EFE6D2;
+            --accent-green: #4E7A51;
+            --accent-green-light: #DCEBDD;
+
+            --alert-warning: #B8862E;
+            --alert-warning-bg: #FBF0D9;
+            --alert-danger: #A13A3A;
+            --alert-danger-bg: #F6DEDE;
+            --alert-success: #3F6E42;
+            --alert-success-bg: #DCEBDD;
+            --alert-info: #6E5B2E;
+            --alert-info-bg: #F1E9D4;
+
+            --text-black: #000000;
+            --neutral-900: #000000;
+            --neutral-700: #000000;
+            --neutral-500: #5A5A5A;
+            --neutral-300: #D9D3C4;
+            --neutral-200: #E5DFCF;
+            --neutral-100: #FAF8F3;
+            --white: #ffffff;
+
+            --font-heading: 'Nunito', sans-serif;
+            --font-body: 'Source Sans Pro', sans-serif;
+            --font-code: 'Fira Code', monospace;
+
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+
+            --shadow-sm: 0 1px 2px rgba(74, 74, 74, 0.08);
+            --shadow-md: 0 4px 6px rgba(74, 74, 74, 0.12);
+            --shadow-lg: 0 10px 20px rgba(74, 74, 74, 0.15);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body), 'Segoe UI', Tahoma, Verdana, sans-serif;
+            font-size: 1.0625rem; line-height: 1.7; color: var(--text-black);
+            background: linear-gradient(135deg, var(--neutral-100) 0%, var(--white) 100%);
+            min-height: 100vh; padding: var(--space-lg);
+        }
+
+        .course-container {
+            max-width: 950px; margin: 0 auto; background: var(--white);
+            border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); overflow: hidden;
+        }
+
+        .module-header {
+            background: var(--primary-main); color: var(--text-black);
+            padding: var(--space-lg) var(--space-xl); position: relative; overflow: hidden;
+        }
+        .module-label {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 0.875rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 2px; text-decoration: underline;
+            margin-bottom: var(--space-sm); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-title {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 2.25rem; font-weight: 800;
+            line-height: 1.2; margin-bottom: var(--space-md); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-subtitle { font-size: 1.125rem; max-width: 650px; position: relative; z-index: 1; color: var(--text-black); }
+
+        .toc {
+            display: flex; flex-direction: column; gap: var(--space-sm);
+            padding: var(--space-lg) var(--space-xl);
+            background: var(--primary-pale); border-bottom: 1px solid var(--neutral-300);
+        }
+        .toc-item {
+            width: 100%; text-align: left;
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 0.875rem;
+            color: var(--text-black); background: var(--white);
+            border: 2px solid var(--primary-main);
+            padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md);
+        }
+        .toc-item.current { background: var(--primary-main); }
+
+        .content-area { padding: var(--space-xl); }
+
+        h1, h2, h3, h4 { font-family: var(--font-heading), 'Segoe UI', sans-serif; color: var(--text-black); }
+        p { margin-bottom: var(--space-md); }
+        .text-muted { color: var(--neutral-500); }
+
+        .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; }
+        .callout-title { font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 1rem;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
+        .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
+
+        /* ============================================
+           PBQ WIDGET (scenario + dropdown matching)
+           ============================================ */
+        .pbq-container {
+            border-radius: var(--radius-lg); overflow: hidden; border: 2px solid var(--primary-main);
+            margin: var(--space-lg) 0;
+        }
+        .pbq-header {
+            display: flex; align-items: center; padding: 0.875rem 1.5rem;
+            border-bottom: 2px solid var(--primary-main); background: var(--primary-pale); gap: 1rem;
+        }
+        .header-btn {
+            font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 0.8125rem;
+            background: var(--primary-dark); color: var(--white); border: none;
+            padding: 0.5rem 1.125rem; border-radius: var(--radius-md);
+            cursor: pointer; transition: background 0.2s, transform 0.1s;
+            white-space: nowrap; letter-spacing: 0.5px; flex-shrink: 0;
+        }
+        .header-btn:hover { background: #333333; transform: translateY(-1px); }
+        .header-btn:active { transform: translateY(0); }
+        .pbq-title {
+            font-family: var(--font-heading), sans-serif; font-size: 1.1875rem; font-weight: 700;
+            color: var(--text-black); flex: 1; text-align: center;
+        }
+
+        .pbq-body { padding: 1.5rem; background: var(--white); }
+
+        .scenario-box {
+            background: var(--neutral-100); border: 2px solid var(--neutral-300);
+            border-radius: var(--radius-lg); padding: 1.25rem 1.5rem; margin-bottom: 1.5rem;
+        }
+        .scenario-label {
+            font-family: var(--font-heading), sans-serif; font-size: 0.6875rem; font-weight: 800;
+            color: var(--accent-teal); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 0.5rem;
+        }
+        .scenario-title {
+            font-family: var(--font-heading), sans-serif; font-size: 1rem; font-weight: 700;
+            color: var(--text-black); margin-bottom: 0.625rem; line-height: 1.35;
+        }
+        .scenario-text { font-size: 0.9375rem; line-height: 1.65; color: var(--text-black); }
+        .scenario-text strong { color: var(--text-black); }
+        .ticket-detail {
+            display: inline-block; background: var(--white); border: 1px solid var(--neutral-300);
+            border-radius: var(--radius-md); padding: 0.25rem 0.625rem;
+            font-family: var(--font-heading), sans-serif; font-size: 0.8125rem; font-weight: 600;
+            color: var(--text-black); margin-top: 0.5rem;
+        }
+
+        .columns { display: flex; gap: 1.25rem; align-items: stretch; }
+        .col-left, .col-right { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+        .col-heading {
+            font-family: var(--font-heading), sans-serif; font-size: 0.75rem; font-weight: 700;
+            color: var(--neutral-500); text-transform: uppercase; letter-spacing: 1.5px;
+            margin-bottom: 0.75rem; text-align: center;
+        }
+        .col-panel {
+            flex: 1; border: 2px solid var(--neutral-300); border-radius: var(--radius-lg);
+            background: var(--neutral-100); padding: 1rem;
+            display: flex; flex-direction: column; justify-content: space-between; gap: 1rem;
+        }
+
+        .menu-group {
+            background: var(--white); border: 1px solid var(--neutral-200); border-radius: var(--radius-md);
+            padding: 0.875rem; transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .menu-label {
+            font-family: var(--font-heading), sans-serif; font-size: 0.8125rem; font-weight: 700;
+            color: var(--text-black); margin-bottom: 0.5rem;
+        }
+
+        select {
+            width: 100%; padding: 0.5rem 2rem 0.5rem 0.625rem;
+            font-family: var(--font-body), sans-serif; font-size: 0.8125rem; color: var(--text-black);
+            border: 2px solid var(--neutral-300); border-radius: var(--radius-md); background: var(--white);
+            cursor: pointer; appearance: none; -webkit-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%235A5A5A' d='M1.41 0L6 4.58 10.59 0 12 1.41l-6 6-6-6z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat; background-position: right 0.75rem center;
+            transition: border-color 0.2s, box-shadow 0.2s; line-height: 1.4;
+        }
+        select:hover { border-color: var(--accent-teal); }
+        select:focus { outline: none; border-color: var(--accent-teal); box-shadow: 0 0 0 3px rgba(138,111,31,0.2); }
+
+        .menu-group.score-correct { border-color: var(--accent-green); box-shadow: 0 0 0 3px rgba(78,122,81,0.2); }
+        .menu-group.score-correct select { border-color: var(--accent-green); background-color: var(--accent-green-light); }
+        .menu-group.score-incorrect { border-color: var(--alert-danger); box-shadow: 0 0 0 3px rgba(161,58,58,0.15); }
+        .menu-group.score-incorrect select { border-color: var(--alert-danger); background-color: var(--alert-danger-bg); }
+        .menu-group.score-empty { border-color: var(--alert-danger); box-shadow: 0 0 0 3px rgba(161,58,58,0.15); }
+
+        .score-display {
+            font-family: var(--font-heading), sans-serif; font-size: 1rem; font-weight: 700;
+            min-height: 1.5rem; text-align: center; margin-top: 1.25rem;
+        }
+        .score-display .score-perfect { color: var(--accent-green); }
+        .score-display .score-partial { color: var(--alert-warning); }
+        .score-display .score-low { color: var(--alert-danger); }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+        .fade-in { animation: fadeIn 0.35s ease-out; }
+
+        .pbq-footer-note { background: var(--neutral-100); padding: 0.75rem 1.5rem; text-align: center; border-top: 1px solid var(--neutral-300); }
+
+        .module-footer { background: var(--neutral-100); padding: var(--space-lg) var(--space-xl); text-align: center; border-top: 1px solid var(--neutral-300); }
+        .footer-text { font-size: 0.875rem; color: var(--neutral-500); }
+
+        @media (max-width: 768px) {
+            .module-title { font-size: 1.75rem; }
+            .content-area { padding: var(--space-lg); }
+            .columns { flex-direction: column; gap: 1rem; }
+        }
+        @media print {
+            body { background: white; padding: 0; }
+            .course-container { box-shadow: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="course-container">
+
+        <header class="module-header">
+            <div class="module-label">Unit 1 &middot; Inside the Box &middot; Section 1.B.4</div>
+            <h1 class="module-title">PBQ 2: Match the Step</h1>
+            <p class="module-subtitle">CompTIA A+ Core 1 - Domains 3.0 and 5.0</p>
+        </header>
+
+        <nav class="toc" id="tocNav">
+            <div class="toc-header">Table of Contents</div>
+            <div class="toc-item">1.1 &mdash; Unit Overview and Learning Objectives</div>
+            <div class="toc-item">1.2 &mdash; Unit Pre-Assessment</div>
+            <div class="toc-item">1.3 &mdash; Content Review</div>
+            <div class="toc-item">1.4 &mdash; Reading Assignment</div>
+            <div class="toc-item">1.5 &mdash; Video Assignment</div>
+            <div class="toc-item">1.6 &mdash; Classroom Labs</div>
+            <div class="toc-item">1.7 &mdash; Practice Question Set</div>
+            <div class="toc-item">1.8 &mdash; Online Labs: NETLAB</div>
+            <div class="toc-item">1.9 &mdash; Reflection Activity</div>
+            <div class="toc-item">1.10 &mdash; Unit Test</div>
+            <div class="toc-item">1.A &mdash; Acronym Test</div>
+            <div class="toc-item">1.B.1 &mdash; CompTIA Troubleshooting Concepts</div>
+            <div class="toc-item">1.B.2 &mdash; CompTIA Troubleshooting Scenarios</div>
+            <div class="toc-item">1.B.3 &mdash; PBQ 1</div>
+            <div class="toc-item current" id="tocCurrent">1.B.4 &mdash; PBQ 2</div>
+        </nav>
+        <style>
+            /* Collapsible TOC: only the current section shows until clicked */
+            nav.toc#tocNav { gap: 0; }
+            nav.toc#tocNav .toc-item {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav .toc-item.current {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                cursor: pointer;
+            }
+            nav.toc#tocNav .toc-item.current::after {
+                content: ' \25BE Click to View';
+                font-size: 0.75em;
+            }
+            nav.toc#tocNav.toc-expanded .toc-item {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                margin-bottom: var(--space-sm);
+            }
+            nav.toc#tocNav.toc-expanded .toc-item.current::after { content: ' \25B4'; }
+
+            nav.toc#tocNav .toc-header {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                font-family: var(--font-heading), 'Segoe UI', sans-serif;
+                font-weight: 700;
+                font-size: 0.875rem;
+                text-align: left;
+                color: var(--text-black);
+                text-decoration: underline;
+                background: var(--primary-main);
+                border-radius: var(--radius-md);
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav.toc-expanded .toc-header {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                padding-left: var(--space-md);
+                border-width: 2px;
+                border-style: solid;
+                border-color: var(--primary-main);
+                margin-bottom: var(--space-sm);
+            }
+        </style>
+
+        <script>
+            (function () {
+                var toc = document.getElementById('tocNav');
+                var currentItem = document.getElementById('tocCurrent');
+
+                toc.addEventListener('click', function (e) {
+                    if (toc.classList.contains('toc-expanded')) {
+                        toc.classList.remove('toc-expanded');
+                    } else if (e.target === currentItem || currentItem.contains(e.target)) {
+                        toc.classList.add('toc-expanded');
+                    }
+                });
+
+                toc.addEventListener('mouseleave', function () {
+                    toc.classList.remove('toc-expanded');
+                });
+            })();
+        </script>
+
+        <div class="content-area">
+
+            <p class="text-muted">A performance-based question, matching the drag-and-drop and selection formats used on the real CompTIA exam.</p>
+
+            <div class="callout callout-info">
+                <div class="callout-title">How This Works</div>
+                <div class="callout-content"><p>Read the help desk ticket, then use the dropdowns to select the technician's correct next action and the matching step of the troubleshooting methodology. Click <strong>Score</strong> to check your answers. Click <strong>Reset</strong> for a brand-new scenario &mdash; there are five in the rotation, so you can work through the whole set.</p></div>
+            </div>
+
+            <div class="pbq-container">
+                <div class="pbq-header">
+                    <button class="header-btn" id="resetBtn">&laquo; RESET</button>
+                    <h1 class="pbq-title">PBQ 2</h1>
+                    <button class="header-btn" id="checkBtn">SCORE &raquo;</button>
+                </div>
+
+                <div class="pbq-body" id="pbqBody">
+                    <div class="scenario-box" id="scenarioBox"></div>
+
+                    <div class="columns">
+                        <div class="col-left">
+                            <div class="col-heading">Technician Actions</div>
+                            <div class="col-panel" id="panelLeft"></div>
+                        </div>
+                        <div class="col-right">
+                            <div class="col-heading">CompTIA Methodology Step</div>
+                            <div class="col-panel" id="panelRight"></div>
+                        </div>
+                    </div>
+
+                    <div class="score-display" id="scoreDisplay"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <footer class="module-footer">
+            <p class="footer-text">CompTIA A+ Core 1 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
+        </footer>
+    </div>
+
+<script>
+const SCENARIOS = [
+
+/* ── SCENARIO 0: PSU FAILURE ── */
+{
+    title: 'Desktop PC Will Not Power On — Office 204',
+    text: 'A help desk ticket has been submitted by an end user in <strong>Office 204</strong>. The user reports that their <strong>desktop PC will not turn on</strong>. When the power button is pressed, there are <strong>no indicator lights, no fan spin, and no display output</strong>. The user has attempted pressing the power button multiple times with no response. The ticket notes confirm that <strong>no recent hardware or software changes</strong> have been made to the system.',
+    ticket: 'Ticket #20487 &nbsp;|&nbsp; Priority: Medium &nbsp;|&nbsp; Status: Open &nbsp;|&nbsp; Changes: None',
+    left: [
+        {
+            label: 'First Step:',
+            correct: 'b',
+            options: [
+                { v:'a', t:'Replace the power supply unit immediately' },
+                { v:'b', t:'Verify the power cable connection and confirm the reported symptoms with the user' },
+                { v:'c', t:'Run Windows System File Checker from the command prompt' },
+                { v:'d', t:'Open the case and replace the motherboard' },
+                { v:'e', t:'Run a POST diagnostic card test on the system' }
+            ]
+        },
+        {
+            label: 'Possible Cause:',
+            correct: 'c',
+            options: [
+                { v:'a', t:'The network interface card has a firmware conflict' },
+                { v:'b', t:'The hard drive has corrupted boot sector data' },
+                { v:'c', t:'Failed power supply unit — no power delivery to the motherboard' },
+                { v:'d', t:'The graphics card drivers need to be updated' },
+                { v:'e', t:'The RAM modules are running at an incorrect clock speed' }
+            ]
+        },
+        {
+            label: 'Corrective Measures:',
+            correct: 'b',
+            options: [
+                { v:'a', t:'Reformat the hard drive and reinstall the operating system' },
+                { v:'b', t:'Replace the faulty PSU and connect the system to a UPS/surge protector' },
+                { v:'c', t:'Flash the BIOS firmware and reset CMOS settings' },
+                { v:'d', t:'Upgrade the RAM to higher-capacity modules' },
+                { v:'e', t:'Replace the Ethernet cable and reconfigure the network adapter' }
+            ]
+        }
+    ],
+    right: [
+        {
+            label: 'Methodology Match:',
+            correct: 'd',
+            options: [
+                { v:'a', t:'Establish a Plan of Action and Implement the Solution' },
+                { v:'b', t:'Document Findings, Actions, and Outcomes' },
+                { v:'c', t:'Establish a Theory of Probable Cause' },
+                { v:'d', t:'Identify the Problem' },
+                { v:'e', t:'Test the Theory to Determine Cause' }
+            ]
+        },
+        {
+            label: 'Methodology Match:',
+            correct: 'b',
+            options: [
+                { v:'a', t:'Test the Theory to Determine Cause' },
+                { v:'b', t:'Establish a Theory of Probable Cause' },
+                { v:'c', t:'Identify the Problem' },
+                { v:'d', t:'Verify Full System Functionality' },
+                { v:'e', t:'Establish a Plan of Action and Implement the Solution' }
+            ]
+        },
+        {
+            label: 'Methodology Match:',
+            correct: 'e',
+            options: [
+                { v:'a', t:'Identify the Problem' },
+                { v:'b', t:'Verify Full System Functionality' },
+                { v:'c', t:'Test the Theory to Determine Cause' },
+                { v:'d', t:'Document Findings, Actions, and Outcomes' },
+                { v:'e', t:'Establish a Plan of Action and Implement the Solution' }
+            ]
+        }
+    ]
+},
+
+/* ── SCENARIO 1: ONBOARD NIC FAILURE ── */
+{
+    title: 'No Network Connectivity — Office 312',
+    text: 'A help desk ticket has been submitted by an end user in <strong>Office 312</strong>. The user reports that their desktop PC powers on and loads the operating system normally, but has <strong>no network or internet access</strong>. The <strong>link light on the rear Ethernet port is not illuminated</strong>. The user tested the same network cable on a laptop and confirmed it works. The network switch port was verified as active by facilities. The ticket notes confirm that <strong>no recent changes</strong> have been made to the system.',
+    ticket: 'Ticket #20512 &nbsp;|&nbsp; Priority: High &nbsp;|&nbsp; Status: Open &nbsp;|&nbsp; Changes: None',
+    left: [
+        {
+            label: 'First Step:',
+            correct: 'c',
+            options: [
+                { v:'a', t:'Install a PCIe NIC card without further testing' },
+                { v:'b', t:'Replace the Ethernet cable and retest connectivity' },
+                { v:'c', t:'Confirm network adapter status in Device Manager and test the port with a loopback plug' },
+                { v:'d', t:'Reinstall the operating system network drivers' },
+                { v:'e', t:'Replace the motherboard to restore onboard networking' }
+            ]
+        },
+        {
+            label: 'Possible Cause:',
+            correct: 'b',
+            options: [
+                { v:'a', t:'The network switch VLAN configuration was recently changed' },
+                { v:'b', t:'Failed onboard Ethernet controller on the motherboard' },
+                { v:'c', t:'The Ethernet cable has an incorrect wiring pinout' },
+                { v:'d', t:'Windows Firewall is blocking all inbound and outbound traffic' },
+                { v:'e', t:'The DNS server is not responding to queries from this workstation' }
+            ]
+        },
+        {
+            label: 'Corrective Measures:',
+            correct: 'c',
+            options: [
+                { v:'a', t:'Replace the network switch and repatch all office connections' },
+                { v:'b', t:'Reinstall Windows and reconfigure all network settings from scratch' },
+                { v:'c', t:'Install a PCIe NIC, disable the onboard port in BIOS, and implement regular network adapter diagnostics' },
+                { v:'d', t:'Assign a static IP address to bypass DHCP configuration' },
+                { v:'e', t:'Replace the motherboard and transfer all existing components' }
+            ]
+        }
+    ],
+    right: [
+        {
+            label: 'Methodology Match:',
+            correct: 'c',
+            options: [
+                { v:'a', t:'Establish a Theory of Probable Cause' },
+                { v:'b', t:'Verify Full System Functionality' },
+                { v:'c', t:'Identify the Problem' },
+                { v:'d', t:'Test the Theory to Determine Cause' },
+                { v:'e', t:'Establish a Plan of Action and Implement the Solution' }
+            ]
+        },
+        {
+            label: 'Methodology Match:',
+            correct: 'd',
+            options: [
+                { v:'a', t:'Establish a Plan of Action and Implement the Solution' },
+                { v:'b', t:'Document Findings, Actions, and Outcomes' },
+                { v:'c', t:'Verify Full System Functionality' },
+                { v:'d', t:'Establish a Theory of Probable Cause' },
+                { v:'e', t:'Identify the Problem' }
+            ]
+        },
+        {
+            label: 'Methodology Match:',
+            correct: 'b',
+            options: [
+                { v:'a', t:'Test the Theory to Determine Cause' },
+                { v:'b', t:'Establish a Plan of Action and Implement the Solution' },
+                { v:'c', t:'Document Findings, Actions, and Outcomes' },
+                { v:'d', t:'Identify the Problem' },
+                { v:'e', t:'Establish a Theory of Probable Cause' }
+            ]
+        }
+    ]
+},
+
+/* ── SCENARIO 2: SURGE PROTECTOR FAILURE ── */
+{
+    title: 'Multiple Devices Without Power After Storm — Office 118',
+    text: 'A help desk ticket has been submitted by an end user in <strong>Office 118</strong>. Following a <strong>severe thunderstorm</strong> the previous evening, the user reports that their desktop PC, monitor, and desk lamp plugged into the same <strong>surge protector strip are all without power</strong>. The user plugged the desk lamp directly into the wall outlet and it powered on normally. The surge protector\'s <strong>status indicator light is off</strong> and the reset button does not respond. The ticket notes confirm that <strong>no changes</strong> were made to the system prior to the outage.',
+    ticket: 'Ticket #20531 &nbsp;|&nbsp; Priority: High &nbsp;|&nbsp; Status: Open &nbsp;|&nbsp; Changes: None',
+    left: [
+        {
+            label: 'First Step:',
+            correct: 'c',
+            options: [
+                { v:'a', t:'Replace the desktop power supply and the monitor power cable' },
+                { v:'b', t:'Call an electrician to inspect the building\'s main wiring' },
+                { v:'c', t:'Inspect the surge protector for damage indicators and test each device on a known-good power source' },
+                { v:'d', t:'Open the desktop case and check for burn marks on the motherboard' },
+                { v:'e', t:'File an equipment damage report for all connected devices' }
+            ]
+        },
+        {
+            label: 'Possible Cause:',
+            correct: 'd',
+            options: [
+                { v:'a', t:'The building\'s main electrical panel has a tripped circuit breaker' },
+                { v:'b', t:'All three device power cables failed simultaneously during the storm' },
+                { v:'c', t:'The desktop\'s internal power supply was damaged by a voltage spike' },
+                { v:'d', t:'The surge protector absorbed a power surge and its protection circuitry has failed' },
+                { v:'e', t:'The wall outlet\'s internal wiring was damaged by the storm' }
+            ]
+        },
+        {
+            label: 'Corrective Measures:',
+            correct: 'c',
+            options: [
+                { v:'a', t:'Replace all power cables for each device connected to the strip' },
+                { v:'b', t:'Install a dedicated 20-amp electrical circuit for the office' },
+                { v:'c', t:'Replace the failed surge protector with a UPS battery backup and establish a scheduled replacement cycle for surge protection devices' },
+                { v:'d', t:'Move all equipment to a different wall outlet in the office' },
+                { v:'e', t:'Replace the desktop, monitor, and desk lamp with new equipment' }
+            ]
+        }
+    ],
+    right: [
+        {
+            label: 'Methodology Match:',
+            correct: 'b',
+            options: [
+                { v:'a', t:'Document Findings, Actions, and Outcomes' },
+                { v:'b', t:'Identify the Problem' },
+                { v:'c', t:'Establish a Theory of Probable Cause' },
+                { v:'d', t:'Establish a Plan of Action and Implement the Solution' },
+                { v:'e', t:'Test the Theory to Determine Cause' }
+            ]
+        },
+        {
+            label: 'Methodology Match:',
+            correct: 'c',
+            options: [
+                { v:'a', t:'Identify the Problem' },
+                { v:'b', t:'Establish a Plan of Action and Implement the Solution' },
+                { v:'c', t:'Establish a Theory of Probable Cause' },
+                { v:'d', t:'Test the Theory to Determine Cause' },
+                { v:'e', t:'Document Findings, Actions, and Outcomes' }
+            ]
+        },
+        {
+            label: 'Methodology Match:',
+            correct: 'a',
+            options: [
+                { v:'a', t:'Establish a Plan of Action and Implement the Solution' },
+                { v:'b', t:'Identify the Problem' },
+                { v:'c', t:'Verify Full System Functionality' },
+                { v:'d', t:'Test the Theory to Determine Cause' },
+                { v:'e', t:'Document Findings, Actions, and Outcomes' }
+            ]
+        }
+    ]
+},
+
+/* ── SCENARIO 3: RAM FAILURE (1 OF 2 STICKS) ── */
+{
+    title: 'Frequent Blue Screens and Application Crashes — Office 227',
+    text: 'A help desk ticket has been submitted by an end user in <strong>Office 227</strong>. The user reports that their desktop PC experiences <strong>frequent blue screen errors (BSODs) and random application crashes</strong> throughout the workday. The system was <strong>previously stable for over a year</strong>. Event Viewer logs show multiple <strong>memory management and page fault errors</strong>. The system has <strong>two 8GB RAM modules</strong> installed. The ticket notes confirm that <strong>no hardware or software changes</strong> have been made to the system.',
+    ticket: 'Ticket #20558 &nbsp;|&nbsp; Priority: Medium &nbsp;|&nbsp; Status: Open &nbsp;|&nbsp; Changes: None',
+    left: [
+        {
+            label: 'First Step:',
+            correct: 'c',
+            options: [
+                { v:'a', t:'Replace both RAM modules with new sticks from inventory' },
+                { v:'b', t:'Run Windows Memory Diagnostic on each module to identify the faulty stick' },
+                { v:'c', t:'Review Event Viewer logs, question the user about when crashes occur, and document the BSOD error codes' },
+                { v:'d', t:'Update the motherboard chipset and BIOS firmware to the latest version' },
+                { v:'e', t:'Perform a full antivirus scan to rule out malware infection' }
+            ]
+        },
+        {
+            label: 'Possible Cause:',
+            correct: 'b',
+            options: [
+                { v:'a', t:'The hard drive is failing and corrupting virtual memory swap data' },
+                { v:'b', t:'One of the two installed RAM modules has developed a hardware fault' },
+                { v:'c', t:'The CPU is overheating due to deteriorated thermal compound' },
+                { v:'d', t:'A recent Windows update has caused a system driver incompatibility' },
+                { v:'e', t:'The power supply is delivering inconsistent voltage to the memory slots' }
+            ]
+        },
+        {
+            label: 'Corrective Measures:',
+            correct: 'b',
+            options: [
+                { v:'a', t:'Replace both memory modules and upgrade the system to 32GB total' },
+                { v:'b', t:'Isolate the faulty module by testing each individually, replace it with a matching specification, and schedule quarterly preventive memory diagnostics' },
+                { v:'c', t:'Reinstall the operating system and all application software' },
+                { v:'d', t:'Replace the power supply to ensure consistent voltage delivery' },
+                { v:'e', t:'Reseat both modules and reset BIOS memory settings to defaults' }
+            ]
+        }
+    ],
+    right: [
+        {
+            label: 'Methodology Match:',
+            correct: 'e',
+            options: [
+                { v:'a', t:'Establish a Plan of Action and Implement the Solution' },
+                { v:'b', t:'Test the Theory to Determine Cause' },
+                { v:'c', t:'Document Findings, Actions, and Outcomes' },
+                { v:'d', t:'Verify Full System Functionality' },
+                { v:'e', t:'Identify the Problem' }
+            ]
+        },
+        {
+            label: 'Methodology Match:',
+            correct: 'a',
+            options: [
+                { v:'a', t:'Establish a Theory of Probable Cause' },
+                { v:'b', t:'Identify the Problem' },
+                { v:'c', t:'Establish a Plan of Action and Implement the Solution' },
+                { v:'d', t:'Document Findings, Actions, and Outcomes' },
+                { v:'e', t:'Test the Theory to Determine Cause' }
+            ]
+        },
+        {
+            label: 'Methodology Match:',
+            correct: 'c',
+            options: [
+                { v:'a', t:'Document Findings, Actions, and Outcomes' },
+                { v:'b', t:'Identify the Problem' },
+                { v:'c', t:'Establish a Plan of Action and Implement the Solution' },
+                { v:'d', t:'Establish a Theory of Probable Cause' },
+                { v:'e', t:'Verify Full System Functionality' }
+            ]
+        }
+    ]
+},
+
+/* ── SCENARIO 4: CPU FAILURE + ESCALATION ── */
+{
+    title: 'Desktop Powers Off Immediately After Boot — Office 410',
+    text: 'A help desk ticket has been submitted by an end user in <strong>Office 410</strong>. The user reports that their desktop PC <strong>powers on but shuts down within seconds</strong>. The fans spin briefly and the power LED illuminates momentarily before the system powers off completely. A <strong>recent change was logged</strong>: a CPU upgrade was performed by another technician the previous week. The system <strong>operated normally for three days</strong> following the upgrade before this failure began. The <strong>cost of the replacement CPU exceeds the standard parts authorization limit</strong>.',
+    ticket: 'Ticket #20589 &nbsp;|&nbsp; Priority: High &nbsp;|&nbsp; Status: Open &nbsp;|&nbsp; Changes: CPU upgraded to Core i7-13700K on 01/24',
+    left: [
+        {
+            label: 'First Step:',
+            correct: 'b',
+            options: [
+                { v:'a', t:'Order a replacement CPU and schedule the installation' },
+                { v:'b', t:'Review the CPU upgrade change log and confirm the shutdown behavior with the user' },
+                { v:'c', t:'Remove the CPU and reinstall the original processor' },
+                { v:'d', t:'Replace the thermal paste and reseat the CPU cooler assembly' },
+                { v:'e', t:'Run a CPU stress test from a bootable USB diagnostic drive' }
+            ]
+        },
+        {
+            label: 'Possible Cause:',
+            correct: 'c',
+            options: [
+                { v:'a', t:'The CPU cooler was not properly reseated during the upgrade, causing immediate thermal shutdown' },
+                { v:'b', t:'The RAM modules were accidentally unseated during the CPU installation' },
+                { v:'c', t:'The upgraded CPU has developed a hardware fault, causing a protective shutdown on POST' },
+                { v:'d', t:'The motherboard BIOS requires a firmware update to fully support the new CPU' },
+                { v:'e', t:'The power supply cannot sustain the peak power draw of the upgraded processor' }
+            ]
+        },
+        {
+            label: 'Corrective Measures:',
+            correct: 'd',
+            options: [
+                { v:'a', t:'Replace the motherboard and CPU together as a matched upgrade set' },
+                { v:'b', t:'Reinstall the original CPU and close the ticket without further action' },
+                { v:'c', t:'Replace the thermal compound and reseat the CPU cooler assembly' },
+                { v:'d', t:'Escalate to a supervisor for cost approval on a replacement CPU and document the failed upgrade for warranty review' },
+                { v:'e', t:'Downgrade to the original CPU and submit the failed part for vendor exchange' }
+            ]
+        }
+    ],
+    right: [
+        {
+            label: 'Methodology Match:',
+            correct: 'c',
+            options: [
+                { v:'a', t:'Test the Theory to Determine Cause' },
+                { v:'b', t:'Establish a Plan of Action and Implement the Solution' },
+                { v:'c', t:'Identify the Problem' },
+                { v:'d', t:'Document Findings, Actions, and Outcomes' },
+                { v:'e', t:'Verify Full System Functionality' }
+            ]
+        },
+        {
+            label: 'Methodology Match:',
+            correct: 'e',
+            options: [
+                { v:'a', t:'Establish a Plan of Action and Implement the Solution' },
+                { v:'b', t:'Verify Full System Functionality' },
+                { v:'c', t:'Test the Theory to Determine Cause' },
+                { v:'d', t:'Identify the Problem' },
+                { v:'e', t:'Establish a Theory of Probable Cause' }
+            ]
+        },
+        {
+            label: 'Methodology Match:',
+            correct: 'd',
+            options: [
+                { v:'a', t:'Establish a Theory of Probable Cause' },
+                { v:'b', t:'Test the Theory to Determine Cause' },
+                { v:'c', t:'Verify Full System Functionality' },
+                { v:'d', t:'Establish a Plan of Action and Implement the Solution' },
+                { v:'e', t:'Document Findings, Actions, and Outcomes' }
+            ]
+        }
+    ]
+}
+
+]; /* end SCENARIOS */
+
+/* ============================================================
+   STATE & ROTATION
+   ============================================================ */
+let scenarioOrder = [];
+let scenarioIdx = -1;
+let current = null;
+
+function shuffle(a) {
+    const b = [...a];
+    for (let i = b.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [b[i], b[j]] = [b[j], b[i]];
+    }
+    return b;
+}
+
+function nextScenario() {
+    scenarioIdx++;
+    if (scenarioIdx >= scenarioOrder.length) {
+        scenarioOrder = shuffle([...Array(SCENARIOS.length).keys()]);
+        scenarioIdx = 0;
+    }
+    current = SCENARIOS[scenarioOrder[scenarioIdx]];
+}
+
+function render() {
+    const box = document.getElementById('scenarioBox');
+    box.innerHTML = `
+        <div class="scenario-label">Help Desk Ticket &mdash; Scenario</div>
+        <div class="scenario-title">${current.title}</div>
+        <p class="scenario-text">${current.text}</p>
+        <span class="ticket-detail">${current.ticket}</span>
+    `;
+
+    const left = document.getElementById('panelLeft');
+    left.innerHTML = '';
+    current.left.forEach((menu, i) => {
+        const grp = document.createElement('div');
+        grp.className = 'menu-group';
+        grp.id = `grp-l-${i}`;
+        grp.innerHTML = `
+            <div class="menu-label">${menu.label}</div>
+            <select id="sel-l-${i}">
+                <option value="" selected disabled>&mdash; Select &mdash;</option>
+                ${menu.options.map(o => `<option value="${o.v}">${o.t}</option>`).join('')}
+            </select>
+        `;
+        left.appendChild(grp);
+    });
+
+    const right = document.getElementById('panelRight');
+    right.innerHTML = '';
+    current.right.forEach((menu, i) => {
+        const grp = document.createElement('div');
+        grp.className = 'menu-group';
+        grp.id = `grp-r-${i}`;
+        grp.innerHTML = `
+            <div class="menu-label">${menu.label}</div>
+            <select id="sel-r-${i}">
+                <option value="" selected disabled>&mdash; Select the matching step &mdash;</option>
+                ${menu.options.map(o => `<option value="${o.v}">${o.t}</option>`).join('')}
+            </select>
+        `;
+        right.appendChild(grp);
+    });
+
+    document.getElementById('scoreDisplay').innerHTML = '';
+
+    document.getElementById('pbqBody').classList.remove('fade-in');
+    void document.getElementById('pbqBody').offsetWidth;
+    document.getElementById('pbqBody').classList.add('fade-in');
+}
+
+function checkScore() {
+    let correct = 0;
+    let answered = 0;
+    const total = 6;
+
+    for (let i = 0; i < 3; i++) {
+        const selL = document.getElementById(`sel-l-${i}`);
+        const grpL = document.getElementById(`grp-l-${i}`);
+        grpL.classList.remove('score-correct', 'score-incorrect', 'score-empty');
+        if (selL.value === '') {
+            grpL.classList.add('score-empty');
+        } else {
+            answered++;
+            if (selL.value === current.left[i].correct) {
+                grpL.classList.add('score-correct');
+                correct++;
+            } else {
+                grpL.classList.add('score-incorrect');
+            }
+        }
+
+        const selR = document.getElementById(`sel-r-${i}`);
+        const grpR = document.getElementById(`grp-r-${i}`);
+        grpR.classList.remove('score-correct', 'score-incorrect', 'score-empty');
+        if (selR.value === '') {
+            grpR.classList.add('score-empty');
+        } else {
+            answered++;
+            if (selR.value === current.right[i].correct) {
+                grpR.classList.add('score-correct');
+                correct++;
+            } else {
+                grpR.classList.add('score-incorrect');
+            }
+        }
+    }
+
+    const d = document.getElementById('scoreDisplay');
+    if (correct === total) d.innerHTML = `<span class="score-perfect">Perfect! ${correct}/${total} &mdash; outstanding work.</span>`;
+    else if (correct >= 4) d.innerHTML = `<span class="score-partial">Score: ${correct}/${total} &mdash; almost there.</span>`;
+    else if (correct >= 2) d.innerHTML = `<span class="score-partial">Score: ${correct}/${total} &mdash; good effort, review the methodology.</span>`;
+    else if (answered > 0) d.innerHTML = `<span class="score-low">Score: ${correct}/${total} &mdash; give it another try.</span>`;
+    else d.innerHTML = `<span class="score-low">Make your selections first, then check your score.</span>`;
+}
+
+function reset() {
+    nextScenario();
+    render();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    scenarioOrder = shuffle([...Array(SCENARIOS.length).keys()]);
+    nextScenario();
+    render();
+    document.getElementById('resetBtn').addEventListener('click', reset);
+    document.getElementById('checkBtn').addEventListener('click', checkScore);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 4 &mdash; 4.10 Unit Test | CompTIA A+ Core 2</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Sans+Pro:wght@400;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           CPCC COURSE TEMPLATE - GOLD / CHARCOAL / BLACK
+           CTS-ITS7501-80 CompTIA A+ Core 2 Training
+           Type: true black. Accents: gold. Chrome: charcoal.
+           ============================================ */
+
+        :root {
+            --primary-dark: #4A4A4A;       /* Charcoal - structural chrome only */
+            --primary-main: #B8962E;       /* Warm Gold - primary accent */
+            --primary-light: #D4AF56;      /* Light Gold */
+            --primary-pale: #FBF3DF;       /* Pale Gold wash */
+
+            --accent-teal: #8A6F1F;        /* Deep bronze-gold */
+            --accent-teal-light: #F3E9CE;  /* Pale bronze */
+            --accent-orange: #A9642A;      /* Warm rust */
+            --accent-orange-light: #F5E2CE;
+            --accent-purple: #6B5B3A;      /* Muted umber */
+            --accent-purple-light: #EFE6D2;
+            --accent-green: #4E7A51;
+            --accent-green-light: #DCEBDD;
+
+            --alert-warning: #B8862E;
+            --alert-warning-bg: #FBF0D9;
+            --alert-danger: #A13A3A;
+            --alert-danger-bg: #F6DEDE;
+            --alert-success: #3F6E42;
+            --alert-success-bg: #DCEBDD;
+            --alert-info: #6E5B2E;
+            --alert-info-bg: #F1E9D4;
+
+            --text-black: #000000;         /* All reading text */
+            --neutral-900: #000000;
+            --neutral-700: #000000;
+            --neutral-500: #5A5A5A;
+            --neutral-300: #D9D3C4;
+            --neutral-100: #FAF8F3;
+            --white: #ffffff;
+
+            --font-heading: 'Nunito', sans-serif;
+            --font-body: 'Source Sans Pro', sans-serif;
+            --font-code: 'Fira Code', monospace;
+
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+
+            --shadow-sm: 0 1px 2px rgba(74, 74, 74, 0.08);
+            --shadow-md: 0 4px 6px rgba(74, 74, 74, 0.12);
+            --shadow-lg: 0 10px 20px rgba(74, 74, 74, 0.15);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body), 'Segoe UI', Tahoma, Verdana, sans-serif;
+            font-size: 1.0625rem; line-height: 1.7; color: var(--text-black);
+            background: linear-gradient(135deg, var(--neutral-100) 0%, var(--white) 100%);
+            min-height: 100vh; padding: var(--space-lg);
+        }
+
+        .course-container {
+            max-width: 950px; margin: 0 auto; background: var(--white);
+            border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); overflow: hidden;
+        }
+
+        .module-header {
+            background: var(--primary-main); color: var(--text-black);
+            padding: var(--space-lg) var(--space-xl); position: relative; overflow: hidden;
+        }
+        .module-label {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 0.875rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 2px; text-decoration: underline;
+            margin-bottom: var(--space-sm); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-title {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 2.25rem; font-weight: 800;
+            line-height: 1.2; margin-bottom: var(--space-md); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-subtitle { font-size: 1.125rem; max-width: 650px; position: relative; z-index: 1; color: var(--text-black); }
+
+        .toc {
+            display: flex; flex-direction: column; gap: var(--space-sm);
+            padding: var(--space-lg) var(--space-xl);
+            background: var(--primary-pale); border-bottom: 1px solid var(--neutral-300);
+        }
+        .toc-item {
+            width: 100%; text-align: left;
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 0.875rem;
+            color: var(--text-black); background: var(--white);
+            border: 2px solid var(--primary-main);
+            padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md);
+        }
+        .toc-item.current { background: var(--primary-main); }
+
+        .content-area { padding: var(--space-xl); }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif;
+            color: var(--text-black); line-height: 1.3; margin-bottom: var(--space-md);
+        }
+        h1 { font-size: 2rem; font-weight: 800; }
+        h2 { font-size: 1.625rem; font-weight: 700; padding-bottom: var(--space-sm);
+             border-bottom: 3px solid var(--primary-main); margin-top: var(--space-xl); margin-bottom: var(--space-lg); }
+        h3 { font-size: 1.375rem; font-weight: 700; margin-top: var(--space-lg);
+             padding-left: var(--space-sm); border-left: 4px solid var(--primary-main); }
+        h4 { font-size: 1.125rem; font-weight: 600; }
+
+        p { margin-bottom: var(--space-md); }
+        strong { font-weight: 700; color: var(--text-black); }
+        em { font-style: italic; color: var(--text-black); }
+
+        a { color: var(--text-black); text-decoration: none; border-bottom: 2px solid var(--primary-main); transition: all 0.2s ease; }
+        a:hover { background: var(--primary-pale); border-bottom-color: var(--accent-teal); }
+
+        .tech-box {
+            background: var(--neutral-100); border: 2px solid var(--neutral-500);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .tech-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .tech-box .callout-content { padding-left: 0; }
+
+        .plain-box {
+            background: var(--primary-pale); border: 2px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .plain-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .plain-box .callout-content { padding-left: 0; }
+
+        .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; position: relative; overflow: hidden; }
+        .callout-title { font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 1rem;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
+        .callout-content { }
+        .callout-content p:last-child { margin-bottom: 0; }
+        .callout-tip { background: var(--accent-green-light); border-left: 4px solid var(--accent-green); }
+        .callout-warning { background: var(--alert-warning-bg); border-left: 4px solid var(--alert-warning); }
+        .callout-danger { background: var(--alert-danger-bg); border-left: 4px solid var(--alert-danger); }
+        .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
+
+        .text-center { text-align: center; }
+        .text-muted { color: var(--neutral-500); }
+        .mt-sm { margin-top: var(--space-sm); } .mt-md { margin-top: var(--space-md); } .mt-lg { margin-top: var(--space-lg); }
+        .mb-sm { margin-bottom: var(--space-sm); } .mb-md { margin-bottom: var(--space-md); } .mb-lg { margin-bottom: var(--space-lg); }
+
+        /* Interactive quiz controls */
+        .question-block { background: var(--white); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin-bottom: var(--space-lg); box-shadow: var(--shadow-sm); }
+        .question-number { font-family: var(--font-heading), sans-serif; font-size: 0.75rem; font-weight: 700;
+            color: var(--text-black); background: var(--primary-main); display: inline-block;
+            padding: 2px 10px; border-radius: var(--radius-sm);
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); }
+        .question-text { font-weight: 600; color: var(--text-black); margin-bottom: var(--space-md); }
+
+        .answer-option { display: block; width: 100%; text-align: left; padding: var(--space-sm) var(--space-md);
+            margin-bottom: var(--space-sm); border: 2px solid var(--neutral-300); border-radius: var(--radius-sm);
+            background: var(--white); cursor: pointer; font-family: var(--font-body), sans-serif; font-size: 1rem; color: var(--text-black); }
+        .answer-option:hover { border-color: var(--primary-main); }
+        .answer-option.selected { border-color: var(--primary-dark); background: var(--primary-pale); }
+        .answer-option.correct { border-color: var(--accent-green); background: var(--accent-green-light); }
+        .answer-option.incorrect { border-color: var(--alert-danger); background: var(--alert-danger-bg); }
+        .quiz-btn { font-family: var(--font-heading), sans-serif; font-weight: 700; padding: var(--space-sm) var(--space-xl);
+            border-radius: var(--radius-sm); border: 2px solid var(--primary-dark); background: var(--primary-dark); color: var(--white);
+            cursor: pointer; font-size: 0.95rem; margin-right: var(--space-sm); }
+        .quiz-btn:hover { background: #333333; }
+        .quiz-btn.secondary { background: var(--white); color: var(--primary-dark); }
+        .quiz-btn.secondary:hover { background: var(--neutral-100); }
+        #quizResults { display:none; background: var(--primary-pale); border: 2px solid var(--primary-main); border-radius: var(--radius-md);
+            padding: var(--space-lg); margin-top: var(--space-lg); text-align: center; font-family: var(--font-heading), sans-serif; }
+        #quizResults .score { font-size: 2rem; font-weight: 800; color: var(--text-black); }
+
+        .module-footer { background: var(--neutral-100); padding: var(--space-lg) var(--space-xl); text-align: center; border-top: 1px solid var(--neutral-300); }
+        .footer-text { font-size: 0.875rem; color: var(--neutral-500); }
+
+        @media (max-width: 768px) {
+            .module-title { font-size: 1.75rem; }
+            .content-area { padding: var(--space-lg); }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="course-container">
+
+        <header class="module-header">
+            <div class="module-label">Unit 4 &middot; Security Concepts and Threats &middot; Section 4.10</div>
+            <h1 class="module-title">Unit Test</h1>
+            <p class="module-subtitle">CompTIA A+ Core 2 - Domains 2.0 and 4.0</p>
+        </header>
+
+                <nav class="toc" id="tocNav">
+            <div class="toc-header">Table of Contents</div>
+            <div class="toc-item">4.1 &mdash; Unit Overview and Schedule</div>
+            <div class="toc-item">4.2 &mdash; Unit Pre-Assessment</div>
+            <div class="toc-item">4.3 &mdash; Content Review</div>
+            <div class="toc-item">4.4 &mdash; Reading Assignment</div>
+            <div class="toc-item">4.5 &mdash; Video Assignment</div>
+            <div class="toc-item">4.6 &mdash; Classroom/Home Labs</div>
+            <div class="toc-item">4.7 &mdash; Practice Questions</div>
+            <div class="toc-item">4.8 &mdash; Online Labs: NETLAB</div>
+            <div class="toc-item">4.9 &mdash; Reflection Activity</div>
+            <div class="toc-item current" id="tocCurrent">4.10 &mdash; Unit Test</div>
+            <div class="toc-item">4.11 &mdash; Unit 4 Tickets</div>
+        </nav>
+        <style>
+            /* Collapsible TOC: only the current section shows until clicked */
+            nav.toc#tocNav { gap: 0; }
+            nav.toc#tocNav .toc-item {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav .toc-item.current {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                cursor: pointer;
+            }
+            nav.toc#tocNav .toc-item.current::after {
+                content: ' \25BE Click to View';
+                font-size: 0.75em;
+            }
+            nav.toc#tocNav.toc-expanded .toc-item {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                margin-bottom: var(--space-sm);
+            }
+            nav.toc#tocNav.toc-expanded .toc-item.current::after { content: ' \25B4'; }
+
+            nav.toc#tocNav .toc-header {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                font-family: var(--font-heading), 'Segoe UI', sans-serif;
+                font-weight: 700;
+                font-size: 0.875rem;
+                text-align: left;
+                color: var(--text-black);
+                text-decoration: underline;
+                background: var(--primary-main);
+                border-radius: var(--radius-md);
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav.toc-expanded .toc-header {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                padding-left: var(--space-md);
+                border-width: 2px;
+                border-style: solid;
+                border-color: var(--primary-main);
+                margin-bottom: var(--space-sm);
+            }
+        </style>
+
+        <script>
+            (function () {
+                var toc = document.getElementById('tocNav');
+                var currentItem = document.getElementById('tocCurrent');
+
+                toc.addEventListener('click', function (e) {
+                    if (toc.classList.contains('toc-expanded')) {
+                        toc.classList.remove('toc-expanded');
+                    } else if (e.target === currentItem || currentItem.contains(e.target)) {
+                        toc.classList.add('toc-expanded');
+                    }
+                });
+
+                toc.addEventListener('mouseleave', function () {
+                    toc.classList.remove('toc-expanded');
+                });
+            })();
+        </script>
+
+        <div class="content-area">
+
+            <div class="tech-box">
+                <div class="callout-title">Test Format</div>
+                <div class="callout-content">
+                    <p>Each attempt draws 20 items from a 100-item pool covering this unit's objectives &mdash; security measures, malware, social engineering and threats, workstation hardening, data disposal, safety, environmental controls, and policy &mdash; weighted to mirror how they're represented on the actual 220-1202 exam. Answer choices are reshuffled every attempt. Click an answer to select it, then click <strong>Grade My Answers</strong> to see your results.</p>
+                </div>
+            </div>
+
+            <div class="callout callout-info">
+                <div class="callout-title">Test Taking Skills</div>
+                <div class="callout-content">
+                    <p>In order to successfully pass the CompTIA exam you should read each question and each answer. Select the best answer that you think is correct. Then read the question again, and each answer. If you agree with the original answer move on; otherwise, "work through" the answers and see which ones are easily dismissable.</p>
+                    <p>Full understanding requires completion of all 20 items and a review of any missed questions before moving on &mdash; not a specific score. Take the time to understand why an answer was wrong before you close this page.</p>
+                </div>
+            </div>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">Submit Your Proof of Completion</div>
+                <div class="callout-content">
+                    <p>Once you've completed this activity, take a screenshot showing your final score and upload it to the appropriate submission link in Brightspace by the due date. A screenshot is your only proof of completion &mdash; nothing here is automatically recorded, so don't close this page before you've captured and uploaded it.</p>
+                </div>
+            </div>
+
+            <div id="quizArea"></div>
+
+            <div class="mt-lg">
+                <button class="quiz-btn" onclick="gradeQuiz()">Grade My Answers</button>
+                <button class="quiz-btn secondary" onclick="resetQuiz()">Reset</button>
+            </div>
+
+            <div id="quizResults">
+                <div>Your Score</div>
+                <div class="score" id="scoreDisplay">0 / 20</div>
+                <div id="scoreNote"></div>
+                <p class="text-muted mt-sm">Screenshot this score before leaving the page, and upload it to the submission link in Brightspace.</p>
+            </div>
+
+            <script>
+                const POOL = [{"q": "An attacker injects script into a web page so that it runs in other users' browsers. Which attack is this?", "opts": ["Evil twin", "SQL injection", "Cross-site scripting", "Denial of service"], "correct": 2}, {"q": "Which malware records keystrokes in order to capture typed credentials?", "opts": ["Boot sector virus", "Trojan", "Cryptominer", "Keylogger"], "correct": 3}, {"q": "Which password consideration forces a password to be changed after a set period?", "opts": ["Complexity", "Uniqueness", "Expiration", "Length"], "correct": 2}, {"q": "A technician finds prohibited content on a user's machine. What is the correct response?", "opts": ["Stop, preserve the evidence, and escalate through the organization's procedure", "Delete the files and note it in the ticket", "Open the remaining files to confirm the finding", "Ask a colleague to verify before reporting"], "correct": 0}, {"q": "Which destruction method reduces a drive to physical fragments?", "opts": ["Shredding", "Degaussing", "Low-level formatting", "Erasing"], "correct": 0}, {"q": "Which personal protective equipment protects a technician's eyes during work that may produce debris?", "opts": ["An ESD strap", "Safety goggles", "An air filter mask", "An antistatic bag"], "correct": 1}, {"q": "Employees store company data on personal phones the organization does not manage. Which vulnerability is this?", "opts": ["Insider threat", "Bring your own device", "Non-compliant system", "End-of-life"], "correct": 1}, {"q": "Which prevention method most reliably reduces successful phishing across an organization?", "opts": ["Degaussing retired drives", "A longer password expiration interval", "Disabling AutoRun", "User education, including antiphishing training"], "correct": 3}, {"q": "Which end-user practice applies specifically to portable equipment?", "opts": ["Disabling unused services", "Disabling AutoRun", "Restricting log-in times", "Securing and protecting critical hardware such as laptops"], "correct": 3}, {"q": "Which control most directly addresses dumpster diving?", "opts": ["Enabling a screen lock timeout", "Requiring multifactor authentication", "Shredding documents before disposal", "Installing an email security gateway"], "correct": 2}, {"q": "Which combination best describes workstation hardening?", "opts": ["Full-disk encryption alone", "Antivirus alone", "Strong credentials, restricted accounts, disabled unused features, and educated users", "A firewall and a surge suppressor"], "correct": 2}, {"q": "Which factor most influences whether to destroy a drive or wipe it?", "opts": ["Whether the drive uses NTFS or exFAT", "The physical size of the drive", "Whether the drive will be reused and how sensitive the data was", "The age of the computer it came from"], "correct": 2}, {"q": "Which account management technique automatically ends a contractor's access on a set date?", "opts": ["Account expiration dates", "Restrict log-in times", "Failed attempts lockout", "Restrict user permissions"], "correct": 0}, {"q": "Which malware monitors a specific person's device activity and location, typically installed by someone who knows them?", "opts": ["Spyware", "Stalkerware", "Adware", "Rootkit"], "correct": 1}, {"q": "Which malware disguises itself as desirable software so the user installs it?", "opts": ["Spyware", "Virus", "Rootkit", "Trojan"], "correct": 3}, {"q": "A person follows an employee through a badge-controlled door without presenting a credential. Which attack is this?", "opts": ["Impersonation", "Tailgating", "Shoulder surfing", "Spoofing"], "correct": 1}, {"q": "A device does not meet the organization's configuration standard. Which vulnerability category applies?", "opts": ["Unpatched system", "Non-compliant system", "Unprotected system", "End-of-life"], "correct": 1}, {"q": "Which physical control is designed to prevent a vehicle from reaching a building entrance?", "opts": ["Badge reader", "Bollards", "Motion sensor", "Magnetometer"], "correct": 1}, {"q": "An employee with legitimate access copies customer data before resigning. Which threat is this?", "opts": ["Spear phishing", "Supply chain attack", "Business email compromise", "Insider threat"], "correct": 3}, {"q": "Why is fileless malware particularly difficult for traditional antivirus to detect?", "opts": ["It only runs while the machine is offline", "It encrypts itself with an unbreakable key", "It leaves little or nothing on disk to scan, operating through legitimate system tools", "It disables the operating system's logging entirely"], "correct": 2}, {"q": "Which agreement governs the confidential information two organizations share with each other?", "opts": ["Service-level agreement", "Acceptable use policy", "End-user license agreement", "Mutual non-disclosure agreement"], "correct": 3}, {"q": "Which control detects movement in an area that should be unoccupied?", "opts": ["Motion sensors", "Alarm systems", "Magnetometers", "Badge readers"], "correct": 0}, {"q": "Attackers compromise a software vendor so that its customers install a malicious update. Which attack is this?", "opts": ["Insider threat", "Zero-day attack", "On-path attack", "Supply chain attack"], "correct": 3}, {"q": "A small business installs a personal-use copy of software on twenty office workstations. What is the issue?", "opts": ["The license type does not permit corporate use", "The software requires a perpetual license to activate", "Digital rights management blocks all installation", "The end-user license agreement does not apply to businesses"], "correct": 0}, {"q": "Which control most directly addresses shoulder surfing in a public space?", "opts": ["A longer password", "A privacy screen filter", "Failed attempts lockout", "Disabling AutoRun"], "correct": 1}, {"q": "Why do safety procedures apply even to routine, low-risk jobs?", "opts": ["Regulations require documentation only on routine work", "Consistent procedure is what prevents the rare incident, and habits formed on easy jobs carry to hard ones", "Routine work carries more electrical risk than complex work", "Insurance policies require it only for low-risk tasks"], "correct": 1}, {"q": "Which policy defines what employees may and may not do with company systems?", "opts": ["Non-disclosure agreement", "Service-level agreement", "Acceptable use policy", "End-user license agreement"], "correct": 2}, {"q": "Which consideration affects where equipment is placed within a facility?", "opts": ["The manufacturer's warranty length", "The building's badge reader model", "The subnet the equipment will use", "Location and equipment placement relative to heat, dust, and airflow"], "correct": 3}, {"q": "Which control most reliably stops a business email compromise attempt that requests a bank detail change?", "opts": ["Verifying the request by phone using a number already on file", "Training users to check for spelling errors", "Blocking all external email attachments", "Requiring a longer password"], "correct": 0}, {"q": "Which password consideration contributes most to resisting a brute-force attack?", "opts": ["Expiration", "Length", "Character types alone", "Reuse across systems"], "correct": 1}, {"q": "Which item requires special disposal handling because of the chemicals it contains?", "opts": ["A keyboard", "A network patch cable", "A printer toner cartridge", "A monitor stand"], "correct": 2}, {"q": "A user reports files renamed with an unfamiliar extension and a text file demanding payment. Which malware is this?", "opts": ["Adware", "Spyware", "Ransomware", "Cryptominer"], "correct": 2}, {"q": "A service becomes unavailable because it is flooded with traffic from a single source. Which attack is this?", "opts": ["SQL injection", "Distributed denial of service", "On-path attack", "Denial of service"], "correct": 3}, {"q": "Which physical security element supports both human observation and camera effectiveness?", "opts": ["Lighting", "Fencing", "Alarm systems", "Smart cards"], "correct": 0}, {"q": "How should a spare memory module be stored between uses?", "opts": ["In a sealed plastic food container", "In an antistatic bag", "Wrapped in paper towel", "In an unlined cardboard box"], "correct": 1}, {"q": "Twelve working laptops are being donated to a charity. Which method prepares the drives while keeping them usable?", "opts": ["Erasing or wiping", "Shredding", "Degaussing", "Incineration"], "correct": 0}, {"q": "Which technology allows one authentication to grant access to multiple systems?", "opts": ["Mobile device management", "Multifactor authentication", "Access control list", "Single sign-on"], "correct": 3}, {"q": "Which malware runs in memory using built-in system tools, leaving little on disk for a scanner to find?", "opts": ["Trojan", "Boot sector virus", "Fileless malware", "Potentially unwanted program"], "correct": 2}, {"q": "Which control grants building entry to a credential rather than to a physical key?", "opts": ["Security guard", "Door lock", "Fence", "Badge reader"], "correct": 3}, {"q": "Which practice reduces trip hazards and damage to cabling in a work area?", "opts": ["Air filter masks", "Equipment grounding", "Cable management", "Antistatic bags"], "correct": 2}, {"q": "Which hardening step prevents removable media from executing automatically when inserted?", "opts": ["Disable AutoRun", "Disable unused services", "Change the default administrator password", "Enable BitLocker"], "correct": 0}, {"q": "Which method is the certain remedy when malware removal cannot be trusted to be complete?", "opts": ["Disabling System Restore", "Running a second antivirus scan", "OS reinstallation", "Clearing the browser cache"], "correct": 2}, {"q": "An attacker calls an employee pretending to be from the bank's fraud department. Which attack is this?", "opts": ["Impersonation by tailgating", "Smishing", "Phishing", "Vishing"], "correct": 3}, {"q": "Which approach grants elevated rights only for the period they are needed and then withdraws them?", "opts": ["Single sign-on", "Just-in-time access", "Zero Trust", "Directory services"], "correct": 1}, {"q": "Which physical control slows an intruder and defines the property perimeter?", "opts": ["Alarm systems", "Bollards", "Fences", "Video surveillance"], "correct": 2}, {"q": "Which security model assumes no request is trustworthy by default, regardless of its origin?", "opts": ["Principle of least privilege", "Zero Trust model", "Single sign-on", "Just-in-time access"], "correct": 1}, {"q": "Which of the following is a multifactor authentication method named in the objectives?", "opts": ["Time-based one-time password", "Access control list", "Data loss prevention", "Directory service"], "correct": 0}, {"q": "Which end-user practice makes password uniqueness practical across many accounts?", "opts": ["Using the same password with small variations", "Using a longer expiration interval", "Using a password manager", "Writing passwords in a notebook"], "correct": 2}, {"q": "Which malware attaches to a file or program and spreads when that file is run?", "opts": ["Spyware", "Trojan", "Virus", "Fileless malware"], "correct": 2}, {"q": "Which end-user practice protects an unattended workstation during a short absence?", "opts": ["Screensaver locks", "Password expiration", "Data-at-rest encryption", "Disabling unused services"], "correct": 0}, {"q": "An attacker recovers account numbers from discarded paperwork behind an office. Which attack is this?", "opts": ["Shoulder surfing", "Dumpster diving", "Tailgating", "Supply chain attack"], "correct": 1}, {"q": "Why is standard formatting not an acceptable method of secure disposal?", "opts": ["It only applies to solid-state drives", "It damages the drive so it cannot be verified", "It removes the filesystem index but leaves recoverable data behind", "It requires a certification of destruction"], "correct": 2}, {"q": "What is the difference between a threat and a vulnerability?", "opts": ["A threat affects hardware; a vulnerability affects software", "A threat is what an attacker might do; a vulnerability is the weakness that allows it", "A threat is internal; a vulnerability is external", "A threat is theoretical; a vulnerability has already been exploited"], "correct": 1}, {"q": "Why is a well-executed business email compromise difficult to detect by inspecting the message?", "opts": ["It comes from a real account, contains no errors, and refers to genuine business", "It always contains a malicious attachment", "It is sent only outside business hours", "It originates from a spoofed external domain"], "correct": 0}, {"q": "A server must survive brief outages and shut down in an orderly way if power does not return. Which device is required?", "opts": ["An uninterruptible power supply", "A surge suppressor", "A grounded power strip", "A material safety data sheet"], "correct": 0}, {"q": "A failed drive from a medical office held patient records and will not spin up. Which approach is appropriate?", "opts": ["A standard format before disposal", "Physical destruction by a certified vendor, with documentation provided", "A single-pass wipe using the operating system", "Degaussing, which always works on any failed drive"], "correct": 1}, {"q": "Which term describes software that installs alongside wanted software without clear consent?", "opts": ["Potentially unwanted program", "Ransomware", "Rootkit", "Keylogger"], "correct": 0}, {"q": "An attacker operates a wireless access point that impersonates a legitimate one. Which attack is this?", "opts": ["Evil twin", "On-path attack", "Spoofing", "Zero-day attack"], "correct": 0}, {"q": "An attacker enters database commands into a web form that was not properly sanitized. Which attack is this?", "opts": ["Spoofing", "Cross-site scripting", "On-path attack", "SQL injection"], "correct": 3}, {"q": "A message references a target's recent project and manager by name. Which attack is this?", "opts": ["Spear phishing", "Phishing", "Whaling", "Vishing"], "correct": 0}, {"q": "What is a brownout?", "opts": ["A short circuit in the power supply", "A complete loss of power", "A momentary spike in voltage", "A reduction in supplied voltage rather than a complete loss"], "correct": 3}, {"q": "Which item requires special disposal handling because of the risk it presents when damaged?", "opts": ["A plastic drive bay cover", "A swollen battery", "A cardboard shipping box", "A spare power cable"], "correct": 1}, {"q": "Why is changing the default administrator account and password a priority on new equipment?", "opts": ["It enables data-at-rest encryption", "It is required before the device can obtain a DHCP address", "Default credentials are widely published and are a common way into a network", "It prevents electrostatic discharge damage"], "correct": 2}, {"q": "Which physical access credential is a small token carried on a keyring and presented to a reader?", "opts": ["Magnetometer", "Smart card", "Key fob", "Retina scanner"], "correct": 2}, {"q": "Which equipment is worn to prevent electrostatic discharge from damaging components?", "opts": ["A grounded power strip", "Safety goggles", "An air filter mask", "An ESD strap"], "correct": 3}, {"q": "Why does an investigator work from a copy of a drive rather than the original?", "opts": ["Because a copy scans faster", "To preserve data integrity on the original evidence", "Because the original cannot be read more than once", "To avoid licensing restrictions"], "correct": 1}, {"q": "Which authentication factor category does a fingerprint scanner represent?", "opts": ["Somewhere the user is", "Something the user has", "Something the user knows", "Something the user is"], "correct": 3}, {"q": "Which destruction method uses a strong magnetic field and does not work on solid-state drives?", "opts": ["Drilling", "Shredding", "Degaussing", "Wiping"], "correct": 2}, {"q": "An attack exploits a flaw for which no vendor patch yet exists. Which attack is this?", "opts": ["Brute-force attack", "Zero-day attack", "Supply chain attack", "Insider threat"], "correct": 1}, {"q": "A workstation is slow and its fan runs constantly, with an unfamiliar process consuming most of the CPU. Nothing is encrypted and no data appears stolen. Which malware is most likely present?", "opts": ["Ransomware", "Cryptominer", "Keylogger", "Adware"], "correct": 1}, {"q": "A workstation runs an operating system version that no longer receives security fixes. Which vulnerability is this?", "opts": ["Bring your own device", "Non-compliant system", "End-of-life", "Unprotected system"], "correct": 2}, {"q": "Which of the following is a biometric authentication method?", "opts": ["Key fob", "Smart card", "Palm print scanner", "Mobile digital key"], "correct": 2}, {"q": "Which method physically punctures a drive's platters and is practical for a small number of drives on site?", "opts": ["Shredding", "Drilling", "Incineration", "Degaussing"], "correct": 1}, {"q": "Which account management technique prevents an account from being used outside working hours?", "opts": ["Timeout and screen lock", "Account expiration dates", "Failed attempts lockout", "Restrict log-in times"], "correct": 3}, {"q": "Which category of regulated data includes names, addresses, and government identification numbers?", "opts": ["Acceptable use data", "Digital rights management data", "Personally identifiable information", "Change management records"], "correct": 2}, {"q": "Which physical control secures a laptop to a desk to deter opportunistic theft?", "opts": ["Bollard", "Door lock", "Access control vestibule", "Equipment lock"], "correct": 3}, {"q": "Which technology watches for sensitive information leaving an organization and blocks it?", "opts": ["Multifactor authentication", "Mobile device management", "Single sign-on", "Data loss prevention"], "correct": 3}, {"q": "Which systems store identities and determine what each one may access?", "opts": ["Software firewalls and antivirus", "Access control vestibules and badge readers", "Identity access management and directory services", "Surge suppressors and UPS units"], "correct": 2}, {"q": "Which license type permits indefinite use of software after a single purchase?", "opts": ["Non-disclosure agreement", "Personal-use license", "Open-source license", "Perpetual license agreement"], "correct": 3}, {"q": "An attacker tries a list of likely passwords rather than every combination. Which attack is this?", "opts": ["Brute-force attack", "Dictionary attack", "On-path attack", "Zero-day attack"], "correct": 1}, {"q": "An attacker tries every possible combination until a password is found. Which attack is this?", "opts": ["Brute-force attack", "Dictionary attack", "Spoofing", "Insider threat"], "correct": 0}, {"q": "Which malware collects information about a user's activity and transmits it elsewhere?", "opts": ["Spyware", "Adware", "Cryptominer", "Boot sector virus"], "correct": 0}, {"q": "Which malware encrypts a victim's files and demands payment to restore access?", "opts": ["Spyware", "Ransomware", "Adware", "Rootkit"], "correct": 1}, {"q": "Which hardening step reduces the attack surface by turning off software nobody uses?", "opts": ["Disable unused services", "Disable AutoRun", "Restrict log-in times", "Enable a screen lock"], "correct": 0}, {"q": "Which markup standard is used to exchange authentication and authorization information between systems?", "opts": ["Security Assertions Markup Language", "Access control list", "Time-based one-time password", "Privileged access management"], "correct": 0}, {"q": "What should a technician do first before beginning repairs inside a desktop computer?", "opts": ["Back up the BIOS settings", "Run a full antivirus scan", "Remove the hard drive", "Disconnect the power"], "correct": 3}, {"q": "Which entry design admits one person at a time by opening only one of two doors at once?", "opts": ["Access control vestibule", "Screened subnet", "Badge reader", "Equipment lock"], "correct": 0}, {"q": "Which password consideration refers to not reusing a password across accounts?", "opts": ["Complexity", "Uniqueness", "Length", "Expiration"], "correct": 1}, {"q": "Which control most directly defeats brute-force and dictionary attacks against an account?", "opts": ["Data-at-rest encryption", "Disabling AutoRun", "Screen lock timeout", "Failed attempts lockout"], "correct": 3}, {"q": "Which device absorbs a voltage spike to protect connected equipment?", "opts": ["Surge suppressor", "Uninterruptible power supply", "Power distribution unit", "Equipment ground"], "correct": 0}, {"q": "An attacker reads a password by watching a user type it at a coffee shop. Which attack is this?", "opts": ["Shoulder surfing", "Dumpster diving", "Impersonation", "On-path attack"], "correct": 0}, {"q": "Which electrical safety practice provides a path for fault current away from equipment and people?", "opts": ["Component storage", "Cable management", "Compressed air cleaning", "Equipment grounding"], "correct": 3}, {"q": "Which arrangement provides detection and response capability operated by an outside provider?", "opts": ["Data loss prevention", "Extended detection and response", "Endpoint detection and response", "Managed detection and response"], "correct": 3}, {"q": "Which document describes safe handling and disposal for a material or chemical?", "opts": ["Material safety data sheet", "Acceptable use policy", "Service-level agreement", "Standard operating procedure"], "correct": 0}, {"q": "What is the purpose of a splash screen in a compliance context?", "opts": ["To display the organization's logo during startup", "To state terms or warnings before a user is granted access", "To collect diagnostic information automatically", "To replace the acceptable use policy"], "correct": 1}, {"q": "Which logical security principle grants an account only the access its job requires?", "opts": ["Principle of least privilege", "Zero Trust model", "Single sign-on", "Directory services"], "correct": 0}, {"q": "Which statement about low-level formatting is most accurate?", "opts": ["It is identical to a quick format in Windows", "It is the standard method for preparing a drive for reuse", "It resets the drive's structures at the factory level and is rarely performed on modern drives", "It is the only method acceptable for regulated data"], "correct": 2}, {"q": "A user receives an urgent request from a colleague's genuine address asking that a vendor's bank details be changed before the end of the day. What should the technician advise?", "opts": ["Forward the request to the vendor for verification", "Reply to the message asking for confirmation", "Check the message for spelling errors and proceed if clean", "Verify by phone using a known number before any change is made"], "correct": 3}, {"q": "Which detection approach monitors endpoint behavior and responds, rather than matching known signatures?", "opts": ["Email security gateway", "Antivirus signature scanning", "Endpoint detection and response", "Software firewall"], "correct": 2}, {"q": "Which tool limits what a compromised machine is able to communicate with?", "opts": ["Email security gateway", "Software firewall", "Recovery console", "Disk Cleanup"], "correct": 1}];
+                let QUESTIONS = [];
+                let answers = [];
+
+                function drawSet() {
+                    const shuffled = POOL.slice().sort(() => Math.random() - 0.5);
+                    QUESTIONS = shuffled.slice(0, 20).map(item => {
+                        const order = item.opts.map((o, i) => i).sort(() => Math.random() - 0.5);
+                        return {q: item.q, opts: order.map(i => item.opts[i]), correct: order.indexOf(item.correct)};
+                    });
+                    answers = new Array(QUESTIONS.length).fill(null);
+                }
+
+                function renderQuiz() {
+                    const area = document.getElementById('quizArea');
+                    area.innerHTML = QUESTIONS.map((item, qi) => {
+                        const opts = item.opts.map((opt, oi) =>
+                            `<button type="button" class="answer-option" data-qi="${qi}" data-oi="${oi}" onclick="selectAnswer(${qi}, ${oi})">${opt}</button>`
+                        ).join('');
+                        return `<div class="question-block">
+                            <div class="question-number">Question ${qi + 1} of ${QUESTIONS.length}</div>
+                            <p class="question-text">${item.q}</p>
+                            ${opts}
+                        </div>`;
+                    }).join('');
+                }
+
+                function selectAnswer(qi, oi) {
+                    answers[qi] = oi;
+                    document.querySelectorAll(`[data-qi="${qi}"]`).forEach(btn => {
+                        btn.classList.remove('selected');
+                        if (parseInt(btn.dataset.oi) === oi) btn.classList.add('selected');
+                    });
+                }
+
+                function gradeQuiz() {
+                    if (answers.includes(null)) {
+                        alert('Answer all 20 questions before grading.');
+                        return;
+                    }
+                    let score = 0;
+                    QUESTIONS.forEach((item, qi) => {
+                        const correct = item.correct;
+                        document.querySelectorAll(`[data-qi="${qi}"]`).forEach(btn => {
+                            const oi = parseInt(btn.dataset.oi);
+                            btn.classList.remove('selected');
+                            if (oi === correct) btn.classList.add('correct');
+                            else if (oi === answers[qi]) btn.classList.add('incorrect');
+                        });
+                        if (answers[qi] === correct) score++;
+                    });
+                    document.getElementById('scoreDisplay').textContent = score + ' / ' + QUESTIONS.length;
+                    const note = document.getElementById('scoreNote');
+                    if (score >= 16) note.textContent = 'Strong result. Review any missed items, then you are done.';
+                    else if (score >= 12) note.textContent = 'A passing-range result. Review your missed questions closely before moving on.';
+                    else note.textContent = 'Below where you want to be for exam day. Revisit 1.3 and 1.4 for the topics you missed, then try again.';
+                    document.getElementById('quizResults').style.display = 'block';
+                    document.getElementById('quizResults').scrollIntoView({behavior: 'smooth'});
+                }
+
+                function resetQuiz() {
+                    document.getElementById('quizResults').style.display = 'none';
+                    drawSet();
+                    renderQuiz();
+                }
+
+                drawSet();
+                renderQuiz();
+            </script>
+
+        </div>
+
+        <footer class="module-footer">
+            <p class="footer-text">CompTIA A+ Core 2 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
+        </footer>
+    </div>
+</body>
+</html>

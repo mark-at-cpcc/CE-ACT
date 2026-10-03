@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Unit 5 &mdash; 5.11 Unit 5 Tickets | CompTIA A+ Core 2</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Sans+Pro:wght@400;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           CPCC COURSE TEMPLATE - GOLD / CHARCOAL / BLACK
+           CTS-ITS7501-80 CompTIA A+ Core 2 Training
+           Type: true black. Accents: gold. Chrome: charcoal.
+           ============================================ */
+
+        :root {
+            --primary-dark: #4A4A4A;       /* Charcoal - structural chrome only */
+            --primary-main: #B8962E;       /* Warm Gold - primary accent */
+            --primary-light: #D4AF56;      /* Light Gold */
+            --primary-pale: #FBF3DF;       /* Pale Gold wash */
+
+            --accent-teal: #8A6F1F;        /* Deep bronze-gold */
+            --accent-teal-light: #F3E9CE;  /* Pale bronze */
+            --accent-orange: #A9642A;      /* Warm rust */
+            --accent-orange-light: #F5E2CE;
+            --accent-purple: #6B5B3A;      /* Muted umber */
+            --accent-purple-light: #EFE6D2;
+            --accent-green: #4E7A51;
+            --accent-green-light: #DCEBDD;
+
+            --alert-warning: #B8862E;
+            --alert-warning-bg: #FBF0D9;
+            --alert-danger: #A13A3A;
+            --alert-danger-bg: #F6DEDE;
+            --alert-success: #3F6E42;
+            --alert-success-bg: #DCEBDD;
+            --alert-info: #6E5B2E;
+            --alert-info-bg: #F1E9D4;
+
+            --text-black: #000000;         /* All reading text */
+            --neutral-900: #000000;
+            --neutral-700: #000000;
+            --neutral-500: #5A5A5A;
+            --neutral-300: #D9D3C4;
+            --neutral-100: #FAF8F3;
+            --white: #ffffff;
+
+            --font-heading: 'Nunito', sans-serif;
+            --font-body: 'Source Sans Pro', sans-serif;
+            --font-code: 'Fira Code', monospace;
+
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+
+            --shadow-sm: 0 1px 2px rgba(74, 74, 74, 0.08);
+            --shadow-md: 0 4px 6px rgba(74, 74, 74, 0.12);
+            --shadow-lg: 0 10px 20px rgba(74, 74, 74, 0.15);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body), 'Segoe UI', Tahoma, Verdana, sans-serif;
+            font-size: 1.0625rem;
+            line-height: 1.7;
+            color: var(--text-black);
+            background: linear-gradient(135deg, var(--neutral-100) 0%, var(--white) 100%);
+            min-height: 100vh;
+            padding: var(--space-lg);
+        }
+
+        .course-container {
+            max-width: 950px; margin: 0 auto; background: var(--white);
+            border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); overflow: hidden;
+        }
+
+        .module-header {
+            background: var(--primary-main); color: var(--text-black);
+            padding: var(--space-lg) var(--space-xl); position: relative; overflow: hidden;
+        }
+        .module-label {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 0.875rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 2px; text-decoration: underline;
+            margin-bottom: var(--space-sm); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-title {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 2.25rem; font-weight: 800;
+            line-height: 1.2; margin-bottom: var(--space-md); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-subtitle { font-size: 1.125rem; max-width: 650px; position: relative; z-index: 1; color: var(--text-black); }
+
+        .toc {
+            display: flex; flex-direction: column; gap: var(--space-sm);
+            padding: var(--space-lg) var(--space-xl);
+            background: var(--primary-pale); border-bottom: 1px solid var(--neutral-300);
+        }
+        .toc-item {
+            width: 100%; text-align: left;
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 0.875rem;
+            color: var(--text-black); background: var(--white);
+            border: 2px solid var(--primary-main);
+            padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md);
+        }
+        .toc-item.current { background: var(--primary-main); }
+
+        .content-area { padding: var(--space-xl); }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif;
+            color: var(--text-black); line-height: 1.3; margin-bottom: var(--space-md);
+        }
+        h1 { font-size: 2rem; font-weight: 800; }
+        h2 { font-size: 1.625rem; font-weight: 700; padding-bottom: var(--space-sm);
+             border-bottom: 3px solid var(--primary-main); margin-top: var(--space-xl); margin-bottom: var(--space-lg); }
+        h3 { font-size: 1.375rem; font-weight: 700; margin-top: var(--space-lg);
+             padding-left: var(--space-sm); border-left: 4px solid var(--primary-main); }
+        h4 { font-size: 1.125rem; font-weight: 600; }
+
+        p { margin-bottom: var(--space-md); }
+        strong { font-weight: 700; color: var(--text-black); }
+        em { font-style: italic; color: var(--text-black); }
+
+        a { color: var(--text-black); text-decoration: none; border-bottom: 2px solid var(--primary-main); transition: all 0.2s ease; }
+        a:hover { background: var(--primary-pale); border-bottom-color: var(--accent-teal); }
+
+        ul, ol { margin-bottom: var(--space-md); padding-left: var(--space-lg); }
+        li { margin-bottom: var(--space-sm); }
+        ul li::marker { color: var(--accent-teal); }
+        ol li::marker { color: var(--accent-teal); font-weight: 700; }
+
+        .styled-list { list-style: none; padding-left: 0; }
+        .styled-list li { position: relative; padding-left: var(--space-lg); margin-bottom: var(--space-sm); }
+        .styled-list li::before { content: '\25B8'; position: absolute; left: 0; color: var(--accent-teal); font-weight: bold; }
+
+        .checklist { list-style: none; padding-left: 0; }
+        .checklist li { position: relative; padding-left: 2rem; margin-bottom: var(--space-sm); }
+        .checklist li::before {
+            content: '\2713'; position: absolute; left: 0; width: 1.5rem; height: 1.5rem;
+            background: var(--accent-green-light); color: var(--accent-green);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 0.75rem; font-weight: bold;
+        }
+
+        .objectives-box {
+            background: linear-gradient(135deg, var(--primary-pale) 0%, var(--accent-teal-light) 100%);
+            border-left: 5px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .objectives-box h3 { color: var(--text-black); margin-top: 0; margin-bottom: var(--space-md);
+            display: flex; align-items: center; gap: var(--space-sm); border-left: none; padding-left: 0; }
+        .objectives-box ol { margin-bottom: 0; }
+
+        .tech-box {
+            background: var(--neutral-100); border: 2px solid var(--neutral-500);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .tech-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .tech-box .callout-content { padding-left: 0; }
+
+        .plain-box {
+            background: var(--primary-pale); border: 2px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .plain-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .plain-box .callout-content { padding-left: 0; }
+
+        .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; position: relative; overflow: hidden; }
+        .callout::before { position: absolute; top: var(--space-md); left: var(--space-md); font-size: 1.5rem; }
+        .callout-title { font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 1rem;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
+        .callout-content { }
+        .callout-content p:last-child { margin-bottom: 0; }
+
+        .callout-tip { background: var(--accent-green-light); border-left: 4px solid var(--accent-green); }
+        .callout-warning { background: var(--alert-warning-bg); border-left: 4px solid var(--alert-warning); }
+        .callout-danger { background: var(--alert-danger-bg); border-left: 4px solid var(--alert-danger); }
+        .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
+
+        .key-concept {
+            background: linear-gradient(135deg, var(--accent-purple-light) 0%, var(--white) 100%);
+            border: 2px solid var(--accent-purple); border-radius: var(--radius-lg);
+            padding: var(--space-lg); margin: var(--space-xl) 0 var(--space-lg); position: relative;
+        }
+        .key-concept::before {
+            content: '\1F511 KEY CONCEPT'; position: absolute; top: -12px; left: var(--space-lg);
+            background: var(--accent-purple); color: var(--white); font-family: var(--font-heading), sans-serif;
+            font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-md); border-radius: var(--radius-sm);
+        }
+        .key-concept h4 { color: var(--text-black); margin-top: var(--space-sm); }
+
+        .definition { background: var(--neutral-100); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin: var(--space-md) 0; border-left: 4px solid var(--accent-orange); }
+        .definition-term { font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 1.125rem;
+            color: var(--text-black); margin-bottom: var(--space-xs); }
+        .definition-text { color: var(--text-black); margin-bottom: 0; }
+
+        code { font-family: var(--font-code), Consolas, monospace; font-size: 0.9rem; background: var(--primary-pale);
+            color: var(--text-black); padding: 2px 6px; border-radius: var(--radius-sm); }
+        pre { background: #2E2E2E; color: #f1ece0; padding: var(--space-lg); border-radius: var(--radius-md);
+            overflow-x: auto; margin: var(--space-lg) 0; position: relative; }
+        pre::before {
+            content: 'STEPS'; position: absolute; top: 0; right: 0; background: var(--primary-main); color: var(--text-black);
+            font-family: var(--font-heading), sans-serif; font-size: 0.625rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-sm); border-radius: 0 var(--radius-md) 0 var(--radius-sm);
+        }
+        pre code { background: transparent; color: inherit; padding: 0; font-size: 0.875rem; line-height: 1.6; }
+
+        .table-container { overflow-x: auto; margin: var(--space-lg) 0; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); }
+        table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
+        thead { background: var(--primary-dark); color: var(--white); }
+        th { font-family: var(--font-heading), sans-serif; font-weight: 700; text-align: left; padding: var(--space-md) var(--space-lg); color: var(--white); }
+        td { padding: var(--space-md) var(--space-lg); border-bottom: 1px solid var(--neutral-300); color: var(--text-black); }
+        tbody tr:hover { background: var(--primary-pale); }
+        tbody tr:last-child td { border-bottom: none; }
+
+        .activity-section {
+            background: linear-gradient(135deg, var(--accent-orange-light) 0%, var(--white) 100%);
+            border: 2px dashed var(--accent-orange); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .activity-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg); }
+        .activity-icon { width: 50px; height: 50px; background: var(--accent-orange); border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; }
+        .activity-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700;
+            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
+        .activity-subtitle { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
+
+        .assessment-section { background: var(--primary-pale); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0; }
+        .assessment-header { text-align: center; margin-bottom: var(--space-xl); }
+        .assessment-header h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .question-block { background: var(--white); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin-bottom: var(--space-lg); box-shadow: var(--shadow-sm); border: 2px solid transparent; transition: border-color .15s ease; }
+        .question-number { font-family: var(--font-heading), sans-serif; font-size: 0.75rem; font-weight: 700;
+            color: var(--text-black); background: var(--primary-main); display: inline-block;
+            padding: 2px 10px; border-radius: var(--radius-sm);
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); }
+        .question-text { font-weight: 600; color: var(--text-black); margin-bottom: var(--space-md); }
+
+        /* ---- Multiple-choice interactive options ---- */
+        .mc-options { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-sm); }
+        .mc-option {
+            display: flex; align-items: center; gap: var(--space-md); width: 100%; text-align: left;
+            padding: var(--space-sm) var(--space-md); border: 2px solid var(--neutral-300); border-radius: var(--radius-md);
+            background: var(--white); color: var(--text-black); font-family: var(--font-body), sans-serif;
+            font-size: 1rem; cursor: pointer; transition: all 0.15s ease;
+        }
+        .mc-option:hover { border-color: var(--primary-main); background: var(--primary-pale); }
+        .mc-option .mc-letter {
+            flex-shrink: 0; width: 1.75rem; height: 1.75rem; border-radius: 50%;
+            background: var(--neutral-100); border: 2px solid var(--neutral-300);
+            display: flex; align-items: center; justify-content: center;
+            font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 0.85rem; color: var(--text-black);
+        }
+        .mc-option.selected { border-color: var(--primary-main); background: var(--primary-pale); font-weight: 700; }
+        .mc-option.selected .mc-letter { background: var(--primary-main); border-color: var(--primary-main); }
+        .mc-option.graded-correct { border-color: var(--alert-success); background: var(--alert-success-bg); font-weight: 700; }
+        .mc-option.graded-correct .mc-letter { background: var(--alert-success); border-color: var(--alert-success); color: var(--white); }
+        .mc-option.graded-incorrect { border-color: var(--alert-danger); background: var(--alert-danger-bg); }
+        .mc-option.graded-incorrect .mc-letter { background: var(--alert-danger); border-color: var(--alert-danger); color: var(--white); }
+        .mc-option.graded-missed { border-color: var(--alert-success); border-style: dashed; }
+
+        .question-block.unanswered-flag { border-color: var(--alert-warning); }
+        .unanswered-note {
+            display: none; margin-top: var(--space-sm); font-size: 0.875rem; font-weight: 700;
+            color: var(--alert-warning); font-family: var(--font-heading), sans-serif;
+        }
+        .question-block.unanswered-flag .unanswered-note { display: block; }
+
+        .assessment-controls {
+            display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap;
+            margin-top: var(--space-xl); padding-top: var(--space-lg); border-top: 2px solid var(--neutral-300);
+        }
+        .btn-grade, .btn-reset {
+            font-family: var(--font-heading), sans-serif; font-weight: 800; font-size: 1rem;
+            padding: var(--space-md) var(--space-2xl); border-radius: var(--radius-md);
+            cursor: pointer; transition: all 0.15s ease; border: 2px solid var(--primary-dark);
+        }
+        .btn-grade { background: var(--primary-main); color: var(--text-black); border-color: var(--primary-main); box-shadow: var(--shadow-sm); }
+        .btn-grade:hover { background: var(--primary-light); }
+        .btn-reset { background: var(--white); color: var(--text-black); }
+        .btn-reset:hover { background: var(--neutral-100); }
+
+        .results-summary {
+            display: none; margin-top: var(--space-xl); padding: var(--space-xl);
+            border-radius: var(--radius-lg); background: var(--primary-dark); color: var(--white); text-align: center;
+        }
+        .results-summary.show { display: block; }
+        .results-score { font-family: var(--font-heading), sans-serif; font-size: 2.5rem; font-weight: 800; color: var(--white); margin-bottom: var(--space-sm); }
+        .results-summary p { color: var(--white); margin-bottom: var(--space-sm); }
+        .results-summary p:last-child { margin-bottom: 0; }
+
+        .references-section { background: var(--neutral-100); border-radius: var(--radius-lg);
+            padding: var(--space-lg) var(--space-xl); margin: var(--space-xl) 0; border-top: 3px solid var(--primary-main); }
+        .references-section h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .references-section ul { padding-left: var(--space-lg); }
+
+        .module-footer { background: var(--primary-dark); padding: var(--space-lg) var(--space-xl);
+            text-align: center; border-top: 4px solid var(--primary-main); }
+        .footer-text { font-size: 0.875rem; color: var(--white); margin: 0; }
+
+        .text-center { text-align: center; }
+        .text-muted { color: var(--neutral-500); }
+        .highlight { background: linear-gradient(180deg, transparent 50%, var(--primary-light) 50%); padding: 0 2px; }
+
+        @media (max-width: 768px) {
+            body { padding: var(--space-sm); }
+            .module-header { padding: var(--space-xl) var(--space-lg); }
+            .module-title { font-size: 1.75rem; }
+            .content-area { padding: var(--space-lg); }
+            h2 { font-size: 1.375rem; }
+            .activity-header { flex-direction: column; align-items: flex-start; }
+            .assessment-controls { flex-direction: column; }
+            .btn-grade, .btn-reset { width: 100%; }
+        }
+        @media print {
+            body { background: white; padding: 0; }
+            .course-container { box-shadow: none; }
+            .toc { display: none; }
+            .assessment-controls { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="course-container">
+
+        <header class="module-header">
+            <div class="module-label">Unit 5 &middot; Securing Systems and Protecting Data &middot; Section 5.11</div>
+            <h1 class="module-title">Unit 5 Tickets</h1>
+            <p class="module-subtitle">CompTIA A+ Core 2 - Domains 2.0 and 4.0</p>
+        </header>
+
+                <nav class="toc" id="tocNav">
+            <div class="toc-header">Table of Contents</div>
+            <div class="toc-item">5.1 &mdash; Unit Overview and Schedule</div>
+            <div class="toc-item">5.2 &mdash; Unit Pre-Assessment</div>
+            <div class="toc-item">5.3 &mdash; Content Review</div>
+            <div class="toc-item">5.4 &mdash; Reading Assignment</div>
+            <div class="toc-item">5.5 &mdash; Video Assignment</div>
+            <div class="toc-item">5.6 &mdash; Classroom Labs and Take-Home Lab</div>
+            <div class="toc-item">5.7 &mdash; Practice Question Set</div>
+            <div class="toc-item">5.8 &mdash; Online Labs: NETLAB</div>
+            <div class="toc-item">5.9 &mdash; Reflection Activity</div>
+            <div class="toc-item">5.10 &mdash; Unit Test</div>
+            <div class="toc-item current" id="tocCurrent">5.11 &mdash; Unit 5 Tickets</div>
+        </nav>
+        <style>
+            /* Collapsible TOC: only the current section shows until clicked */
+            nav.toc#tocNav { gap: 0; }
+            nav.toc#tocNav .toc-item {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav .toc-item.current {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                cursor: pointer;
+            }
+            nav.toc#tocNav .toc-item.current::after {
+                content: ' \25BE Click to View';
+                font-size: 0.75em;
+            }
+            nav.toc#tocNav.toc-expanded .toc-item {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                margin-bottom: var(--space-sm);
+            }
+            nav.toc#tocNav.toc-expanded .toc-item.current::after { content: ' \25B4'; }
+
+            nav.toc#tocNav .toc-header {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                font-family: var(--font-heading), 'Segoe UI', sans-serif;
+                font-weight: 700;
+                font-size: 0.875rem;
+                text-align: left;
+                color: var(--text-black);
+                text-decoration: underline;
+                background: var(--primary-main);
+                border-radius: var(--radius-md);
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav.toc-expanded .toc-header {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                padding-left: var(--space-md);
+                border-width: 2px;
+                border-style: solid;
+                border-color: var(--primary-main);
+                margin-bottom: var(--space-sm);
+            }
+        </style>
+
+        <script>
+            (function () {
+                var toc = document.getElementById('tocNav');
+                var currentItem = document.getElementById('tocCurrent');
+
+                toc.addEventListener('click', function (e) {
+                    if (toc.classList.contains('toc-expanded')) {
+                        toc.classList.remove('toc-expanded');
+                    } else if (e.target === currentItem || currentItem.contains(e.target)) {
+                        toc.classList.add('toc-expanded');
+                    }
+                });
+
+                toc.addEventListener('mouseleave', function () {
+                    toc.classList.remove('toc-expanded');
+                });
+            })();
+        </script>
+
+        <div class="content-area">
+
+            <div class="instructions-card">
+                <div class="instructions-band">Instructions &mdash; Read Before You Begin</div>
+
+
+                <h3>What This Is</h3>
+                <p>Three help-desk tickets, one for each class meeting this unit. <strong>Work each one on your own.</strong> Every ticket is a real kind of call, with real evidence, and three questions that ask what a technician would actually do next. Plan on about 20 minutes per ticket.</p>
+
+                <h3>How to Work a Ticket</h3>
+                <ol>
+                    <li><strong>Read the call, then stop.</strong> Before you look at any evidence, write one sentence in your notes: <em>what do you think is wrong, and how sure are you?</em> You will come back to it.</li>
+                    <li><strong>Study the exhibits</strong> as if you had just collected them from the user's computer.</li>
+                    <li><strong>Answer the three questions.</strong> Each one stands on its own. You get one attempt per question.</li>
+                    <li><strong>Write your own progress note,</strong> then compare it with the Ticket Solution.</li>
+                    <li><strong>Look back.</strong> The reflection prompts sit inside the Ticket Solution, below the solution itself. Answer them in your notes. They are about your thinking, not the content, and nobody else will see them.</li>
+                </ol>
+
+                <h3>What You Will See When You Answer</h3>
+                <ul class="checklist">
+                    <li>A flag that says <strong>Correct</strong> or <strong>Incorrect</strong> &mdash; nothing more. You will not be shown which answer was right.</li>
+                    <li>If you miss one, go back to the exhibit and the call and work out why. That search is the lesson.</li>
+                    <li>Answer all three correctly and the <strong>Ticket Solution</strong> opens on its own. Otherwise, click <strong>Ticket Solution</strong> to open it yourself &mdash; after you have written your note. The Look Back prompts are inside it.</li>
+                    <li><strong>Reset These Questions</strong> clears a ticket so you can work it again.</li>
+                </ul>
+
+                <h3>About the Exhibits</h3>
+                <p>Each ticket includes exhibits labeled A, B, and C. <strong>Every exhibit is representative of the output from the computer being troubleshot</strong> &mdash; what you would see on that machine's screen if you opened the tool or settings window, or ran the command shown. Treat them as evidence you collected yourself during the call.</p>
+                <p>They are simplified to show what matters, the same way a performance-based question on the 220-1202 exam presents a tool or a command's output. Read them the way a technician reads a screen: <strong>column headings first, then the values that stand out, then the details that do not fit.</strong></p>
+
+                <h3>The Method Behind Every Ticket</h3>
+                <p>Each question is tagged with the step of CompTIA's troubleshooting method it exercises. You will use this method for the rest of your career; these tickets are where it becomes a habit.</p>
+                <ol>
+                    <li>Identify the problem</li>
+                    <li>Establish a theory of probable cause</li>
+                    <li>Test the theory to determine the cause</li>
+                    <li>Establish a plan of action to resolve the problem and implement the solution</li>
+                    <li>Verify full system functionality and, if applicable, implement preventive measures</li>
+                    <li>Document findings, actions, and outcomes</li>
+                </ol>
+
+                <h3>About the Times and Names</h3>
+                <p>Every person, company, and device in these tickets is fictional. Times shown inside a ticket are part of the scenario, not course deadlines &mdash; course due dates are always in the Course Schedule.</p>
+            </div>
+
+            <section class="ticket-card">
+                <div class="ticket-band">
+                    <span class="ticket-count">Ticket 1 of 3</span>
+                    <span class="ticket-title">Full Control, Still Denied</span>
+                    <span class="ticket-meta">Tuesday &middot; Objective 2.2 &mdash; Windows security settings &middot; About 20 minutes</span>
+                </div>
+                <div class="ticket-body">
+            <div class="table-container">
+                <table>
+                    <thead><tr><th colspan="2">Ticket HD-5-1110</th></tr></thead>
+                    <tbody><tr><td><strong>Priority</strong></td><td>High &mdash; month-end work blocked</td></tr><tr><td><strong>Category</strong></td><td>Permissions</td></tr><tr><td><strong>Caller</strong></td><td>Karen Doyle, Accounting Manager, Halverson Insurance</td></tr><tr><td><strong>Device</strong></td><td>Share \\HIA-FS01\Accounting &middot; client PC Windows 11 Pro</td></tr></tbody>
+                </table>
+            </div>
+
+            <div class="plain-box">
+                <div class="callout-title">The Call</div>
+                <div class="callout-content"><p>"Our new hire, Ben, can open everything in the Accounting share but he can't save anything. IT already gave him Full Control yesterday &mdash; they told me so. It's month-end and he needs to post entries today. And he wants to take the month-end reports home on a USB stick tonight. Is that allowed?"</p></div>
+            </div>
+
+            <p>Company policy allows removable media for work files only if the drive is encrypted. Accounting staff need to create and edit files in the share, not change its permissions.</p>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">Stop Here</div>
+                <div class="callout-content"><p>"IT already gave him Full Control." Before the exhibits, write down <strong>where you think that Full Control was actually set</strong>.</p></div>
+            </div>
+
+            <h3>Exhibit A &mdash; Share permissions on Accounting</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Group or user</th><th>Permission</th></tr></thead>
+                    <tbody><tr><td>Everyone</td><td>Full Control (Allow)</td></tr></tbody>
+                </table>
+            </div>
+            <h3>Exhibit B &mdash; NTFS permissions on D:\Shares\Accounting, and Ben's groups</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Group</th><th>NTFS permission</th></tr></thead>
+                    <tbody><tr><td>Administrators</td><td>Full control</td></tr><tr><td>Accounting-Staff</td><td>Modify</td></tr><tr><td>Accounting-ReadOnly</td><td>Read &amp; execute</td></tr></tbody>
+                </table>
+            </div>
+<pre><code>C:\&gt; whoami /groups   (excerpt, signed in as ben.alvarez)
+HALVERSON\Domain Users
+HALVERSON\Accounting-ReadOnly</code></pre>
+            <h3>Exhibit C &mdash; The USB stick Ben wants to use</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Field</th><th>Value</th></tr></thead>
+                    <tbody><tr><td>File system</td><td>exFAT</td></tr><tr><td>Encryption</td><td>None</td></tr><tr><td>Ownership</td><td>Issued by the company</td></tr></tbody>
+                </table>
+            </div>
+
+            <div id="t1q"></div>
+
+            <h3>Close the Ticket</h3>
+            <p>Write your own progress note first &mdash; including how you describe yesterday's "Full Control" change without blaming anyone. Then open the Ticket Solution below to compare.</p>
+            <div class="solution-toggle" id="t1sol">
+                <div class="solution-bar">Ticket Solution</div>
+                <div class="solution-body">
+                    <div class="callout callout-tip">
+                        <div class="callout-content">
+                            <p><strong>Reported:</strong> new accounting hire can read but not save in the Accounting share, despite Full Control reportedly granted yesterday; also wants to take reports home on USB.</p>
+                            <p><strong>Found:</strong> yesterday's Full Control was a share permission. NTFS grants his group, Accounting-ReadOnly, only Read &amp; execute. Over the network the more restrictive permission applies, so his effective access was Read.</p>
+                            <p><strong>Action:</strong> with the manager's confirmation of his role, moved him from Accounting-ReadOnly to Accounting-Staff (Modify); he signed out and in, and saved a test entry. Enabled BitLocker To Go on the company USB stick, with the recovery key stored in IT's escrow.</p>
+                            <p><strong>Note for the team:</strong> permission requests should be checked at both the share and NTFS levels; the share permission for Everyone is broader than needed and was flagged for review.</p>
+                        </div>
+                    </div>
+                    <h3>Look Back</h3>
+                    <div class="activity-section">
+                        <ol class="lab-steps">
+                            <li><strong>"IT already gave him Full Control" was partly true.</strong> How do you correct a colleague's change in a ticket without making it sound like a mistake on their part?</li>
+                            <li><strong>You changed a group, not Ben's individual permissions.</strong> Why does that matter six months from now?</li>
+                            <li><strong>Did you check both permission sets before you answered Question 1?</strong> What does that tell you about how you read exhibits?</li>
+                            <li><strong>It was month-end and everyone wanted a fast fix.</strong> When do you push back on "just give him admin rights"?</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+                </div>
+            </section>
+
+            <section class="ticket-card">
+                <div class="ticket-band">
+                    <span class="ticket-count">Ticket 2 of 3</span>
+                    <span class="ticket-title">The Clinic's Wi-Fi</span>
+                    <span class="ticket-meta">Wednesday &middot; Objectives 2.3 and 2.10 &mdash; Wireless and SOHO network security &middot; About 20 minutes</span>
+                </div>
+                <div class="ticket-body">
+            <div class="table-container">
+                <table>
+                    <thead><tr><th colspan="2">Ticket HD-5-1117</th></tr></thead>
+                    <tbody><tr><td><strong>Priority</strong></td><td>High &mdash; a remote access port is exposed to the internet</td></tr><tr><td><strong>Category</strong></td><td>SOHO network security</td></tr><tr><td><strong>Caller</strong></td><td>Dr. Ana Ruiz, Owner, Ruiz Family Chiropractic</td></tr><tr><td><strong>Device</strong></td><td>Consumer SOHO router, front office</td></tr></tbody>
+                </table>
+            </div>
+
+            <div class="plain-box">
+                <div class="callout-title">The Call</div>
+                <div class="callout-content"><p>"A patient told my receptionist that our Wi-Fi password is on a sticky note in the waiting room, and he's been using it for months. He also said our 'router login page' came up when he typed some address on his phone. Now I'm worried. What's open that shouldn't be?"</p></div>
+            </div>
+
+            <p>Staff computers and patients share the same wireless network. The front desk PC holds the scheduling system.</p>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">Stop Here</div>
+                <div class="callout-content"><p>Before the exhibits, write down <strong>the one setting you most want to see first, and why</strong>.</p></div>
+            </div>
+
+            <h3>Exhibit A &mdash; Router status page</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Setting</th><th>Value</th></tr></thead>
+                    <tbody><tr><td>Administrator password</td><td>Factory default</td></tr><tr><td>Firmware</td><td>1.0.4 &mdash; version 1.2.9 available</td></tr><tr><td>Remote management</td><td>Enabled from the internet</td></tr><tr><td>Universal Plug and Play</td><td>Enabled</td></tr></tbody>
+                </table>
+            </div>
+            <h3>Exhibit B &mdash; Wireless settings</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Setting</th><th>Value</th></tr></thead>
+                    <tbody><tr><td>Network name</td><td>HOMEROUTER-7F21</td></tr><tr><td>Security</td><td>WPA2-Personal with TKIP</td></tr><tr><td>Guest network</td><td>Disabled</td></tr><tr><td>Patients and staff</td><td>Same network, same password</td></tr></tbody>
+                </table>
+            </div>
+            <h3>Exhibit C &mdash; Port forwarding table</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>External port</th><th>Forwards to</th><th>Created by</th></tr></thead>
+                    <tbody><tr><td>TCP 3389</td><td>192.168.1.20 (front desk PC)</td><td>UPnP</td></tr><tr><td>TCP 8080</td><td>192.168.1.33</td><td>UPnP</td></tr></tbody>
+                </table>
+            </div>
+            <p class="text-muted">TCP 3389 is the port Remote Desktop uses.</p>
+
+            <div id="t2q"></div>
+
+            <h3>Close the Ticket</h3>
+            <p>Write your own progress note first &mdash; list what you changed today and what you scheduled. Then open the Ticket Solution below to compare.</p>
+            <div class="solution-toggle" id="t2sol">
+                <div class="solution-bar">Ticket Solution</div>
+                <div class="solution-body">
+                    <div class="callout callout-tip">
+                        <div class="callout-content">
+                            <p><strong>Reported:</strong> wireless password visible to patients; a patient reached the router's login page.</p>
+                            <p><strong>Found:</strong> factory-default administrator password; remote management enabled from the internet; outdated firmware; WPA2 with TKIP; patients on the staff network; UPnP enabled and had forwarded Remote Desktop on the front desk PC to the internet.</p>
+                            <p><strong>Action, with the owner's approval and after hours:</strong> changed the administrator password; disabled remote management; updated firmware; disabled UPnP and removed both forwarding rules; set WPA2 with AES (WPA3 not supported by two staff devices); created a separate guest network for patients with its own password; changed the staff password and removed the sticky note.</p>
+                            <p><strong>Follow-up:</strong> checked the front desk PC's logs for unexpected Remote Desktop sign-ins and reported the result to the owner.</p>
+                        </div>
+                    </div>
+                    <h3>Look Back</h3>
+                    <div class="activity-section">
+                        <ol class="lab-steps">
+                            <li><strong>A patient found the problem first.</strong> How do you talk to Dr. Ruiz about that without making her feel careless?</li>
+                            <li><strong>Which single finding was the most dangerous?</strong> Did you choose it first, or did you work through the router in screen order?</li>
+                            <li><strong>Router changes knock everyone off Wi-Fi for a few minutes.</strong> When should they happen, and who needs to know beforehand?</li>
+                            <li><strong>Why does a separate guest network matter more than a stronger password?</strong> Answer in one sentence.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+                </div>
+            </section>
+
+            <section class="ticket-card">
+                <div class="ticket-band">
+                    <span class="ticket-count">Ticket 3 of 3</span>
+                    <span class="ticket-title">Friday at 4:30</span>
+                    <span class="ticket-meta">Thursday &middot; Objectives 4.2 and 4.3 &mdash; Change management and backup &middot; About 20 minutes</span>
+                </div>
+                <div class="ticket-body">
+            <div class="table-container">
+                <table>
+                    <thead><tr><th colspan="2">Ticket HD-5-1124</th></tr></thead>
+                    <tbody><tr><td><strong>Priority</strong></td><td>Medium &mdash; a change request needs review</td></tr><tr><td><strong>Category</strong></td><td>Change management &middot; Backup</td></tr><tr><td><strong>Requester</strong></td><td>Tom Reilly, IT Coordinator (your colleague), Westbrook Title &amp; Escrow</td></tr><tr><td><strong>Device</strong></td><td>File server WTE-FS02 &middot; closing documents for every active real estate deal</td></tr></tbody>
+                </table>
+            </div>
+
+            <div class="plain-box">
+                <div class="callout-title">The Call</div>
+                <div class="callout-content"><p>"Hey &mdash; can you approve my change ticket? I want to put the new firmware on the file server tomorrow at 4:30, before everyone leaves for the weekend. It'll only take twenty minutes. The backups ran fine all week, so we're covered if anything goes sideways."</p></div>
+            </div>
+
+            <p>Westbrook closes real estate deals on Monday mornings, using documents on WTE-FS02. Changes require a reviewer's approval.</p>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">Stop Here</div>
+                <div class="callout-content"><p>Tom is a colleague, not a customer. Before the exhibits, write down <strong>how you feel about saying no to a peer</strong>, and whether that will affect your review.</p></div>
+            </div>
+
+            <h3>Exhibit A &mdash; Tom's change request</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Field</th><th>Entry</th></tr></thead>
+                    <tbody><tr><td>Change</td><td>Update storage controller firmware on WTE-FS02</td></tr><tr><td>Purpose</td><td>Vendor-recommended update</td></tr><tr><td>Scheduled</td><td>Friday, 4:30 PM</td></tr><tr><td>Change type</td><td>Normal</td></tr><tr><td>Risk level</td><td>Low</td></tr><tr><td>Rollback plan</td><td><em>(blank)</em></td></tr><tr><td>Affected systems</td><td>WTE-FS02</td></tr></tbody>
+                </table>
+            </div>
+            <h3>Exhibit B &mdash; Backup job log for WTE-FS02</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Day</th><th>Job</th><th>Result</th></tr></thead>
+                    <tbody><tr><td>Sunday</td><td>Full</td><td>Completed</td></tr><tr><td>Monday</td><td>Incremental</td><td>Completed</td></tr><tr><td>Tuesday</td><td>Incremental</td><td>Completed</td></tr><tr><td>Wednesday</td><td>Incremental</td><td>Completed</td></tr><tr><td>Thursday</td><td>Incremental</td><td>Completed</td></tr></tbody>
+                </table>
+            </div>
+            <h3>Exhibit C &mdash; Restore test history</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Field</th><th>Value</th></tr></thead>
+                    <tbody><tr><td>Last test restore</td><td>Never</td></tr><tr><td>Backup storage</td><td>Same server room as WTE-FS02</td></tr></tbody>
+                </table>
+            </div>
+
+            <div id="t3q"></div>
+
+            <h3>Close the Ticket</h3>
+            <p>Write your review of Tom's request first &mdash; approve, reject, or return it with conditions, and say why. Then open the Ticket Solution below to compare.</p>
+            <div class="solution-toggle" id="t3sol">
+                <div class="solution-bar">Ticket Solution</div>
+                <div class="solution-body">
+                    <div class="callout callout-tip">
+                        <div class="callout-content">
+                            <p><strong>Decision:</strong> returned the request with conditions rather than approving it.</p>
+                            <p><strong>Reasons:</strong> no rollback plan; Friday 4:30 PM is a poor window for a change to a server that Monday's closings depend on, with no one available over the weekend; the backups have never been test-restored, so "we're covered" has not been proven; and the backups are stored in the same room as the server.</p>
+                            <p><strong>Conditions:</strong> test-restore a sample of files to an alternate location first; write a rollback plan, including the previous firmware version and how to reapply it; schedule the change in a maintenance window early in the week with time to recover; reassess the risk level as Medium.</p>
+                            <p><strong>Noted:</strong> recommended an offsite copy of the backups, in line with the 3-2-1 rule.</p>
+                        </div>
+                    </div>
+                    <h3>Look Back</h3>
+                    <div class="activity-section">
+                        <ol class="lab-steps">
+                            <li><strong>Return to what you wrote about saying no to a peer.</strong> Did it affect your review? How do you push back on a colleague and keep the relationship?</li>
+                            <li><strong>"Completed" and "restorable" are different words.</strong> Where else do you accept a green checkmark without checking what it means?</li>
+                            <li><strong>Why is Friday afternoon such a poor time for a change?</strong> Who pays the price if it goes wrong?</li>
+                            <li><strong>Write the first two lines of the rollback plan you would want.</strong> Make them specific enough that someone else could follow them.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+                </div>
+            </section>
+
+            <div class="plain-box">
+                <div class="callout-title">What These Tickets Give You</div>
+                <div class="callout-content"><ul class="styled-list">
+                    <li>Predicting effective access from share and NTFS permissions together</li>
+                    <li>Hardening a SOHO router in the order that closes the most dangerous gap first</li>
+                    <li>Reviewing a colleague's change request honestly, including when the answer is not yet</li>
+                    <li>Progress notes another technician could pick up without asking you a single question</li>
+                </ul></div>
+            </div>
+
+        </div>
+
+        <footer class="module-footer">
+            <p class="footer-text">CompTIA A+ Core 2 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
+        </footer>
+    </div>
+
+    <style>
+        /* Instructions block and ticket cards */
+        .instructions-card {
+            background: var(--neutral-100); border: 2px solid var(--primary-dark);
+            border-radius: var(--radius-lg); padding: 0 var(--space-xl) var(--space-lg);
+            margin: 0 0 var(--space-xl); box-shadow: var(--shadow-sm); overflow: hidden;
+        }
+        .instructions-band, .ticket-band {
+            margin: 0 calc(-1 * var(--space-xl)) var(--space-lg);
+            padding: var(--space-md) var(--space-xl);
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 800;
+        }
+        .instructions-band {
+            background: var(--primary-dark); color: var(--white);
+            font-size: 1rem; text-transform: uppercase; letter-spacing: 1px;
+        }
+        .instructions-card h3 { margin-top: var(--space-lg); }
+        .instructions-card ol, .instructions-card ul { margin-bottom: var(--space-md); }
+        .instructions-card li { margin-bottom: var(--space-sm); }
+
+        .ticket-card {
+            background: var(--white); border: 3px solid var(--primary-main);
+            border-radius: var(--radius-lg); padding: 0 var(--space-xl) var(--space-lg);
+            margin: var(--space-xl) 0 calc(var(--space-xl) * 1.5); box-shadow: var(--shadow-lg); overflow: hidden;
+        }
+        .ticket-band {
+            background: var(--primary-main); color: var(--text-black);
+            display: flex; flex-direction: column; gap: 2px;
+        }
+        .ticket-count { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; }
+        .ticket-title { font-size: 1.4rem; line-height: 1.25; }
+        .ticket-meta { font-size: 0.85rem; font-weight: 600; }
+
+        /* Ticket Solution: collapses and expands using the same method as the Table of Contents */
+        .solution-toggle { margin: var(--space-lg) 0; }
+        .solution-bar {
+            width: 100%; text-align: left;
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 0.875rem;
+            color: var(--text-black); background: var(--primary-main);
+            border: 2px solid var(--primary-main);
+            padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md);
+            cursor: pointer;
+        }
+        .solution-bar::after { content: ' \25BE Click to View'; font-size: 0.75em; }
+        .solution-toggle.toc-expanded .solution-bar::after { content: ' \25B4'; }
+        .solution-body {
+            max-height: 0; opacity: 0; overflow: hidden;
+            transition: max-height 0.9s ease, opacity 0.9s ease;
+        }
+        .solution-toggle.toc-expanded .solution-body { max-height: 4000px; opacity: 1; }
+        .solution-body > h3 { margin-top: var(--space-lg); }
+    </style>
+    <script>
+const TICKETS = {
+ "t1q": [
+  {
+   "step": "Step 3 &mdash; Test the theory",
+   "exhibit": "Exhibits A and B",
+   "q": "When Ben connects to the share over the network, what is his effective access?",
+   "opts": [
+    [
+     "Read",
+     true
+    ],
+    [
+     "Full Control",
+     false
+    ],
+    [
+     "Modify",
+     false
+    ],
+    [
+     "No access",
+     false
+    ],
+    [
+     "Write only",
+     false
+    ],
+    [
+     "Full Control, because share permissions override NTFS",
+     false
+    ]
+   ]
+  },
+  {
+   "step": "Step 4 &mdash; Establish a plan of action",
+   "exhibit": "Exhibit B",
+   "q": "Which change gives Ben what his job needs while following the principle of least privilege?",
+   "opts": [
+    [
+     "Move Ben from Accounting-ReadOnly into Accounting-Staff",
+     true
+    ],
+    [
+     "Grant Everyone Full Control in the NTFS permissions as well",
+     false
+    ],
+    [
+     "Add Ben to the Administrators group",
+     false
+    ],
+    [
+     "Grant Ben Full Control as an individual user in NTFS",
+     false
+    ],
+    [
+     "Change the share permission for Everyone to Read",
+     false
+    ],
+    [
+     "Disable inheritance on the Accounting folder",
+     false
+    ]
+   ]
+  },
+  {
+   "step": "Step 5 &mdash; Implement preventive measures",
+   "exhibit": "Exhibit C",
+   "q": "Which Windows feature makes the USB stick in Exhibit C meet company policy?",
+   "opts": [
+    [
+     "BitLocker To Go",
+     true
+    ],
+    [
+     "BitLocker on the system drive",
+     false
+    ],
+    [
+     "Windows Hello",
+     false
+    ],
+    [
+     "User Account Control",
+     false
+    ],
+    [
+     "Windows Defender Firewall",
+     false
+    ],
+    [
+     "Disk Cleanup",
+     false
+    ]
+   ]
+  }
+ ],
+ "t2q": [
+  {
+   "step": "Step 4 &mdash; Establish a plan of action",
+   "exhibit": "Exhibit B",
+   "q": "Which wireless security setting should replace the one in Exhibit B?",
+   "opts": [
+    [
+     "WPA3, or WPA2 with AES if older devices require it",
+     true
+    ],
+    [
+     "WPA2 with TKIP",
+     false
+    ],
+    [
+     "WEP",
+     false
+    ],
+    [
+     "An open network with MAC address filtering",
+     false
+    ],
+    [
+     "WPA with TKIP",
+     false
+    ],
+    [
+     "Keep the current setting and hide the network name",
+     false
+    ]
+   ]
+  },
+  {
+   "step": "Step 4 &mdash; Establish a plan of action and implement it",
+   "exhibit": "Exhibit A",
+   "q": "Which change should be made first?",
+   "opts": [
+    [
+     "Change the default administrator password",
+     true
+    ],
+    [
+     "Enable Universal Plug and Play for the patients' devices",
+     false
+    ],
+    [
+     "Change the network name",
+     false
+    ],
+    [
+     "Schedule the firmware update for next quarter",
+     false
+    ],
+    [
+     "Turn on the guest network before anything else",
+     false
+    ],
+    [
+     "Restart the router to clear connected devices",
+     false
+    ]
+   ]
+  },
+  {
+   "step": "Step 2 &mdash; Establish a theory of probable cause",
+   "exhibit": "Exhibit C",
+   "q": "Exhibit C shows Remote Desktop on the front desk PC reachable from the internet. What explains this, and what is the fix?",
+   "opts": [
+    [
+     "UPnP opened the port automatically; disable UPnP and remove the rule",
+     true
+    ],
+    [
+     "The internet provider opened it; ask the provider to close it",
+     false
+    ],
+    [
+     "It is required for printing; leave it in place",
+     false
+    ],
+    [
+     "Move Remote Desktop to port 3390 instead",
+     false
+    ],
+    [
+     "Enable content filtering to block it",
+     false
+    ],
+    [
+     "It is harmless, because Remote Desktop already asks for a password",
+     false
+    ]
+   ]
+  }
+ ],
+ "t3q": [
+  {
+   "step": "Step 4 &mdash; Establish a plan of action",
+   "exhibit": "Exhibit A",
+   "q": "What is the most significant gap in Tom's change request?",
+   "opts": [
+    [
+     "It has no rollback plan",
+     true
+    ],
+    [
+     "It names a purpose for the change",
+     false
+    ],
+    [
+     "It is scheduled in the future",
+     false
+    ],
+    [
+     "It lists the affected system",
+     false
+    ],
+    [
+     "It is classified as a normal change",
+     false
+    ],
+    [
+     "It was written by the person doing the work",
+     false
+    ]
+   ]
+  },
+  {
+   "step": "Step 4 &mdash; Establish a plan of action",
+   "exhibit": "Exhibit B",
+   "q": "If WTE-FS02 failed on Friday evening, which backups would be needed to restore it to Thursday night's state?",
+   "opts": [
+    [
+     "Sunday's full backup plus the Monday, Tuesday, Wednesday, and Thursday incrementals",
+     true
+    ],
+    [
+     "Sunday's full backup only",
+     false
+    ],
+    [
+     "Thursday's incremental only",
+     false
+    ],
+    [
+     "Sunday's full backup plus Thursday's incremental only",
+     false
+    ],
+    [
+     "The Monday through Thursday incrementals only",
+     false
+    ],
+    [
+     "The most recent synthetic full backup",
+     false
+    ]
+   ]
+  },
+  {
+   "step": "Step 5 &mdash; Verify full system functionality",
+   "exhibit": "Exhibit C",
+   "q": "Exhibit C shows a restore has never been tested. What should happen before this change is approved?",
+   "opts": [
+    [
+     "Perform a test restore to an alternate location to confirm the backups are usable",
+     true
+    ],
+    [
+     "Approve it, since every job in the log says Completed",
+     false
+    ],
+    [
+     "Switch to differential backups first",
+     false
+    ],
+    [
+     "Delete older backups to free space",
+     false
+    ],
+    [
+     "Run chkdsk on the file server",
+     false
+    ],
+    [
+     "Increase the backup retention period",
+     false
+    ]
+   ]
+  }
+ ]
+};
+
+        function shuffle(a) { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+
+        // Same open/close method as the Table of Contents: click toggles, leaving collapses
+        document.querySelectorAll('.solution-toggle').forEach(function (box) {
+            var bar = box.querySelector('.solution-bar');
+            bar.addEventListener('click', function () {
+                box.classList.toggle('toc-expanded');
+            });
+            box.addEventListener('mouseleave', function () {
+                if (!box.dataset.earned) box.classList.remove('toc-expanded');
+            });
+        });
+
+        function renderTicket(containerId) {
+            const box = document.getElementById(containerId);
+            const sol = document.getElementById(containerId.replace('q', 'sol'));
+            sol.classList.remove('toc-expanded'); delete sol.dataset.earned;
+            box.innerHTML = '<h3>Questions</h3>';
+            box.dataset.correct = '0'; box.dataset.answered = '0';
+            TICKETS[containerId].forEach((item, qi) => {
+                const order = shuffle(item.opts.map((o, i) => i));
+                const block = document.createElement('div');
+                block.className = 'question-block';
+                let html = '<div class="question-number">Question ' + (qi + 1) + ' &middot; ' + item.step + ' &middot; ' + item.exhibit + '</div>';
+                html += '<p class="question-text">' + item.q + '</p><ul class="mc-options">';
+                order.forEach((oi, k) => {
+                    html += '<li><button type="button" class="mc-option" data-oi="' + oi + '"><span class="mc-letter">' + 'ABCDEF'[k] + '</span><span>' + item.opts[oi][0] + '</span></button></li>';
+                });
+                html += '</ul><div class="feedback" style="display:none; margin-top: var(--space-md);"></div>';
+                block.innerHTML = html;
+                block.querySelectorAll('.mc-option').forEach(btn => {
+                    btn.addEventListener('click', () => answer(box, block, item, parseInt(btn.dataset.oi), containerId));
+                });
+                box.appendChild(block);
+            });
+            const reset = document.createElement('button');
+            reset.type = 'button'; reset.className = 'btn-reset'; reset.textContent = 'Reset These Questions';
+            reset.addEventListener('click', () => renderTicket(containerId));
+            box.appendChild(reset);
+        }
+
+        function answer(box, block, item, chosen, containerId) {
+            if (block.dataset.done) return;
+            block.dataset.done = '1';
+            const isRight = item.opts[chosen][1] === true;
+            // Mark only the student's own choice. The correct answer is never revealed.
+            block.querySelectorAll('.mc-option').forEach(btn => {
+                btn.disabled = true;
+                if (parseInt(btn.dataset.oi) === chosen) btn.classList.add(isRight ? 'graded-correct' : 'graded-incorrect');
+            });
+            const fb = block.querySelector('.feedback');
+            fb.innerHTML = isRight
+                ? '<div class="callout callout-tip"><div class="callout-title">Correct</div></div>'
+                : '<div class="callout callout-danger"><div class="callout-title">Incorrect</div></div>';
+            fb.style.display = 'block';
+            box.dataset.answered = String(parseInt(box.dataset.answered) + 1);
+            if (isRight) box.dataset.correct = String(parseInt(box.dataset.correct) + 1);
+            const total = TICKETS[containerId].length;
+            if (box.dataset.correct === String(total)) {
+                const sol = document.getElementById(containerId.replace('q', 'sol'));
+                sol.dataset.earned = '1';
+                sol.classList.add('toc-expanded');
+                setTimeout(() => sol.scrollIntoView({ behavior: 'smooth', block: 'start' }), 400);
+            }
+        }
+
+        ['t1q', 't2q', 't3q'].forEach(renderTicket);
+    </script>
+</body>
+</html>

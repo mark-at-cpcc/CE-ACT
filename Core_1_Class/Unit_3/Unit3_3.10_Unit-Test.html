@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 3 &mdash; 3.10 Unit Test | CompTIA A+ Core 1</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Sans+Pro:wght@400;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           CPCC COURSE TEMPLATE - GOLD / CHARCOAL / BLACK
+           CTS-ITS7501-80 CompTIA A+ Core 1 Training
+           Type: true black. Accents: gold. Chrome: charcoal.
+           ============================================ */
+
+        :root {
+            --primary-dark: #4A4A4A;       /* Charcoal - structural chrome only */
+            --primary-main: #B8962E;       /* Warm Gold - primary accent */
+            --primary-light: #D4AF56;      /* Light Gold */
+            --primary-pale: #FBF3DF;       /* Pale Gold wash */
+
+            --accent-teal: #8A6F1F;        /* Deep bronze-gold */
+            --accent-teal-light: #F3E9CE;  /* Pale bronze */
+            --accent-orange: #A9642A;      /* Warm rust */
+            --accent-orange-light: #F5E2CE;
+            --accent-purple: #6B5B3A;      /* Muted umber */
+            --accent-purple-light: #EFE6D2;
+            --accent-green: #4E7A51;
+            --accent-green-light: #DCEBDD;
+
+            --alert-warning: #B8862E;
+            --alert-warning-bg: #FBF0D9;
+            --alert-danger: #A13A3A;
+            --alert-danger-bg: #F6DEDE;
+            --alert-success: #3F6E42;
+            --alert-success-bg: #DCEBDD;
+            --alert-info: #6E5B2E;
+            --alert-info-bg: #F1E9D4;
+
+            --text-black: #000000;         /* All reading text */
+            --neutral-900: #000000;
+            --neutral-700: #000000;
+            --neutral-500: #5A5A5A;
+            --neutral-300: #D9D3C4;
+            --neutral-100: #FAF8F3;
+            --white: #ffffff;
+
+            --font-heading: 'Nunito', sans-serif;
+            --font-body: 'Source Sans Pro', sans-serif;
+            --font-code: 'Fira Code', monospace;
+
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+
+            --shadow-sm: 0 1px 2px rgba(74, 74, 74, 0.08);
+            --shadow-md: 0 4px 6px rgba(74, 74, 74, 0.12);
+            --shadow-lg: 0 10px 20px rgba(74, 74, 74, 0.15);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body), 'Segoe UI', Tahoma, Verdana, sans-serif;
+            font-size: 1.0625rem;
+            line-height: 1.7;
+            color: var(--text-black);
+            background: linear-gradient(135deg, var(--neutral-100) 0%, var(--white) 100%);
+            min-height: 100vh;
+            padding: var(--space-lg);
+        }
+
+        .course-container {
+            max-width: 950px; margin: 0 auto; background: var(--white);
+            border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); overflow: hidden;
+        }
+
+        .module-header {
+            background: var(--primary-main); color: var(--text-black);
+            padding: var(--space-lg) var(--space-xl); position: relative; overflow: hidden;
+        }
+        .module-label {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 0.875rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 2px; text-decoration: underline;
+            margin-bottom: var(--space-sm); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-title {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 2.25rem; font-weight: 800;
+            line-height: 1.2; margin-bottom: var(--space-md); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-subtitle { font-size: 1.125rem; max-width: 650px; position: relative; z-index: 1; color: var(--text-black); }
+
+        .toc {
+            display: flex; flex-direction: column; gap: var(--space-sm);
+            padding: var(--space-lg) var(--space-xl);
+            background: var(--primary-pale); border-bottom: 1px solid var(--neutral-300);
+        }
+        .toc-item {
+            width: 100%; text-align: left;
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 0.875rem;
+            color: var(--text-black); background: var(--white);
+            border: 2px solid var(--primary-main);
+            padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md);
+        }
+        .toc-item.current { background: var(--primary-main); }
+
+        .content-area { padding: var(--space-xl); }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif;
+            color: var(--text-black); line-height: 1.3; margin-bottom: var(--space-md);
+        }
+        h1 { font-size: 2rem; font-weight: 800; }
+        h2 { font-size: 1.625rem; font-weight: 700; padding-bottom: var(--space-sm);
+             border-bottom: 3px solid var(--primary-main); margin-top: var(--space-xl); margin-bottom: var(--space-lg); }
+        h3 { font-size: 1.375rem; font-weight: 700; margin-top: var(--space-lg);
+             padding-left: var(--space-sm); border-left: 4px solid var(--primary-main); }
+        h4 { font-size: 1.125rem; font-weight: 600; }
+
+        p { margin-bottom: var(--space-md); }
+        strong { font-weight: 700; color: var(--text-black); }
+        em { font-style: italic; color: var(--text-black); }
+
+        a { color: var(--text-black); text-decoration: none; border-bottom: 2px solid var(--primary-main); transition: all 0.2s ease; }
+        a:hover { background: var(--primary-pale); border-bottom-color: var(--accent-teal); }
+
+        ul, ol { margin-bottom: var(--space-md); padding-left: var(--space-lg); }
+        li { margin-bottom: var(--space-sm); }
+        ul li::marker { color: var(--accent-teal); }
+        ol li::marker { color: var(--accent-teal); font-weight: 700; }
+
+        .tech-box {
+            background: var(--neutral-100); border: 2px solid var(--neutral-500);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .tech-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .tech-box .callout-content { padding-left: 0; }
+
+        .plain-box {
+            background: var(--primary-pale); border: 2px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .plain-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .plain-box .callout-content { padding-left: 0; }
+
+        .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; position: relative; overflow: hidden; }
+        .callout-title { font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 1rem;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
+        .callout-content { }
+        .callout-content p:last-child { margin-bottom: 0; }
+
+        .callout-tip { background: var(--accent-green-light); border-left: 4px solid var(--accent-green); }
+        .callout-warning { background: var(--alert-warning-bg); border-left: 4px solid var(--alert-warning); }
+        .callout-danger { background: var(--alert-danger-bg); border-left: 4px solid var(--alert-danger); }
+        .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
+
+        .objectives-box {
+            background: var(--primary-pale); border-left: 5px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .objectives-box h3 { margin-top: 0; border-left: none; padding-left: 0; color: var(--text-black); }
+        .objectives-box ol { margin-bottom: 0; }
+
+        .key-concept {
+            background: linear-gradient(135deg, var(--accent-purple-light) 0%, var(--white) 100%);
+            border: 2px solid var(--accent-purple); border-radius: var(--radius-lg);
+            padding: var(--space-lg); margin: var(--space-xl) 0 var(--space-lg); position: relative;
+        }
+        .key-concept::before {
+            content: 'KEY CONCEPT'; position: absolute; top: -12px; left: var(--space-lg);
+            background: var(--accent-purple); color: var(--white); font-family: var(--font-heading), sans-serif;
+            font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-md); border-radius: var(--radius-sm);
+        }
+        .key-concept h4 { color: var(--text-black); margin-top: var(--space-sm); }
+
+        .definition {
+            background: var(--neutral-100); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin: var(--space-md) 0; border-left: 4px solid var(--accent-orange);
+        }
+        .definition-term { font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 1.125rem;
+            color: var(--text-black); margin-bottom: var(--space-xs); }
+        .definition-text { color: var(--text-black); margin-bottom: 0; }
+
+        code { font-family: var(--font-code), Consolas, monospace; font-size: 0.9rem; background: var(--primary-pale);
+            color: var(--text-black); padding: 2px 6px; border-radius: var(--radius-sm); }
+        pre { background: #2E2E2E; color: #f1ece0; padding: var(--space-lg); border-radius: var(--radius-md);
+            overflow-x: auto; margin: var(--space-lg) 0; position: relative; }
+        pre::before {
+            content: 'STEPS'; position: absolute; top: 0; right: 0; background: var(--primary-main); color: var(--text-black);
+            font-family: var(--font-heading), sans-serif; font-size: 0.625rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-sm); border-radius: 0 var(--radius-md) 0 var(--radius-sm);
+        }
+        pre code { background: transparent; color: inherit; padding: 0; font-size: 0.875rem; line-height: 1.6; }
+
+        .table-container { overflow-x: auto; margin: var(--space-lg) 0; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); }
+        table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
+        thead { background: var(--primary-dark); color: var(--white); }
+        th { font-family: var(--font-heading), sans-serif; font-weight: 700; text-align: left; padding: var(--space-md) var(--space-lg); color: var(--white); }
+        td { padding: var(--space-md) var(--space-lg); border-bottom: 1px solid var(--neutral-300); color: var(--text-black); }
+        tbody tr:hover { background: var(--primary-pale); }
+        tbody tr:last-child td { border-bottom: none; }
+
+        .activity-section {
+            background: linear-gradient(135deg, var(--accent-orange-light) 0%, var(--white) 100%);
+            border: 2px dashed var(--accent-orange); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .activity-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg); }
+        .activity-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700;
+            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
+        .activity-subtitle { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
+
+        .lab-section {
+            background: var(--white); border: 2px solid var(--primary-dark); border-radius: var(--radius-lg);
+            padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .lab-header { padding-bottom: var(--space-md); margin-bottom: var(--space-lg); border-bottom: 2px solid var(--primary-dark); }
+        .lab-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700; color: var(--text-black); border-left: none; padding-left: 0; }
+        .lab-time { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
+        .lab-steps { list-style: none; counter-reset: lab-step; padding-left: 0; }
+        .lab-steps li { counter-increment: lab-step; position: relative; padding-left: 3rem; margin-bottom: var(--space-lg); }
+        .lab-steps li::before {
+            content: counter(lab-step); position: absolute; left: 0; width: 2rem; height: 2rem;
+            background: var(--accent-teal); color: var(--white); font-family: var(--font-heading), sans-serif; font-weight: 700;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.875rem;
+        }
+
+        .assessment-section { background: var(--primary-pale); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0; }
+        .assessment-header { text-align: center; margin-bottom: var(--space-xl); }
+        .assessment-header h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .question-block { background: var(--white); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin-bottom: var(--space-lg); box-shadow: var(--shadow-sm); }
+        .question-number { font-family: var(--font-heading), sans-serif; font-size: 0.75rem; font-weight: 700;
+            color: var(--text-black); background: var(--primary-main); display: inline-block;
+            padding: 2px 10px; border-radius: var(--radius-sm);
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); }
+        .question-text { font-weight: 600; color: var(--text-black); margin-bottom: var(--space-md); }
+
+        details.answer { margin-top: var(--space-sm); }
+        details.answer summary { cursor: pointer; font-weight: 700; color: var(--text-black);
+            font-family: var(--font-heading), sans-serif; font-size: 0.875rem;
+            border-bottom: 2px solid var(--primary-main); display: inline-block; }
+        details.answer .reveal { margin-top: var(--space-sm); padding: var(--space-md);
+            background: var(--accent-green-light); border-radius: var(--radius-sm); color: var(--text-black); }
+
+        .references-section { background: var(--neutral-100); border-radius: var(--radius-lg);
+            padding: var(--space-lg) var(--space-xl); margin: var(--space-xl) 0; border-top: 3px solid var(--primary-main); }
+        .references-section h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+
+        .progress-bar { background: var(--neutral-300); border-radius: var(--radius-xl); height: 8px; overflow: hidden; margin: var(--space-lg) 0; }
+        .progress-fill { background: var(--primary-main); height: 100%; border-radius: var(--radius-xl); }
+        .progress-label { display: flex; justify-content: space-between; font-size: 0.875rem; color: var(--neutral-500); margin-bottom: var(--space-xs); }
+
+        .module-footer { background: var(--neutral-100); padding: var(--space-lg) var(--space-xl); text-align: center; border-top: 1px solid var(--neutral-300); }
+        .footer-text { font-size: 0.875rem; color: var(--neutral-500); }
+
+        .text-center { text-align: center; }
+        .text-muted { color: var(--neutral-500); }
+        .mt-sm { margin-top: var(--space-sm); } .mt-md { margin-top: var(--space-md); } .mt-lg { margin-top: var(--space-lg); }
+        .mb-sm { margin-bottom: var(--space-sm); } .mb-md { margin-bottom: var(--space-md); } .mb-lg { margin-bottom: var(--space-lg); }
+
+        /* Interactive quiz controls (pre-assessment / practice questions) */
+        .answer-option { display: block; width: 100%; text-align: left; padding: var(--space-sm) var(--space-md);
+            margin-bottom: var(--space-sm); border: 2px solid var(--neutral-300); border-radius: var(--radius-sm);
+            background: var(--white); cursor: pointer; font-family: var(--font-body), sans-serif; font-size: 1rem; color: var(--text-black); }
+        .answer-option:hover { border-color: var(--primary-main); }
+        .answer-option.selected { border-color: var(--primary-dark); background: var(--primary-pale); }
+        .answer-option.correct { border-color: var(--accent-green); background: var(--accent-green-light); }
+        .answer-option.incorrect { border-color: var(--alert-danger); background: var(--alert-danger-bg); }
+        .quiz-btn { font-family: var(--font-heading), sans-serif; font-weight: 700; padding: var(--space-sm) var(--space-xl);
+            border-radius: var(--radius-sm); border: 2px solid var(--primary-dark); background: var(--primary-dark); color: var(--white);
+            cursor: pointer; font-size: 0.95rem; margin-right: var(--space-sm); }
+        .quiz-btn:hover { background: #333333; }
+        .quiz-btn.secondary { background: var(--white); color: var(--primary-dark); }
+        .quiz-btn.secondary:hover { background: var(--neutral-100); }
+        #quizResults { display:none; background: var(--primary-pale); border: 2px solid var(--primary-main); border-radius: var(--radius-md);
+            padding: var(--space-lg); margin-top: var(--space-lg); text-align: center; font-family: var(--font-heading), sans-serif; }
+        #quizResults .score { font-size: 2rem; font-weight: 800; color: var(--text-black); }
+
+        @media (max-width: 768px) {
+            .module-title { font-size: 1.75rem; }
+            .content-area { padding: var(--space-lg); }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="course-container">
+
+        <header class="module-header">
+            <div class="module-label">Unit 3 &middot; Networking Foundations &middot; Section 3.10</div>
+            <h1 class="module-title">Unit Test</h1>
+            <p class="module-subtitle">CompTIA A+ Core 1 &mdash; Domains 2.0 and 3.0</p>
+        </header>
+
+        <nav class="toc" id="tocNav">
+            <div class="toc-header">Table of Contents</div>
+            <div class="toc-item">3.1 &mdash; Unit Overview and Learning Objectives</div>
+            <div class="toc-item">3.2 &mdash; Unit Pre-Assessment</div>
+            <div class="toc-item">3.3 &mdash; Content Review</div>
+            <div class="toc-item">3.4 &mdash; Reading Assignment</div>
+            <div class="toc-item">3.5 &mdash; Video Assignment</div>
+            <div class="toc-item">3.6 &mdash; Classroom Labs</div>
+            <div class="toc-item">3.7 &mdash; Practice Questions</div>
+            <div class="toc-item">3.8 &mdash; Online Labs: NETLAB</div>
+            <div class="toc-item">3.9 &mdash; Reflection Activity</div>
+            <div class="toc-item current" id="tocCurrent">3.10 &mdash; Unit Test</div>
+        </nav>
+        <style>
+            /* Collapsible TOC: only the current section shows until clicked */
+            nav.toc#tocNav { gap: 0; }
+            nav.toc#tocNav .toc-item {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav .toc-item.current {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                cursor: pointer;
+            }
+            nav.toc#tocNav .toc-item.current::after {
+                content: ' \25BE Click to View';
+                font-size: 0.75em;
+            }
+            nav.toc#tocNav.toc-expanded .toc-item {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                margin-bottom: var(--space-sm);
+            }
+            nav.toc#tocNav.toc-expanded .toc-item.current::after { content: ' \25B4'; }
+
+            nav.toc#tocNav .toc-header {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                font-family: var(--font-heading), 'Segoe UI', sans-serif;
+                font-weight: 700;
+                font-size: 0.875rem;
+                text-align: left;
+                color: var(--text-black);
+                text-decoration: underline;
+                background: var(--primary-main);
+                border-radius: var(--radius-md);
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav.toc-expanded .toc-header {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                padding-left: var(--space-md);
+                border-width: 2px;
+                border-style: solid;
+                border-color: var(--primary-main);
+                margin-bottom: var(--space-sm);
+            }
+        </style>
+
+        <script>
+            (function () {
+                var toc = document.getElementById('tocNav');
+                var currentItem = document.getElementById('tocCurrent');
+
+                toc.addEventListener('click', function (e) {
+                    if (toc.classList.contains('toc-expanded')) {
+                        toc.classList.remove('toc-expanded');
+                    } else if (e.target === currentItem || currentItem.contains(e.target)) {
+                        toc.classList.add('toc-expanded');
+                    }
+                });
+
+                toc.addEventListener('mouseleave', function () {
+                    toc.classList.remove('toc-expanded');
+                });
+            })();
+        </script>
+
+
+        <div class="content-area">
+
+            <div class="tech-box">
+                <div class="callout-title">Test Format</div>
+                <div class="callout-content">
+                    <p>Each attempt draws 20 items covering this unit's cabling, network hardware, IP addressing, ports/protocols, connection/network type, and networking tool objectives, weighted to mirror how they're represented on the actual 220-1201 exam. Click an answer to select it, then click <strong>Grade My Answers</strong> to see your results.</p>
+                </div>
+            </div>
+
+            <div class="callout callout-info">
+                <div class="callout-title">Test Taking Skills</div>
+                <div class="callout-content">
+                    <p>In order to successfully pass the CompTIA exam you should read each question and each answer. Select the best answer that you think is correct. Then read the question again, and each answer. If you agree with the original answer move on; otherwise, "work through" the answers and see which ones are easily dismissable.</p>
+                    <p>Full understanding requires completion of all 20 items and a review of any missed questions before moving on &mdash; not a specific score. Take the time to understand why an answer was wrong before you close this page.</p>
+                </div>
+            </div>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">Submit Your Proof of Completion</div>
+                <div class="callout-content">
+                    <p>Once you've completed this activity, take a screenshot showing your final score and upload it to the appropriate submission link in Brightspace by the due date. A screenshot is your only proof of completion &mdash; nothing here is automatically recorded, so don't close this page before you've captured and uploaded it.</p>
+                </div>
+            </div>
+
+            <div id="quizArea"></div>
+
+            <div class="mt-lg">
+                <button class="quiz-btn" onclick="gradeQuiz()">Grade My Answers</button>
+                <button class="quiz-btn secondary" onclick="resetQuiz()">Reset</button>
+            </div>
+
+            <div id="quizResults">
+                <div>Your Score</div>
+                <div class="score" id="scoreDisplay">0 / 20</div>
+                <div id="scoreNote"></div>
+                <p class="text-muted mt-sm">Screenshot this score before leaving the page, and upload it to the submission link in Brightspace.</p>
+            </div>
+
+            <script>
+                const POOL = [{"q": "Which cable type best resists electrical interference over a long run between buildings?", "opts": ["Coaxial", "Fiber optic", "Shielded twisted pair", "Unshielded twisted pair"], "correct": 1}, {"q": "Which wiring standard uses the order White/Orange, Orange, White/Green, Blue, White/Blue, Green, White/Brown, Brown?", "opts": ["Cat 5e", "RS-232", "T568A", "T568B"], "correct": 3}, {"q": "A cable is wired T568A on one end and T568B on the other. This is a:", "opts": ["Crossover", "Loopback", "Straight-through", "Rollover"], "correct": 0}, {"q": "Which connector terminates standard Ethernet twisted pair?", "opts": ["RJ11", "RJ45", "BNC", "F-connector"], "correct": 1}, {"q": "Which connector terminates coaxial cable for cable internet?", "opts": ["LC", "RJ45", "F-connector", "RJ11"], "correct": 2}, {"q": "Which fiber connector uses a round bayonet twist-lock?", "opts": ["ST", "LC", "SC", "MTP"], "correct": 0}, {"q": "Which fiber connector uses a small push-pull body common in dense installs?", "opts": ["LC", "SC", "ST", "MTRJ"], "correct": 0}, {"q": "Plenum-rated cable is required primarily for:", "opts": ["Longer runs", "Fire safety", "Lower cost", "Faster speed"], "correct": 1}, {"q": "STP adds which feature that UTP lacks?", "opts": ["A fiber core", "A second connector", "Interference shielding", "A built-in repeater"], "correct": 2}, {"q": "Cable rated for a run buried directly in the ground is:", "opts": ["Burial", "Standard UTP", "Plenum", "Patch"], "correct": 0}, {"q": "Which connector is used on an analog telephone line?", "opts": ["F-connector", "RJ11", "LC", "RJ45"], "correct": 1}, {"q": "Multimode fiber is best suited for:", "opts": ["In-building or campus runs", "Telephone wiring", "City-to-city backbone", "Cable TV"], "correct": 0}, {"q": "Compared to multimode, single-mode fiber supports:", "opts": ["Redundancy", "Faster speeds", "Shorter distances", "Longer distances"], "correct": 3}, {"q": "Cable run above a drop ceiling used for HVAC airflow must be:", "opts": ["Direct burial", "Standard PVC", "Any UTP", "Plenum-rated"], "correct": 3}, {"q": "Two switches must be linked directly on gear without Auto-MDIX. Use a:", "opts": ["Loopback", "Straight-through", "Crossover", "Rollover"], "correct": 2}, {"q": "A dense server room needs a small push-pull fiber connector. Best fit:", "opts": ["LC", "F-connector", "SC", "ST"], "correct": 0}, {"q": "Which device forwards traffic between two different networks?", "opts": ["Router", "Patch panel", "Access point", "Switch"], "correct": 0}, {"q": "Which device forwards frames on one network by MAC address?", "opts": ["Switch", "Modem", "Firewall", "Router"], "correct": 0}, {"q": "Which device bridges Wi-Fi clients onto the wired network?", "opts": ["Patch panel", "Firewall", "Access point", "NIC"], "correct": 2}, {"q": "A patch panel primarily serves as a:", "opts": ["Traffic filter", "DHCP source", "Signal booster", "Cable termination"], "correct": 3}, {"q": "Which device converts an ISP fiber signal into Ethernet?", "opts": ["ONT", "Modem", "Patch panel", "Router"], "correct": 0}, {"q": "PoE is used to:", "opts": ["Extend cable length", "Power a device", "Encrypt traffic", "Convert to fiber"], "correct": 1}, {"q": "Which device filters traffic between networks by rule?", "opts": ["Switch", "Patch panel", "Access point", "Firewall"], "correct": 3}, {"q": "A cable modem converts a signal arriving over:", "opts": ["Cellular", "Satellite", "Fiber", "Coaxial"], "correct": 3}, {"q": "NIC stands for:", "opts": ["Network Integrity Check", "Node Identification Code", "Network Interface Card", "Network Internet Connector"], "correct": 2}, {"q": "A managed switch adds which capability over an unmanaged one?", "opts": ["VLAN and port control", "Fiber ports only", "MAC forwarding", "A power supply"], "correct": 0}, {"q": "A home router's built-in firewall primarily:", "opts": ["Filters traffic", "Runs DHCP", "Converts coax to Ethernet", "Boosts Wi-Fi range"], "correct": 0}, {"q": "A typical home 'router' usually also acts as a:", "opts": ["A standalone router unit", "AIO device", "A dedicated firewall box", "A managed core switch"], "correct": 1}, {"q": "Which device extends a wired run without adding wireless?", "opts": ["NIC", "Patch panel", "Access point", "Switch"], "correct": 1}, {"q": "A cable modem differs from a DSL modem in that it uses:", "opts": ["Fiber vs. satellite", "Coax vs. phone line", "No difference", "Wireless vs. wired"], "correct": 1}, {"q": "Which is a private IPv4 range?", "opts": ["172.32.0.0/16", "8.8.8.0/24", "1.1.1.0/24", "10.0.0.0/8"], "correct": 3}, {"q": "Which is NOT a valid private IPv4 range?", "opts": ["10.0.0.0/8", "172.32.0.0/16", "172.16.0.0/12", "192.168.0.0/16"], "correct": 1}, {"q": "A device showing a 169.254.x.x address indicates:", "opts": ["A firewall fault", "APIPA", "A static lease", "A public address"], "correct": 1}, {"q": "Static vs. dynamic addressing differs in that static is:", "opts": ["Faster", "IPv6 only", "Identical to dynamic", "Manually assigned"], "correct": 3}, {"q": "An IPv4 address is how many bits?", "opts": ["16", "128", "64", "32"], "correct": 3}, {"q": "An IPv6 address is how many bits?", "opts": ["128", "32", "64", "256"], "correct": 0}, {"q": "Which class covers first-octet 1 to 126?", "opts": ["C", "D", "B", "A"], "correct": 3}, {"q": "Which class covers first-octet 192 to 223?", "opts": ["B", "D", "C", "A"], "correct": 2}, {"q": "Which class is reserved for multicast?", "opts": ["D", "B", "A", "C"], "correct": 0}, {"q": "The 127.0.0.0/8 block is reserved for:", "opts": ["Private Class A", "Loopback", "Tunneling", "Multicast"], "correct": 1}, {"q": "The 172.16.0.0/12 private range falls in which class?", "opts": ["D", "B", "A", "C"], "correct": 1}, {"q": "Default mask for a Class C network:", "opts": ["255.255.0.0", "255.0.0.0", "255.255.255.255", "255.255.255.0"], "correct": 3}, {"q": "Which class is reserved for experimental use?", "opts": ["C", "A", "E", "D"], "correct": 2}, {"q": "Default mask for a Class A network:", "opts": ["255.255.255.0", "255.0.0.0", "255.255.255.255", "255.255.0.0"], "correct": 1}, {"q": "Default mask for a Class B network:", "opts": ["255.255.0.0", "255.255.255.255", "255.255.255.0", "255.0.0.0"], "correct": 0}, {"q": "The full Class B range spans first-octet values:", "opts": ["224 to 239", "1 to 126", "128 to 191", "192 to 223"], "correct": 2}, {"q": "The address 172.32.5.10 is:", "opts": ["Multicast", "Public", "Private", "Loopback"], "correct": 1}, {"q": "The 192.168.0.0/16 range is used for:", "opts": ["Multicast only", "APIPA", "Local hosts", "Public space"], "correct": 2}, {"q": "A server other devices must reach at a fixed address should use:", "opts": ["Multicast", "Static", "APIPA", "Dynamic"], "correct": 1}, {"q": "An IPv6 address is written in:", "opts": ["Binary", "Octal", "Decimal", "Hexadecimal"], "correct": 3}, {"q": "Which port is used by DNS?", "opts": ["443", "53", "21", "80"], "correct": 1}, {"q": "Which port is used by HTTPS?", "opts": ["80", "3389", "445", "443"], "correct": 3}, {"q": "Which ports are used by DHCP?", "opts": ["25", "20 / 21", "53", "67 / 68"], "correct": 3}, {"q": "Which protocol is connection-oriented and confirms delivery?", "opts": ["TCP", "ARP", "ICMP", "UDP"], "correct": 0}, {"q": "Which protocol is connectionless and favors speed?", "opts": ["FTP", "SSH", "UDP", "TCP"], "correct": 2}, {"q": "Which port is used by RDP?", "opts": ["389", "445", "22", "3389"], "correct": 3}, {"q": "Which port is used by SSH?", "opts": ["25", "21", "22", "23"], "correct": 2}, {"q": "Which port is used by SMTP?", "opts": ["25", "110", "21", "53"], "correct": 0}, {"q": "Which port is used by POP3?", "opts": ["143", "110", "80", "25"], "correct": 1}, {"q": "Which port is used by IMAP?", "opts": ["3389", "443", "110", "143"], "correct": 3}, {"q": "Which port is used by Telnet?", "opts": ["23", "21", "25", "22"], "correct": 0}, {"q": "Which port is used by LDAP?", "opts": ["389", "3389", "445", "443"], "correct": 0}, {"q": "Which port is used by SMB?", "opts": ["389", "143", "445", "3389"], "correct": 2}, {"q": "Which port is used by FTP?", "opts": ["22", "443", "20 / 21", "67 / 68"], "correct": 2}, {"q": "DNS primarily provides:", "opts": ["Traffic encryption", "Name resolution", "Address assignment", "Rule filtering"], "correct": 1}, {"q": "DHCP primarily provides:", "opts": ["Network segmentation", "Encrypted tunnels", "Name resolution", "Automatic addressing"], "correct": 3}, {"q": "A VLAN is used to:", "opts": ["Convert IPv4 to IPv6", "Segment a network logically", "Separate fiber and copper", "Assign static IPs"], "correct": 1}, {"q": "A VPN primarily provides:", "opts": ["A longer cable run", "Name resolution", "Automatic addressing", "An encrypted tunnel"], "correct": 3}, {"q": "Auto-MDIX allows equipment to:", "opts": ["Match cable wiring type", "Encrypt traffic", "Assign IP addresses", "Boost Wi-Fi"], "correct": 0}, {"q": "Which connection type runs over copper telephone lines?", "opts": ["Satellite", "Fiber", "DSL", "Cable"], "correct": 2}, {"q": "Which connection type terminates fiber at an ONT in the home?", "opts": ["DSL", "Cable", "FTTH", "Cellular"], "correct": 2}, {"q": "Which connection type usually has the highest latency?", "opts": ["Satellite", "Fiber", "DSL", "Cable"], "correct": 0}, {"q": "Which connection type shares cable TV infrastructure?", "opts": ["DSL", "Cellular", "Fiber", "Cable"], "correct": 3}, {"q": "A smartphone mobile hotspot uses which connection?", "opts": ["Fiber", "Cellular", "Satellite", "DSL"], "correct": 1}, {"q": "A single home or small office network is a:", "opts": ["WAN", "LAN", "MAN", "SAN"], "correct": 1}, {"q": "Which type links LANs across a large area?", "opts": ["WAN", "PAN", "SAN", "WLAN"], "correct": 0}, {"q": "A Bluetooth headset paired to a phone forms a:", "opts": ["WAN", "LAN", "PAN", "SAN"], "correct": 2}, {"q": "A company's storage backbone to a storage array is a:", "opts": ["WAN", "PAN", "LAN", "SAN"], "correct": 3}, {"q": "Three connected offices in different cities form a:", "opts": ["WAN", "WLAN", "PAN", "LAN"], "correct": 0}, {"q": "A home Wi-Fi network specifically is a:", "opts": ["WAN", "LAN", "WLAN", "PAN"], "correct": 2}, {"q": "Which tool attaches a connector to a cable end?", "opts": ["Cable tester", "Crimper", "Loopback plug", "Tone generator"], "correct": 1}, {"q": "Which tool checks a finished run for continuity and wiremap?", "opts": ["Wi-Fi analyzer", "Cable tester", "Punch-down tool", "Crimper"], "correct": 1}, {"q": "Which tool traces a cable hidden in a wall or bundle?", "opts": ["Loopback plug", "Tone generator", "Cable tester", "Network tap"], "correct": 1}, {"q": "Which tool seats wires into a patch panel's contacts?", "opts": ["Crimper", "Loopback plug", "Punch-down tool", "Tone generator"], "correct": 2}, {"q": "Which tool tests a port in isolation with no live link?", "opts": ["Network tap", "Crimper", "Loopback plug", "Cable tester"], "correct": 2}, {"q": "Which tool passively copies link traffic for analysis?", "opts": ["Network tap", "Tone generator", "Punch-down tool", "Cable tester"], "correct": 0}, {"q": "Which tool surveys wireless channels and interference?", "opts": ["Crimper", "Cable tester", "Wi-Fi analyzer", "Punch-down tool"], "correct": 2}, {"q": "A NIC shows a solid link light but no network access, with a 169.254.x.x address. Most likely cause:", "opts": ["Wrong wiring standard", "Failed NIC", "DHCP unreachable", "Bad fiber connector"], "correct": 2}, {"q": "A host reaches local devices but not the internet. Check first:", "opts": ["The local switch", "The router or ISP link", "The NIC driver", "The patch panel"], "correct": 1}, {"q": "A new cable passes continuity but is slow. Check next:", "opts": ["The wiremap and pin order", "Whether DHCP is off", "Whether it's coax", "Whether it's IPv6 only"], "correct": 0}, {"q": "Guest Wi-Fi must stay separate from staff on one switch. Best solution:", "opts": ["A second physical network", "Use APIPA for guests", "Replace router with a modem", "Separate VLANs on a managed switch"], "correct": 3}, {"q": "A remote worker needs an encrypted link into the internal network. Use a:", "opts": ["APIPA", "DHCP", "VPN", "DNS"], "correct": 2}, {"q": "A site name fails to load but its raw IP works. Likely failure:", "opts": ["DHCP", "DNS", "RAID", "Patch panel"], "correct": 1}, {"q": "A laptop gets no address at all, not even APIPA. Check first:", "opts": ["The RAID controller", "The physical link or Wi-Fi", "The fiber connector", "The DNS server"], "correct": 1}, {"q": "An office camera needs data and power on one cable run. Use:", "opts": ["A crossover cable", "VLAN tagging", "APIPA", "PoE"], "correct": 3}, {"q": "A tech must confirm which wall jack maps to which panel port. Best tool:", "opts": ["Tone generator", "Loopback plug", "Cable tester", "Crimper"], "correct": 0}, {"q": "A rural site has no cable, fiber, or cellular coverage. Best option:", "opts": ["Cable", "FTTH", "Satellite", "DSL"], "correct": 2}, {"q": "Devices on a subnet can't get addresses automatically. Which service failed?", "opts": ["VPN", "DNS", "DHCP", "SMTP"], "correct": 2}, {"q": "A tech needs to terminate a new keystone jack at the wall. Best tool:", "opts": ["Crimper", "Cable tester", "Punch-down tool", "Network tap"], "correct": 2}, {"q": "A user can browse by IP but not by hostname. Failing service:", "opts": ["PoE", "VLAN", "DHCP", "DNS"], "correct": 3}];
+                let QUESTIONS = [];
+                let answers = [];
+
+                function drawSet() {
+                    const shuffled = POOL.slice().sort(() => Math.random() - 0.5);
+                    QUESTIONS = shuffled.slice(0, 20);
+                    answers = new Array(QUESTIONS.length).fill(null);
+                }
+
+                function renderQuiz() {
+                    const area = document.getElementById('quizArea');
+                    area.innerHTML = QUESTIONS.map((item, qi) => {
+                        const opts = item.opts.map((opt, oi) =>
+                            `<button type="button" class="answer-option" data-qi="${qi}" data-oi="${oi}" onclick="selectAnswer(${qi}, ${oi})">${opt}</button>`
+                        ).join('');
+                        return `<div class="question-block">
+                            <div class="question-number">Question ${qi + 1} of ${QUESTIONS.length}</div>
+                            <p class="question-text">${item.q}</p>
+                            ${opts}
+                        </div>`;
+                    }).join('');
+                }
+
+                function selectAnswer(qi, oi) {
+                    answers[qi] = oi;
+                    document.querySelectorAll(`[data-qi="${qi}"]`).forEach(btn => {
+                        btn.classList.remove('selected');
+                        if (parseInt(btn.dataset.oi) === oi) btn.classList.add('selected');
+                    });
+                }
+
+                function gradeQuiz() {
+                    if (answers.includes(null)) {
+                        alert('Answer all 20 questions before grading.');
+                        return;
+                    }
+                    let score = 0;
+                    QUESTIONS.forEach((item, qi) => {
+                        const correct = item.correct;
+                        document.querySelectorAll(`[data-qi="${qi}"]`).forEach(btn => {
+                            const oi = parseInt(btn.dataset.oi);
+                            btn.classList.remove('selected');
+                            if (oi === correct) btn.classList.add('correct');
+                            else if (oi === answers[qi]) btn.classList.add('incorrect');
+                        });
+                        if (answers[qi] === correct) score++;
+                    });
+                    document.getElementById('scoreDisplay').textContent = score + ' / ' + QUESTIONS.length;
+                    const note = document.getElementById('scoreNote');
+                    if (score >= 16) note.textContent = 'Strong result. Review any missed items, then you are done.';
+                    else if (score >= 12) note.textContent = 'A passing-range result. Review your missed questions closely before moving on.';
+                    else note.textContent = 'Below where you want to be for exam day. Revisit 3.3 and 3.4 for the topics you missed, then try again.';
+                    document.getElementById('quizResults').style.display = 'block';
+                    document.getElementById('quizResults').scrollIntoView({behavior: 'smooth'});
+                }
+
+                function resetQuiz() {
+                    document.getElementById('quizResults').style.display = 'none';
+                    drawSet();
+                    renderQuiz();
+                }
+
+                drawSet();
+                renderQuiz();
+            </script>
+
+
+        </div>
+
+        <footer class="module-footer">
+            <p class="footer-text">CompTIA A+ Core 1 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
+        </footer>
+    </div>
+</body>
+</html>

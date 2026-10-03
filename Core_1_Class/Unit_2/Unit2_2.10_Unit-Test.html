@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 2 &mdash; 2.10 Unit Test | CompTIA A+ Core 1</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Sans+Pro:wght@400;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           CPCC COURSE TEMPLATE - GOLD / CHARCOAL / BLACK
+           CTS-ITS7501-80 CompTIA A+ Core 1 Training
+           Type: true black. Accents: gold. Chrome: charcoal.
+           ============================================ */
+
+        :root {
+            --primary-dark: #4A4A4A;       /* Charcoal - structural chrome only */
+            --primary-main: #B8962E;       /* Warm Gold - primary accent */
+            --primary-light: #D4AF56;      /* Light Gold */
+            --primary-pale: #FBF3DF;       /* Pale Gold wash */
+
+            --accent-teal: #8A6F1F;        /* Deep bronze-gold */
+            --accent-teal-light: #F3E9CE;  /* Pale bronze */
+            --accent-orange: #A9642A;      /* Warm rust */
+            --accent-orange-light: #F5E2CE;
+            --accent-purple: #6B5B3A;      /* Muted umber */
+            --accent-purple-light: #EFE6D2;
+            --accent-green: #4E7A51;
+            --accent-green-light: #DCEBDD;
+
+            --alert-warning: #B8862E;
+            --alert-warning-bg: #FBF0D9;
+            --alert-danger: #A13A3A;
+            --alert-danger-bg: #F6DEDE;
+            --alert-success: #3F6E42;
+            --alert-success-bg: #DCEBDD;
+            --alert-info: #6E5B2E;
+            --alert-info-bg: #F1E9D4;
+
+            --text-black: #000000;         /* All reading text */
+            --neutral-900: #000000;
+            --neutral-700: #000000;
+            --neutral-500: #5A5A5A;
+            --neutral-300: #D9D3C4;
+            --neutral-100: #FAF8F3;
+            --white: #ffffff;
+
+            --font-heading: 'Nunito', sans-serif;
+            --font-body: 'Source Sans Pro', sans-serif;
+            --font-code: 'Fira Code', monospace;
+
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+
+            --shadow-sm: 0 1px 2px rgba(74, 74, 74, 0.08);
+            --shadow-md: 0 4px 6px rgba(74, 74, 74, 0.12);
+            --shadow-lg: 0 10px 20px rgba(74, 74, 74, 0.15);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body), 'Segoe UI', Tahoma, Verdana, sans-serif;
+            font-size: 1.0625rem;
+            line-height: 1.7;
+            color: var(--text-black);
+            background: linear-gradient(135deg, var(--neutral-100) 0%, var(--white) 100%);
+            min-height: 100vh;
+            padding: var(--space-lg);
+        }
+
+        .course-container {
+            max-width: 950px; margin: 0 auto; background: var(--white);
+            border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); overflow: hidden;
+        }
+
+        .module-header {
+            background: var(--primary-main); color: var(--text-black);
+            padding: var(--space-lg) var(--space-xl); position: relative; overflow: hidden;
+        }
+        .module-label {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 0.875rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 2px; text-decoration: underline;
+            margin-bottom: var(--space-sm); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-title {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 2.25rem; font-weight: 800;
+            line-height: 1.2; margin-bottom: var(--space-md); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-subtitle { font-size: 1.125rem; max-width: 650px; position: relative; z-index: 1; color: var(--text-black); }
+
+        .toc {
+            display: flex; flex-direction: column; gap: var(--space-sm);
+            padding: var(--space-lg) var(--space-xl);
+            background: var(--primary-pale); border-bottom: 1px solid var(--neutral-300);
+        }
+        .toc-item {
+            width: 100%; text-align: left;
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 0.875rem;
+            color: var(--text-black); background: var(--white);
+            border: 2px solid var(--primary-main);
+            padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md);
+        }
+        .toc-item.current { background: var(--primary-main); }
+
+        .content-area { padding: var(--space-xl); }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif;
+            color: var(--text-black); line-height: 1.3; margin-bottom: var(--space-md);
+        }
+        h1 { font-size: 2rem; font-weight: 800; }
+        h2 { font-size: 1.625rem; font-weight: 700; padding-bottom: var(--space-sm);
+             border-bottom: 3px solid var(--primary-main); margin-top: var(--space-xl); margin-bottom: var(--space-lg); }
+        h3 { font-size: 1.375rem; font-weight: 700; margin-top: var(--space-lg);
+             padding-left: var(--space-sm); border-left: 4px solid var(--primary-main); }
+        h4 { font-size: 1.125rem; font-weight: 600; }
+
+        p { margin-bottom: var(--space-md); }
+        strong { font-weight: 700; color: var(--text-black); }
+        em { font-style: italic; color: var(--text-black); }
+
+        a { color: var(--text-black); text-decoration: none; border-bottom: 2px solid var(--primary-main); transition: all 0.2s ease; }
+        a:hover { background: var(--primary-pale); border-bottom-color: var(--accent-teal); }
+
+        ul, ol { margin-bottom: var(--space-md); padding-left: var(--space-lg); }
+        li { margin-bottom: var(--space-sm); }
+        ul li::marker { color: var(--accent-teal); }
+        ol li::marker { color: var(--accent-teal); font-weight: 700; }
+
+        .tech-box {
+            background: var(--neutral-100); border: 2px solid var(--neutral-500);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .tech-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .tech-box .callout-content { padding-left: 0; }
+
+        .plain-box {
+            background: var(--primary-pale); border: 2px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .plain-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .plain-box .callout-content { padding-left: 0; }
+
+        .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; position: relative; overflow: hidden; }
+        .callout-title { font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 1rem;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
+        .callout-content { }
+        .callout-content p:last-child { margin-bottom: 0; }
+
+        .callout-tip { background: var(--accent-green-light); border-left: 4px solid var(--accent-green); }
+        .callout-warning { background: var(--alert-warning-bg); border-left: 4px solid var(--alert-warning); }
+        .callout-danger { background: var(--alert-danger-bg); border-left: 4px solid var(--alert-danger); }
+        .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
+
+        .objectives-box {
+            background: var(--primary-pale); border-left: 5px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .objectives-box h3 { margin-top: 0; border-left: none; padding-left: 0; color: var(--text-black); }
+        .objectives-box ol { margin-bottom: 0; }
+
+        .key-concept {
+            background: linear-gradient(135deg, var(--accent-purple-light) 0%, var(--white) 100%);
+            border: 2px solid var(--accent-purple); border-radius: var(--radius-lg);
+            padding: var(--space-lg); margin: var(--space-xl) 0 var(--space-lg); position: relative;
+        }
+        .key-concept::before {
+            content: 'KEY CONCEPT'; position: absolute; top: -12px; left: var(--space-lg);
+            background: var(--accent-purple); color: var(--white); font-family: var(--font-heading), sans-serif;
+            font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-md); border-radius: var(--radius-sm);
+        }
+        .key-concept h4 { color: var(--text-black); margin-top: var(--space-sm); }
+
+        .definition {
+            background: var(--neutral-100); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin: var(--space-md) 0; border-left: 4px solid var(--accent-orange);
+        }
+        .definition-term { font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 1.125rem;
+            color: var(--text-black); margin-bottom: var(--space-xs); }
+        .definition-text { color: var(--text-black); margin-bottom: 0; }
+
+        code { font-family: var(--font-code), Consolas, monospace; font-size: 0.9rem; background: var(--primary-pale);
+            color: var(--text-black); padding: 2px 6px; border-radius: var(--radius-sm); }
+        pre { background: #2E2E2E; color: #f1ece0; padding: var(--space-lg); border-radius: var(--radius-md);
+            overflow-x: auto; margin: var(--space-lg) 0; position: relative; }
+        pre::before {
+            content: 'STEPS'; position: absolute; top: 0; right: 0; background: var(--primary-main); color: var(--text-black);
+            font-family: var(--font-heading), sans-serif; font-size: 0.625rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-sm); border-radius: 0 var(--radius-md) 0 var(--radius-sm);
+        }
+        pre code { background: transparent; color: inherit; padding: 0; font-size: 0.875rem; line-height: 1.6; }
+
+        .table-container { overflow-x: auto; margin: var(--space-lg) 0; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); }
+        table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
+        thead { background: var(--primary-dark); color: var(--white); }
+        th { font-family: var(--font-heading), sans-serif; font-weight: 700; text-align: left; padding: var(--space-md) var(--space-lg); color: var(--white); }
+        td { padding: var(--space-md) var(--space-lg); border-bottom: 1px solid var(--neutral-300); color: var(--text-black); }
+        tbody tr:hover { background: var(--primary-pale); }
+        tbody tr:last-child td { border-bottom: none; }
+
+        .activity-section {
+            background: linear-gradient(135deg, var(--accent-orange-light) 0%, var(--white) 100%);
+            border: 2px dashed var(--accent-orange); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .activity-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg); }
+        .activity-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700;
+            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
+        .activity-subtitle { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
+
+        .lab-section {
+            background: var(--white); border: 2px solid var(--primary-dark); border-radius: var(--radius-lg);
+            padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .lab-header { padding-bottom: var(--space-md); margin-bottom: var(--space-lg); border-bottom: 2px solid var(--primary-dark); }
+        .lab-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700; color: var(--text-black); border-left: none; padding-left: 0; }
+        .lab-time { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
+        .lab-steps { list-style: none; counter-reset: lab-step; padding-left: 0; }
+        .lab-steps li { counter-increment: lab-step; position: relative; padding-left: 3rem; margin-bottom: var(--space-lg); }
+        .lab-steps li::before {
+            content: counter(lab-step); position: absolute; left: 0; width: 2rem; height: 2rem;
+            background: var(--accent-teal); color: var(--white); font-family: var(--font-heading), sans-serif; font-weight: 700;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.875rem;
+        }
+
+        .assessment-section { background: var(--primary-pale); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0; }
+        .assessment-header { text-align: center; margin-bottom: var(--space-xl); }
+        .assessment-header h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .question-block { background: var(--white); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin-bottom: var(--space-lg); box-shadow: var(--shadow-sm); }
+        .question-number { font-family: var(--font-heading), sans-serif; font-size: 0.75rem; font-weight: 700;
+            color: var(--text-black); background: var(--primary-main); display: inline-block;
+            padding: 2px 10px; border-radius: var(--radius-sm);
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); }
+        .question-text { font-weight: 600; color: var(--text-black); margin-bottom: var(--space-md); }
+
+        details.answer { margin-top: var(--space-sm); }
+        details.answer summary { cursor: pointer; font-weight: 700; color: var(--text-black);
+            font-family: var(--font-heading), sans-serif; font-size: 0.875rem;
+            border-bottom: 2px solid var(--primary-main); display: inline-block; }
+        details.answer .reveal { margin-top: var(--space-sm); padding: var(--space-md);
+            background: var(--accent-green-light); border-radius: var(--radius-sm); color: var(--text-black); }
+
+        .references-section { background: var(--neutral-100); border-radius: var(--radius-lg);
+            padding: var(--space-lg) var(--space-xl); margin: var(--space-xl) 0; border-top: 3px solid var(--primary-main); }
+        .references-section h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+
+        .progress-bar { background: var(--neutral-300); border-radius: var(--radius-xl); height: 8px; overflow: hidden; margin: var(--space-lg) 0; }
+        .progress-fill { background: var(--primary-main); height: 100%; border-radius: var(--radius-xl); }
+        .progress-label { display: flex; justify-content: space-between; font-size: 0.875rem; color: var(--neutral-500); margin-bottom: var(--space-xs); }
+
+        .module-footer { background: var(--neutral-100); padding: var(--space-lg) var(--space-xl); text-align: center; border-top: 1px solid var(--neutral-300); }
+        .footer-text { font-size: 0.875rem; color: var(--neutral-500); }
+
+        .text-center { text-align: center; }
+        .text-muted { color: var(--neutral-500); }
+        .mt-sm { margin-top: var(--space-sm); } .mt-md { margin-top: var(--space-md); } .mt-lg { margin-top: var(--space-lg); }
+        .mb-sm { margin-bottom: var(--space-sm); } .mb-md { margin-bottom: var(--space-md); } .mb-lg { margin-bottom: var(--space-lg); }
+
+        /* Interactive quiz controls (pre-assessment / practice questions) */
+        .answer-option { display: block; width: 100%; text-align: left; padding: var(--space-sm) var(--space-md);
+            margin-bottom: var(--space-sm); border: 2px solid var(--neutral-300); border-radius: var(--radius-sm);
+            background: var(--white); cursor: pointer; font-family: var(--font-body), sans-serif; font-size: 1rem; color: var(--text-black); }
+        .answer-option:hover { border-color: var(--primary-main); }
+        .answer-option.selected { border-color: var(--primary-dark); background: var(--primary-pale); }
+        .answer-option.correct { border-color: var(--accent-green); background: var(--accent-green-light); }
+        .answer-option.incorrect { border-color: var(--alert-danger); background: var(--alert-danger-bg); }
+        .quiz-btn { font-family: var(--font-heading), sans-serif; font-weight: 700; padding: var(--space-sm) var(--space-xl);
+            border-radius: var(--radius-sm); border: 2px solid var(--primary-dark); background: var(--primary-dark); color: var(--white);
+            cursor: pointer; font-size: 0.95rem; margin-right: var(--space-sm); }
+        .quiz-btn:hover { background: #333333; }
+        .quiz-btn.secondary { background: var(--white); color: var(--primary-dark); }
+        .quiz-btn.secondary:hover { background: var(--neutral-100); }
+        #quizResults { display:none; background: var(--primary-pale); border: 2px solid var(--primary-main); border-radius: var(--radius-md);
+            padding: var(--space-lg); margin-top: var(--space-lg); text-align: center; font-family: var(--font-heading), sans-serif; }
+        #quizResults .score { font-size: 2rem; font-weight: 800; color: var(--text-black); }
+
+        @media (max-width: 768px) {
+            .module-title { font-size: 1.75rem; }
+            .content-area { padding: var(--space-lg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="course-container">
+
+        <header class="module-header">
+            <div class="module-label">Unit 2 &middot; Storage, Displays, and Peripherals &middot; Section 2.10</div>
+            <h1 class="module-title">Unit Test</h1>
+            <p class="module-subtitle">CompTIA A+ Core 1 &mdash; Domains 3.0 and 5.0</p>
+        </header>
+
+        <nav class="toc" id="tocNav">
+            <div class="toc-header">Table of Contents</div>
+            <div class="toc-item">2.1 &mdash; Unit Overview and Learning Objectives</div>
+            <div class="toc-item">2.2 &mdash; Unit Pre-Assessment</div>
+            <div class="toc-item">2.3 &mdash; Content Review</div>
+            <div class="toc-item">2.4 &mdash; Reading Assignment</div>
+            <div class="toc-item">2.5 &mdash; Video Assignment</div>
+            <div class="toc-item">2.6 &mdash; Classroom Labs</div>
+            <div class="toc-item">2.7 &mdash; Practice Questions</div>
+            <div class="toc-item">2.8 &mdash; Online Labs: NETLAB</div>
+            <div class="toc-item">2.9 &mdash; Reflection Activity</div>
+            <div class="toc-item current" id="tocCurrent">2.10 &mdash; Unit Test</div>
+        </nav>
+        <style>
+            /* Collapsible TOC: only the current section shows until clicked */
+            nav.toc#tocNav { gap: 0; }
+            nav.toc#tocNav .toc-item {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav .toc-item.current {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                cursor: pointer;
+            }
+            nav.toc#tocNav .toc-item.current::after {
+                content: ' \25BE Click to View';
+                font-size: 0.75em;
+            }
+            nav.toc#tocNav.toc-expanded .toc-item {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                margin-bottom: var(--space-sm);
+            }
+            nav.toc#tocNav.toc-expanded .toc-item.current::after { content: ' \25B4'; }
+
+            nav.toc#tocNav .toc-header {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                font-family: var(--font-heading), 'Segoe UI', sans-serif;
+                font-weight: 700;
+                font-size: 0.875rem;
+                text-align: left;
+                color: var(--text-black);
+                text-decoration: underline;
+                background: var(--primary-main);
+                border-radius: var(--radius-md);
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav.toc-expanded .toc-header {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                padding-left: var(--space-md);
+                border-width: 2px;
+                border-style: solid;
+                border-color: var(--primary-main);
+                margin-bottom: var(--space-sm);
+            }
+        </style>
+
+        <script>
+            (function () {
+                var toc = document.getElementById('tocNav');
+                var currentItem = document.getElementById('tocCurrent');
+
+                toc.addEventListener('click', function (e) {
+                    if (toc.classList.contains('toc-expanded')) {
+                        toc.classList.remove('toc-expanded');
+                    } else if (e.target === currentItem || currentItem.contains(e.target)) {
+                        toc.classList.add('toc-expanded');
+                    }
+                });
+
+                toc.addEventListener('mouseleave', function () {
+                    toc.classList.remove('toc-expanded');
+                });
+            })();
+        </script>
+
+
+        <div class="content-area">
+
+            <div class="tech-box">
+                <div class="callout-title">Test Format</div>
+                <div class="callout-content">
+                    <p>Each attempt draws 20 items at random from a 100-question bank covering this unit's storage, peripheral, print/imaging, and troubleshooting objectives, weighted to mirror how they're represented on the actual 220-1201 exam. Click an answer to select it, then click <strong>Grade My Answers</strong> to see your results.</p>
+                </div>
+            </div>
+
+            <div class="plain-box">
+                <div class="callout-title">In Plain Terms</div>
+                <div class="callout-content">
+                    <p>Because the set is drawn fresh from a large pool, two students &mdash; or two attempts by the same student &mdash; will rarely see the exact same 20 questions. That's intentional: it rewards actually knowing the material over memorizing a fixed answer key.</p>
+                </div>
+            </div>
+
+            <div class="callout callout-info">
+                <div class="callout-title">Test Taking Skills</div>
+                <div class="callout-content">
+                    <ol>
+                        <li>In order to successfully pass the CompTIA exam you should read each question and each answer. Select the best answer that you think is correct. Then read the question again, and each answer. If you agree with the original answer move on; otherwise, "work through" the answers and see which ones are easily dismissable.</li>
+                        <li>Full understanding requires completion of all 20 items and a review of any missed questions before moving on &mdash; not a specific score. Take the time to understand why an answer was wrong before you close this page.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">Submit Your Proof of Completion</div>
+                <div class="callout-content">
+                    <p>Once you've completed this activity, take a screenshot showing your final score and upload it to the appropriate submission link in Brightspace by the due date. A screenshot is your only proof of completion &mdash; nothing here is automatically recorded, so don't close this page before you've captured and uploaded it.</p>
+                </div>
+            </div>
+
+            <div id="quizArea"></div>
+
+            <div class="mt-lg">
+                <button class="quiz-btn" onclick="gradeQuiz()">Grade My Answers</button>
+                <button class="quiz-btn secondary" onclick="resetQuiz()">Reset</button>
+            </div>
+
+            <div id="quizResults">
+                <div>Your Score</div>
+                <div class="score" id="scoreDisplay">0 / 20</div>
+                <div id="scoreNote"></div>
+                <p class="text-muted mt-sm">Screenshot this score before leaving the page, and upload it to the submission link in Brightspace.</p>
+            </div>
+
+            <script>
+                const POOL = [{"q": "Which storage type has no moving parts?", "opts": ["HDD", "SSD", "CD/DVD", "USB drive"], "correct": 1}, {"q": "A drive that spins physical platters is a:", "opts": ["SSD", "HDD", "NVMe drive", "RAM module"], "correct": 1}, {"q": "Which form factor is standard for a laptop's internal SSD?", "opts": ["3.5-inch", "5.25-inch", "M.2", "PCIe card"], "correct": 2}, {"q": "Which interface communicates directly over PCIe?", "opts": ["SATA", "USB 2.0", "NVMe", "eSATA"], "correct": 2}, {"q": "A user wants the fastest possible internal drive. Which should be chosen?", "opts": ["5400 RPM HDD", "SATA SSD", "NVMe SSD", "USB flash drive"], "correct": 2}, {"q": "Which interface is generally the slowest listed?", "opts": ["NVMe", "SATA III", "USB 3.2", "Thunderbolt"], "correct": 1}, {"q": "A drive with clicking or grinding noises is likely:", "opts": ["A healthy SSD", "A healthy HDD", "A failing drive", "A failing power supply"], "correct": 2}, {"q": "Which storage advantage does an HDD retain over an SSD?", "opts": ["Faster boot times", "Silent operation", "Lower cost per gigabyte", "No moving parts"], "correct": 2}, {"q": "An SSD suddenly shows 0 bytes of usable space. What should be checked first?", "opts": ["Assume it's dead", "Check Disk Management", "The printer driver", "The RAID array"], "correct": 1}, {"q": "Which RAID level stripes with zero redundancy?", "opts": ["RAID 0", "RAID 1", "RAID 5", "RAID 10"], "correct": 0}, {"q": "Which RAID level mirrors data with no capacity gain?", "opts": ["RAID 0", "RAID 1", "RAID 5", "RAID 10"], "correct": 1}, {"q": "Which RAID level needs at least three drives and uses parity?", "opts": ["RAID 0", "RAID 1", "RAID 5", "RAID 6"], "correct": 2}, {"q": "Which RAID level pairs mirroring with striping?", "opts": ["RAID 0", "RAID 1", "RAID 5", "RAID 10"], "correct": 3}, {"q": "What is the minimum drive count for RAID 5?", "opts": ["Two", "Three", "Four", "Six"], "correct": 1}, {"q": "What is the minimum drive count for RAID 10?", "opts": ["Two", "Three", "Four", "Six"], "correct": 2}, {"q": "A budget allows only two drives and full redundancy is required. Which RAID level fits?", "opts": ["RAID 0", "RAID 1", "RAID 5", "RAID 10"], "correct": 1}, {"q": "A RAID 5 array with four drives loses one drive. What happens?", "opts": ["Total data loss", "The array runs in a degraded state", "The array converts to RAID 0", "The array becomes read-only"], "correct": 1}, {"q": "Which connector is standard on most modern peripherals?", "opts": ["PS/2", "Serial", "USB", "Parallel"], "correct": 2}, {"q": "Which device turns a paper document into a digital file?", "opts": ["Plotter", "Scanner", "Digitizer", "Webcam"], "correct": 1}, {"q": "Which cable family connects a monitor to a system?", "opts": ["Peripheral cables", "Video cables", "Storage cables", "Network cables"], "correct": 1}, {"q": "Which cable type carries a fully analog signal?", "opts": ["HDMI", "DVI", "VGA", "USB-C"], "correct": 2}, {"q": "Which connector type appears mainly on legacy equipment?", "opts": ["USB-C", "PS/2", "USB 3.0", "USB 2.0"], "correct": 1}, {"q": "A new peripheral is not recognized by the operating system. What should be checked first?", "opts": ["Replace the peripheral", "Reinstall the driver", "Reformat the drive", "Replace the motherboard"], "correct": 1}, {"q": "A USB device works in one port but not another. What is most likely wrong?", "opts": ["The device is broken", "That port or its driver failed", "The OS is corrupted", "Firmware needs updating"], "correct": 1}, {"q": "A wireless mouse suddenly stops responding. What is the most likely cause?", "opts": ["A driver conflict", "Dead batteries", "A corrupted file", "A firmware mismatch"], "correct": 1}, {"q": "Which print technology charges a drum with a laser?", "opts": ["Inkjet", "Thermal", "Laser", "Impact"], "correct": 2}, {"q": "Which print technology sprays liquid ink through nozzles?", "opts": ["Laser", "Inkjet", "Thermal", "Impact"], "correct": 1}, {"q": "Which print technology uses heat-sensitive paper with no ink?", "opts": ["Laser", "Inkjet", "Thermal", "Impact"], "correct": 2}, {"q": "Which print technology strikes a ribbon with pins?", "opts": ["Laser", "Inkjet", "Thermal", "Impact"], "correct": 3}, {"q": "Which print technology suits multi-part carbon forms?", "opts": ["Laser", "Inkjet", "Thermal", "Impact"], "correct": 3}, {"q": "Which print technology needs no ink or toner at all?", "opts": ["Laser", "Inkjet", "Thermal", "Impact"], "correct": 2}, {"q": "Which print technology gives the best photo color for home use?", "opts": ["Laser", "Inkjet", "Thermal", "Impact"], "correct": 1}, {"q": "Which print technology is fastest for high-volume black-and-white printing?", "opts": ["Laser", "Inkjet", "Thermal", "Impact"], "correct": 0}, {"q": "Which maintenance task fits an inkjet printer?", "opts": ["Replace the drum", "Run a nozzle cleaning cycle", "Replace the fuser", "Reseat the ribbon"], "correct": 1}, {"q": "Which maintenance task fits a laser printer?", "opts": ["Run a nozzle cleaning cycle", "Check toner and drum condition", "Replace thermal paper", "Realign the ribbon"], "correct": 1}, {"q": "What does a print spooler manage?", "opts": ["Paper feed timing", "The queue of waiting print jobs", "Drum charging", "Fuser temperature"], "correct": 1}, {"q": "A page comes out entirely blank from a laser printer. What is a likely cause?", "opts": ["Empty toner cartridge", "Wrong paper size", "A charge-only cable", "Backlight failure"], "correct": 0}, {"q": "A networked printer is online but jobs sit stuck in the queue. What should be checked first?", "opts": ["The RAID array", "The print spooler service", "The GPU driver", "The monitor cable"], "correct": 1}, {"q": "Which imaging step applies a uniform charge to the drum?", "opts": ["Processing", "Charging", "Exposing", "Developing"], "correct": 1}, {"q": "Which imaging step uses a laser to discharge the drum?", "opts": ["Charging", "Exposing", "Transferring", "Fusing"], "correct": 1}, {"q": "Which imaging step causes toner to stick to the drum?", "opts": ["Charging", "Exposing", "Developing", "Cleaning"], "correct": 2}, {"q": "Which imaging step bonds toner permanently with heat?", "opts": ["Developing", "Transferring", "Fusing", "Cleaning"], "correct": 2}, {"q": "How many total steps make up the laser imaging process?", "opts": ["Five", "Six", "Seven", "Eight"], "correct": 2}, {"q": "A page prints correctly but the toner smudges off easily. What likely failed?", "opts": ["The drum", "The transfer roller", "The fuser", "The charging roller"], "correct": 2}, {"q": "A screen is visible only in bright light. What is likely failing?", "opts": ["The GPU", "The backlight", "The RAM", "The drive"], "correct": 1}, {"q": "A monitor shows no image but the power light is on. What should be checked first?", "opts": ["The video cable", "The RAID controller", "The printer driver", "The NVMe firmware"], "correct": 0}, {"q": "A projector shows a distorted trapezoid shape. What setting fixes this?", "opts": ["Refresh rate", "Keystone correction", "Color depth", "RAID level"], "correct": 1}, {"q": "A drive clicks repeatedly and is not recognized by BIOS. What is likely?", "opts": ["A failing spooler", "A failing drive", "A firmware bug", "A driver conflict"], "correct": 1}, {"q": "What is the first step in CompTIA's troubleshooting method?", "opts": ["Establish a theory", "Identify the problem", "Replace parts", "Escalate to the vendor"], "correct": 1}, {"q": "A print job jams repeatedly at the same spot. What is the best first step?", "opts": ["Replace the printer", "Inspect that section of the paper path", "Reformat the spooler drive", "Replace the RAID array"], "correct": 1}, {"q": "Which storage device type uses flash memory chips?", "opts": ["HDD", "SSD", "CD/DVD", "USB drive"], "correct": 1}, {"q": "Which form factor fits a traditional desktop HDD bay?", "opts": ["M.2", "2.5-inch", "3.5-inch", "5.25-inch"], "correct": 2}, {"q": "Which interface fits a 2.5-inch external backup drive?", "opts": ["NVMe", "USB 3.x", "PATA", "eSATA"], "correct": 1}, {"q": "What does NVMe primarily use to communicate?", "opts": ["SATA cabling", "The PCIe bus", "USB protocol", "Ethernet"], "correct": 1}, {"q": "Which factor mainly explains an SSD's speed advantage over an HDD?", "opts": ["Higher rotation speed", "No mechanical seek time", "Larger capacity", "Lower temperature"], "correct": 1}, {"q": "A desktop needs a large, low-cost archive drive, not top speed. Which fits best?", "opts": ["NVMe SSD", "SATA SSD", "7200 RPM HDD", "Flash drive"], "correct": 2}, {"q": "Which form factor lets an SSD plug directly into a motherboard slot without a cable?", "opts": ["3.5-inch", "2.5-inch", "M.2", "5.25-inch"], "correct": 2}, {"q": "An SSD is best described by which trait?", "opts": ["Spinning platters", "No moving parts", "A laser reader", "Magnetic tape"], "correct": 1}, {"q": "A system fails to boot with a missing OS message, though the drive shows in BIOS. What should be checked next?", "opts": ["The print spooler", "Boot order and partition integrity", "The RAID stripe size", "The scanner driver"], "correct": 1}, {"q": "What does RAID protect against, in general terms?", "opts": ["Slow networks", "Drive failure", "Weak Wi-Fi", "Print errors"], "correct": 1}, {"q": "Which RAID level carries the highest capacity cost for its redundancy?", "opts": ["RAID 0", "RAID 1", "RAID 5", "RAID 10"], "correct": 3}, {"q": "Which RAID level suits a video editor who needs pure speed and no redundancy?", "opts": ["RAID 0", "RAID 1", "RAID 5", "RAID 10"], "correct": 0}, {"q": "A RAID 0 array loses one drive. What happens to the array?", "opts": ["It keeps running normally", "All data is lost", "It becomes read-only", "It rebuilds automatically"], "correct": 1}, {"q": "A RAID 1 array reports one failed drive but keeps running. What is the correct next step?", "opts": ["Ignore it", "Replace the drive soon", "Wipe the array", "Convert to RAID 0"], "correct": 1}, {"q": "A NAS running RAID 5 loses two drives at once. What is true?", "opts": ["The array is unaffected", "Data has likely been lost", "It rebuilds with no loss", "This never happens"], "correct": 1}, {"q": "Two drives holding identical data describes which RAID level?", "opts": ["RAID 0", "RAID 1", "RAID 5", "RAID 10"], "correct": 1}, {"q": "Which RAID level combines striped sets that are also mirrored?", "opts": ["RAID 0", "RAID 1", "RAID 5", "RAID 10"], "correct": 3}, {"q": "A small office needs redundancy but has only three drives to spare. Which level fits?", "opts": ["RAID 0", "RAID 1", "RAID 5", "RAID 10"], "correct": 2}, {"q": "Which cable family connects an internal or external drive?", "opts": ["Peripheral cables", "Video cables", "Storage cables", "Network cables"], "correct": 2}, {"q": "Which of these is an output device rather than an input device?", "opts": ["Scanner", "Webcam", "Monitor", "Mouse"], "correct": 2}, {"q": "A webcam is detected but shows no video. What should be checked first?", "opts": ["The RAID configuration", "Permission settings and the driver", "The print spooler", "The storage interface"], "correct": 1}, {"q": "USB peripherals disconnect intermittently. What is a common cause?", "opts": ["A loose cable or port", "A full hard drive", "A RAID misconfiguration", "A dirty printer drum"], "correct": 0}, {"q": "Which imaging step moves toner from the drum to the paper?", "opts": ["Charging", "Developing", "Transferring", "Cleaning"], "correct": 2}, {"q": "Which imaging step removes leftover toner before the next cycle?", "opts": ["Processing", "Developing", "Fusing", "Cleaning"], "correct": 3}, {"q": "Which imaging step happens first, before any charge is applied?", "opts": ["Charging", "Processing", "Exposing", "Developing"], "correct": 1}, {"q": "What is the correct order of the first three imaging steps?", "opts": ["Exposing, Charging, Developing", "Charging, Exposing, Developing", "Developing, Charging, Exposing", "Charging, Developing, Exposing"], "correct": 1}, {"q": "What is the correct order of the final three imaging steps?", "opts": ["Transferring, Fusing, Cleaning", "Fusing, Transferring, Cleaning", "Cleaning, Transferring, Fusing", "Transferring, Cleaning, Fusing"], "correct": 0}, {"q": "Processing, as the first imaging step, refers to what?", "opts": ["Feeding paper into the tray", "Rendering the job into a raster image", "Cleaning the drum", "Melting toner onto paper"], "correct": 1}, {"q": "What is the role of the laser during the Exposing step?", "opts": ["Melting toner", "Discharging areas of the drum", "Applying initial charge", "Removing excess toner"], "correct": 1}, {"q": "The fuser fails but every other imaging step completes normally. What is the likely result?", "opts": ["No image at all", "A smudge-prone image", "Jams only", "Color shifting"], "correct": 1}, {"q": "A printout shows a faint repeated ghost image behind the main text. What is likely at fault?", "opts": ["The paper tray", "An incompletely cleaned drum", "The data cable", "The RAID controller"], "correct": 1}, {"q": "Which two imaging steps are most often confused with each other?", "opts": ["Processing and Cleaning", "Charging and Exposing", "Developing and Processing", "Cleaning and Charging"], "correct": 1}, {"q": "Which attribute measures redraw frequency per second?", "opts": ["Resolution", "Refresh rate", "Pixel density", "Color gamut"], "correct": 1}, {"q": "Which attribute measures pixels packed per inch?", "opts": ["Resolution", "Refresh rate", "Pixel density", "Color gamut"], "correct": 2}, {"q": "A digitizer layer is mainly responsible for what?", "opts": ["Backlighting the panel", "Sensing touch input", "Adjusting color balance", "Powering the inverter"], "correct": 1}, {"q": "An external monitor works, but the built-in laptop screen stays black with both connected. What should be checked first?", "opts": ["The display output mode", "The RAID configuration", "The print spooler", "Drive health"], "correct": 0}, {"q": "A monitor shows one persistent dead pixel in an otherwise normal image. What is the likely cause?", "opts": ["A software driver issue", "A physical panel defect", "A RAID misconfiguration", "A spooler error"], "correct": 1}, {"q": "Which comes right after identifying the problem in CompTIA's troubleshooting method?", "opts": ["Document findings", "Establish a theory of probable cause", "Verify full system functionality", "Escalate to the vendor"], "correct": 1}, {"q": "A dot-matrix printout is faded on only one side of the page. What is a likely cause?", "opts": ["A worn or uneven ribbon", "A clogged nozzle", "A failing laser diode", "A corrupted thermal head"], "correct": 0}, {"q": "Which print technology needs no cartridge, ribbon, or toner supply?", "opts": ["Laser", "Inkjet", "Thermal", "Impact"], "correct": 2}, {"q": "Which print technology relies on a physical strike against a ribbon?", "opts": ["Laser", "Inkjet", "Thermal", "Impact"], "correct": 3}, {"q": "Which print technology typically has the lowest per-page cost at high volume?", "opts": ["Inkjet", "Laser", "Thermal", "Impact"], "correct": 1}, {"q": "A shipping label prints with no visible ink cartridge involved. Which technology is this?", "opts": ["Laser", "Inkjet", "Thermal", "Impact"], "correct": 2}, {"q": "Which print technology is generally chosen for multi-copy forms made with carbon paper?", "opts": ["Laser", "Inkjet", "Thermal", "Impact"], "correct": 3}, {"q": "An inkjet printer produces faded, streaky output after weeks of disuse. What is the likely cause?", "opts": ["A failed motherboard", "Clogged nozzles", "Wrong paper size", "A corrupted driver"], "correct": 1}, {"q": "A thermal receipt printer feeds blank paper while appearing to print. What is most likely wrong?", "opts": ["Paper loaded the wrong way", "An empty toner cartridge", "An overheating fuser", "A charge-only cable"], "correct": 0}, {"q": "Garbled, nonsensical printed text most likely points to what cause?", "opts": ["A wrong or corrupted driver", "Low paper", "A weak Wi-Fi signal", "A full recycle bin"], "correct": 0}, {"q": "A laser printout shows a repeating streak in the same spot on every page. What is likely worn?", "opts": ["The fuser only", "The imaging drum", "The paper tray", "The data cable"], "correct": 1}, {"q": "Which task is a routine part of laser printer maintenance?", "opts": ["Cleaning print nozzles", "Checking toner and drum condition", "Replacing thermal paper", "Realigning a ribbon"], "correct": 1}, {"q": "A print job repeatedly jams at the same point in the paper path. What is the most efficient first step?", "opts": ["Replace the entire printer", "Inspect that section for debris or wear", "Reformat the spooler drive", "Replace the RAID array"], "correct": 1}];
+                let QUESTIONS = [];
+                let answers = [];
+
+                function drawSet() {
+                    const shuffled = POOL.slice().sort(() => Math.random() - 0.5);
+                    QUESTIONS = shuffled.slice(0, 20);
+                    answers = new Array(QUESTIONS.length).fill(null);
+                }
+
+                function renderQuiz() {
+                    const area = document.getElementById('quizArea');
+                    area.innerHTML = QUESTIONS.map((item, qi) => {
+                        const opts = item.opts.map((opt, oi) =>
+                            `<button type="button" class="answer-option" data-qi="${qi}" data-oi="${oi}" onclick="selectAnswer(${qi}, ${oi})">${opt}</button>`
+                        ).join('');
+                        return `<div class="question-block">
+                            <div class="question-number">Question ${qi + 1} of ${QUESTIONS.length}</div>
+                            <p class="question-text">${item.q}</p>
+                            ${opts}
+                        </div>`;
+                    }).join('');
+                }
+
+                function selectAnswer(qi, oi) {
+                    answers[qi] = oi;
+                    document.querySelectorAll(`[data-qi="${qi}"]`).forEach(btn => {
+                        btn.classList.remove('selected');
+                        if (parseInt(btn.dataset.oi) === oi) btn.classList.add('selected');
+                    });
+                }
+
+                function gradeQuiz() {
+                    if (answers.includes(null)) {
+                        alert('Answer all 20 questions before grading.');
+                        return;
+                    }
+                    let score = 0;
+                    QUESTIONS.forEach((item, qi) => {
+                        const correct = item.correct;
+                        document.querySelectorAll(`[data-qi="${qi}"]`).forEach(btn => {
+                            const oi = parseInt(btn.dataset.oi);
+                            btn.classList.remove('selected');
+                            if (oi === correct) btn.classList.add('correct');
+                            else if (oi === answers[qi]) btn.classList.add('incorrect');
+                        });
+                        if (answers[qi] === correct) score++;
+                    });
+                    document.getElementById('scoreDisplay').textContent = score + ' / ' + QUESTIONS.length;
+                    const note = document.getElementById('scoreNote');
+                    if (score >= 16) note.textContent = 'Strong result. Review any missed items, then you are done.';
+                    else if (score >= 12) note.textContent = 'A passing-range result. Review your missed questions closely before moving on.';
+                    else note.textContent = 'Below where you want to be for exam day. Revisit 2.3 and 2.4 for the topics you missed, then try again.';
+                    document.getElementById('quizResults').style.display = 'block';
+                    document.getElementById('quizResults').scrollIntoView({behavior: 'smooth'});
+                }
+
+                function resetQuiz() {
+                    document.getElementById('quizResults').style.display = 'none';
+                    drawSet();
+                    renderQuiz();
+                }
+
+                drawSet();
+                renderQuiz();
+            </script>
+
+
+        </div>
+
+        <footer class="module-footer">
+            <p class="footer-text">CompTIA A+ Core 1 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
+        </footer>
+    </div>
+</body>
+</html>

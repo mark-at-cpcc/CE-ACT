@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 6 &mdash; 6.A.1 Final Study Exam | CompTIA A+ Core 2</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Sans+Pro:wght@400;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           CPCC COURSE TEMPLATE - GOLD / CHARCOAL / BLACK
+           CTS-ITS7501-80 CompTIA A+ Core 2 Training
+           Type: true black. Accents: gold. Chrome: charcoal.
+           ============================================ */
+
+        :root {
+            --primary-dark: #4A4A4A;       /* Charcoal - structural chrome only */
+            --primary-main: #B8962E;       /* Warm Gold - primary accent */
+            --primary-light: #D4AF56;      /* Light Gold */
+            --primary-pale: #FBF3DF;       /* Pale Gold wash */
+
+            --accent-teal: #8A6F1F;        /* Deep bronze-gold */
+            --accent-teal-light: #F3E9CE;  /* Pale bronze */
+            --accent-orange: #A9642A;      /* Warm rust */
+            --accent-orange-light: #F5E2CE;
+            --accent-purple: #6B5B3A;      /* Muted umber */
+            --accent-purple-light: #EFE6D2;
+            --accent-green: #4E7A51;
+            --accent-green-light: #DCEBDD;
+
+            --alert-warning: #B8862E;
+            --alert-warning-bg: #FBF0D9;
+            --alert-danger: #A13A3A;
+            --alert-danger-bg: #F6DEDE;
+            --alert-success: #3F6E42;
+            --alert-success-bg: #DCEBDD;
+            --alert-info: #6E5B2E;
+            --alert-info-bg: #F1E9D4;
+
+            --text-black: #000000;         /* All reading text */
+            --neutral-900: #000000;
+            --neutral-700: #000000;
+            --neutral-500: #5A5A5A;
+            --neutral-300: #D9D3C4;
+            --neutral-100: #FAF8F3;
+            --white: #ffffff;
+
+            --font-heading: 'Nunito', sans-serif;
+            --font-body: 'Source Sans Pro', sans-serif;
+            --font-code: 'Fira Code', monospace;
+
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+
+            --shadow-sm: 0 1px 2px rgba(74, 74, 74, 0.08);
+            --shadow-md: 0 4px 6px rgba(74, 74, 74, 0.12);
+            --shadow-lg: 0 10px 20px rgba(74, 74, 74, 0.15);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body), 'Segoe UI', Tahoma, Verdana, sans-serif;
+            font-size: 1.0625rem; line-height: 1.7; color: var(--text-black);
+            background: linear-gradient(135deg, var(--neutral-100) 0%, var(--white) 100%);
+            min-height: 100vh; padding: var(--space-lg);
+        }
+
+        .course-container {
+            max-width: 950px; margin: 0 auto; background: var(--white);
+            border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); overflow: hidden;
+        }
+
+        .module-header {
+            background: var(--primary-main); color: var(--text-black);
+            padding: var(--space-lg) var(--space-xl); position: relative; overflow: hidden;
+        }
+        .module-label {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 0.875rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 2px; text-decoration: underline;
+            margin-bottom: var(--space-sm); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-title {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 2.25rem; font-weight: 800;
+            line-height: 1.2; margin-bottom: var(--space-md); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-subtitle { font-size: 1.125rem; max-width: 650px; position: relative; z-index: 1; color: var(--text-black); }
+
+        .toc {
+            display: flex; flex-direction: column; gap: var(--space-sm);
+            padding: var(--space-lg) var(--space-xl);
+            background: var(--primary-pale); border-bottom: 1px solid var(--neutral-300);
+        }
+        .toc-item {
+            width: 100%; text-align: left;
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 0.875rem;
+            color: var(--text-black); background: var(--white);
+            border: 2px solid var(--primary-main);
+            padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md);
+        }
+        .toc-item.current { background: var(--primary-main); }
+
+        .content-area { padding: var(--space-xl); }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif;
+            color: var(--text-black); line-height: 1.3; margin-bottom: var(--space-md);
+        }
+        h1 { font-size: 2rem; font-weight: 800; }
+        h2 { font-size: 1.625rem; font-weight: 700; padding-bottom: var(--space-sm);
+             border-bottom: 3px solid var(--primary-main); margin-top: var(--space-xl); margin-bottom: var(--space-lg); }
+        h3 { font-size: 1.375rem; font-weight: 700; margin-top: var(--space-lg);
+             padding-left: var(--space-sm); border-left: 4px solid var(--primary-main); }
+        h4 { font-size: 1.125rem; font-weight: 600; }
+
+        p { margin-bottom: var(--space-md); }
+        strong { font-weight: 700; color: var(--text-black); }
+        em { font-style: italic; color: var(--text-black); }
+
+        a { color: var(--text-black); text-decoration: none; border-bottom: 2px solid var(--primary-main); transition: all 0.2s ease; }
+        a:hover { background: var(--primary-pale); border-bottom-color: var(--accent-teal); }
+
+        .tech-box {
+            background: var(--neutral-100); border: 2px solid var(--neutral-500);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .tech-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .tech-box .callout-content { padding-left: 0; }
+
+        .plain-box {
+            background: var(--primary-pale); border: 2px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .plain-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .plain-box .callout-content { padding-left: 0; }
+
+        .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; position: relative; overflow: hidden; }
+        .callout-title { font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 1rem;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
+        .callout-content { }
+        .callout-content p:last-child { margin-bottom: 0; }
+        .callout-tip { background: var(--accent-green-light); border-left: 4px solid var(--accent-green); }
+        .callout-warning { background: var(--alert-warning-bg); border-left: 4px solid var(--alert-warning); }
+        .callout-danger { background: var(--alert-danger-bg); border-left: 4px solid var(--alert-danger); }
+        .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
+
+        .text-center { text-align: center; }
+        .text-muted { color: var(--neutral-500); }
+        .mt-sm { margin-top: var(--space-sm); } .mt-md { margin-top: var(--space-md); } .mt-lg { margin-top: var(--space-lg); }
+        .mb-sm { margin-bottom: var(--space-sm); } .mb-md { margin-bottom: var(--space-md); } .mb-lg { margin-bottom: var(--space-lg); }
+
+        /* Interactive quiz controls */
+        .question-block { background: var(--white); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin-bottom: var(--space-lg); box-shadow: var(--shadow-sm); }
+        .question-number { font-family: var(--font-heading), sans-serif; font-size: 0.75rem; font-weight: 700;
+            color: var(--text-black); background: var(--primary-main); display: inline-block;
+            padding: 2px 10px; border-radius: var(--radius-sm);
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); }
+        .question-text { font-weight: 600; color: var(--text-black); margin-bottom: var(--space-md); }
+
+        .answer-option { display: block; width: 100%; text-align: left; padding: var(--space-sm) var(--space-md);
+            margin-bottom: var(--space-sm); border: 2px solid var(--neutral-300); border-radius: var(--radius-sm);
+            background: var(--white); cursor: pointer; font-family: var(--font-body), sans-serif; font-size: 1rem; color: var(--text-black); }
+        .answer-option:hover { border-color: var(--primary-main); }
+        .answer-option.selected { border-color: var(--primary-dark); background: var(--primary-pale); }
+        .answer-option.correct { border-color: var(--accent-green); background: var(--accent-green-light); }
+        .answer-option.incorrect { border-color: var(--alert-danger); background: var(--alert-danger-bg); }
+        .quiz-btn { font-family: var(--font-heading), sans-serif; font-weight: 700; padding: var(--space-sm) var(--space-xl);
+            border-radius: var(--radius-sm); border: 2px solid var(--primary-dark); background: var(--primary-dark); color: var(--white);
+            cursor: pointer; font-size: 0.95rem; margin-right: var(--space-sm); }
+        .quiz-btn:hover { background: #333333; }
+        .quiz-btn.secondary { background: var(--white); color: var(--primary-dark); }
+        .quiz-btn.secondary:hover { background: var(--neutral-100); }
+        #quizResults { display:none; background: var(--primary-pale); border: 2px solid var(--primary-main); border-radius: var(--radius-md);
+            padding: var(--space-lg); margin-top: var(--space-lg); text-align: center; font-family: var(--font-heading), sans-serif; }
+        #quizResults .score { font-size: 2rem; font-weight: 800; color: var(--text-black); }
+
+        .module-footer { background: var(--neutral-100); padding: var(--space-lg) var(--space-xl); text-align: center; border-top: 1px solid var(--neutral-300); }
+        .footer-text { font-size: 0.875rem; color: var(--neutral-500); }
+
+        @media (max-width: 768px) {
+            .module-title { font-size: 1.75rem; }
+            .content-area { padding: var(--space-lg); }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="course-container">
+
+        <header class="module-header">
+            <div class="module-label">Unit 6 &middot; Software Troubleshooting and Exam Readiness &middot; Section 6.A.1</div>
+            <h1 class="module-title">Final Study Exam</h1>
+            <p class="module-subtitle">CompTIA A+ Core 2 - Full-Length Practice Exam</p>
+        </header>
+
+                <nav class="toc" id="tocNav">
+            <div class="toc-header">Table of Contents</div>
+            <div class="toc-item">6.1 &mdash; Unit Overview and Schedule</div>
+            <div class="toc-item">6.2 &mdash; Unit Pre-Assessment</div>
+            <div class="toc-item">6.3 &mdash; Content Review</div>
+            <div class="toc-item">6.4 &mdash; Reading Assignment</div>
+            <div class="toc-item">6.5 &mdash; Video Assignment</div>
+            <div class="toc-item">6.6 &mdash; Classroom Labs</div>
+            <div class="toc-item">6.7 &mdash; Practice Question Set</div>
+            <div class="toc-item">6.8 &mdash; Online Labs: NETLAB</div>
+            <div class="toc-item">6.9 &mdash; Reflection Activity</div>
+            <div class="toc-item">6.10 &mdash; Unit Test</div>
+            <div class="toc-item">6.11 &mdash; Unit 6 Tickets</div>
+            <div class="toc-item">6.A.0 &mdash; Exam Readiness</div>
+            <div class="toc-item current" id="tocCurrent">6.A.1 &mdash; Final Study Exam</div>
+        </nav>
+        <style>
+            /* Collapsible TOC: only the current section shows until clicked */
+            nav.toc#tocNav { gap: 0; }
+            nav.toc#tocNav .toc-item {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav .toc-item.current {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                cursor: pointer;
+            }
+            nav.toc#tocNav .toc-item.current::after {
+                content: ' \25BE Click to View';
+                font-size: 0.75em;
+            }
+            nav.toc#tocNav.toc-expanded .toc-item {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                margin-bottom: var(--space-sm);
+            }
+            nav.toc#tocNav.toc-expanded .toc-item.current::after { content: ' \25B4'; }
+
+            nav.toc#tocNav .toc-header {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                font-family: var(--font-heading), 'Segoe UI', sans-serif;
+                font-weight: 700;
+                font-size: 0.875rem;
+                text-align: left;
+                color: var(--text-black);
+                text-decoration: underline;
+                background: var(--primary-main);
+                border-radius: var(--radius-md);
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav.toc-expanded .toc-header {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                padding-left: var(--space-md);
+                border-width: 2px;
+                border-style: solid;
+                border-color: var(--primary-main);
+                margin-bottom: var(--space-sm);
+            }
+        </style>
+
+        <script>
+            (function () {
+                var toc = document.getElementById('tocNav');
+                var currentItem = document.getElementById('tocCurrent');
+
+                toc.addEventListener('click', function (e) {
+                    if (toc.classList.contains('toc-expanded')) {
+                        toc.classList.remove('toc-expanded');
+                    } else if (e.target === currentItem || currentItem.contains(e.target)) {
+                        toc.classList.add('toc-expanded');
+                    }
+                });
+
+                toc.addEventListener('mouseleave', function () {
+                    toc.classList.remove('toc-expanded');
+                });
+            })();
+        </script>
+
+        <div class="content-area">
+
+            <p class="text-muted">Ninety questions, drawn from all four exam domains and all six units. Ungraded, and the most useful thing you will do this week.</p>
+
+            <div class="callout callout-danger">
+                <div class="callout-title">Take This Properly or Do Not Take It</div>
+                <div class="callout-content">
+                    <p>A practice exam taken comfortably tells you nothing. Before you start:</p>
+                    <ul class="checklist">
+                        <li><strong>Set a timer for 90 minutes</strong> &mdash; the same length as the real exam</li>
+                        <li><strong>Close your notes, the textbook, and every other tab</strong></li>
+                        <li><strong>Sit it in one block</strong>, with no pauses and no lookups</li>
+                        <li><strong>Answer every question,</strong> because there is no penalty for a wrong answer on the real exam either</li>
+                    </ul>
+                    <p>The number this produces is only worth something if the conditions matched. A 790 earned with the book open is a 650 you have not found yet.</p>
+                </div>
+            </div>
+
+            <h2>What This Exam Is</h2>
+            <p>This is a full-length study exam built to the same domain weighting as the real 220-1202:</p>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Domain</th><th>Exam Weight</th><th>Items Here</th><th>Covered In</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>1.0 Operating Systems</strong></td><td>28%</td><td>25</td><td>Units 1, 2, and 3</td></tr>
+                        <tr><td><strong>2.0 Security</strong></td><td>28%</td><td>25</td><td>Units 4, 5, and 6</td></tr>
+                        <tr><td><strong>3.0 Software Troubleshooting</strong></td><td>23%</td><td>21</td><td>Unit 6</td></tr>
+                        <tr><td><strong>4.0 Operational Procedures</strong></td><td>21%</td><td>19</td><td>Units 1, 3, 4, 5, and 6</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>Every item uses <strong>CompTIA's wording</strong>, with no textbook terms in parentheses &mdash; the same language you will see on exam day. Questions and answer choices are reordered on every attempt, so a retake is a genuine retake.</p>
+
+            <div class="callout callout-info">
+                <div class="callout-title">What This Exam Is Not</div>
+                <div class="callout-content"><p>It is not a copy of the real exam, and nobody can give you one &mdash; see Section 6.A.0 on why obtaining real exam content ends careers. It is also not a performance-based question simulator; this format cannot reproduce those. Work all ten of the textbook's Performance-Based Questions separately, as Section 6.4 assigns.</p></div>
+            </div>
+
+            <h2>Reading Your Score</h2>
+            <p>Convert your raw result using the course's scaled-score model &mdash; the same one you used in Unit 5:</p>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Raw Correct (of 90)</th><th>Approx. Scaled</th><th>What It Means</th></tr></thead>
+                    <tbody>
+                        <tr><td>Below 60</td><td>Below 700</td><td>Below the cut line. Identify which domain lost the most and work there.</td></tr>
+                        <tr><td>60 &ndash; 67</td><td>700 &ndash; 760</td><td>A pass, with no margin. Keep studying before you book.</td></tr>
+                        <tr><td>68 &ndash; 74</td><td>770 &ndash; 830</td><td>A real margin. Repeat it on a second attempt and you are ready.</td></tr>
+                        <tr><td>75+</td><td>840+</td><td>Comfortable. Book the exam.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="key-concept">
+                <h4>Score by Domain, Not Just Overall</h4>
+                <p>An overall 72% can hide a 50% in one domain, and the real exam will find it. When you review your results, sort your misses by domain using the table above and ask which unit each one came from.</p>
+                <p>Three misses from the same unit is not bad luck &mdash; it is where the rest of your study time should go. The honest limitation of this model is worth repeating: <strong>CompTIA does not publish its scaling</strong>, so the scaled figures here are an approximation built for this course, not a replica.</p>
+            </div>
+
+            <div class="callout callout-tip">
+                <div class="callout-title">Compare It to Unit 5</div>
+                <div class="callout-content"><p>You took your first full-length practice exam in Unit 5. The gap between that score and this one is more informative than either number alone. A rising trend across two timed attempts is the single best predictor you have of how exam day will go.</p></div>
+            </div>
+
+            <h2>After You Finish</h2>
+            <ol class="lab-steps">
+                <li><strong>Record the score and the date.</strong> You want the trend, not one number.</li>
+                <li><strong>Review every miss</strong> &mdash; and every answer you guessed correctly. A lucky guess is a gap that has not surfaced yet.</li>
+                <li><strong>Add each miss to your "still shaky" list</strong> from Section 6.4, tagged with its unit.</li>
+                <li><strong>Retake it after you have studied those topics,</strong> not immediately. The gap is what makes a retake meaningful.</li>
+                <li><strong>Use the Final Week Checklist</strong> in Section 6.A.0 to turn that list into a plan with dates on it.</li>
+            </ol>
+
+
+            <h2>Final Study Exam</h2>
+            <p class="text-muted">90 questions &middot; 90 minutes &middot; closed book &middot; ungraded. Start your timer now.</p>
+
+            <div id="quizArea"></div>
+
+            <div class="mt-lg">
+                <button class="quiz-btn" onclick="gradeQuiz()">Grade My Answers</button>
+                <button class="quiz-btn secondary" onclick="resetQuiz()">New Attempt</button>
+            </div>
+
+            <div id="quizResults">
+                <div>Your Score</div>
+                <div class="score" id="scoreDisplay">0 / 90</div>
+                <div id="scoreNote"></div>
+                <p class="text-muted mt-sm">Record this score and the date, then review every miss and every lucky guess.</p>
+            </div>
+
+
+            <div id="quizArea"></div>
+
+            <div class="mt-lg">
+                <button class="quiz-btn" onclick="gradeQuiz()">Grade My Answers</button>
+                <button class="quiz-btn secondary" onclick="resetQuiz()">Reset</button>
+            </div>
+
+            <div id="quizResults">
+                <div>Your Score</div>
+                <div class="score" id="scoreDisplay">0 / 90</div>
+                <div id="scoreNote"></div>
+                <p class="text-muted mt-sm">Record this score and the date, then review every miss and every lucky guess.</p>
+            </div>
+
+            <script>
+                const POOL = [{"q": "What information does a configuration management database hold?", "opts": ["The organization's financial statements", "The vendor's product catalog", "A record of every customer phone call", "Details about the organization's devices, systems, and how they are configured"], "correct": 3}, {"q": "An attacker reads a password by watching a user type it at a coffee shop. Which attack is this?", "opts": ["On-path attack", "Dumpster diving", "Impersonation", "Shoulder surfing"], "correct": 3}, {"q": "Which partition style supports up to 128 partitions in Windows?", "opts": ["MBR", "GPT", "ReFS", "exFAT"], "correct": 1}, {"q": "Which script type would a technician write to automate a task on a Linux server?", "opts": [".vbs", ".bat", ".sh", ".ps1"], "correct": 2}, {"q": "A technician is asked to give a user local administrator rights so a program will install. Which principle should guide the decision?", "opts": ["Zero Trust, which prohibits all local accounts", "Least privilege, granting only what the job genuinely requires", "Single sign-on, which removes the need for elevation", "Data loss prevention, which blocks all installations"], "correct": 1}, {"q": "Which switch makes whoami list the group memberships of the current account?", "opts": ["/groups", "/all", "/user", "/list"], "correct": 0}, {"q": "A technician saves a sequence of previously typed commands into a file so the same information can be collected in seconds. Which use case is this?", "opts": ["Initiating updates", "Basic automation", "Remapping network drives", "Restarting machines"], "correct": 1}, {"q": "Which file extension identifies a PowerShell script?", "opts": [".vbs", ".bat", ".ps1", ".js"], "correct": 2}, {"q": "A user reports being unable to save to a share after a technician granted Full Control on the share. What is the most likely cause?", "opts": ["The share is on a metered connection", "The user's account has expired", "The NTFS permissions on the folder are more restrictive", "The user needs a Microsoft account"], "correct": 2}, {"q": "How should a spare memory module be stored between uses?", "opts": ["In an unlined cardboard box", "In a sealed plastic food container", "Wrapped in paper towel", "In an antistatic bag"], "correct": 3}, {"q": "Why should a technician avoid discussing a difficult customer on social media?", "opts": ["It is acceptable after the ticket is closed", "It breaches confidentiality and professional discretion", "It only matters for government customers", "It is permitted if no names are used"], "correct": 1}, {"q": "Which control most directly limits an attacker guessing a phone's PIN repeatedly?", "opts": ["Content filtering", "Device encryption", "Failed log-in attempt restrictions", "Remote backup"], "correct": 2}, {"q": "Which rotation scheme keeps daily, weekly, and monthly copies?", "opts": ["Grandfather-father-son", "3-2-1", "In-place and alternative", "Synthetic rotation"], "correct": 0}, {"q": "Before upgrading a computer to a newer version of Windows, a technician verifies that the customer's specialty software will still run. Which upgrade consideration is this?", "opts": ["Application and driver support, or backward compatibility", "License assignment", "Partition style verification", "Product life-cycle planning"], "correct": 0}, {"q": "Why are tickets assigned categories?", "opts": ["To decide the file system for the device", "To route them to the right team and support reporting", "To determine the customer's billing rate", "To set the device's warranty length"], "correct": 1}, {"q": "A technician boots a computer from a hidden partition to restore it to its factory configuration. What is this partition called?", "opts": ["A system reserved partition", "A recovery partition", "An extended partition", "A swap partition"], "correct": 1}, {"q": "Which Settings category is used to pair a Bluetooth device or add a printer?", "opts": ["Devices", "System", "Network and Internet", "Apps"], "correct": 0}, {"q": "A phone will not pair with a car's audio system. Which checks apply?", "opts": ["Whether System Restore is enabled", "Whether NTFS permissions allow access", "Whether the subnet mask is correct", "Whether Bluetooth is enabled, in range, and the previous pairing is still stored"], "correct": 3}, {"q": "Which feature helps an owner find a misplaced device before deciding to erase it?", "opts": ["A locator application", "A remote wipe", "A configuration profile", "Failed log-in attempt restrictions"], "correct": 0}, {"q": "An attacker recovers account numbers from discarded paperwork behind an office. Which attack is this?", "opts": ["Dumpster diving", "Shoulder surfing", "Tailgating", "Supply chain attack"], "correct": 0}, {"q": "A technician is dispatched to a formal corporate office. What is appropriate attire?", "opts": ["A company polo with shorts", "Whatever is comfortable for working under desks", "Attire matching the environment, such as business formal", "Attire is not addressed by professional standards"], "correct": 2}, {"q": "Which control most directly limits the damage when a mobile device is confirmed compromised and cannot be recovered?", "opts": ["A remote wipe, backed by a remote backup", "Rotation lock", "A pop-up blocker", "Content filtering on the router"], "correct": 0}, {"q": "Which destruction method uses a strong magnetic field and does not work on solid-state drives?", "opts": ["Degaussing", "Shredding", "Drilling", "Wiping"], "correct": 0}, {"q": "Which symptom most directly suggests that data is being transmitted from a mobile device without the user's knowledge?", "opts": ["A swollen battery", "High network traffic or an unexpected data-usage limit notification", "Rotation lock enabled", "A failed application update"], "correct": 1}, {"q": "Which command repairs corrupted protected Windows system files?", "opts": ["gpupdate /force", "chkdsk /r", "diskpart clean", "sfc /scannow"], "correct": 3}, {"q": "A technician needs to administer a Linux server over a low-bandwidth connection. Which technology fits best?", "opts": ["Video conferencing", "RDP", "VNC", "SSH"], "correct": 3}, {"q": "Which encryption standard is used by both WPA2 and WPA3?", "opts": ["Kerberos", "TKIP", "RADIUS", "AES"], "correct": 3}, {"q": "A service that an application depends on is not starting. Which two places should a technician check?", "opts": ["The browser's extension list and cache", "Disk Cleanup and the Recycle Bin", "The Services snap-in for dependencies, and Event Viewer for the failure reason", "Device Manager and the printer queue"], "correct": 2}, {"q": "A user reports frequent pop-up windows and a browser homepage they did not set. Which two areas should a technician examine first?", "opts": ["Installed extensions and the browser's settings", "The router's firmware and SSID", "NTFS permissions and inheritance", "Backup rotation and retention"], "correct": 0}, {"q": "A browser page on a phone displays a system-style warning demanding immediate action. What should the user be told?", "opts": ["Install the application it recommends", "Follow its instructions to clean the device", "Factory reset the phone immediately", "It is a fake security warning; close the page and do not follow its instructions"], "correct": 3}, {"q": "A workstation can reach other computers on its own network but nothing beyond it. Which setting should a technician check first?", "opts": ["Subnet mask", "DNS server", "Default gateway", "MAC address"], "correct": 2}, {"q": "Which Linux component loads the kernel when the system starts?", "opts": ["fstab", "systemd", "kernel", "bootloader"], "correct": 3}, {"q": "A computer reports that no operating system was found. Which cause is most likely?", "opts": ["A full Recycle Bin", "An expired certificate", "The boot order, a disconnected or failed drive, or damaged boot files", "An incorrect subnet mask"], "correct": 2}, {"q": "Which follow-up action is part of professional service delivery?", "opts": ["Sending a survey the customer must complete before the ticket closes", "Requesting a public review of the service", "Scheduling an automatic repeat visit", "Contacting the customer later to verify the fix is still working"], "correct": 3}, {"q": "A patch must be deployed immediately because a flaw is being actively exploited. Which change type applies?", "opts": ["Standard change", "Emergency change", "Normal change", "Deferred change"], "correct": 1}, {"q": "Which single question most often shortens a Windows troubleshooting call?", "opts": ["How much did this computer cost", "How old is this machine", "Which browser do you use", "What changed recently on this machine"], "correct": 3}, {"q": "Which statement about upgrade paths is correct?", "opts": ["An in-place upgrade preserves files, settings, and applications", "A clean install preserves installed applications", "An in-place upgrade requires reformatting the drive", "Upgrade paths are identical for every edition"], "correct": 0}, {"q": "A technician mounts an ISO file in Windows to run an installer. What does mounting do?", "opts": ["It makes the file behave like an inserted disc with a drive letter", "It converts the file into a bootable USB drive", "It extracts the file into the recovery partition", "It permanently installs the application"], "correct": 0}, {"q": "Attackers compromise a software vendor so that its customers install a malicious update. Which attack is this?", "opts": ["Supply chain attack", "Zero-day attack", "On-path attack", "Insider threat"], "correct": 0}, {"q": "Which statement about the macOS Terminal is accurate?", "opts": ["It runs Windows batch files directly", "It is a Unix shell, so many Linux commands work there as well", "It replaces Disk Utility for formatting drives", "It is available only on managed corporate Macs"], "correct": 1}, {"q": "After malware has been removed and System Restore re-enabled, why is a new restore point created?", "opts": ["The clean state becomes the new baseline to restore to", "It is required before scheduled scans will run", "It re-enables the anti-malware software", "It removes the quarantine"], "correct": 0}, {"q": "Which tool filters malicious messages before they reach a user's mailbox?", "opts": ["Email security gateway", "Software firewall", "Recovery console", "Antivirus"], "correct": 0}, {"q": "Which control most reliably stops a business email compromise attempt that requests a bank detail change?", "opts": ["Verifying the request by phone using a number already on file", "Training users to check for spelling errors", "Blocking all external email attachments", "Requiring a longer password"], "correct": 0}, {"q": "Which recovery method retrieves a single file without disturbing the original data?", "opts": ["In-place recovery", "Alternative location recovery", "Overwrite recovery", "Differential recovery"], "correct": 1}, {"q": "A 32-bit application is installed on 64-bit Windows. What is the expected result?", "opts": ["It runs only in Safe Mode", "It requires a firmware update first", "It generally runs normally", "It cannot be installed at all"], "correct": 2}, {"q": "Which item requires special disposal handling because of the chemicals it contains?", "opts": ["A network patch cable", "A printer toner cartridge", "A keyboard", "A monitor stand"], "correct": 1}, {"q": "Which Linux command shows and configures network addresses and interfaces?", "opts": ["curl", "ping", "ip", "dig"], "correct": 2}, {"q": "What is the purpose of a splash screen in a compliance context?", "opts": ["To display the organization's logo during startup", "To state terms or warnings before a user is granted access", "To collect diagnostic information automatically", "To replace the acceptable use policy"], "correct": 1}, {"q": "A workstation reports an IP address beginning 169.254. What does this indicate?", "opts": ["The computer is connected to a public network profile", "The computer was assigned a static address by a technician", "The computer requested an address from a DHCP server and received no response", "The computer's subnet mask is incorrect"], "correct": 2}, {"q": "Which Control Panel item is a folder of shortcuts to management tools such as Event Viewer and Task Scheduler, and what is it called in Windows 11?", "opts": ["Indexing Options, renamed System Tools", "Administrative Tools, renamed Windows Tools", "System, renamed About", "Programs and Features, renamed Apps and Features"], "correct": 1}, {"q": "Which Windows action is the least disruptive way to apply a fix to a single malfunctioning background service?", "opts": ["Reimage the machine", "Reboot the machine", "Restore the system", "Restart the service"], "correct": 3}, {"q": "Which sign-in option uses a biometric factor?", "opts": ["Single sign-on", "PIN", "Username and password", "Fingerprint"], "correct": 3}, {"q": "Which objective covers a mobile application that simply fails to launch, with no security indicators?", "opts": ["Objective 3.3, mobile security issues", "Objective 3.2, common mobile OS and application issues", "Objective 2.6, malware removal", "Objective 4.9, remote access"], "correct": 1}, {"q": "Which record tracks a device from purchase through disposal?", "opts": ["The knowledge base", "The service-level agreement", "The procurement life cycle within asset management", "The incident report"], "correct": 2}, {"q": "Which password consideration refers to not reusing a password across accounts?", "opts": ["Complexity", "Uniqueness", "Length", "Expiration"], "correct": 1}, {"q": "Which document would describe a software package's custom installation procedure step by step?", "opts": ["A knowledge base search result", "An incident report", "A service-level agreement", "A standard operating procedure"], "correct": 3}, {"q": "Which statement distinguishes a swollen battery from ordinary battery decline?", "opts": ["A swollen battery indicates a software fault", "A swollen battery simply holds less charge", "A swollen battery affects only charging speed", "A swollen battery is a safety hazard requiring immediate removal from service"], "correct": 3}, {"q": "A workstation produces a blue screen shortly after a new device was installed. What should a technician check first?", "opts": ["The share permissions on the user's folder", "The amount of free disk space", "The browser's extensions", "The driver for the recently installed device"], "correct": 3}, {"q": "A workstation slows noticeably every afternoon, but never while the technician is present. Which tool records performance data over a period for later review?", "opts": ["Performance Monitor", "Task Manager", "Resource Monitor", "System Information"], "correct": 0}, {"q": "Which first step is appropriate when a machine is suspected of an active infection on a corporate network?", "opts": ["Quarantine it by disconnecting from the network and notify as the organization requires", "Run Windows Update", "Reimage it without notifying anyone", "Clear the browser cache"], "correct": 0}, {"q": "Which protocol is most closely associated with signing in to a Windows domain?", "opts": ["WPA3", "TACACS+", "TKIP", "Kerberos"], "correct": 3}, {"q": "Which command lists the files and folders in the current directory?", "opts": ["cd", "dir", "md", "ls /w"], "correct": 1}, {"q": "A workstation cannot reach the network, Windows Update fails, and antivirus will not update. What is the most likely single explanation?", "opts": ["Three unrelated configuration errors", "Malware is preventing its own removal", "A failed power supply", "An incorrect default printer"], "correct": 1}, {"q": "A single workstation shows certificate warnings on every site, and its clock is three years behind. What is the most likely cause?", "opts": ["The browser requires reinstallation", "Every certificate on the internet expired", "The incorrect system date is invalidating certificate checks", "The firewall is blocking certificate traffic"], "correct": 2}, {"q": "Which consideration affects where equipment is placed within a facility?", "opts": ["The building's badge reader model", "Location and equipment placement relative to heat, dust, and airflow", "The subnet the equipment will use", "The manufacturer's warranty length"], "correct": 1}, {"q": "Which router feature blocks categories of websites and is often required in schools?", "opts": ["IP filtering", "Content filtering", "Screened subnet", "Secure management access"], "correct": 1}, {"q": "Which partition style should a technician normally select when initializing a disk on a modern UEFI system?", "opts": ["NTFS", "MBR", "exFAT", "GPT"], "correct": 3}, {"q": "Which command lists the user accounts on the local computer?", "opts": ["whoami", "net use", "net user", "lusrmgr"], "correct": 2}, {"q": "An organization defines which AI tools may be used for which tasks. What is this an example of?", "opts": ["A data retention requirement", "A change management request", "An acceptable use policy applied to AI", "A service-level agreement"], "correct": 2}, {"q": "A technician finds prohibited content on a user's machine. What is the correct response?", "opts": ["Ask a colleague to verify before reporting", "Delete the files and note it in the ticket", "Open the remaining files to confirm the finding", "Stop, preserve the evidence, and escalate through the organization's procedure"], "correct": 3}, {"q": "A newly installed webcam shows a warning icon and does not work. Which tool lets a technician update, roll back, disable, or uninstall its driver?", "opts": ["Certificate Manager", "Disk Management", "Device Manager", "Local Users and Groups"], "correct": 2}, {"q": "What distinguishes a device performance issue from a device security issue in the objectives?", "opts": ["Security issues involve indicators such as unexpected behavior, data leakage, or unexplained traffic", "Security issues only occur on corporate devices", "Performance issues only occur on older devices", "Performance issues always include pop-ups"], "correct": 0}, {"q": "Which behavior violates professional standards while working with a customer?", "opts": ["Restating the issue to confirm understanding", "Providing documentation of the work performed", "Taking a personal call during the service visit", "Offering repair and replacement options"], "correct": 2}, {"q": "A user cannot open a document and reports an application error. Which least-disruptive sequence is appropriate?", "opts": ["Reimage the workstation immediately", "Restart the application, then repair it, then reinstall it", "Replace the hard drive", "Reinstall Windows"], "correct": 1}, {"q": "A technician must give twenty users identical access to a project folder with minimal ongoing effort. What is the best approach?", "opts": ["Give everyone Full Control and rely on the share", "Assign permissions to each user account individually", "Assign permissions to a security group and add the users to it", "Disable inheritance on the folder"], "correct": 2}, {"q": "Which physical control secures a laptop to a desk to deter opportunistic theft?", "opts": ["Equipment lock", "Door lock", "Access control vestibule", "Bollard"], "correct": 0}, {"q": "Which router setting should a technician review if an internal service became reachable from the internet without anyone configuring it?", "opts": ["Secure DNS", "Content filtering", "SSID broadcast", "Universal Plug and Play"], "correct": 3}, {"q": "A technician must decide between restarting a service and rebooting a server during business hours. Which is preferred and why?", "opts": ["Restarting the service, because it is the least disruptive action that could work", "Rebooting, because it clears more state", "Reimaging, because it guarantees a fix", "Neither, because changes cannot be made during business hours"], "correct": 0}, {"q": "Why do safety procedures apply even to routine, low-risk jobs?", "opts": ["Regulations require documentation only on routine work", "Consistent procedure is what prevents the rare incident, and habits formed on easy jobs carry to hard ones", "Routine work carries more electrical risk than complex work", "Insurance policies require it only for low-risk tasks"], "correct": 1}, {"q": "A domain user's profile takes several minutes to load at sign-in. Which causes should a technician investigate?", "opts": ["The printer driver version", "Browser cache size and saved passwords", "The workstation's screen resolution", "Roaming profile size, domain controller reachability, and log-in scripts"], "correct": 3}, {"q": "A workstation's files are intact but a text file demanding payment has appeared. Which action should come first?", "opts": ["Run Disk Cleanup", "Pay the ransom to recover access", "Disconnect the machine from the network", "Reset the browser's homepage"], "correct": 2}, {"q": "A technician wants to test the local network before testing the internet. Which target should be pinged first?", "opts": ["A public DNS server", "The default gateway", "A website by name", "The loopback address only"], "correct": 1}, {"q": "Which browser capability lets an administrator deliberately turn plug-ins and features on or off?", "opts": ["Content filtering", "Sandbox testing", "Browser feature management", "Certificate pinning"], "correct": 2}, {"q": "Which markup standard is used to exchange authentication and authorization information between systems?", "opts": ["Time-based one-time password", "Access control list", "Security Assertions Markup Language", "Privileged access management"], "correct": 2}, {"q": "A managed phone suddenly exceeds its data allowance with no change in the user's habits. How should this be treated?", "opts": ["As normal seasonal variation", "As a carrier error requiring no action", "As a possible security issue warranting investigation of per-application data use", "As a battery problem"], "correct": 2}, {"q": "Which step confirms with the people who use a system that the change actually works?", "opts": ["Implementation", "Peer review", "Risk analysis", "End-user acceptance"], "correct": 3}, {"q": "Which malware runs in memory using built-in system tools, leaving little on disk for a scanner to find?", "opts": ["Fileless malware", "Boot sector virus", "Trojan", "Potentially unwanted program"], "correct": 0}, {"q": "Which malware records keystrokes in order to capture typed credentials?", "opts": ["Trojan", "Keylogger", "Cryptominer", "Boot sector virus"], "correct": 1}, {"q": "Which macOS feature displays every open window and desktop at once?", "opts": ["Mission Control", "Spotlight", "Continuity", "Dock"], "correct": 0}, {"q": "Which technology allows one authentication to grant access to multiple systems?", "opts": ["Single sign-on", "Multifactor authentication", "Access control list", "Mobile device management"], "correct": 0}];
+                let QUESTIONS = [];
+                let answers = [];
+
+                function drawSet() {
+                    const shuffled = POOL.slice().sort(() => Math.random() - 0.5);
+                    QUESTIONS = shuffled.slice(0, 90).map(item => {
+                        const order = item.opts.map((o, i) => i).sort(() => Math.random() - 0.5);
+                        return {q: item.q, opts: order.map(i => item.opts[i]), correct: order.indexOf(item.correct)};
+                    });
+                    answers = new Array(QUESTIONS.length).fill(null);
+                }
+
+                function renderQuiz() {
+                    const area = document.getElementById('quizArea');
+                    area.innerHTML = QUESTIONS.map((item, qi) => {
+                        const opts = item.opts.map((opt, oi) =>
+                            `<button type="button" class="answer-option" data-qi="${qi}" data-oi="${oi}" onclick="selectAnswer(${qi}, ${oi})">${opt}</button>`
+                        ).join('');
+                        return `<div class="question-block">
+                            <div class="question-number">Question ${qi + 1} of ${QUESTIONS.length}</div>
+                            <p class="question-text">${item.q}</p>
+                            ${opts}
+                        </div>`;
+                    }).join('');
+                }
+
+                function selectAnswer(qi, oi) {
+                    answers[qi] = oi;
+                    document.querySelectorAll(`[data-qi="${qi}"]`).forEach(btn => {
+                        btn.classList.remove('selected');
+                        if (parseInt(btn.dataset.oi) === oi) btn.classList.add('selected');
+                    });
+                }
+
+                function gradeQuiz() {
+                    if (answers.includes(null)) {
+                        alert('Answer all 90 questions before grading.');
+                        return;
+                    }
+                    let score = 0;
+                    QUESTIONS.forEach((item, qi) => {
+                        const correct = item.correct;
+                        document.querySelectorAll(`[data-qi="${qi}"]`).forEach(btn => {
+                            const oi = parseInt(btn.dataset.oi);
+                            btn.classList.remove('selected');
+                            if (oi === correct) btn.classList.add('correct');
+                            else if (oi === answers[qi]) btn.classList.add('incorrect');
+                        });
+                        if (answers[qi] === correct) score++;
+                    });
+                    document.getElementById('scoreDisplay').textContent = score + ' / ' + QUESTIONS.length;
+                    const note = document.getElementById('scoreNote');
+                    if (score >= 75) note.textContent = 'Approximately 840 or better on the scaled model \u2014 comfortable. Book the exam.';
+                    else if (score >= 68) note.textContent = 'Approximately 770 to 830. A real margin \u2014 repeat this on a second timed attempt and you are ready.';
+                    else if (score >= 60) note.textContent = 'Approximately 700 to 760. A pass with no margin \u2014 keep studying before you book.'; else note.textContent = 'Below the cut line. Sort your misses by domain and work the weakest one before retaking.';
+                    document.getElementById('quizResults').style.display = 'block';
+                    document.getElementById('quizResults').scrollIntoView({behavior: 'smooth'});
+                }
+
+                function resetQuiz() {
+                    document.getElementById('quizResults').style.display = 'none';
+                    drawSet();
+                    renderQuiz();
+                }
+
+                drawSet();
+                renderQuiz();
+            </script>
+
+        </div>
+
+        <footer class="module-footer">
+            <p class="footer-text">CompTIA A+ Core 2 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
+        </footer>
+    </div>
+</body>
+</html>
