@@ -238,7 +238,7 @@ Every chapter closes with Summary, Exam Essentials, Review Questions, and **one 
      N.3   Content Review                          [HTML module]
      N.4   Reading Assignment — Sybex Vol. 2
      N.5   Video Assignment — Professor Messer
-     N.6   Classroom Labs and Take-Home Lab        [ungraded; Ticket of the Day section points to N.11, then one section per lab — Part 8]
+     N.6   Classroom/Home Labs                     [ungraded; one section per lab, then the Ticket of the Day section last, pointing to N.11 — Part 8]
      N.7   Practice Questions                      [ungraded; 50-item pool, 10 per attempt]
      N.8   Online Labs: NETLAB                     [graded — 2 or 3 labs, per the Part 3 table; one screenshot quiz per lab]
      N.9   Reflection Activity                     [graded; Kolb four-prompt, print-to-PDF]
@@ -538,7 +538,7 @@ Each check lists its best practice and the specific lookouts. Every lookout trac
 | N.7 includes the "Confident or guessed" self-check. | Design Idea 7. |
 | The navigator lists only sections that exist as files. | Core 1's 1.3 navigator listed 1.B.1–1.B.3, which were never built. |
 | Only one version of each file ships. If two versions exist, the newer is used and the older is flagged. | Core 1 had two 1.6 lab files in the same set. |
-| N.6's Ticket of the Day section points to N.11 and names the three tickets; N.11 follows the Tickets Rule exactly — 3 questions per ticket, 6 options, one correct, Correct/Incorrect flag only, solution collapsed until all three are correct, Look Back inside the solution. | Tickets Rule (B10). |
+| N.6 is titled Classroom/Home Labs; its Ticket of the Day section is the last section on the page, points to N.11 and names the three tickets; N.11 follows the Tickets Rule exactly — 3 questions per ticket, 6 options, one correct, Correct/Incorrect flag only, solution collapsed until all three are correct, Look Back inside the solution. | Tickets Rule (B10). |
 | Each NETLAB lab has its own screenshot quiz, with one question for each screenshot that lab's worksheet requires. | NETLAB quiz ruling (B7); a quiz sized wrong either misses proof or asks for screenshots the lab never produces. |
 | Every fact in the announcement matches the unit's finished files. | A Core 1 announcement said "25 items, 30 minutes"; the test drew 20, untimed. |
 
@@ -633,7 +633,7 @@ These are the instructor's rulings, written as rules for building units.
 | Book-Aligned Pacing Rule | Every unit's videos stay with its reading. Each Messer video is assigned exactly once, with a direct link; nothing is downloaded, re-hosted, or embedded. |
 | Load Rule | 19–20 hours outside class per typical week; reading at least 10 hours. Any unit outside this is shown to the instructor, never adjusted silently. |
 | Tickets Rule | Every unit has Section N.11, titled **Unit N Tickets** (page heading, browser title, and navigator entry): three individual help-desk tickets, one per class meeting (Tuesday, Wednesday, Thursday), built on the Pre-Assessment stylesheet. Each ticket has a header with objective 4.1 fields, the caller's own words, a Stop Here prompt, three exhibits representing output from the computer being troubleshot, and three questions with six options and exactly one correct answer, each independent and tagged with its troubleshooting step. Students see only a Correct or Incorrect flag and never the right answer. The Ticket Solution stays collapsed — using the same click-to-open method as the Table of Contents — until all three questions are answered correctly, and the Look Back prompts sit inside it. Instructions open the page in a single block; each ticket sits in its own card. In Unit 1, N.11 precedes 1.A; in Unit 6, it precedes 6.A.0. |
-| Lab Rule | One take-home lab per unit, ungraded, proposed with the unit's build. NETLAB labs as set in Part 3. In-class labs optional, ungraded, from the approved Part 8 list. All labs except NETLAB are ungraded. N.6's Ticket of the Day section points to N.11 Tickets; each lab then gets its own section. Each NETLAB lab gets its own screenshot quiz, built with N.8. |
+| Lab Rule | One take-home lab per unit, ungraded, proposed with the unit's build. NETLAB labs as set in Part 3. In-class labs optional, ungraded, from the approved Part 8 list. All labs except NETLAB are ungraded. Each lab gets its own section in N.6; the Ticket of the Day section comes last on the page and points to N.11 Tickets. Each NETLAB lab gets its own screenshot quiz, built with N.8. |
 | Acronym Rule | CompTIA 220-1202 list ∩ Volume 2, plus 5 approved additions; 100 total; domains numbered 1–4 with official names. |
 | Definition Link Rule | TechTarget first; TechTerms only where a TechTarget link fails individual verification; the answer key notes each link's source. |
 | Chapter Numbering Rule | "Volume 2, Chapter N," using the book's 1–10 numbering. |
@@ -694,7 +694,7 @@ Each practice below came from an error AIR caught, or should have caught, during
 1. **N.1 Unit Overview and Schedule** — the unit's meeting days and clock times (no calendar dates), the "Where to Find Due Dates" callout pointing to the Course Schedule, the workload table, the passing-score reminder box (Design Idea 1), and the unit's Bloom target.
 2. **N.3 Content Review** — Technical Overview / In Plain Terms pairing, a real-world example for each major concept, and "Go Further."
 3. **N.4 Reading and N.5 Video** — from the pagination and Appendix A, with any index-typo notes listed for the unit.
-4. **N.6 Classroom Labs and Take-Home Lab** — a Ticket of the Day section pointing to N.11 and naming the three tickets; then each approved lab in its own section, ending with the take-home lab.
+4. **N.6 Classroom/Home Labs** — each approved lab in its own section, the take-home lab last among the labs, then a Ticket of the Day section at the end of the page pointing to N.11 and naming the three tickets. The opening paragraph summarizes the labs and notes that the Ticket of the Day section is at the end.
 5. **N.8 NETLAB** — the unit's labs, reservation conventions, and screenshot rules, plus one Brightspace screenshot quiz per lab, sized to the lab's required screenshots and exported as QTI (B7).
 6. **Question banks** — N.2 (10 items, written as an independent activity), N.7 (50-item pool, 10 per attempt, with the confidence self-check), and N.10 (100-item pool, 20 per attempt, with the passing-score box). CompTIA wording only, balanced A–D, and shuffled.
 7. **N.9 Reflection** — the Kolb four-prompt reflection.
