@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <title>Unit 4 &mdash; 4.4 Reading Assignment | CompTIA A+ Core 2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 4 &mdash; 4.4 Reading Assignment | CompTIA A+ Core 1</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,7 +15,7 @@
     <style>
         /* ============================================
            CPCC COURSE TEMPLATE - GOLD / CHARCOAL / BLACK
-           CTS-ITS7501-80 CompTIA A+ Core 2 Training
+           CTS-ITS7501-80 CompTIA A+ Core 1 Training
            Type: true black. Accents: gold. Chrome: charcoal.
            ============================================ */
 
@@ -144,28 +144,6 @@
         ul li::marker { color: var(--accent-teal); }
         ol li::marker { color: var(--accent-teal); font-weight: 700; }
 
-        .styled-list { list-style: none; padding-left: 0; }
-        .styled-list li { position: relative; padding-left: var(--space-lg); margin-bottom: var(--space-sm); }
-        .styled-list li::before { content: '\25B8'; position: absolute; left: 0; color: var(--accent-teal); font-weight: bold; }
-
-        .checklist { list-style: none; padding-left: 0; }
-        .checklist li { position: relative; padding-left: 2rem; margin-bottom: var(--space-sm); }
-        .checklist li::before {
-            content: '\2713'; position: absolute; left: 0; width: 1.5rem; height: 1.5rem;
-            background: var(--accent-green-light); color: var(--accent-green);
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-size: 0.75rem; font-weight: bold;
-        }
-
-        .objectives-box {
-            background: linear-gradient(135deg, var(--primary-pale) 0%, var(--accent-teal-light) 100%);
-            border-left: 5px solid var(--primary-main);
-            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
-        }
-        .objectives-box h3 { color: var(--text-black); margin-top: 0; margin-bottom: var(--space-md);
-            display: flex; align-items: center; gap: var(--space-sm); border-left: none; padding-left: 0; }
-        .objectives-box ol { margin-bottom: 0; }
-
         .tech-box {
             background: var(--neutral-100); border: 2px solid var(--neutral-500);
             border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
@@ -181,7 +159,6 @@
         .plain-box .callout-content { padding-left: 0; }
 
         .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; position: relative; overflow: hidden; }
-        .callout::before { position: absolute; top: var(--space-md); left: var(--space-md); font-size: 1.5rem; }
         .callout-title { font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 1rem;
             text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
         .callout-content { }
@@ -192,21 +169,30 @@
         .callout-danger { background: var(--alert-danger-bg); border-left: 4px solid var(--alert-danger); }
         .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
 
+        .objectives-box {
+            background: var(--primary-pale); border-left: 5px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .objectives-box h3 { margin-top: 0; border-left: none; padding-left: 0; color: var(--text-black); }
+        .objectives-box ol { margin-bottom: 0; }
+
         .key-concept {
             background: linear-gradient(135deg, var(--accent-purple-light) 0%, var(--white) 100%);
             border: 2px solid var(--accent-purple); border-radius: var(--radius-lg);
             padding: var(--space-lg); margin: var(--space-xl) 0 var(--space-lg); position: relative;
         }
         .key-concept::before {
-            content: '\1F511 KEY CONCEPT'; position: absolute; top: -12px; left: var(--space-lg);
+            content: 'KEY CONCEPT'; position: absolute; top: -12px; left: var(--space-lg);
             background: var(--accent-purple); color: var(--white); font-family: var(--font-heading), sans-serif;
             font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
             padding: var(--space-xs) var(--space-md); border-radius: var(--radius-sm);
         }
         .key-concept h4 { color: var(--text-black); margin-top: var(--space-sm); }
 
-        .definition { background: var(--neutral-100); border-radius: var(--radius-md); padding: var(--space-lg);
-            margin: var(--space-md) 0; border-left: 4px solid var(--accent-orange); }
+        .definition {
+            background: var(--neutral-100); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin: var(--space-md) 0; border-left: 4px solid var(--accent-orange);
+        }
         .definition-term { font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 1.125rem;
             color: var(--text-black); margin-bottom: var(--space-xs); }
         .definition-text { color: var(--text-black); margin-bottom: 0; }
@@ -235,25 +221,18 @@
             border: 2px dashed var(--accent-orange); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
         }
         .activity-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg); }
-        .activity-icon { width: 50px; height: 50px; background: var(--accent-orange); border-radius: var(--radius-md);
-            display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; }
         .activity-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700;
             color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
         .activity-subtitle { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
 
         .lab-section {
-            background: linear-gradient(135deg, var(--accent-teal-light) 0%, var(--white) 100%);
-            border: 2px solid var(--accent-teal); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+            background: var(--white); border: 2px solid var(--primary-dark); border-radius: var(--radius-lg);
+            padding: var(--space-xl); margin: var(--space-xl) 0;
         }
-        .lab-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg);
-            padding-bottom: var(--space-md); border-bottom: 2px solid var(--accent-teal); }
-        .lab-icon { width: 60px; height: 60px; background: var(--accent-teal); border-radius: var(--radius-md);
-            display: flex; align-items: center; justify-content: center; font-size: 1.75rem; flex-shrink: 0; }
-        .lab-title { font-family: var(--font-heading), sans-serif; font-size: 1.375rem; font-weight: 700;
-            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
-        .lab-time { font-size: 0.875rem; color: var(--neutral-500); margin: 0; display: flex; align-items: center; gap: var(--space-xs); }
-        .lab-time::before { content: '\23F1\FE0F'; }
-        .lab-steps { counter-reset: lab-step; list-style: none; padding-left: 0; }
+        .lab-header { padding-bottom: var(--space-md); margin-bottom: var(--space-lg); border-bottom: 2px solid var(--primary-dark); }
+        .lab-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700; color: var(--text-black); border-left: none; padding-left: 0; }
+        .lab-time { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
+        .lab-steps { list-style: none; counter-reset: lab-step; padding-left: 0; }
         .lab-steps li { counter-increment: lab-step; position: relative; padding-left: 3rem; margin-bottom: var(--space-lg); }
         .lab-steps li::before {
             content: counter(lab-step); position: absolute; left: 0; width: 2rem; height: 2rem;
@@ -271,6 +250,7 @@
             padding: 2px 10px; border-radius: var(--radius-sm);
             text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); }
         .question-text { font-weight: 600; color: var(--text-black); margin-bottom: var(--space-md); }
+
         details.answer { margin-top: var(--space-sm); }
         details.answer summary { cursor: pointer; font-weight: 700; color: var(--text-black);
             font-family: var(--font-heading), sans-serif; font-size: 0.875rem;
@@ -281,72 +261,66 @@
         .references-section { background: var(--neutral-100); border-radius: var(--radius-lg);
             padding: var(--space-lg) var(--space-xl); margin: var(--space-xl) 0; border-top: 3px solid var(--primary-main); }
         .references-section h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
-        .references-section ul { padding-left: var(--space-lg); }
 
-        .summary-box {
-            background: var(--primary-dark); color: var(--white);
-            border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
-        }
-        .summary-box h3 { color: var(--white); margin-top: 0; display: flex; align-items: center;
-            gap: var(--space-sm); border-left: none; padding-left: 0; }
-        .summary-box h3::before { content: '\1F4CB'; }
-        .summary-box ul { margin-bottom: 0; }
-        .summary-box li { color: var(--white); }
-        .summary-box li::marker { color: var(--primary-light); }
+        .progress-bar { background: var(--neutral-300); border-radius: var(--radius-xl); height: 8px; overflow: hidden; margin: var(--space-lg) 0; }
+        .progress-fill { background: var(--primary-main); height: 100%; border-radius: var(--radius-xl); }
+        .progress-label { display: flex; justify-content: space-between; font-size: 0.875rem; color: var(--neutral-500); margin-bottom: var(--space-xs); }
 
-        .section-divider {
-            border: none; height: 6px; margin: var(--space-2xl) 0;
-            background: linear-gradient(90deg, transparent 0%, var(--primary-main) 15%, var(--primary-light) 50%, var(--primary-main) 85%, transparent 100%);
-            border-radius: var(--radius-sm); box-shadow: var(--shadow-sm);
-        }
-
-        .module-footer { background: var(--primary-dark); padding: var(--space-lg) var(--space-xl);
-            text-align: center; border-top: 4px solid var(--primary-main); }
-        .footer-text { font-size: 0.875rem; color: var(--white); margin: 0; }
+        .module-footer { background: var(--neutral-100); padding: var(--space-lg) var(--space-xl); text-align: center; border-top: 1px solid var(--neutral-300); }
+        .footer-text { font-size: 0.875rem; color: var(--neutral-500); }
 
         .text-center { text-align: center; }
         .text-muted { color: var(--neutral-500); }
-        .highlight { background: linear-gradient(180deg, transparent 50%, var(--primary-light) 50%); padding: 0 2px; }
+        .mt-sm { margin-top: var(--space-sm); } .mt-md { margin-top: var(--space-md); } .mt-lg { margin-top: var(--space-lg); }
+        .mb-sm { margin-bottom: var(--space-sm); } .mb-md { margin-bottom: var(--space-md); } .mb-lg { margin-bottom: var(--space-lg); }
+
+        /* Interactive quiz controls (pre-assessment / practice questions) */
+        .answer-option { display: block; width: 100%; text-align: left; padding: var(--space-sm) var(--space-md);
+            margin-bottom: var(--space-sm); border: 2px solid var(--neutral-300); border-radius: var(--radius-sm);
+            background: var(--white); cursor: pointer; font-family: var(--font-body), sans-serif; font-size: 1rem; color: var(--text-black); }
+        .answer-option:hover { border-color: var(--primary-main); }
+        .answer-option.selected { border-color: var(--primary-dark); background: var(--primary-pale); }
+        .answer-option.correct { border-color: var(--accent-green); background: var(--accent-green-light); }
+        .answer-option.incorrect { border-color: var(--alert-danger); background: var(--alert-danger-bg); }
+        .quiz-btn { font-family: var(--font-heading), sans-serif; font-weight: 700; padding: var(--space-sm) var(--space-xl);
+            border-radius: var(--radius-sm); border: 2px solid var(--primary-dark); background: var(--primary-dark); color: var(--white);
+            cursor: pointer; font-size: 0.95rem; margin-right: var(--space-sm); }
+        .quiz-btn:hover { background: #333333; }
+        .quiz-btn.secondary { background: var(--white); color: var(--primary-dark); }
+        .quiz-btn.secondary:hover { background: var(--neutral-100); }
+        #quizResults { display:none; background: var(--primary-pale); border: 2px solid var(--primary-main); border-radius: var(--radius-md);
+            padding: var(--space-lg); margin-top: var(--space-lg); text-align: center; font-family: var(--font-heading), sans-serif; }
+        #quizResults .score { font-size: 2rem; font-weight: 800; color: var(--text-black); }
 
         @media (max-width: 768px) {
-            body { padding: var(--space-sm); }
-            .module-header { padding: var(--space-xl) var(--space-lg); }
             .module-title { font-size: 1.75rem; }
             .content-area { padding: var(--space-lg); }
-            h2 { font-size: 1.375rem; }
-            .lab-header, .activity-header { flex-direction: column; align-items: flex-start; }
-        }
-        @media print {
-            body { background: white; padding: 0; }
-            .course-container { box-shadow: none; }
-            .toc { display: none; }
-            details.answer { display: none; }
         }
     </style>
-</head>
+
 <body>
     <div class="course-container">
 
         <header class="module-header">
-            <div class="module-label">Unit 4 &middot; Security Concepts and Threats &middot; Section 4.4</div>
+            <div class="module-label">Unit 4 &middot; Network Services and Configuration &middot; Section 4.4</div>
             <h1 class="module-title">Reading Assignment</h1>
-            <p class="module-subtitle">CompTIA A+ Core 2 - Domains 2.0 and 4.0</p>
+            <p class="module-subtitle">CompTIA A+ Core 1 &mdash; Domains 2.0 and 5.0</p>
         </header>
 
-                <nav class="toc" id="tocNav">
+        <nav class="toc" id="tocNav">
             <div class="toc-header">Table of Contents</div>
-            <div class="toc-item">4.1 &mdash; Unit Overview and Schedule</div>
+            <div class="toc-item">4.1 &mdash; Unit Overview and Learning Objectives</div>
             <div class="toc-item">4.2 &mdash; Unit Pre-Assessment</div>
             <div class="toc-item">4.3 &mdash; Content Review</div>
             <div class="toc-item current" id="tocCurrent">4.4 &mdash; Reading Assignment</div>
             <div class="toc-item">4.5 &mdash; Video Assignment</div>
-            <div class="toc-item">4.6 &mdash; Classroom/Home Labs</div>
+            <div class="toc-item">4.6 &mdash; Classroom Labs</div>
             <div class="toc-item">4.7 &mdash; Practice Questions</div>
             <div class="toc-item">4.8 &mdash; Online Labs: NETLAB</div>
             <div class="toc-item">4.9 &mdash; Reflection Activity</div>
             <div class="toc-item">4.10 &mdash; Unit Test</div>
-            <div class="toc-item">4.11 &mdash; Unit 4 Tickets</div>
         </nav>
+
         <style>
             /* Collapsible TOC: only the current section shows until clicked */
             nav.toc#tocNav { gap: 0; }
@@ -440,105 +414,64 @@
 
         <div class="content-area">
 
-            <p class="text-muted">157 pages across two full chapters &mdash; the heaviest reading of the term. Budget 11 to 12 hours, and start on Tuesday.</p>
-
-            <div class="callout callout-warning">
-                <div class="callout-title">This Is the Unit to Start Early</div>
-                <div class="callout-content"><p>Two full chapters is about 30% more reading than Unit 3, on top of the term's largest video load. Students who leave this unit to the weekend do not finish it. Read Chapter 5 across the first half of the unit and Chapter 9 across the second &mdash; the pacing plan below does this for you.</p></div>
-            </div>
+            <p class="text-muted">Sybex Chapter 7 &mdash; Understanding Virtual Networks (excerpt), Chapter 8 &mdash; Network Services (full), Chapter 9 &mdash; Wireless Technologies; Installing and Configuring SOHO Networks (full), and Chapter 12 &mdash; Troubleshooting Networking Problems (excerpt) &mdash; read in the order below.</p>
 
             <div class="tech-box">
-                <div class="callout-title">Required Text</div>
+                <div class="callout-title">Technical Overview</div>
                 <div class="callout-content">
-                    <p><em>CompTIA A+ Complete Certification Kit: Core 1 Exam 220-1201 and Core 2 Exam 220-1202</em> (Sybex, 6th edition), ISBN-13 978-1394350056. All assigned reading this term comes from <strong>Volume 2</strong>, Chapters 1&ndash;10.</p>
-                    <p>Every chapter reference in this course reads <strong>"Volume 2, Chapter N."</strong></p>
+                    <p>Textbook: <em>CompTIA A+ Complete Certification Kit: Core 1 Exam 220-1201 and Core 2 Exam 220-1202</em> (Sybex Study Guide), Docter &amp; Buhagiar, ISBN-13 978-1394350056, Volume 1. This week's reading draws from Chapters 7, 8, 9, and 12.</p>
                 </div>
             </div>
 
-            <h2>This Week's Reading</h2>
-            <div class="table-container">
-                <table>
-                    <thead><tr><th>Chapter</th><th>Sections</th><th>Why It's Assigned</th></tr></thead>
-                    <tbody>
-                        <tr><td><strong>Volume 2, Chapter 5</strong><br>pgs. 359&ndash;452 (94 pgs.)<br>Security Concepts</td><td>Physical Security Concepts &middot; Physical Security for Staff &middot; Logical Security &middot; Malware &middot; Mitigating Software Threats &middot; Social Engineering Attacks, Threats, and Vulnerabilities &middot; Common Security Threats &middot; Exploits and Vulnerabilities &middot; Security Best Practices &middot; Destruction and Disposal Methods<br>Summary &middot; Exam Essentials &middot; Review Questions<br><strong>Performance-Based Question</strong></td><td>The largest chapter in Volume 2, and the backbone of Domain 2.0. Objectives 2.1, 2.4, 2.5, 2.7, and 2.9.</td></tr>
-                        <tr><td><strong>Volume 2, Chapter 9</strong><br>pgs. 681&ndash;743 (63 pgs.)<br>Safety and Environmental Concerns</td><td>Understanding Safety Procedures &middot; Understanding Environmental Controls &middot; Understanding Policies, Licensing, and Privacy<br>Summary &middot; Exam Essentials &middot; Review Questions<br><strong>Performance-Based Question</strong></td><td>Objectives 4.4, 4.5, and 4.6 &mdash; the technician's professional obligations around safety, the environment, and regulated information.</td></tr>
-                    </tbody>
-                </table>
+            <div class="plain-box">
+                <div class="callout-title">In Plain Terms</div>
+                <div class="callout-content">
+                    <p>You're reading four chapters this week, but two of them are excerpts, not full chapters. Chapter 7 (Understanding Virtual Networks) picks up where Unit 3 left off &mdash; you already read the rest of Chapter 7 last week. Chapter 12 (Troubleshooting Networking Problems) is a short excerpt on network-specific troubleshooting; the rest of Chapter 12 is spread across other units, same pattern as Chapters 12 and 13 all term. Chapter 8 (Network Services) and Chapter 9 (Wireless Technologies; Installing and Configuring SOHO Networks) are both full chapters and carry most of this week's reading load. Read in the order listed below.</p>
+                </div>
             </div>
 
             <div class="callout callout-info">
-                <div class="callout-title">Why Chapter 9 Sits With Security</div>
-                <div class="callout-content"><p>The book places safety and environmental concerns in their own chapter near the end. This course reads it alongside security because the two are the same habit of mind: preventing damage before it happens. Incident response and regulated data in particular sit far more naturally beside malware and social engineering than beside documentation.</p></div>
+                <div class="callout-title">Why the Reading Order Looks Unusual</div>
+                <div class="callout-content">
+                    <p>Chapter 7 (Understanding Virtual Networks) is split across two units: the material read in Unit 3 covered TCP/IP fundamentals, and this excerpt covers VLANs and VPNs. Chapter 8 (Network Services) and Chapter 9 (Wireless Technologies; Installing and Configuring SOHO Networks) follow in full. Chapter 12 (Troubleshooting Networking Problems) is dismantled and distributed across units, same as Chapter 13 &mdash; this week's excerpt lands right after you've learned the services and wireless technologies that most often need troubleshooting.</p>
+                </div>
             </div>
 
-            <h2>How to Read a Certification Textbook</h2>
-            <p>The five-pass method, with one change for a vocabulary-heavy unit.</p>
+            <h2>Reading List, In Order</h2>
+
             <div class="table-container">
                 <table>
-                    <thead><tr><th>Pass</th><th>What You Do</th><th>Time</th></tr></thead>
+                    <thead><tr><th>Order</th><th>Chapter &amp; Section</th><th>Pages</th><th>Topic</th></tr></thead>
                     <tbody>
-                        <tr><td><strong>1. Survey</strong></td><td>Read the chapter's Exam Essentials <em>first</em>, so you read looking for something.</td><td>10 min</td></tr>
-                        <tr><td><strong>2. Read and Sort</strong></td><td>This unit is mostly terminology. As you read, sort every term into the group it belongs to &mdash; physical control, logical control, malware type, social engineering attack, threat, or vulnerability. Sorting is what makes a long list learnable.</td><td>Bulk of your time</td></tr>
-                        <tr><td><strong>3. Retrieve</strong></td><td>Close the book at the end of each section and write what you remember. Uncomfortable, and the step that builds memory.</td><td>5 min per section</td></tr>
-                        <tr><td><strong>4. Test</strong></td><td>Do the Review Questions without looking back. Mark every answer you guessed, even correct ones.</td><td>20&ndash;30 min per chapter</td></tr>
-                        <tr><td><strong>5. Repair</strong></td><td>For each miss <em>and each lucky guess</em>, find the passage that explains it.</td><td>15&ndash;20 min</td></tr>
+                        <tr><td>1</td><td>Ch 7 &mdash; Understanding Virtual Networks (excerpt)</td><td>pgs. 423&ndash;436</td><td>VLANs and VPNs</td></tr>
+                        <tr><td>2</td><td>Ch 8 &mdash; Network Services (full chapter)</td><td>pgs. 437&ndash;486</td><td>DNS, DHCP, file/print/mail servers, proxies, load balancers, Syslog, and related services</td></tr>
+                        <tr><td>3</td><td>Ch 9 &mdash; Wireless Technologies; Installing and Configuring SOHO Networks (full chapter)</td><td>pgs. 487&ndash;560</td><td>802.11 standards, Bluetooth, NFC, RFID, wireless security, and SOHO router configuration</td></tr>
+                        <tr><td>4</td><td>Ch 12 &mdash; Troubleshooting Networking Problems (excerpt)</td><td>pgs. 735&ndash;770</td><td>Connectivity loss, intermittent wireless, latency, jitter, and port flapping</td></tr>
                     </tbody>
                 </table>
             </div>
+
+            <h2>Estimated Reading Time</h2>
+            <div class="progress-label"><span>Minimum reading commitment this week</span><span>~11 hours</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width: 100%;"></div></div>
+            <p>This is a floor, not a target &mdash; Chapter 8 (Network Services) and Chapter 9 (Wireless Technologies; Installing and Configuring SOHO Networks) are both full chapters and carry most of the load this week. Budget more time there and less on the two shorter excerpts.</p>
 
             <div class="key-concept">
-                <h4>Two Performance-Based Questions This Unit</h4>
-                <p>Both assigned chapters close with one &mdash; work both. That makes three of the ten you have now done, and Unit 6 works all ten together.</p>
-                <p>Objective 2.7 is a "Given a scenario" objective, so expect performance-based items there. Objectives 2.1, 2.4, 2.5, 2.9, 4.5, and 4.6 ask you to summarize, compare, and explain, which produces recognition questions &mdash; which attack is this, which method fits this situation.</p>
+                <h4>Read Actively</h4>
+                <p>For Chapter 7 (Understanding Virtual Networks), write one sentence distinguishing when you'd reach for a VLAN versus a VPN. For Chapter 8 (Network Services), build a quick reference list matching each service to the one problem it solves. For Chapter 9 (Wireless Technologies; Installing and Configuring SOHO Networks), walk through a SOHO router's setup screens in your head &mdash; or on a real one if you have access &mdash; and name each security setting before you read what the book says about it. For Chapter 12 (Troubleshooting Networking Problems), practice explaining the difference between latency and jitter out loud, in your own words, before checking it against the text.</p>
             </div>
-
-            <h2>Note-Taking That Earns Its Time</h2>
-            <p>This unit is the largest vocabulary load of the course. Copying definitions will not survive it.</p>
-            <ul class="styled-list">
-                <li><strong>Sort, do not list.</strong> Six groups: physical controls, logical controls, malware types, social engineering attacks, threats, vulnerabilities. Every new term goes into a group as you meet it.</li>
-                <li><strong>One symptom per malware type.</strong> "What would the user actually notice?" &mdash; files renamed and a ransom note, a fan running constantly, ads appearing everywhere. Scenario questions describe symptoms, not definitions.</li>
-                <li><strong>Attack, then control.</strong> For every attack, write the one control that best stops it. Tailgating and an access control vestibule. Dictionary attacks and failed-attempt lockout. Shoulder surfing and a privacy screen.</li>
-                <li><strong>Watch the pairs that look alike.</strong> Brute force and dictionary. DoS and DDoS. Phishing, vishing, smishing, spear phishing, and whaling. Degaussing and shredding. Surge suppressor and UPS. The exam lives in these distinctions.</li>
-                <li><strong>Write the question, not the answer.</strong> "Which disposal method does not work on a solid-state drive?" on one side, degaussing on the other.</li>
-            </ul>
 
             <div class="callout callout-tip">
-                <div class="callout-title">A Note on the Book's Index</div>
-                <div class="callout-content"><p>If you look up <strong>business email compromise</strong> in the index, you will find it printed as <strong>"BEC (NEC)"</strong> &mdash; a typo in the book. The correct expansion is <strong>Business Email Compromise</strong>, and that is what the exam uses. The page reference itself is correct.</p></div>
-            </div>
-
-            <h2>Pacing Across the Week</h2>
-            <div class="table-container">
-                <table>
-                    <thead><tr><th>By</th><th>Complete</th><th>Approx.</th></tr></thead>
-                    <tbody>
-                        <tr><td><strong>Tuesday evening &ndash; Wednesday</strong></td><td>Chapter 5 &mdash; Physical Security Concepts, Physical Security for Staff, Logical Security</td><td>3 hrs</td></tr>
-                        <tr><td><strong>Thursday</strong></td><td>Chapter 5 &mdash; Malware, Mitigating Software Threats</td><td>2 hrs</td></tr>
-                        <tr><td><strong>Friday</strong></td><td>Chapter 5 &mdash; Social Engineering, Common Security Threats, Exploits and Vulnerabilities</td><td>2.5 hrs</td></tr>
-                        <tr><td><strong>Saturday</strong></td><td>Chapter 5 &mdash; Security Best Practices, Destruction and Disposal; then Chapter 5's Review Questions and PBQ</td><td>2 hrs</td></tr>
-                        <tr><td><strong>Sunday</strong></td><td>Chapter 9 &mdash; all three sections</td><td>2.5 hrs</td></tr>
-                        <tr><td><strong>Monday</strong></td><td>Chapter 9's Review Questions and PBQ</td><td>1 hr</td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="callout callout-info">
-                <div class="callout-title">What Good Notes Look Like</div>
-                <div class="callout-content"><p>Reading notes are <strong>not graded</strong>, and this is the unit where they pay the most. Aim for your six sorted groups, one symptom per malware type, an attack-to-control pairing list, and your Review Question results with guessed answers marked &mdash; in your own words rather than transcription. Bring them to class; Thursday's session uses them directly. See the Course Schedule for the target date.</p></div>
-            </div>
-
-            <div class="references-section">
-                <h3>Go Further</h3>
-                <ul>
-                    <li>Sybex online test bank &mdash; included with your book. The Chapter 5 and Chapter 9 tests are the best single use of an hour this unit.</li>
-                    <li>CompTIA official 220-1202 exam objectives (comptia.org) &mdash; objective 2.5's lists are long and precise; use them as a checklist against your sorted groups</li>
-                </ul>
+                <div class="callout-title">Pair the Reading with the Videos</div>
+                <div class="callout-content">
+                    <p>Section 4.5 maps each reading topic to a short Professor Messer video. If a concept doesn't click on the page, the matching video is usually the fastest way to make it click before Wednesday's lecture.</p>
+                </div>
             </div>
 
         </div>
 
         <footer class="module-footer">
-            <p class="footer-text">CompTIA A+ Core 2 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
+            <p class="footer-text">CompTIA A+ Core 1 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
         </footer>
     </div>
 </body>

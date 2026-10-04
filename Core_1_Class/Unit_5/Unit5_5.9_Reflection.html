@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <title>Unit 5 &mdash; 5.9 Reflection Activity | CompTIA A+ Core 2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 5 &mdash; 5.9 Reflection Activity | CompTIA A+ Core 1</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,21 +15,21 @@
     <style>
         /* ============================================
            CPCC COURSE TEMPLATE - GOLD / CHARCOAL / BLACK
-           CTS-ITS7501-80 CompTIA A+ Core 2 Training
+           CTS-ITS7501-80 CompTIA A+ Core 1 Training
            Type: true black. Accents: gold. Chrome: charcoal.
            ============================================ */
 
         :root {
-            --primary-dark: #4A4A4A;
-            --primary-main: #B8962E;
-            --primary-light: #D4AF56;
-            --primary-pale: #FBF3DF;
+            --primary-dark: #4A4A4A;       /* Charcoal - structural chrome only */
+            --primary-main: #B8962E;       /* Warm Gold - primary accent */
+            --primary-light: #D4AF56;      /* Light Gold */
+            --primary-pale: #FBF3DF;       /* Pale Gold wash */
 
-            --accent-teal: #8A6F1F;
-            --accent-teal-light: #F3E9CE;
-            --accent-orange: #A9642A;
+            --accent-teal: #8A6F1F;        /* Deep bronze-gold */
+            --accent-teal-light: #F3E9CE;  /* Pale bronze */
+            --accent-orange: #A9642A;      /* Warm rust */
             --accent-orange-light: #F5E2CE;
-            --accent-purple: #6B5B3A;
+            --accent-purple: #6B5B3A;      /* Muted umber */
             --accent-purple-light: #EFE6D2;
             --accent-green: #4E7A51;
             --accent-green-light: #DCEBDD;
@@ -43,7 +43,7 @@
             --alert-info: #6E5B2E;
             --alert-info-bg: #F1E9D4;
 
-            --text-black: #000000;
+            --text-black: #000000;         /* All reading text */
             --neutral-900: #000000;
             --neutral-700: #000000;
             --neutral-500: #5A5A5A;
@@ -77,9 +77,12 @@
 
         body {
             font-family: var(--font-body), 'Segoe UI', Tahoma, Verdana, sans-serif;
-            font-size: 1.0625rem; line-height: 1.7; color: var(--text-black);
+            font-size: 1.0625rem;
+            line-height: 1.7;
+            color: var(--text-black);
             background: linear-gradient(135deg, var(--neutral-100) 0%, var(--white) 100%);
-            min-height: 100vh; padding: var(--space-lg);
+            min-height: 100vh;
+            padding: var(--space-lg);
         }
 
         .course-container {
@@ -89,6 +92,9 @@
 
         .module-header {
             background: var(--primary-main); color: var(--text-black);
+            /* Reduced from var(--space-2xl) top/bottom (3rem) to var(--space-lg) (1.5rem) to cut excess
+               empty space in this card's title header. To revert, change padding back to:
+               padding: var(--space-2xl) var(--space-xl); */
             padding: var(--space-lg) var(--space-xl); position: relative; overflow: hidden;
         }
         .module-label {
@@ -141,6 +147,13 @@
         ul li::marker { color: var(--accent-teal); }
         ol li::marker { color: var(--accent-teal); font-weight: 700; }
 
+        .tech-box {
+            background: var(--neutral-100); border: 2px solid var(--neutral-500);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .tech-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .tech-box .callout-content { padding-left: 0; }
+
         .plain-box {
             background: var(--primary-pale); border: 2px solid var(--primary-main);
             border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
@@ -153,9 +166,50 @@
             text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
         .callout-content { }
         .callout-content p:last-child { margin-bottom: 0; }
+
         .callout-tip { background: var(--accent-green-light); border-left: 4px solid var(--accent-green); }
         .callout-warning { background: var(--alert-warning-bg); border-left: 4px solid var(--alert-warning); }
+        .callout-danger { background: var(--alert-danger-bg); border-left: 4px solid var(--alert-danger); }
         .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
+
+        .objectives-box {
+            background: var(--primary-pale); border-left: 5px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .objectives-box h3 { margin-top: 0; border-left: none; padding-left: 0; color: var(--text-black); }
+        .objectives-box ol { margin-bottom: 0; }
+
+        .key-concept {
+            background: linear-gradient(135deg, var(--accent-purple-light) 0%, var(--white) 100%);
+            border: 2px solid var(--accent-purple); border-radius: var(--radius-lg);
+            padding: var(--space-lg); margin: var(--space-xl) 0 var(--space-lg); position: relative;
+        }
+        .key-concept::before {
+            content: 'KEY CONCEPT'; position: absolute; top: -12px; left: var(--space-lg);
+            background: var(--accent-purple); color: var(--white); font-family: var(--font-heading), sans-serif;
+            font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-md); border-radius: var(--radius-sm);
+        }
+        .key-concept h4 { color: var(--text-black); margin-top: var(--space-sm); }
+
+        .definition {
+            background: var(--neutral-100); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin: var(--space-md) 0; border-left: 4px solid var(--accent-orange);
+        }
+        .definition-term { font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 1.125rem;
+            color: var(--text-black); margin-bottom: var(--space-xs); }
+        .definition-text { color: var(--text-black); margin-bottom: 0; }
+
+        code { font-family: var(--font-code), Consolas, monospace; font-size: 0.9rem; background: var(--primary-pale);
+            color: var(--text-black); padding: 2px 6px; border-radius: var(--radius-sm); }
+        pre { background: #2E2E2E; color: #f1ece0; padding: var(--space-lg); border-radius: var(--radius-md);
+            overflow-x: auto; margin: var(--space-lg) 0; position: relative; }
+        pre::before {
+            content: 'STEPS'; position: absolute; top: 0; right: 0; background: var(--primary-main); color: var(--text-black);
+            font-family: var(--font-heading), sans-serif; font-size: 0.625rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-sm); border-radius: 0 var(--radius-md) 0 var(--radius-sm);
+        }
+        pre code { background: transparent; color: inherit; padding: 0; font-size: 0.875rem; line-height: 1.6; }
 
         .table-container { overflow-x: auto; margin: var(--space-lg) 0; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); }
         table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
@@ -165,144 +219,113 @@
         tbody tr:hover { background: var(--primary-pale); }
         tbody tr:last-child td { border-bottom: none; }
 
-        .summary-box {
-            background: var(--primary-dark); color: var(--white);
-            border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        .activity-section {
+            background: linear-gradient(135deg, var(--accent-orange-light) 0%, var(--white) 100%);
+            border: 2px dashed var(--accent-orange); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
         }
-        .summary-box h3 { color: var(--white); margin-top: 0; display: flex; align-items: center;
-            gap: var(--space-sm); border-left: none; padding-left: 0; }
-        .summary-box h3::before { content: '\1F4CB'; }
-        .summary-box ul { margin-bottom: 0; }
-        .summary-box li { color: var(--white); }
-        .summary-box li::marker { color: var(--primary-light); }
+        .activity-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg); }
+        .activity-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700;
+            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
+        .activity-subtitle { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
 
-        .module-footer { background: var(--primary-dark); padding: var(--space-lg) var(--space-xl);
-            text-align: center; border-top: 4px solid var(--primary-main); }
-        .footer-text { font-size: 0.875rem; color: var(--white); margin: 0; }
-
-        .text-muted { color: var(--neutral-500); }
-
-        /* ---- Reflection input form ---- */
-        .reflection-form {
-            background: var(--primary-pale); border-radius: var(--radius-lg);
+        .lab-section {
+            background: var(--white); border: 2px solid var(--primary-dark); border-radius: var(--radius-lg);
             padding: var(--space-xl); margin: var(--space-xl) 0;
         }
-        .field-group { margin-bottom: var(--space-lg); }
-        .field-label {
-            display: block; font-family: var(--font-heading), sans-serif; font-weight: 700;
-            font-size: 1rem; color: var(--text-black); margin-bottom: var(--space-xs);
+        .lab-header { padding-bottom: var(--space-md); margin-bottom: var(--space-lg); border-bottom: 2px solid var(--primary-dark); }
+        .lab-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700; color: var(--text-black); border-left: none; padding-left: 0; }
+        .lab-time { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
+        .lab-steps { list-style: none; counter-reset: lab-step; padding-left: 0; }
+        .lab-steps li { counter-increment: lab-step; position: relative; padding-left: 3rem; margin-bottom: var(--space-lg); }
+        .lab-steps li::before {
+            content: counter(lab-step); position: absolute; left: 0; width: 2rem; height: 2rem;
+            background: var(--accent-teal); color: var(--white); font-family: var(--font-heading), sans-serif; font-weight: 700;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.875rem;
         }
-        .field-input {
-            width: 100%; padding: var(--space-sm) var(--space-md);
-            border: 2px solid var(--neutral-300); border-radius: var(--radius-md);
-            font-family: var(--font-body), sans-serif; font-size: 1rem; color: var(--text-black);
-            background: var(--white);
-        }
-        .field-input:focus { outline: none; border-color: var(--primary-main); }
 
-        .prompt-block {
-            background: var(--white); border-radius: var(--radius-md); padding: var(--space-lg);
-            margin-bottom: var(--space-lg); box-shadow: var(--shadow-sm);
-        }
-        .prompt-stage {
-            display: inline-block; font-family: var(--font-heading), sans-serif; font-size: 0.75rem; font-weight: 700;
-            color: var(--text-black); background: var(--primary-main);
+        .assessment-section { background: var(--primary-pale); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0; }
+        .assessment-header { text-align: center; margin-bottom: var(--space-xl); }
+        .assessment-header h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .question-block { background: var(--white); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin-bottom: var(--space-lg); box-shadow: var(--shadow-sm); }
+        .question-number { font-family: var(--font-heading), sans-serif; font-size: 0.75rem; font-weight: 700;
+            color: var(--text-black); background: var(--primary-main); display: inline-block;
             padding: 2px 10px; border-radius: var(--radius-sm);
-            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm);
-        }
-        .prompt-text { font-weight: 600; color: var(--text-black); margin-bottom: var(--space-md); }
-        .prompt-textarea {
-            width: 100%; min-height: 140px; padding: var(--space-md);
-            border: 2px solid var(--neutral-300); border-radius: var(--radius-md);
-            font-family: var(--font-body), sans-serif; font-size: 1rem; line-height: 1.6; color: var(--text-black);
-            background: var(--white); resize: vertical;
-        }
-        .prompt-textarea:focus { outline: none; border-color: var(--primary-main); background: var(--primary-pale); }
-        .word-count { font-size: 0.85rem; color: var(--neutral-500); margin-top: var(--space-xs); text-align: right; }
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); }
+        .question-text { font-weight: 600; color: var(--text-black); margin-bottom: var(--space-md); }
 
-        .form-controls {
-            display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap;
-            margin-top: var(--space-xl); padding-top: var(--space-lg); border-top: 2px solid var(--neutral-300);
-        }
-        .btn-print {
-            font-family: var(--font-heading), sans-serif; font-weight: 800; font-size: 1rem;
-            padding: var(--space-md) var(--space-2xl); border-radius: var(--radius-md);
-            cursor: pointer; transition: all 0.15s ease; border: 2px solid var(--primary-main);
-            background: var(--primary-main); color: var(--text-black); box-shadow: var(--shadow-sm);
-        }
-        .btn-print:hover { background: var(--primary-light); }
+        details.answer { margin-top: var(--space-sm); }
+        details.answer summary { cursor: pointer; font-weight: 700; color: var(--text-black);
+            font-family: var(--font-heading), sans-serif; font-size: 0.875rem;
+            border-bottom: 2px solid var(--primary-main); display: inline-block; }
+        details.answer .reveal { margin-top: var(--space-sm); padding: var(--space-md);
+            background: var(--accent-green-light); border-radius: var(--radius-sm); color: var(--text-black); }
 
-        .print-instructions {
-            display: none; margin-top: var(--space-lg); padding: var(--space-lg);
-            border-radius: var(--radius-md); background: var(--neutral-100);
-            border-left: 4px solid var(--primary-main);
-        }
-        .print-instructions.show { display: block; }
-        .print-instructions p:last-child { margin-bottom: 0; }
+        .references-section { background: var(--neutral-100); border-radius: var(--radius-lg);
+            padding: var(--space-lg) var(--space-xl); margin: var(--space-xl) 0; border-top: 3px solid var(--primary-main); }
+        .references-section h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
 
-        .empty-warning {
-            display: none; margin-top: var(--space-md); padding: var(--space-md);
-            border-radius: var(--radius-md); background: var(--alert-warning-bg);
-            border-left: 4px solid var(--alert-warning); font-weight: 700;
-        }
-        .empty-warning.show { display: block; }
+        .progress-bar { background: var(--neutral-300); border-radius: var(--radius-xl); height: 8px; overflow: hidden; margin: var(--space-lg) 0; }
+        .progress-fill { background: var(--primary-main); height: 100%; border-radius: var(--radius-xl); }
+        .progress-label { display: flex; justify-content: space-between; font-size: 0.875rem; color: var(--neutral-500); margin-bottom: var(--space-xs); }
 
-        /* Print-only rendering of the student's typed content.
-           Hidden on screen, shown only inside the print stylesheet. */
-        .print-only { display: none; }
+        .module-footer { background: var(--neutral-100); padding: var(--space-lg) var(--space-xl); text-align: center; border-top: 1px solid var(--neutral-300); }
+        .footer-text { font-size: 0.875rem; color: var(--neutral-500); }
+
+        .text-center { text-align: center; }
+        .text-muted { color: var(--neutral-500); }
+        .mt-sm { margin-top: var(--space-sm); } .mt-md { margin-top: var(--space-md); } .mt-lg { margin-top: var(--space-lg); }
+        .mb-sm { margin-bottom: var(--space-sm); } .mb-md { margin-bottom: var(--space-md); } .mb-lg { margin-bottom: var(--space-lg); }
+
+        /* Interactive quiz controls (pre-assessment / practice questions) */
+        .answer-option { display: block; width: 100%; text-align: left; padding: var(--space-sm) var(--space-md);
+            margin-bottom: var(--space-sm); border: 2px solid var(--neutral-300); border-radius: var(--radius-sm);
+            background: var(--white); cursor: pointer; font-family: var(--font-body), sans-serif; font-size: 1rem; color: var(--text-black); }
+        .answer-option:hover { border-color: var(--primary-main); }
+        .answer-option.selected { border-color: var(--primary-dark); background: var(--primary-pale); }
+        .answer-option.correct { border-color: var(--accent-green); background: var(--accent-green-light); }
+        .answer-option.incorrect { border-color: var(--alert-danger); background: var(--alert-danger-bg); }
+        .quiz-btn { font-family: var(--font-heading), sans-serif; font-weight: 700; padding: var(--space-sm) var(--space-xl);
+            border-radius: var(--radius-sm); border: 2px solid var(--primary-dark); background: var(--primary-dark); color: var(--white);
+            cursor: pointer; font-size: 0.95rem; margin-right: var(--space-sm); }
+        .quiz-btn:hover { background: #333333; }
+        .quiz-btn.secondary { background: var(--white); color: var(--primary-dark); }
+        .quiz-btn.secondary:hover { background: var(--neutral-100); }
+        #quizResults { display:none; background: var(--primary-pale); border: 2px solid var(--primary-main); border-radius: var(--radius-md);
+            padding: var(--space-lg); margin-top: var(--space-lg); text-align: center; font-family: var(--font-heading), sans-serif; }
+        #quizResults .score { font-size: 2rem; font-weight: 800; color: var(--text-black); }
 
         @media (max-width: 768px) {
-            body { padding: var(--space-sm); }
-            .module-header { padding: var(--space-xl) var(--space-lg); }
             .module-title { font-size: 1.75rem; }
             .content-area { padding: var(--space-lg); }
-            h2 { font-size: 1.375rem; }
-            .form-controls { flex-direction: column; }
-            .btn-print { width: 100%; }
-        }
-
-        @media print {
-            body { background: white; padding: 0; margin: 0; }
-            .course-container { box-shadow: none; max-width: 100%; }
-            .toc, .reflection-form, .plain-box, .callout, .table-container,
-            .summary-box, .module-footer, .module-header { display: none !important; }
-
-            .print-only { display: block !important; }
-
-            .content-area { padding: 0; }
-
-            .print-only h2 { color: black; border-bottom: 3px solid black; padding-bottom: var(--space-sm); }
-            .print-only h3 {
-                color: black; border-left: none; padding-left: 0;
-                font-size: 1.1rem; margin-top: var(--space-lg);
-            }
-            .print-only p { color: black; white-space: pre-wrap; }
         }
     </style>
 </head>
+
+
 <body>
     <div class="course-container">
 
         <header class="module-header">
-            <div class="module-label">Unit 5 &middot; Securing Systems and Protecting Data &middot; Section 5.9</div>
+            <div class="module-label">Unit 5 &middot; Mobile, Virtualization, and Cloud &middot; Section 5.9</div>
             <h1 class="module-title">Reflection Activity</h1>
-            <p class="module-subtitle">CompTIA A+ Core 2 - Domains 2.0 and 4.0</p>
+            <p class="module-subtitle">CompTIA A+ Core 1 &mdash; Domains 1.0, 4.0, and 5.0</p>
         </header>
 
-                <nav class="toc" id="tocNav">
+        <nav class="toc" id="tocNav">
             <div class="toc-header">Table of Contents</div>
-            <div class="toc-item">5.1 &mdash; Unit Overview and Schedule</div>
+            <div class="toc-item">5.1 &mdash; Unit Overview and Learning Objectives</div>
             <div class="toc-item">5.2 &mdash; Unit Pre-Assessment</div>
             <div class="toc-item">5.3 &mdash; Content Review</div>
             <div class="toc-item">5.4 &mdash; Reading Assignment</div>
             <div class="toc-item">5.5 &mdash; Video Assignment</div>
-            <div class="toc-item">5.6 &mdash; Classroom Labs and Take-Home Lab</div>
-            <div class="toc-item">5.7 &mdash; Practice Question Set</div>
+            <div class="toc-item">5.6 &mdash; Classroom Labs</div>
+            <div class="toc-item">5.7 &mdash; Practice Questions</div>
             <div class="toc-item">5.8 &mdash; Online Labs: NETLAB</div>
             <div class="toc-item current" id="tocCurrent">5.9 &mdash; Reflection Activity</div>
             <div class="toc-item">5.10 &mdash; Unit Test</div>
-            <div class="toc-item">5.11 &mdash; Unit 5 Tickets</div>
         </nav>
+
         <style>
             /* Collapsible TOC: only the current section shows until clicked */
             nav.toc#tocNav { gap: 0; }
@@ -396,117 +419,65 @@
 
         <div class="content-area">
 
-            <p class="text-muted">One post, roughly 400 words, submitted in Brightspace. This takes about an hour if you do it properly. See the Course Schedule for the due date.</p>
+            <p class="text-muted">Four prompts, answered directly in the fields below. Responses that summarize rather than reflect, or that address fewer than four prompts, are returned for revision.</p>
 
             <div class="plain-box">
-                <div class="callout-title">Why This Exists</div>
+                <div class="callout-title">In Plain Terms</div>
                 <div class="callout-content">
-                    <p>Experience alone does not produce learning. Setting permissions, hardening a router, or restoring a file teaches you comparatively little unless you stop and process what happened &mdash; what surprised you, what you predicted wrongly, what you would do differently.</p>
-                    <p>That step is the hinge of real learning from experience, and it is the one adults skip most often because it feels less productive than doing. It is not. Ten minutes of honest reflection consolidates more than another hour at the keyboard.</p>
+                    <p>Pick one concept from this week &mdash; a piece of mobile hardware, a virtualization or cloud concept, a troubleshooting moment, whatever stuck with you most &mdash; and work through it using the four prompts below. Not a summary of the whole week. One concept, examined closely, connected to the real world and to where you're headed professionally.</p>
                 </div>
             </div>
-
-            <h2>The Prompts</h2>
-            <p>Unit 5 is the unit where you configure things rather than recognize them, so the strongest reflections this week are about a setting that did not behave the way you expected. Those moments are worth more than the ones that worked.</p>
-            <p>Respond to all four, directly in the fields below. Write in prose, in your own voice &mdash; this is not a formal paper and it should not read like one.</p>
 
             <div class="callout callout-tip">
-                <div class="callout-title">What a Strong Response Looks Like</div>
-                <div class="callout-content"><p>"In Lab 10 I gave the share Full Control and could still not save a file from the other machine. I spent fifteen minutes re-checking the share before I remembered the reading said the more restrictive of the two permission sets wins. The NTFS permission was Read. I had understood that sentence when I read it and still did not apply it, because in my head Full Control meant full control. Next time a user tells me they cannot save to a share, I am opening both permission sets before I change anything, and I am checking NTFS first." That is specific, honest, and connected. It is also about something the writer already knew and still got wrong &mdash; most of the best ones are.</p></div>
-            </div>
-
-            <div class="reflection-form">
-                <div class="field-group">
-                    <label class="field-label" for="studentName">Your Name</label>
-                    <input type="text" id="studentName" class="field-input" placeholder="Type your full name as it appears in Brightspace">
+                <div class="callout-title">Full Credit Standard</div>
+                <div class="callout-content">
+                    <p>Full credit requires all four prompts answered directly in the fields below. Responses that summarize rather than reflect, or that address fewer than four prompts, are returned with feedback and resubmitted for full credit. There is no partial score.</p>
                 </div>
-
-                <div class="prompt-block">
-                    <div class="prompt-stage">Concrete Experience</div>
-                    <p class="prompt-text">Describe one specific moment from this unit &mdash; a classroom lab, the take-home lab, a NETLAB session, the practice exam, or your own machine. Not a summary; one moment. What were you configuring, and what happened?</p>
-                    <textarea class="prompt-textarea" id="promptCE" placeholder="Write your response here..."></textarea>
-                    <div class="word-count" id="wordCountCE">0 words</div>
-                </div>
-
-                <div class="prompt-block">
-                    <div class="prompt-stage">Reflective Observation</div>
-                    <p class="prompt-text">What surprised you? Name something you assumed about security settings, permissions, wireless protection, or backups and were surprised to discover. Include anything you expected to be difficult that was not, or the reverse.</p>
-                    <textarea class="prompt-textarea" id="promptRO" placeholder="Write your response here..."></textarea>
-                    <div class="word-count" id="wordCountRO">0 words</div>
-                </div>
-
-                <div class="prompt-block">
-                    <div class="prompt-stage">Abstract Conceptualization</div>
-                    <p class="prompt-text">Connect that moment to something from the reading or videos. Which concept does it illustrate &mdash; Windows security settings, permissions, wireless security, mobile hardening, SOHO router security, browser security, change management, or backups &mdash; and how do you understand that concept differently now?</p>
-                    <textarea class="prompt-textarea" id="promptAC" placeholder="Write your response here..."></textarea>
-                    <div class="word-count" id="wordCountAC">0 words</div>
-                </div>
-
-                <div class="prompt-block">
-                    <div class="prompt-stage">Active Experimentation</div>
-                    <p class="prompt-text">What will you do differently next time? Be specific &mdash; name the setting you will configure or the step you will add to your procedure. How does that change apply to the role of a computer technician, and what difference will it make in that role?</p>
-                    <textarea class="prompt-textarea" id="promptAE" placeholder="Write your response here..."></textarea>
-                    <div class="word-count" id="wordCountAE">0 words</div>
-                </div>
-
-                <div class="form-controls">
-                    <button type="button" id="printBtn" class="btn-print">Print</button>
-                </div>
-
-                <div class="empty-warning" id="emptyWarning">Your name and at least one prompt are still blank. You can still print, but an empty reflection won't earn credit &mdash; go back and fill in your responses first.</div>
-
-                <div class="print-instructions" id="printInstructions">
-                    <p><strong>The print dialog just opened.</strong> To save this as a PDF instead of sending it to a physical printer:</p>
-                    <ul>
-                        <li>In the <strong>Destination</strong> (or <strong>Printer</strong>) dropdown, choose <strong>Save as PDF</strong> &mdash; on Windows this may be listed as <strong>Microsoft Print to PDF</strong></li>
-                        <li>Click <strong>Save</strong> and choose where to save the file on your computer</li>
-                        <li>Upload that saved PDF to the submission link in Brightspace</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Print-only view: populated from the fields above right before printing -->
-            <div class="print-only" id="printView">
-                <h2>Unit 5 Reflection</h2>
-                <p><strong>Name:</strong> <span id="printName"></span></p>
-                <p><strong>Assignment:</strong> Unit 5 Reflection Activity &mdash; CTS-ITS7501-80</p>
-                <p><strong>Due:</strong> See the Course Schedule</p>
-
-                <h3>Describe one specific moment from this unit &mdash; a classroom lab, the take-home lab, a NETLAB session, the practice exam, or your own machine. Not a summary; one moment. What were you configuring, and what happened?</h3>
-                <p id="printCE"></p>
-
-                <h3>What surprised you? Name something you assumed about security settings, permissions, wireless protection, or backups and were surprised to discover. Include anything you expected to be difficult that was not, or the reverse.</h3>
-                <p id="printRO"></p>
-
-                <h3>Connect that moment to something from the reading or videos. Which concept does it illustrate &mdash; Windows security settings, permissions, wireless security, mobile hardening, SOHO router security, browser security, change management, or backups &mdash; and how do you understand that concept differently now?</h3>
-                <p id="printAC"></p>
-
-                <h3>What will you do differently next time? Be specific &mdash; name the setting you will configure or the step you will add to your procedure. How does that change apply to the role of a computer technician, and what difference will it make in that role?</h3>
-                <p id="printAE"></p>
-            </div>
-
-            <h2>Grading</h2>
-            <div class="table-container">
-                <table>
-                    <thead><tr><th>Requirement</th><th>Standard for Full Credit</th></tr></thead>
-                    <tbody>
-                        <tr><td>All four prompts addressed</td><td>Each prompt receives a substantive response</td></tr>
-                        <tr><td>Specificity</td><td>References an actual moment, not a general summary of the week</td></tr>
-                        <tr><td>Connection</td><td>Links the experience to a named concept from the reading or videos</td></tr>
-                        <tr><td>Forward action</td><td>States a concrete change, not a vague intention</td></tr>
-                        <tr><td>Length</td><td>Roughly 400 words</td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="callout callout-info">
-                <div class="callout-title">Completion Standard &mdash; 100 Points</div>
-                <div class="callout-content"><p>Full credit is awarded when all five requirements are met. Responses that summarize rather than reflect, or that address fewer than four prompts, are returned with feedback and resubmitted for full credit. There is no partial score.</p></div>
             </div>
 
             <div class="callout callout-warning">
-                <div class="callout-title">Write About What Went Wrong</div>
-                <div class="callout-content"><p>Reflections describing a week where everything worked are the least useful ones to write and the least interesting to read. Nobody is grading you on competence here. The mistakes are where the learning is, and I would far rather read about the twenty minutes you lost to a header pin than a paragraph telling me the lab went well.</p></div>
+                <div class="callout-title">Write About What Was Actually Hard</div>
+                <div class="callout-content">
+                    <p>Reflections claiming a concept was easy from the start are the least useful ones to write and the least interesting to read. Nobody is grading you on how quickly you understood something. The struggle and the discovery are where the learning is, and I would far rather read about the ten minutes you spent untangling IaaS from PaaS than a paragraph telling me it all made sense right away.</p>
+                </div>
+            </div>
+
+            <div class="tech-box">
+                <div class="callout-title">Your Response</div>
+                <div class="callout-content">
+                    <label for="studentName" style="display:block; font-weight:700; margin-bottom: var(--space-xs);">Name</label>
+                    <input type="text" id="studentName" placeholder="Your full name" style="width:100%; padding: var(--space-sm) var(--space-md); border: 2px solid var(--neutral-300); border-radius: var(--radius-sm); font-family: var(--font-body), sans-serif; font-size: 1rem; margin-bottom: var(--space-lg);">
+
+                    <label for="promptCE" style="display:block; font-weight:700; margin-bottom: var(--space-xs);">Reflect on the mobile device, virtualization, or cloud computing concepts you have covered this week and describe how this concept impacts consumers/businesses/server environments. Explain how you have learned to personally remember this concept.</label>
+                    <textarea id="promptCE" rows="4" style="width:100%; padding: var(--space-md); border: 2px solid var(--neutral-300); border-radius: var(--radius-sm); font-family: var(--font-body), sans-serif; font-size: 1rem;"></textarea>
+                    <p class="text-muted" id="wordCountCE" style="margin-top: var(--space-xs); margin-bottom: var(--space-lg);">0 words</p>
+
+                    <label for="promptRO" style="display:block; font-weight:700; margin-bottom: var(--space-xs);">What was difficult or surprised you about it, and why? What discovery did you make about the concept that will improve the desktop or mobile experience?</label>
+                    <textarea id="promptRO" rows="4" style="width:100%; padding: var(--space-md); border: 2px solid var(--neutral-300); border-radius: var(--radius-sm); font-family: var(--font-body), sans-serif; font-size: 1rem;"></textarea>
+                    <p class="text-muted" id="wordCountRO" style="margin-top: var(--space-xs); margin-bottom: var(--space-lg);">0 words</p>
+
+                    <label for="promptAC" style="display:block; font-weight:700; margin-bottom: var(--space-xs);">Connect this learning moment to a specific concept from the reading or videos this week.</label>
+                    <textarea id="promptAC" rows="4" style="width:100%; padding: var(--space-md); border: 2px solid var(--neutral-300); border-radius: var(--radius-sm); font-family: var(--font-body), sans-serif; font-size: 1rem;"></textarea>
+                    <p class="text-muted" id="wordCountAC" style="margin-top: var(--space-xs); margin-bottom: var(--space-lg);">0 words</p>
+
+                    <label for="promptAE" style="display:block; font-weight:700; margin-bottom: var(--space-xs);">How will this concept impact the field of an IT technician and how can you apply this to your chosen field? How will this concept change over time? How has this concept improved the field? How has it complicated it?</label>
+                    <textarea id="promptAE" rows="4" style="width:100%; padding: var(--space-md); border: 2px solid var(--neutral-300); border-radius: var(--radius-sm); font-family: var(--font-body), sans-serif; font-size: 1rem;"></textarea>
+                    <p class="text-muted" id="wordCountAE" style="margin-top: var(--space-xs);">0 words</p>
+                </div>
+            </div>
+
+            <div id="emptyWarning" class="callout callout-danger" style="display:none;">
+                <div class="callout-title">Missing Fields</div>
+                <div class="callout-content"><p>Your name or one of the four prompts is still empty. An empty reflection will not earn credit &mdash; you can still print, but check that everything is filled in first.</p></div>
+            </div>
+
+            <div class="mt-lg">
+                <button class="quiz-btn" id="printBtn">Print</button>
+            </div>
+
+            <div id="printInstructions" class="callout callout-info" style="display:none; margin-top: var(--space-md);">
+                <div class="callout-title">Saving as a PDF</div>
+                <div class="callout-content"><p>In the print dialog that just opened, choose <strong>Save as PDF</strong> (or "Microsoft Print to PDF" on Windows) as your destination, then upload the resulting file to the submission link in Brightspace.</p></div>
             </div>
 
             <div class="summary-box">
@@ -516,78 +487,93 @@
                     <li>One specific moment described, not the whole week</li>
                     <li>At least one named concept from the reading or videos</li>
                     <li>A concrete change you will make, stated as an action</li>
-                    <li>Click <strong>Print</strong>, save as a PDF, and upload it to the submission link in Brightspace by the date shown in the Course Schedule</li>
+                    <li>Click <strong>Print</strong>, save as a PDF, and upload it to the submission link in Brightspace by the due date</li>
                 </ul>
             </div>
+
+            <div class="print-only" id="printView" style="display:none;">
+                <h2>Unit 5 Reflection</h2>
+                <p><strong>Name:</strong> <span id="printName"></span></p>
+                <h3>Reflect on the mobile device, virtualization, or cloud computing concepts you have covered this week and describe how this concept impacts consumers/businesses/server environments. Explain how you have learned to personally remember this concept.</h3>
+                <p id="printCE"></p>
+                <h3>What was difficult or surprised you about it, and why? What discovery did you make about the concept that will improve the desktop or mobile experience?</h3>
+                <p id="printRO"></p>
+                <h3>Connect this learning moment to a specific concept from the reading or videos this week.</h3>
+                <p id="printAC"></p>
+                <h3>How will this concept impact the field of an IT technician and how can you apply this to your chosen field? How will this concept change over time? How has this concept improved the field? How has it complicated it?</h3>
+                <p id="printAE"></p>
+            </div>
+
+            <style>
+                @media print {
+                    .module-header, .toc, .module-footer, .callout, .tech-box, .plain-box,
+                    .summary-box, #printBtn, #emptyWarning, #printInstructions, .text-muted { display: none !important; }
+                    .print-only { display: block !important; }
+                }
+            </style>
+
+            <script>
+                (function () {
+                    var fields = ['CE', 'RO', 'AC', 'AE'];
+
+                    function countWords(text) {
+                        var trimmed = text.trim();
+                        return trimmed === '' ? 0 : trimmed.split(/\s+/).length;
+                    }
+
+                    fields.forEach(function (key) {
+                        var textarea = document.getElementById('prompt' + key);
+                        var counter = document.getElementById('wordCount' + key);
+                        textarea.addEventListener('input', function () {
+                            var n = countWords(textarea.value);
+                            counter.textContent = n + (n === 1 ? ' word' : ' words');
+                        });
+                    });
+
+                    function syncPrintView() {
+                        var name = document.getElementById('studentName').value.trim();
+                        document.getElementById('printName').textContent = name || '(name not entered)';
+                        fields.forEach(function (key) {
+                            var value = document.getElementById('prompt' + key).value.trim();
+                            document.getElementById('print' + key).textContent = value || '(no response entered)';
+                        });
+                    }
+
+                    function hasEmptyFields() {
+                        var name = document.getElementById('studentName').value.trim();
+                        if (!name) return true;
+                        return fields.some(function (key) {
+                            return document.getElementById('prompt' + key).value.trim() === '';
+                        });
+                    }
+
+                    document.getElementById('printBtn').addEventListener('click', function () {
+                        var warning = document.getElementById('emptyWarning');
+                        warning.style.display = hasEmptyFields() ? 'block' : 'none';
+                        syncPrintView();
+
+                        // Force the browser to actually process the text updates above
+                        // before entering print mode. Without this, some browsers can
+                        // snapshot the page for printing before the newly-set answer
+                        // text has been committed to the render tree, since the
+                        // print-only container is display:none until the print
+                        // media context itself activates.
+                        void document.getElementById('printView').offsetHeight;
+
+                        document.getElementById('printInstructions').style.display = 'block';
+
+                        window.setTimeout(function () {
+                            window.print();
+                        }, 50);
+                    });
+                })();
+            </script>
 
         </div>
 
         <footer class="module-footer">
-            <p class="footer-text">CompTIA A+ Core 2 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
+            <p class="footer-text">CompTIA A+ Core 1 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
         </footer>
     </div>
-
-    <script>
-        (function () {
-            var fields = ['CE', 'RO', 'AC', 'AE'];
-
-            function countWords(text) {
-                var trimmed = text.trim();
-                return trimmed === '' ? 0 : trimmed.split(/\s+/).length;
-            }
-
-            fields.forEach(function (key) {
-                var textarea = document.getElementById('prompt' + key);
-                var counter = document.getElementById('wordCount' + key);
-                textarea.addEventListener('input', function () {
-                    var n = countWords(textarea.value);
-                    counter.textContent = n + (n === 1 ? ' word' : ' words');
-                });
-            });
-
-            function syncPrintView() {
-                var name = document.getElementById('studentName').value.trim();
-                document.getElementById('printName').textContent = name || '(name not entered)';
-
-                fields.forEach(function (key) {
-                    var value = document.getElementById('prompt' + key).value.trim();
-                    document.getElementById('print' + key).textContent = value || '(no response entered)';
-                });
-            }
-
-            function hasEmptyFields() {
-                var name = document.getElementById('studentName').value.trim();
-                if (!name) return true;
-                return fields.some(function (key) {
-                    return document.getElementById('prompt' + key).value.trim() === '';
-                });
-            }
-
-            document.getElementById('printBtn').addEventListener('click', function () {
-                var warning = document.getElementById('emptyWarning');
-                if (hasEmptyFields()) {
-                    warning.classList.add('show');
-                } else {
-                    warning.classList.remove('show');
-                }
-
-                syncPrintView();
-
-                // Force the browser to actually process the text updates above
-                // before entering print mode. Without this, some browsers can
-                // snapshot the page for printing before the newly-set answer
-                // text has been committed to the render tree, since the
-                // print-only container is display:none until the print
-                // media context itself activates.
-                void document.getElementById('printView').offsetHeight;
-
-                document.getElementById('printInstructions').classList.add('show');
-
-                window.setTimeout(function () {
-                    window.print();
-                }, 50);
-            });
-        })();
-    </script>
 </body>
 </html>

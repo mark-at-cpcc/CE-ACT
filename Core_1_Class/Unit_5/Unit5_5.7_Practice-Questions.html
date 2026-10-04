@@ -6,7 +6,7 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unit 5 &mdash; 5.7 Practice Question Set | CompTIA A+ Core 2</title>
+    <title>Unit 5 &mdash; 5.7 Practice Questions | CompTIA A+ Core 1</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,7 +15,7 @@
     <style>
         /* ============================================
            CPCC COURSE TEMPLATE - GOLD / CHARCOAL / BLACK
-           CTS-ITS7501-80 CompTIA A+ Core 2 Training
+           CTS-ITS7501-80 CompTIA A+ Core 1 Training
            Type: true black. Accents: gold. Chrome: charcoal.
            ============================================ */
 
@@ -77,9 +77,12 @@
 
         body {
             font-family: var(--font-body), 'Segoe UI', Tahoma, Verdana, sans-serif;
-            font-size: 1.0625rem; line-height: 1.7; color: var(--text-black);
+            font-size: 1.0625rem;
+            line-height: 1.7;
+            color: var(--text-black);
             background: linear-gradient(135deg, var(--neutral-100) 0%, var(--white) 100%);
-            min-height: 100vh; padding: var(--space-lg);
+            min-height: 100vh;
+            padding: var(--space-lg);
         }
 
         .course-container {
@@ -89,6 +92,9 @@
 
         .module-header {
             background: var(--primary-main); color: var(--text-black);
+            /* Reduced from var(--space-2xl) top/bottom (3rem) to var(--space-lg) (1.5rem) to cut excess
+               empty space in this card's title header. To revert, change padding back to:
+               padding: var(--space-2xl) var(--space-xl); */
             padding: var(--space-lg) var(--space-xl); position: relative; overflow: hidden;
         }
         .module-label {
@@ -136,6 +142,11 @@
         a { color: var(--text-black); text-decoration: none; border-bottom: 2px solid var(--primary-main); transition: all 0.2s ease; }
         a:hover { background: var(--primary-pale); border-bottom-color: var(--accent-teal); }
 
+        ul, ol { margin-bottom: var(--space-md); padding-left: var(--space-lg); }
+        li { margin-bottom: var(--space-sm); }
+        ul li::marker { color: var(--accent-teal); }
+        ol li::marker { color: var(--accent-teal); font-weight: 700; }
+
         .tech-box {
             background: var(--neutral-100); border: 2px solid var(--neutral-500);
             border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
@@ -155,17 +166,86 @@
             text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
         .callout-content { }
         .callout-content p:last-child { margin-bottom: 0; }
+
         .callout-tip { background: var(--accent-green-light); border-left: 4px solid var(--accent-green); }
         .callout-warning { background: var(--alert-warning-bg); border-left: 4px solid var(--alert-warning); }
         .callout-danger { background: var(--alert-danger-bg); border-left: 4px solid var(--alert-danger); }
         .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
 
-        .text-center { text-align: center; }
-        .text-muted { color: var(--neutral-500); }
-        .mt-sm { margin-top: var(--space-sm); } .mt-md { margin-top: var(--space-md); } .mt-lg { margin-top: var(--space-lg); }
-        .mb-sm { margin-bottom: var(--space-sm); } .mb-md { margin-bottom: var(--space-md); } .mb-lg { margin-bottom: var(--space-lg); }
+        .objectives-box {
+            background: var(--primary-pale); border-left: 5px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .objectives-box h3 { margin-top: 0; border-left: none; padding-left: 0; color: var(--text-black); }
+        .objectives-box ol { margin-bottom: 0; }
 
-        /* Interactive quiz controls */
+        .key-concept {
+            background: linear-gradient(135deg, var(--accent-purple-light) 0%, var(--white) 100%);
+            border: 2px solid var(--accent-purple); border-radius: var(--radius-lg);
+            padding: var(--space-lg); margin: var(--space-xl) 0 var(--space-lg); position: relative;
+        }
+        .key-concept::before {
+            content: 'KEY CONCEPT'; position: absolute; top: -12px; left: var(--space-lg);
+            background: var(--accent-purple); color: var(--white); font-family: var(--font-heading), sans-serif;
+            font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-md); border-radius: var(--radius-sm);
+        }
+        .key-concept h4 { color: var(--text-black); margin-top: var(--space-sm); }
+
+        .definition {
+            background: var(--neutral-100); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin: var(--space-md) 0; border-left: 4px solid var(--accent-orange);
+        }
+        .definition-term { font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 1.125rem;
+            color: var(--text-black); margin-bottom: var(--space-xs); }
+        .definition-text { color: var(--text-black); margin-bottom: 0; }
+
+        code { font-family: var(--font-code), Consolas, monospace; font-size: 0.9rem; background: var(--primary-pale);
+            color: var(--text-black); padding: 2px 6px; border-radius: var(--radius-sm); }
+        pre { background: #2E2E2E; color: #f1ece0; padding: var(--space-lg); border-radius: var(--radius-md);
+            overflow-x: auto; margin: var(--space-lg) 0; position: relative; }
+        pre::before {
+            content: 'STEPS'; position: absolute; top: 0; right: 0; background: var(--primary-main); color: var(--text-black);
+            font-family: var(--font-heading), sans-serif; font-size: 0.625rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-sm); border-radius: 0 var(--radius-md) 0 var(--radius-sm);
+        }
+        pre code { background: transparent; color: inherit; padding: 0; font-size: 0.875rem; line-height: 1.6; }
+
+        .table-container { overflow-x: auto; margin: var(--space-lg) 0; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); }
+        table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
+        thead { background: var(--primary-dark); color: var(--white); }
+        th { font-family: var(--font-heading), sans-serif; font-weight: 700; text-align: left; padding: var(--space-md) var(--space-lg); color: var(--white); }
+        td { padding: var(--space-md) var(--space-lg); border-bottom: 1px solid var(--neutral-300); color: var(--text-black); }
+        tbody tr:hover { background: var(--primary-pale); }
+        tbody tr:last-child td { border-bottom: none; }
+
+        .activity-section {
+            background: linear-gradient(135deg, var(--accent-orange-light) 0%, var(--white) 100%);
+            border: 2px dashed var(--accent-orange); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .activity-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg); }
+        .activity-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700;
+            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
+        .activity-subtitle { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
+
+        .lab-section {
+            background: var(--white); border: 2px solid var(--primary-dark); border-radius: var(--radius-lg);
+            padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .lab-header { padding-bottom: var(--space-md); margin-bottom: var(--space-lg); border-bottom: 2px solid var(--primary-dark); }
+        .lab-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700; color: var(--text-black); border-left: none; padding-left: 0; }
+        .lab-time { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
+        .lab-steps { list-style: none; counter-reset: lab-step; padding-left: 0; }
+        .lab-steps li { counter-increment: lab-step; position: relative; padding-left: 3rem; margin-bottom: var(--space-lg); }
+        .lab-steps li::before {
+            content: counter(lab-step); position: absolute; left: 0; width: 2rem; height: 2rem;
+            background: var(--accent-teal); color: var(--white); font-family: var(--font-heading), sans-serif; font-weight: 700;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.875rem;
+        }
+
+        .assessment-section { background: var(--primary-pale); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0; }
+        .assessment-header { text-align: center; margin-bottom: var(--space-xl); }
+        .assessment-header h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
         .question-block { background: var(--white); border-radius: var(--radius-md); padding: var(--space-lg);
             margin-bottom: var(--space-lg); box-shadow: var(--shadow-sm); }
         .question-number { font-family: var(--font-heading), sans-serif; font-size: 0.75rem; font-weight: 700;
@@ -174,6 +254,30 @@
             text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); }
         .question-text { font-weight: 600; color: var(--text-black); margin-bottom: var(--space-md); }
 
+        details.answer { margin-top: var(--space-sm); }
+        details.answer summary { cursor: pointer; font-weight: 700; color: var(--text-black);
+            font-family: var(--font-heading), sans-serif; font-size: 0.875rem;
+            border-bottom: 2px solid var(--primary-main); display: inline-block; }
+        details.answer .reveal { margin-top: var(--space-sm); padding: var(--space-md);
+            background: var(--accent-green-light); border-radius: var(--radius-sm); color: var(--text-black); }
+
+        .references-section { background: var(--neutral-100); border-radius: var(--radius-lg);
+            padding: var(--space-lg) var(--space-xl); margin: var(--space-xl) 0; border-top: 3px solid var(--primary-main); }
+        .references-section h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+
+        .progress-bar { background: var(--neutral-300); border-radius: var(--radius-xl); height: 8px; overflow: hidden; margin: var(--space-lg) 0; }
+        .progress-fill { background: var(--primary-main); height: 100%; border-radius: var(--radius-xl); }
+        .progress-label { display: flex; justify-content: space-between; font-size: 0.875rem; color: var(--neutral-500); margin-bottom: var(--space-xs); }
+
+        .module-footer { background: var(--neutral-100); padding: var(--space-lg) var(--space-xl); text-align: center; border-top: 1px solid var(--neutral-300); }
+        .footer-text { font-size: 0.875rem; color: var(--neutral-500); }
+
+        .text-center { text-align: center; }
+        .text-muted { color: var(--neutral-500); }
+        .mt-sm { margin-top: var(--space-sm); } .mt-md { margin-top: var(--space-md); } .mt-lg { margin-top: var(--space-lg); }
+        .mb-sm { margin-bottom: var(--space-sm); } .mb-md { margin-bottom: var(--space-md); } .mb-lg { margin-bottom: var(--space-lg); }
+
+        /* Interactive quiz controls (pre-assessment / practice questions) */
         .answer-option { display: block; width: 100%; text-align: left; padding: var(--space-sm) var(--space-md);
             margin-bottom: var(--space-sm); border: 2px solid var(--neutral-300); border-radius: var(--radius-sm);
             background: var(--white); cursor: pointer; font-family: var(--font-body), sans-serif; font-size: 1rem; color: var(--text-black); }
@@ -191,9 +295,6 @@
             padding: var(--space-lg); margin-top: var(--space-lg); text-align: center; font-family: var(--font-heading), sans-serif; }
         #quizResults .score { font-size: 2rem; font-weight: 800; color: var(--text-black); }
 
-        .module-footer { background: var(--neutral-100); padding: var(--space-lg) var(--space-xl); text-align: center; border-top: 1px solid var(--neutral-300); }
-        .footer-text { font-size: 0.875rem; color: var(--neutral-500); }
-
         @media (max-width: 768px) {
             .module-title { font-size: 1.75rem; }
             .content-area { padding: var(--space-lg); }
@@ -201,29 +302,30 @@
     </style>
 </head>
 
+
 <body>
     <div class="course-container">
 
         <header class="module-header">
-            <div class="module-label">Unit 5 &middot; Securing Systems and Protecting Data &middot; Section 5.7</div>
-            <h1 class="module-title">Practice Question Set</h1>
-            <p class="module-subtitle">CompTIA A+ Core 2 - Domains 2.0 and 4.0</p>
+            <div class="module-label">Unit 5 &middot; Mobile, Virtualization, and Cloud &middot; Section 5.7</div>
+            <h1 class="module-title">Practice Questions</h1>
+            <p class="module-subtitle">CompTIA A+ Core 1 &mdash; Domains 1.0, 4.0, and 5.0</p>
         </header>
 
-                <nav class="toc" id="tocNav">
+        <nav class="toc" id="tocNav">
             <div class="toc-header">Table of Contents</div>
-            <div class="toc-item">5.1 &mdash; Unit Overview and Schedule</div>
+            <div class="toc-item">5.1 &mdash; Unit Overview and Learning Objectives</div>
             <div class="toc-item">5.2 &mdash; Unit Pre-Assessment</div>
             <div class="toc-item">5.3 &mdash; Content Review</div>
             <div class="toc-item">5.4 &mdash; Reading Assignment</div>
             <div class="toc-item">5.5 &mdash; Video Assignment</div>
-            <div class="toc-item">5.6 &mdash; Classroom Labs and Take-Home Lab</div>
-            <div class="toc-item current" id="tocCurrent">5.7 &mdash; Practice Question Set</div>
+            <div class="toc-item">5.6 &mdash; Classroom Labs</div>
+            <div class="toc-item current" id="tocCurrent">5.7 &mdash; Practice Questions</div>
             <div class="toc-item">5.8 &mdash; Online Labs: NETLAB</div>
             <div class="toc-item">5.9 &mdash; Reflection Activity</div>
             <div class="toc-item">5.10 &mdash; Unit Test</div>
-            <div class="toc-item">5.11 &mdash; Unit 5 Tickets</div>
         </nav>
+
         <style>
             /* Collapsible TOC: only the current section shows until clicked */
             nav.toc#tocNav { gap: 0; }
@@ -320,7 +422,7 @@
             <div class="tech-box">
                 <div class="callout-title">Test Format</div>
                 <div class="callout-content">
-                    <p>Each attempt draws a fresh random set of 10 questions from a 50-item pool covering this unit's Windows security, wireless, mobile, SOHO network, browser, change management, and backup objectives. Answer choices are reshuffled every attempt. Click an answer to select it, then click <strong>Grade My Answers</strong> to score the set. Keep resetting until you score a perfect 10 out of 10.</p>
+                    <p>Each attempt draws a fresh random set of 10 questions covering this unit's laptop and mobile device hardware, mobile connectivity, virtualization, cloud computing, and mobile troubleshooting objectives. Click an answer to select it, then click <strong>Grade My Answers</strong> to score the set. Keep resetting until you score a perfect 10 out of 10.</p>
                 </div>
             </div>
 
@@ -346,16 +448,13 @@
             </div>
 
             <script>
-                const POOL = [{"q": "Which change type is routine and pre-approved?", "opts": ["Normal change", "Standard change", "Emergency change", "Peer-reviewed change"], "correct": 1}, {"q": "Which wireless authentication approach scales best for an organization with many employees?", "opts": ["MAC address filtering alone", "A single pre-shared key shared by all", "Centralized authentication such as RADIUS", "Disabling SSID broadcast"], "correct": 2}, {"q": "During which period are changes intended to be performed?", "opts": ["A maintenance window", "A change freeze", "A peer review", "An acceptance test"], "correct": 0}, {"q": "Which element of a change record estimates how badly something could go wrong?", "opts": ["Scope of the change", "Risk analysis and risk level", "Purpose of the change", "Implementation"], "correct": 1}, {"q": "A router is installed in an unlocked lobby cabinet. Which risk applies even if every software setting is correct?", "opts": ["The wireless signal will be too weak", "Anyone with physical access can reset it to factory defaults", "Firmware updates will fail to install", "The firewall cannot be enabled"], "correct": 1}, {"q": "What is the correct justification for a port forwarding rule?", "opts": ["A specific service genuinely requires inbound access, and the risk is accepted and documented", "It is a default setting that should remain enabled", "It replaces the need for a firewall", "It improves wireless encryption strength"], "correct": 0}, {"q": "Which Active Directory task assigns a script that runs when a user signs in?", "opts": ["Moving objects within organizational units", "Configuring folder redirection", "Assigning a log-in script", "Selecting security groups"], "correct": 2}, {"q": "Which sign-in option uses a biometric factor?", "opts": ["Username and password", "PIN", "Fingerprint", "Single sign-on"], "correct": 2}, {"q": "Which firewall action deliberately directs incoming traffic to a specific internal device?", "opts": ["Secure management access", "Disabling unused ports", "IP filtering", "Port forwarding"], "correct": 3}, {"q": "Which backup type copies everything changed since the last full backup?", "opts": ["Incremental", "Differential", "Full", "Synthetic full"], "correct": 1}, {"q": "Which encryption method is deprecated and should be treated as a finding rather than a recommendation?", "opts": ["AES", "TKIP", "WPA3", "Kerberos"], "correct": 1}, {"q": "A home user reports that a game console requires several ports to be reachable. Which approach is both workable and justified?", "opts": ["Enabling UPnP permanently on a business network", "Port forwarding for the specific ports required", "Disabling the firewall", "Placing the console on the management network"], "correct": 1}, {"q": "Which mobile hardening step keeps known vulnerabilities from remaining exploitable?", "opts": ["Installing a locator application", "Setting a swipe screen lock", "Patch management for the OS and applications", "Enabling content filtering"], "correct": 2}, {"q": "Restoring from which backup type requires only the full backup plus the most recent of that type?", "opts": ["In-place", "Incremental", "Synthetic full", "Differential"], "correct": 3}, {"q": "Which control most directly limits an attacker guessing a phone's PIN repeatedly?", "opts": ["Device encryption", "Failed log-in attempt restrictions", "Content filtering", "Remote backup"], "correct": 1}, {"q": "Which recovery method restores data over the original location?", "opts": ["In-place or overwrite recovery", "Alternative location recovery", "Synthetic full recovery", "Offsite rotation"], "correct": 0}, {"q": "A patch must be deployed immediately because a flaw is being actively exploited. Which change type applies?", "opts": ["Emergency change", "Standard change", "Normal change", "Deferred change"], "correct": 0}, {"q": "A technician needs a domain user's documents available from any workstation. Which Active Directory task accomplishes this?", "opts": ["Configuring folder redirection", "Assigning a log-in script", "Selecting security groups", "Joining the domain"], "correct": 0}, {"q": "Which firewall action closes doors that nothing is using?", "opts": ["Port forwarding", "Disabling unused ports", "Enabling UPnP", "Content filtering"], "correct": 1}, {"q": "Which element records which systems and users will notice the change?", "opts": ["Risk level", "Affected systems and impact", "Change type", "Purpose"], "correct": 1}, {"q": "What does a pre-shared key arrangement mean for wireless security in a small office?", "opts": ["Everyone uses the same key, so changing it affects every device", "Each user receives a unique certificate", "Authentication is handled by a RADIUS server", "The key rotates automatically each day"], "correct": 0}, {"q": "Which feature helps an owner find a misplaced device before deciding to erase it?", "opts": ["Failed log-in attempt restrictions", "A remote wipe", "A configuration profile", "A locator application"], "correct": 3}, {"q": "Why is a remote backup application a prerequisite for a confident remote wipe policy?", "opts": ["It encrypts the device before the wipe", "It is required for the wipe command to reach the device", "Without it, erasing the device also destroys the only copy of the data", "It prevents the device from being located"], "correct": 2}, {"q": "A wireless survey finds an access point configured with TKIP. What should the technician recommend?", "opts": ["Disable encryption and rely on MAC filtering", "Leave it, because TKIP is stronger than AES", "Reconfigure it to use AES with WPA2 or move to WPA3", "Enable SSID broadcast to compensate"], "correct": 2}, {"q": "Which Windows security component would a technician check first if a specific application cannot communicate on the network?", "opts": ["BitLocker status", "The antivirus definition date", "The firewall's application settings", "Folder inheritance"], "correct": 2}, {"q": "A user reports being unable to save to a share after a technician granted Full Control on the share. What is the most likely cause?", "opts": ["The share is on a metered connection", "The user's account has expired", "The NTFS permissions on the folder are more restrictive", "The user needs a Microsoft account"], "correct": 2}, {"q": "Which setting reduces the number of services an attacker can reach on a SOHO network?", "opts": ["Enabling UPnP", "Disabling unused ports on the firewall", "Broadcasting the SSID", "Increasing the DHCP lease time"], "correct": 1}, {"q": "Which authentication approach requires more than one category of proof before wireless access is granted?", "opts": ["Ticket-based", "Single sign-on", "Pre-shared key", "Multifactor"], "correct": 3}, {"q": "Which element of a change plan describes how the change will be undone if it fails?", "opts": ["Peer review", "Risk analysis", "Scope of the change", "Rollback plan"], "correct": 3}, {"q": "Which two firewall configuration areas are named in the Windows security settings objective?", "opts": ["Proxy and secure DNS", "Content filtering and IP filtering", "Screened subnet and UPnP", "Port security and application security"], "correct": 3}, {"q": "Which two categories does mobile patch management cover?", "opts": ["Locator apps and remote wipe", "Firmware and firewall rules", "Screen locks and encryption", "OS updates and application updates"], "correct": 3}, {"q": "Which feature allows a workstation to receive centrally defined configuration from a domain?", "opts": ["Configuring secure DNS", "Enabling BitLocker To Go", "Applying Group Policy", "Running as administrator"], "correct": 2}, {"q": "Which backup type copies everything changed since the last backup of any kind?", "opts": ["Synthetic full", "Differential", "Full", "Incremental"], "correct": 3}, {"q": "During which period are changes deliberately not permitted?", "opts": ["A maintenance window", "A change freeze", "A sandbox test", "A risk analysis"], "correct": 1}, {"q": "Which browser capability lets an administrator deliberately turn plug-ins and features on or off?", "opts": ["Browser feature management", "Sandbox testing", "Content filtering", "Certificate pinning"], "correct": 0}, {"q": "Which mobile capability makes a remote wipe an acceptable option rather than a data loss?", "opts": ["A remote backup application", "Content filtering", "A locator application", "A configuration profile"], "correct": 0}, {"q": "Which backup approach minimizes the number of pieces needed for a restore while avoiding a nightly full backup?", "opts": ["Synthetic full plus incrementals", "Incremental", "Differential", "Onsite rotation"], "correct": 2}, {"q": "Which router feature separates publicly reachable systems from internal ones?", "opts": ["A screened subnet", "Guest access", "IP filtering", "Content filtering"], "correct": 0}, {"q": "A folder's permissions should not pass down to a new subfolder. Which behavior must be changed?", "opts": ["Inheritance", "Ownership", "Share caching", "Attribute indexing"], "correct": 0}, {"q": "A laptop with BitLocker enabled is stolen while powered off. What protects the data?", "opts": ["Defender Antivirus quarantines the drive", "The screen lock prevents access to the drive", "The volume is encrypted and unreadable without the key", "The share permissions deny access"], "correct": 2}, {"q": "What is the main advantage of an offsite backup copy over an onsite one?", "opts": ["It requires no testing", "It restores more quickly than an onsite copy", "It survives an event that destroys the primary location", "It eliminates the need for a full backup"], "correct": 2}, {"q": "Which permission set applies only to users reaching a resource across the network?", "opts": ["Share permissions", "NTFS permissions", "Local security policy", "BitLocker settings"], "correct": 0}, {"q": "A browser extension requests permission to read and change data on all sites. What should a technician conclude?", "opts": ["The permission is normal and requires no consideration", "The permission is broad and the extension should come from a trusted source or not be installed", "The extension cannot access encrypted sites", "The permission only applies in private-browsing mode"], "correct": 1}, {"q": "What should a technician consider before enabling browser data synchronization on a shared workstation?", "opts": ["Sync requires a static IP address", "Sync disables the browser's certificate checks", "Sync prevents extensions from being installed", "Saved passwords and history would be shared to the signed-in account"], "correct": 3}, {"q": "Which wireless feature gives visitors internet access without reaching internal systems?", "opts": ["IP filtering", "A screened subnet", "Port forwarding", "Guest access"], "correct": 3}, {"q": "Which backup strategy is the most effective defense against ransomware?", "opts": ["Disabling SSID broadcast", "A longer password expiration interval", "A pop-up blocker on every workstation", "Current, tested backups kept offline or offsite"], "correct": 3}, {"q": "Why do password managers appear in both the hardening and browser security objectives?", "opts": ["They replace multifactor authentication", "They are the practical route to unique passwords across many accounts", "They encrypt the entire browser profile", "They are required for secure DNS to function"], "correct": 1}, {"q": "What distinguishes a local account from a Microsoft account on a Windows workstation?", "opts": ["A local account exists only on that machine and does not sync settings across devices", "A local account cannot be given administrative rights", "A Microsoft account cannot be used on a domain-joined computer", "A local account requires multifactor authentication"], "correct": 0}, {"q": "Which browser setting suppresses windows that open without the user requesting them?", "opts": ["Sync", "Secure DNS", "Private-browsing mode", "Pop-up blocker"], "correct": 3}, {"q": "A corporate workstation should not retain a user's personal bookmarks and passwords. Which browser feature should be reviewed?", "opts": ["Sign-in and browser data synchronization", "Secure DNS", "The pop-up blocker", "Private-browsing mode"], "correct": 0}];
+                const POOL = [{"q": "Which of the following is typically a field-replaceable unit on a laptop?", "opts": ["Soldered CPU", "Battery", "System board", "Bonded digitizer"], "correct": 1}, {"q": "Converting a laptop's mechanical hard drive to an SSD primarily improves:", "opts": ["Display resolution", "Read/write speed", "Battery life", "Wireless range"], "correct": 1}, {"q": "Which laptop hardware technology allows contactless data exchange at very short range?", "opts": ["GPS", "NFC", "HDMI", "SATA"], "correct": 1}, {"q": "A laptop's built-in microphone is generally considered best suited for:", "opts": ["Casual video calls", "Professional podcast recording", "Studio music production", "Noise-canceling headsets"], "correct": 0}, {"q": "Which accessory would most directly turn a laptop into a full desktop setup with one connection?", "opts": ["A docking station", "A trackpad", "A stylus", "A headset"], "correct": 0}, {"q": "A non-field-replaceable component is best described as one that:", "opts": ["Is fully covered under every warranty term", "Can be swapped without any tools at all", "Is defined as always being the battery", "Requires disassembly well beyond routine service"], "correct": 3}, {"q": "Which accessory is most associated with precision digital input on a tablet?", "opts": ["Docking station", "External speaker", "Stylus", "Port replicator"], "correct": 2}, {"q": "A port replicator primarily provides:", "opts": ["Provides additional connection ports", "Provides cellular data connectivity", "Provides wireless charging capability", "Provides extra battery capacity"], "correct": 0}, {"q": "Keyboard and keycap replacement on a laptop is generally classified as:", "opts": ["A manufacturer-only repair", "A BIOS setting", "A field-replaceable task", "Non-serviceable"], "correct": 2}, {"q": "Which of these is an example of a mobile device input accessory rather than an output accessory?", "opts": ["External speaker", "Drawing pad", "Headset", "Webcam"], "correct": 1}, {"q": "Tethering a laptop to a phone's cellular connection is most commonly done over:", "opts": ["Over an HDMI connection", "Over a PCIe connection", "Over USB or Bluetooth", "Over a SATA connection"], "correct": 2}, {"q": "A mobile hotspot differs from tethering in that a hotspot:", "opts": ["Is unable to use any cellular data", "Shares the connection over Wi-Fi to many devices", "Only functions over a USB connection", "Always requires swapping the SIM card"], "correct": 1}, {"q": "Which component identifies a mobile device on a cellular network?", "opts": ["SIM card", "Digitizer", "eMMC module", "TPM"], "correct": 0}, {"q": "NFC is most commonly used for:", "opts": ["Contactless payment and quick device pairing", "Long-range file transfer over distance", "Satellite-based navigation and positioning", "Wide-area cellular data connectivity"], "correct": 0}, {"q": "GPS on a mobile device primarily provides:", "opts": ["Bluetooth pairing", "Cellular signal boosting", "Data encryption", "Location services"], "correct": 3}, {"q": "An organization managing hundreds of employee smartphones would most likely rely on:", "opts": ["A physical patch panel", "A virtualization hypervisor", "A SIM cloning utility", "A mobile device management platform"], "correct": 3}, {"q": "In a BYOD model, the mobile device is:", "opts": ["Employee-owned with limited company control", "Leased directly through the cellular carrier", "Company-owned with full management rights", "Managed only by the device manufacturer"], "correct": 0}, {"q": "In a COPE model, the mobile device is:", "opts": ["Unmanaged by design", "Company-owned, personally enabled", "Owned by the cellular carrier", "Employee-owned, personally enabled"], "correct": 1}, {"q": "Which wireless standard generation introduced widely available mobile broadband speeds comparable to home internet?", "opts": ["3G", "NFC", "4G", "Bluetooth"], "correct": 2}, {"q": "A mobile app that fails to sync data across devices most likely has an issue with:", "opts": ["Its network or account sync settings", "The SIM card's physical size", "The device's display panel", "The onscreen keyboard layout"], "correct": 0}, {"q": "A hypervisor that runs directly on physical hardware with no underlying OS is called:", "opts": ["Type 2", "Containerized", "Sandboxed", "Type 1"], "correct": 3}, {"q": "A Type 2 hypervisor is best described as:", "opts": ["A cloud-only method of virtualization", "An application running atop an existing OS", "Hardware built solely for virtualization", "Firmware built into the motherboard"], "correct": 1}, {"q": "Virtual Desktop Infrastructure (VDI) allows a user's desktop environment to run:", "opts": ["Only when the device is offline", "Only inside a web browser window", "On a remote server instead of local hardware", "Only from removable media"], "correct": 2}, {"q": "Containerization differs from full virtualization primarily because it:", "opts": ["Requires a Type 1 hypervisor only", "Always needs more resources than a VM", "Cannot run on cloud infrastructure", "Skips a full separate OS underneath"], "correct": 3}, {"q": "Running an older, unsupported operating system safely for legacy software is a common use case for:", "opts": ["Using a patch panel", "Using APIPA addressing", "Using a firewall rule", "Using virtualization"], "correct": 3}, {"q": "Testing potentially risky software in an isolated space is commonly referred to as:", "opts": ["Multitenancy", "Elasticity", "Sandboxing", "Tethering"], "correct": 2}, {"q": "Cross-platform virtualization is most useful when a technician needs to:", "opts": ["Configure a device's SIM card", "Replace a cracked digitizer panel", "Run software built for another OS", "Increase a laptop's battery life"], "correct": 2}, {"q": "A key resource requirement to consider before deploying a hypervisor is:", "opts": ["The color of the computer case", "Available CPU and memory capacity", "The resolution of the webcam", "The layout of the keyboard"], "correct": 1}, {"q": "A cloud service that provides raw virtualized servers and storage, leaving the OS and above to the customer, is:", "opts": ["DaaS", "IaaS", "PaaS", "SaaS"], "correct": 1}, {"q": "A cloud service that provides a finished application the customer simply uses is:", "opts": ["PaaS", "VDI", "IaaS", "SaaS"], "correct": 3}, {"q": "A cloud service that provides the OS and runtime environment, letting the customer focus on their application, is:", "opts": ["IaaS", "SaaS", "MDM", "PaaS"], "correct": 3}, {"q": "A cloud deployment dedicated to a single organization is a:", "opts": ["Public cloud", "Community cloud", "Private cloud", "Hybrid cloud"], "correct": 2}, {"q": "A cloud deployment that combines private and public resources is a:", "opts": ["Community cloud", "Public cloud", "Hybrid cloud", "Private cloud"], "correct": 2}, {"q": "A cloud deployment shared among a small group of organizations with common requirements is a:", "opts": ["A private cloud deployment", "A public cloud deployment", "A hybrid cloud deployment", "A community cloud deployment"], "correct": 3}, {"q": "The ability of a cloud service to scale resources up or down on demand is called:", "opts": ["Sandboxing", "Elasticity", "Tethering", "Multitenancy"], "correct": 1}, {"q": "Multiple customers sharing the same underlying cloud infrastructure, kept logically separate, describes:", "opts": ["Containerization", "VDI", "Elasticity", "Multitenancy"], "correct": 3}, {"q": "A cloud billing model based on actual resource consumption is described as:", "opts": ["Static allocation", "Perpetual licensing", "Flat-rate only", "Metered usage"], "correct": 3}, {"q": "File synchronization across devices is generally considered a defining trait of:", "opts": ["Cloud services", "Only private clouds", "Only Type 1 hypervisors", "Only IaaS"], "correct": 0}, {"q": "A company that keeps sensitive workloads on private infrastructure while bursting into public cloud capacity as needed is using a:", "opts": ["Community cloud", "Public-only cloud", "Hybrid cloud", "Type 1 hypervisor"], "correct": 2}, {"q": "High availability, in a cloud computing context, refers primarily to:", "opts": ["The fastest possible internet speed", "The lowest possible monthly price", "Consistent uptime and service access", "A single point of failure by design"], "correct": 2}, {"q": "A mobile device that will not hold a charge and shuts down unexpectedly most likely has an issue with the:", "opts": ["Battery", "Digitizer", "Wi-Fi antenna", "SIM card"], "correct": 0}, {"q": "A cracked touchscreen that no longer registers taps accurately points to a problem with the:", "opts": ["The battery", "The speaker", "The digitizer", "The SIM card"], "correct": 2}, {"q": "A phone that becomes uncomfortably hot during extended use is most likely experiencing:", "opts": ["Overheating", "A GPS fault", "A cursor drift issue", "A digitizer fault"], "correct": 0}, {"q": "A device exposed to moisture should generally be checked first for:", "opts": ["Liquid damage", "SIM card corruption", "Digitizer calibration only", "Cellular signal strength"], "correct": 0}, {"q": "A laptop touchpad where the pointer moves on its own without user input describes:", "opts": ["Liquid damage", "Cursor drift", "Overheating", "A SIM fault"], "correct": 1}, {"q": "Before assuming a mobile device software fault, a technician should generally first rule out:", "opts": ["A pending firmware update", "A physical or hardware cause", "A regional cloud outage", "A local DNS issue"], "correct": 1}, {"q": "A phone that charges very slowly despite using the original cable most likely has an issue with:", "opts": ["The device's digitizer", "The charging port or cable", "The device's SIM card", "The device's GPS radio"], "correct": 1}, {"q": "Blocked ventilation is most closely associated with which mobile device issue?", "opts": ["Overheating", "Digitizer miscalibration", "SIM card failure", "Cursor drift"], "correct": 0}, {"q": "A swelling battery on a mobile device should be treated as:", "opts": ["A safety concern needing prompt attention", "A digitizer calibration problem", "A purely cosmetic issue", "Normal wear needing no action"], "correct": 0}, {"q": "A device that intermittently loses touch responsiveness in one corner of the screen most likely has a problem with the:", "opts": ["GPS antenna", "SIM card", "Battery", "Digitizer"], "correct": 3}];
                 let QUESTIONS = [];
                 let answers = [];
 
                 function drawSet() {
                     const shuffled = POOL.slice().sort(() => Math.random() - 0.5);
-                    QUESTIONS = shuffled.slice(0, 10).map(item => {
-                        const order = item.opts.map((o, i) => i).sort(() => Math.random() - 0.5);
-                        return {q: item.q, opts: order.map(i => item.opts[i]), correct: order.indexOf(item.correct)};
-                    });
+                    QUESTIONS = shuffled.slice(0, 10);
                     answers = new Array(QUESTIONS.length).fill(null);
                 }
 
@@ -400,7 +499,7 @@
                     document.getElementById('scoreDisplay').textContent = score + ' / ' + QUESTIONS.length;
                     const note = document.getElementById('scoreNote');
                     if (score === QUESTIONS.length) note.textContent = 'Perfect set. You are ready to move on.';
-                    else note.textContent = 'Not a perfect 10 yet — click Reset for a new random set and try again.';
+                    else note.textContent = 'Not a perfect 10 yet \u2014 click Reset for a new random set and try again.';
                     document.getElementById('quizResults').style.display = 'block';
                     document.getElementById('quizResults').scrollIntoView({behavior: 'smooth'});
                 }
@@ -418,7 +517,7 @@
         </div>
 
         <footer class="module-footer">
-            <p class="footer-text">CompTIA A+ Core 2 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
+            <p class="footer-text">CompTIA A+ Core 1 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
         </footer>
     </div>
 </body>
