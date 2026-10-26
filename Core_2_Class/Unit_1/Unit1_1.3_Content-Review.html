@@ -340,12 +340,11 @@
             <div class="toc-item current" id="tocCurrent">1.3 &mdash; Content Review</div>
             <div class="toc-item">1.4 &mdash; Reading Assignment</div>
             <div class="toc-item">1.5 &mdash; Video Assignment</div>
-            <div class="toc-item">1.6 &mdash; Classroom/Home Labs</div>
-            <div class="toc-item">1.7 &mdash; Practice Questions</div>
+            <div class="toc-item">1.6 &mdash; Classroom Labs and Take-Home Lab</div>
+            <div class="toc-item">1.7 &mdash; Practice Question Set</div>
             <div class="toc-item">1.8 &mdash; Online Labs: NETLAB</div>
             <div class="toc-item">1.9 &mdash; Reflection Activity</div>
             <div class="toc-item">1.10 &mdash; Unit Test</div>
-            <div class="toc-item">1.11 &mdash; Unit 1 Tickets</div>
             <div class="toc-item">1.A &mdash; Acronym Test</div>
             <div class="toc-item">1.B &mdash; Clearing Your Browser Cache</div>
         </nav>
@@ -468,8 +467,8 @@
                 <table>
                     <thead><tr><th>Operating System</th><th>Category</th><th>Where You'll See It</th></tr></thead>
                     <tbody>
-                        <tr><td><strong>Windows</strong></td><td>Workstation</td><td>Most business and home desktops and laptops. The OS you will support most often.</td></tr>
-                        <tr><td><strong>macOS</strong></td><td>Workstation</td><td>Apple desktops and laptops only. Common in creative, education, and executive settings.</td></tr>
+                        <tr><td><strong>Windows 10/11</strong></td><td>Workstation</td><td>Most business and home desktops and laptops. The OS you will support most often.</td></tr>
+                        <tr><td><strong>macOSX</strong></td><td>Workstation</td><td>Apple desktops and laptops only. Common in creative, education, and executive settings.</td></tr>
                         <tr><td><strong>Linux</strong></td><td>Workstation</td><td>Free, open-source OS in many versions called distributions (Ubuntu, Fedora, Red Hat). Dominant on servers; also used on desktops by technical users.</td></tr>
                         <tr><td><strong>ChromeOS</strong></td><td>Workstation</td><td>Google's lightweight, browser-centered OS on Chromebooks. Common in schools. Depends heavily on cloud services.</td></tr>
                         <tr><td><strong>iOS</strong></td><td>Mobile</td><td>Apple iPhones.</td></tr>
@@ -480,11 +479,45 @@
             </div>
 
             <h3>Vendor Life Cycles</h3>
-            <p>Every operating system version has a life span set by its vendor. When a version reaches <strong>end-of-life (EOL)</strong>, the vendor stops releasing updates and security patches for it. The computer keeps working &mdash; but every security hole discovered after that date stays open forever.</p>
+            <p>Every operating system version has a life span set by its vendor. Over that life span, the vendor gradually stops providing new features, then bug fixes, and finally security patches. Two terms describe where a version sits on that path, and they do not mean the same thing.</p>
+
+            <div class="definition">
+                <div class="definition-term">End-of-Support (EOS)</div>
+                <p class="definition-text">The vendor stops providing some or all of its normal support for a version. What continues after EOS depends on the vendor: some keep releasing security patches for a while, some sell paid extended security programs, and some stop everything.</p>
+            </div>
+
+            <div class="definition">
+                <div class="definition-term">End-of-Life (EOL)</div>
+                <p class="definition-text">The version is finished. The vendor releases no more updates of any kind &mdash; including security patches. The computer keeps working, but every security hole discovered after that point stays open permanently.</p>
+            </div>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">The Terms Are Not Standardized</div>
+                <div class="callout-content"><p>There is no single industry definition of EOS and EOL. Microsoft, Apple, and the Linux distributions each use their own terms and their own schedules. The only reliable answer to "is this system still getting security patches?" is the vendor's own lifecycle page for that exact version.</p></div>
+            </div>
+
+            <h4>How Each Vendor Handles It</h4>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Vendor</th><th>End-of-Support</th><th>End-of-Life</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Microsoft</strong><br>Windows 10/11</td><td>Products on Microsoft's Fixed Lifecycle Policy get about five years of mainstream support (new features, fixes, and security updates), then extended support (security updates only). Windows 10 and 11 also follow the Modern Lifecycle Policy: each yearly Windows 11 feature update is serviced for 24 months on Home and Pro, and 36 months on Enterprise and Education. When a version reaches its end-of-servicing date, the computer must move to a newer feature update to keep receiving security patches.</td><td>Microsoft calls the final date <strong>"end of support."</strong> After it, a version receives no more security updates unless the organization buys into the paid <strong>Extended Security Updates (ESU)</strong> program, which Microsoft describes as a last resort, limited to a maximum of three years. In practice, Microsoft's "end of support" is what the exam calls EOL.</td></tr>
+                        <tr><td><strong>Apple</strong><br>macOS</td><td>Apple publishes no lifecycle dates. In practice, the current macOS version receives full support, and the two previous versions continue receiving security updates for roughly two more years &mdash; so an older macOS version can be past active support and still receive security fixes. Apple's own documentation warns that not every known security issue is fixed in those previous versions.</td><td>A macOS version becomes effectively EOL when Apple quietly stops releasing security updates for it, usually once it falls more than two versions behind. Apple does not announce the date in advance, so technicians should track which versions are still receiving security updates.</td></tr>
+                        <tr><td><strong>Linux</strong><br>Ubuntu, Red Hat</td><td>Each distribution sets its own policy. <strong>Ubuntu</strong> long-term support (LTS) releases come out every two years and receive five years of free standard security maintenance. Paid Ubuntu Pro extends security coverage to ten years, and its Legacy add-on to fifteen. <strong>Red Hat Enterprise Linux</strong> provides a ten-year life cycle: five years of Full Support followed by five years of Maintenance Support.</td><td>When a distribution's final support phase ends, the release is EOL. Short-cycle releases reach it quickly &mdash; a non-LTS Ubuntu release is supported for only about nine months &mdash; which is why businesses standardize on LTS and enterprise releases.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
             <div class="callout callout-warning">
                 <div class="callout-title">A Real Example You Will Meet on the Job</div>
-                <div class="callout-content"><p>Windows 10 reached end of support in 2025. Microsoft offers Extended Security Updates so some Windows 10 machines keep receiving security patches for a limited time, but no new features and no general support. Many businesses still have Windows 10 computers, and part of your job will be explaining to a customer why an EOL system is a risk and what their options are.</p></div>
+                <div class="callout-content"><p>Windows 10 reached end of support in 2025. Microsoft offers Extended Security Updates so some Windows 10 machines keep receiving security patches for a limited time, but no new features and no general support. Many businesses still have Windows 10 computers, and part of your job will be explaining to a customer why a system at end of support is a risk and what their options are: upgrade to Windows 11, enroll in ESU as a temporary bridge, or replace hardware that cannot run Windows 11.</p></div>
             </div>
+
+            <div class="key-concept">
+                <h4>What the Exam Expects</h4>
+                <p>CompTIA's objective lists <strong>End-of-life (EOL)</strong> under vendor life-cycle limitations. On the exam, treat EOL as the point where a version gets no more security patches, making it a security risk to keep running. Know the vendor-specific terms above for the job; answer exam questions with EOL.</p>
+            </div>
+
             <p><strong>Update limitations</strong> also matter: older hardware may not be allowed to run a newer OS version, and a device may stop receiving feature updates long before it stops working. <strong>Compatibility concerns</strong> between operating systems come up constantly &mdash; a file system one OS writes may be read-only on another, and an application built for one OS usually will not run on another.</p>
 
             <h2>File Systems</h2>
@@ -496,13 +529,41 @@
                         <tr><td><strong>NTFS</strong><br>New Technology File System</td><td>Windows</td><td>The Windows default. Supports file and folder permissions, encryption, compression, and very large files and volumes. Journaled, so it recovers well from crashes.</td></tr>
                         <tr><td><strong>ReFS</strong><br>Resilient File System</td><td>Windows</td><td>Designed for very large storage and automatic detection and repair of data corruption. Used mainly on servers and high-end workstations, not as the boot drive on a typical desktop.</td></tr>
                         <tr><td><strong>FAT32</strong><br>File Allocation Table 32</td><td>Everything</td><td>Readable by almost every device. <strong>Maximum file size of 4 GB.</strong> No permissions or encryption.</td></tr>
-                        <tr><td><strong>exFAT</strong><br>Extensible File Allocation Table</td><td>Windows, macOS</td><td>Built for flash drives and memory cards. Removes FAT32's 4 GB file limit and works on both Windows and macOS. The usual answer for a cross-platform USB drive.</td></tr>
+                        <tr><td><strong>exFAT</strong><br>Extensible File Allocation Table</td><td>Windows, macOS</td><td>Built for flash drives and memory cards, and most commonly used on <strong>external hard drives</strong> for compatibility &mdash; it works on Windows, macOS, and most Linux distributions. Removes FAT32's 4 GB file limit. The usual answer for a cross-platform USB or external drive.</td></tr>
                         <tr><td><strong>ext4</strong><br>Fourth extended filesystem</td><td>Linux</td><td>The default on many Linux distributions. Journaled and reliable.</td></tr>
                         <tr><td><strong>XFS</strong><br>Extended filesystem</td><td>Linux</td><td>A high-performance journaled file system suited to very large files. The default on Red Hat Enterprise Linux.</td></tr>
                         <tr><td><strong>APFS</strong><br>Apple File System</td><td>macOS, iOS</td><td>Apple's current default. Optimized for solid-state drives, with built-in encryption and snapshots.</td></tr>
                     </tbody>
                 </table>
             </div>
+            <h3>Which Operating Systems Can Read Which File Systems</h3>
+            <p>A drive is only useful if the computer it is plugged into can read it. Each operating system reads its own file systems, but support for the others varies &mdash; and this is behind a lot of "my computer can't see this drive" calls.</p>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>File System</th><th>Windows</th><th>macOS</th><th>Linux</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>NTFS</strong></td><td>Read and write</td><td>Read only</td><td>Read and write on most current distributions</td></tr>
+                        <tr><td><strong>ReFS</strong></td><td>Read and write (creating new ReFS volumes is limited to certain editions)</td><td>No</td><td>No</td></tr>
+                        <tr><td><strong>FAT32</strong></td><td>Read and write</td><td>Read and write</td><td>Read and write</td></tr>
+                        <tr><td><strong>exFAT</strong></td><td>Read and write</td><td>Read and write</td><td>Read and write on most current distributions</td></tr>
+                        <tr><td><strong>ext4</strong></td><td>No, without extra software</td><td>No, without extra software</td><td>Read and write</td></tr>
+                        <tr><td><strong>XFS</strong></td><td>No, without extra software</td><td>No, without extra software</td><td>Read and write</td></tr>
+                        <tr><td><strong>APFS</strong></td><td>No, without extra software</td><td>Read and write</td><td>No, without extra software</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <ul class="styled-list">
+                <li><strong>Linux reads both.</strong> Linux can read its own partitions (ext4, XFS) and Windows NTFS partitions, and most current distributions can write to NTFS as well.</li>
+                <li><strong>Windows reads only its own.</strong> Of the Windows and Linux file systems, Windows reads only NTFS and ReFS. It cannot see a Linux ext4 or XFS partition, or a Mac APFS drive, without extra software.</li>
+                <li><strong>macOS reads NTFS but cannot write to it.</strong> A Mac can open files on an NTFS drive but cannot save to it without third-party software.</li>
+                <li><strong>FAT32 and exFAT work everywhere.</strong> All three operating systems can read and write them, which is why they are the standard choice for flash drives and external drives that move between computers.</li>
+            </ul>
+
+            <div class="callout callout-tip">
+                <div class="callout-title">Real World: The Dual-Boot Computer</div>
+                <div class="callout-content"><p>A customer has one computer with both Windows and Linux installed. From Linux, they can open their Windows files on the NTFS partition. From Windows, the Linux partition does not appear at all &mdash; Windows does not recognize ext4. To share files in both directions, keep shared files on the NTFS partition or on a separate exFAT partition that both operating systems can read and write.</p></div>
+            </div>
+
             <div class="key-concept">
                 <h4>The 4 GB Question</h4>
                 <p>If a question mentions a single file larger than 4 GB and a drive that "won't take it," the drive is almost certainly FAT32. If the drive also needs to work on both Windows and a Mac, the fix is <strong>exFAT</strong>. If it only needs to work on Windows, <strong>NTFS</strong>.</p>
@@ -518,13 +579,20 @@
                         <tr><td><strong>Pro</strong> (Windows 10 and 11)</td><td>Small business and power users</td><td>Adds domain join, BitLocker, gpedit.msc, and Remote Desktop hosting. Supports up to 2 TB of RAM.</td></tr>
                         <tr><td><strong>Pro for Workstations</strong> (listed under Windows 10 on the exam)</td><td>High-end workstations</td><td>Everything in Pro, plus support for server-grade hardware, ReFS, and up to 6 TB of RAM.</td></tr>
                         <tr><td><strong>Enterprise</strong> (Windows 10 and 11)</td><td>Large organizations</td><td>Everything in Pro plus advanced management and security features. Sold through volume licensing. Supports up to 6 TB of RAM.</td></tr>
-                        <tr><td><strong>N versions</strong></td><td>European market</td><td>The same editions with media features, such as Windows Media Player, removed.</td></tr>
                     </tbody>
                 </table>
             </div>
 
             <h3>Domain vs. Workgroup</h3>
             <p>In a <strong>workgroup</strong>, every computer manages its own user accounts &mdash; fine for a home or a tiny office. In a <strong>domain</strong>, a central server manages accounts and policies for every computer, so one username and password works on any company machine. Only Pro, Pro for Workstations, and Enterprise can join a domain.</p>
+            <p>In a business, the domain is run by servers called <strong>domain controllers</strong>, running <strong>Windows Server Active Directory</strong>. Every domain-joined Windows workstation is managed through those domain controllers: who can sign in, what each user can access, and which settings and security policies apply to the computer.</p>
+            <div class="callout callout-info">
+                <div class="callout-title">Beyond This Course &mdash; But Worth Learning</div>
+                <div class="callout-content">
+                    <p>Building and running Windows Server domain controllers is outside the scope of this course. It is important to learn, though: nearly every business network you support will be built on it, and it is the natural next step after A+.</p>
+                    <p>You will work with the workstation side of Active Directory in Unit 5 &mdash; joining a computer to a domain, Group Policy, login scripts, and security groups are part of exam objective 2.2.</p>
+                </div>
+            </div>
 
             <h3>Upgrade Paths and Hardware Requirements</h3>
             <p>An <strong>in-place upgrade</strong> installs the new version over the old one and keeps files, settings, and applications. A <strong>clean install</strong> wipes the drive and starts fresh. Windows 11 raised the hardware bar considerably:</p>
@@ -559,21 +627,43 @@
                 <li><strong>Multiboot</strong> &mdash; more than one operating system installed on the same computer, with a menu to choose at startup.</li>
             </ul>
 
-            <h3>Types of Installations</h3>
+            <h3>Deployment Methods and Types of Installations</h3>
+            <p>Installing Windows comes down to two questions: <strong>how</strong> the operating system gets onto the computer, and <strong>what kind</strong> of installation you are performing.</p>
+            <h4>Deployment Methods</h4>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Method</th><th>What It Means</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Clean install</strong></td><td>Erase the drive and install fresh. Nothing carries over &mdash; files, settings, and applications are all gone.</td></tr>
+                        <tr><td><strong>Upgrade</strong></td><td>Move a computer from an older version or edition of Windows to a newer one, keeping files, settings, and applications.</td></tr>
+                        <tr><td><strong>Remote network installation</strong></td><td>Install across the network from a deployment server rather than from local media such as a USB drive.</td></tr>
+                        <tr><td><strong>Image deployment</strong></td><td>Copy a prepared, fully configured system image onto many computers. How businesses set up hundreds of identical machines.</td></tr>
+                        <tr><td><strong>Repair installation</strong></td><td>Reinstall the Windows system files while keeping the user's data and applications. Used when Windows is damaged but the data matters.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4>Types of Installations</h4>
             <div class="table-container">
                 <table>
                     <thead><tr><th>Type</th><th>What It Means</th></tr></thead>
                     <tbody>
-                        <tr><td><strong>Clean install</strong></td><td>Erase and install fresh. Nothing carries over.</td></tr>
-                        <tr><td><strong>Upgrade</strong></td><td>Install over the existing OS, keeping files, settings, and applications.</td></tr>
-                        <tr><td><strong>Image deployment</strong></td><td>Copy a prepared, fully configured system image onto many computers. How businesses set up hundreds of identical machines.</td></tr>
-                        <tr><td><strong>Remote network installation</strong></td><td>Install across the network from a deployment server rather than from local media.</td></tr>
+                        <tr><td><strong>In-place installation</strong></td><td>Install over the existing operating system on the same computer, keeping files, settings, and applications. Upgrades and repair installations are both performed in place.</td></tr>
                         <tr><td><strong>Zero-touch deployment</strong></td><td>The computer ships straight to the user and configures itself the first time they sign in. No technician touches it.</td></tr>
-                        <tr><td><strong>Recovery partition</strong></td><td>A hidden partition on the drive that restores the computer to its factory state.</td></tr>
-                        <tr><td><strong>Repair installation</strong></td><td>Reinstall the Windows system files while keeping the user's data and applications. Used when Windows is damaged but the data matters.</td></tr>
-                        <tr><td><strong>Third-party drivers</strong></td><td>Some storage controllers need a driver loaded during setup, or the installer cannot see the drive at all.</td></tr>
                     </tbody>
                 </table>
+            </div>
+
+            <div class="key-concept">
+                <h4>Special Note: The Tools and Drivers Behind a Windows Installation</h4>
+                <p>Several pieces work behind the scenes during a Windows installation. You will rarely set them up yourself, but you will see them constantly.</p>
+                <ul class="styled-list">
+                    <li><strong>WinPE (Windows Preinstallation Environment)</strong> &mdash; a small, stripped-down version of Windows that starts from a USB drive or the network. Windows Setup itself runs inside WinPE, and so do the tools businesses use to deploy images. Every time you boot from installation media, you are in WinPE.</li>
+                    <li><strong>WinRE (Windows Recovery Environment)</strong> &mdash; a repair toolkit built on WinPE. It offers Startup Repair, System Restore, Reset this PC, and a Command Prompt, and it starts automatically when Windows fails to boot several times in a row.</li>
+                    <li><strong>Recovery partition</strong> &mdash; a small, hidden partition on the drive that holds WinRE, and on many manufacturer computers a factory image. It is what lets a user reset the computer to its original state without any installation media.</li>
+                    <li><strong>Third-party drivers</strong> &mdash; some storage controllers, especially RAID and certain NVMe setups, are not recognized by Windows Setup on its own. If the installer reports that it cannot find a drive, choose <strong>Load driver</strong> and supply the manufacturer's storage driver.</li>
+                    <li><strong>Installation media drivers</strong> &mdash; the drivers stored on, or added to, the installation USB drive before you start. Technicians copy the manufacturer's storage and network drivers onto the media so they are on hand at the Load driver step, and businesses build them directly into their deployment images.</li>
+                </ul>
             </div>
 
             <h3>Partitioning: MBR vs. GPT</h3>
@@ -600,14 +690,19 @@
             </ul>
 
             <h2>Installing Applications</h2>
-            <p>"Will this program run on my computer?" is one of the most common questions a technician answers. The answer comes from comparing the application's <strong>system requirements</strong> to the machine.</p>
+            <p>"Will this program run on my computer?" is one of the most common questions a technician answers. Every application publishes two sets of requirements, and the answer comes from comparing both to the machine:</p>
+            <ul class="styled-list">
+                <li><strong>Minimum requirements</strong> &mdash; the least the computer needs for the application to install and run at all.</li>
+                <li><strong>Recommended requirements</strong> &mdash; what the computer needs for the application to run well.</li>
+            </ul>
+            <p>A computer that meets the minimum but not the recommended requirements will run the application slowly. Check both before you tell a customer "yes."</p>
             <div class="table-container">
                 <table>
-                    <thead><tr><th>Requirement</th><th>What to Check</th></tr></thead>
+                    <thead><tr><th>Requirement</th><th>What to Check Against the Minimum and Recommended Requirements</th></tr></thead>
                     <tbody>
                         <tr><td><strong>32-bit vs. 64-bit</strong></td><td>A 64-bit application needs a 64-bit OS. A 32-bit application usually still runs on 64-bit Windows.</td></tr>
                         <tr><td><strong>Dedicated vs. integrated graphics</strong></td><td>Design, video, and gaming software may require a separate graphics card rather than graphics built into the processor.</td></tr>
-                        <tr><td><strong>VRAM</strong></td><td>Video memory on the graphics card. Demanding graphics applications list a minimum.</td></tr>
+                        <tr><td><strong>VRAM</strong></td><td>Video memory on the graphics card. Demanding graphics applications list both a minimum and a recommended amount.</td></tr>
                         <tr><td><strong>RAM and CPU</strong></td><td>Minimum and recommended memory and processor speed.</td></tr>
                         <tr><td><strong>External hardware tokens</strong></td><td>Some licensed software requires a physical USB key to run.</td></tr>
                         <tr><td><strong>Storage</strong></td><td>Free disk space for the installation and its data.</td></tr>
@@ -615,6 +710,45 @@
                     </tbody>
                 </table>
             </div>
+
+            <h3>How Applications Get Installed</h3>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Source</th><th>How It Works</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>App stores</strong><br>Microsoft Store, Mac App Store, mobile stores</td><td>The store checks the device against the application's requirements <em>before</em> the installation begins. If the device does not qualify, the app will not offer to install. Installation, updates, and removal are handled automatically, so the experience is seamless for the user.</td></tr>
+                        <tr><td><strong>Windows desktop applications</strong></td><td>Most traditional Windows applications install through an <strong>installation wizard</strong> &mdash; a step-by-step setup program, often built on Windows Installer. The same installer is registered with Windows, which is how the application is later modified, repaired, or removed.</td></tr>
+                        <tr><td><strong>Linux desktop applications</strong></td><td>Applications are installed as <strong>packages</strong> through a package manager, such as <code>apt</code> on Ubuntu or <code>dnf</code> on Red Hat. The package manager also installs any other software the application depends on, and it handles updates and removal the same way.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>What the Windows Installation Wizard Does</h3>
+            <ol class="lab-steps">
+                <li><strong>Presents the end-user license agreement (EULA).</strong> The user must accept it before the installation continues.</li>
+                <li><strong>Asks for the installation location</strong> &mdash; usually a folder under Program Files, which the user can change.</li>
+                <li><strong>Copies the installation files</strong> to that location.</li>
+                <li><strong>Installs any necessary drivers</strong> the application needs to work with hardware.</li>
+                <li><strong>Requests administrator permission through User Account Control (UAC).</strong> Installing software changes the system, so Windows asks for approval &mdash; and a standard user needs an administrator's password. Depending on the installer, this prompt appears when setup first starts or just before the files are copied.</li>
+            </ol>
+
+            <h3>Modify, Repair, and Uninstall</h3>
+            <p>Installed applications appear in <strong>Settings, then Apps, then Installed apps</strong>, and in Control Panel under <strong>Programs and Features</strong>. Selecting one reopens its installer with up to three options:</p>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Option</th><th>What It Does</th><th>When to Use It</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Modify</strong></td><td>Adds or removes optional parts of the application.</td><td>The customer needs a feature that was not installed the first time.</td></tr>
+                        <tr><td><strong>Repair</strong></td><td>Replaces missing or damaged application files with fresh copies from the installer.</td><td>The program is malfunctioning after installation. Try this before uninstalling.</td></tr>
+                        <tr><td><strong>Uninstall</strong></td><td>Runs the wizard in reverse, removing the application's components from the system.</td><td>The application is no longer needed, or a full reinstall is required.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="callout callout-warning">
+                <div class="callout-title">Uninstalling Does Not Always Remove Everything</div>
+                <div class="callout-content"><p>Most programs remove all of their components when uninstalled, but some leave files behind &mdash; settings and data in the user's profile folder, or entries in the Windows Registry. Those leftovers can carry an old problem into a fresh reinstall. When a reinstall does not fix the issue, check for leftover folders before assuming the application itself is at fault.</p></div>
+            </div>
+
             <p><strong>Distribution methods:</strong> physical media or a mountable ISO file (a single file that acts like a disc), a downloadable package, or image deployment where the application is built into a standard company image.</p>
             <div class="callout callout-info">
                 <div class="callout-title">Think Past the Install Button</div>
@@ -650,6 +784,7 @@
             <div class="key-concept">
                 <h4>Write It for the Next Technician</h4>
                 <p>A good ticket lets someone who has never seen the problem pick it up and continue. "Fixed it" is not a resolution. "Replaced the network cable at the desk; user confirmed internet access restored" is. Every Ticket of the Day this term practices exactly this.</p>
+                <p>A ticket is also a <strong>living document</strong>. It is updated from the moment it is opened until it is closed, and every entry is time-stamped with who made it. That record does not disappear when the problem is fixed: the organization uses tickets for <strong>auditing and compliance</strong> &mdash; proving what was done, by whom, and when, showing that service-level agreements were met, and demonstrating to auditors that regulated systems and data were handled correctly. Never delete or rewrite an earlier entry. If something changes, add a new note.</p>
             </div>
 
             <h3>Asset Management</h3>
@@ -689,14 +824,16 @@
                 <h3>Unit 1 Content Recap</h3>
                 <ul>
                     <li>The operating system manages hardware and serves applications; know the workstation and mobile OS families by name</li>
-                    <li>End-of-life means no more updates or security patches &mdash; the machine still runs, but its security holes stay open</li>
+                    <li>End-of-support and end-of-life mean different things to different vendors; at end-of-life there are no more security patches &mdash; the machine still runs, but its security holes stay open</li>
                     <li>FAT32 cannot hold a file over 4 GB; exFAT is the cross-platform flash answer; NTFS is the Windows default; APFS, ext4, and XFS belong to macOS and Linux</li>
+                    <li>Linux can read both NTFS and its own ext4 and XFS partitions; Windows cannot read Linux or Mac partitions without extra software; FAT32 and exFAT work on all three</li>
                     <li>Home cannot join a domain or use BitLocker, gpedit.msc, or host Remote Desktop; Pro and above can</li>
                     <li>Windows 11 requires UEFI with Secure Boot capability and TPM 2.0</li>
-                    <li>Know every installation type, from clean install to zero-touch deployment, and when each is used</li>
+                    <li>Know the deployment methods (clean install, upgrade, remote network installation, image deployment, repair installation) and the installation types (in-place, zero-touch) &mdash; and what WinPE, WinRE, and the recovery partition do</li>
                     <li>MBR tops out at 2 TB and 4 primary partitions; GPT is the modern standard and requires UEFI to boot</li>
-                    <li>Check system requirements and impact on device, network, operation, and business before installing an application</li>
-                    <li>A good ticket lets the next technician continue the work without asking you anything</li>
+                    <li>Check both minimum and recommended requirements, and the impact on device, network, operation, and business, before installing an application</li>
+                    <li>App stores check requirements before installing; Windows desktop apps use an installation wizard; Linux uses packages; use Repair before uninstalling a malfunctioning program</li>
+                    <li>A good ticket lets the next technician continue the work without asking you anything, and it stays on record for auditing and compliance</li>
                     <li>Listen, clarify, set expectations, document, and follow up</li>
                 </ul>
             </div>
