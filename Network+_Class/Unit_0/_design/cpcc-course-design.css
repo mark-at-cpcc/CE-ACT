@@ -7,8 +7,8 @@
    build_cpcc_css.py whenever the course styles change.
 
    HOW TO USE
-     <link rel="stylesheet" href="cpcc-course-design.css">
-     <script src="cpcc-course-design.js" defer></script>
+     <link rel="stylesheet" href="https://mark-at-cpcc.github.io/CE-ACT/Network+_Class/Unit-0/-design/cpcc-course-design.css">
+     <script src="https://mark-at-cpcc.github.io/CE-ACT/Network+_Class/Unit-0/-design/cpcc-course-design.js" defer></script>
    Every component is shown, with its markup, in
    cpcc-course-design-reference.html.
 
