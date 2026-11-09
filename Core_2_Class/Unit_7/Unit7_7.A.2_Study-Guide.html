@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Unit 7 &mdash; 7.A.2 Study Guide | CompTIA A+ Core 2</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Source+Sans+Pro:wght@400;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           CPCC COURSE TEMPLATE - GOLD / CHARCOAL / BLACK
+           CTS-ITS7501-80 CompTIA A+ Core 2 Training
+           Type: true black. Accents: gold. Chrome: charcoal.
+           ============================================ */
+
+        :root {
+            --primary-dark: #4A4A4A;       /* Charcoal - structural chrome only */
+            --primary-main: #B8962E;       /* Warm Gold - primary accent */
+            --primary-light: #D4AF56;      /* Light Gold */
+            --primary-pale: #FBF3DF;       /* Pale Gold wash */
+
+            --accent-teal: #8A6F1F;        /* Deep bronze-gold */
+            --accent-teal-light: #F3E9CE;  /* Pale bronze */
+            --accent-orange: #A9642A;      /* Warm rust */
+            --accent-orange-light: #F5E2CE;
+            --accent-purple: #6B5B3A;      /* Muted umber */
+            --accent-purple-light: #EFE6D2;
+            --accent-green: #4E7A51;
+            --accent-green-light: #DCEBDD;
+
+            --alert-warning: #B8862E;
+            --alert-warning-bg: #FBF0D9;
+            --alert-danger: #A13A3A;
+            --alert-danger-bg: #F6DEDE;
+            --alert-success: #3F6E42;
+            --alert-success-bg: #DCEBDD;
+            --alert-info: #6E5B2E;
+            --alert-info-bg: #F1E9D4;
+
+            --text-black: #000000;         /* All reading text */
+            --neutral-900: #000000;
+            --neutral-700: #000000;
+            --neutral-500: #5A5A5A;
+            --neutral-300: #D9D3C4;
+            --neutral-100: #FAF8F3;
+            --white: #ffffff;
+
+            --font-heading: 'Nunito', sans-serif;
+            --font-body: 'Source Sans Pro', sans-serif;
+            --font-code: 'Fira Code', monospace;
+
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+
+            --shadow-sm: 0 1px 2px rgba(74, 74, 74, 0.08);
+            --shadow-md: 0 4px 6px rgba(74, 74, 74, 0.12);
+            --shadow-lg: 0 10px 20px rgba(74, 74, 74, 0.15);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body), 'Segoe UI', Tahoma, Verdana, sans-serif;
+            font-size: 1.0625rem;
+            line-height: 1.7;
+            color: var(--text-black);
+            background: linear-gradient(135deg, var(--neutral-100) 0%, var(--white) 100%);
+            min-height: 100vh;
+            padding: var(--space-lg);
+        }
+
+        .course-container {
+            max-width: 950px; margin: 0 auto; background: var(--white);
+            border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); overflow: hidden;
+        }
+
+        .module-header {
+            background: var(--primary-main); color: var(--text-black);
+            padding: var(--space-lg) var(--space-xl); position: relative; overflow: hidden;
+        }
+        .module-label {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 0.875rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 2px; text-decoration: underline;
+            margin-bottom: var(--space-sm); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-title {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-size: 2.25rem; font-weight: 800;
+            line-height: 1.2; margin-bottom: var(--space-md); position: relative; z-index: 1; color: var(--text-black);
+        }
+        .module-subtitle { font-size: 1.125rem; max-width: 650px; position: relative; z-index: 1; color: var(--text-black); }
+
+        .toc {
+            display: flex; flex-direction: column; gap: var(--space-sm);
+            padding: var(--space-lg) var(--space-xl);
+            background: var(--primary-pale); border-bottom: 1px solid var(--neutral-300);
+        }
+        .toc-item {
+            width: 100%; text-align: left;
+            font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 0.875rem;
+            color: var(--text-black); background: var(--white);
+            border: 2px solid var(--primary-main);
+            padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md);
+        }
+        .toc-item.current { background: var(--primary-main); }
+
+        .content-area { padding: var(--space-xl); }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading), 'Segoe UI', sans-serif;
+            color: var(--text-black); line-height: 1.3; margin-bottom: var(--space-md);
+        }
+        h1 { font-size: 2rem; font-weight: 800; }
+        h2 { font-size: 1.625rem; font-weight: 700; padding-bottom: var(--space-sm);
+             border-bottom: 3px solid var(--primary-main); margin-top: var(--space-xl); margin-bottom: var(--space-lg); }
+        h3 { font-size: 1.375rem; font-weight: 700; margin-top: var(--space-lg);
+             padding-left: var(--space-sm); border-left: 4px solid var(--primary-main); }
+        h4 { font-size: 1.125rem; font-weight: 600; }
+
+        p { margin-bottom: var(--space-md); }
+        strong { font-weight: 700; color: var(--text-black); }
+        em { font-style: italic; color: var(--text-black); }
+
+        a { color: var(--text-black); text-decoration: none; border-bottom: 2px solid var(--primary-main); transition: all 0.2s ease; }
+        a:hover { background: var(--primary-pale); border-bottom-color: var(--accent-teal); }
+
+        ul, ol { margin-bottom: var(--space-md); padding-left: var(--space-lg); }
+        li { margin-bottom: var(--space-sm); }
+        ul li::marker { color: var(--accent-teal); }
+        ol li::marker { color: var(--accent-teal); font-weight: 700; }
+
+        .styled-list { list-style: none; padding-left: 0; }
+        .styled-list li { position: relative; padding-left: var(--space-lg); margin-bottom: var(--space-sm); }
+        .styled-list li::before { content: '\25B8'; position: absolute; left: 0; color: var(--accent-teal); font-weight: bold; }
+
+        .checklist { list-style: none; padding-left: 0; }
+        .checklist li { position: relative; padding-left: 2rem; margin-bottom: var(--space-sm); }
+        .checklist li::before {
+            content: '\2713'; position: absolute; left: 0; width: 1.5rem; height: 1.5rem;
+            background: var(--accent-green-light); color: var(--accent-green);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 0.75rem; font-weight: bold;
+        }
+
+        .objectives-box {
+            background: linear-gradient(135deg, var(--primary-pale) 0%, var(--accent-teal-light) 100%);
+            border-left: 5px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .objectives-box h3 { color: var(--text-black); margin-top: 0; margin-bottom: var(--space-md);
+            display: flex; align-items: center; gap: var(--space-sm); border-left: none; padding-left: 0; }
+        .objectives-box ol { margin-bottom: 0; }
+
+        .tech-box {
+            background: var(--neutral-100); border: 2px solid var(--neutral-500);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .tech-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .tech-box .callout-content { padding-left: 0; }
+
+        .plain-box {
+            background: var(--primary-pale); border: 2px solid var(--primary-main);
+            border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0;
+        }
+        .plain-box .callout-title { padding-left: 0; color: var(--text-black); }
+        .plain-box .callout-content { padding-left: 0; }
+
+        .callout { border-radius: var(--radius-md); padding: var(--space-lg); margin: var(--space-lg) 0; position: relative; overflow: hidden; }
+        .callout::before { position: absolute; top: var(--space-md); left: var(--space-md); font-size: 1.5rem; }
+        .callout-title { font-family: var(--font-heading), 'Segoe UI', sans-serif; font-weight: 700; font-size: 1rem;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); color: var(--text-black); }
+        .callout-content { }
+        .callout-content p:last-child { margin-bottom: 0; }
+
+        .callout-tip { background: var(--accent-green-light); border-left: 4px solid var(--accent-green); }
+        .callout-warning { background: var(--alert-warning-bg); border-left: 4px solid var(--alert-warning); }
+        .callout-danger { background: var(--alert-danger-bg); border-left: 4px solid var(--alert-danger); }
+        .callout-info { background: var(--alert-info-bg); border-left: 4px solid var(--alert-info); }
+
+        .key-concept {
+            background: linear-gradient(135deg, var(--accent-purple-light) 0%, var(--white) 100%);
+            border: 2px solid var(--accent-purple); border-radius: var(--radius-lg);
+            padding: var(--space-lg); margin: var(--space-xl) 0 var(--space-lg); position: relative;
+        }
+        .key-concept::before {
+            content: '\1F511 KEY CONCEPT'; position: absolute; top: -12px; left: var(--space-lg);
+            background: var(--accent-purple); color: var(--white); font-family: var(--font-heading), sans-serif;
+            font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-md); border-radius: var(--radius-sm);
+        }
+        .key-concept h4 { color: var(--text-black); margin-top: var(--space-sm); }
+
+        .definition { background: var(--neutral-100); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin: var(--space-md) 0; border-left: 4px solid var(--accent-orange); }
+        .definition-term { font-family: var(--font-heading), sans-serif; font-weight: 700; font-size: 1.125rem;
+            color: var(--text-black); margin-bottom: var(--space-xs); }
+        .definition-text { color: var(--text-black); margin-bottom: 0; }
+
+        code { font-family: var(--font-code), Consolas, monospace; font-size: 0.9rem; background: var(--primary-pale);
+            color: var(--text-black); padding: 2px 6px; border-radius: var(--radius-sm); }
+        pre { background: #2E2E2E; color: #f1ece0; padding: var(--space-lg); border-radius: var(--radius-md);
+            overflow-x: auto; margin: var(--space-lg) 0; position: relative; }
+        pre::before {
+            content: 'STEPS'; position: absolute; top: 0; right: 0; background: var(--primary-main); color: var(--text-black);
+            font-family: var(--font-heading), sans-serif; font-size: 0.625rem; font-weight: 700; letter-spacing: 1px;
+            padding: var(--space-xs) var(--space-sm); border-radius: 0 var(--radius-md) 0 var(--radius-sm);
+        }
+        pre code { background: transparent; color: inherit; padding: 0; font-size: 0.875rem; line-height: 1.6; }
+
+        .table-container { overflow-x: auto; margin: var(--space-lg) 0; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); }
+        table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
+        thead { background: var(--primary-dark); color: var(--white); }
+        th { font-family: var(--font-heading), sans-serif; font-weight: 700; text-align: left; padding: var(--space-md) var(--space-lg); color: var(--white); }
+        td { padding: var(--space-md) var(--space-lg); border-bottom: 1px solid var(--neutral-300); color: var(--text-black); }
+        tbody tr:hover { background: var(--primary-pale); }
+        tbody tr:last-child td { border-bottom: none; }
+
+        .activity-section {
+            background: linear-gradient(135deg, var(--accent-orange-light) 0%, var(--white) 100%);
+            border: 2px dashed var(--accent-orange); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .activity-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg); }
+        .activity-icon { width: 50px; height: 50px; background: var(--accent-orange); border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; }
+        .activity-title { font-family: var(--font-heading), sans-serif; font-size: 1.25rem; font-weight: 700;
+            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
+        .activity-subtitle { font-size: 0.875rem; color: var(--neutral-500); margin: 0; }
+
+        .lab-section {
+            background: linear-gradient(135deg, var(--accent-teal-light) 0%, var(--white) 100%);
+            border: 2px solid var(--accent-teal); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .lab-header { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg);
+            padding-bottom: var(--space-md); border-bottom: 2px solid var(--accent-teal); }
+        .lab-icon { width: 60px; height: 60px; background: var(--accent-teal); border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center; font-size: 1.75rem; flex-shrink: 0; }
+        .lab-title { font-family: var(--font-heading), sans-serif; font-size: 1.375rem; font-weight: 700;
+            color: var(--text-black); margin: 0; border-left: none; padding-left: 0; }
+        .lab-time { font-size: 0.875rem; color: var(--neutral-500); margin: 0; display: flex; align-items: center; gap: var(--space-xs); }
+        .lab-time::before { content: '\23F1\FE0F'; }
+        .lab-steps { counter-reset: lab-step; list-style: none; padding-left: 0; }
+        .lab-steps li { counter-increment: lab-step; position: relative; padding-left: 3rem; margin-bottom: var(--space-lg); }
+        .lab-steps li::before {
+            content: counter(lab-step); position: absolute; left: 0; width: 2rem; height: 2rem;
+            background: var(--accent-teal); color: var(--white); font-family: var(--font-heading), sans-serif; font-weight: 700;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.875rem;
+        }
+
+        .assessment-section { background: var(--primary-pale); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0; }
+        .assessment-header { text-align: center; margin-bottom: var(--space-xl); }
+        .assessment-header h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .question-block { background: var(--white); border-radius: var(--radius-md); padding: var(--space-lg);
+            margin-bottom: var(--space-lg); box-shadow: var(--shadow-sm); }
+        .question-number { font-family: var(--font-heading), sans-serif; font-size: 0.75rem; font-weight: 700;
+            color: var(--text-black); background: var(--primary-main); display: inline-block;
+            padding: 2px 10px; border-radius: var(--radius-sm);
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: var(--space-sm); }
+        .question-text { font-weight: 600; color: var(--text-black); margin-bottom: var(--space-md); }
+        details.answer { margin-top: var(--space-sm); }
+        details.answer summary { cursor: pointer; font-weight: 700; color: var(--text-black);
+            font-family: var(--font-heading), sans-serif; font-size: 0.875rem;
+            border-bottom: 2px solid var(--primary-main); display: inline-block; }
+        details.answer .reveal { margin-top: var(--space-sm); padding: var(--space-md);
+            background: var(--accent-green-light); border-radius: var(--radius-sm); color: var(--text-black); }
+
+        .references-section { background: var(--neutral-100); border-radius: var(--radius-lg);
+            padding: var(--space-lg) var(--space-xl); margin: var(--space-xl) 0; border-top: 3px solid var(--primary-main); }
+        .references-section h3 { color: var(--text-black); margin-top: 0; border-left: none; padding-left: 0; }
+        .references-section ul { padding-left: var(--space-lg); }
+
+        .summary-box {
+            background: var(--primary-dark); color: var(--white);
+            border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0;
+        }
+        .summary-box h3 { color: var(--white); margin-top: 0; display: flex; align-items: center;
+            gap: var(--space-sm); border-left: none; padding-left: 0; }
+        .summary-box h3::before { content: '\1F4CB'; }
+        .summary-box ul { margin-bottom: 0; }
+        .summary-box li { color: var(--white); }
+        .summary-box li::marker { color: var(--primary-light); }
+
+        .section-divider {
+            border: none; height: 6px; margin: var(--space-2xl) 0;
+            background: linear-gradient(90deg, transparent 0%, var(--primary-main) 15%, var(--primary-light) 50%, var(--primary-main) 85%, transparent 100%);
+            border-radius: var(--radius-sm); box-shadow: var(--shadow-sm);
+        }
+
+        .module-footer { background: var(--primary-dark); padding: var(--space-lg) var(--space-xl);
+            text-align: center; border-top: 4px solid var(--primary-main); }
+        .footer-text { font-size: 0.875rem; color: var(--white); margin: 0; }
+
+        .text-center { text-align: center; }
+        .text-muted { color: var(--neutral-500); }
+        .highlight { background: linear-gradient(180deg, transparent 50%, var(--primary-light) 50%); padding: 0 2px; }
+
+        @media (max-width: 768px) {
+            body { padding: var(--space-sm); }
+            .module-header { padding: var(--space-xl) var(--space-lg); }
+            .module-title { font-size: 1.75rem; }
+            .content-area { padding: var(--space-lg); }
+            h2 { font-size: 1.375rem; }
+            .lab-header, .activity-header { flex-direction: column; align-items: flex-start; }
+        }
+        @media print {
+            body { background: white; padding: 0; }
+            .course-container { box-shadow: none; }
+            .toc { display: none; }
+            details.answer { display: none; }
+        }
+    </style>
+    <style>
+        /* Print-only layout for the study guide: fits three Letter pages.
+           On screen the page uses the course stylesheet unchanged. */
+        @page { size: letter; margin: 0.45in; }
+        @media print {
+            html { font-size: 14.5px; }
+            body { line-height: 1.4; padding: 0; background: #fff; }
+            .course-container { max-width: 100%; border-radius: 0; box-shadow: none; }
+            .module-header { padding: 6px 12px; }
+            .module-title { font-size: 1.6rem; margin: 0; }
+            .module-subtitle { margin: 0; }
+            .content-area { padding: 6px 0 0; }
+            h2 { font-size: 1.15rem; margin: 8px 0 4px; padding-bottom: 2px; border-bottom-width: 2px; break-after: avoid; }
+            h4 { margin: 0 0 2px; }
+            p { margin-bottom: 4px; }
+            .table-container { margin: 4px 0; box-shadow: none; overflow: visible; }
+            th, td { padding: 3px 6px; vertical-align: top; }
+            tr { break-inside: avoid; }
+            .callout, .key-concept, .plain-box { padding: 6px 10px; margin: 6px 0; break-inside: avoid; }
+            .key-concept::before { display: none; }
+            .callout-title { margin-bottom: 2px; }
+            .module-footer { padding: 4px 12px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="course-container">
+
+        <header class="module-header">
+            <div class="module-label">Unit 7 &middot; Test Prep &middot; Section 7.A.2</div>
+            <h1 class="module-title">Core 2 Study Guide</h1>
+            <p class="module-subtitle">CompTIA A+ Core 2 - Exam 220-1202 in Three Pages</p>
+        </header>
+
+                <nav class="toc" id="tocNav">
+            <div class="toc-header">Table of Contents</div>
+            <div class="toc-item">7.A.0 &mdash; Test Prep</div>
+            <div class="toc-item">7.A.1 &mdash; Exam Readiness</div>
+            <div class="toc-item current" id="tocCurrent">7.A.2 &mdash; Study Guide</div>
+            <div class="toc-item">7.A.3 &mdash; Final Study Exam</div>
+        </nav>
+        <style>
+            /* Collapsible TOC: only the current section shows until clicked */
+            nav.toc#tocNav { gap: 0; }
+            nav.toc#tocNav .toc-item {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav .toc-item.current {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                cursor: pointer;
+            }
+            nav.toc#tocNav .toc-item.current::after {
+                content: ' \25BE Click to View';
+                font-size: 0.75em;
+            }
+            nav.toc#tocNav.toc-expanded .toc-item {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                border-width: 2px;
+                margin-bottom: var(--space-sm);
+            }
+            nav.toc#tocNav.toc-expanded .toc-item.current::after { content: ' \25B4'; }
+
+            nav.toc#tocNav .toc-header {
+                display: block;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin: 0;
+                border-width: 0;
+                font-family: var(--font-heading), 'Segoe UI', sans-serif;
+                font-weight: 700;
+                font-size: 0.875rem;
+                text-align: left;
+                color: var(--text-black);
+                text-decoration: underline;
+                background: var(--primary-main);
+                border-radius: var(--radius-md);
+                transition: max-height 0.9s ease, opacity 0.9s ease,
+                            padding-top 0.9s ease, padding-bottom 0.9s ease,
+                            border-width 0.9s ease, margin 0.9s ease;
+            }
+            nav.toc#tocNav.toc-expanded .toc-header {
+                max-height: 60px;
+                opacity: 1;
+                padding-top: var(--space-sm);
+                padding-bottom: var(--space-sm);
+                padding-left: var(--space-md);
+                border-width: 2px;
+                border-style: solid;
+                border-color: var(--primary-main);
+                margin-bottom: var(--space-sm);
+            }
+        </style>
+
+        <script>
+            (function () {
+                var toc = document.getElementById('tocNav');
+                var currentItem = document.getElementById('tocCurrent');
+
+                toc.addEventListener('click', function (e) {
+                    if (toc.classList.contains('toc-expanded')) {
+                        toc.classList.remove('toc-expanded');
+                    } else if (e.target === currentItem || currentItem.contains(e.target)) {
+                        toc.classList.add('toc-expanded');
+                    }
+                });
+
+                toc.addEventListener('mouseleave', function () {
+                    toc.classList.remove('toc-expanded');
+                });
+            })();
+        </script>
+
+        <div class="content-area">
+
+            <p class="text-muted">Six units in three pages. Use this in the last days before your exam to see the whole of Core 2 at once, then go back to the unit pages for anything that is not yet automatic.</p>
+
+            <h2>The Exam at a Glance</h2>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Exam</th><th>Questions</th><th>Time</th><th>Passing Score</th><th>Question Types</th></tr></thead>
+                    <tbody><tr><td><strong>220-1202</strong></td><td>Up to 90</td><td>90 minutes</td><td><strong>700</strong> on a 100&ndash;900 scale (about 75%)</td><td>Multiple choice, drag-and-drop, performance-based</td></tr></tbody>
+                </table>
+            </div>
+
+            <h2>Where the Points Are</h2>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Domain</th><th>Weight</th><th style="width:34%;">Share of the Exam</th><th>Taught In</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>1.0</strong> Operating Systems</td><td>28%</td><td><div style="background:var(--primary-main);height:14px;width:100%;border-radius:4px;"></div></td><td>Units 1, 2, 3</td></tr>
+                        <tr><td><strong>2.0</strong> Security</td><td>28%</td><td><div style="background:var(--primary-main);height:14px;width:100%;border-radius:4px;"></div></td><td>Units 4, 5, 6</td></tr>
+                        <tr><td><strong>3.0</strong> Software Troubleshooting</td><td>23%</td><td><div style="background:var(--primary-main);height:14px;width:82%;border-radius:4px;"></div></td><td>Unit 6</td></tr>
+                        <tr><td><strong>4.0</strong> Operational Procedures</td><td>21%</td><td><div style="background:var(--primary-main);height:14px;width:75%;border-radius:4px;"></div></td><td>Units 1, 3, 4, 5, 6</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>1.0 Operating Systems &mdash; 28%</h2>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Topic</th><th>Know This Cold</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>File systems</strong></td><td>NTFS: permissions and encryption. FAT32: <strong>4 GB file limit</strong>. exFAT: large files, PC and Mac. ext4/XFS: Linux. APFS: macOS. ReFS: resilient server storage.</td></tr>
+                        <tr><td><strong>Editions</strong></td><td>Home has no domain join, BitLocker, Group Policy Editor, or Remote Desktop host. Pro and Enterprise do. Windows 11 needs TPM 2.0, UEFI with Secure Boot, 4 GB RAM, 64 GB storage.</td></tr>
+                        <tr><td><strong>Installs</strong></td><td>Clean vs. in-place upgrade vs. image deployment vs. repair. GPT (UEFI, modern) vs. MBR (legacy). Check requirements and back up first.</td></tr>
+                        <tr><td><strong>Tools (.msc)</strong></td><td>eventvwr (logs) &middot; diskmgmt (volumes) &middot; taskschd (schedules) &middot; devmgmt (drivers, roll back) &middot; certmgr (user certificates) &middot; lusrmgr (local accounts) &middot; perfmon (counters over time) &middot; gpedit (policy). Also: Task Manager, msconfig, msinfo32, resmon, regedit.</td></tr>
+                        <tr><td><strong>Command line</strong></td><td>ipconfig &middot; ping &middot; tracert &middot; pathping &middot; nslookup &middot; netstat &middot; net use / net user &middot; gpupdate (apply) vs. gpresult (report) &middot; sfc &middot; chkdsk (/f fix, /r bad sectors) &middot; diskpart &middot; format &middot; robocopy (/mir deletes) &middot; whoami &middot; hostname. Many need an <strong>administrator</strong> prompt.</td></tr>
+                        <tr><td><strong>Settings and networking</strong></td><td>Show file extensions. Sleep vs. hibernate. USB selective suspend. Workgroup vs. domain. <strong>169.254.x.x = no DHCP answer.</strong> Public vs. private profile. Proxy, metered connections, VPN.</td></tr>
+                        <tr><td><strong>macOS and Linux</strong></td><td>macOS: Force Quit, Time Machine, FileVault, Keychain, Spotlight, Gatekeeper, .dmg/.pkg. Linux: ls, cd, cp, mv, rm, chmod, chown, sudo, df, du, grep, ps, top, apt/dnf, /etc/fstab.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>2.0 Security &mdash; 28%</h2>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Topic</th><th>Know This Cold</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Controls</strong></td><td>Physical: bollards, access control vestibule (stops tailgating), badges, cameras, locks. Logical: least privilege, Zero Trust, MFA, SSO, ACLs, MDM, DLP.</td></tr>
+                        <tr><td><strong>Malware by symptom</strong></td><td>Ransomware: renamed files, payment note. Cryptominer: CPU pegged, fan running. Keylogger: stolen logins. Rootkit: hides from scans. Trojan: posed as useful software. Adware/PUP: pop-ups. Fileless: lives in memory.</td></tr>
+                        <tr><td><strong>Social engineering and threats</strong></td><td>Phishing (email), vishing (voice), smishing (text), QR phishing, spear phishing (targeted), whaling (executives), tailgating, shoulder surfing, impersonation, dumpster diving. Business email compromise, evil twin, on-path, zero-day, DoS/DDoS, brute force vs. dictionary, SQL injection, XSS, insider, supply chain.</td></tr>
+                        <tr><td><strong>Windows security</strong></td><td>Over the network, the <strong>more restrictive</strong> of share and NTFS permissions wins. UAC makes elevation a decision. BitLocker (volume), BitLocker To Go (USB), EFS (files). Disable Guest; set account lockout.</td></tr>
+                        <tr><td><strong>Wireless and SOHO</strong></td><td>WPA3, or WPA2 with AES; TKIP is deprecated. RADIUS/TACACS+ for individual sign-in; Kerberos for domains. Router: change default password first, update firmware, disable UPnP, guest network, restrict management.</td></tr>
+                        <tr><td><strong>Mobile and browser</strong></td><td>Encryption plus screen lock; locator, remote wipe, remote backup, MDM/BYOD. Trusted sources and hashes, extension permissions, certificate warnings, private browsing is not anonymity.</td></tr>
+                        <tr><td><strong>Disposal</strong></td><td>Formatting is <strong>not</strong> destruction. Wipe to reuse; drill, shred, or incinerate to destroy. Degaussing does not work on SSDs. Get a certificate of destruction.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="key-concept">
+                <h4>Malware Removal, in Order</h4>
+                <p><strong>1</strong> Investigate and verify &rarr; <strong>2</strong> Quarantine &rarr; <strong>3</strong> Disable System Restore &rarr; <strong>4</strong> Remediate &rarr; <strong>5</strong> Update anti-malware &rarr; <strong>6</strong> Scan in safe mode or a preinstallation environment &rarr; <strong>7</strong> Reimage if needed &rarr; <strong>8</strong> Schedule scans and updates &rarr; <strong>9</strong> Enable System Restore and create a restore point &rarr; <strong>10</strong> Educate the user.</p>
+            </div>
+
+            <h2>3.0 Software Troubleshooting &mdash; 23%</h2>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Symptom</th><th>Check First</th><th>Symptom</th><th>Check First</th></tr></thead>
+                    <tbody>
+                        <tr><td>Blue screen</td><td>Recent driver; roll it back</td><td>No OS found</td><td>Boot order, drive, boot files</td></tr>
+                        <tr><td>Slow performance</td><td>Task Manager, disk space, startup</td><td>Slow profile load</td><td>Profile size, domain controller, scripts</td></tr>
+                        <tr><td>Time drift</td><td>Time service, CMOS battery &mdash; breaks sign-in</td><td>App crashes</td><td>Event Viewer, repair or reinstall</td></tr>
+                        <tr><td>Swollen battery</td><td>Remove from service, dispose safely</td><td>Data-limit alert, hot phone</td><td>App permissions, per-app data use</td></tr>
+                        <tr><td>Pop-ups, redirects</td><td>Extensions, hosts file, DNS</td><td>Certificate warnings</td><td>Expiry, system clock, interception</td></tr>
+                        <tr><td>Updates fail, no network, antivirus off</td><td>Malware defending itself</td><td>Renamed files, ransom note</td><td>Ransomware: isolate now</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p><strong>Method:</strong> identify the problem &rarr; theory of probable cause &rarr; test the theory &rarr; plan and implement &rarr; verify and prevent &rarr; document. When several fixes work, choose the <strong>least disruptive</strong> one: restart a service before rebooting, repair before reimaging.</p>
+
+            <h2>4.0 Operational Procedures &mdash; 21%</h2>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Topic</th><th>Know This Cold</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Documentation</strong></td><td>Tickets: user, device, description, category, severity, escalation, progress notes, resolution. Knowledge base, SOPs, onboarding/offboarding checklists, SLAs, asset tags and inventory.</td></tr>
+                        <tr><td><strong>Change management</strong></td><td>Standard (pre-approved), normal (board approval), emergency (documented afterward). Rollback plan, sandbox test, change freeze vs. maintenance window, peer review, end-user acceptance.</td></tr>
+                        <tr><td><strong>Backup and recovery</strong></td><td>Full; incremental (since last backup &mdash; slow restore); differential (since last full &mdash; two-piece restore); synthetic full. GFS rotation. <strong>3-2-1:</strong> three copies, two media, one offsite. Test restores.</td></tr>
+                        <tr><td><strong>Safety and environment</strong></td><td>ESD strap, mat, antistatic bags; disconnect power; lift with legs; goggles and masks. MSDS for disposal. Surge suppressor for spikes; UPS for power loss.</td></tr>
+                        <tr><td><strong>Policy and privacy</strong></td><td>Incident response: stop, preserve, escalate; chain of custody; order of volatility. Licenses: EULA, perpetual, personal vs. corporate, open source. Regulated data: PII, healthcare, payment cards. AUP, splash screens.</td></tr>
+                        <tr><td><strong>Scripting</strong></td><td>.bat, .ps1, .vbs, .sh, .js, .py. Automates restarts, drive mapping, installs, backups. Risks: malware, unintended setting changes, resource crashes. Read before you run.</td></tr>
+                        <tr><td><strong>Remote access and AI</strong></td><td>RDP, VPN, VNC, SSH, RMM. Never expose RDP to the internet: VPN plus MFA. AI drafts, people decide; verify before acting; keep sensitive data out; never use AI during an exam.</td></tr>
+                        <tr><td><strong>Professionalism</strong></td><td>Set expectations, avoid jargon, listen without interrupting, respect privacy, follow up.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>Pairs the Exam Loves to Confuse</h2>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Pair</th><th>The Difference</th><th>Pair</th><th>The Difference</th></tr></thead>
+                    <tbody>
+                        <tr><td>FAT32 / exFAT</td><td>4 GB file limit / none</td><td>Sleep / Hibernate</td><td>Draws power / saves to disk, no power</td></tr>
+                        <tr><td>Share / NTFS</td><td>Network only / always; stricter wins</td><td>gpupdate / gpresult</td><td>Applies policy / reports it</td></tr>
+                        <tr><td>Incremental / Differential</td><td>Since last backup / since last full</td><td>Surge suppressor / UPS</td><td>Spikes / power loss</td></tr>
+                        <tr><td>Brute force / Dictionary</td><td>Every combination / likely passwords</td><td>DoS / DDoS</td><td>One source / many sources</td></tr>
+                        <tr><td>Spear phishing / Whaling</td><td>Targeted person / targeted executive</td><td>certmgr / certlm</td><td>Current user / local computer</td></tr>
+                        <tr><td>Degauss / Shred</td><td>Magnetic drives only / any drive</td><td>Standard / Emergency change</td><td>Pre-approved / documented afterward</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="callout callout-warning">
+                <div class="callout-title">Before You Sit It</div>
+                <div class="callout-content"><p>Two timed practice exams at <strong>780 or better</strong>. Never use brain dumps. On exam day, flag performance-based questions and return to them, check the time at 30 and 60 minutes, and answer every question &mdash; there is no penalty for guessing. Full details are in Section 7.A.1.</p></div>
+            </div>
+
+        </div>
+
+        <footer class="module-footer">
+            <p class="footer-text">CompTIA A+ Core 2 Training &nbsp;|&nbsp; &copy; 2026 Charlotte Academy of Technology Services &nbsp;|&nbsp; All Rights Reserved - Mark E Turner</p>
+        </footer>
+    </div>
+</body>
+</html>
